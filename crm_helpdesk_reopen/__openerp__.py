@@ -24,7 +24,6 @@
     'name': 'Helpdesk Reopen',
     'version': '1.0',
     'category': 'Base',
-    'sequence': 2,
     'summary': 'Auto Helpdesk Reopen',
     'description': """
 	Automatically reopens helpdesk queries if someone replies back to that query
