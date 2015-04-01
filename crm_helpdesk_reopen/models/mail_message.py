@@ -31,6 +31,6 @@ class mail_message(models.Model):
             helpdesk_obj = self.env['crm.helpdesk']
             helpdesk = helpdesk_obj.search([('id', '=', vals.get('res_id'))])
             if helpdesk:
-                if helpdesk.state in ('done', 'cancel'):
+                if helpdesk.state in ('done', 'cancel', 'pending'):
                     helpdesk.state = 'open'
         return super(mail_message, self).create(vals)
