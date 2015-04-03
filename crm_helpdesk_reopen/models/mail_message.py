@@ -3,7 +3,7 @@
 #    
 #    Odoo, Open Source Management Solution
 #
-#    Author: Andrius Laukavičius. Copyright: JSC NOD Baltic
+#    Author: Andrius Laukavičius. Copyright: JSC Boolit
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -31,6 +31,6 @@ class mail_message(models.Model):
             helpdesk_obj = self.env['crm.helpdesk']
             helpdesk = helpdesk_obj.search([('id', '=', vals.get('res_id'))])
             if helpdesk:
-                if helpdesk.state in ('done', 'cancel', 'pending'):
+                if helpdesk.state in ('done', 'cancel'):
                     helpdesk.state = 'open'
         return super(mail_message, self).create(vals)

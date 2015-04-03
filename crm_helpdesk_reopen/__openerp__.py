@@ -22,7 +22,7 @@
 
 {
     'name': 'Helpdesk Reopen',
-    'version': '1.1',
+    'version': '1.11',
     'category': 'Base',
     'summary': 'Auto Helpdesk Reopen',
     'description': """
