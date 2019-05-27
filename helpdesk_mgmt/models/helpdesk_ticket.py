@@ -20,7 +20,7 @@ class HelpdeskTicket(models.Model):
     assigned_date = fields.Datetime()
     closed_date = fields.Datetime()
 
-    tag_ids = fields.Many2many('helpesk.ticket.tag')
+    tag_ids = fields.Many2many('helpdesk.ticket.tag')
     company_id = fields.Many2one(
         'res.company',
         string="Company",
