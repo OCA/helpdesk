@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_helpdesk_team_form" model="ir.ui.view">
+    <field name="name">view.helpdesk_team.form</field>
+    <field name="model">helpdesk.ticket.team</field>
+    <field name="arch" type="xml">
+      <form string="Team">
+        <sheet>
+          <group name="main">
+            <field name="name"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_helpdesk_team_tree" model="ir.ui.view">
+    <field name="name">view.helpdesk_team.tree</field>
+    <field name="model">helpdesk.team</field>
+    <field name="arch" type="xml">
+      <tree string="Team">
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+  <record id="view_helpdesk_team_kanban" model="ir.ui.view">
+    <field name="name">helpdesk.team.kanban</field>
+    <field name="model">helpdesk.team</field>
+    <field name="priority" eval="100"/>
+    <field name="arch" type="xml">
+      <kanban >
+        <field name="name"/>
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+              <h1>
+                <field name="name"/>
+              </h1>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+</odoo>

@@ -9,6 +9,8 @@
     'author': 'Odoo Community Association (OCA), ACSONE SA/NV',
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [],
-    'data': [],
+    'data': [
+        'views/heldesk_team_views.xml'
+    ],
     'demo': [],
 }
