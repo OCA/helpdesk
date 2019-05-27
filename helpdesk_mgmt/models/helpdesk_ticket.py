@@ -38,3 +38,4 @@ class HelpdeskTicket(models.Model):
     ], string='Priority', default='medium')
     attachment_ids = fields.One2many('ir.attachment', 'res_id', domain=[('res_model', '=', 'website.support.ticket')],
                                      string="Media Attachments")
+
