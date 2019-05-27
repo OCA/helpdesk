@@ -16,7 +16,7 @@
 
   <record id="view_helpdesk_team_tree" model="ir.ui.view">
     <field name="name">view.helpdesk_team.tree</field>
-    <field name="model">helpdesk.team</field>
+    <field name="model">helpdesk.ticket.team</field>
     <field name="arch" type="xml">
       <tree string="Team">
         <field name="name"/>
@@ -25,7 +25,7 @@
   </record>
   <record id="view_helpdesk_team_kanban" model="ir.ui.view">
     <field name="name">helpdesk.team.kanban</field>
-    <field name="model">helpdesk.team</field>
+    <field name="model">helpdesk.ticket.team</field>
     <field name="priority" eval="100"/>
     <field name="arch" type="xml">
       <kanban >
