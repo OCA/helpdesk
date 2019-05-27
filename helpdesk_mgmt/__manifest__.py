@@ -6,12 +6,20 @@
         Helpdesk""",
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'Odoo Community Association (OCA), ACSONE SA/NV, Domatix',
+    'category': 'After-Sales',
+    'author': 'AdaptiveCity, '
+              'C2i Change 2 Improve, '
+              'Domatix, '
+              'Factor Libre, '
+              'SDi Soluciones, '
+              'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/helpdesk',
-    'depends': [],
+    'depends': [
+        'mail',
+    ],
     'data': [
         'data/helpdesk_data.xml',
-        'views/heldesk_team_views.xml'
+        'views/helpdesk_team_views.xml'
     ],
     'demo': [],
 }
