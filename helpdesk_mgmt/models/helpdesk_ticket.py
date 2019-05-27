@@ -5,7 +5,10 @@ class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
     _order = 'number desc'
-    _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    def _get_default_stage_id(self):
+        return self.env['helpdesk.ticket.stage'].search([], limit=1).id
 
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id

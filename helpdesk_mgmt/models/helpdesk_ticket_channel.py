@@ -1,4 +1,4 @@
-from odoo import models, fields, _
+from odoo import models, fields
 
 
 class HelpdeskTicketChannel(models.Model):
