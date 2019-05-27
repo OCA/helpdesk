@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import fields, models
+
 
 class HelpdeskCategory(models.Model):
 
@@ -7,5 +8,3 @@ class HelpdeskCategory(models.Model):
 
     active = fields.Boolean(string='Active')
     name = fields.Char(string='Name', required=True)
-
-
