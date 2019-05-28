@@ -22,8 +22,9 @@
         'data/helpdesk_data.xml',
         'views/helpdesk_team_views.xml',
         'views/helpdesk_ticket_menu.xml',
+        'data/helpdesk_ticket_sequence.xml',
         'security/helpdesk_security.xml',
-        'security/ir.model.access.csv',
+        'security/ir.model.access.csv'
     ],
     'demo': [],
     'application': True,
