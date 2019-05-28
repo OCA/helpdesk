@@ -9,6 +9,7 @@ class HelpdeskTicketStage(models.Model):
     name = fields.Char(string='Stage Name', required=True, translate=True)
     description = fields.Text(translate=True)
     sequence = fields.Integer(default=1)
+    active = fields.Boolean(default=True)
     unattended = fields.Boolean(
         string='Unattended')
     closed = fields.Boolean(

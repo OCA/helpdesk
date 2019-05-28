@@ -2,6 +2,7 @@
 <odoo>
     <data noupdate="0">
 
+        <!-- Actions -->
         <record id="helpdesk_ticket_dashboard_action" model="ir.actions.act_window">
             <field name="name">Dashboard</field>
             <field name="type">ir.actions.act_window</field>
@@ -25,34 +26,6 @@
             <field name="view_mode">pivot,graph</field>
             <field name="view_type">form</field>
         </record>
-
-        <!-- #TODO -->
-        <!-- <record id="helpdesk_ticket_config_settings_action" model="ir.actions.act_window">
-            <field name="name">Configure Helpdesk</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.config.settings</field>
-            <field name="view_mode">form</field>
-            <field name="target">inline</field>
-            <field name="context">{'module' : 'helpdesk'}</field>
-        </record> -->
-
-        <menuitem id="helpdesk_ticket_main_menu" name="Helpdesk" sequence="16"
-            web_icon="helpdesk,static/description/icon.png"/>
-
-        <menuitem id="helpdesk_ticket_dashboard_menu" name="Dashboard"
-            parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_dashboard_action" sequence="1"/>
-
-        <menuitem id="helpdesk_ticket_menu" name="Tickets"
-            parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_action" sequence="10"/>
-
-        <menuitem id="helpdesk_ticket_reporting_menu" name="Reporting"
-            parent="helpdesk_ticket_main_menu" sequence="25"/>
-
-        <menuitem id="helpdesk_ticket_reporting_analysis" name="Tickets" parent="helpdesk_ticket_reporting_menu"
-            action="helpdesk_ticket_reporting_action" sequence="5"/>
-
-        <menuitem id="helpdesk_ticket_config_main_menu" name="Configuration"
-            parent="helpdesk_ticket_main_menu" sequence="35"/>
 
         <record id="helpdesk_ticket_channel_action" model="ir.actions.act_window">
             <field name="name">Channels</field>
@@ -93,6 +66,37 @@
             <field name="view_mode">tree,form</field>
             <field name="view_type">form</field>
         </record>
+
+        <!-- #TODO -->
+        <!-- <record id="helpdesk_ticket_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Configure Helpdesk</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'helpdesk'}</field>
+        </record> -->
+
+        <!-- Menus -->
+        <menuitem id="helpdesk_ticket_main_menu" name="Helpdesk" sequence="16"
+            web_icon="helpdesk,static/description/icon.png"/>
+
+        <menuitem id="helpdesk_ticket_dashboard_menu" name="Dashboard"
+            parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_dashboard_action" sequence="1"/>
+
+        <menuitem id="helpdesk_ticket_menu" name="Tickets"
+            parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_action" sequence="10"/>
+
+        <menuitem id="helpdesk_ticket_reporting_menu" name="Reporting"
+            parent="helpdesk_ticket_main_menu" sequence="25"
+            groups="helpdesk.group_helpdesk_manager"/>
+
+        <menuitem id="helpdesk_ticket_reporting_analysis" name="Tickets" parent="helpdesk_ticket_reporting_menu"
+            action="helpdesk_ticket_reporting_action" sequence="5"/>
+
+        <menuitem id="helpdesk_ticket_config_main_menu" name="Configuration"
+            parent="helpdesk_ticket_main_menu" sequence="35"
+            groups="helpdesk.group_helpdesk_manager"/>
 
         <!-- #TODO -->
         <!-- <menuitem id="helpdesk_ticket_config_settings_menu" name="Settings"
