@@ -76,7 +76,7 @@
                             </page>
                             <page string="Other Information" name="other_info">
                                 <group>
-                                    <field name="last_state_update" readonly="1"/>
+                                    <field name="last_stage_update" readonly="1"/>
                                     <field name="assigned_date" readonly="1"/>
                                     <field name="closed_date" readonly="1"/>
                                 </group>

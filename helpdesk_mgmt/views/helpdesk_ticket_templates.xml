@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_layout" name="Portal layout: ticket menu entry" inherit_id="portal.portal_layout" priority="50">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name == 'ticket' or ticket">
+                <a t-if="ticket" t-attf-href="/my/tickets?{{ keep_query() }}">Tickets</a>
+                <t t-else="">Tickets</t>
+            </li>
+            <li t-if="ticket">
+                <t t-esc="ticket.name"/>
+            </li>
+        </xpath>
+    </template>
+      <template id="portal_my_home" name="Portal My Home : ticket entries" inherit_id="portal.portal_my_home" priority="40">
+          <xpath expr="//ul[hasclass('o_portal_docs')]" position="inside">
+              <li t-if="ticket_count" class="list-group-item">
+                  <span class="badge" t-esc="ticket_count"/>
+                  <a href="/my/tickets">Tickets</a>
+              </li>
+          </xpath>
+      </template>
+
+      <template id="portal_my_tickets" name="My tickets">
+      <t t-call="portal.portal_layout">
+        <h3>Tickets
+            <t t-call="portal.portal_searchbar"/>
+        </h3>
+        <t t-if="not tickets">
+            <p>There are no tickets in your account.</p>
+        </t>
+        <div t-if="tickets" class="panel panel-default">
+            <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+                <thead>
+                  <tr class="active">
+                    <th>By</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Stage</th>
+                    <th>Create Date</th>
+                    <th>Last Stage Update</th>
+                    <th>Close Date</th>
+                  </tr>
+                </thead>
+                <t t-foreach="tickets" t-as="ticket">
+                  <tr>
+                    <td>
+                      <t t-esc="ticket.partner_id.name"/>
+                    </td>
+                    <td>
+                      <a t-attf-href="/my/ticket/#{ticket.id}">
+                        <t t-esc="ticket.name"/>
+                      </a>
+                    </td>
+                    <td>
+                      <t t-esc="ticket.category_id.name"/>
+                    </td>
+                    <td>
+                      <t t-esc="ticket.stage_id.name"/>
+                    </td>
+                    <td>
+                      <span t-field="ticket.create_date"/>
+                    </td>
+                    <td>
+                      <span t-field="ticket.last_stage_update"/>
+                    </td>
+                    <td>
+                      <span t-field="ticket.closed_date" />
+                    </td>
+                  </tr>
+                </t>
+            </table></div>
+            <div t-if="pager" class="o_portal_pager text-center">
+                <t t-call="portal.pager"/>
+            </div>
+        </div>
+      </t>
+    </template>
+
+    <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">
+      <t t-call="portal.portal_layout">
+          <div class="container">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-md-6">
+                              <h4>
+                                  <t t-call='portal.record_pager'/>
+                                  <span t-field="ticket.name"/>
+                              </h4>
+                          </div>
+                          <t t-foreach="closed_stages" t-as="stage">
+                            <form method="GET" t-if="not ticket.closed_date" t-attf-action="/ticket/close" style="display:inline;">
+                              <input type="hidden" name="ticket_id" t-attf-value="#{ticket.id}"/>
+                              <input type="hidden" name="stage_id" t-attf-value="#{stage.id}"/>
+                              <button class="btn btn-success pull-right" style="margin-right:15px;margin-top:3px;"><span t-field="stage.name"/></button>
+                            </form>
+                          </t>
+                        </div>
+                  </div>
+
+                  <div class="panel-body">
+                    <div class="mb8">
+                      <div>
+                        <div class="pull-left">
+                          <strong>Date:</strong> <span t-field="ticket.create_date" /><br/>
+                          <b>Category:</b> <t t-esc="ticket.category_id.name"/><br/>
+                          <b>Stage:</b> <t t-esc="ticket.stage_id.name"/><br/>
+                        </div>
+                        <div class="pull-right">
+                          <strong>Last Stage Update:</strong> <span t-field="ticket.last_stage_update" /><br/>
+                        </div>
+                      </div>
+                      <br/>
+                      <br/>
+                      <h4 class="page-header">Description</h4>
+                      <t t-raw="ticket.description"/><br/>
+                      </div>
+                      <h4 class="page-header">History</h4>
+                      <!-- Options:Ticket Chatter: user can reply -->
+                      <t t-call="portal.message_thread">
+                        <t t-set="object" t-value="ticket"/>
+                      </t>
+
+                  </div>
+                </div>
+              </div>
+          <div class="oe_structure mb32"/>
+      </t>
+  </template>
+
+</odoo>
