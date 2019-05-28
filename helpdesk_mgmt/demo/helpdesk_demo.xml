@@ -89,7 +89,7 @@
         <field eval="&quot;Alison Hardwell&quot;" name="partner_name"/>
         <field eval="&quot;0&quot;" name="priority"/>
         <field name="user_id" ref="base.user_demo"/>
-        <field name="stage_id" ref="helpdesk_ticket_channel_email"/>
+        <field name="stage_id" ref="helpdesk_ticket_stage_new"/>
         <field name="channel_id" ref="helpdesk_ticket_channel_web"/>
         <field name="partner_id" ref="base.res_partner_2"/>
         <field name="team_id" ref="helpdesk_team_1"/>
