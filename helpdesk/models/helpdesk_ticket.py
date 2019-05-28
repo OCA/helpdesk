@@ -37,8 +37,12 @@ class HelpdeskTicket(models.Model):
         default=lambda self: self.env['res.company']._company_default_get(
             'helpdesk.ticket')
     )
-    channel_id = fields.Many2one('helpdesk.ticket.channel',
-                                 string='Channel')
+    channel_id = fields.Many2one(
+        'helpdesk.ticket.channel',
+        string='Channel',
+        help='Channel indicates where the source of a ticket'
+             'comes from (it could be a phone call, an email...)',
+    )
     category_id = fields.Many2one('helpdesk.ticket.category',
                                   string='Category')
     team_id = fields.Many2one('helpdesk.ticket.team')
