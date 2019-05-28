@@ -1,9 +1,10 @@
-from odoo import models, fields, _
+from odoo import models, fields, api, _
 
 
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
+    _rec_name = 'helpdesk_sequence'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
@@ -46,8 +47,17 @@ class HelpdeskTicket(models.Model):
         ('1', _('Medium')),
         ('2', _('High')),
         ('3', _('Very High')),
-    ], string='Priority', default='medium')
+    ], string='Priority', default='1')
     attachment_ids = fields.One2many(
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
+    helpdesk_sequence = fields.Char("Reservation reference", default="/")
+    active = fields.Boolean(default='True')
+
+    @api.model
+    def create(self, vals):
+        if vals.get('helpdesk_sequence', '/') == '/':
+            vals['helpdesk_sequence'] = self.env[
+                'ir.sequence'].next_by_code('helpdesk.ticket.sequence') or '/'
+        return super(HelpdeskTicket, self).create(vals)
