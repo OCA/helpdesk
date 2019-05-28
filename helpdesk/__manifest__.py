@@ -24,7 +24,9 @@
         'views/helpdesk_team_views.xml',
         'views/helpdesk_ticket_menu.xml',
     ],
-    'demo': [],
+    'demo': [
+        'demo/helpdesk_demo.xml',
+    ],
     'application': True,
     'installable': True,
 }
