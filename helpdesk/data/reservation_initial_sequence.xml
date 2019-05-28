@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2019 FactorLibre - Adrián Cruz <adrian.cruz@factorlibre.com>
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<odoo>
+	<data>
+		<record id="seq_reservation_order initial" model="ir.sequence">
+			<field name="name">Initial reservation order</field>
+			<field name="code">reservation.order.initial</field>
+			<field name="prefix">RO</field>
+			<field name="padding">5</field>
+			<field name="reservation_reference" eval="False"/>
+		</record>
+	</data>
+</odoo>
