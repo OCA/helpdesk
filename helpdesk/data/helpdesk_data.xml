@@ -38,6 +38,7 @@
             <field name="name">Done</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="fold">True</field>
         </record>
 
         <record id="helpdesk_ticket_stage_cancel" model="helpdesk.ticket.stage">
@@ -45,6 +46,7 @@
             <field name="name">Cancel</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="fold">True</field>
         </record>
 
         <!-- Channels -->
