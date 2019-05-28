@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ?? 2019 FactorLibre - Adri??n Cruz <adrian.cruz@factorlibre.com>
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+
+<odoo>
+	<data>
+		<record id="helpdesk_ticket_sequence" model="ir.sequence">
+			<field name="name">Helpdesk Ticket Sequence</field>
+			<field name="code">helpdesk.ticket.sequence</field>
+			<field name="prefix">TK</field>
+			<field name="padding">5</field>
+			<field name="helpdesk_sequence" eval="False"/>
+		</record>
+	</data>
+</odoo>
