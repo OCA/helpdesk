@@ -8,3 +8,9 @@ class HelpdeskCategory(models.Model):
 
     active = fields.Boolean(string='Active')
     name = fields.Char(string='Name', required=True)
+    company_id = fields.Many2one(
+        'res.company',
+        string="Company",
+        default=lambda self: self.env['res.company']._company_default_get(
+            'helpdesk.ticket')
+    )

@@ -25,3 +25,9 @@ class HelpdeskTicketStage(models.Model):
         help="This stage is folded in the kanban view "
              "when there are no records in that stage "
              "to display.")
+    company_id = fields.Many2one(
+        'res.company',
+        string="Company",
+        default=lambda self: self.env['res.company']._company_default_get(
+            'helpdesk.ticket')
+    )
