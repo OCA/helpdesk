@@ -20,13 +20,16 @@
     ],
     'data': [
         'data/helpdesk_data.xml',
+        'security/helpdesk_security.xml',
+        'security/ir.model.access.csv',
+        'data/helpdesk_ticket_sequence.xml',
         'views/helpdesk_team_views.xml',
         'views/helpdesk_ticket_menu.xml',
-        'data/helpdesk_ticket_sequence.xml',
-        'security/helpdesk_security.xml',
-        'security/ir.model.access.csv'
+        'views/helpdesk_ticket_view.xml',
     ],
-    'demo': [],
+    'demo': [
+        'demo/helpdesk_demo.xml',
+    ],
     'application': True,
     'installable': True,
 }

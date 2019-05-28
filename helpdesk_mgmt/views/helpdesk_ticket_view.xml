@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <form string="Helpdesk Ticket">
+                <header>
+                    <!-- <button string="Assing to me"
+                    name="assign_to_me"
+                    type="object"/> -->
+                    <field name="stage_id" widget="statusbar" clickable="True"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class="oe_title">
+                            <field name="number"/>
+                        </h1>
+                        <h2 class="o_row">
+                            <field name="name"/>
+                        </h2>
+
+                    </div>
+                    <group>
+                        <group>
+                            <field name="team_id"/>
+                            <field name="user_id"/>
+                            <field name="priority" widget="priority"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="partner_name"/>
+                            <field name="partner_email"/>
+                            <field name="category_id"/>
+                            <field name="tag_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html"/>
+                            </page>
+                            <page string="Attachments" name="attachment">
+                                <field name="attachment_ids" readonly="True">
+                                    <kanban class="o_kanban_mobile" archivable="false"  default_group_by="attachment_ids" >
+                                        <field name="id"/>
+                                        <field name="mimetype"/>
+                                        <field name="type"/>
+                                        <field name="datas_fname"/>
+                                        <field name="name"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="oe_kanban_global_click">
+                                                    <div class="oe_kanban_vignette">
+                                                        <div class="oe_attachment">
+                                                            <div class="oe_name">
+                                                                <field name="name"/>
+                                                            </div>
+                                                            <div t-if="record.type.raw_value == 'binary'">
+                                                                <a t-attf-href="/web/content/#{record.id.raw_value}?download=1">
+                                                                    <t t-set="webimage" t-value="new RegExp('image.*(gif|jpeg|jpg|png)').test(record.mimetype.value)"/>
+                                                                    <div t-if="!webimage" class="o_image" t-att-data-mimetype="record.mimetype.value"/>
+                                                                    <div t-if="webimage" class="o_attachment_image">
+                                                                        <img t-attf-src="/web/image/#{record.id.raw_value}?download=1"/>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+                            <page string="Other Information" name="other_info">
+                                <group>
+                                    <field name="last_state_update" readonly="1"/>
+                                    <field name="assigned_date" readonly="1"/>
+                                    <field name="closed_date" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="number"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+                <field name="priority" widget="priority"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="priority" eval="100"/>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" archivable="false"  default_group_by="stage_id" >
+                <field name="number"/>
+                <field name="name"/>
+                <field name="partner_name"/>
+                <field name="user_id"/>
+                <field name="stage_id"/>
+                <field name="priority" widget="priority"/>
+                <field name="assigned_date"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_content oe_kanban_global_click">
+                            <div>
+                                <h2><field name="number"/> - <field name="name"/></h2>
+                            </div>
+                            <div>
+                                <span class="o_kanban_record_subtitle"><field name="partner_id"/></span>
+                            </div>
+                            <div>
+                                <field name="assigned_date"/>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <field name="priority" widget="priority"/>
+                                    <div class="o_kanban_inline_block">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_views_pivot" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.pivot</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivot Analysis" disable_linking="True">
+                <field name="team_id" type="row"/>
+                <field name="assigned_date" type="col"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_action" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="view_type">form</field>
+    </record>
+</odoo>

@@ -10,6 +10,8 @@
     </data>
 
     <data noupdate="1">
+
+        <!-- Stages -->
         <record id="helpdesk_ticket_stage_new" model="helpdesk.ticket.stage">
             <field name="sequence">1</field>
             <field name="name">New</field>
@@ -36,6 +38,7 @@
             <field name="name">Done</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="fold">True</field>
         </record>
 
         <record id="helpdesk_ticket_stage_cancel" model="helpdesk.ticket.stage">
@@ -43,6 +46,25 @@
             <field name="name">Cancel</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="fold">True</field>
         </record>
+
+        <!-- Channels -->
+        <record id="helpdesk_ticket_channel_web" model="helpdesk.ticket.channel">
+            <field name="name">Web</field>
+        </record>
+
+        <record id="helpdesk_ticket_channel_email" model="helpdesk.ticket.channel">
+            <field name="name">Email</field>
+        </record>
+
+        <record id="helpdesk_ticket_channel_phone" model="helpdesk.ticket.channel">
+            <field name="name">Phone</field>
+        </record>
+
+        <record id="helpdesk_ticket_channel_other" model="helpdesk.ticket.channel">
+            <field name="name">Other</field>
+        </record>
+
     </data>
 </odoo>
