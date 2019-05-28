@@ -4,12 +4,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 
 <odoo>
 	<data>
-		<record id="seq_reservation_order initial" model="ir.sequence">
-			<field name="name">Initial reservation order</field>
-			<field name="code">reservation.order.initial</field>
-			<field name="prefix">RO</field>
+		<record id="helpdesk_ticket_sequence" model="ir.sequence">
+			<field name="name">Helpdesk Ticket Sequence</field>
+			<field name="code">helpdesk.ticket.sequence</field>
+			<field name="prefix">TK</field>
 			<field name="padding">5</field>
-			<field name="reservation_reference" eval="False"/>
+			<field name="helpdesk_sequence" eval="False"/>
 		</record>
 	</data>
 </odoo>
