@@ -16,10 +16,13 @@
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [
         'mail',
+        'portal',
     ],
     'data': [
         'data/helpdesk_data.xml',
-        'views/helpdesk_team_views.xml'
+        'views/helpdesk_team_views.xml',
+        'security/helpdesk_security.xml',
+        'security/ir.model.access.csv',
     ],
     'demo': [],
 }

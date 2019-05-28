@@ -10,9 +10,6 @@ class HelpdeskTicket(models.Model):
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id
 
-    def _get_default_stage_id(self):
-        return self.env['helpdesk.ticket.stage'].search([], limit=1).id
-
     number = fields.Char(string='Ticket number', readonly=True)
     name = fields.Char(string='Title', required=True)
     description = fields.Text(required=True)
