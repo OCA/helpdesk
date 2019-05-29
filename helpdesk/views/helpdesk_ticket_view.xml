@@ -50,7 +50,8 @@
                             name="assign_to_me"
                             type="object"
                             attrs="{'invisible' : [('user_id', '!=', False)]}"/>
-                    <field name="stage_id" widget="statusbar" clickable="True"/>
+                    <field name="stage_id" widget="statusbar" clickable="True"
+                            options="{'fold_field': 'fold'}"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
