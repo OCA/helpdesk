@@ -28,6 +28,7 @@
         'views/helpdesk_ticket_stage_view.xml',
         'views/helpdesk_ticket_category_view.xml',
         'views/helpdesk_ticket_channel_view.xml',
+        'views/helpdesk_ticket_tag_view.xml',
         'views/helpdesk_ticket_view.xml',
     ],
     'demo': [

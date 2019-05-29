@@ -34,7 +34,7 @@
                             <field name="partner_name"/>
                             <field name="partner_email"/>
                             <field name="category_id"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
                         </group>
                     </group>
                     <group>
