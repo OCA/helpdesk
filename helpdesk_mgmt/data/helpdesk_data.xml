@@ -11,6 +11,14 @@
 
     <data noupdate="1">
 
+        <!-- Sequence -->
+		<record id="helpdesk_ticket_sequence" model="ir.sequence">
+			<field name="name">Helpdesk Ticket Sequence</field>
+			<field name="code">helpdesk.ticket.sequence</field>
+			<field name="prefix">HT</field>
+			<field name="padding">5</field>
+		</record>
+
         <!-- Stages -->
         <record id="helpdesk_ticket_stage_new" model="helpdesk.ticket.stage">
             <field name="sequence">1</field>
