@@ -1,5 +1,45 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
+  <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="number"/>
+                <field name="partner_id"/>
+                <field name="user_id"/>
+                <field name="name"/>
+                <field name="tag_ids"/>
+                <field name="stage_id"/>
+                <filter string="Unassigned" name="unassigned" domain="[('user_id','=',False)]"/>
+                <filter string="Open" name="open" domain="[('closed', '=', False )]" />
+                <filter string="Unattended" name="unattended" domain="[('unattended', '=', True )]" />
+                <filter string="High Priority" name="high_priority" domain="[('priority','=','3')]"/>
+                <separator/>
+                <filter string="My Tickets" name="mytickets" domain="[('user_id','=',uid)]"/>
+                <filter string="My Followed Tickets" domain="[('message_is_follower', '=', True)]" />
+                <separator/>
+                <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
+                <separator/>
+                <filter string="My Activities" name="activities_my"
+                  domain="[('activity_ids.user_id', '=', uid)]"/>
+                <filter string="Late Activities" name="activities_overdue"
+                  domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                  help="Show all records which has next action date is before today"/>
+                <filter string="Today Activities" name="activities_today"
+                  domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter string="Future Activities" name="activities_upcoming_all"
+                  domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
+                  ]"/>
+                <group expand="0" string="Group By">
+                  <filter string="Partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                  <filter string="Team" domain="[]" context="{'group_by':'team_id'}"/>
+                  <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
+                  <filter string="Stage" domain="[]" context="{'group_by':'stage_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="ticket_view_form" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.form</field>
         <field name="model">helpdesk.ticket</field>
