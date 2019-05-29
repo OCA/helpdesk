@@ -4,14 +4,15 @@ from odoo import _, api, fields, models
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
-    _rec_name = 'helpdesk_sequence'
+    _rec_name = 'number'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id
 
-    number = fields.Char(string='Ticket number', readonly=True)
+    number = fields.Char(string='Ticket number', default="/",
+                         readonly=True)
     name = fields.Char(string='Title', required=True)
     description = fields.Text(required=True)
     user_id = fields.Many2one(
@@ -29,7 +30,7 @@ class HelpdeskTicket(models.Model):
         string='Last Stage Update',
         default=fields.Datetime.now(),
     )
-    assigned_date = fields.Datetime(string='Assinged Date')
+    assigned_date = fields.Datetime(string='Assigned Date')
     closed_date = fields.Datetime(string='Closed Date')
 
     tag_ids = fields.Many2many('helpdesk.ticket.tag')
@@ -58,15 +59,14 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'website.support.ticket')],
         string="Media Attachments")
-    helpdesk_sequence = fields.Char("Reservation reference", default="/")
-    active = fields.Boolean(default='True')
 
     @api.model
     def create(self, vals):
-        if vals.get('helpdesk_sequence', '/') == '/':
-            vals['helpdesk_sequence'] = self.env[
-                'ir.sequence'].next_by_code('helpdesk.ticket.sequence') or '/'
-        return super(HelpdeskTicket, self).create(vals)
+        if vals.get('number', '/') == '/':
+            vals['number'] = self.env['ir.sequence'].next_by_code(
+                'helpdesk.ticket.sequence'
+            ) or '/'
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
