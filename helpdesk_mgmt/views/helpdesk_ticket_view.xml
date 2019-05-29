@@ -21,19 +21,20 @@
                         </h2>
 
                     </div>
-                    <group>
+                    <group name="main">
                         <group>
                             <field name="team_id"/>
                             <field name="user_id"/>
                             <field name="priority" widget="priority"/>
                             <field name="company_id" readonly="1"/>
+                            <field name="create_date"/>
                         </group>
                         <group>
                             <field name="partner_id"/>
                             <field name="partner_name"/>
                             <field name="partner_email"/>
                             <field name="category_id"/>
-                            <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
                         </group>
                     </group>
                     <group>
@@ -103,6 +104,8 @@
                 <field name="user_id"/>
                 <field name="stage_id"/>
                 <field name="priority" widget="priority"/>
+                <field name="create_date"/>
+                <field name="last_stage_update"/>
             </tree>
         </field>
     </record>
