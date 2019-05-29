@@ -21,7 +21,9 @@ class HelpdeskTicket(models.Model):
     stage_id = fields.Many2one(
         'helpdesk.ticket.stage',
         string='Stage',
-        default=_get_default_stage_id)
+        default=_get_default_stage_id,
+        track_visibility='onchange',
+    )
     partner_id = fields.Many2one('res.partner')
     partner_name = fields.Char()
     partner_email = fields.Char()
@@ -61,7 +63,7 @@ class HelpdeskTicket(models.Model):
         string="Media Attachments")
 
     def send_user_mail(self):
-        self.env.ref('helpdesk.assignment_email_template').\
+        self.env.ref('helpdesk.assignment_email_template'). \
             send_mail(self.id)
 
     @api.model
@@ -100,3 +102,18 @@ class HelpdeskTicket(models.Model):
 
     def assign_to_me(self):
         self.write({'user_id': self.env.user.id})
+
+    # ---------------------------------------------------
+    # Mail gateway
+    # ---------------------------------------------------
+
+    @api.multi
+    def _track_template(self, tracking):
+        res = super(HelpdeskTicket, self)._track_template(tracking)
+        test_task = self[0]
+        changes, tracking_value = tracking[test_task.id]
+        if "stage_id" in changes and test_task.stage_id.mail_template_id:
+            res['stage_id'] = (test_task.stage_id.mail_template_id,
+                               {"composition_mode": "mass_mail"})
+
+        return res
