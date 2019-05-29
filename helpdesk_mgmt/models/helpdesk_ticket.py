@@ -67,6 +67,19 @@ class HelpdeskTicket(models.Model):
         self.env.ref('helpdesk.assignment_email_template'). \
             send_mail(self.id)
 
+    def assign_to_me(self):
+        self.write({'user_id': self.env.user.id})
+
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            self.partner_name = self.partner_id.name
+            self.partner_email = self.partner_id.email
+
+    # ---------------------------------------------------
+    # CRUD
+    # ---------------------------------------------------
+
     @api.model
     def create(self, vals):
         if vals.get('number', '/') == '/':
@@ -100,9 +113,6 @@ class HelpdeskTicket(models.Model):
             if vals.get('user_id'):
                 ticket.send_user_mail()
         return res
-
-    def assign_to_me(self):
-        self.write({'user_id': self.env.user.id})
 
     # ---------------------------------------------------
     # Mail gateway

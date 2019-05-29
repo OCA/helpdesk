@@ -46,9 +46,10 @@
         <field name="arch" type="xml">
             <form string="Helpdesk Ticket">
                 <header>
-                    <!-- <button string="Assing to me"
-                    name="assign_to_me"
-                    type="object"/> -->
+                    <button string="Assign to me"
+                            name="assign_to_me"
+                            type="object"
+                            attrs="{'invisible' : [('user_id', '!=', False)]}"/>
                     <field name="stage_id" widget="statusbar" clickable="True"/>
                 </header>
                 <sheet>
