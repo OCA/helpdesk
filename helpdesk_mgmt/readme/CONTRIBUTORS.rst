@@ -1,4 +1,4 @@
-* `Domatix <https://www.tecnativa.com>`_:
+* `Domatix <https://www.domatix.com>`_:
 
   * Carlos Mart??nez
 
@@ -14,3 +14,7 @@
 * `C2i Change 2 improve <http://www.c2i.es>`_:
 
   * Eduardo Magdalena <emagdalena@c2i.es>
+
+* `Factor Libre <https://factorlibre.com>`_:
+
+  * Mar??a Alhambra
