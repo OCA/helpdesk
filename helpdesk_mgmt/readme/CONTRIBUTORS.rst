@@ -1,6 +1,7 @@
 * `Domatix <https://www.domatix.com>`_:
 
   * Carlos Mart??nez
+  * Catalin Airimitoaie 
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
