@@ -18,9 +18,16 @@ class HelpdeskTicket(models.Model):
     user_id = fields.Many2one(
         'res.users',
         string='Assigned user',)
+
+    @api.model
+    def _read_group_stage_ids(self, stages, domain, order):
+        stage_ids = self.env['helpdesk.ticket.stage'].search([])
+        return stage_ids
+
     stage_id = fields.Many2one(
         'helpdesk.ticket.stage',
         string='Stage',
+        group_expand='_read_group_stage_ids',
         default=_get_default_stage_id,
         track_visibility='onchange',
     )
