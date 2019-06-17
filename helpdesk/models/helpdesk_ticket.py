@@ -1,9 +1,10 @@
-from odoo import api, fields, models, _
+from odoo import api, fields, models, tools, _
 
 
 class HelpdeskTicket(models.Model):
 
     _name = 'helpdesk.ticket'
+    _description = 'Helpdesk Ticket'
     _rec_name = 'number'
     _order = 'number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -135,3 +136,67 @@ class HelpdeskTicket(models.Model):
                                {"composition_mode": "mass_mail"})
 
         return res
+
+    @api.model
+    def message_new(self, msg, custom_values=None):
+        """ Override message_new from mail gateway so we can set correct
+        default values.
+        """
+        if custom_values is None:
+            custom_values = {}
+        defaults = {
+            'name': msg.get('subject') or _("No Subject"),
+            'description': msg.get('body'),
+            'partner_email': msg.get('from'),
+            'partner_id': msg.get('author_id')
+        }
+        defaults.update(custom_values)
+
+        # Write default values coming from msg
+        ticket = super().message_new(msg, custom_values=defaults)
+
+        # Use mail gateway tools to search for partners to subscribe
+        email_list = tools.email_split(
+            (msg.get('to') or '') + ',' + (msg.get('cc') or '')
+        )
+        partner_ids = [p for p in ticket._find_partner_from_emails(
+            email_list, force_create=False
+        ) if p]
+        ticket.message_subscribe(partner_ids)
+
+        return ticket
+
+    @api.multi
+    def message_update(self, msg, update_vals=None):
+        """ Override message_update to subscribe partners """
+        email_list = tools.email_split(
+            (msg.get('to') or '') + ',' + (msg.get('cc') or '')
+        )
+        partner_ids = [p for p in self._find_partner_from_emails(
+            email_list, force_create=False
+        ) if p]
+        self.message_subscribe(partner_ids)
+        return super().message_update(msg, update_vals=update_vals)
+
+    @api.multi
+    def message_get_suggested_recipients(self):
+        recipients = super().message_get_suggested_recipients()
+
+        for ticket in self:
+            reason = _('Partner Email') \
+                if ticket.partner_id and ticket.partner_id.email \
+                else _('Partner Id')
+
+            if ticket.partner_id and ticket.partner_id.email:
+                ticket._message_add_suggested_recipient(
+                    recipients,
+                    partner=ticket.partner_id,
+                    reason=reason
+                )
+            elif ticket.partner_email:
+                ticket._message_add_suggested_recipient(
+                    recipients,
+                    email=ticket.partner_email,
+                    reason=reason
+                )
+        return recipients
