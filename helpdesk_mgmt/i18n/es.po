@@ -78,7 +78,7 @@ msgid "Active"
 msgstr "Activo"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdhelpdesk_mgmtesk/controllers/myaccount.py:56
+#: code:addons/helpdesk_mgmtesk/controllers/myaccount.py:56
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
 msgid "All"
