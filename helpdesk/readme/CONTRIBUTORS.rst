@@ -1,7 +1,8 @@
 * `Domatix <https://www.domatix.com>`_:
 
   * Carlos Martínez
-  * Catalin Airimitoaie 
+  * Catalin Airimitoaie
+  * Álvaro López
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
