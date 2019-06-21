@@ -75,11 +75,14 @@
                     </div>
                     <group name="main">
                         <group>
-                            <field name="team_id"/>
-                            <field name="user_id"/>
+                            <field name="team_id" options='{"always_reload": True}'/>
+                            <field name="user_ids" invisible="1" readonly="1" />
+                            <field name="user_id" options='{"always_reload": True}'/>
+
                             <field name="priority" widget="priority"/>
-                            <field name="company_id" readonly="1"/>
+                            <field name="company_id" readonly="1" groups="base.group_multi_company"/>
                             <field name="create_date"/>
+                            <field name="channel_id"/>
                         </group>
                         <group>
                             <field name="partner_id"/>

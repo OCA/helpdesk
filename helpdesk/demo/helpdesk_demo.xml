@@ -94,7 +94,7 @@
         <field name="priority">1</field>
         <field eval="[(6,0,[ref('helpdesk_tag_1')])]" name="tag_ids"/>
         <field name="user_id" ref="base.user_root"/>
-        <field name="stage_id" ref="helpdesk_ticket_stage_cancel"/>
+        <field name="stage_id" ref="helpdesk_ticket_stage_cancelled"/>
         <field name="channel_id" ref="helpdesk_ticket_channel_other"/>
         <field name="partner_id" ref="base.res_partner_18"/>
         <field name="team_id" ref="helpdesk_team_1"/>
