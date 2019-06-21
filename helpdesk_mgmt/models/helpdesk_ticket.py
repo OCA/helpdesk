@@ -20,6 +20,11 @@ class HelpdeskTicket(models.Model):
         'res.users',
         string='Assigned user',)
 
+    user_ids = fields.Many2many(
+        comodel_name='res.users',
+        related='team_id.user_ids',
+        string='Users')
+
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         stage_ids = self.env['helpdesk.ticket.stage'].search([])
@@ -83,6 +88,21 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
+
+    @api.multi
+    @api.onchange('team_id', 'user_id')
+    def _onchange_dominion_user_id(self):
+        if self.user_id:
+            if self.user_id and self.user_ids and \
+                    self.user_id not in self.user_ids:
+                self.update({
+                    'user_id': False
+                })
+                return {'domain': {'user_id': []}}
+        if self.team_id:
+            return {'domain': {'user_id': [('id', 'in', self.user_ids.ids)]}}
+        else:
+            return {'domain': {'user_id': []}}
 
     # ---------------------------------------------------
     # CRUD

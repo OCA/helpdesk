@@ -55,9 +55,9 @@
       <field name="closed">True</field>
       <field name="fold">True</field>
     </record>
-    <record id="helpdesk_ticket_stage_cancel" model="helpdesk.ticket.stage">
+    <record id="helpdesk_ticket_stage_cancelled" model="helpdesk.ticket.stage">
       <field name="sequence">4</field>
-      <field name="name">Cancel</field>
+      <field name="name">Cancelled</field>
       <field name="unattended">False</field>
       <field name="closed">True</field>
       <field name="fold">True</field>
