@@ -20,3 +20,6 @@
 * `Factor Libre <https://factorlibre.com>`_:
 
   * María Alhambra
+  * Daniel Cano
+  * Adrián Cruz
+  * Rubén Melchor

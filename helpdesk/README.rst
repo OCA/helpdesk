@@ -17,7 +17,7 @@ Helpdesk
     :target: https://github.com/aitorbouzas/helpdesk/tree/11.0/helpdesk
     :alt: aitorbouzas/helpdesk
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3|
 
 This module adds Helpdesk functionality in Odoo.
 
@@ -76,6 +76,9 @@ Contributors
 * `Factor Libre <https://factorlibre.com>`_:
 
   * María Alhambra
+  * Daniel Cano
+  * Adrián Cruz
+  * Rubén Melchor
 
 Maintainers
 ~~~~~~~~~~~
