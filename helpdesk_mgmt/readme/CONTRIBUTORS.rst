@@ -20,3 +20,7 @@
 * `Factor Libre <https://factorlibre.com>`_:
 
   * Mar??a Alhambra
+
+* `Tecnativa <https://www.tecnativa.com>`_:
+
+  * Pedro M. Baeza

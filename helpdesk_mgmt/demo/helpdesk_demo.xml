@@ -135,8 +135,6 @@
         <field eval="&quot;Problem with the delivery of assignments&quot;" name="name"/>
         <field eval="&quot;Problem with the delivery of assignments&quot;" name="description"/>
         <field eval="&quot;1&quot;" name="priority"/>
-        <field eval="&quot;(373) 907-1009&quot;" name="partner_phone"/>
-        <field eval="&quot;info@opensides.be&quot;" name="email_from"/>
         <field eval="[(6,0,[ref('helpdesk_tag_2')])]" name="tag_ids"/>
         <field name="user_id" ref="base.user_root"/>
         <field name="stage_id" ref="helpdesk_ticket_stage_awaiting"/>
