@@ -5,9 +5,8 @@ To configure this module, you need to:
 #. Edit or create new teams.
 #. Edit or create new tags.
 
--------------------
 Channels
--------------------
+~~~~~~~~
 
 #. Go to *Helpdesk > Configuration > Channels* to edit or create new channels.
 #. Edit or create a channel.
@@ -18,9 +17,8 @@ Channels
    :alt: Channels
    :width: 600 px
 
--------------------
 Categories
--------------------
+~~~~~~~~~~
 
 #. Go to *Helpdesk > Configuration > Categories* to edit or create new categories.
 #. Edit or create a new category.
@@ -31,9 +29,8 @@ Categories
    :alt: Categories
    :width: 600 px
 
--------------------
 Stages
--------------------
+~~~~~~
 
 #. Go to *Helpdesk > Configuration > Stages* to edit or create new stages.
 #. Edit or create a new stage.
@@ -51,9 +48,8 @@ Stages
 
 You can also sort the stage sequence if you move up or down the stages in the list view.
 
--------------------
 Teams
--------------------
+~~~~~
 
 #. Go to *Helpdesk > Configuration > Teams* to edit or create new teams.
 #. Edit or create a new team.
@@ -65,9 +61,8 @@ Teams
    :alt: Teams
    :width: 600 px
 
--------------------
 Tags
--------------------
+~~~~
 
 #. Go to *Helpdesk > Configuration > Ticket Tags* to edit or create new tags.
 #. Edit or create a new tag.
