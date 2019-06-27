@@ -79,7 +79,7 @@
 
         <!-- Menus -->
         <menuitem id="helpdesk_ticket_main_menu" name="Helpdesk" sequence="16"
-            web_icon="helpdesk,static/description/icon.png"/>
+            web_icon="helpdesk_mgmt,static/description/icon.png"/>
 
         <menuitem id="helpdesk_ticket_dashboard_menu" name="Dashboard"
             parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_dashboard_action" sequence="1"/>
@@ -89,14 +89,14 @@
 
         <menuitem id="helpdesk_ticket_reporting_menu" name="Reporting"
             parent="helpdesk_ticket_main_menu" sequence="25"
-            groups="helpdesk.group_helpdesk_manager"/>
+            groups="group_helpdesk_manager"/>
 
         <menuitem id="helpdesk_ticket_reporting_analysis" name="Tickets" parent="helpdesk_ticket_reporting_menu"
             action="helpdesk_ticket_reporting_action" sequence="5"/>
 
         <menuitem id="helpdesk_ticket_config_main_menu" name="Configuration"
             parent="helpdesk_ticket_main_menu" sequence="35"
-            groups="helpdesk.group_helpdesk_manager"/>
+            groups="group_helpdesk_manager"/>
 
         <!-- #TODO -->
         <!-- <menuitem id="helpdesk_ticket_config_settings_menu" name="Settings"
