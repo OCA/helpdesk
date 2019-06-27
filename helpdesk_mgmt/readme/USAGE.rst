@@ -5,8 +5,9 @@
    :alt: Kanban view
    :width: 600 px
 
-To create a new ticket from the kanban view...
-#. Press the *Create* button or click on the plus icon at the top of the column of a stage.
+To create a new ticket from the kanban view:
+
+#. Press *Create* button or click on the plus icon at the top of the column of a stage.
 #. Set the name or subject for the ticket.
 #. Select the team that will manage the ticket.
 #. You can select a user to assign the ticket.
@@ -19,4 +20,3 @@ To create a new ticket from the kanban view...
 .. figure:: ../static/description/Tickets01.PNG
    :alt: Create a new ticket
    :width: 600 px
-   
