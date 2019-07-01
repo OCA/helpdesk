@@ -53,3 +53,14 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertNotEquals(self.ticket.number, '/',
                              'Helpdesk Ticket: A ticket should have '
                              'a number.')
+
+    def test_helpdesk_ticket_copy(self):
+        old_ticket_number = self.ticket.number
+
+        copy_ticket_number = self.ticket.copy().number
+
+        self.assertTrue(
+            copy_ticket_number != '/' and
+            old_ticket_number != copy_ticket_number,
+            'Helpdesk Ticket: A new ticket can not '
+            'have the same number than the origin ticket.')
