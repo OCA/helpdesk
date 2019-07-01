@@ -12,7 +12,7 @@
         </xpath>
     </template>
       <template id="portal_my_home" name="Portal My Home : ticket entries" inherit_id="portal.portal_my_home" priority="40">
-          <xpath expr="//ul[hasclass('o_portal_docs')]" position="inside">
+          <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
               <li t-if="ticket_count" class="list-group-item">
                   <span class="badge" t-esc="ticket_count"/>
                   <a href="/my/tickets">Tickets</a>
