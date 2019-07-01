@@ -29,7 +29,7 @@
                 <filter string="My Tickets" name="mytickets" domain="[('user_id','=',uid)]"/>
                 <filter string="My Followed Tickets" name="myfollowedtickets" domain="[('message_is_follower', '=', True)]" />
                 <separator/>
-                <filter name="last_week" name="lastweek" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
+                <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
                 <separator/>
                 <filter string="My Activities" name="activities_my"
                   domain="[('activity_ids.user_id', '=', uid)]"/>
