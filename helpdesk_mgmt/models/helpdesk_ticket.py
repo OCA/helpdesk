@@ -122,6 +122,18 @@ class HelpdeskTicket(models.Model):
         return res
 
     @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        if default is None:
+            default = {}
+        if "number" not in default:
+            default['number'] = self.env['ir.sequence'].next_by_code(
+                'helpdesk.ticket.sequence'
+            ) or '/'
+        res = super(HelpdeskTicket, self).copy(default)
+        return res
+
+    @api.multi
     def write(self, vals):
         for ticket in self:
             now = fields.Datetime.now()

@@ -20,6 +20,7 @@
 * `Factor Libre <https://factorlibre.com>`_:
 
   * Mar??a Alhambra
+  * Daniel Cano
 
 * `Tecnativa <https://www.tecnativa.com>`_:
 
