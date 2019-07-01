@@ -23,7 +23,7 @@ Helpdesk Management
     :target: https://runbot.odoo-community.org/runbot/282/11.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module adds Helpdesk functionality in Odoo.
 
@@ -184,6 +184,9 @@ Contributors
 * `Factor Libre <https://factorlibre.com>`_:
 
   * María Alhambra
+  * Daniel Cano
+  * Adrián Cruz
+  * Rubén Melchor
 
 * `Tecnativa <https://www.tecnativa.com>`_:
 

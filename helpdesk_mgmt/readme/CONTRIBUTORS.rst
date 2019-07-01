@@ -20,6 +20,9 @@
 * `Factor Libre <https://factorlibre.com>`_:
 
   * María Alhambra
+  * Daniel Cano
+  * Adrián Cruz
+  * Rubén Melchor
 
 * `Tecnativa <https://www.tecnativa.com>`_:
 
