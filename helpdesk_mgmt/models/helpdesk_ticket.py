@@ -73,7 +73,7 @@ class HelpdeskTicket(models.Model):
     ], string='Priority', default='1')
     attachment_ids = fields.One2many(
         'ir.attachment', 'res_id',
-        domain=[('res_model', '=', 'website.support.ticket')],
+        domain=[('res_model', '=', 'helpdesk.ticket')],
         string="Media Attachments")
 
     def send_user_mail(self):
