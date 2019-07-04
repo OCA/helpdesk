@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+  <record id="ticket_view_form_inherited" model="ir.ui.view">
+    <field name="name">helpdesk.ticket.view.form.inherited</field>
+    <field name="model">helpdesk.ticket</field>
+    <field name="inherit_id" ref="helpdesk.ticket_view_form"/>
+    <field name="arch" type="xml">
+      <field name="stage_id" position="before">
+        <button string="Send Survey" name="send_survey" type="object" attrs="{'invisible':['|', ('partner_id', '=', False), ('survey_sent', '=', True)]}"/>
+      </field>
+      <page name="other_info" position="after">
+        <page class="oe_edit_onlys" string="Survey Info" name="survey_info" attrs="{'invisible':[('survey_done', '=', False)]}">
+          <group>
+            <field name="survey_done" invisible="1"/>
+            <field name="survey_sent" invisible="1"/>
+            <field name="closed" invisible="1"/>
+            <field string="Rating" name="rating" type="object" readonly="1"/>
+            <field string="Survey Comment" name="comment" type="object" readonly="1"/>
+          </group>
+        </page>
+      </page>
+    </field>
+  </record>
+</odoo>
