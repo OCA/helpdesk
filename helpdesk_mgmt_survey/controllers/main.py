@@ -15,11 +15,11 @@ class HelpdeskTicketController(http.Controller):
         ticket.comment = ''
         if ticket.rating:
             return http.request.render( \
-                'helpdesk_survey.survey_already_complete', {
+                'helpdesk_mgmt_survey.survey_already_complete', {
                     "ticket": ticket})
         else:
             return http.request.render( \
-                'helpdesk_survey.helpdesk_ticket_survey_page', {
+                'helpdesk_mgmt_survey.helpdesk_ticket_survey_page', {
                     "ticket": ticket})
 
     @http.route('/ticket/survey/completed/<token>',
@@ -42,12 +42,12 @@ class HelpdeskTicketController(http.Controller):
             else:
                 ticket.comment = ''
             return http.request.render(
-                'helpdesk_survey.helpdesk_ticket_survey_page', {
+                'helpdesk_mgmt_survey.helpdesk_ticket_survey_page', {
                     'ticket': ticket})
 
         ticket.rating = vals['support_rating']
         ticket.comment = vals['comment']
         ticket.survey_done = True
 
-        return http.request.render('helpdesk_survey.survey_completed_page', {
+        return http.request.render('helpdesk_mgmt_survey.survey_completed_page', {
             "ticket": ticket})

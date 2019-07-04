@@ -1,14 +1,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Helpdesk Survey',
+    'name': 'Helpdesk Management Survey',
     'summary': """
         Helpdesk Survey""",
     'license': 'AGPL-3',
     'category': 'After-Sales',
     'author': 'Domatix',
     'depends': [
-        'helpdesk',
+        'helpdesk_mgmt',
     ],
     'data': [
              'data/helpdesk_data.xml',

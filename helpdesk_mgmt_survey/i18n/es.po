@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_survey
+#	* helpdesk_mgmt_survey
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-28 09:08+0000\n"
-"PO-Revision-Date: 2019-06-28 09:08+0000\n"
+"POT-Creation-Date: 2019-07-04 08:06+0000\n"
+"PO-Revision-Date: 2019-07-04 08:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,27 +15,27 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: helpdesk_survey
-#: model:mail.template,body_html:helpdesk_survey.survey_email_template
+#. module: helpdesk_mgmt_survey
+#: model:mail.template,body_html:helpdesk_mgmt_survey.survey_email_template
 msgid "<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.partner_name},</p>\n"
+"<data><p>Hello ${object.partner_id.name},</p>\n"
 "        <p>We would like to get your feedback on the support.</p>\n"
 "        <hr/>\n"
 "        <p>You can rate the service provided in this <a href=\"${object.survey_url}\">survey</a>.</p>\n"
 "        <p>Thank you.</p>\n"
 "      </data>"
 msgstr "<?xml version=\"1.0\"?>\n"
-"<data><p>Hola ${object.partner_name},</p>\n"
+"<data><p>Hello ${object.partner_id.name},</p>\n"
 "        <p>Nos gustaría recibir su opinión sobre el soporte.</p>\n"
 "        <hr/>\n"
-"        <p>Puede puntuar el servicio prestado en esta <a href=\"${object.survey_url}\">encuesta</a>.</p>\n"
+"        <p>Puede valorar el servicio prestado en esta <a href=\"${object.survey_url}\">encuesta</a>.</p>\n"
 "        <p>Gracias.</p>\n"
 "      </data>"
 
-#. module: helpdesk_survey
-#: model:mail.template,body_html:helpdesk_survey.closed_survey_ticket_template
+#. module: helpdesk_mgmt_survey
+#: model:mail.template,body_html:helpdesk_mgmt_survey.closed_survey_ticket_template
 msgid "<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.partner_name},</p>\n"
+"<data><p>Hello ${object.partner_id.name},</p>\n"
 "        <p>Your ticket has been resolved and closed.</p>\n"
 "        <hr/>\n"
 "        <p>We would like to get your feedback on the support.</p>\n"
@@ -43,106 +43,111 @@ msgid "<?xml version=\"1.0\"?>\n"
 "        <p>Thank you.</p>\n"
 "      </data>"
 msgstr "<?xml version=\"1.0\"?>\n"
-"<data><p>Hola ${object.partner_name},</p>\n"
-"        <p>Tu ticket se ha resuelto y cerrado.</p>\n"
+"<data><p>Hello ${object.partner_id.name},</p>\n"
+"        <p>Your ticket has been resolved and closed.</p>\n"
 "        <hr/>\n"
-"        <p>Nos gustaría conocer tu opinión.</p>\n"
-"        <p>Puedes calificar nuestro servicio en esta <a href=\"${object.survey_url}\">encuesta</a>.</p>\n"
-"        <p>Gracias.</p>\n"
+"        <p>We would like to get your feedback on the support.</p>\n"
+"        <p>You can rate the service provided in this <a href=\"${object.survey_url}\">survey</a>.</p>\n"
+"        <p>Thank you.</p>\n"
 "      </data>"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.helpdesk_ticket_survey_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.helpdesk_ticket_survey_page
 msgid "<strong>Please, select a score</strong>"
-msgstr "<strong>Por favor, selecciona una calificación</strong>"
+msgstr "<strong>Por favor, seleccione una puntuación.</strong>"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.helpdesk_ticket_survey_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.helpdesk_ticket_survey_page
 msgid "Comment"
 msgstr "Comentario"
 
-#. module: helpdesk_survey
-#: model:ir.model,name:helpdesk_survey.model_helpdesk_ticket
+#. module: helpdesk_mgmt_survey
+#: model:ir.model,name:helpdesk_mgmt_survey.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Ticket Helpdesk"
+msgstr "Ticket de gestión de soporte"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_no_score
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_no_score
 msgid "No Score"
-msgstr "No calificación"
+msgstr "No Score"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.helpdesk_ticket_survey_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.helpdesk_ticket_survey_page
 msgid "Please give us feedback on our support service."
-msgstr "Por favor, denos su opinión sobre nuestro servicio de soporte."
+msgstr "Por favor, denos su opinión sobre nuestro servicio de soporte. "
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.ticket_view_form_inherited
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.ticket_view_form_inherited
 msgid "Rating"
 msgstr "Puntuación"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_access_token
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_access_token
 msgid "Security Token"
-msgstr "Token de seguridad"
+msgstr "Security Token"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.ticket_view_form_inherited
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.ticket_view_form_inherited
 msgid "Send Survey"
 msgstr "Enviar encuesta"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.helpdesk_ticket_survey_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.helpdesk_ticket_survey_page
 msgid "Submit Feedback"
 msgstr "Enviar opinión"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.ticket_view_form_inherited
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.ticket_view_form_inherited
 msgid "Survey Comment"
 msgstr "Comentario de encuesta"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_survey_done
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_survey_done
 msgid "Survey Done"
-msgstr "Encuesta hecha"
+msgstr "Survey Done"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.ticket_view_form_inherited
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.ticket_view_form_inherited
 msgid "Survey Info"
-msgstr "Información de la encuesta"
+msgstr "Información de encuesta"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_survey_url
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_survey_sent
+msgid "Survey Sent"
+msgstr "Survey Sent"
+
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_survey_url
 msgid "Survey URL"
-msgstr "URL de la encuesta"
+msgstr "Survey URL"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.survey_already_complete
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.survey_already_complete
 msgid "Survey already complete"
-msgstr "La encuesta ya ha sido completada."
+msgstr "La encuesta ya ha sido completada"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.survey_completed_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.survey_completed_page
 msgid "Thanks for your feedback"
-msgstr "Gracias por su valoración."
+msgstr "Gracias por su opinión"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_comment
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_comment
 msgid "Ticket Comment"
-msgstr "Comentario del ticket"
+msgstr "Ticket Comment"
 
-#. module: helpdesk_survey
-#: model:ir.model.fields,field_description:helpdesk_survey.field_helpdesk_ticket_rating
+#. module: helpdesk_mgmt_survey
+#: model:ir.model.fields,field_description:helpdesk_mgmt_survey.field_helpdesk_ticket_rating
 msgid "Ticket Rating"
-msgstr "calificación del ticket"
+msgstr "Ticket Rating"
 
-#. module: helpdesk_survey
-#: model:mail.template,subject:helpdesk_survey.closed_survey_ticket_template
-#: model:mail.template,subject:helpdesk_survey.survey_email_template
+#. module: helpdesk_mgmt_survey
+#: model:mail.template,subject:helpdesk_mgmt_survey.closed_survey_ticket_template
+#: model:mail.template,subject:helpdesk_mgmt_survey.survey_email_template
 msgid "Ticket Survey (${object.number})"
-msgstr "Encuesta del ticket (${object.number})"
+msgstr "Ticket Survey (${object.number})"
 
-#. module: helpdesk_survey
-#: model:ir.ui.view,arch_db:helpdesk_survey.helpdesk_ticket_survey_page
+#. module: helpdesk_mgmt_survey
+#: model:ir.ui.view,arch_db:helpdesk_mgmt_survey.helpdesk_ticket_survey_page
 msgid "Your Feedback"
 msgstr "Tu opinión"

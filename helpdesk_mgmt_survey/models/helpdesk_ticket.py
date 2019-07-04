@@ -33,6 +33,6 @@ class HelpdeskTicket(models.Model):
 
     @api.multi
     def send_survey(self):
-        self.env.ref('helpdesk_survey.survey_email_template'). \
+        self.env.ref('helpdesk_mgmt_survey.survey_email_template'). \
             send_mail(self.id)
         self.survey_sent = True

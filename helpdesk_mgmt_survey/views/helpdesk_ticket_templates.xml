@@ -35,27 +35,27 @@
             </t>
             <label>
               <input type="radio" name="support_rating" id="input_1" value="1" />
-              <img src="/helpdesk_survey/static/src/img/1-star.jpg"/>
+              <img src="/helpdesk_mgmt_survey/static/src/img/1-star.jpg"/>
             </label>
 
             <label>
               <input type="radio" name="support_rating" value="2" />
-              <img src="/helpdesk_survey/static/src/img/2-star.jpg"/>
+              <img src="/helpdesk_mgmt_survey/static/src/img/2-star.jpg"/>
             </label>
 
             <label>
               <input type="radio" name="support_rating" value="3" />
-              <img src="/helpdesk_survey/static/src/img/3-star.jpg"/>
+              <img src="/helpdesk_mgmt_survey/static/src/img/3-star.jpg"/>
             </label>
 
             <label>
               <input type="radio" name="support_rating" value="4" />
-              <img src="/helpdesk_survey/static/src/img/4-star.jpg"/>
+              <img src="/helpdesk_mgmt_survey/static/src/img/4-star.jpg"/>
             </label>
 
             <label>
               <input type="radio" name="support_rating" value="5" />
-              <img src="/helpdesk_survey/static/src/img/5-star.jpg"/>
+              <img src="/helpdesk_mgmt_survey/static/src/img/5-star.jpg"/>
             </label>
           </div>
 

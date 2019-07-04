@@ -3,7 +3,7 @@
   <record id="ticket_view_form_inherited" model="ir.ui.view">
     <field name="name">helpdesk.ticket.view.form.inherited</field>
     <field name="model">helpdesk.ticket</field>
-    <field name="inherit_id" ref="helpdesk.ticket_view_form"/>
+    <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
     <field name="arch" type="xml">
       <field name="stage_id" position="before">
         <button string="Send Survey" name="send_survey" type="object" attrs="{'invisible':['|', ('partner_id', '=', False), ('survey_sent', '=', True)]}"/>
