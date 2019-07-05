@@ -79,7 +79,7 @@
                             <field name="user_id" options='{"always_reload": True}'/>
 
                             <field name="priority" widget="priority"/>
-                            <field name="company_id" readonly="1" groups="base.group_multi_company"/>
+                            <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
                             <field name="create_date"/>
                             <field name="channel_id"/>
                         </group>
