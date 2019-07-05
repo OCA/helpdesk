@@ -28,6 +28,7 @@
       <field name="code">helpdesk.ticket.sequence</field>
       <field name="prefix">HT</field>
       <field name="padding">5</field>
+      <field name="company_id"/>
     </record>
     <!-- Stages -->
     <record id="helpdesk_ticket_stage_new" model="helpdesk.ticket.stage">
@@ -35,18 +36,21 @@
       <field name="name">New</field>
       <field name="unattended">True</field>
       <field name="closed">False</field>
+      <field name="company_id"/>
     </record>
     <record id="helpdesk_ticket_stage_in_progress" model="helpdesk.ticket.stage">
       <field name="sequence">2</field>
       <field name="name">In Progress</field>
       <field name="unattended">False</field>
       <field name="closed">False</field>
+      <field name="company_id"/>
     </record>
     <record id="helpdesk_ticket_stage_awaiting" model="helpdesk.ticket.stage">
       <field name="sequence">3</field>
       <field name="name">Awaiting</field>
       <field name="unattended">False</field>
       <field name="closed">False</field>
+      <field name="company_id"/>
     </record>
     <record id="helpdesk_ticket_stage_done" model="helpdesk.ticket.stage">
       <field name="sequence">3</field>
@@ -54,6 +58,7 @@
       <field name="unattended">False</field>
       <field name="closed">True</field>
       <field name="fold">True</field>
+      <field name="company_id"/>
     </record>
     <record id="helpdesk_ticket_stage_cancelled" model="helpdesk.ticket.stage">
       <field name="sequence">4</field>
@@ -61,6 +66,7 @@
       <field name="unattended">False</field>
       <field name="closed">True</field>
       <field name="fold">True</field>
+      <field name="company_id"/>
     </record>
     <!-- Channels -->
     <record id="helpdesk_ticket_channel_web" model="helpdesk.ticket.channel">
