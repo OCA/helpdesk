@@ -7,22 +7,43 @@
       <field name="sequence">9</field>
     </record>
   </data>
-  <data noupdate="1">
+  <data noupdate="0">
     <!--Email template -->
-    <record id="assignment_email_template" model="mail.template">
-      <field name="name">Ticket Assignment</field>
+<!--     
+ --><!--       ${object.user_id.partner_id.id if object.user_id else ','.join(map(lambda x: str(x.partner_id.id),object.user_ids ) }
+ -->
+
+<!---->     <record id="assignment_email_template" model="mail.template">
+      <field name="name">New ticket</field>
       <field name="model_id" ref="model_helpdesk_ticket"/>
       <field name="email_from">${object.company_id.partner_id.email}</field>
-      <field name="subject">${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })</field>
-      <field name="partner_to">${object.partner_id.id}</field>
+      <field name="subject"> New ticket ${object.number} </field>
+  <field name="partner_to">${object.user_id.partner_id.id if object.user_id else ','.join(map(str,object.user_ids_partner_ids.ids))  }   
+      </field>
       <field name="auto_delete" eval="False"/>
       <field name="lang">${object.partner_id.lang}</field>
       <field name="body_html" type="xml">
-        <p>Hello ${object.user_id.name},</p>
-        <p>The ticket ${object.number} has been assigned to you.</p>
+        <p>Hello ${object.user_id and object.user_id.name or object.team_id.name},</p>
+        <p>The ticket ${object.number} with subject ${object.name}  has been assigned to you.</p>
       </field>
     </record>
-    <!-- Sequence -->
+
+    <record id="closed_email_template" model="mail.template">
+      <field name="name">Ticket Closed</field>
+      <field name="model_id" ref="model_helpdesk_ticket"/>
+      <field name="email_from">${object.company_id.partner_id.email}</field>
+      <field name="subject">Ticket ${object.number } solved   </field>
+      <field name="partner_to">${object.partner_id and object.partner_id.id or ''}</field>
+      <field name="auto_delete" eval="False"/>
+      <field name="lang">${object.partner_id.lang}</field>
+      <field name="body_html" type="xml">
+      
+        <p>Hello ${object.partner_id.name},</p>
+        <p>The ticket ${object.number} with text "${object.name }" has been closed with result.</p>
+        <p>${object.closed_description and object.closed_description or ''}</p> 
+      </field>
+    </record>
+     <!-- Sequence -->
     <record id="helpdesk_ticket_sequence" model="ir.sequence">
       <field name="name">Helpdesk Ticket Sequence</field>
       <field name="code">helpdesk.ticket.sequence</field>

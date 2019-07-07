@@ -11,10 +11,10 @@
   </record>
 
   <record id="helpdesk_ticket_view_search" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="name">helpdesk.ticket.search</field>
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
-            <search>
+            <search string="helpdesk_ticket_view_search">
                 <field name="number"/>
                 <field name="partner_id"/>
                 <field name="user_id"/>
@@ -27,26 +27,27 @@
                 <filter string="High Priority" name="high_priority" domain="[('priority','=','3')]"/>
                 <separator/>
                 <filter string="My Tickets" name="mytickets" domain="[('user_id','=',uid)]"/>
-                <filter string="My Followed Tickets" domain="[('message_is_follower', '=', True)]" />
+                <filter name='my followed' string="My Followed Tickets" domain="[('message_is_follower', '=', True)]" />
+ 
                 <separator/>
-                <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
+                 <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
                 <separator/>
                 <filter string="My Activities" name="activities_my"
                   domain="[('activity_ids.user_id', '=', uid)]"/>
-                <filter string="Late Activities" name="activities_overdue"
+                 <filter string="Late Activities" name="activities_overdue"
                   domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
                   help="Show all records which has next action date is before today"/>
                 <filter string="Today Activities" name="activities_today"
                   domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
                 <filter string="Future Activities" name="activities_upcoming_all"
-                  domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
-                  ]"/>
-                <group expand="0" string="Group By">
-                  <filter string="Partner" domain="[]" context="{'group_by':'partner_id'}"/>
-                  <filter string="Team" domain="[]" context="{'group_by':'team_id'}"/>
-                  <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
-                  <filter string="Stage" domain="[]" context="{'group_by':'stage_id'}"/>
-                </group>
+                  domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))  ]"/>
+
+                  <group expand="0" string="Group By">
+	                  <filter name='partner' string="Partner"  context="{'group_by':'partner_id'}"/>
+ 	                  <filter name='team' string="Team" domain="[]" context="{'group_by':'team_id'}"/>
+	                  <filter name='user' string="User" domain="[]" context="{'group_by':'user_id'}"/>
+	                  <filter name='stage' string="Stage" domain="[]" context="{'group_by':'stage_id'}"/>
+               </group> 
             </search>
         </field>
     </record>
@@ -59,7 +60,7 @@
                     <button string="Assign to me"
                             name="assign_to_me"
                             type="object"
-                            attrs="{'invisible' : [('user_id', '!=', False)]}"/>
+                            attrs="{'invisible' : [('user_id', '!=', False)]}" groups="helpdesk_mgmt.group_helpdesk_user"/>
                     <field name="stage_id" widget="statusbar" clickable="True"/>
                 </header>
                 <sheet>
@@ -74,9 +75,9 @@
                     </div>
                     <group name="main">
                         <group>
-                            <field name="team_id" options='{"always_reload": True}'/>
+                            <field name="team_id" options='{"always_reload": True}' groups="helpdesk_mgmt.group_helpdesk_user"/>
                             <field name="user_ids" invisible="1" readonly="1" />
-                            <field name="user_id" options='{"always_reload": True}'/>
+                            <field name="user_id" options='{"always_reload": True}' groups="helpdesk_mgmt.group_helpdesk_user"/>
 
                             <field name="priority" widget="priority"/>
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
@@ -84,7 +85,9 @@
                             <field name="channel_id"/>
                         </group>
                         <group>
-                            <field name="partner_id"/>
+                        	<field name="partner_id_can_not_change" invisible="1"/>
+                        
+                            <field name="partner_id" attrs="{'readonly':[('partner_id_can_not_change','=',True)]}"/>
                             <field name="partner_name"/>
                             <field name="partner_email"/>
                             <field name="category_id"/>
@@ -94,7 +97,10 @@
                     <group>
                         <notebook>
                             <page string="Description" name="description">
-                                <field name="description" widget="html"/>
+								<group>
+	                                <field name="description" />
+	                                <field name="closed_description" />
+								</group>
                             </page>
                             <page string="Attachments" name="attachment">
                                 <field name="attachment_ids" readonly="True">

@@ -54,7 +54,11 @@
             <tree string="Ticket Stages">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+
                 <field name="mail_template_id"/>
+                 <field name="unattended"/>
+                 <field name="closed"/>
+
             </tree>
         </field>
     </record>

@@ -3,19 +3,19 @@
 <data noupdate="0">
 
     <record id="group_helpdesk_user_own" model="res.groups">
-        <field name="name">User: Personal tickets</field>
+        <field name="name">User: Personal tickets (partner_id=uid.partner_id)</field>
         <field name="category_id" ref="module_helpdesk_category"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
     <record id="group_helpdesk_user" model="res.groups">
-        <field name="name">User</field>
+        <field name="name">User ticket solver</field>
         <field name="category_id" ref="module_helpdesk_category"/>
         <field name="implied_ids" eval="[(4, ref('group_helpdesk_user_own'))]"/>
     </record>
 
     <record id="group_helpdesk_manager" model="res.groups">
-        <field name="name">Helpdesk Manager</field>
+        <field name="name">Helpdesk Manager  view write all</field>
         <field name="category_id" ref="module_helpdesk_category"/>
         <field name="implied_ids" eval="[(4, ref('group_helpdesk_user'))]"/>
         <field name="users" eval="[(4, ref('base.user_root'))]"/>
@@ -27,11 +27,27 @@
 
 
     <record id="helpesk_ticket_personal_rule" model="ir.rule">
-        <field name="name">Personal Tickets</field>
+        <field name="name">helpdesk Personal Tickets (partner_id is their user)</field>
         <field ref="model_helpdesk_ticket" name="model_id"/>
-        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="domain_force">[('partner_id','=',user.partner_id.id)]</field>
         <field name="groups" eval="[(4, ref('group_helpdesk_user_own'))]"/>
     </record>
+
+    <record id="helpesk_ticket_sover_rule" model="ir.rule">
+        <field name="name">hepdesk tickets solver </field>
+        <field ref="model_helpdesk_ticket" name="model_id"/>
+        <field name="domain_force">['|',('partner_id','=',False),'|',('partner_id','=',user.partner_id.id),'|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_helpdesk_user'))]"/>
+    </record>
+
+    <record id="helpesk_ticket_manager_rule" model="ir.rule">
+        <field name="name">helpdesk Manager Tickets</field>
+        <field ref="model_helpdesk_ticket" name="model_id"/>
+        <!-- <field name="domain_force">[(1,'=',1)]</field> -->
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('group_helpdesk_manager'))]"/>
+    </record>
+
 
     <!-- Company Rules -->
     <record id="helpdesk_ticket_comp_rule" model="ir.rule">

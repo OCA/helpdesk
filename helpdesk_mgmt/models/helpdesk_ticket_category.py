@@ -14,3 +14,5 @@ class HelpdeskCategory(models.Model):
         default=lambda self: self.env['res.company']._company_default_get(
             'helpdesk.ticket')
     )
+    team_id = fields.Many2one('helpdesk.ticket.team', help='team that can solve this problem')
+    

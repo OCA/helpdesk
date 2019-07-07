@@ -1,5 +1,5 @@
 from odoo import _, api, fields, models, tools
-
+from odoo.exceptions import ValidationError
 
 class HelpdeskTicket(models.Model):
 
@@ -15,16 +15,32 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string='Ticket number', default="/",
                          readonly=True)
     name = fields.Char(string='Title', required=True)
-    description = fields.Text(required=True)
+    description = fields.Text()
+    closed_description = fields.Text()
+
     user_id = fields.Many2one(
         'res.users',
-        string='Assigned user',)
+        string='Assigned user',help='the user that has/had to solve this ticket')
 
     user_ids = fields.Many2many(
         comodel_name='res.users',
         related='team_id.user_ids',
         string='Users')
 
+
+    @api.depends('team_id',)
+    def _get_team_id_partners(self):
+        for record in self:
+            if record.team_id:
+                record.user_ids_partner_ids = [x.partner_id.id for x in record.team_id.user_ids]#[(6,0,[x.partner_id.id for x in record.team_id.user_ids])]
+            else:
+                record.user_ids_partner_ids = False#[(5,0,0)]
+
+    user_ids_partner_ids = fields.Many2many(
+        comodel_name='res.partner',
+        compute='_get_team_id_partners',
+        string='team_id Users partners for sending email with template')
+    
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         stage_ids = self.env['helpdesk.ticket.stage'].search([])
@@ -37,7 +53,20 @@ class HelpdeskTicket(models.Model):
         default=_get_default_stage_id,
         track_visibility='onchange',
     )
-    partner_id = fields.Many2one('res.partner')
+    
+    def _default_partner_can_not_change(self):
+        if not self.env.user.has_group('helpdesk_mgmt.group_helpdesk_user'): 
+            return True
+
+    partner_id_can_not_change = fields.Boolean(help='a invisible field just not to let you modify the partner_id ( is readonly based on this field)',default=_default_partner_can_not_change)
+    
+    def _default_partner_id(self):
+        if not self.env.user.has_group('helpdesk_mgmt.group_helpdesk_user'): 
+            # user is less than a user that can solve the problem so can not change the partner; the partner is him
+            return  self.env.user.partner_id
+
+            
+    partner_id = fields.Many2one('res.partner',track_visibility="onchange", default=_default_partner_id, help="the problem/issue/ticket is for this partner")
     partner_name = fields.Char()
     partner_email = fields.Char()
 
@@ -60,11 +89,11 @@ class HelpdeskTicket(models.Model):
         'helpdesk.ticket.channel',
         string='Channel',
         help='Channel indicates where the source of a ticket'
-             'comes from (it could be a phone call, an email...)',
+             'comes from (it could be a phone call, an email...)',default=lambda self: self.env['helpdesk.ticket.channel'].search([('name','ilike','web')],limit=1)
     )
-    category_id = fields.Many2one('helpdesk.ticket.category',
+    category_id = fields.Many2one('helpdesk.ticket.category',default=lambda self: self.env['helpdesk.ticket.category'].search([('id','!=',0)],limit=1),
                                   string='Category')
-    team_id = fields.Many2one('helpdesk.ticket.team')
+    team_id = fields.Many2one('helpdesk.ticket.team',help='the team that has/had to solve this ticket')
     priority = fields.Selection(selection=[
         ('0', _('Low')),
         ('1', _('Medium')),
@@ -76,12 +105,16 @@ class HelpdeskTicket(models.Model):
         domain=[('res_model', '=', 'helpdesk.ticket')],
         string="Media Attachments")
 
-    def send_user_mail(self):
-        self.env.ref('helpdesk_mgmt.assignment_email_template'). \
-            send_mail(self.id)
-
     def assign_to_me(self):
         self.write({'user_id': self.env.user.id})
+
+    @api.onchange('category_id')
+    def _onchange_category_id(self):
+        if self.category_id:
+            self.team_id = self.category_id.team_id
+            if self.team_id:
+                return {'domain': {'user_id': [('id', 'in', self.user_ids.ids)]}}
+
 
     @api.onchange('partner_id')
     def _onchange_partner_id(self):
@@ -104,6 +137,22 @@ class HelpdeskTicket(models.Model):
         else:
             return {'domain': {'user_id': []}}
 
+    @api.constrains('team_id','user_id')
+    def _check_user_grom_team(self):
+        for record in self:
+            if record.team_id and record.user_id and record.user_id not in record.team_id.user_ids :
+                raise ValidationError(f"User {record.user_id.name} is not member of team {record.team_id.name} ")
+
+
+
+    def send_user_mail(self,type):
+        if type=='create':
+            email_template = self.env.ref('helpdesk_mgmt.assignment_email_template')
+        else:
+            email_template = self.env.ref('helpdesk_mgmt.closed_email_template')
+        email_template.send_mail(self.id)
+    
+    
     # ---------------------------------------------------
     # CRUD
     # ---------------------------------------------------
@@ -119,8 +168,8 @@ class HelpdeskTicket(models.Model):
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
-        if vals.get('user_id') and res:
-            res.send_user_mail()
+        if (vals.get('user_id') or vals.get('team_id')) and res:
+            res.send_user_mail('create')  # user_id and team_id notification
         return res
 
     @api.multi
@@ -141,19 +190,23 @@ class HelpdeskTicket(models.Model):
             now = fields.Datetime.now()
             if vals.get('stage_id'):
                 stage_obj = self.env['helpdesk.ticket.stage'].browse(
-                    [vals['stage_id']])
+                    [vals['stage_id']])  # not the old stage but that after write
                 vals['last_stage_update'] = now
                 if stage_obj.closed:
                     vals['closed_date'] = now
+# and send message to partner that his ticket was closed
+                    if  ticket.partner_id :
+                        ticket.send_user_mail('close')
+
             if vals.get('user_id'):
                 vals['assigned_date'] = now
 
         res = super(HelpdeskTicket, self).write(vals)
 
         # Check if mail to the user has to be sent
-        for ticket in self:
-            if vals.get('user_id'):
-                ticket.send_user_mail()
+#         for ticket in self:
+#             if vals.get('user_id') or vals.get('partner_id'):
+#                 ticket.send_mail()
         return res
 
     # ---------------------------------------------------
@@ -162,6 +215,7 @@ class HelpdeskTicket(models.Model):
 
     @api.multi
     def _track_template(self, tracking):
+        "mail if stage_id has a mail_template_id"
         res = super(HelpdeskTicket, self)._track_template(tracking)
         test_task = self[0]
         changes, tracking_value = tracking[test_task.id]

@@ -82,6 +82,7 @@
             web_icon="helpdesk_mgmt,static/description/icon.png"/>
 
         <menuitem id="helpdesk_ticket_dashboard_menu" name="Dashboard"
+        groups="helpdesk_mgmt.group_helpdesk_user"
             parent="helpdesk_ticket_main_menu" action="helpdesk_ticket_dashboard_action" sequence="1"/>
 
         <menuitem id="helpdesk_ticket_menu" name="Tickets"
