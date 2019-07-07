@@ -3,7 +3,7 @@
     <record id="view_helpdesk_ticket_stage_tree_timesheet" model="ir.ui.view">
         <field name="name">helpdesk.ticket.stage.tree</field>
         <field name="model">helpdesk.ticket.stage</field>
-        <field name="inherit_id" ref="helpdesk.view_helpdesk_ticket_stage_tree"/>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_tree"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="timesheet_required"/>
@@ -13,7 +13,7 @@
     <record id="view_helpdesk_ticket_stage_form_timesheet" model="ir.ui.view">
         <field name="name">helpdesk.ticket.stage.form</field>
         <field name="model">helpdesk.ticket.stage</field>
-        <field name="inherit_id" ref="helpdesk.view_helpdesk_ticket_stage_form"/>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_form"/>
         <field name="arch" type="xml">
             <field name="unattended" position="after">
                 <field name="timesheet_required"/>
