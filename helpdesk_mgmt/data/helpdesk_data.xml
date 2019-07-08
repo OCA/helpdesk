@@ -24,7 +24,7 @@
       <field name="lang">${object.partner_id.lang}</field>
       <field name="body_html" type="xml">
         <p>Hello ${object.user_id and object.user_id.name or object.team_id.name},</p>
-        <p>The ticket ${object.number} with subject ${object.name}  has been assigned to you.</p>
+        <p>The ticket ${object.number} with subject "${object.name}"  has been assigned to you.</p>
       </field>
     </record>
 

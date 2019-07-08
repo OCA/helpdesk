@@ -14,12 +14,12 @@ class HelpdeskTicket(models.Model):
 
     number = fields.Char(string='Ticket number', default="/",
                          readonly=True)
-    name = fields.Char(string='Title', required=True)
+    name = fields.Char(string='Title', required=True,track_visibility='onchange')
     description = fields.Text()
     closed_description = fields.Text()
 
     user_id = fields.Many2one(
-        'res.users',
+        'res.users',track_visibility='onchange',
         string='Assigned user',help='the user that has/had to solve this ticket')
 
     user_ids = fields.Many2many(
@@ -32,7 +32,7 @@ class HelpdeskTicket(models.Model):
     def _get_team_id_partners(self):
         for record in self:
             if record.team_id:
-                record.user_ids_partner_ids = [x.partner_id.id for x in record.team_id.user_ids]#[(6,0,[x.partner_id.id for x in record.team_id.user_ids])]
+                record.user_ids_partner_ids = [x.partner_id.id for x in record.sudo().team_id.user_ids]#[(6,0,[x.partner_id.id for x in record.team_id.user_ids])]
             else:
                 record.user_ids_partner_ids = False#[(5,0,0)]
 
@@ -168,7 +168,11 @@ class HelpdeskTicket(models.Model):
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
-        if (vals.get('user_id') or vals.get('team_id')) and res:
+        team_id_has_members = False
+        if vals.get('team_id'):
+            if self.env['helpdesk.ticket.team'].sudo().browse(vals.get('team_id')).user_ids:
+                team_id_has_members = True
+        if (vals.get('user_id') or team_id_has_members) and res:
             res.send_user_mail('create')  # user_id and team_id notification
         return res
 
