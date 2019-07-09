@@ -10,7 +10,9 @@ class TestHelpdeskTicket(SavepointCase):
     def setUpClass(cls):
         super(TestHelpdeskTicket, cls).setUpClass()
         cls.user_demo = cls.env.ref("base.user_demo")
-        cls.stage_done = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
+        cls.stage_done = cls.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_done"
+        )
         cls.project1 = cls.env["project.project"].create(
             {"name": "Test Project 1"}
         )
