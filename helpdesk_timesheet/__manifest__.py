@@ -2,7 +2,7 @@
     "name": "Helpdesk Timesheet",
     "summary": """
         Add Timesheets to the Helpdesk""",
-    "category": "Helpdesk",
+    "category": "After-Sales",
     "version": "11.0.1.0.0",
     "depends": ["helpdesk_mgmt", "hr_timesheet"],
     "data": [
