@@ -5,9 +5,9 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='user_id']" position="after">
+            <field name="user_id" position="after">
                 <field name="project_id" />
-            </xpath>
+            </field>
             <xpath expr="//notebook/page[last()]" position="after">
                 <page string="Timesheets" name="timesheet">
                     <field name='timesheet_ids' context="{'default_project_id':
