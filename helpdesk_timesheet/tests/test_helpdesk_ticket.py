@@ -11,7 +11,9 @@ class TestHelpdeskTicket(SavepointCase):
         super(TestHelpdeskTicket, cls).setUpClass()
         cls.user_demo = cls.env.ref("base.user_demo")
         cls.stage_done = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
-        cls.project1 = cls.env["project.project"].create({"name": "Test Project 1"})
+        cls.project1 = cls.env["project.project"].create(
+            {"name": "Test Project 1"}
+        )
         cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test Helpdesk Ticket",
@@ -31,5 +33,6 @@ class TestHelpdeskTicket(SavepointCase):
         self.ticket.timesheet_ids = self.ticket.timesheet_ids | timesheet_line
         self.assertTrue(
             self.ticket.timesheet_ids,
-            "Helpdesk Ticket: An assigned ticket" "should have a timesheet line now.",
+            "Helpdesk Ticket: An assigned ticket"
+            "should have a timesheet line now.",
         )
