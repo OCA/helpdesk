@@ -5,7 +5,7 @@
     "category": "After-Sales",
     "version": "11.0.1.0.0",
     "depends": ["helpdesk_mgmt",
-                "hr_timesheet"
+                "hr_timesheet",
     ],
     "data": [
         "views/helpdesk_view.xml",
