@@ -1,6 +1,6 @@
-[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/282/11.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-helpdesk-282)
-[![Build Status](https://travis-ci.com/OCA/helpdesk.svg?branch=11.0)](https://travis-ci.com/OCA/helpdesk)
-[![codecov](https://codecov.io/gh/OCA/helpdesk/branch/11.0/graph/badge.svg)](https://codecov.io/gh/OCA/helpdesk)
+[![Runbot Status](https://runbot.odoo-community.org/runbot/badge/flat/282/12.0.svg)](https://runbot.odoo-community.org/runbot/repo/github-com-oca-helpdesk-282)
+[![Build Status](https://travis-ci.com/OCA/helpdesk.svg?branch=12.0)](https://travis-ci.com/OCA/helpdesk)
+[![codecov](https://codecov.io/gh/OCA/helpdesk/branch/12.0/graph/badge.svg)](https://codecov.io/gh/OCA/helpdesk)
 
 # Odoo modules for Helpdesk management
 
