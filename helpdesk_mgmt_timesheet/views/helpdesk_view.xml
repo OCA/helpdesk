@@ -8,7 +8,7 @@
             <field name="user_id" position="after">
                 <field name="project_id" />
             </field>
-            <xpath expr="//notebook/page[last()]" position="after">
+            <xpath expr="//notebook" position="inside">
                 <page string="Timesheets" name="timesheet">
                     <field name='timesheet_ids' context="{'default_project_id':
                         project_id}" groups="hr_timesheet.group_hr_timesheet_user">
