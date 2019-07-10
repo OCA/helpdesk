@@ -12,6 +12,7 @@
               'Domatix, '
               'Factor Libre, '
               'SDi Soluciones, '
+              'nguyenductamlhp'
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [
