@@ -190,7 +190,7 @@ Contributors
 
   * Pedro M. Baeza
 
-* `ID42 Soluções <https://www.id42.com>`_:
+* `ID42 Soluções <https://www.id42.com.br>`_:
 
   * Marcel Savegnago
   * Eduardo Aparício
