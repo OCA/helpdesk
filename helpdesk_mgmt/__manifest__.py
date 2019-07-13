@@ -12,7 +12,6 @@
               'Domatix, '
               'Factor Libre, '
               'SDi Soluciones, '
-              'ID42 Soluções, '
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [
