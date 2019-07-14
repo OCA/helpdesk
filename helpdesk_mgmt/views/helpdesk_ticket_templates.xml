@@ -82,7 +82,7 @@
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <div class="row">
-                          <div class="col-md-6">
+                          <div class="col-6">
                               <h4>
                                   <t t-call='portal.record_pager'/>
                                   <span t-field="ticket.name"/>
