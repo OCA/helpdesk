@@ -27,7 +27,7 @@
                 <filter string="High Priority" name="high_priority" domain="[('priority','=','3')]"/>
                 <separator/>
                 <filter string="My Tickets" name="mytickets" domain="[('user_id','=',uid)]"/>
-                <filter string="My Followed Tickets" domain="[('message_is_follower', '=', True)]" />
+                <filter string="My Followed Tickets" name="my_followed_tickets" domain="[('message_is_follower', '=', True)]" />
                 <separator/>
                 <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
                 <separator/>
@@ -42,10 +42,10 @@
                   domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
                   ]"/>
                 <group expand="0" string="Group By">
-                  <filter string="Partner" domain="[]" context="{'group_by':'partner_id'}"/>
-                  <filter string="Team" domain="[]" context="{'group_by':'team_id'}"/>
-                  <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
-                  <filter string="Stage" domain="[]" context="{'group_by':'stage_id'}"/>
+                  <filter string="Partner" name="group_partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                  <filter string="Team" name="group_team" domain="[]" context="{'group_by':'team_id'}"/>
+                  <filter string="User" name="group_user" domain="[]" context="{'group_by':'user_id'}"/>
+                  <filter string="Stage" name="group_stage" domain="[]" context="{'group_by':'stage_id'}"/>
                 </group>
             </search>
         </field>
