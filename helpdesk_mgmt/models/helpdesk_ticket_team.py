@@ -47,7 +47,7 @@ class HelpdeskTeam(models.Model):
         string="Number of tickets in high priority",
         compute='_compute_todo_tickets')
 
-    @api.depends('ticket_ids')
+    @api.depends('ticket_ids', 'ticket_ids.stage_id')
     def _compute_todo_tickets(self):
         for record in self:
             record.todo_ticket_ids = record.ticket_ids.filtered(
