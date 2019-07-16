@@ -18,7 +18,7 @@
         <field name="name">Helpdesk Manager</field>
         <field name="category_id" ref="module_helpdesk_category"/>
         <field name="implied_ids" eval="[(4, ref('group_helpdesk_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 
 </data>
@@ -33,6 +33,13 @@
         <field name="groups" eval="[(4, ref('group_helpdesk_user_own'))]"/>
     </record>
 
+    <record id="helpdesk_ticket_user_rule" model="ir.rule">
+        <field name="name">All Tickets</field>
+        <field ref="model_helpdesk_ticket" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('group_helpdesk_user'))]"/>
+    </record>
+    
     <!-- Company Rules -->
     <record id="helpdesk_ticket_comp_rule" model="ir.rule">
         <field name="name">Helpdesk Ticket Company Rule</field>

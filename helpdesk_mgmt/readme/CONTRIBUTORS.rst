@@ -25,3 +25,9 @@
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pedro M. Baeza
+
+* `ID42 Sistemas <https://www.id42.com.br>`_:
+
+  * Marcel Savegnago
+  * Eduardo Apar??cio
+
