@@ -1,5 +1,5 @@
-import werkzeug
 import logging
+import werkzeug
 import odoo.http as http
 _logger = logging.getLogger(__name__)
 
