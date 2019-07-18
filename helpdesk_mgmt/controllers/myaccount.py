@@ -24,7 +24,7 @@ class CustomerPortal(CustomerPortal):
             ticket.check_access_rights('read')
             ticket.check_access_rule('read')
         except AccessError:
-                raise
+            raise
         return ticket_sudo
 
     @http.route(
@@ -99,7 +99,7 @@ class CustomerPortal(CustomerPortal):
             'searchbar_filters': searchbar_filters,
             'filterby': filterby,
         })
-        return request.render("helpdesk.portal_my_tickets", values)
+        return request.render("helpdesk_mgmt.portal_my_tickets", values)
 
     @http.route(['/my/ticket/<int:ticket_id>'], type='http', website=True)
     def portal_my_ticket(self, ticket_id=None, **kw):
@@ -108,7 +108,8 @@ class CustomerPortal(CustomerPortal):
         except AccessError:
             return request.redirect('/my')
         values = self._ticket_get_page_view_values(ticket_sudo, **kw)
-        return request.render("helpdesk.portal_helpdesk_ticket_page", values)
+        return request.render("helpdesk_mgmt.portal_helpdesk_ticket_page",
+                              values)
 
     def _ticket_get_page_view_values(self, ticket, **kwargs):
         closed_stages = request.env['helpdesk.ticket.stage'].search(
