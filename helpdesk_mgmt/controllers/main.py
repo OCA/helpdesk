@@ -11,7 +11,10 @@ class HelpdeskTicketController(http.Controller):
         """Close the support ticket"""
         values = {}
         for field_name, field_value in kw.items():
-            values[field_name] = field_value
+            if field_name.endswith('_id'):
+                values[field_name] = int(field_value)
+            else:
+                values[field_name] = field_value
         ticket = http.request.env['helpdesk.ticket'].sudo().\
             search([('id', '=', values['ticket_id'])])
         ticket.stage_id = values.get('stage_id')
