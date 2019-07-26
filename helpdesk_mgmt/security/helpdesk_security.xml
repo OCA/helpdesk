@@ -33,6 +33,13 @@
         <field name="groups" eval="[(4, ref('group_helpdesk_user_own'))]"/>
     </record>
 
+    <record id="helpdesk_ticket_personal_rule_user" model="ir.rule">
+        <field name="name">User Rule Helpdesk</field>
+        <field ref="model_helpdesk_ticket" name="model_id"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('group_helpdesk_user'))]"/>
+    </record>
+
     <!-- Company Rules -->
     <record id="helpdesk_ticket_comp_rule" model="ir.rule">
         <field name="name">Helpdesk Ticket Company Rule</field>
