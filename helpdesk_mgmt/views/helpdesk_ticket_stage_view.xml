@@ -55,6 +55,7 @@
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="mail_template_id"/>
+                <field name="closed"/>
             </tree>
         </field>
     </record>
