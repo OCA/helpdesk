@@ -121,6 +121,8 @@ class HelpdeskTicket(models.Model):
         # Check if mail to the user has to be sent
         if vals.get('user_id') and res:
             res.send_user_mail()
+            if not vals.get('assigned_date'):
+                res['assigned_date'] = fields.Datetime.now()
         return res
 
     @api.multi
