@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt
+# 	* helpdesk_mgmt
 #
 msgid ""
 msgstr ""
@@ -18,13 +18,15 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid "${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
+msgid ""
+"${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
 msgstr ""
 "${object.company_id.name} Recibo de Pagamento (Ref ${object.name or 'n/d' })"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-msgid "<?xml version=\"1.0\"?>\n"
+msgid ""
+"<?xml version=\"1.0\"?>\n"
 "<data><p>Hello ${object.user_id.name},</p>\n"
 "        <p>The ticket ${object.number} has been assigned to you.</p>\n"
 "      </data>"
@@ -36,7 +38,8 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                          <b>Category:</b>"
 msgstr ""
 "<br/>\n"
@@ -44,7 +47,8 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                          <b>Stage:</b>"
 msgstr ""
 "<br/>\n"
@@ -145,7 +149,9 @@ msgstr "Canal"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_channel_id
-msgid "Channel indicates where the source of a ticketcomes from (it could be a phone call, an email...)"
+msgid ""
+"Channel indicates where the source of a ticketcomes from (it could be a "
+"phone call, an email...)"
 msgstr "Canal indica a origem do chamado (ligação telefônica, e-mail, etc.)"
 
 #. module: helpdesk_mgmt
@@ -359,7 +365,9 @@ msgstr "ID"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage_mail_template_id
-msgid "If set an email will be sent to the customer when the ticketreaches this step."
+msgid ""
+"If set an email will be sent to the customer when the ticketreaches this "
+"step."
 msgstr ""
 "Se configurado, um e-mail será enviado ao cliente quando o chamado atingir "
 "esta etapa."
@@ -479,7 +487,7 @@ msgid "Newest"
 msgstr "Mais Recente"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:182
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:184
 #, python-format
 msgid "No Subject"
 msgstr "Sem Assunto"
@@ -521,14 +529,14 @@ msgid "Partner"
 msgstr "Parceiro"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:220
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:222
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_partner_email
 #, python-format
 msgid "Partner Email"
 msgstr "E-mail do Parceiro"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:222
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:224
 #, python-format
 msgid "Partner Id"
 msgstr "Id do Parceiro"
@@ -626,7 +634,9 @@ msgstr "Não há chamados na sua conta."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage_fold
-msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgid ""
+"This stage is folded in the kanban view when there are no records in that "
+"stage to display."
 msgstr ""
 "Este estágio fica dobrado na visão Kanban quando não houver registros para "
 "exibir."
