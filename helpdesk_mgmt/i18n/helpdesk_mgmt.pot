@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid "${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
+msgid "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
 msgstr ""
 
 #. module: helpdesk_mgmt
