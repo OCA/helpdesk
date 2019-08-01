@@ -19,8 +19,11 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
+#, fuzzy
+#| msgid ""
+#| "${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
 msgid ""
-"${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
+"${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
 msgstr ""
 "${object.company_id.name} Recibo de Pago (Ref ${object.name or 'n/a' })"
 
