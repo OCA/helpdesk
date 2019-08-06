@@ -43,7 +43,7 @@ class HelpdeskTicket(models.Model):
 
     last_stage_update = fields.Datetime(
         string='Last Stage Update',
-        default=fields.Datetime.now(),
+        default=fields.Datetime.now,
     )
     assigned_date = fields.Datetime(string='Assigned Date')
     closed_date = fields.Datetime(string='Closed Date')
