@@ -1,3 +1,4 @@
+import time
 from odoo.tests import common
 
 
@@ -29,6 +30,8 @@ class TestHelpdeskTicket(common.SavepointCase):
                          'Helpdesk Ticket: No closed date '
                          'should be set for a non closed '
                          'ticket.')
+
+        time.sleep(1)
 
         self.ticket.write({
             'stage_id': self.stage_closed.id,
