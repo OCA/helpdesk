@@ -73,7 +73,7 @@ class HelpdeskTicket(models.Model):
     ], string='Priority', default='1')
     attachment_ids = fields.One2many(
         'ir.attachment', 'res_id',
-        domain=[('res_model', '=', 'website.support.ticket')],
+        domain=[('res_model', '=', 'helpdesk.ticket')],
         string="Media Attachments")
 
     def send_user_mail(self):
@@ -141,13 +141,13 @@ class HelpdeskTicket(models.Model):
                 stage_obj = self.env['helpdesk.ticket.stage'].browse(
                     [vals['stage_id']])
                 vals['last_stage_update'] = now
+                if stage_obj.closed is False:
+                    self.closed_date = False
                 if stage_obj.closed:
                     vals['closed_date'] = now
             if vals.get('user_id'):
                 vals['assigned_date'] = now
-
         res = super(HelpdeskTicket, self).write(vals)
-
         # Check if mail to the user has to be sent
         for ticket in self:
             if vals.get('user_id'):
@@ -166,7 +166,6 @@ class HelpdeskTicket(models.Model):
         if "stage_id" in changes and test_task.stage_id.mail_template_id:
             res['stage_id'] = (test_task.stage_id.mail_template_id,
                                {"composition_mode": "mass_mail"})
-
         return res
 
     @api.model
@@ -183,10 +182,8 @@ class HelpdeskTicket(models.Model):
             'partner_id': msg.get('author_id')
         }
         defaults.update(custom_values)
-
         # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
-
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
             (msg.get('to') or '') + ',' + (msg.get('cc') or '')
@@ -195,7 +192,6 @@ class HelpdeskTicket(models.Model):
             email_list, force_create=False
         ) if p]
         ticket.message_subscribe(partner_ids)
-
         return ticket
 
     @api.multi

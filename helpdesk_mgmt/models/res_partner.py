@@ -9,15 +9,12 @@ class Partner(models.Model):
         inverse_name="partner_id",
         string="Related tickets",
     )
-
     helpdesk_ticket_count = fields.Integer(
         compute="_compute_helpdesk_ticket_count", string="Ticket count"
     )
-
     helpdesk_ticket_active_count = fields.Integer(
         compute="_compute_helpdesk_ticket_count", string="Ticket active count"
     )
-
     helpdesk_ticket_count_string = fields.Char(
         compute="_compute_helpdesk_ticket_count", string="Tickets"
     )
