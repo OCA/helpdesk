@@ -2,11 +2,11 @@
 <odoo>
     <template id="portal_layout" name="Portal layout: ticket menu entry" inherit_id="portal.portal_breadcrumbs" priority="50">
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-            <li t-if="page_name == 'ticket' or ticket">
+            <li t-if="page_name == 'ticket' or ticket" t-attf-class="breadcrumb-item #{'active ' if not ticket else ''}">
                 <a t-if="ticket" t-attf-href="/my/tickets?{{ keep_query() }}">Tickets</a>
                 <t t-else="">Tickets</t>
             </li>
-            <li t-if="ticket">
+            <li t-if="ticket" class="breadcrumb-item active">
                 <t t-esc="ticket.name"/>
             </li>
         </xpath>
@@ -23,9 +23,11 @@
 
       <template id="portal_my_tickets" name="My tickets">
       <t t-call="portal.portal_layout">
-        <h3>Tickets
-            <t t-call="portal.portal_searchbar"/>
-        </h3>
+        <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+        <t t-call="portal.portal_searchbar">
+            <t t-set="title">Tickets</t>
+        </t>
         <t t-if="not tickets">
             <p>There are no tickets in your account.</p>
         </t>
