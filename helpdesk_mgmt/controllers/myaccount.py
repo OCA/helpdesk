@@ -95,7 +95,6 @@ class CustomerPortal(CustomerPortal):
             'default_url': '/my/tickets',
             'searchbar_sortings': searchbar_sortings,
             'sortby': sortby,
-            'no_breadcrumbs': False,
             'searchbar_filters': searchbar_filters,
             'filterby': filterby,
         })
