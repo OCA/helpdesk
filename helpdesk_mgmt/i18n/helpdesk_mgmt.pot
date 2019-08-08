@@ -920,3 +920,37 @@ msgstr ""
 msgid "assigned user"
 msgstr ""
 
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:83
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:84
+msgid "Search in Content"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:69
+msgid "Search in Names"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
+msgid "Search in Descriptions"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
+msgid "Search in Assigned users"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
+msgid "Search in Categories"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:80
+msgid "Search in Messages"
+msgstr ""
