@@ -91,11 +91,6 @@
                           </table>
                         </td>
                       </tr>
-                      <tr>
-                        <td align="center">
-                            Powered by <a target="_blank" href="https://www.odoo.com">Odoo</a>.
-                        </td>
-                      </tr>
                     </tbody>
                 </table>
                 </body>
@@ -170,11 +165,6 @@
                               </td>
                             </tr>
                           </table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td align="center">
-                            Powered by <a target="_blank" href="https://www.odoo.com">Odoo</a>.
                         </td>
                       </tr>
                     </tbody>
