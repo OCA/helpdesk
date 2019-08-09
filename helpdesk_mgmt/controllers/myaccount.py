@@ -89,7 +89,7 @@ class CustomerPortal(CustomerPortal):
         )
         values.update({
             'date': date_begin,
-            'tickets': tickets,
+            'tickets': tickets.sudo(),
             'page_name': 'ticket',
             'pager': pager,
             'default_url': '/my/tickets',
@@ -108,8 +108,8 @@ class CustomerPortal(CustomerPortal):
         except AccessError:
             return request.redirect('/my')
         values = self._ticket_get_page_view_values(ticket_sudo, **kw)
-        return request.render("helpdesk_mgmt.portal_helpdesk_ticket_page",
-                              values)
+        return request.render(
+            "helpdesk_mgmt.portal_helpdesk_ticket_page",values)
 
     def _ticket_get_page_view_values(self, ticket, **kwargs):
         closed_stages = request.env['helpdesk.ticket.stage'].search(
@@ -119,12 +119,10 @@ class CustomerPortal(CustomerPortal):
             'ticket': ticket,
             'closed_stages': closed_stages,
         }
-
         if kwargs.get('error'):
             values['error'] = kwargs['error']
         if kwargs.get('warning'):
             values['warning'] = kwargs['warning']
         if kwargs.get('success'):
             values['success'] = kwargs['success']
-
         return values

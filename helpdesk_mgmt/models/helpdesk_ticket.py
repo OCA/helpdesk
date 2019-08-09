@@ -19,7 +19,6 @@ class HelpdeskTicket(models.Model):
     user_id = fields.Many2one(
         'res.users',
         string='Assigned user',)
-
     user_ids = fields.Many2many(
         comodel_name='res.users',
         related='team_id.user_ids',
@@ -29,7 +28,6 @@ class HelpdeskTicket(models.Model):
     def _read_group_stage_ids(self, stages, domain, order):
         stage_ids = self.env['helpdesk.ticket.stage'].search([])
         return stage_ids
-
     stage_id = fields.Many2one(
         'helpdesk.ticket.stage',
         string='Stage',
@@ -117,7 +115,6 @@ class HelpdeskTicket(models.Model):
             vals['number'] = seq.next_by_code(
                 'helpdesk.ticket.sequence') or '/'
         res = super().create(vals)
-
         # Check if mail to the user has to be sent
         if vals.get('user_id') and res:
             res.send_user_mail()
@@ -147,11 +144,11 @@ class HelpdeskTicket(models.Model):
                 vals['last_stage_update'] = now
                 if stage_obj.closed:
                     vals['closed_date'] = now
+                else:
+                    self.closed_date = False
             if vals.get('user_id'):
                 vals['assigned_date'] = now
-
         res = super(HelpdeskTicket, self).write(vals)
-
         # Check if mail to the user has to be sent
         for ticket in self:
             if vals.get('user_id'):
@@ -170,7 +167,6 @@ class HelpdeskTicket(models.Model):
         if "stage_id" in changes and test_task.stage_id.mail_template_id:
             res['stage_id'] = (test_task.stage_id.mail_template_id,
                                {"composition_mode": "mass_mail"})
-
         return res
 
     @api.model
@@ -187,10 +183,8 @@ class HelpdeskTicket(models.Model):
             'partner_id': msg.get('author_id')
         }
         defaults.update(custom_values)
-
         # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
-
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
             (msg.get('to') or '') + ',' + (msg.get('cc') or '')
@@ -199,7 +193,6 @@ class HelpdeskTicket(models.Model):
             email_list, force_create=False
         ) if p]
         ticket.message_subscribe(partner_ids)
-
         return ticket
 
     @api.multi
@@ -222,7 +215,6 @@ class HelpdeskTicket(models.Model):
             reason = _('Partner Email') \
                 if ticket.partner_id and ticket.partner_id.email \
                 else _('Partner Id')
-
             if ticket.partner_id and ticket.partner_id.email:
                 ticket._message_add_suggested_recipient(
                     recipients,

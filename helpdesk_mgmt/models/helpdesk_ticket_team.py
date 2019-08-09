@@ -18,31 +18,24 @@ class HelpdeskTeam(models.Model):
         default=lambda self: self.env['res.company']._company_default_get(
             'helpdesk.ticket')
     )
-
     color = fields.Integer("Color Index", default=0)
-
     ticket_ids = fields.One2many(
         'helpdesk.ticket',
         'team_id',
         string="Tickets")
-
     todo_ticket_ids = fields.One2many(
         'helpdesk.ticket',
         'team_id',
         string="Todo tickets")
-
     todo_ticket_count = fields.Integer(
         string="Number of tickets",
         compute='_compute_todo_tickets')
-
     todo_ticket_count_unassigned = fields.Integer(
         string="Number of tickets unassigned",
         compute='_compute_todo_tickets')
-
     todo_ticket_count_unattended = fields.Integer(
         string="Number of tickets unattended",
         compute='_compute_todo_tickets')
-
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority",
         compute='_compute_todo_tickets')

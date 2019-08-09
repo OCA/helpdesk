@@ -15,8 +15,8 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = int(field_value)
             else:
                 values[field_name] = field_value
-        ticket = http.request.env['helpdesk.ticket'].sudo().\
-            search([('id', '=', values['ticket_id'])])
-        ticket.stage_id = values.get('stage_id')
-
+        ticket = http.request.env['helpdesk.ticket'].sudo().browse([(
+            'id', '=', values['ticket_id'])])
+        stage_id = int(values.get('stage_id'))
+        ticket.update({'stage_id': stage_id})
         return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
