@@ -63,6 +63,11 @@ msgid "Active"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+msgid "Add Attachments"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
@@ -122,6 +127,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_category_ids
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Category"
 msgstr ""
@@ -218,6 +224,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_description
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
@@ -236,6 +243,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
 msgid "Done"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+msgid "Email"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -448,6 +460,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_name
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
 msgid "Name"
@@ -456,6 +469,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_new
 msgid "New"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+msgid "New Ticket"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -547,6 +566,11 @@ msgid "Reporting"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+msgid "Send a new ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_sequence
 msgid "Sequence"
 msgstr ""
@@ -578,6 +602,16 @@ msgstr ""
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 msgid "Stages"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+msgid "Subject"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+msgid "Submit Ticket"
 msgstr ""
 
 #. module: helpdesk_mgmt
