@@ -33,23 +33,16 @@
       <field name="lang">${object.partner_id.lang}</field>
       <field name="body_html"><![CDATA[<html>
                 <head></head>
-                % set record = ctx.get('record')
-                % set company = record and record.company_id or ctx.get('company')
                 <body style="margin: 0; padding: 0;">
-                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;" summary="o_mail_notification">
+                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;">
                     <tbody>
                       <!-- HEADER -->
                       <tr>
                         <td align="center" style="min-width: 590px;">
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
-                              <td valign="middle">
-                                  <span style="font-size:20px; color:white; font-weight: bold;">
-                                      ${object.record_name}
-                                  </span>
-                              </td>
                               <td valign="middle" align="right">
-                                  <img src="/logo.png?company=${company.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${company.name}">
+                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}">
                               </td>
                             </tr>
                           </table>
@@ -74,18 +67,13 @@
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
                               <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${company.name}<br/>
-                                ${company.phone or ''}
+                                ${object.company_id.phone}
                               </td>
-                              <td valign="middle" align="right" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                % if company.email:
-                                <a href="mailto:${company.email}" style="text-decoration:none; color: white;">${company.email}</a><br/>
-                                % endif
-                                % if company.website:
-                                    <a href="${company.website}" style="text-decoration:none; color: white;">
-                                        ${company.website}
-                                    </a>
-                                % endif
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${object.company_id.email}
+                              </td>
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${object.company_id.website}
                               </td>
                             </tr>
                           </table>
@@ -95,8 +83,7 @@
                 </table>
                 </body>
                 </html>
-            ]]>
-      </field>
+            ]]></field>
     </record>
 
     <record id="changed_stage_template" model="mail.template">
@@ -109,23 +96,16 @@
       <field name="lang">${object.partner_id.lang}</field>
       <field name="body_html"><![CDATA[<html>
                 <head></head>
-                % set record = ctx.get('record')
-                % set company = record and record.company_id or ctx.get('company')
                 <body style="margin: 0; padding: 0;">
-                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;" summary="o_mail_notification">
+                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;">
                     <tbody>
                       <!-- HEADER -->
                       <tr>
                         <td align="center" style="min-width: 590px;">
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
-                              <td valign="middle">
-                                  <span style="font-size:20px; color:white; font-weight: bold;">
-                                      ${object.record_name}
-                                  </span>
-                              </td>
                               <td valign="middle" align="right">
-                                  <img src="/logo.png?company=${company.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${company.name}">
+                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;">
                               </td>
                             </tr>
                           </table>
@@ -150,18 +130,13 @@
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
                               <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${company.name}<br/>
-                                ${company.phone or ''}
+                                ${object.company_id.phone}
                               </td>
-                              <td valign="middle" align="right" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                % if company.email:
-                                <a href="mailto:${company.email}" style="text-decoration:none; color: white;">${company.email}</a><br/>
-                                % endif
-                                % if company.website:
-                                    <a href="${company.website}" style="text-decoration:none; color: white;">
-                                        ${company.website}
-                                    </a>
-                                % endif
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${object.company_id.email}
+                              </td>
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${object.company_id.website}
                               </td>
                             </tr>
                           </table>
@@ -211,6 +186,7 @@
       <field name="unattended">False</field>
       <field name="closed">True</field>
       <field name="fold">True</field>
+      <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template"/>
       <field name="company_id"/>
     </record>
     <record id="helpdesk_ticket_stage_cancelled" model="helpdesk.ticket.stage">
@@ -219,6 +195,7 @@
       <field name="unattended">False</field>
       <field name="closed">True</field>
       <field name="fold">True</field>
+      <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template"/>
       <field name="company_id"/>
     </record>
     <!-- Channels -->
