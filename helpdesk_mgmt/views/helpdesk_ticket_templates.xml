@@ -18,16 +18,23 @@
                 <t t-set="url" t-value="'/my/tickets'"/>
                 <t t-set="count" t-value="ticket_count"/>
               </t>
+              <form method="POST" t-attf-action="/new/ticket">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <button name="create_new_ticket" type="action" class="btn btn-primary" groups="base.group_portal" style="float: right; margin-right: 0px; margin-top:5px;">New Ticket</button>
+              </form>
           </xpath>
       </template>
 
       <template id="portal_my_tickets" name="My tickets">
       <t t-call="portal.portal_layout">
         <t t-set="breadcrumbs_searchbar" t-value="True"/>
-
-        <t t-call="portal.portal_searchbar">
-            <t t-set="title">Tickets</t>
-        </t>
+        <form method="POST" t-attf-action="/new/ticket">
+          <h3>Tickets
+            <t t-call="portal.portal_searchbar"/>
+            <button name="create_new_ticket" type="action" class="btn btn-primary" groups="base.group_portal" style="float: right; margin-right: 5px;">New Ticket</button>
+          </h3>
+          <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+        </form>
         <t t-if="not tickets">
             <p>There are no tickets in your account.</p>
         </t>
@@ -129,6 +136,66 @@
               </div>
           <div class="oe_structure mb32"/>
       </t>
+  </template>
+  <template id="portal_create_ticket" name="Create Ticket">
+    <t t-call="portal.portal_layout">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center">Send a new ticket</h1>
+          </div>
+        </div>
+      </div>
+
+      <form action="/submitted/ticket" method="POST" class="form-horizontal mt32" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-4 control-label" for="name">Name</label>
+          <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="name" t-attf-value="#{name}" required="True"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-4 control-label" for="email">Email</label>
+          <div class="col-md-7 col-sm-8">
+            <input type="email" class="form-control" name="email" required="True" t-attf-value="#{email}" readonly="True" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-4 control-label" for="category">Category</label>
+          <div class="col-md-7 col-sm-8">
+            <select class="form-control" id="category" name="category" required="True">
+              <t t-foreach="categories" t-as="cat">
+                <option t-attf-value="#{cat.id}"><t t-esc="cat.name"/></option>
+              </t>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-4 control-label" for="subject">Subject</label>
+          <div class="col-md-7 col-sm-8">
+            <input type="text" class="form-control" name="subject" required="True"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 col-sm-4 control-label" for="attachment">Add Attachments</label>
+          <div class="col-md-7 col-sm-8">
+              <div class="btn btn-default btn-file col-md-12"><input class="form-control o_website_form_input" name="attachment" id="attachment" type="file" multiple="multiple"/></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 col-dm-4 control-label" for="description">Description</label>
+          <div class="col-md-7 col-sm-8">
+            <textarea class="form-control" name="description" style="min-height: 120px" required="True"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+            <button class="btn btn-primary btn-lg">Submit Ticket</button>
+          </div>
+        </div>
+      </form>
+    </t>
   </template>
 
 </odoo>
