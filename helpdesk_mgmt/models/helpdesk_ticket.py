@@ -76,6 +76,23 @@ class HelpdeskTicket(models.Model):
         domain=[('res_model', '=', 'helpdesk.ticket')],
         string="Media Attachments")
 
+    link_settings = fields.Boolean(compute="_get_configuration")
+
+    link_docs = fields.Reference(
+        string='Related Document', selection='get_referencable_models')
+
+    def _get_configuration(self):
+        irDefault = self.env['ir.default'].sudo()
+        self.link_settings = irDefault.get('res.config.settings', 'link_docs')
+
+    @api.model
+    def get_referencable_models(self):
+        irDefault = self.env['ir.default'].sudo()
+        ids = irDefault.get('res.config.settings', 'related_models')
+        models = self.env['res.request.link'].search(
+            [('id', 'in', ids)])
+        return[(x.object, x.name) for x in models]
+
     def send_user_mail(self):
         self.env.ref('helpdesk_mgmt.assignment_email_template'). \
             send_mail(self.id)

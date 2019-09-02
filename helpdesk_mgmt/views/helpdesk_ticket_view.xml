@@ -90,6 +90,10 @@
                             <field name="category_id"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
                         </group>
+                        <group>
+                          <field name="link_settings" invisible='1'/>
+                          <field name="link_docs" attrs="{'invisible': [('link_settings', '=', False)]}"/>
+                        </group>
                     </group>
                     <group>
                         <notebook>

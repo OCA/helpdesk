@@ -32,6 +32,7 @@
         'views/helpdesk_ticket_tag_view.xml',
         'views/helpdesk_ticket_view.xml',
         'views/helpdesk_dashboard_view.xml',
+        'views/res_config_settings.xml',
     ],
     'demo': [
         'demo/helpdesk_demo.xml',
