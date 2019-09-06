@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+  <record id="helpdesk_ticket_config_settings_action" model="ir.actions.act_window">
+    <field name="name">Configure Helpdesk</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">res.config.settings</field>
+    <field name="view_mode">form</field>
+    <field name="context">{'module': 'helpdesk_mgmt'}</field>
+  </record>
+
+  <menuitem id="helpdesk_ticket_config_settings_menu" name="Settings"
+    parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu" action="helpdesk_ticket_config_settings_action" sequence="1"/>
+
+  </odoo>
