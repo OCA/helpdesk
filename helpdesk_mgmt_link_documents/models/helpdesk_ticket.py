@@ -14,7 +14,8 @@ class HelpdeskTicket(models.Model):
     def _get_configuration(self):
         for record in self:
             irDefault = record.env['ir.default'].sudo()
-            record.link_settings = irDefault.get('res.config.settings', 'link_docs')
+            record.link_settings = irDefault.get('res.config.settings',
+                                                 'link_docs')
 
     @api.model
     def get_referencable_models(self):
