@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from odoo import _, api, fields, models, tools
 
 
@@ -7,7 +8,7 @@ class HelpdeskTicket(models.Model):
     _description = 'Helpdesk Ticket'
     _rec_name = 'number'
     _order = 'number desc'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread']
 
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id

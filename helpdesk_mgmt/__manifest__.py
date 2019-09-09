@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Helpdesk Management',
     'summary': """
         Helpdesk""",
-    'version': '12.0.1.5.0',
+    'version': '10.0.1.5.0',
     'license': 'AGPL-3',
     'category': 'After-Sales',
     'author': 'AdaptiveCity, '
@@ -23,7 +24,7 @@
         'security/helpdesk_security.xml',
         'security/ir.model.access.csv',
         'views/res_partner_view.xml',
-        'views/helpdesk_ticket_templates.xml',
+        # 'views/helpdesk_ticket_templates.xml',
         'views/helpdesk_ticket_menu.xml',
         'views/helpdesk_ticket_team_view.xml',
         'views/helpdesk_ticket_stage_view.xml',
@@ -34,7 +35,7 @@
         'views/helpdesk_dashboard_view.xml',
     ],
     'demo': [
-        'demo/helpdesk_demo.xml',
+        # 'demo/helpdesk_demo.xml',
     ],
     'development_status': 'Alpha',
     'application': True,

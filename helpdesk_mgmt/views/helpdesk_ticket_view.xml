@@ -31,16 +31,16 @@
                 <separator/>
                 <filter name="last_week" string="Last Week" domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"/>
                 <separator/>
-                <filter string="My Activities" name="activities_my"
-                  domain="[('activity_ids.user_id', '=', uid)]"/>
-                <filter string="Late Activities" name="activities_overdue"
-                  domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
-                  help="Show all records which has next action date is before today"/>
-                <filter string="Today Activities" name="activities_today"
-                  domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
-                <filter string="Future Activities" name="activities_upcoming_all"
-                  domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
-                  ]"/>
+<!--                <filter string="My Activities" name="activities_my"-->
+<!--                  domain="[('activity_ids.user_id', '=', uid)]"/>-->
+<!--                <filter string="Late Activities" name="activities_overdue"-->
+<!--                  domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"-->
+<!--                  help="Show all records which has next action date is before today"/>-->
+<!--                <filter string="Today Activities" name="activities_today"-->
+<!--                  domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>-->
+<!--                <filter string="Future Activities" name="activities_upcoming_all"-->
+<!--                  domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))-->
+<!--                  ]"/>-->
                 <group expand="0" string="Group By">
                   <filter string="Partner" name="group_partner" domain="[]" context="{'group_by':'partner_id'}"/>
                   <filter string="Team" name="group_team" domain="[]" context="{'group_by':'team_id'}"/>
@@ -141,7 +141,7 @@
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
+<!--                    <field name="activity_ids" widget="mail_activity"/>-->
                     <field name="message_ids" widget="mail_thread"/>
                 </div>
             </form>
@@ -192,9 +192,9 @@
                             <div class="o_kanban_record_bottom">
                                 <div class="oe_kanban_bottom_left">
                                     <field name="priority" widget="priority"/>
-                                    <div class="o_kanban_inline_block">
-                                        <field name="activity_ids" widget="kanban_activity"/>
-                                    </div>
+<!--                                    <div class="o_kanban_inline_block">-->
+<!--                                        <field name="activity_ids" widget="kanban_activity"/>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                         </div>

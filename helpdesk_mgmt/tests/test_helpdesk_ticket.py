@@ -8,7 +8,7 @@ class TestHelpdeskTicket(common.SavepointCase):
     def setUpClass(cls):
         super(TestHelpdeskTicket, cls).setUpClass()
         helpdesk_ticket = cls.env['helpdesk.ticket']
-        cls.user_admin = cls.env.ref('base.user_root')
+        cls.user_root = cls.env.ref('base.user_root')
         cls.user_demo = cls.env.ref('base.user_demo')
         cls.stage_closed = cls.env.ref(
             'helpdesk_mgmt.helpdesk_ticket_stage_done'
@@ -46,7 +46,7 @@ class TestHelpdeskTicket(common.SavepointCase):
                         'change.')
 
         self.ticket.write({
-            'user_id': self.user_admin.id,
+            'user_id': self.user_root.id,
         })
         self.assertTrue(self.ticket.assigned_date,
                         'Helpdesk Ticket: An assigned ticket '

@@ -18,7 +18,7 @@
         <field name="name">Helpdesk Manager</field>
         <field name="category_id" ref="module_helpdesk_category"/>
         <field name="implied_ids" eval="[(4, ref('group_helpdesk_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_root'))]"/>
     </record>
 
 </data>
