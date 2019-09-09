@@ -117,7 +117,7 @@ class HelpdeskTicket(models.Model):
                 seq = seq.with_context(force_company=vals['company_id'])
             vals['number'] = seq.next_by_code(
                 'helpdesk.ticket.sequence') or '/'
-        res = super().create(vals)
+        res = super(HelpdeskTicket, self).create(vals)
 
         # Check if mail to the user has to be sent
         if vals.get('user_id') and res:
@@ -188,7 +188,8 @@ class HelpdeskTicket(models.Model):
         defaults.update(custom_values)
 
         # Write default values coming from msg
-        ticket = super().message_new(msg, custom_values=defaults)
+        ticket = super(
+            HelpdeskTicket, self).message_new(msg, custom_values=defaults)
 
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
@@ -211,11 +212,13 @@ class HelpdeskTicket(models.Model):
             email_list, force_create=False
         ) if p]
         self.message_subscribe(partner_ids)
-        return super().message_update(msg, update_vals=update_vals)
+        return super(
+            HelpdeskTicket, self).message_update(msg, update_vals=update_vals)
 
     @api.multi
     def message_get_suggested_recipients(self):
-        recipients = super().message_get_suggested_recipients()
+        recipients = super(
+            HelpdeskTicket, self).message_get_suggested_recipients()
 
         for ticket in self:
             reason = _('Partner Email') \
