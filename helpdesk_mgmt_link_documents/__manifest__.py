@@ -1,5 +1,5 @@
 {
-    'name': 'Helpdesk link documents',
+    'name': 'Helpdesk link document',
     'summary': 'Allow link any document to helpdesk tickets',
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
