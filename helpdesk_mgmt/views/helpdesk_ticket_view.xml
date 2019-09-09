@@ -80,7 +80,7 @@
 
                             <field name="priority" widget="priority"/>
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
-                            <field name="create_date" attrs="{'readonly': True}"/>
+                            <field name="create_date" readonly="1"/>
                             <field name="channel_id"/>
                         </group>
                         <group>
