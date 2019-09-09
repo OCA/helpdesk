@@ -4,7 +4,7 @@
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'author': 'Domatix',
-    'website': 'https://www.domatix.com/',
+    'website': 'https://github.com/OCA/helpdesk',
     'depends': [
         'helpdesk_mgmt'
     ],
