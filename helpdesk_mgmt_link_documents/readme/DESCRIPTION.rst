@@ -1,3 +1,3 @@
 
-This module extends the functionality of helpdes tickets
+This module extends the functionality of helpdesk tickets
 and to allow you to link any document to tickets.
