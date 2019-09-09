@@ -1,7 +1,7 @@
 {
     'name': 'Helpdesk linker',
     'summary': 'Allow link any document to helpdesk tickets',
-    'version': '11.0.1.8.0',
+    'version': '11.0.1.0.0',
     'license': 'AGPL-3',
     'author': 'Domatix',
     'website': 'https://www.domatix.com/',
