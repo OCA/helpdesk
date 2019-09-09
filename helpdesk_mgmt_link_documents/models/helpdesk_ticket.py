@@ -5,13 +5,13 @@ class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     link_settings = fields.Boolean(
-        compute='_get_configuration')
+        compute='_compute_link_settings')
 
     link_docs = fields.Reference(
         string='Related Document',
         selection='get_referencable_models')
 
-    def _get_configuration(self):
+    def _compute_link_settings(self):
         for record in self:
             irDefault = record.env['ir.default'].sudo()
             record.link_settings = irDefault.get('res.config.settings',
