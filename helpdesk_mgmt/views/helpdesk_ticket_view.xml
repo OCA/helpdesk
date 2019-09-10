@@ -80,7 +80,7 @@
 
                             <field name="priority" widget="priority"/>
                             <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
-                            <field name="create_date"/>
+                            <field name="create_date" readonly="1"/>
                             <field name="channel_id"/>
                         </group>
                         <group>
@@ -158,7 +158,7 @@
                 <field name="user_id"/>
                 <field name="stage_id"/>
                 <field name="priority" widget="priority"/>
-                <field name="create_date"/>
+                <field name="create_date" readonly="1"/>
                 <field name="last_stage_update"/>
             </tree>
         </field>
