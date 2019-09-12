@@ -3,6 +3,7 @@
   * Carlos Martínez
   * Catalin Airimitoaie
   * Álvaro López
+  * Samuel Calvo
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 

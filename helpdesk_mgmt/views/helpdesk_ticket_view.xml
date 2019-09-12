@@ -84,6 +84,10 @@
                             <field name="channel_id"/>
                         </group>
                         <group>
+                          <field name="link_settings" invisible="1"/>
+                          <field name="link_docs" attrs="{'invisible': [('link_settings', '=', False)]}"/>
+                        </group>
+                        <group>
                             <field name="partner_id"/>
                             <field name="partner_name"/>
                             <field name="partner_email"/>

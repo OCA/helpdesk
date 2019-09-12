@@ -68,15 +68,14 @@
             <field name="view_type">form</field>
         </record>
 
-        <!-- #TODO -->
-        <!-- <record id="helpdesk_ticket_config_settings_action" model="ir.actions.act_window">
+        <record id="helpdesk_ticket_config_settings_action" model="ir.actions.act_window">
             <field name="name">Configure Helpdesk</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.config.settings</field>
             <field name="view_mode">form</field>
             <field name="target">inline</field>
-            <field name="context">{'module' : 'helpdesk'}</field>
-        </record> -->
+            <field name="context">{'module' : 'helpdesk_mgmt'}</field>
+        </record>
 
         <!-- Menus -->
         <menuitem id="helpdesk_ticket_main_menu" name="Helpdesk" sequence="16"
@@ -99,9 +98,8 @@
             parent="helpdesk_ticket_main_menu" sequence="35"
             groups="group_helpdesk_manager"/>
 
-        <!-- #TODO -->
-        <!-- <menuitem id="helpdesk_ticket_config_settings_menu" name="Settings"
-            parent="helpdesk_ticket_config_main_menu" action="helpdesk_ticket_config_settings_action" sequence="1"/> -->
+        <menuitem id="helpdesk_ticket_config_settings_menu" name="Settings"
+            parent="helpdesk_ticket_config_main_menu" action="helpdesk_ticket_config_settings_action" sequence="1"/>
 
         <menuitem id="helpdesk_ticket_channel_menu" name="Channels" parent="helpdesk_ticket_config_main_menu"
             action="helpdesk_ticket_channel_action" sequence="5"/>
