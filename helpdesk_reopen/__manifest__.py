@@ -5,18 +5,15 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Helpdesk Reopen',
-    'version': '12.0.0.1.0',
-    'category': 'Helpdesk',
-    'summary': 'Auto Helpdesk Reopen',
-    'description': """
+    "name": "Helpdesk Reopen",
+    "version": "12.0.0.1.0",
+    "category": "Helpdesk",
+    "summary": "Auto Helpdesk Reopen",
+    "description": """
 	Automatically reopens helpdesk queries if someone replies back to that query
 	""",
-    'author': 'OERP, Coop IT Easy SCRLfs',
-    'website': 'www.oerp.eu',
-    'depends': [
-        'helpdesk',
-        'mail',     
-    ],
-    'installable': True,
+    "author": "OERP, Coop IT Easy SCRLfs",
+    "website": "www.oerp.eu",
+    "depends": ["helpdesk", "mail"],
+    "installable": True,
 }

@@ -6,8 +6,9 @@
 
 from odoo import models, api
 
+
 class MailMessage(models.Model):
-    _inherit = 'mail.message'
+    _inherit = "mail.message"
 
     def is_production_env(self):
         """ Used to determine how we will treat comments.
@@ -18,22 +19,25 @@ class MailMessage(models.Model):
 
     @api.model
     def is_reopener_message(self, vals):
-        if not vals.get('model') == 'helpdesk.ticket':
+        if not vals.get("model") == "helpdesk.ticket":
             return False
-        if vals.get('message_type') == 'notification':
+        if vals.get("message_type") == "notification":
             return False
         # We need to use comments in non-prod env for testing purposes
-        if self.is_production_env() and vals.get('message_type') == 'comment':
+        if self.is_production_env() and vals.get("message_type") == "comment":
             return False
         return True
-
 
     @api.model
     def create(self, vals):
         if self.is_reopener_message(vals):
-            ticket = self.env["helpdesk.ticket"].search([('id', '=', vals.get('res_id'))])
+            ticket = self.env["helpdesk.ticket"].search(
+                [("id", "=", vals.get("res_id"))]
+            )
             if ticket:
                 if ticket.stage_id.is_close:
-                    stage = self.env["helpdesk.stage"].search([("sequence", "=", 0)])
+                    stage = ticket.team_id.mapped("stage_ids").sorted(
+                        "sequence"
+                    )[0]
                     ticket.stage_id = stage
         return super(MailMessage, self).create(vals)
