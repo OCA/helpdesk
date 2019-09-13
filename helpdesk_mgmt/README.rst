@@ -172,6 +172,7 @@ Contributors
   * Carlos Martínez
   * Catalin Airimitoaie
   * Álvaro López
+  * Nacho Serra
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
