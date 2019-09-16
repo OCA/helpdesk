@@ -3,6 +3,7 @@
   * Carlos Mart??nez
   * Catalin Airimitoaie
   * ??lvaro L??pez
+  * Samuel Calvo
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
@@ -30,4 +31,3 @@
 
   * Marcel Savegnago
   * Eduardo Apar??cio
-
