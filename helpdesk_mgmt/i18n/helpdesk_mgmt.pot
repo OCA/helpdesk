@@ -129,6 +129,11 @@ msgid "Awaiting"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: selection:helpdesk.ticket,kanban_state:0
+msgid "Blocked"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "By"
 msgstr ""
@@ -185,6 +190,7 @@ msgid "Closed Date"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__color
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__color
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__color
 msgid "Color Index"
@@ -242,6 +248,16 @@ msgid "Dashboard"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: selection:helpdesk.ticket,kanban_state:0
+msgid "Default"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
@@ -263,6 +279,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
 msgid "Done"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+msgid "Edit"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -423,6 +444,11 @@ msgid "Is Follower"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__kanban_state
+msgid "Kanban State"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel____last_update
@@ -569,7 +595,7 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:182
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:187
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -641,14 +667,14 @@ msgid "Partner"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:220
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:225
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:222
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:227
 #, python-format
 msgid "Partner Id"
 msgstr ""
@@ -671,6 +697,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
 msgid "Priority"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: selection:helpdesk.ticket,kanban_state:0
+msgid "Ready for next stage"
 msgstr ""
 
 #. module: helpdesk_mgmt
