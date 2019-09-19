@@ -75,6 +75,11 @@ class HelpdeskTicket(models.Model):
         'ir.attachment', 'res_id',
         domain=[('res_model', '=', 'helpdesk.ticket')],
         string="Media Attachments")
+    color = fields.Integer(string='Color Index')
+    kanban_state = fields.Selection([
+        ('normal', 'Default'),
+        ('done', 'Ready for next stage'),
+        ('blocked', 'Blocked')], string='Kanban State')
 
     link_settings = fields.Boolean(
         compute='_compute_link_settings')
