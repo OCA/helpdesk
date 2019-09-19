@@ -213,7 +213,7 @@
                               <field name="activity_ids" widget="kanban_activity" related="activity_state"/>
                               <field name="kanban_state" widget="state_selection"/>
                               <field name="activity_state" invisible="1"/>
-                              <img t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" t-att-title="record.user_id.value" width="24" height="24" class="oe_kanban_avatar" t-att-alt="Assigned user image"/>
+                              <img t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" t-att-title="record.user_id.value" width="24" height="24" class="oe_kanban_avatar" t-att-alt="'Assigned' + 'user' + 'image'"/>
                             </div>
                           </div>
                       </div>
