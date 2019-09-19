@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-17 15:48+0000\n"
+"PO-Revision-Date: 2019-09-23 14:24+0000\n"
 "Last-Translator: Rodrigo Macedo <rmsolucoeseminformatic4@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -275,6 +275,11 @@ msgstr "Data de Atribui????o"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
 msgstr "Usu??rio atribu??do"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+msgid "Assigned user image"
+msgstr "Imagem de usu??rio atribu??da"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -980,12 +985,12 @@ msgstr "Equipes"
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket ${object.number} has been closed."
-msgstr ""
+msgstr "O ticket ${object.number} foi fechado."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket ${object.number} stage has changed."
-msgstr ""
+msgstr "O est??gio do ticket ${object.number} foi alterado."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
