@@ -287,6 +287,13 @@ msgid "Assigned user"
 msgstr "Usuario asignado"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#, fuzzy
+#| msgid "Assigned user"
+msgid "Assigned user image"
+msgstr "Usuario asignado"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
 #, fuzzy
 #| msgid "Attachments"
