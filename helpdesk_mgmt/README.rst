@@ -27,6 +27,11 @@ Helpdesk Management
 
 This module adds Helpdesk functionality in Odoo.
 
+.. IMPORTANT::
+   This is an alpha version, the data model and design can change at any time without warning.
+   Only for development or testing purpose, do not use in production.
+   `More details on development status <https://odoo-community.org/page/development-status>`_
+
 **Table of contents**
 
 .. contents::
@@ -167,6 +172,7 @@ Contributors
   * Carlos Martínez
   * Catalin Airimitoaie
   * Álvaro López
+  * Samuel Calvo
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 
@@ -194,7 +200,6 @@ Contributors
 
   * Marcel Savegnago
   * Eduardo Aparício
-
 
 Maintainers
 ~~~~~~~~~~~
