@@ -1,4 +1,3 @@
-# coding: utf-8
 # Author: Andrius Laukavičius. Copyright: JSC Boolit
 # Copyright 2019 Coop IT Easy SCRLfs
 # @author Pierrick Brun <pierrick.brun@akretion.com>
