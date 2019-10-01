@@ -9,11 +9,11 @@
                 <field name="project_id" />
             </field>
             <xpath expr="//notebook" position="inside">
-                <page string="Timesheets" name="timesheet">
+                <page string="Timesheets" name="timesheet"
+                        attrs="{'invisible': [('project_id','=', False)]}">
                     <field name='timesheet_ids' context="{'default_project_id':
                         project_id}"
-                        groups="hr_timesheet.group_hr_timesheet_user"
-                        attrs="{'readonly': [('project_id','!=', True)]}">
+                        groups="hr_timesheet.group_hr_timesheet_user">
                         <tree editable="bottom" string="Timesheet Activities" default_order="date">
                             <field name="date"/>
                             <field name="user_id" invisible="1"/>
