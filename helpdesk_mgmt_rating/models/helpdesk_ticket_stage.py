@@ -1,4 +1,4 @@
-from openerp import models, api, fields, _
+from odoo import models, fields
 
 
 class HelpdeskTicketStage(models.Model):
