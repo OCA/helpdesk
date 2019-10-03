@@ -1,4 +1,4 @@
-from openerp import models, api, fields, _
+from odoo import models, api, fields, _
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -28,7 +28,8 @@ class HelpdeskTicket(models.Model):
     def write(self, vals):
         res = super(HelpdeskTicket, self).write(vals)
         if 'stage_id' in vals and vals.get('stage_id'):
-            stage = self.env['helpdesk.ticket.stage'].search([('id', '=', vals.get('stage_id'))])
+            stage = self.env['helpdesk.ticket.stage'].search([
+                ('id', '=', vals.get('stage_id'))])
             if(stage.rating_mail_template_id):
                 self._send_ticket_rating_mail(force_send=False)
         return res
@@ -44,7 +45,11 @@ class HelpdeskTicket(models.Model):
 
     @api.multi
     def rating_apply(self, rate, token=None, feedback=None, subtype=None):
-        return super(HelpdeskTicket, self).rating_apply(rate, token=token, feedback=feedback, subtype="helpdesk_mgmt_rating.mt_ticket_rating")
+        return super(HelpdeskTicket, self).rating_apply(
+            rate,
+            token=token,
+            feedback=feedback,
+            subtype="helpdesk_mgmt_rating.mt_ticket_rating")
 
     def rating_get_partner_id(self):
         res = super(HelpdeskTicket, self).rating_get_partner_id()
