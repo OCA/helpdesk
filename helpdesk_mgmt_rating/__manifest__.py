@@ -6,8 +6,9 @@
         """,
     'version': '11.0.1.0.0',
     'license': 'AGPL-3',
-    'author': 'Domatix',
-    'website': 'https://www.domatix.com',
+    'author': 'Domatix, '
+              'Odoo Community Association (OCA)',
+    'website': 'https://github.com/OCA/helpdesk',
     'category': 'Productivity',
     'depends': ['helpdesk_mgmt', 'rating'],
     'data': [
