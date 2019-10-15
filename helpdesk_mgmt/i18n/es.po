@@ -7,25 +7,22 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-17 08:43+0000\n"
-"PO-Revision-Date: 2019-06-17 11:25+0200\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2019-10-15 10:25+0000\n"
+"Last-Translator: Dar??o Lodeiros <dario@aloxa.eu>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-#, fuzzy
-#| msgid ""
-#| "${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
 msgid ""
 "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
 msgstr ""
-"${object.company_id.name} Recibo de Pago (Ref ${object.name or 'n/a' })"
+"${object.company_id.name} Ticket Asignado (Ref ${object.name or 'n/a' })"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -36,8 +33,8 @@ msgid ""
 "      </data>"
 msgstr ""
 "<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.user_id.name},</p>\n"
-"        <p>The ticket ${object.number} has been assigned to you.</p>\n"
+"<data><p>Hola ${object.user_id.name},</p>\n"
+"        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
 "      </data>"
 
 #. module: helpdesk_mgmt
@@ -130,6 +127,74 @@ msgid ""
 "                </html>\n"
 "            "
 msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img src=\""
+"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\" alt=\"${object.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>El ticket ${object.number} ha sido "
+"cerrado.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.phone}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.email}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.website}\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
@@ -204,6 +269,75 @@ msgid ""
 "            \n"
 "      "
 msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img src=\""
+"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>El ticket ${object.number} ha cambiado de "
+"estado a ${object.stage_id.name}.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.phone}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.email}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.website}\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            \n"
+"      "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -223,7 +357,7 @@ msgstr "<strong>??ltima actualizaci??n de estado:</strong>"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Necesita acci??n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__active
@@ -236,24 +370,18 @@ msgstr "Activo"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_ids
-#, fuzzy
-#| msgid "My Activities"
 msgid "Activities"
-msgstr "Mis actividades"
+msgstr "Actividades"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_state
-#, fuzzy
-#| msgid "Active"
 msgid "Activity State"
-msgstr "Activo"
+msgstr "Estado de actividad"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#, fuzzy
-#| msgid "Attachments"
 msgid "Add Attachments"
-msgstr "Adjuntos"
+msgstr "A??adir Adjuntos"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
@@ -288,10 +416,8 @@ msgstr "Usuario asignado"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
-#, fuzzy
-#| msgid "Assigned user"
 msgid "Assigned user image"
-msgstr "Usuario asignado"
+msgstr "Imagen del usuario asignado"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -313,7 +439,7 @@ msgstr "En espera"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Blocked"
-msgstr ""
+msgstr "Bloqueado"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
@@ -322,9 +448,8 @@ msgstr "Por"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_cancelled
-#, fuzzy
 msgid "Cancelled"
-msgstr "Cancelar"
+msgstr "Cancelado"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_category_action
@@ -437,12 +562,12 @@ msgstr "Tablero"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
@@ -471,12 +596,12 @@ msgstr "Hecho"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -491,17 +616,17 @@ msgstr "Plegado en vista kanban"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguidores"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Seguidores (Canales)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguidores (Contactos)"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -604,17 +729,17 @@ msgstr "ID (identificaci??n)"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Si est?? seleccionado nuevos mensajes necesitan tu atenci??n."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si est?? seleccionado nuevos mensajes necesitan tu atenci??n."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Si est?? seleccionado, algunos mensajes tuvieron error de entrega."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -633,12 +758,12 @@ msgstr "En progreso"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Es Seguidor"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__kanban_state
 msgid "Kanban State"
-msgstr ""
+msgstr "Estado Kanban"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket____last_update
@@ -722,12 +847,12 @@ msgstr "Miembros"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Mensaje de error de entrega"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -764,10 +889,8 @@ msgstr "Nuevo"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
-#, fuzzy
-#| msgid "Tickets"
 msgid "New Ticket"
-msgstr "Tickets"
+msgstr "Nuevo Ticket"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:50
@@ -778,19 +901,17 @@ msgstr "M??s nuevo"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Fecha l??mite pr??xima actividad"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Resumen pr??xima actividad"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_type_id
-#, fuzzy
-#| msgid "Late Activities"
 msgid "Next Activity Type"
-msgstr "Actividades tard??as"
+msgstr "Tipo pr??xima actividad"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:187
@@ -800,27 +921,23 @@ msgstr "Sin asunto"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
-#, fuzzy
-#| msgid "Number of tickets"
 msgid "Number of Actions"
-msgstr "N??mero de tickets"
+msgstr "N??mero de acciones"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
-#, fuzzy
-#| msgid "Number of tickets"
 msgid "Number of error"
-msgstr "N??mero de tickets"
+msgstr "N??mero de errores"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "N??mero de mensajes que requieren acci??n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "N??mero de mensajes con errores"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count
@@ -844,10 +961,8 @@ msgstr "N??mero de tickets sin atender"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
-#, fuzzy
-#| msgid "Number of tickets unassigned"
 msgid "Number of unread messages"
-msgstr "N??mero de tickets sin asignar"
+msgstr "N??mero de mensajer por leer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -862,7 +977,7 @@ msgstr "Otra informaci??n"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Overdue"
-msgstr ""
+msgstr "Atrasado"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
@@ -896,7 +1011,7 @@ msgstr "An??lisis pivot"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Planned"
-msgstr ""
+msgstr "Planificado"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
@@ -906,7 +1021,7 @@ msgstr "Prioridad"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Ready for next stage"
-msgstr ""
+msgstr "Listo para la siguiente etapa"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
@@ -923,14 +1038,12 @@ msgstr "Informes"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Usuario Responsable"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#, fuzzy
-#| msgid "Related tickets"
 msgid "Send a new ticket"
-msgstr "Tickets relacionados"
+msgstr "Enviar un nuevo ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__sequence
@@ -976,20 +1089,20 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Estados basados en actividades\n"
+"Atrasado: La ficha l??mite ya ha sido sobrepasada\n"
+"Hoy: La actividad est?? programada para hoy\n"
+"Planificado: Actividades futuras."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#, fuzzy
-#| msgid "No Subject"
 msgid "Subject"
-msgstr "Sin asunto"
+msgstr "Asunto"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#, fuzzy
-#| msgid "My Tickets"
 msgid "Submit Ticket"
-msgstr "Mis tickets"
+msgstr "Enviar Ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
@@ -1019,12 +1132,12 @@ msgstr "Equipos"
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket ${object.number} has been closed."
-msgstr ""
+msgstr "El ticket ${object.number} ha sido cerrado."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket ${object.number} stage has changed."
-msgstr ""
+msgstr "El ticket ${object.number} ha cambiado de estado."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
@@ -1105,7 +1218,7 @@ msgstr "Por hacer"
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1115,7 +1228,7 @@ msgstr "Actividades de Hoy"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_ids
 msgid "Todo tickets"
-msgstr "Todo tickets"
+msgstr "Tickets por hacer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -1134,12 +1247,12 @@ msgstr "Sin atender"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Mensajes por leer"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Contador mensajes por leer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1155,9 +1268,8 @@ msgstr "Usuario: Tickets personales"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
-#, fuzzy
 msgid "Users"
-msgstr "Usuario"
+msgstr "Usuarios"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
@@ -1169,7 +1281,7 @@ msgstr "Muy alta"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Mensajes de la Web"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
