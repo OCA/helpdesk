@@ -7,9 +7,9 @@ from odoo.http import request
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 
 
-class CustomerPortal(CustomerPortal):
+class CustomerPortalHelpdesk(CustomerPortal):
     def _prepare_portal_layout_values(self):
-        values = super(CustomerPortal, self)._prepare_portal_layout_values()
+        values = super()._prepare_portal_layout_values()
         partner = request.env.user.partner_id
         ticket_count = request.env["helpdesk.ticket"].search_count(
             [("partner_id", "child_of", partner.id)]
@@ -19,7 +19,7 @@ class CustomerPortal(CustomerPortal):
 
     def _helpdesk_ticket_check_access(self, ticket_id):
         ticket = request.env["helpdesk.ticket"].browse([ticket_id])
-        ticket_sudo = ticket.sudo()
+        ticket_sudo = ticket.with_user()
         try:
             ticket.check_access_rights("read")
             ticket.check_access_rule("read")
