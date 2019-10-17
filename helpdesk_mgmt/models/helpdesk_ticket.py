@@ -3,111 +3,112 @@ from odoo import _, api, fields, models, tools
 
 class HelpdeskTicket(models.Model):
 
-    _name = 'helpdesk.ticket'
-    _description = 'Helpdesk Ticket'
-    _rec_name = 'number'
-    _order = 'number desc'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _name = "helpdesk.ticket"
+    _description = "Helpdesk Ticket"
+    _rec_name = "number"
+    _order = "number desc"
+    _inherit = ["mail.thread", "mail.activity.mixin"]
 
     def _get_default_stage_id(self):
-        return self.env['helpdesk.ticket.stage'].search([], limit=1).id
+        return self.env["helpdesk.ticket.stage"].search([], limit=1).id
 
-    number = fields.Char(string='Ticket number', default="/",
-                         readonly=True)
-    name = fields.Char(string='Title', required=True)
+    number = fields.Char(string="Ticket number", default="/", readonly=True)
+    name = fields.Char(string="Title", required=True)
     description = fields.Text(required=True)
-    user_id = fields.Many2one(
-        'res.users',
-        string='Assigned user',)
+    user_id = fields.Many2one("res.users", string="Assigned user")
 
     user_ids = fields.Many2many(
-        comodel_name='res.users',
-        related='team_id.user_ids',
-        string='Users')
+        comodel_name="res.users", related="team_id.user_ids", string="Users"
+    )
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
-        stage_ids = self.env['helpdesk.ticket.stage'].search([])
+        stage_ids = self.env["helpdesk.ticket.stage"].search([])
         return stage_ids
 
     stage_id = fields.Many2one(
-        'helpdesk.ticket.stage',
-        string='Stage',
-        group_expand='_read_group_stage_ids',
+        "helpdesk.ticket.stage",
+        string="Stage",
+        group_expand="_read_group_stage_ids",
         default=_get_default_stage_id,
-        track_visibility='onchange',
+        track_visibility="onchange",
     )
-    partner_id = fields.Many2one('res.partner')
+    partner_id = fields.Many2one("res.partner")
     partner_name = fields.Char()
     partner_email = fields.Char()
 
     last_stage_update = fields.Datetime(
-        string='Last Stage Update',
-        default=fields.Datetime.now,
+        string="Last Stage Update", default=fields.Datetime.now
     )
-    assigned_date = fields.Datetime(string='Assigned Date')
-    closed_date = fields.Datetime(string='Closed Date')
-    closed = fields.Boolean(related='stage_id.closed')
-    unattended = fields.Boolean(related='stage_id.unattended')
-    tag_ids = fields.Many2many('helpdesk.ticket.tag')
+    assigned_date = fields.Datetime(string="Assigned Date")
+    closed_date = fields.Datetime(string="Closed Date")
+    closed = fields.Boolean(related="stage_id.closed")
+    unattended = fields.Boolean(related="stage_id.unattended")
+    tag_ids = fields.Many2many("helpdesk.ticket.tag")
     company_id = fields.Many2one(
-        'res.company',
+        "res.company",
         string="Company",
-        default=lambda self: self.env['res.company']._company_default_get(
-            'helpdesk.ticket')
+        default=lambda self: self.env["res.company"]._company_default_get(
+            "helpdesk.ticket"
+        ),
     )
     channel_id = fields.Many2one(
-        'helpdesk.ticket.channel',
-        string='Channel',
-        help='Channel indicates where the source of a ticket'
-             'comes from (it could be a phone call, an email...)',
+        "helpdesk.ticket.channel",
+        string="Channel",
+        help="Channel indicates where the source of a ticket"
+        "comes from (it could be a phone call, an email...)",
     )
-    category_id = fields.Many2one('helpdesk.ticket.category',
-                                  string='Category')
-    team_id = fields.Many2one('helpdesk.ticket.team')
-    priority = fields.Selection(selection=[
-        ('0', _('Low')),
-        ('1', _('Medium')),
-        ('2', _('High')),
-        ('3', _('Very High')),
-    ], string='Priority', default='1')
+    category_id = fields.Many2one("helpdesk.ticket.category", string="Category")
+    team_id = fields.Many2one("helpdesk.ticket.team")
+    priority = fields.Selection(
+        selection=[
+            ("0", _("Low")),
+            ("1", _("Medium")),
+            ("2", _("High")),
+            ("3", _("Very High")),
+        ],
+        string="Priority",
+        default="1",
+    )
     attachment_ids = fields.One2many(
-        'ir.attachment', 'res_id',
-        domain=[('res_model', '=', 'helpdesk.ticket')],
-        string="Media Attachments")
-    color = fields.Integer(string='Color Index')
-    kanban_state = fields.Selection([
-        ('normal', 'Default'),
-        ('done', 'Ready for next stage'),
-        ('blocked', 'Blocked')], string='Kanban State')
+        "ir.attachment",
+        "res_id",
+        domain=[("res_model", "=", "helpdesk.ticket")],
+        string="Media Attachments",
+    )
+    color = fields.Integer(string="Color Index")
+    kanban_state = fields.Selection(
+        [
+            ("normal", "Default"),
+            ("done", "Ready for next stage"),
+            ("blocked", "Blocked"),
+        ],
+        string="Kanban State",
+    )
 
     def send_user_mail(self):
-        self.env.ref('helpdesk_mgmt.assignment_email_template'). \
-            send_mail(self.id)
+        self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
 
     def assign_to_me(self):
-        self.write({'user_id': self.env.user.id})
+        self.write({"user_id": self.env.user.id})
 
-    @api.onchange('partner_id')
+    @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
 
     @api.multi
-    @api.onchange('team_id', 'user_id')
+    @api.onchange("team_id", "user_id")
     def _onchange_dominion_user_id(self):
         if self.user_id:
-            if self.user_id and self.user_ids and \
-                    self.user_id not in self.user_ids:
-                self.update({
-                    'user_id': False
-                })
-                return {'domain': {'user_id': []}}
+            if self.user_id and self.user_ids and self.user_id not in self.user_ids:
+                self.update({"user_id": False})
+                return {"domain": {"user_id": []}}
         if self.team_id:
-            return {'domain': {'user_id': [('id', 'in', self.user_ids.ids)]}}
+            return {"domain": {"user_id": [("id", "in", self.user_ids.ids)]}}
         else:
-            return {'domain': {'user_id': []}}
+            return {"domain": {"user_id": []}}
 
     # ---------------------------------------------------
     # CRUD
@@ -115,16 +116,15 @@ class HelpdeskTicket(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get('number', '/') == '/':
-            seq = self.env['ir.sequence']
-            if 'company_id' in vals:
-                seq = seq.with_context(force_company=vals['company_id'])
-            vals['number'] = seq.next_by_code(
-                'helpdesk.ticket.sequence') or '/'
+        if vals.get("number", "/") == "/":
+            seq = self.env["ir.sequence"]
+            if "company_id" in vals:
+                seq = seq.with_context(force_company=vals["company_id"])
+            vals["number"] = seq.next_by_code("helpdesk.ticket.sequence") or "/"
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
-        if vals.get('user_id') and res:
+        if vals.get("user_id") and res:
             res.send_user_mail()
         return res
 
@@ -134,9 +134,9 @@ class HelpdeskTicket(models.Model):
         if default is None:
             default = {}
         if "number" not in default:
-            default['number'] = self.env['ir.sequence'].next_by_code(
-                'helpdesk.ticket.sequence'
-            ) or '/'
+            default["number"] = (
+                self.env["ir.sequence"].next_by_code("helpdesk.ticket.sequence") or "/"
+            )
         res = super(HelpdeskTicket, self).copy(default)
         return res
 
@@ -144,20 +144,19 @@ class HelpdeskTicket(models.Model):
     def write(self, vals):
         for ticket in self:
             now = fields.Datetime.now()
-            if vals.get('stage_id'):
-                stage_obj = self.env['helpdesk.ticket.stage'].browse(
-                    [vals['stage_id']])
-                vals['last_stage_update'] = now
+            if vals.get("stage_id"):
+                stage_obj = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
+                vals["last_stage_update"] = now
                 if stage_obj.closed:
-                    vals['closed_date'] = now
-            if vals.get('user_id'):
-                vals['assigned_date'] = now
+                    vals["closed_date"] = now
+            if vals.get("user_id"):
+                vals["assigned_date"] = now
 
         res = super(HelpdeskTicket, self).write(vals)
 
         # Check if mail to the user has to be sent
         for ticket in self:
-            if vals.get('user_id'):
+            if vals.get("user_id"):
                 ticket.send_user_mail()
         return res
 
@@ -171,8 +170,10 @@ class HelpdeskTicket(models.Model):
         test_task = self[0]
         changes, tracking_value = tracking[test_task.id]
         if "stage_id" in changes and test_task.stage_id.mail_template_id:
-            res['stage_id'] = (test_task.stage_id.mail_template_id,
-                               {"composition_mode": "mass_mail"})
+            res["stage_id"] = (
+                test_task.stage_id.mail_template_id,
+                {"composition_mode": "mass_mail"},
+            )
 
         return res
 
@@ -184,10 +185,10 @@ class HelpdeskTicket(models.Model):
         if custom_values is None:
             custom_values = {}
         defaults = {
-            'name': msg.get('subject') or _("No Subject"),
-            'description': msg.get('body'),
-            'partner_email': msg.get('from'),
-            'partner_id': msg.get('author_id')
+            "name": msg.get("subject") or _("No Subject"),
+            "description": msg.get("body"),
+            "partner_email": msg.get("from"),
+            "partner_id": msg.get("author_id"),
         }
         defaults.update(custom_values)
 
@@ -196,11 +197,13 @@ class HelpdeskTicket(models.Model):
 
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
-            (msg.get('to') or '') + ',' + (msg.get('cc') or '')
+            (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
-        partner_ids = [p for p in ticket._find_partner_from_emails(
-            email_list, force_create=False
-        ) if p]
+        partner_ids = [
+            p
+            for p in ticket._find_partner_from_emails(email_list, force_create=False)
+            if p
+        ]
         ticket.message_subscribe(partner_ids)
 
         return ticket
@@ -209,11 +212,13 @@ class HelpdeskTicket(models.Model):
     def message_update(self, msg, update_vals=None):
         """ Override message_update to subscribe partners """
         email_list = tools.email_split(
-            (msg.get('to') or '') + ',' + (msg.get('cc') or '')
+            (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
-        partner_ids = [p for p in self._find_partner_from_emails(
-            email_list, force_create=False
-        ) if p]
+        partner_ids = [
+            p
+            for p in self._find_partner_from_emails(email_list, force_create=False)
+            if p
+        ]
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
@@ -222,20 +227,18 @@ class HelpdeskTicket(models.Model):
         recipients = super().message_get_suggested_recipients()
 
         for ticket in self:
-            reason = _('Partner Email') \
-                if ticket.partner_id and ticket.partner_id.email \
-                else _('Partner Id')
+            reason = (
+                _("Partner Email")
+                if ticket.partner_id and ticket.partner_id.email
+                else _("Partner Id")
+            )
 
             if ticket.partner_id and ticket.partner_id.email:
                 ticket._message_add_suggested_recipient(
-                    recipients,
-                    partner=ticket.partner_id,
-                    reason=reason
+                    recipients, partner=ticket.partner_id, reason=reason
                 )
             elif ticket.partner_email:
                 ticket._message_add_suggested_recipient(
-                    recipients,
-                    email=ticket.partner_email,
-                    reason=reason
+                    recipients, email=ticket.partner_email, reason=reason
                 )
         return recipients
