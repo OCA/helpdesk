@@ -1,10 +1,12 @@
 from odoo import api, fields, models
+from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTeam(models.Model):
 
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
+    _inherit = ["mail.thread", "mail.alias.mixin"]
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
@@ -13,33 +15,42 @@ class HelpdeskTeam(models.Model):
         comodel_name="helpdesk.ticket.category", string="Category"
     )
     company_id = fields.Many2one(
-        "res.company",
+        comodel_name="res.company",
         string="Company",
-        default=lambda self: self.env["res.company"]._company_default_get(
-            "helpdesk.ticket"
-        ),
+        default=lambda self: self.env.company,
     )
-
-    color = fields.Integer("Color Index", default=0)
-
-    ticket_ids = fields.One2many("helpdesk.ticket", "team_id", string="Tickets")
-
+    user_id = fields.Many2one(
+        comodel_name="res.users", string="Team Leader", check_company=True,
+    )
+    alias_id = fields.Many2one(
+        comodel_name="mail.alias",
+        string="Email",
+        ondelete="restrict",
+        required=True,
+        help="The email address associated with \
+                               this channel. New emails received will \
+                               automatically create new tickets assigned \
+                               to the channel.",
+    )
+    color = fields.Integer(string="Color Index", default=0)
+    ticket_ids = fields.One2many(
+        comodel_name="helpdesk.ticket", inverse_name="team_id", string="Tickets",
+    )
     todo_ticket_ids = fields.One2many(
-        "helpdesk.ticket", "team_id", string="Todo tickets"
+        related="ticket_ids",
+        domain="[('closed', '=', False)]",
+        string="Todo tickets",
+        readonly=True,
     )
-
     todo_ticket_count = fields.Integer(
         string="Number of tickets", compute="_compute_todo_tickets"
     )
-
     todo_ticket_count_unassigned = fields.Integer(
         string="Number of tickets unassigned", compute="_compute_todo_tickets"
     )
-
     todo_ticket_count_unattended = fields.Integer(
         string="Number of tickets unattended", compute="_compute_todo_tickets"
     )
-
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority", compute="_compute_todo_tickets"
     )
@@ -60,3 +71,12 @@ class HelpdeskTeam(models.Model):
             record.todo_ticket_count_high_priority = len(
                 record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
             )
+
+    def get_alias_model_name(self, vals):
+        return "helpdesk.ticket"
+
+    def get_alias_values(self):
+        values = super().get_alias_values()
+        values["alias_defaults"] = defaults = safe_eval(self.alias_defaults or "{}")
+        defaults["team_id"] = self.id
+        return values
