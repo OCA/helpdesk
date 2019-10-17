@@ -8,7 +8,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.team</field>
             <field name="view_mode">kanban,tree,form,pivot</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_action" model="ir.actions.act_window">
@@ -16,7 +15,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket</field>
             <field name="view_mode">tree,kanban,form,pivot</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_reporting_action" model="ir.actions.act_window">
@@ -24,7 +22,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket</field>
             <field name="view_mode">pivot,graph</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_channel_action" model="ir.actions.act_window">
@@ -32,7 +29,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.channel</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_category_action" model="ir.actions.act_window">
@@ -40,7 +36,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.category</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_team_action" model="ir.actions.act_window">
@@ -48,7 +43,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.team</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_stage_action" model="ir.actions.act_window">
@@ -56,7 +50,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.stage</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
         </record>
 
         <record id="helpdesk_ticket_tag_action" model="ir.actions.act_window">
@@ -64,7 +57,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">helpdesk.ticket.tag</field>
             <field name="view_mode">tree,form</field>
-            <field name="view_type">form</field>
         </record>
 
         <!-- #TODO -->

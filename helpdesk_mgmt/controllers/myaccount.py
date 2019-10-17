@@ -19,7 +19,7 @@ class CustomerPortal(CustomerPortal):
 
     def _helpdesk_ticket_check_access(self, ticket_id):
         ticket = request.env["helpdesk.ticket"].browse([ticket_id])
-        ticket_sudo = ticket.sudo()
+        ticket_sudo = ticket.with_user(user)
         try:
             ticket.check_access_rights("read")
             ticket.check_access_rule("read")

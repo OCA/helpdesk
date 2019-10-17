@@ -98,7 +98,6 @@ class HelpdeskTicket(models.Model):
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
 
-    @api.multi
     @api.onchange("team_id", "user_id")
     def _onchange_dominion_user_id(self):
         if self.user_id:
@@ -128,7 +127,6 @@ class HelpdeskTicket(models.Model):
             res.send_user_mail()
         return res
 
-    @api.multi
     def copy(self, default=None):
         self.ensure_one()
         if default is None:
@@ -140,7 +138,6 @@ class HelpdeskTicket(models.Model):
         res = super(HelpdeskTicket, self).copy(default)
         return res
 
-    @api.multi
     def write(self, vals):
         for ticket in self:
             now = fields.Datetime.now()
@@ -164,7 +161,6 @@ class HelpdeskTicket(models.Model):
     # Mail gateway
     # ---------------------------------------------------
 
-    @api.multi
     def _track_template(self, tracking):
         res = super(HelpdeskTicket, self)._track_template(tracking)
         test_task = self[0]
@@ -208,7 +204,6 @@ class HelpdeskTicket(models.Model):
 
         return ticket
 
-    @api.multi
     def message_update(self, msg, update_vals=None):
         """ Override message_update to subscribe partners """
         email_list = tools.email_split(
@@ -222,7 +217,6 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    @api.multi
     def message_get_suggested_recipients(self):
         recipients = super().message_get_suggested_recipients()
 
