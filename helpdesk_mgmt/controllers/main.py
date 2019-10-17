@@ -2,9 +2,9 @@ import base64
 import logging
 
 import werkzeug
-from openerp.http import request
 
 import odoo.http as http
+from odoo.http import request
 
 _logger = logging.getLogger(__name__)
 

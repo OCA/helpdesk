@@ -1,41 +1,42 @@
 from odoo import _, api, fields, models, tools
+from odoo.exceptions import AccessError
 
 
 class HelpdeskTicket(models.Model):
-
     _name = "helpdesk.ticket"
     _description = "Helpdesk Ticket"
     _rec_name = "number"
     _order = "number desc"
-    _inherit = ["mail.thread", "mail.activity.mixin"]
+    _inherit = ["mail.thread.cc", "mail.activity.mixin"]
 
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
-
-    number = fields.Char(string="Ticket number", default="/", readonly=True)
-    name = fields.Char(string="Title", required=True)
-    description = fields.Text(required=True)
-    user_id = fields.Many2one("res.users", string="Assigned user")
-
-    user_ids = fields.Many2many(
-        comodel_name="res.users", related="team_id.user_ids", string="Users"
-    )
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         stage_ids = self.env["helpdesk.ticket.stage"].search([])
         return stage_ids
 
+    number = fields.Char(string="Ticket number", default="/", readonly=True)
+    name = fields.Char(string="Title", required=True)
+    description = fields.Text(required=True)
+    user_id = fields.Many2one(comodel_name="res.users", string="Assigned user")
+    user_ids = fields.Many2many(
+        comodel_name="res.users", related="team_id.user_ids", string="Users"
+    )
     stage_id = fields.Many2one(
-        "helpdesk.ticket.stage",
+        comodel_name="helpdesk.ticket.stage",
         string="Stage",
         group_expand="_read_group_stage_ids",
         default=_get_default_stage_id,
         track_visibility="onchange",
+        ondelete="restrict",
+        index=True,
+        copy=False,
     )
-    partner_id = fields.Many2one("res.partner")
+    partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
-    partner_email = fields.Char()
+    partner_email = fields.Char(string="Email")
 
     last_stage_update = fields.Datetime(
         string="Last Stage Update", default=fields.Datetime.now
@@ -44,22 +45,23 @@ class HelpdeskTicket(models.Model):
     closed_date = fields.Datetime(string="Closed Date")
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended")
-    tag_ids = fields.Many2many("helpdesk.ticket.tag")
+    tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     company_id = fields.Many2one(
-        "res.company",
+        comodel_name="res.company",
         string="Company",
-        default=lambda self: self.env["res.company"]._company_default_get(
-            "helpdesk.ticket"
-        ),
+        required=True,
+        default=lambda self: self.env.company,
     )
     channel_id = fields.Many2one(
-        "helpdesk.ticket.channel",
+        comodel_name="helpdesk.ticket.channel",
         string="Channel",
         help="Channel indicates where the source of a ticket"
         "comes from (it could be a phone call, an email...)",
     )
-    category_id = fields.Many2one("helpdesk.ticket.category", string="Category")
-    team_id = fields.Many2one("helpdesk.ticket.team")
+    category_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.category", string="Category",
+    )
+    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
     priority = fields.Selection(
         selection=[
             ("0", _("Low")),
@@ -71,20 +73,21 @@ class HelpdeskTicket(models.Model):
         default="1",
     )
     attachment_ids = fields.One2many(
-        "ir.attachment",
-        "res_id",
+        comodel_name="ir.attachment",
+        inverse_name="res_id",
         domain=[("res_model", "=", "helpdesk.ticket")],
         string="Media Attachments",
     )
     color = fields.Integer(string="Color Index")
     kanban_state = fields.Selection(
-        [
+        selection=[
             ("normal", "Default"),
             ("done", "Ready for next stage"),
             ("blocked", "Blocked"),
         ],
         string="Kanban State",
     )
+    active = fields.Boolean(default=True)
 
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
@@ -98,13 +101,11 @@ class HelpdeskTicket(models.Model):
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
 
-    @api.multi
     @api.onchange("team_id", "user_id")
     def _onchange_dominion_user_id(self):
-        if self.user_id:
-            if self.user_id and self.user_ids and self.user_id not in self.user_ids:
-                self.update({"user_id": False})
-                return {"domain": {"user_id": []}}
+        if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
+            self.update({"user_id": False})
+            return {"domain": {"user_id": []}}
         if self.team_id:
             return {"domain": {"user_id": [("id", "in", self.user_ids.ids)]}}
         else:
@@ -128,7 +129,6 @@ class HelpdeskTicket(models.Model):
             res.send_user_mail()
         return res
 
-    @api.multi
     def copy(self, default=None):
         self.ensure_one()
         if default is None:
@@ -137,22 +137,21 @@ class HelpdeskTicket(models.Model):
             default["number"] = (
                 self.env["ir.sequence"].next_by_code("helpdesk.ticket.sequence") or "/"
             )
-        res = super(HelpdeskTicket, self).copy(default)
+        res = super().copy(default)
         return res
 
-    @api.multi
     def write(self, vals):
-        for ticket in self:
+        for _ticket in self:
             now = fields.Datetime.now()
             if vals.get("stage_id"):
-                stage_obj = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
+                stage = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
                 vals["last_stage_update"] = now
-                if stage_obj.closed:
+                if stage.closed:
                     vals["closed_date"] = now
             if vals.get("user_id"):
                 vals["assigned_date"] = now
 
-        res = super(HelpdeskTicket, self).write(vals)
+        res = super().write(vals)
 
         # Check if mail to the user has to be sent
         for ticket in self:
@@ -160,21 +159,28 @@ class HelpdeskTicket(models.Model):
                 ticket.send_user_mail()
         return res
 
+    def action_duplicate_tickets(self):
+        for ticket in self.browse(self.env.context["active_ids"]):
+            ticket.copy()
+
     # ---------------------------------------------------
     # Mail gateway
     # ---------------------------------------------------
 
-    @api.multi
     def _track_template(self, tracking):
-        res = super(HelpdeskTicket, self)._track_template(tracking)
-        test_task = self[0]
-        changes, tracking_value = tracking[test_task.id]
-        if "stage_id" in changes and test_task.stage_id.mail_template_id:
+        res = super()._track_template(tracking)
+        ticket = self[0]
+        if "stage_id" in tracking and ticket.stage_id.mail_template_id:
             res["stage_id"] = (
-                test_task.stage_id.mail_template_id,
-                {"composition_mode": "mass_mail"},
+                ticket.stage_id.mail_template_id,
+                {
+                    "auto_delete_message": True,
+                    "subtype_id": self.env["ir.model.data"].xmlid_to_res_id(
+                        "mail.mt_note"
+                    ),
+                    "email_layout_xmlid": "mail.mail_notification_light",
+                },
             )
-
         return res
 
     @api.model
@@ -201,14 +207,15 @@ class HelpdeskTicket(models.Model):
         )
         partner_ids = [
             p
-            for p in ticket._find_partner_from_emails(email_list, force_create=False)
+            for p in self.env["mail.thread"]._mail_find_partner_from_emails(
+                email_list, records=ticket, force_create=False
+            )
             if p
         ]
         ticket.message_subscribe(partner_ids)
 
         return ticket
 
-    @api.multi
     def message_update(self, msg, update_vals=None):
         """ Override message_update to subscribe partners """
         email_list = tools.email_split(
@@ -216,29 +223,30 @@ class HelpdeskTicket(models.Model):
         )
         partner_ids = [
             p
-            for p in self._find_partner_from_emails(email_list, force_create=False)
+            for p in self.env["mail.thread"]._mail_find_partner_from_emails(
+                email_list, records=self, force_create=False
+            )
             if p
         ]
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    @api.multi
-    def message_get_suggested_recipients(self):
-        recipients = super().message_get_suggested_recipients()
-
-        for ticket in self:
-            reason = (
-                _("Partner Email")
-                if ticket.partner_id and ticket.partner_id.email
-                else _("Partner Id")
-            )
-
-            if ticket.partner_id and ticket.partner_id.email:
-                ticket._message_add_suggested_recipient(
-                    recipients, partner=ticket.partner_id, reason=reason
-                )
-            elif ticket.partner_email:
-                ticket._message_add_suggested_recipient(
-                    recipients, email=ticket.partner_email, reason=reason
-                )
+    def _message_get_suggested_recipients(self):
+        recipients = super()._message_get_suggested_recipients()
+        try:
+            for ticket in self:
+                if ticket.partner_id:
+                    ticket._message_add_suggested_recipient(
+                        recipients, partner=ticket.partner_id, reason=_("Customer")
+                    )
+                elif ticket.partner_email:
+                    ticket._message_add_suggested_recipient(
+                        recipients,
+                        email=ticket.partner_email,
+                        reason=_("Customer Email"),
+                    )
+        except AccessError:
+            # no read access rights -> just ignore suggested recipients because this
+            # imply modifying followers
+            pass
         return recipients
