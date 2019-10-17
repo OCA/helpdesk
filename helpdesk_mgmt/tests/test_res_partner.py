@@ -6,8 +6,7 @@ class TestPartner(SavepointCase):
         super(TestPartner, self).setUp()
         self.partner_obj = self.env["res.partner"]
         self.ticket_obj = self.env["helpdesk.ticket"]
-        self.stage_id_closed = self.env.ref(
-            "helpdesk_mgmt.helpdesk_ticket_stage_done")
+        self.stage_id_closed = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         self.parent_id = self.partner_obj.create({"name": "Parent 1"})
         self.child_id_1 = self.partner_obj.create({"name": "Child 1"})
         self.child_id_2 = self.partner_obj.create({"name": "Child 2"})
