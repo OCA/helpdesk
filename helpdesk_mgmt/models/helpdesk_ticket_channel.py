@@ -9,9 +9,7 @@ class HelpdeskTicketChannel(models.Model):
     name = fields.Char(required=True)
     active = fields.Boolean(default=True)
     company_id = fields.Many2one(
-        "res.company",
+        comodel_name="res.company",
         string="Company",
-        default=lambda self: self.env["res.company"]._company_default_get(
-            "helpdesk.ticket"
-        ),
+        default=lambda self: self.env.company,
     )

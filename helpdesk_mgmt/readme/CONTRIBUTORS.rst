@@ -31,3 +31,7 @@
 
   * Marcel Savegnago
   * Eduardo Apar??cio
+
+* `Obertix <https://www.obertix.net>`_:
+
+  * Vicent Cubells
