@@ -139,7 +139,7 @@ class HelpdeskTicket(models.Model):
         return res
 
     def write(self, vals):
-        for ticket in self:
+        for _ticket in self:
             now = fields.Datetime.now()
             if vals.get("stage_id"):
                 stage_obj = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
