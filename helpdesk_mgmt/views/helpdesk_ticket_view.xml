@@ -102,7 +102,6 @@
                                         <field name="id"/>
                                         <field name="mimetype"/>
                                         <field name="type"/>
-                                        <field name="datas_fname"/>
                                         <field name="name"/>
                                         <templates>
                                             <t t-name="kanban-box">
