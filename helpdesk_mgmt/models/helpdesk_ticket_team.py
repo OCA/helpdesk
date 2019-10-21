@@ -1,11 +1,12 @@
 from odoo import api, fields, models
+from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTeam(models.Model):
 
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.alias.mixin']
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
@@ -20,6 +21,12 @@ class HelpdeskTeam(models.Model):
     )
     user_id = fields.Many2one('res.users', string='Team Leader',
                               check_company=True)
+    alias_id = fields.Many2one('mail.alias', string='Alias',
+                               ondelete="restrict", required=True,
+                               help="The email address associated with \
+                               this channel. New emails received will \
+                               automatically create new tickets assigned \
+                               to the channel.")
     color = fields.Integer("Color Index", default=0)
     ticket_ids = fields.One2many("helpdesk.ticket", "team_id",
                                  string="Tickets")
@@ -56,3 +63,13 @@ class HelpdeskTeam(models.Model):
             record.todo_ticket_count_high_priority = len(
                 record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
             )
+
+    def get_alias_model_name(self, vals):
+        return 'helpdesk.ticket'
+
+    def get_alias_values(self):
+        values = super(HelpdeskTeam, self).get_alias_values()
+        values['alias_defaults'] = defaults = safe_eval(
+            self.alias_defaults or "{}")
+        defaults['team_id'] = self.id
+        return values
