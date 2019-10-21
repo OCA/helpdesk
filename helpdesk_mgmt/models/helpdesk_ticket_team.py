@@ -5,6 +5,7 @@ class HelpdeskTeam(models.Model):
 
     _name = 'helpdesk.ticket.team'
     _description = 'Helpdesk Ticket Team'
+    _inherit = ['mail.thread', 'mail.alias.mixin']
 
     name = fields.Char(string='Name', required=True)
     user_ids = fields.Many2many(comodel_name='res.users', string='Members')
@@ -18,7 +19,10 @@ class HelpdeskTeam(models.Model):
         default=lambda self: self.env['res.company']._company_default_get(
             'helpdesk.ticket')
     )
-
+    alias_id = fields.Many2one(help="The email address associated with "
+                               "this channel. New emails received will "
+                               "automatically create new tickets assigned "
+                               "to the channel.")
     color = fields.Integer("Color Index", default=0)
 
     ticket_ids = fields.One2many(
@@ -62,3 +66,11 @@ class HelpdeskTeam(models.Model):
             record.todo_ticket_count_high_priority = len(
                 record.todo_ticket_ids.filtered(
                     lambda ticket: ticket.priority == '3'))
+
+    def get_alias_model_name(self, vals):
+        return 'helpdesk.ticket'
+
+    def get_alias_values(self):
+        values = super(HelpdeskTeam, self).get_alias_values()
+        values['alias_defaults'] = {'team_id': self.id}
+        return values
