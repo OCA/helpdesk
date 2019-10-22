@@ -211,5 +211,13 @@
     <record id="helpdesk_ticket_channel_other" model="helpdesk.ticket.channel">
       <field name="name">Other</field>
     </record>
+    <!--default alias for leads-->
+    <record id="mail_alias_lead_info" model="mail.alias">
+        <field name="alias_name"></field>
+        <field name="alias_model_id" ref="model_helpdesk_ticket"/>
+        <field name="alias_user_id" ref="base.user_admin"/>
+        <field name="alias_parent_model_id" ref="model_helpdesk_ticket_team"/>
+    </record>
+
   </data>
 </odoo>

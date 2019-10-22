@@ -48,9 +48,8 @@ class HelpdeskTicket(models.Model):
     company_id = fields.Many2one(
         "res.company",
         string="Company",
-        default=lambda self: self.env["res.company"]._company_default_get(
-            "helpdesk.ticket"
-        ),
+        required=True,
+        default=lambda self: self.env.company
     )
     channel_id = fields.Many2one(
         "helpdesk.ticket.channel",
@@ -163,14 +162,13 @@ class HelpdeskTicket(models.Model):
 
     def _track_template(self, tracking):
         res = super(HelpdeskTicket, self)._track_template(tracking)
-        test_task = self[0]
-        changes, tracking_value = tracking[test_task.id]
-        if "stage_id" in changes and test_task.stage_id.mail_template_id:
-            res["stage_id"] = (
-                test_task.stage_id.mail_template_id,
-                {"composition_mode": "mass_mail"},
-            )
-
+        ticket = self[0]
+        if 'stage_id' in tracking and ticket.stage_id.mail_template_id:
+            res['stage_id'] = (ticket.stage_id.mail_template_id, {
+                'auto_delete_message': True,
+                'subtype_id': self.env['ir.model.data'].xmlid_to_res_id('mail.mt_note'),
+                'email_layout_xmlid': 'mail.mail_notification_light'
+            })
         return res
 
     @api.model
@@ -197,7 +195,10 @@ class HelpdeskTicket(models.Model):
         )
         partner_ids = [
             p
-            for p in ticket._find_partner_from_emails(email_list, force_create=False)
+            for p in self.env['mail.thread']._mail_find_partner_from_emails(
+                email_list,
+                records=ticket,
+                force_create=False)
             if p
         ]
         ticket.message_subscribe(partner_ids)
@@ -211,7 +212,10 @@ class HelpdeskTicket(models.Model):
         )
         partner_ids = [
             p
-            for p in self._find_partner_from_emails(email_list, force_create=False)
+            for p in self.env['mail.thread']._mail_find_partner_from_emails(
+                email_list,
+                records=self,
+                force_create=False)
             if p
         ]
         self.message_subscribe(partner_ids)
