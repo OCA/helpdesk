@@ -10,8 +10,11 @@
     'author': 'KMEE,Odoo Community Association (OCA)',
     'website': 'https://www.kmee.com.br/',
     'depends': [
+        'website_form',
+        'helpdesk_mgmt',
     ],
     'data': [
+        'data/website_data.xml'
     ],
     'demo': [
     ],
