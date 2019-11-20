@@ -53,7 +53,7 @@ class HelpdeskTicketController(http.Controller):
         }
         new_ticket = request.env['helpdesk.ticket'].sudo().create(
             vals)
-        new_ticket.message_subscribe_users(user_ids=request.env.user.id)
+        new_ticket.message_subscribe([request.env.user.partner_id.id])
         if kw.get('attachment'):
             for c_file in request.httprequest.files.getlist('attachment'):
                 data = c_file.read()
