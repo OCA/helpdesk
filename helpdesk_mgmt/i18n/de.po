@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-11-20 18:35+0000\n"
+"PO-Revision-Date: 2019-12-06 14:04+0000\n"
 "Last-Translator: Wolfgang Pichler <wpichler@callino.at>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
@@ -39,12 +39,16 @@ msgstr ""
 msgid "<br/>\n"
 "                          <b>Category:</b>"
 msgstr ""
+"<br/>\n"
+"                          <b>Kategorie:</b>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<br/>\n"
 "                          <b>Stage:</b>"
 msgstr ""
+"<br/>\n"
+"                          <b>Stufe:</b>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -102,6 +106,74 @@ msgid "<html>\n"
 "                </html>\n"
 "            "
 msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img src=\""
+"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\" alt=\"${object.company_id.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Hallo ${object.user_id.name},</p>\n"
+"                                <p>Das Ticket ${object.number} wurde "
+"geschlossen.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.phone}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.email}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.website}\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
@@ -160,26 +232,95 @@ msgid "<html>\n"
 "            \n"
 "      "
 msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img src=\""
+"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Hallo ${object.user_id.name},</p>\n"
+"                                <p>Das Ticket ${object.number} Stufe hat "
+"sich geändert zu ${object.stage_id.name}.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.phone}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.email}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\""
+"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.website}\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            \n"
+"      "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span>View</span>"
-msgstr ""
+msgstr "<span>Betrachten</span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Date:</strong>"
-msgstr ""
+msgstr "<strong>Datum:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Last Stage Update:</strong>"
-msgstr ""
+msgstr "<strong>Letzte Aktualisierung:</strong>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Handlungsbedarf"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__active
@@ -188,29 +329,29 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__active
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__active
 msgid "Active"
-msgstr ""
+msgstr "Aktiv"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Aktivitäten"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Aktivitätsstatus"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Add Attachments"
-msgstr ""
+msgstr "Anhänge hinzufügen"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
@@ -219,63 +360,63 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
 msgid "Archived"
-msgstr ""
+msgstr "Archiviert"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Assign to me"
-msgstr ""
+msgstr "Wende dich an mich"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__assigned_date
 msgid "Assigned Date"
-msgstr ""
+msgstr "Zugewiesenes Datum"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
-msgstr ""
+msgstr "Zugewiesener Benutzer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Assigned user image"
-msgstr ""
+msgstr "Zugewiesenes Benutzerbild"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Anzahl der Anhänge"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Attachments"
-msgstr ""
+msgstr "Anlagen"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_awaiting
 msgid "Awaiting"
-msgstr ""
+msgstr "Warten"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Blocked"
-msgstr ""
+msgstr "Verstopft"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "By"
-msgstr ""
+msgstr "Durch"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_cancelled
 msgid "Cancelled"
-msgstr ""
+msgstr "Abgesagt"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_category_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_category_menu
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
@@ -283,46 +424,48 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__channel_id
 msgid "Channel"
-msgstr ""
+msgstr "Kanal"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__channel_id
 msgid "Channel indicates where the source of a ticketcomes from (it could be a phone call, an email...)"
 msgstr ""
+"Kanal gibt an, woher die Quelle eines Tickets stammt (es kann ein Anruf "
+"sein, eine E-Mail...)"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_channel_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_channel_menu
 msgid "Channels"
-msgstr ""
+msgstr "Kanäle"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Close Date"
-msgstr ""
+msgstr "Abschlussdatum"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__closed
 msgid "Closed"
-msgstr ""
+msgstr "Geschlossen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed_date
 msgid "Closed Date"
-msgstr ""
+msgstr "Schlusstermin"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__color
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__color
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__color
 msgid "Color Index"
-msgstr ""
+msgstr "Farbindex"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__company_id
@@ -332,22 +475,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__company_id
 msgid "Company"
-msgstr ""
+msgstr "Unternehmen"
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_config_main_menu
 msgid "Configuration"
-msgstr ""
+msgstr "Aufbau"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Create Date"
-msgstr ""
+msgstr "Erstellungsdatum"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__create_uid
@@ -357,7 +500,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__create_uid
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Erstellt von"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__create_date
@@ -367,23 +510,23 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__create_date
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Erstellt am"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
-msgstr ""
+msgstr "Instrumententafel"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
@@ -392,7 +535,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__display_name
@@ -402,134 +545,134 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Anzeigendem"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
 msgid "Done"
-msgstr ""
+msgstr "Getan"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
 msgid "Email Template"
-msgstr ""
+msgstr "E-Mail -Vorlage"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid "Folded in Kanban"
-msgstr ""
+msgstr "In Kanban gefaltet"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Anhänger/Innen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_channel_ids
 msgid "Followers (Channels)"
-msgstr ""
+msgstr "Anhänger(Kanäle)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Anhänger  (Partner)"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Future Activities"
-msgstr ""
+msgstr "Zukünftige Aktivitäten"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Group By"
-msgstr ""
+msgstr "Gruppiere nach"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,name:helpdesk_mgmt.module_helpdesk_category
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_main_menu
 msgid "Helpdesk"
-msgstr ""
+msgstr "Beratungsstelle"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
 msgid "Helpdesk Category Search"
-msgstr ""
+msgstr "Helpdesk- Kategoriesuche"
 
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_manager
 msgid "Helpdesk Manager"
-msgstr ""
+msgstr "Helpdesk Manager"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
 msgid "Helpdesk Team Search"
-msgstr ""
+msgstr "Helpdesk Team Suche"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Helpdesk Ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr ""
+msgstr "Helpdesk Ticketkategorie"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_channel
 msgid "Helpdesk Ticket Channel"
-msgstr ""
+msgstr "Helpdesk Ticket Kanal"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr ""
+msgstr "Helpdesk Ticket Stufe"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
 msgid "Helpdesk Ticket Tag"
-msgstr ""
+msgstr "Helpdesk Ticket Stichwort"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Helpdesk Ticket Gruppe"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,description:helpdesk_mgmt.module_helpdesk_category
 msgid "Helps you handle your helpdesk security."
-msgstr ""
+msgstr "Hilft Ihnen beim Umgang mit Ihrer Helpdesk-Sicherheit."
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "High"
-msgstr ""
+msgstr "Hoch"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "High Priority"
-msgstr ""
+msgstr "Hohe Priorität"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "History"
-msgstr ""
+msgstr "Geschichte"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__id
@@ -539,42 +682,46 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__id
 msgid "ID"
-msgstr ""
+msgstr "Ref."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 msgid "If checked new messages require your attention."
-msgstr ""
+msgstr "Wenn aktiviert, erfordern neue Nachrichten Ihre Aufmerksamkeit."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Wenn aktiviert, erfordern neue Nachrichten Ihre Aufmerksamkeit."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
+"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen "
+"Übermittlungsfehler auf."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
 msgid "If set an email will be sent to the customer when the ticketreaches this step."
 msgstr ""
+"Wenn festgelegt, wird eine E-Mail an den Kunden gesendet, wenn das Ticket "
+"diese Stufe erreicht hat."
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_in_progress
 msgid "In Progress"
-msgstr ""
+msgstr "In Bearbeitung"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Ist Nachfolger"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__kanban_state
 msgid "Kanban State"
-msgstr ""
+msgstr "Kanban Stand"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket____last_update
@@ -584,7 +731,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Letzte Änderungen am"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:53
@@ -592,7 +739,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
 msgid "Last Stage Update"
-msgstr ""
+msgstr "Letzte Aktualisierung"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__write_uid
@@ -602,7 +749,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__write_uid
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zuletzt aktualisiert von"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__write_date
@@ -612,71 +759,71 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__write_date
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zuletzt aktualisiert am"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Last Week"
-msgstr ""
+msgstr "Letzte Woche"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Late Activities"
-msgstr ""
+msgstr "Späte Aktivitäten"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:69
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Low"
-msgstr ""
+msgstr "Niedrig"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Hauptanhang"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__attachment_ids
 msgid "Media Attachments"
-msgstr ""
+msgstr "Mediananhänge"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:70
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
-msgstr ""
+msgstr "Mittel"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__user_ids
 msgid "Members"
-msgstr ""
+msgstr "Mitglieder"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Nachrichtenübermittlungsfehler"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Mitteilungen"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "My Activities"
-msgstr ""
+msgstr "Meine Aktivitäten"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "My Followed Tickets"
-msgstr ""
+msgstr "Meine verfolgten Tickets"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "My Tickets"
-msgstr ""
+msgstr "Meine Tickets"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:51
@@ -688,181 +835,183 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_new
 msgid "New"
-msgstr ""
+msgstr "Neu"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "New Ticket"
-msgstr ""
+msgstr "Neues Ticket"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:50
 #, python-format
 msgid "Newest"
-msgstr ""
+msgstr "Neueste"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Nächster Aktivitästermin"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Nächste Aktivitätsübersicht"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_type_id
 msgid "Next Activity Type"
-msgstr ""
+msgstr "Nächste Aktivitätsart"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:187
 #, python-format
 msgid "No Subject"
-msgstr ""
+msgstr "Kein Thema"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Anzahl der Aktionen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of error"
-msgstr ""
+msgstr "Nummer des Fehlers"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Anzahl der Nachrichten, für die eine Aktion erforderlich ist"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Anzahl der Nachrichten mit Zustellungsfehler"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count
 msgid "Number of tickets"
-msgstr ""
+msgstr "Anzahl der Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_high_priority
 msgid "Number of tickets in high priority"
-msgstr ""
+msgstr "Anzahl der Tickets mit hoher Priorität"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unassigned
 msgid "Number of tickets unassigned"
-msgstr ""
+msgstr "Anzahl der nicht zugewiesenen Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr ""
+msgstr "Anzahl der unbeaufsichtigten Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Anzahl ungelesener Nachrichten"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Other Information"
-msgstr ""
+msgstr "Andere Informationen"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Overdue"
-msgstr ""
+msgstr "Überfällig"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Partner"
-msgstr ""
+msgstr "Kunde"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:225
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
-msgstr ""
+msgstr "Kunden - E-mail"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:227
 #, python-format
 msgid "Partner Id"
-msgstr ""
+msgstr "Kunden Ref."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_name
 msgid "Partner Name"
-msgstr ""
+msgstr "Kunden Name"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
 msgid "Pivot Analysis"
-msgstr ""
+msgstr "Tabellenauswertung"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Planned"
-msgstr ""
+msgstr "Geplant"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
 msgid "Priority"
-msgstr ""
+msgstr "Priorität"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,kanban_state:0
 msgid "Ready for next stage"
-msgstr ""
+msgstr "Bereit für die nächste Etappe"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_ids
 msgid "Related tickets"
-msgstr ""
+msgstr "Verwandte Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
-msgstr ""
+msgstr "Berichterstattung"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Verantwortlicher Benutzer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Send a new ticket"
-msgstr ""
+msgstr "Senden Sie ein neues Ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Reihenfolge"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
+"Alle Datensätze anzeigen, deren nächster Aktionstermin vor dem heutigen Tag "
+"liegt"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:52
@@ -871,12 +1020,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
 msgid "Stage"
-msgstr ""
+msgstr "Stufe"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__name
 msgid "Stage Name"
-msgstr ""
+msgstr "Stufenname"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
@@ -886,7 +1035,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 msgid "Stages"
-msgstr ""
+msgstr "Stufen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_state
@@ -895,26 +1044,30 @@ msgid "Status based on activities\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Status basierend auf Aktivitäten\n"
+"Überfällig: Fälligkeitsdatum ist bereits überschritten\n"
+"Heute: Aktivitätsdatum ist heute\n"
+"Geplant: Zukünftige Aktivitäten."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Subject"
-msgstr ""
+msgstr "Gegenstand"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Submit Ticket"
-msgstr ""
+msgstr "Ticket übermitteln"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
 msgid "Tag"
-msgstr ""
+msgstr "Stichwort"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
 msgid "Tags"
-msgstr ""
+msgstr "Stichwörter"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__team_id
@@ -923,72 +1076,74 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Team"
-msgstr ""
+msgstr "Team"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_team_menu
 msgid "Teams"
-msgstr ""
+msgstr "Teams"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket ${object.number} has been closed."
-msgstr ""
+msgstr "Das Ticket ${object.number} wurde geschlossen."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket ${object.number} stage has changed."
-msgstr ""
+msgstr "Das Ticket ${object.number} wurde geändert."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "There are no tickets in your account."
-msgstr ""
+msgstr "In Ihrem Konto befinden sich keine Tickets."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid "This stage is folded in the kanban view when there are no records in that stage to display."
 msgstr ""
+"Diese Stufe wird in der Kanbanansicht gefaltet, wenn in dieser Stufe keine "
+"anzuzeigenden Datensätze vorhanden sind."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr ""
+msgstr "Ticketstufensuche"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_tree
 msgid "Ticket Stages"
-msgstr ""
+msgstr "Ticket- Stufen"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 msgid "Ticket Tag Search"
-msgstr ""
+msgstr "Ticket Stichwort Suche"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_tag_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_tag_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_tree
 msgid "Ticket Tags"
-msgstr ""
+msgstr "Ticketstichwort"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
-msgstr ""
+msgstr "Ticket aktiv zählen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
-msgstr ""
+msgstr "Ticketanzahl"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
 msgid "Ticket number"
-msgstr ""
+msgstr "Ticketnummer"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
@@ -1001,38 +1156,38 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Tickets"
-msgstr ""
+msgstr "Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__name
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "To Do"
-msgstr ""
+msgstr "Machen"
 
 #. module: helpdesk_mgmt
 #: selection:helpdesk.ticket,activity_state:0
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Today Activities"
-msgstr ""
+msgstr "Heutige Aktivitäten"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_ids
 msgid "Todo tickets"
-msgstr ""
+msgstr "Tickets zu erledigen"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unassigned"
-msgstr ""
+msgstr "Nicht zugewiesen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
@@ -1040,48 +1195,48 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
-msgstr ""
+msgstr "Unbeaufsichtigt"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 msgid "Unread Messages"
-msgstr ""
+msgstr "Ungelesene Nachrichten"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr ""
+msgstr "Zähler für ungelesene Nachrichten"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_own
 msgid "User: Personal tickets"
-msgstr ""
+msgstr "Benutzer: Persönliche Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Very High"
-msgstr ""
+msgstr "Sehr hoch"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Website Nachrichten"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Website Kommunikationsverlauf"
