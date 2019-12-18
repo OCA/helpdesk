@@ -7,4 +7,4 @@ from odoo import fields, models
 class HelpdeskTicket(models.Model):
     _inherit = 'helpdesk.ticket'
 
-    type_id = fields.Many2one("helpdesk.type", string="Type")
+    type_id = fields.Many2one("helpdesk.ticket.type", string="Type")
