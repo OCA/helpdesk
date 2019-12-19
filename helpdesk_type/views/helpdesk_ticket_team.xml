@@ -2,8 +2,8 @@
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <odoo>
 
-    <record id="view_helpdesk_ticket_team_motive" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.team.inherit.form</field>
+    <record id="view_helpdesk_ticket_team_type" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.team.type.form</field>
         <field name="model">helpdesk.ticket.team</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form"/>
         <field name="arch" type="xml">
