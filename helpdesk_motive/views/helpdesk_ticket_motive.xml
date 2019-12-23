@@ -37,6 +37,6 @@
               name="Motives"
               parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
               action="action_helpdesk_ticket_motive_tree"
-              sequence="5"/>
+              sequence="7"/>
 
 </odoo>
