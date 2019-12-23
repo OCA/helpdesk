@@ -33,7 +33,7 @@
     </record>
 
     <menuitem
-        name="Types"
+        name="Ticket Types"
         id="helpdesk_ticket_type"
         parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
         action="action_helpdesk_ticket_type"
