@@ -1,0 +1,486 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prt_mail_messages
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0-20190424\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-28 08:21+0000\n"
+"PO-Revision-Date: 2019-06-28 10:58+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: it\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:551
+#, python-format
+msgid "<div font-style=normal;><br/></div><blockquote>----- Original message ----- <br/> Date: %s <br/> From: %s <br/> Subject: %s <br/><br/>%s</blockquote>"
+msgstr "<div font-style=normal;><br/></div><blockquote>----- Messaggio originale ----- <br/> Data: %s <br/> Da: %s <br/> Oggetto: %s <br/><br/>%s</blockquote>"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "All"
+msgstr "Tutto"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__forward_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__forward_ref
+msgid "Attach to record"
+msgstr "Allega al record"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Attachments"
+msgstr "Allegati"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__attachment_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__attachment_count
+msgid "Attachments count"
+msgstr "Conteggio allegati"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__author_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__author_allowed_id
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__author_display
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Author"
+msgstr "Autore"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Body"
+msgstr "Testo"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: prt_mail_messages
+#: model_terms:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid "Click to add a contact in your address book."
+msgstr "Fai clic per aggiungere un contatto nella tua rubrica."
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages_contacts
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_contacts
+msgid "Contacts"
+msgstr "Contatti"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Copy message to other record. Original message text will be qouted and kept. Followers of the other record will be notified!"
+msgstr "Copia messaggio ad altro record. Il testo del messaggio originale sarà virgolettato e tenuto. Chi segue l'altro record riceverà una notifica!"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__lead_delete
+msgid "Delete Empty Leads"
+msgstr "Elimina Leads Vuoti"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__opp_delete
+msgid "Delete Empty Opportunities"
+msgstr "Elimina Opportunità Vuote"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_delete_category
+msgid "Delete Messages"
+msgstr "Elimina Messaggi"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_delete_any
+msgid "Delete any message"
+msgstr "Elimina qualsiasi messaggio"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_delete_any
+msgid "Delete any message (must have DELETE access to record!)"
+msgstr "Elimina qualsiasi messaggio (devi avere permesso di ELIMINAZIONE al record!)"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_delete
+msgid "Delete own messages"
+msgstr "Elimina i propri messaggi"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_delete
+msgid "Delete own messages (must have DELETE access to record!)"
+msgstr "Elimina i propri messaggi (devi avere permesso di ELIMINAZIONE al record!)"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Do not notify"
+msgstr "Non notificare"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_thread
+msgid "Email Thread"
+msgstr "Discussione e-mail"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Procedura composizione e-mail"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__ref_partner_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__ref_partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__ref_partner_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Forward"
+msgstr "Inoltra"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:782
+#, python-format
+msgid "Fwd:"
+msgstr "I:"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__id
+msgid "ID"
+msgstr "ID"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__lead_delete
+msgid "If all messages are moved from lead and there are no other messages left except for notifications lead will be deleted"
+msgstr "Se tutti i messaggi vengono spostati dal lead e non rimangono altri messaggi eccetto le notifiche il lead sarà eliminato"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__opp_delete
+msgid "If all messages are moved from opportunity and there are no other messages left except for notifications opportunity will be deleted"
+msgstr "Se tutti i messaggi vengono spostati dall'opportunità e non rimangono altri messaggi eccetto le notifiche l'opportunità sarà eliminata"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "In thread"
+msgstr "Nella conversazione"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__write_uid
+msgid "Last Updated by"
+msgstr "Ultimo aggiornamento di"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__write_date
+msgid "Last Updated on"
+msgstr "Ultimo aggiornamento il"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Log internal note"
+msgstr "Registra nota interna"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_category
+#: model:ir.module.category,description:prt_mail_messages.module_messages_easy_delete_category
+msgid "Manage Odoo Messages Easy"
+msgstr "Gestisci Odoo Messages Easy"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_mail_message
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Message"
+msgstr "Messaggio"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__record_ref
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__record_ref
+msgid "Message Record"
+msgstr "Record di Messaggio"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:274
+#: code:addons/prt_mail_messages/models/prt_mail.py:688
+#: model:ir.actions.act_window,name:prt_mail_messages.action_prt_mail_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_messages
+#: model:ir.ui.menu,name:prt_mail_messages.prt_messages_root
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_tree
+#, python-format
+msgid "Messages"
+msgstr "Gestione Messaggi"
+
+#. module: prt_mail_messages
+#: model:ir.module.category,name:prt_mail_messages.module_messages_easy_category
+msgid "Messages Easy"
+msgstr "Messages Easy"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner__messages_from_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users__messages_from_count
+msgid "Messages From"
+msgstr "Messaggi Da"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_partner__messages_to_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_res_users__messages_to_count
+msgid "Messages To"
+msgstr "Messaggi A"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__thread_messages_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__thread_messages_count
+msgid "Messages in thread"
+msgstr "Messaggi nella conversazione"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Move"
+msgstr "Sposta"
+
+#. module: prt_mail_messages
+#: model:ir.model,name:prt_mail_messages.model_prt_message_move_wiz
+msgid "Move Messages To Other Thread"
+msgstr "Sposta I Messaggi Ad Altra Conversazione"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_move
+msgid "Move any message"
+msgstr "Sposta qualsiasi messaggio"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_move
+msgid "Move any message (must have WRITE access to records!)"
+msgstr "Sposta qualsiasi messaggio (devi avere permesso di SCRITTURA ai records!)"
+
+#. module: prt_mail_messages
+#: model:ir.actions.act_window,name:prt_mail_messages.prt_contact_export
+msgid "Move message"
+msgstr "Sposta il messaggio"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Move message from current to other record"
+msgstr "Sposta il messaggio dal record corrente ad altro"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:588
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+#, python-format
+msgid "Move messages"
+msgstr "Sposta i messaggi"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__model_to
+msgid "Move to"
+msgstr "Sposta a"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:573
+#: code:addons/prt_mail_messages/models/prt_mail.py:703
+#, python-format
+msgid "New message"
+msgstr "Nuovo messaggio"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_prt_message_move_wiz__notify
+msgid "Notify"
+msgstr "Notifica"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_prt_message_move_wiz__notify
+msgid "Notify followers of destination record"
+msgstr "Notifica i followers del record di destinazione"
+
+#. module: prt_mail_messages
+#: model_terms:ir.actions.act_window,help:prt_mail_messages.action_prt_mail_messages_contacts
+msgid ""
+"Odoo helps you easily track all activities related to\n"
+"           a customer: discussions, history of business opportunities,\n"
+"           documents, etc."
+msgstr ""
+"Odoo ti aiuta a tracciare facilmente tutte le attività collegate ad\n"
+"           un cliente: discussioni, storia di opportunità di business,\n"
+"           documenti, ecc."
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Please purchase"
+msgstr "Per favore acquista"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Post new message to record. Original message text will be qouted. Record followers will be notified!"
+msgstr "Posta nuovo messaggio al record. Il testo del messaggio originale sarà virgolettato. Chi segue il record riceverà una notifica!"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Post new message to record. Record followers will be notified!"
+msgstr "Posta nuovo messaggio al record. Chi segue il record riceverà una notifica!"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "Pro Version"
+msgstr "Versione Pro"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Quote"
+msgstr "Cita"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:782
+#, python-format
+msgid "Re:"
+msgstr "Re:"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_res_partner_view_form
+msgid "Recipient"
+msgstr "Destinatario"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__partner_allowed_ids
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__partner_allowed_ids
+msgid "Recipients"
+msgstr "Destinatari"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__partner_count
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__partner_count
+msgid "Recipients count"
+msgstr "Conteggio destinatari"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Related record:"
+msgstr "Record collegato:"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Reply"
+msgstr "Rispondi"
+
+#. module: prt_mail_messages
+#: selection:prt.message.move.wiz,notify:0
+msgid "Send message"
+msgstr "Invia messaggio"
+
+#. module: prt_mail_messages
+#: model:res.groups,comment:prt_mail_messages.group_technical
+msgid "Show technical fields in mail messages"
+msgstr "Mostrare campi tecnici nei messaggi di posta"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Star"
+msgstr "Star"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_mail__subject_display
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_message__subject_display
+msgid "Subject"
+msgstr "Oggetto"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,help:prt_mail_messages.field_account_invoice_send__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_compose_message__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_mail__thread_messages_count
+#: model:ir.model.fields,help:prt_mail_messages.field_mail_message__thread_messages_count
+msgid "Total number of messages in thread"
+msgstr "Numero totale di messaggi nella conversazione"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_mail_message_form
+msgid "Unstar"
+msgstr "Unstar"
+
+#. module: prt_mail_messages
+#: model:res.groups,name:prt_mail_messages.group_technical
+msgid "View technical fields"
+msgstr "Visualizza campi tecnici"
+
+#. module: prt_mail_messages
+#: model:ir.model.fields,field_description:prt_mail_messages.field_account_invoice_send__wizard_mode
+#: model:ir.model.fields,field_description:prt_mail_messages.field_mail_compose_message__wizard_mode
+msgid "Wizard mode"
+msgstr "Modalità wizard"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:64
+#, python-format
+msgid "You cannot delete messages!"
+msgstr "Non puoi cancellare messaggi!"
+
+#. module: prt_mail_messages
+#: code:addons/prt_mail_messages/models/prt_mail.py:83
+#: code:addons/prt_mail_messages/models/prt_mail.py:92
+#: code:addons/prt_mail_messages/models/prt_mail.py:99
+#: code:addons/prt_mail_messages/models/prt_mail.py:106
+#, python-format
+msgid ""
+"You cannot delete the following message\n"
+"\n"
+" Subject: %s \n"
+"\n"
+" Reason: %s"
+msgstr ""
+"Non puoi cancellare il seguente messaggio\n"
+"\n"
+" Oggetto: %s \n"
+"\n"
+" Motivo: %s"
+
+#. module: prt_mail_messages
+#: model_terms:ir.ui.view,arch_db:prt_mail_messages.prt_message_move_form
+msgid "to use this feature"
+msgstr "per utilizzare questa funzionalità"
