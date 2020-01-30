@@ -5,7 +5,7 @@
       <field name="res_model">helpdesk.ticket</field>
       <field name="view_mode">kanban,tree,form</field>
       <field name="context">
-            {'default_helpdesk_ticket_team_id': active_id}
+            {'default_team_id': active_id}
           </field>
           <field name="domain">[('team_id', '=', active_id)]</field>
   </record>
@@ -63,6 +63,8 @@
                     <field name="stage_id" widget="statusbar" clickable="True"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
                     <div class="oe_title">
                         <h1 class="oe_title">
                             <field name="number"/>
