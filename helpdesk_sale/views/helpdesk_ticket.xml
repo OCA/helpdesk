@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="ticket_view_form_order" model="ir.ui.view">
+            <field name="name">ticket_view_form_order</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+            <field name="arch" type="xml">
+
+                <header position="inside">
+                    <button type="object" name="create_order" string="Create Order"/>
+                </header>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" type="object" name="open_orders" icon="fa-usd">
+                        <field string="Orders" name="sale_order_count" widget="statinfo"/>
+                    </button>
+                </div>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
