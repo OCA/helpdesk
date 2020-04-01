@@ -1,7 +1,7 @@
 {
     "name": "Helpdesk Management Rating",
     "summary": """
-        This module allows the customer to rate the assistance received
+        This module allows customer to rate the assistance received
         on a ticket.
         """,
     "version": "13.0.1.0.0",

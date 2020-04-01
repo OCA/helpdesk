@@ -2,6 +2,6 @@
 
   * Samuel Calvo
 
-* `Obertix <https://www.obertix.net>`_:
+* `Obertix <https://obertix.net>`_:
 
   * Vicent Cubells <vicent@vcubells.net>
