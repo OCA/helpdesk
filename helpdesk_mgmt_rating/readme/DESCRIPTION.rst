@@ -1,1 +1,2 @@
-This module adds the posibility to rate the assistance received through helpdesk tickets.
+This module adds the posibility to rate the assistance received through helpdesk
+tickets.
