@@ -1,4 +1,5 @@
 To configure this module, you need to:
+
 #. Edit or create stages.
 #. Edit or create tickets.
 
