@@ -36,9 +36,7 @@ class HelpdeskTicket(models.Model):
     def write(self, vals):
         res = super().write(vals)
         if "stage_id" in vals and vals.get("stage_id"):
-            stage = self.env["helpdesk.ticket.stage"].search(
-                [("id", "=", vals.get("stage_id"))]
-            )
+            stage = self.env["helpdesk.ticket.stage"].browse(vals.get("stage_id"))
             if stage.rating_mail_template_id:
                 self._send_ticket_rating_mail(force_send=False)
         return res
