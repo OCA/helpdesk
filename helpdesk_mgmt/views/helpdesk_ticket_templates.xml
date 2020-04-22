@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_layout"
+        name="Portal layout: ticket menu entry"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="50"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'ticket' or ticket"
+                t-attf-class="breadcrumb-item #{'active ' if not ticket else ''}"
+            >
+                <a
+                    t-if="ticket"
+                    t-attf-href="/my/tickets?{{ keep_query() }}"
+                >Tickets</a>
+                <t t-else="">Tickets</t>
+            </li>
+            <li t-if="ticket" class="breadcrumb-item active">
+                <t t-esc="ticket.name" />
+            </li>
+        </xpath>
+    </template>
+    <template
+        id="portal_my_home"
+        name="Portal My Home : ticket entries"
+        inherit_id="portal.portal_my_home"
+        priority="40"
+    >
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-if="ticket_count" t-call="portal.portal_docs_entry">
+                <t t-set="title">Tickets</t>
+                <t t-set="url" t-value="'/my/tickets'" />
+                <t t-set="count" t-value="ticket_count" />
+            </t>
+            <form method="POST" t-attf-action="/new/ticket">
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    t-att-value="request.csrf_token()"
+                />
+                <button
+                    name="create_new_ticket"
+                    type="action"
+                    class="btn btn-primary"
+                    groups="base.group_portal"
+                    style="float: right; margin-right: 0px; margin-top:5px;"
+                >New Ticket</button>
+            </form>
+        </xpath>
+    </template>
+    <template id="portal_my_tickets" name="My tickets">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <form method="POST" t-attf-action="/new/ticket">
+                <h3>Tickets
+            <t t-call="portal.portal_searchbar" />
+            <button
+                        name="create_new_ticket"
+                        type="action"
+                        class="btn btn-primary"
+                        groups="base.group_portal"
+                        style="float: right; margin-right: 5px;"
+                    >New Ticket</button>
+          </h3>
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    t-att-value="request.csrf_token()"
+                />
+            </form>
+            <t t-if="not tickets">
+                <p>There are no tickets in your account.</p>
+            </t>
+            <div t-if="tickets" class="panel panel-default">
+                <div class="table-responsive">
+                    <table class="table table-hover o_portal_my_doc_table">
+                        <thead>
+                            <tr class="active">
+                                <th>By</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Stage</th>
+                                <th>Create Date</th>
+                                <th>Last Stage Update</th>
+                                <th>Close Date</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="tickets" t-as="ticket">
+                            <tr>
+                                <td>
+                                    <t t-esc="ticket.partner_id.name" />
+                                </td>
+                                <td>
+                                    <a t-attf-href="/my/ticket/#{ticket.id}">
+                                        <t t-esc="ticket.name" />
+                                    </a>
+                                </td>
+                                <td>
+                                    <t t-esc="ticket.category_id.name" />
+                                </td>
+                                <td>
+                                    <t t-esc="ticket.stage_id.name" />
+                                </td>
+                                <td>
+                                    <span t-field="ticket.create_date" />
+                                </td>
+                                <td>
+                                    <span t-field="ticket.last_stage_update" />
+                                </td>
+                                <td>
+                                    <span t-field="ticket.closed_date" />
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+                <div t-if="pager" class="o_portal_pager text-center">
+                    <t t-call="portal.pager" />
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>
+                                    <t t-call='portal.record_pager' />
+                                    <span t-field="ticket.name" />
+                                </h4>
+                            </div>
+                            <t t-foreach="closed_stages" t-as="stage">
+                                <form
+                                    method="GET"
+                                    t-if="not ticket.closed_date"
+                                    t-attf-action="/ticket/close"
+                                    style="display:inline;"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="ticket_id"
+                                        t-attf-value="#{ticket.id}"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="stage_id"
+                                        t-attf-value="#{stage.id}"
+                                    />
+                                    <button
+                                        class="btn btn-success pull-right"
+                                        style="margin-right:15px;margin-top:3px;"
+                                    >
+                                        <span t-field="stage.name" />
+                                    </button>
+                                </form>
+                            </t>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="mb8">
+                            <div>
+                                <div class="pull-left">
+                                    <strong>Date:</strong>
+                                    <span t-field="ticket.create_date" />
+                                    <br />
+                                    <b>Category:</b>
+                                    <t t-esc="ticket.category_id.name" />
+                                    <br />
+                                    <b>Stage:</b>
+                                    <t t-esc="ticket.stage_id.name" />
+                                    <br />
+                                </div>
+                                <div class="pull-right">
+                                    <strong>Last Stage Update:</strong>
+                                    <span t-field="ticket.last_stage_update" />
+                                    <br />
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <h4 class="page-header">Description</h4>
+                            <t t-raw="ticket.description" />
+                            <br />
+                        </div>
+                        <h4 class="page-header">History</h4>
+                        <!-- Options:Ticket Chatter: user can reply -->
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="ticket" />
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <div class="oe_structure mb32" />
+        </t>
+    </template>
+    <template id="portal_create_ticket" name="Create Ticket">
+        <t t-call="portal.portal_layout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Send a new ticket</h1>
+                    </div>
+                </div>
+            </div>
+            <form
+                action="/submitted/ticket"
+                method="POST"
+                class="form-horizontal mt32"
+                enctype="multipart/form-data"
+            >
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    t-att-value="request.csrf_token()"
+                />
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="name"
+                    >Name</label>
+                    <div class="col-md-7 col-sm-8">
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="name"
+                            t-attf-value="#{name}"
+                            required="True"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="email"
+                    >Email</label>
+                    <div class="col-md-7 col-sm-8">
+                        <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            required="True"
+                            t-attf-value="#{email}"
+                            readonly="True"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="category"
+                    >Category</label>
+                    <div class="col-md-7 col-sm-8">
+                        <select
+                            class="form-control"
+                            id="category"
+                            name="category"
+                            required="True"
+                        >
+                            <t t-foreach="categories" t-as="cat">
+                                <option t-attf-value="#{cat.id}">
+                                    <t t-esc="cat.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="subject"
+                    >Subject</label>
+                    <div class="col-md-7 col-sm-8">
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="subject"
+                            required="True"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="attachment"
+                    >Add Attachments</label>
+                    <div class="col-md-7 col-sm-8">
+                        <div class="btn btn-default btn-file col-md-12">
+                            <input
+                                class="form-control o_website_form_input"
+                                name="attachment"
+                                id="attachment"
+                                type="file"
+                                multiple="multiple"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-dm-4 control-label"
+                        for="description"
+                    >Description</label>
+                    <div class="col-md-7 col-sm-8">
+                        <textarea
+                            class="form-control"
+                            name="description"
+                            style="min-height: 120px"
+                            required="True"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                        <button class="btn btn-primary btn-lg">Submit Ticket</button>
+                    </div>
+                </div>
+            </form>
+        </t>
+    </template>
+</odoo>
