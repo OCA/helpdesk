@@ -150,7 +150,6 @@
                                 domain="[('share', '=', False)]"
                                 options='{"always_reload": True}'
                             />
-                            <!-- <field name="priority" widget="priority" /> -->
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
