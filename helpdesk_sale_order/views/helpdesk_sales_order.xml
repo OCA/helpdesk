@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <record id="ticket_view_form" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.view.form</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+	    <field name="arch" type="xml">
+		    <xpath expr="//form/header/button[@name='assign_to_me']" position="after">
+			    <button string="Create sales order" name="action_create_sales_order" type='object' invisible="1"/>
+		    </xpath>
+		    <field name="tag_ids" position="after">
+			    <field name="sale_order_id"></field>
+		    </field>
+            </field>
+        </record>
+</odoo>
+

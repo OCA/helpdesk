@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="close_reason_wizard_act_window" model="ir.actions.act_window">
+	  <field name="name">Close reason</field>
+	  <field name="res_model">close.reason.wizard</field>
+	  <field name="view_mode">form</field>
+	  <field name="target">new</field>
+  </record>
+</odoo>
+
