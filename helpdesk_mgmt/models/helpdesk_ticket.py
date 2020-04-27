@@ -45,8 +45,7 @@ class HelpdeskTicket(models.Model):
     closed_date = fields.Datetime(string="Closed Date")
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended")
-    tag_ids = fields.Many2many(
-        comodel_name="helpdesk.ticket.tag", string="Tags")
+    tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     company_id = fields.Many2one(
         comodel_name="res.company",
         string="Company",
@@ -62,8 +61,7 @@ class HelpdeskTicket(models.Model):
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
     )
-    team_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.team", string="Team",)
+    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
     priority = fields.Selection(
         selection=[("0", _("Normal")), ("1", _("Important")), ],
         string="Priority",
@@ -87,8 +85,7 @@ class HelpdeskTicket(models.Model):
     active = fields.Boolean(default=True)
 
     def send_user_mail(self):
-        self.env.ref(
-            "helpdesk_mgmt.assignment_email_template").send_mail(self.id)
+        self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
 
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
@@ -119,8 +116,7 @@ class HelpdeskTicket(models.Model):
             seq = self.env["ir.sequence"]
             if "company_id" in vals:
                 seq = seq.with_context(force_company=vals["company_id"])
-            vals["number"] = seq.next_by_code(
-                "helpdesk.ticket.sequence") or "/"
+            vals["number"] = seq.next_by_code("helpdesk.ticket.sequence") or "/"
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
@@ -134,8 +130,7 @@ class HelpdeskTicket(models.Model):
             default = {}
         if "number" not in default:
             default["number"] = (
-                self.env["ir.sequence"].next_by_code(
-                    "helpdesk.ticket.sequence") or "/"
+                self.env["ir.sequence"].next_by_code("helpdesk.ticket.sequence") or "/"
             )
         res = super().copy(default)
         return res
@@ -144,8 +139,7 @@ class HelpdeskTicket(models.Model):
         for _ticket in self:
             now = fields.Datetime.now()
             if vals.get("stage_id"):
-                stage = self.env["helpdesk.ticket.stage"].browse(
-                    [vals["stage_id"]])
+                stage = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
                 vals["last_stage_update"] = now
                 if stage.closed:
                     vals["closed_date"] = now
@@ -238,8 +232,7 @@ class HelpdeskTicket(models.Model):
             for ticket in self:
                 if ticket.partner_id:
                     ticket._message_add_suggested_recipient(
-                        recipients, partner=ticket.partner_id, reason=_(
-                            "Customer")
+                        recipients, partner=ticket.partner_id, reason=_("Customer")
                     )
                 elif ticket.partner_email:
                     ticket._message_add_suggested_recipient(

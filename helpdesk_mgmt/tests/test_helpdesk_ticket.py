@@ -10,8 +10,7 @@ class TestHelpdeskTicket(common.SavepointCase):
         helpdesk_ticket = cls.env["helpdesk.ticket"]
         cls.user_admin = cls.env.ref("base.user_root")
         cls.user_demo = cls.env.ref("base.user_demo")
-        cls.stage_closed = cls.env.ref(
-            "helpdesk_mgmt.helpdesk_ticket_stage_done")
+        cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
 
         cls.ticket = helpdesk_ticket.create(
             {"name": "Test 1", "description": "Ticket test"}
