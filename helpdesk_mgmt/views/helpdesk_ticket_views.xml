@@ -136,7 +136,7 @@
                             <field name="number" />
                         </h1>
                         <h2 class="o_row">
-                            <field name="priority" widget="priority" class="mr-3"/>
+                            <field name="priority" widget="priority" class="mr-3" />
                             <field name="name" />
                         </h2>
                     </div>

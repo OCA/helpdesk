@@ -60,13 +60,16 @@ class HelpdeskTeam(models.Model):
         for record in self:
             record.todo_ticket_count = len(record.todo_ticket_ids)
             record.todo_ticket_count_unassigned = len(
-                record.todo_ticket_ids.filtered(lambda ticket: not ticket.user_id)
+                record.todo_ticket_ids.filtered(
+                    lambda ticket: not ticket.user_id)
             )
             record.todo_ticket_count_unattended = len(
-                record.todo_ticket_ids.filtered(lambda ticket: ticket.unattended)
+                record.todo_ticket_ids.filtered(
+                    lambda ticket: ticket.unattended)
             )
             record.todo_ticket_count_high_priority = len(
-                record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
+                record.todo_ticket_ids.filtered(
+                    lambda ticket: ticket.priority == "3")
             )
 
     def get_alias_model_name(self, vals):
@@ -74,6 +77,7 @@ class HelpdeskTeam(models.Model):
 
     def get_alias_values(self):
         values = super().get_alias_values()
-        values["alias_defaults"] = defaults = safe_eval(self.alias_defaults or "{}")
+        values["alias_defaults"] = defaults = safe_eval(
+            self.alias_defaults or "{}")
         defaults["team_id"] = self.id
         return values
