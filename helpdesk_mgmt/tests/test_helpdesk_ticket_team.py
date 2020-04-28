@@ -15,7 +15,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
                 "name": "Ticket 1",
                 "description": "Description",
                 "team_id": cls.team_id.id,
-                "priority": "3",
+                "priority": "0",
             }
         )
         cls.helpdesk_ticket_2 = helpdesk_ticket.create(
