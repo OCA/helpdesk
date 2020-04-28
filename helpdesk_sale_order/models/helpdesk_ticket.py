@@ -14,7 +14,8 @@ class HelpdeskTicket(models.Model):
         string="Assign sale order",
         related="team_id.assign_sale_order",
         help="""
-        Given a ticket from this team, allows assigning a past sale order the customer has
+        Given a ticket from this team,
+        allows assigning a past sale order the customer has
         """,
         invisible=True
     )

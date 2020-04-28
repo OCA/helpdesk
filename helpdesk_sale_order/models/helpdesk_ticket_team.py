@@ -8,6 +8,7 @@ class HelpdeskTicketTeam(models.Model):
         string="Assign sale order",
         default=False,
         help="""
-        Given a ticket from this team, allows assigning a past sale order the customer has
+        Given a ticket from this team,
+        allows assigning a past sale order the customer has
         """,
     )
