@@ -4,11 +4,7 @@ from odoo import models, fields
 class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
-    sale_order_id = fields.Many2one(
-        comodel_name='sale.order',
-        string='Sale order',
-        domain='[("partner_id", "=", "partner_id.sale_order_ids.ids")]',
-    )
+    sale_order_id = fields.Many2one(comodel_name="sale.order", string="Sale order",)
 
     assign_sale_order = fields.Boolean(
         string="Assign sale order",
@@ -17,7 +13,7 @@ class HelpdeskTicket(models.Model):
         Given a ticket from this team,
         allows assigning a past sale order the customer has
         """,
-        invisible=True
+        invisible=True,
     )
 
     def action_create_sales_order(self):
