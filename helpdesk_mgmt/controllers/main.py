@@ -4,6 +4,7 @@ import logging
 import werkzeug
 
 import odoo.http as http
+from odoo import SUPERUSER_ID
 from odoo.http import request
 
 _logger = logging.getLogger(__name__)
@@ -21,7 +22,7 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = field_value
         ticket = (
             http.request.env["helpdesk.ticket"]
-            .with_user()
+            .with_user(SUPERUSER_ID)
             .search([("id", "=", values["ticket_id"])])
         )
         ticket.stage_id = values.get("stage_id")
@@ -51,21 +52,21 @@ class HelpdeskTicketController(http.Controller):
             "name": kw.get("subject"),
             "attachment_ids": False,
             "channel_id": request.env["helpdesk.ticket.channel"]
-            .with_user()
+            .with_user(SUPERUSER_ID)
             .search([("name", "=", "Web")])
             .id,
             "partner_id": request.env["res.partner"]
-            .with_user()
+            .with_user(SUPERUSER_ID)
             .search([("name", "=", kw.get("name")), ("email", "=", kw.get("email"))])
             .id,
         }
-        new_ticket = request.env["helpdesk.ticket"].with_user().create(vals)
+        new_ticket = request.env["helpdesk.ticket"].with_user(SUPERUSER_ID).create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
             for c_file in request.httprequest.files.getlist("attachment"):
                 data = c_file.read()
                 if c_file.filename:
-                    request.env["ir.attachment"].with_user().create(
+                    request.env["ir.attachment"].with_user(SUPERUSER_ID).create(
                         {
                             "name": c_file.filename,
                             "datas": base64.b64encode(data),
