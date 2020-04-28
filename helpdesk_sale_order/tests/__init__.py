@@ -1,1 +1,1 @@
-from . import test_helpdesk_sales_order 
+from . import test_helpdesk_sale_order

@@ -1,13 +1,23 @@
 from odoo import models, fields
 
 
-class HelpdeskSalesOrder(models.Model):
+class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     sale_order_id = fields.Many2one(
         comodel_name='sale.order',
-        string='Sales order',
-        )
+        string='Sale order',
+        domain='[("partner_id", "=", "partner_id.sale_order_ids.ids")]',
+    )
+
+    assign_sale_order = fields.Boolean(
+        string="Assign sale order",
+        related="team_id.assign_sale_order",
+        help="""
+        Given a ticket from this team, allows assigning a past sale order the customer has
+        """,
+        invisible=True
+    )
 
     def action_create_sales_order(self):
         return {
@@ -19,16 +29,3 @@ class HelpdeskSalesOrder(models.Model):
             "res_id": False,
             "context": self.env.context,
         }
-
-#    tag_ids = fields.Many2many(
-#      comodel_name="product.template.tag",
-#        string="Product tags",
-#        #relation="product_tag_ids",
-#        #column1="kit_line_ids",
-#        #column2="tags",
-#    )
-
-#    @api.onchange('product_id')
-#    def update_product_tags(self):
-#        for record in self:
-#            record.tag_ids = [(6, 0, record.product_id.tag_ids.ids)]

@@ -1,1 +1,2 @@
-from . import helpdesk_sales_order
+from . import helpdesk_ticket
+from . import helpdesk_ticket_team

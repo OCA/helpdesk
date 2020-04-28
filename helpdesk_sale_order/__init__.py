@@ -1,1 +1,1 @@
-from . import wizard, models, views
+from . import models

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="helpdesk_ticket_team_view_form" model="ir.ui.view">
+        <field name="name">view.helpdesk_team.form</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='visibility']" position="after">
+
+                <h2>After sale services</h2>
+
+                <div class="row mt32 o_settings_container">
+                    <div class="col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="assign_sale_order"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="assign_sale_order"/>
+                            <div class="text-muted">
+                                Allow team members to set the sale order of a ticket given
+                                the sales of a customer
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>
