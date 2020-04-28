@@ -109,7 +109,7 @@
         <field eval="&quot;Product quality not maintained&quot;" name="name" />
         <field eval="&quot;Product quality not maintained&quot;" name="description" />
         <field eval="&quot;Jamie Mads&quot;" name="partner_name" />
-        <field eval="&quot;2&quot;" name="priority" />
+        <field eval="&quot;0&quot;" name="priority" />
         <field name="user_id" ref="base.user_demo" />
         <field name="stage_id" ref="helpdesk_ticket_stage_in_progress" />
         <field name="partner_id" ref="base.res_partner_10" />
@@ -119,7 +119,7 @@
     <record id="helpdesk_ticket_5" model="helpdesk.ticket">
         <field eval="&quot;Some products missing&quot;" name="name" />
         <field eval="&quot;Some products missing&quot;" name="description" />
-        <field eval="&quot;3&quot;" name="priority" />
+        <field eval="&quot;1&quot;" name="priority" />
         <field name="user_id" ref="base.user_root" />
         <field name="partner_id" ref="base.res_partner_12" />
         <field name="team_id" ref="helpdesk_team_3" />
