@@ -188,6 +188,7 @@ class HelpdeskTicket(models.Model):
         """ Override message_new from mail gateway so we can set correct
         default values.
         """
+
         if custom_values is None:
             custom_values = {}
         defaults = {
@@ -221,14 +222,19 @@ class HelpdeskTicket(models.Model):
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
-        partner_ids = [
-            p
-            for p in self.env["mail.thread"]._mail_find_partner_from_emails(
-                email_list, records=self, force_create=False
+        partner_ids = list(
+            map(
+                lambda x: x.id,
+                self.env["mail.thread"]._mail_find_partner_from_emails(
+                    email_list, records=self, force_create=False
+                ),
             )
-            if p
-        ]
+        )
         self.message_subscribe(partner_ids)
+        stage_id_new = self.env["helpdesk.ticket.stage"].search(
+            [("unattended", "=", True), ("closed", "=", False)], limit=1
+        )
+        self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
         return super().message_update(msg, update_vals=update_vals)
 
     def _message_get_suggested_recipients(self):
