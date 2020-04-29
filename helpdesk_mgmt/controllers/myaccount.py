@@ -1,6 +1,6 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
-from odoo import _, http
+from odoo import SUPERUSER_ID, _, http
 from odoo.exceptions import AccessError
 from odoo.http import request
 
@@ -19,7 +19,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
 
     def _helpdesk_ticket_check_access(self, ticket_id):
         ticket = request.env["helpdesk.ticket"].browse([ticket_id])
-        ticket_sudo = ticket.with_user()
+        ticket_sudo = ticket.with_user(SUPERUSER_ID)
         try:
             ticket.check_access_rights("read")
             ticket.check_access_rule("read")
@@ -103,6 +103,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
     @http.route(["/my/ticket/<int:ticket_id>"], type="http", website=True)
     def portal_my_ticket(self, ticket_id=None, **kw):
         try:
+
             ticket_sudo = self._helpdesk_ticket_check_access(ticket_id)
         except AccessError:
             return request.redirect("/my")

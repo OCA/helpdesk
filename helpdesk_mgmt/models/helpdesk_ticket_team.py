@@ -66,7 +66,7 @@ class HelpdeskTeam(models.Model):
                 record.todo_ticket_ids.filtered(lambda ticket: ticket.unattended)
             )
             record.todo_ticket_count_high_priority = len(
-                record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
+                record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "1")
             )
 
     def get_alias_model_name(self, vals):

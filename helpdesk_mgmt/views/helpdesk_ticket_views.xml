@@ -100,6 +100,7 @@
                             <field name="number" />
                         </h1>
                         <h2 class="o_row">
+                            <field name="priority" widget="priority" class="mr-3" />
                             <field name="name" />
                         </h2>
                     </div>
@@ -113,7 +114,6 @@
                                 domain="[('share', '=', False)]"
                                 options='{"always_reload": True}'
                             />
-                            <field name="priority" widget="priority" />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
