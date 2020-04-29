@@ -77,7 +77,6 @@
         <field eval="&quot;1&quot;" name="priority" />
         <field name="user_id" ref="base.user_root" />
         <field name="stage_id" ref="helpdesk_ticket_stage_new" />
-        <field name="channel_id" ref="helpdesk_ticket_channel_web" />
         <field name="partner_id" ref="base.res_partner_3" />
         <field name="team_id" ref="helpdesk_team_2" />
     </record>
@@ -88,7 +87,6 @@
         <field eval="&quot;0&quot;" name="priority" />
         <field name="user_id" ref="base.user_demo" />
         <field name="stage_id" ref="helpdesk_ticket_stage_new" />
-        <field name="channel_id" ref="helpdesk_ticket_channel_web" />
         <field name="partner_id" ref="base.res_partner_2" />
         <field name="team_id" ref="helpdesk_team_1" />
     </record>
@@ -101,7 +99,6 @@
         <field eval="[(6,0,[ref('helpdesk_tag_1')])]" name="tag_ids" />
         <field name="user_id" ref="base.user_root" />
         <field name="stage_id" ref="helpdesk_ticket_stage_cancelled" />
-        <field name="channel_id" ref="helpdesk_ticket_channel_other" />
         <field name="partner_id" ref="base.res_partner_18" />
         <field name="team_id" ref="helpdesk_team_1" />
     </record>
@@ -114,7 +111,6 @@
         <field name="stage_id" ref="helpdesk_ticket_stage_in_progress" />
         <field name="partner_id" ref="base.res_partner_10" />
         <field name="team_id" ref="helpdesk_team_3" />
-        <field name="channel_id" ref="helpdesk_ticket_channel_phone" />
     </record>
     <record id="helpdesk_ticket_5" model="helpdesk.ticket">
         <field eval="&quot;Some products missing&quot;" name="name" />

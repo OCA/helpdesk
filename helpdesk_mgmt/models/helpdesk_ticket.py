@@ -52,12 +52,6 @@ class HelpdeskTicket(models.Model):
         required=True,
         default=lambda self: self.env.company,
     )
-    channel_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.channel",
-        string="Channel",
-        help="Channel indicates where the source of a ticket"
-        "comes from (it could be a phone call, an email...)",
-    )
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
     )

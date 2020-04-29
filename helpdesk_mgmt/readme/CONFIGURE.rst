@@ -1,22 +1,9 @@
 To configure this module, you need to:
 
-#. Edit or create new channels.
 #. Edit or create new categories.
 #. Edit or create new stages.
 #. Edit or create new teams.
 #. Edit or create new tags.
-
-Channels
-~~~~~~~~
-
-#. Go to *Helpdesk > Configuration > Channels* to edit or create new channels.
-#. Edit or create a channel.
-#. Set the name for the channel.
-#. You can also Activate or Deactivate channels.
-
-.. figure:: ../static/description/Channels.PNG
-   :alt: Channels
-   :width: 600 px
 
 Categories
 ~~~~~~~~~~
