@@ -106,6 +106,35 @@
                             </div>
                         </div>
                     </div>
+                    <h2>After sales services</h2>
+                    <div class="row mt32 o_settings_container" id="after-sale" />
+                    <h2>Misc.</h2>
+                    <div class="row mt32 o_settings_container" id="misc">
+                        <div class="col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="enable_webform" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="enable_webform" />
+                                <div class="text-muted">
+                                    Enable the team webform in order for website-logged customers
+                                    to create tickets assigned directly to this team
+                                </div>
+                                <div
+                                    id="enable_webform_endpoint"
+                                    attrs="{'invisible': [('enable_webform', '=', False)]}"
+                                >
+                                    <label for="endpoint_webform" />
+                                    <div class="text-muted">
+                                        This is the generated website endpoint based on the ticket name.
+                                       If a number is appended it means the endpoint generator found a conflict
+                                       of names between several teams
+                                    </div>
+                                    <field name="endpoint_full_webform" widget="url" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </sheet>
                 <div class="oe_chatter">
                     <field
