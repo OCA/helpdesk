@@ -3,10 +3,31 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTeam(models.Model):
-
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
+
+    @api.depends("name", "enable_webform")
+    def _compute_endpoint_webform(self):
+        """
+         Compute the endpoint webform name,
+        which usually is the team name hyphen-separated.
+        As team names conflicts can exist,
+        the endpoint string will be appended the team id to, if necessary
+        :return:
+        """
+        for record in self:
+            if record.enable_webform:
+                _endpoint = "-".join(record.name.lower().split(" "))
+                domain = [("endpoint_webform", "=", _endpoint)]
+                if isinstance(record.id, int):
+                    domain.append(("id", "!=", record.id))
+                if record.env[record._name].search(domain):
+                    _endpoint += "-{}".format(record.id)
+                record.endpoint_webform = _endpoint
+                record.endpoint_full_webform = "helpdesk/{}".format(
+                    record.endpoint_webform
+                )
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
@@ -53,6 +74,13 @@ class HelpdeskTeam(models.Model):
     )
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority", compute="_compute_todo_tickets"
+    )
+    enable_webform = fields.Boolean(string="Enable team webform")
+    endpoint_webform = fields.Char(
+        string="Webform endpoint", store=True, compute=_compute_endpoint_webform
+    )
+    endpoint_full_webform = fields.Char(
+        string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
     )
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
