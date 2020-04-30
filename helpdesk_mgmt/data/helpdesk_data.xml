@@ -210,6 +210,19 @@
             <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
             <field name="company_id" />
         </record>
+        <!-- Channels -->
+        <record id="helpdesk_ticket_channel_web" model="helpdesk.ticket.channel">
+            <field name="name">Web</field>
+        </record>
+        <record id="helpdesk_ticket_channel_email" model="helpdesk.ticket.channel">
+            <field name="name">Email</field>
+        </record>
+        <record id="helpdesk_ticket_channel_phone" model="helpdesk.ticket.channel">
+            <field name="name">Phone</field>
+        </record>
+        <record id="helpdesk_ticket_channel_other" model="helpdesk.ticket.channel">
+            <field name="name">Other</field>
+        </record>
         <!--default alias for leads-->
         <record id="mail_alias_lead_info_helpdesk" model="mail.alias">
             <field name="alias_name">helpdesk</field>

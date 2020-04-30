@@ -51,6 +51,10 @@ class HelpdeskTicketController(http.Controller):
             "description": kw.get("description"),
             "name": kw.get("subject"),
             "attachment_ids": False,
+            "channel_id": request.env["helpdesk.ticket.channel"]
+            .with_user(SUPERUSER_ID)
+            .search([("name", "=", "Web")])
+            .id,
             "partner_id": request.env["res.partner"]
             .with_user(SUPERUSER_ID)
             .search([("name", "=", kw.get("name")), ("email", "=", kw.get("email"))])

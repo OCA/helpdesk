@@ -24,26 +24,14 @@
                 <field name="tag_ids" />
                 <field name="stage_id" />
                 <filter
-                    string="Unassigned"
-                    name="unassigned"
-                    domain="[('user_id','=',False)]"
-                />
-                <filter string="Open" name="open" domain="[('closed', '=', False )]" />
-                <filter
-                    string="Unattended"
-                    name="unattended"
-                    domain="[('unattended', '=', True )]"
-                />
-                <filter
-                    string="High Priority"
-                    name="high_priority"
-                    domain="[('priority','=','3')]"
-                />
-                <separator />
-                <filter
                     string="My Tickets"
                     name="mytickets"
                     domain="[('user_id','=',uid)]"
+                />
+                <filter
+                    string="Unassigned"
+                    name="unassigned"
+                    domain="[('user_id','=',False)]"
                 />
                 <filter
                     string="My Followed Tickets"
@@ -51,33 +39,17 @@
                     domain="[('message_is_follower', '=', True)]"
                 />
                 <separator />
+                <filter string="Open" name="open" domain="[('closed', '=', False )]" />
                 <filter
-                    name="last_week"
-                    string="Last Week"
-                    domain="[('create_date','&gt;', (context_today() - datetime.timedelta(weeks=1)).strftime('%%Y-%%m-%%d') )]"
+                    string="Closed"
+                    name="closed"
+                    domain="[('closed', '=', True)]"
                 />
                 <separator />
                 <filter
-                    string="My Activities"
-                    name="activities_my"
-                    domain="[('activity_ids.user_id', '=', uid)]"
-                />
-                <filter
-                    string="Late Activities"
-                    name="activities_overdue"
-                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
-                    help="Show all records which has next action date is before today"
-                />
-                <filter
-                    string="Today Activities"
-                    name="activities_today"
-                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
-                />
-                <filter
-                    string="Future Activities"
-                    name="activities_upcoming_all"
-                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
-                  ]"
+                    string="Creation date"
+                    name="filter_create_date"
+                    date="create_date"
                 />
                 <group expand="0" string="Group By">
                     <filter
@@ -129,8 +101,7 @@
                         bg_color="bg-danger"
                         attrs="{'invisible': [('active', '=', True)]}"
                     />
-                    <div class="oe_button_box" name="button_box">
-                    </div>
+                    <div class="oe_button_box" name="button_box" />
                     <div class="oe_title">
                         <h1 class="oe_title">
                             <field name="number" />
@@ -156,6 +127,7 @@
                                 groups="base.group_multi_company"
                             />
                             <field name="create_date" readonly="1" />
+                            <field name="channel_id" invisible="1" />
                         </group>
                         <group>
                             <field name="partner_id" />
