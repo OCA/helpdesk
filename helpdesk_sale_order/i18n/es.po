@@ -1,0 +1,60 @@
+ # Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_sale_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 09:11+0000\n"
+"PO-Revision-Date: 2020-04-30 09:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,help:helpdesk_sale_order.field_helpdesk_ticket__assign_sale_order
+#: model:ir.model.fields,help:helpdesk_sale_order.field_helpdesk_ticket_team__assign_sale_order
+msgid ""
+"\n"
+"        Given a ticket from this team,\n"
+"        allows assigning a past sale order the customer has\n"
+"        "
+msgstr ""
+"\n"
+"        Dado un tiquet de este equipo, permite la asignación\n"
+"        de una órden de venta del cliente\n"
+"        "
+
+#. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_team_view_form
+msgid ""
+"Allow team members to set the sale order of a ticket given\n"
+"                            the sales of a customer"
+msgstr ""
+"Permite a los miembros del equipo asignar un pedido de venta a un tíquet\n"
+"                            dadas las ventas de un cliente"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__assign_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket_team__assign_sale_order
+msgid "Assign sale order"
+msgstr "Asignar pedido de venta"
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Tiquet"
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Equipo de ticket Helpdesk"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__sale_order_id
+msgid "Sale order"
+msgstr "Pedido de venta"
