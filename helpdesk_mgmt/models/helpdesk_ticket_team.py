@@ -19,8 +19,11 @@ class HelpdeskTeam(models.Model):
         for record in self:
             if record.enable_webform:
                 _endpoint = "-".join(record.name.lower().split(" "))
+                domain = [("endpoint_webform", "=", _endpoint)]
+                if isinstance(record.id, int):
+                    domain.append(("id", "!=", record.id))
                 if record.env[record._name].search(
-                    [("endpoint_webform", "=", _endpoint), ("id", "!=", record.id)]
+                    domain
                 ):
                     _endpoint += "-{}".format(record.id)
                 record.endpoint_webform = _endpoint
