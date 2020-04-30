@@ -1,5 +1,4 @@
 To configure this module, you need to:
-
 #. Edit or create new channels.
 #. Edit or create new categories.
 #. Edit or create new stages.
