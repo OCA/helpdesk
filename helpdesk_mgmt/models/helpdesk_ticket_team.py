@@ -22,9 +22,7 @@ class HelpdeskTeam(models.Model):
                 domain = [("endpoint_webform", "=", _endpoint)]
                 if isinstance(record.id, int):
                     domain.append(("id", "!=", record.id))
-                if record.env[record._name].search(
-                    domain
-                ):
+                if record.env[record._name].search(domain):
                     _endpoint += "-{}".format(record.id)
                 record.endpoint_webform = _endpoint
                 record.endpoint_full_webform = "helpdesk/{}".format(
