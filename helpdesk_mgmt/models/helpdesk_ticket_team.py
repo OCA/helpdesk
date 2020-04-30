@@ -20,9 +20,9 @@ class HelpdeskTeam(models.Model):
             if record.enable_webform:
                 _endpoint = "-".join(record.name.lower().split(" "))
                 if record.env[record._name].search(
-                    [("endpoint_webform", "=", _endpoint)]
+                    [("endpoint_webform", "=", _endpoint), ("id", "!=", record.id)]
                 ):
-                    _endpoint = _endpoint.format("{}-{}", _endpoint, record.id)
+                    _endpoint += "-{}".format(record.id)
                 record.endpoint_webform = _endpoint
                 record.endpoint_full_webform = "helpdesk/{}".format(
                     record.endpoint_webform
