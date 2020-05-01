@@ -137,7 +137,7 @@
                             <field
                                 name="tag_ids"
                                 widget="many2many_tags"
-                                options="{'no_create_edit': True}"
+                                options="{'color_field': 'color', 'no_create_edit': True}"
                             />
                         </group>
                     </group>
