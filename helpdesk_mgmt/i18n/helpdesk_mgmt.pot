@@ -1321,6 +1321,14 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid ""
+"This is the generated website endpoint based on the ticket name.\n"
+"                                        If a number is appended it means the endpoint generator found a conflict\n"
+"                                        of names between several teams"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Visibility"
 msgstr ""
 
