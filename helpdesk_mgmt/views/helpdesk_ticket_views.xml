@@ -115,8 +115,8 @@
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
                                 name="user_id"
-                                domain="[('share', '=', False)]"
-                                options='{"always_reload": True}'
+                                domain="[('share', '=', False), ('id', 'in', user_ids)]"
+                                options="{'always_reload': True, 'no_create ': True, 'no_create_edit' : True}"
                             />
                             <field
                                 name="company_id"
