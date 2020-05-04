@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
 
@@ -83,6 +85,10 @@ class HelpdeskTicket(models.Model):
         string="Kanban State",
     )
     active = fields.Boolean(default=True)
+
+    auto_last_update = fields.Datetime(
+        string="Automatic last update", default=datetime.now()
+    )
 
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
