@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
 
@@ -63,7 +65,12 @@ class HelpdeskTicket(models.Model):
     )
     team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
     priority = fields.Selection(
-        selection=[("0", _("Normal")), ("1", _("Important"))],
+        selection=[
+            ("0", _("Low")),
+            ("1", _("Medium")),
+            ("2", _("High")),
+            ("3", _("Very High")),
+        ],
         string="Priority",
         default="0",
     )
@@ -83,6 +90,10 @@ class HelpdeskTicket(models.Model):
         string="Kanban State",
     )
     active = fields.Boolean(default=True)
+
+    auto_last_update = fields.Datetime(
+        string="Automatic last update", default=datetime.now()
+    )
 
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)

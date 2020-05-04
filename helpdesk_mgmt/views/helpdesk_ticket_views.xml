@@ -103,10 +103,7 @@
                     />
                     <div class="oe_button_box" name="button_box" />
                     <div class="oe_title">
-                        <h1 class="oe_title">
-                            <field name="number" />
-                        </h1>
-                        <h2 class="o_row">
+                        <h2 class="oe_title">
                             <field name="priority" widget="priority" class="mr-3" />
                             <field name="name" />
                         </h2>
@@ -118,15 +115,14 @@
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
                                 name="user_id"
-                                domain="[('share', '=', False)]"
-                                options='{"always_reload": True}'
+                                domain="[('share', '=', False), ('id', 'in', user_ids)]"
+                                options="{'always_reload': True, 'no_create ': True, 'no_create_edit' : True}"
                             />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
                                 groups="base.group_multi_company"
                             />
-                            <field name="create_date" readonly="1" />
                             <field name="channel_id" invisible="1" />
                         </group>
                         <group>
@@ -137,7 +133,7 @@
                             <field
                                 name="tag_ids"
                                 widget="many2many_tags"
-                                options="{'no_create_edit': True}"
+                                options="{'color_field': 'color', 'no_create_edit': True}"
                             />
                         </group>
                     </group>
@@ -166,7 +162,6 @@
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="number" />
                 <field name="name" />
                 <field name="partner_name" />
                 <field name="user_id" />
@@ -183,13 +178,15 @@
         <field name="priority" eval="100" />
         <field name="arch" type="xml">
             <kanban class="o_kanban_mobile" default_group_by="stage_id">
-                <field name="number" />
                 <field name="active" />
                 <field name="name" />
                 <field name="partner_name" />
                 <field name="user_id" />
                 <field name="color" />
-                <field name="stage_id" />
+                <field
+                    name="stage_id"
+                    options='{"group_by_tooltip": {"description": "Stage Description"}}'
+                />
                 <field name="priority" widget="priority" />
                 <field name="assigned_date" />
                 <progressbar
@@ -241,8 +238,7 @@
                                         widget="many2many_tags"
                                         options="{'color_field': 'color'}"
                                     />
-                                    <field name="number" />
-                                    <small class="o_kanban_record_subtitle text-muted">
+                                    <small class="o_kanban_record_subtitle ">
                                         <field name="partner_id" />
                                     </small>
                                 </div>
@@ -251,13 +247,13 @@
                             <div class="o_kanban_record_bottom">
                                 <div class="oe_kanban_bottom_left">
                                     <field name="priority" widget="priority" />
+                                </div>
+                                <div class="oe_kanban_bottom_right">
                                     <field
                                         name="activity_ids"
                                         widget="kanban_activity"
                                         related="activity_state"
                                     />
-                                </div>
-                                <div class="oe_kanban_bottom_right">
                                     <field
                                         name="kanban_state"
                                         widget="state_selection"

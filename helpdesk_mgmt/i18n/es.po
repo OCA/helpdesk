@@ -453,7 +453,7 @@ msgstr "Asignar a"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Assign to me"
-msgstr "Asignarármelo"
+msgstr "Asignármelo"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__assigned_date
@@ -463,7 +463,7 @@ msgstr "Fecha de asignación"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
-msgstr "Usuario asignado"
+msgstr "Asignado a"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
@@ -1529,3 +1529,19 @@ msgstr "Miembros del equipo"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "After sales services"
 msgstr "Servicios post-venta"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__endpoint_webform
+msgid "Webform endpoint"
+msgstr "Endpoint para el formulario web del equipo"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid ""
+"This is the generated website endpoint based on the ticket name.\n"
+"                                        If a number is appended it means the endpoint generator found a conflict\n"
+"                                        of names between several teams"
+msgstr ""
+"Este es el endpoint generado basado en el nombre del equipo.\n"
+"                                        Si el endpoint tiene un número al final significa que ha habido un conflicto\n"
+"                                        entre varios equipos con el mismo nombre"
