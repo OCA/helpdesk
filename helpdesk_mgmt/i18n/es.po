@@ -1331,12 +1331,12 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
-msgid ""
+msgid "Assign to"
 "The owner of records created upon receiving emails on this alias. If this "
 "field is not set the system will attempt to find the right owner based on "
 "the sender (From) address, or will use the Administrator account if no "
 "system user is found for that address."
-msgstr ""
+msgstr "Asignar a"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
