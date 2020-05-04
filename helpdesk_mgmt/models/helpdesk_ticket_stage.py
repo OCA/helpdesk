@@ -1,4 +1,6 @@
-from odoo import fields, models
+from datetime import datetime, timedelta
+
+from odoo import api, fields, models
 
 
 class HelpdeskTicketStage(models.Model):
@@ -12,6 +14,19 @@ class HelpdeskTicketStage(models.Model):
     active = fields.Boolean(default=True)
     unattended = fields.Boolean(string="Unattended")
     closed = fields.Boolean(string="Closed")
+    auto_next_stage_id = fields.Many2one(
+        comodel_name=_name, string="Next automatic stage"
+    )
+    auto_next_number = fields.Integer(
+        string="Next automatic date number",
+        help="Numbers which are not multiple of ten are not advised,"
+        " since the automatic check is done hourly",
+    )
+    auto_next_type = fields.Selection(
+        string="Next automatic date type",
+        selection=[("hour", "Hours"), ("day", "Days"), ("week", "Weeks")],
+    )
+
     mail_template_id = fields.Many2one(
         comodel_name="mail.template",
         string="Email Template",
@@ -31,3 +46,39 @@ class HelpdeskTicketStage(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
+
+    ticket_ids = fields.One2many(
+        comodel_name="helpdesk.ticket", inverse_name="stage_id", string="Tickets",
+    )
+
+    @staticmethod
+    def compute_next_datetime(
+        date: datetime, increment: int, auto_type: str
+    ) -> datetime:
+        _date = timedelta(hours=increment) + date
+        if auto_type == "day":
+            _date = timedelta(days=increment) + date
+        elif auto_type == "week":
+            _date = timedelta(weeks=increment) + date
+
+        return _date
+
+    # called by cron
+    @api.model
+    def change_stage(self):
+        for stage_id in self.env[self._name].search([]):
+            if (
+                stage_id.auto_next_number
+                and stage_id.auto_next_type
+                and stage_id.auto_next_stage_id
+            ):
+                for ticket_id in stage_id.ticket_ids.filtered(
+                    lambda x: datetime.now()
+                    > self.compute_next_datetime(
+                        x.auto_last_update,
+                        self.auto_next_number,
+                        self.auto_next_stage_id,
+                    )
+                ):
+                    ticket_id.stage_id = stage_id.auto_next_stage_id.id
+                    ticket_id.auto_last_update = datetime.now()

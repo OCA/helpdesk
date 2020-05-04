@@ -1,3 +1,4 @@
+import datetime
 import time
 
 from odoo.tests import common
@@ -11,9 +12,20 @@ class TestHelpdeskTicket(common.SavepointCase):
         cls.user_admin = cls.env.ref("base.user_root")
         cls.user_demo = cls.env.ref("base.user_demo")
         cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
-
+        cls.stage_new = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
         cls.ticket = helpdesk_ticket.create(
             {"name": "Test 1", "description": "Ticket test"}
+        )
+
+        cls.auto_start_time: datetime.datetime = (
+            datetime.datetime.now() - datetime.timedelta(hours=2)
+        )
+        cls.ticket_auto_stage = helpdesk_ticket.create(
+            {
+                "name": "Test 2",
+                "description": "Ticket test 2",
+                "auto_last_update": cls.auto_start_time,
+            }
         )
 
     def test_helpdesk_ticket_datetimes(self):
@@ -70,3 +82,19 @@ class TestHelpdeskTicket(common.SavepointCase):
             "Helpdesk Ticket: A new ticket can not "
             "have the same number than the origin ticket.",
         )
+
+    def test_automatic_stage(self):
+        self.stage_new.write(
+            {
+                "auto_next_number": 1,
+                "auto_next_type": "hour",
+                "auto_next_stage_id": self.stage_closed.id,
+            }
+        )
+
+        self.assertEqual(self.stage_new.auto_next_number, 1)
+        self.assertEqual(self.stage_new.auto_next_type, "hour")
+        self.assertEqual(self.stage_new.auto_next_stage_id.id, self.stage_closed.id)
+        self.assertEqual(self.ticket_auto_stage.auto_last_update, self.auto_start_time)
+        self.env[self.stage_new._name].change_stage()
+        self.assertEqual(self.ticket_auto_stage.stage_id.id, self.stage_closed.id)
