@@ -6,12 +6,14 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
     def setUpClass(cls):
         super(TestHelpdeskSalesOrder, cls).setUpClass()
         helpdesk_ticket = cls.env["helpdesk.ticket"]
+        helpdesk_ticket_team = cls.env["helpdesk.ticket.team"]
         cls.user_admin = cls.env.ref("base.user_root")
         cls.sale_order_1 = cls.env.ref("sale.sale_order_1")
         cls.sale_order_2 = cls.env.ref("sale.sale_order_2")
         cls.ticket = helpdesk_ticket.create(
             {"name": "Test 1", "description": "Ticket test"}
         )
+        cls.team_id = helpdesk_ticket_team.create({"name": "Team 1"})
         cls.ticket_with_sale_order = helpdesk_ticket.create(
             {
                 "name": "Test 2",
@@ -20,7 +22,12 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
             }
         )
 
-    def test_helpdesk_ticket_sale_order(self):
+    def test_getters(self):
+        self.ticket.assign_sale_order = True
+        self.ticket_with_sale_order.assign_sale_order = True
+        self.assertTrue(self.ticket.assign_sale_order)
+        self.assertTrue(self.ticket_with_sale_order.assign_sale_order)
+
         # First, check that the ticket has no sale order
         self.assertFalse(self.ticket.sale_order_id.id)
 

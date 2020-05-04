@@ -28,7 +28,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
             }
         )
 
-    def test_helpdesk_ticket_todo(self):
+    def test_todo(self):
         self.assertEqual(
             self.team_id.todo_ticket_count,
             2,
@@ -66,4 +66,27 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
             self.team_id.todo_ticket_count,
             2,
             "Helpdesk Ticket: Helpdesk ticket team should " "have one ticket to do.",
+        )
+
+    def test_getters(self):
+        team_endpoint = "team-1"
+
+        self.team_id.enable_webform = True
+        self.assertTrue(self.team_id.enable_webform)
+        self.team_id._compute_endpoint_webform()
+        self.assertEqual(self.team_id.endpoint_webform, team_endpoint)
+        self.assertEqual(
+            self.team_id.endpoint_full_webform, "helpdesk/{}".format(team_endpoint)
+        )
+
+        _team_id = self.env["helpdesk.ticket.team"].create({"name": "Team 1"})
+        _team_id.enable_webform = True
+        self.assertTrue(_team_id.enable_webform)
+        _team_id._compute_endpoint_webform()
+        self.assertEqual(
+            _team_id.endpoint_webform, "{}-{}".format(team_endpoint, _team_id.id)
+        )
+        self.assertEqual(
+            _team_id.endpoint_full_webform,
+            "helpdesk/{}-{}".format(team_endpoint, _team_id.id),
         )
