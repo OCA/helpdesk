@@ -183,7 +183,10 @@
                 <field name="partner_name" />
                 <field name="user_id" />
                 <field name="color" />
-                <field name="stage_id" />
+                <field
+                    name="stage_id"
+                    options='{"group_by_tooltip": {"description": "Stage Description"}}'
+                />
                 <field name="priority" widget="priority" />
                 <field name="assigned_date" />
                 <progressbar
