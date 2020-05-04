@@ -17,7 +17,7 @@ class HelpdeskTeam(models.Model):
         :return:
         """
         for record in self:
-            if record.enable_webform:
+            if record.enable_webform and not record.endpoint_webform:
                 _endpoint = "-".join(record.name.lower().split(" "))
                 domain = [("endpoint_webform", "=", _endpoint)]
                 if isinstance(record.id, int):
