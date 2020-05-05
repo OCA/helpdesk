@@ -81,7 +81,7 @@
                             <field
                                 name="alias_user_id"
                                 string="Assign to"
-                                domain="[('id', 'in', user_ids)]"
+                                domain="['|', ('share', '=', False)]"
                             />
                             <field
                                 name="company_id"
