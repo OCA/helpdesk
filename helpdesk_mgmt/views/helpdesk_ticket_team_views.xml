@@ -105,6 +105,7 @@
                                         name="user_ids"
                                         widget="many2many_tags"
                                         class="mt16"
+                                        domain="[('share', '=', False)]"
                                     />
                                 </div>
                             </div>
