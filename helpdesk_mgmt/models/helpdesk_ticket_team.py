@@ -82,6 +82,7 @@ class HelpdeskTeam(models.Model):
     endpoint_full_webform = fields.Char(
         string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
     )
+    ticket_return = fields.Boolean(string="Returns")
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
