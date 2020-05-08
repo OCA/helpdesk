@@ -22,6 +22,12 @@
         </record>
     </data>
     <data noupdate="1">
+        <record id="helpdesk_ticket_manager_rule" model="ir.rule">
+            <field name="name">Manager Tickets</field>
+            <field ref="model_helpdesk_ticket" name="model_id" />
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_helpdesk_manager'))]" />
+        </record>
         <record id="helpesk_ticket_personal_rule" model="ir.rule">
             <field name="name">Personal Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
@@ -33,7 +39,9 @@
         <record id="helpdesk_ticket_user_rule" model="ir.rule">
             <field name="name">All Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
-            <field name="domain_force">[(1,'=',1)]</field>
+            <field
+                name="domain_force"
+            >['|', ('user_ids', '=', False), ('user_ids', 'in', user.id)]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_user'))]" />
         </record>
         <!-- Company Rules -->
