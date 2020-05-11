@@ -93,7 +93,22 @@
                         </group>
                     </group>
                     <h2>Visibility</h2>
-                    <div class="row mt16 o_settings_container" id="visibility">
+                    <div class="row mt16 o_settings_containe" id="visibility">
+                        <div class="col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <label for="auto_assign_type" />
+                                <div class="text-muted">
+                                    Assignment type
+                                </div>
+                                <div>
+                                    <field
+                                        name="auto_assign_type"
+                                        widget="radio"
+                                        class="mt16"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-6 o_setting_box">
                             <div class="o_setting_right_pane">
                                 <label for="user_ids" />
@@ -106,6 +121,23 @@
                                         widget="many2many_tags"
                                         class="mt16"
                                         domain="[('share', '=', False)]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="col-lg-6 o_setting_box"
+                            attrs="{'invisible': [('auto_assign_type', '!=', 'fixed')]}"
+                        >
+                            <div class="o_setting_left_pane">
+                                <label for="auto_assign_fixed_user_id" />
+                                <div class="text-muted">
+                                    Fixed assignment user
+                                </div>
+                                <div>
+                                    <field
+                                        name="auto_assign_fixed_user_id"
+                                        class="mt16"
                                     />
                                 </div>
                             </div>

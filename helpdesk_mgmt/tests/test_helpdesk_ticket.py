@@ -20,11 +20,34 @@ class TestHelpdeskTicket(common.SavepointCase):
         cls.auto_start_time: datetime.datetime = (
             datetime.datetime.now() - datetime.timedelta(hours=2)
         )
-        cls.ticket_auto_stage = helpdesk_ticket.create(
+        cls.auto_stage_ticket_id = helpdesk_ticket.create(
             {
                 "name": "Test 2",
                 "description": "Ticket test 2",
                 "auto_last_update": cls.auto_start_time,
+            }
+        )
+
+        cls.team_id = cls.env["helpdesk.ticket.team"].create(
+            {
+                "name": "Auto assign strategy test team",
+                "auto_assign_type": "manual",
+                "user_ids": [(4, cls.user_demo.id), (4, cls.user_admin.id)],
+                "auto_assign_fixed_user_id": cls.user_demo.id,
+            }
+        )
+
+        cls.auto_assign_ticket_id = helpdesk_ticket.create(
+            {
+                "name": "Auto assign strategy test ticket",
+                "description": "Auto assign strategy test ticket",
+            }
+        )
+
+        cls.auto_assign_ticket_id_2 = helpdesk_ticket.create(
+            {
+                "name": "Auto assign strategy test ticket 2",
+                "description": "Auto assign strategy test ticket 2",
             }
         )
 
@@ -95,6 +118,50 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(self.stage_new.auto_next_number, 1)
         self.assertEqual(self.stage_new.auto_next_type, "hour")
         self.assertEqual(self.stage_new.auto_next_stage_id.id, self.stage_closed.id)
-        self.assertEqual(self.ticket_auto_stage.auto_last_update, self.auto_start_time)
+        self.assertEqual(
+            self.auto_stage_ticket_id.auto_last_update, self.auto_start_time
+        )
         self.env[self.stage_new._name].change_stage()
-        self.assertEqual(self.ticket_auto_stage.stage_id.id, self.stage_closed.id)
+        self.assertEqual(self.auto_stage_ticket_id.stage_id.id, self.stage_closed.id)
+
+    def test_automatic_assign(self):
+        demo2 = self.env["res.users"].create({"name": "demo2", "login": "demo2"})
+        self.team_id.user_ids = [(4, demo2.id)]
+        self.assertEqual(len(self.team_id.user_ids), 2)
+
+        # Manual
+        self.auto_assign_ticket_id.team_id = self.team_id.id
+        self.assertEqual(self.auto_assign_ticket_id.team_id.id, self.team_id.id)
+        self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
+        self.auto_assign_ticket_id.user_id = self.user_demo.id
+        self.assertEqual(self.auto_assign_ticket_id.user_id.id, self.user_demo.id)
+        self.auto_assign_ticket_id.user_id = None
+        self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
+
+        # Fixed
+        self.team_id.auto_assign_type = "fixed"
+        self.assertEqual(self.auto_assign_ticket_id.user_id.id, self.user_demo.id)
+        self.auto_assign_ticket_id.user_id = None
+        self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
+
+        # Random
+        # We can't really test randomness, so the only check one can make in this chase
+        # is if the result user happens to be a member of the user_ids list
+        self.team_id.auto_assign_type = "random"
+        self.assertIn(self.auto_assign_ticket_id.user_id, self.team_id.user_ids)
+        self.auto_assign_ticket_id.user_id = None
+        self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
+
+        # Balanced
+        self.team_id.auto_assign_type = "balanced"
+
+        self.assertIn(self.auto_assign_ticket_id.user_id, self.team_id.user_ids)
+        self.auto_assign_ticket_id_2.team_id = self.team_id
+        self.assertIn(self.auto_assign_ticket_id.user_id, self.team_id.user_ids)
+        self.assertEqual(
+            self.auto_assign_ticket_id_2.user_id.id,
+            self.team_id.user_ids.filtered(
+                lambda x: x != self.auto_assign_ticket_id.user_id
+            ).id,
+        )
+        demo2.unlink()

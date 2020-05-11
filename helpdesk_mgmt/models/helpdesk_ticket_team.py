@@ -57,6 +57,28 @@ class HelpdeskTeam(models.Model):
     ticket_ids = fields.One2many(
         comodel_name="helpdesk.ticket", inverse_name="team_id", string="Tickets",
     )
+    auto_assign_fixed_user_id = fields.Many2one(
+        string="Fixed assignment user", comodel_name="res.users"
+    )
+    auto_assign_type = fields.Selection(
+        string="Assignment type",
+        selection=[
+            ("manual", "Manual"),
+            ("random", "Random"),
+            ("balanced", "Balanced"),
+            ("fixed", "Fixed"),
+        ],
+        default="manual",
+        help="""Random and balanced are both balancing algorithms: `Random`
+        will ensure all members have the same number of tickets while `Balanced`
+        will assign tickets to the member with the least not closed assigned tickets.
+        On the other hand, the `Fixed` selection will ensure the selected member from
+        the `Fixed assignment user` field will always be picked as the ticket doer.
+
+         All assignments, be it manual or automatic, will be done with the team's
+        defined members on the left of this field
+        """,
+    )
     todo_ticket_ids = fields.One2many(
         related="ticket_ids",
         domain="[('closed', '=', False)]",
