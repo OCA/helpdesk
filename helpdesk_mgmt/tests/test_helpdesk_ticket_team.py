@@ -40,7 +40,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
             "Helpdesk Ticket: Helpdesk ticket team should "
             "have one tickets unassigned.",
         )
-        
+
         self.assertEqual(
             self.team_id.todo_ticket_count_high_priority,
             2,
