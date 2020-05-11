@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 
 from odoo import _, api, fields, models, tools
@@ -14,6 +15,38 @@ class HelpdeskTicket(models.Model):
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
 
+    @api.depends("team_id.auto_assign_type")
+    def _compute_automatic_user_assignment(self):
+        """
+         As the teams can now select an automatic assignment, this method
+        is the main entry for that computing, independent of the picked strategy.
+        As it stands right now, on 11/05/2020, there are three types of automatic
+        assignment and four in total:
+         - `manual` - basically the legacy method
+         - `random` - balanced random assignation
+         - `balanced` - the user with the least not closed assigned tickets
+         will be chosen
+         - `fixed` - team_id.auto_assigned_fixed_user_id
+        :return: user_id: for debugging purposes, as computation methods
+        have to assign the value directly to the field
+        """
+
+        if self.team_id.auto_assign_type != "manual" and not self.user_id:
+            if (
+                self.team_id.auto_assign_type == "fixed"
+                and self.team_id.auto_assign_fixed_user_id
+            ):
+                self.user_id = self.team_id.auto_assign_fixed_user_id.id
+            elif self.team_id.user_ids and (
+                self.team_id.auto_assign_type == "random"
+                or self.team_id.auto_assign_type == "balanced"
+            ):
+                _user_id = self.search_user_id_by_strategy()
+                self.user_id = _user_id.id if _user_id else None
+
+    def _inverse_automatic_user_assignment(self):
+        pass
+
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         stage_ids = self.env["helpdesk.ticket.stage"].search([])
@@ -22,7 +55,13 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Text(required=True)
-    user_id = fields.Many2one(comodel_name="res.users", string="Assigned user")
+    user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Assigned user",
+        compute=_compute_automatic_user_assignment,
+        store=True,
+        inverse=_inverse_automatic_user_assignment,
+    )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
     )
@@ -101,21 +140,37 @@ class HelpdeskTicket(models.Model):
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
 
+    def search_user_id_by_strategy(self):
+        """
+         If the assigned team has one of the two balanced strategies, it will search
+        the proper member to assigned given that strategy
+        :return: selected user_id
+        """
+        selected_member = random.choice(self.team_id.user_ids)
+        if self.team_id.auto_assign_type == "balanced":
+            selected_member = min(
+                list(
+                    map(
+                        lambda x: [
+                            len(
+                                x.ticket_ids.filtered(
+                                    lambda x: x.team_id.id == self.team_id.id
+                                )
+                            ),
+                            x,
+                        ],
+                        self.team_id.user_ids,
+                    )
+                )
+            )
+            selected_member = selected_member[1] if selected_member else None
+        return selected_member
+
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
-
-    @api.onchange("team_id", "user_id")
-    def _onchange_dominion_user_id(self):
-        if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
-            self.update({"user_id": False})
-            return {"domain": {"user_id": []}}
-        if self.team_id:
-            return {"domain": {"user_id": [("id", "in", self.user_ids.ids)]}}
-        else:
-            return {"domain": {"user_id": []}}
 
     # ---------------------------------------------------
     # CRUD
