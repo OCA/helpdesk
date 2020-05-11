@@ -92,11 +92,6 @@
                         type="object"
                         attrs="{'invisible' : [('user_id', '!=', False)]}"
                     />
-                    <button
-                        string="Debug: assign strategy"
-                        name="compute_automatic_user_assignment"
-                        type="object"
-                    />
                     <field name="stage_id" widget="statusbar" clickable="True" />
                 </header>
                 <sheet>
