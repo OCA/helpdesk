@@ -115,7 +115,7 @@
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
                                 name="user_id"
-                                domain="[('id', 'in', user_ids)]"
+                                domain="['|', ('id', 'in', user_ids), ('share', '=', False)]"
                                 options="{'always_reload': True, 'no_create ': True, 'no_create_edit' : True}"
                             />
                             <field
