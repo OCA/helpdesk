@@ -134,6 +134,8 @@ class HelpdeskTicket(models.Model):
         string="Automatic last update", default=datetime.now()
     )
 
+    ticket_return_rel = fields.Boolean(string="Return", related="team_id.ticket_return")
+
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
 
@@ -223,6 +225,18 @@ class HelpdeskTicket(models.Model):
     def action_duplicate_tickets(self):
         for ticket in self.browse(self.env.context["active_ids"]):
             ticket.copy()
+
+
+    def action_return_product(self):
+        return {
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "return.product.wizard",
+            "type": "ir.actions.act_window",
+            "target": "new",
+            "res_id": False,
+            "context": self.env.context,
+        }
 
     # ---------------------------------------------------
     # Mail gateway

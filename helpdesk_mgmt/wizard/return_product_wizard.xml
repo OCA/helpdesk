@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="return_product_wizard_view">
+        <field name="name">return.product.wizard.view</field>
+        <field name="model">return.product.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Return product">
+                <group>
+                    <field name="return_product_id" />
+                </group>
+                <footer>
+                    <button
+                        name="button_return"
+                        type="object"
+                        class="oe_highlight"
+                        string="Return"
+                    />
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="return_product_act_window" model="ir.actions.act_window">
+        <field name="name">Return product</field>
+        <field name="res_model">return.product.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
