@@ -15,7 +15,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
                 "name": "Ticket 1",
                 "description": "Description",
                 "team_id": cls.team_id.id,
-                "priority": "0",
+                "priority": "3",
             }
         )
         cls.helpdesk_ticket_2 = helpdesk_ticket.create(
@@ -24,7 +24,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
                 "description": "Description",
                 "team_id": cls.team_id.id,
                 "user_id": cls.user_demo.id,
-                "priority": "1",
+                "priority": "3",
             }
         )
 
@@ -40,9 +40,10 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
             "Helpdesk Ticket: Helpdesk ticket team should "
             "have one tickets unassigned.",
         )
+
         self.assertEqual(
             self.team_id.todo_ticket_count_high_priority,
-            1,
+            2,
             "Helpdesk Ticket: Helpdesk ticket team should "
             "have two tickets with high priority.",
         )
@@ -64,7 +65,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
 
         self.assertEqual(
             self.team_id.todo_ticket_count,
-            2,
+            1,
             "Helpdesk Ticket: Helpdesk ticket team should " "have one ticket to do.",
         )
 
