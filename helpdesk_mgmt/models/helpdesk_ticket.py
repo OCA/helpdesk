@@ -102,7 +102,7 @@ class HelpdeskTicket(models.Model):
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
     )
-    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
+    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team")
     priority = fields.Selection(
         selection=[
             ("0", _("Low")),
@@ -171,6 +171,21 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
+
+    @api.onchange("team_id", "user_id")
+    def _onchange_domain_user_id(self):
+        if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
+            self.update({"user_id": False})
+        if self.team_id and self.team_id.user_ids:
+            return {
+                "domain": {
+                    "user_id": [("id", "in", self.user_ids.ids), ("share", "=", False)]
+                }
+            }
+        if self.team_id and not self.team_id.user_ids:
+            return {"domain": {"user_id": [("share", "=", False)]}}
+        else:
+            return {"domain": {"user_id": []}}
 
     # ---------------------------------------------------
     # CRUD
