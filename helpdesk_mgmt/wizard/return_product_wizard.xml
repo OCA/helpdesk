@@ -9,6 +9,22 @@
                 <group>
                     <field name="return_product_id" />
                 </group>
+                <group>
+                    <field
+                        name="product_return_lines_ids"
+                        options="{'no_create': True, 'no_open': True}"
+                    >
+                        <tree>
+                            <field
+                                name="product_id"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="quantity" />
+                            <field name="uom_id" invisible="1" />
+                            <field name="move_id" invisible="1" />
+                        </tree>
+                    </field>
+                </group>
                 <footer>
                     <button
                         name="button_return"
