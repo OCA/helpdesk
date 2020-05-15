@@ -11,10 +11,8 @@
                 t-if="page_name == 'ticket' or ticket"
                 t-attf-class="breadcrumb-item #{'active ' if not ticket else ''}"
             >
-                <a
-                    t-if="ticket"
-                    t-attf-href="/my/tickets?{{ keep_query() }}"
-                >Tickets</a>
+                <a t-if="ticket" t-attf-href="/my/tickets?{{ keep_query() }}">Tickets
+                </a>
                 <t t-else="">Tickets</t>
             </li>
             <li t-if="ticket" class="breadcrumb-item active">
@@ -46,7 +44,8 @@
                     class="btn btn-primary"
                     groups="base.group_portal"
                     style="float: right; margin-right: 0px; margin-top:5px;"
-                >New Ticket</button>
+                >New Ticket
+                </button>
             </form>
         </xpath>
     </template>
@@ -55,15 +54,16 @@
             <t t-set="breadcrumbs_searchbar" t-value="True" />
             <form method="POST" t-attf-action="/new/ticket">
                 <h3>Tickets
-            <t t-call="portal.portal_searchbar" />
-            <button
+                    <t t-call="portal.portal_searchbar" />
+                    <button
                         name="create_new_ticket"
                         type="action"
                         class="btn btn-primary"
                         groups="base.group_portal"
                         style="float: right; margin-right: 5px;"
-                    >New Ticket</button>
-          </h3>
+                    >New Ticket
+                    </button>
+                </h3>
                 <input
                     type="hidden"
                     name="csrf_token"
@@ -199,232 +199,435 @@
         </t>
     </template>
     <template id="portal_create_ticket" name="Create Ticket">
-        <t t-call="portal.portal_layout">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center">Send a new ticket</h1>
-                    </div>
+        <t t-call="website.layout">
+            <div id="wrap" class="container mt-4">
+                <div class="oe_structure">
+                    <section class="pt8 pb8">
+                        <div class="container">
+                            <div class="row s_nb_column_fixed">
+                                <div class="col-lg-12 s_title pt16 pb16">
+                                    <h1>Send a new ticket</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </div>
-            <form
-                action="/submitted/ticket"
-                method="POST"
-                class="form-horizontal mt32"
-                enctype="multipart/form-data"
-            >
-                <input
-                    type="hidden"
-                    name="csrf_token"
-                    t-att-value="request.csrf_token()"
-                />
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="name"
-                    >Name</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="name"
-                            t-attf-value="#{name}"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="email"
-                    >Email</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            required="True"
-                            t-attf-value="#{email}"
-                            readonly="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="category"
-                    >Category</label>
-                    <div class="col-md-7 col-sm-8">
-                        <select
-                            class="form-control"
-                            id="category"
-                            name="category"
-                            required="True"
-                        >
-                            <t t-foreach="categories" t-as="cat">
-                                <option t-attf-value="#{cat.id}">
-                                    <t t-esc="cat.name" />
-                                </option>
-                            </t>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="subject"
-                    >Subject</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="subject"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="attachment"
-                    >Add Attachments</label>
-                    <div class="col-md-7 col-sm-8">
-                        <div class="btn btn-default btn-file col-md-12">
-                            <input
-                                class="form-control o_website_form_input"
-                                name="attachment"
-                                id="attachment"
-                                type="file"
-                                multiple="multiple"
-                            />
+                <div class="row mb16">
+                    <div class="oe_structure" id="oe_structure_website_top" />
+                    <div class="col-md-9 pl-4">
+                        <div class="container">
+                            <div id="helpdesk_section">
+                                <section
+                                    id="forms"
+                                    class="s_website_form"
+                                    data-vcss="001"
+                                    data-snippet="s_website_form"
+                                >
+                                    <div class="container">
+                                        <form
+                                            action="/help/ticket/submit"
+                                            method="POST"
+                                            class="s_website_form container-fluid mt32"
+                                            enctype="multipart/form-data"
+                                            data-success_page="/help/thankyou"
+                                        >
+                                            <div
+                                                class="s_website_form_rows s_col_no_bgcolor"
+                                            >
+                                                <!-- TOKEN -->
+                                                <input
+                                                    type="hidden"
+                                                    name="csrf_token"
+                                                    t-att-value="request.csrf_token()"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="id_team"
+                                                    t-attf-value="#{id_team}"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="id_user"
+                                                    t-attf-value="#{id_user}"
+                                                />
+                                                <!-- NAME -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                    data-type="char"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="id_name_field"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Name
+                                                                </span>
+                                                            </label>
+                                                            <div class="col-sm">
+                                                                <input
+                                                                    id="id_name_field"
+                                                                    type="text"
+                                                                    class="form-control o_website_form_input"
+                                                                    required="True"
+                                                                    name="name"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- EMAIL -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                    data-type="email"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="id_email_field"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Email
+                                                                </span>
+                                                            </label>
+                                                            <div
+                                                                class="col-sm col-xs-12"
+                                                            >
+                                                                <input
+                                                                    id="id_email_field"
+                                                                    type='email'
+                                                                    class='form-control s_website_form_input'
+                                                                    required="True"
+                                                                    name="email"
+                                                                    readonly="False"
+                                                                    t-if="id_user"
+                                                                    t-attf-value="#{email}"
+                                                                />
+                                                                <input
+                                                                    id="id_email_field"
+                                                                    type='email'
+                                                                    class='form-control s_website_form_input'
+                                                                    required="True"
+                                                                    name="email"
+                                                                    t-else=""
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- CATEGORIES -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                    data-type="select"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="id_category_field"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Categories
+                                                                </span>
+                                                            </label>
+                                                            <div
+                                                                class="col-sm col-xs-12"
+                                                            >
+                                                                <select
+                                                                    class='form-control s_website_form_input'
+                                                                    id="id_category_field"
+                                                                    name="category"
+                                                                    required="True"
+                                                                >
+                                                                    <t
+                                                                        t-foreach="categories"
+                                                                        t-as="cat"
+                                                                    >
+                                                                        <option
+                                                                            t-attf-value="#{cat.id}"
+                                                                        >
+                                                                            <t
+                                                                                t-esc="cat.name"
+                                                                            />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- SUBJECT -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                    data-type="char"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="id_subject_field"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Subject
+                                                                </span>
+                                                            </label>
+                                                            <div
+                                                                class="col-sm col-xs-12"
+                                                            >
+                                                                <input
+                                                                    id="id_subject_field"
+                                                                    type="text"
+                                                                    class="form-control s_website_form_input"
+                                                                    name="subject"
+                                                                    required="1"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- DESCRIPTION -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                    data-type="char"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="id_description_field"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Description
+                                                                </span>
+                                                            </label>
+                                                            <div
+                                                                class="col-sm col-xs-12"
+                                                            >
+                                                                <textarea
+                                                                    id="id_description_field"
+                                                                    class="form-control s_website_form_input"
+                                                                    name="description"
+                                                                    required="True"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- ATTACHMENTS -->
+                                                <div
+                                                    class="form-group row form-field o_website_form_custom"
+                                                    data-type="binary"
+                                                    data-name="Block"
+                                                >
+                                                    <div class="container">
+                                                        <div
+                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                        >
+                                                            <label
+                                                                class="col-form-label col-auto s_website_form_label"
+                                                                style="width: 200px"
+                                                                for="helpdesk5"
+                                                            >
+                                                                <span
+                                                                    class="s_website_form_label_content"
+                                                                >Attachment(s)
+                                                                </span>
+                                                            </label>
+                                                            <div
+                                                                class="col-sm col-xs-12"
+                                                            >
+                                                                <input
+                                                                    id="helpdesk5"
+                                                                    type="file"
+                                                                    name="attachments"
+                                                                    class="form-control s_website_form_input"
+                                                                    multiple="true"
+                                                                    accept="image/*,application/pdf,video/*"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- SUBMIT BUTTON -->
+                                                <div
+                                                    class="form-group form-field s_website_form_submit"
+                                                >
+                                                    <button
+                                                        class="btn btn-primary btn-lg s_website_form_send"
+                                                    >Submit
+                                                        Ticket
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </section>
+                            </div>
                         </div>
                     </div>
+                    <div class="oe_structure" id="oe_structure_website_bot" />
                 </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-dm-4 control-label"
-                        for="description"
-                    >Description</label>
-                    <div class="col-md-7 col-sm-8">
-                        <textarea
-                            class="form-control"
-                            name="description"
-                            style="min-height: 120px"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
-                        <button class="btn btn-primary btn-lg">Submit Ticket</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </t>
     </template>
-    <template id="portal_create_team_ticket" name="Create Ticket">
-        <t t-call="portal.portal_layout">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center">Send a new ticket</h1>
-                    </div>
+    <!--    <template id="portal_create_team_ticket" name="Create Ticket">-->
+    <!--        <t t-call="portal.portal_layout">-->
+    <!--            <div class="container">-->
+    <!--                <div class="row">-->
+    <!--                    <div class="col-md-12">-->
+    <!--                        <h1 class="text-center">Send a new ticket</h1>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--            <form-->
+    <!--                action="/helpdesk/ticket/team/submit"-->
+    <!--                method="POST"-->
+    <!--                class="form-horizontal mt32"-->
+    <!--                enctype="multipart/form-data"-->
+    <!--            >-->
+    <!--                <input-->
+    <!--                    type="hidden"-->
+    <!--                    name="csrf_token"-->
+    <!--                    t-att-value="request.csrf_token()"-->
+    <!--                />-->
+    <!--                <input type="hidden" name="id_team" t-attf-value="#{id_team}"/>-->
+    <!--                <div class="form-group">-->
+    <!--                    <label class="col-md-3 col-sm-4 control-label" for="name">Name-->
+    <!--                    </label>-->
+    <!--                    <div class="col-md-7 col-sm-8">-->
+    <!--                        <input-->
+    <!--                            type="text"-->
+    <!--                            class="form-control"-->
+    <!--                            name="name"-->
+    <!--                            t-attf-value="#{name}"-->
+    <!--                            required="True"-->
+    <!--                        />-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="form-group">-->
+    <!--                    <label class="col-md-3 col-sm-4 control-label" for="email">Email-->
+    <!--                    </label>-->
+    <!--                    <div class="col-md-7 col-sm-8">-->
+    <!--                        <input-->
+    <!--                            type="email"-->
+    <!--                            class="form-control"-->
+    <!--                            name="email"-->
+    <!--                            required="True"-->
+    <!--                            t-attf-value="#{email}"-->
+    <!--                            readonly="True"-->
+    <!--                        />-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="form-group">-->
+    <!--                    <label class="col-md-3 col-sm-4 control-label" for="subject">Subject-->
+    <!--                    </label>-->
+    <!--                    <div class="col-md-7 col-sm-8">-->
+    <!--                        <input-->
+    <!--                            type="text"-->
+    <!--                            class="form-control"-->
+    <!--                            name="subject"-->
+    <!--                            required="True"-->
+    <!--                        />-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="form-group">-->
+    <!--                    <label-->
+    <!--                        class="col-md-3 col-sm-4 control-label"-->
+    <!--                        for="attachment"-->
+    <!--                    >Add Attachments-->
+    <!--                    </label>-->
+    <!--                    <div class="col-md-7 col-sm-8">-->
+    <!--                        <div class="btn btn-default btn-file col-md-12">-->
+    <!--                            <input-->
+    <!--                                class="form-control o_website_form_input"-->
+    <!--                                name="attachment"-->
+    <!--                                id="attachment"-->
+    <!--                                type="file"-->
+    <!--                                multiple="multiple"-->
+    <!--                            />-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="form-group">-->
+    <!--                    <label-->
+    <!--                        class="col-md-3 col-dm-4 control-label"-->
+    <!--                        for="description"-->
+    <!--                    >Description-->
+    <!--                    </label>-->
+    <!--                    <div class="col-md-7 col-sm-8">-->
+    <!--                        <textarea-->
+    <!--                            class="form-control"-->
+    <!--                            name="description"-->
+    <!--                            style="min-height: 120px"-->
+    <!--                            required="True"-->
+    <!--                        />-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="form-group">-->
+    <!--                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">-->
+    <!--                        <button class="btn btn-primary btn-lg">Submit Ticket</button>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </form>-->
+    <!--        </t>-->
+    <!--    </template>-->
+    <template id="portal_thankyou_ticket" name="Thank you for your ticket submission">
+        <t t-call="website.layout">
+            <div id="wrap" class="container mt-4">
+                <div class="oe_structure">
+                    <section class="pt8 pb8">
+                        <div class="container pt-3">
+                            <h1>Thanks!</h1>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="alert alert-success" role="status">
+                                        Your ticket has been sent successfully.
+                                        <button
+                                            type="button"
+                                            class="close"
+                                            data-dismiss="alert"
+                                        >&amp;times;
+                                        </button>
+                                    </div>
+                                    <p>
+                                        We will get back to you shortly.
+                                    </p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <t t-call="website.company_description" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-            <form
-                action="/helpdesk/ticket/team/submit"
-                method="POST"
-                class="form-horizontal mt32"
-                enctype="multipart/form-data"
-            >
-                <input
-                    type="hidden"
-                    name="csrf_token"
-                    t-att-value="request.csrf_token()"
-                />
-                <input type="hidden" name="id_team" t-attf-value="#{id_team}" />
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="name"
-                    >Name</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="name"
-                            t-attf-value="#{name}"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="email"
-                    >Email</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            required="True"
-                            t-attf-value="#{email}"
-                            readonly="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="subject"
-                    >Subject</label>
-                    <div class="col-md-7 col-sm-8">
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="subject"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="attachment"
-                    >Add Attachments</label>
-                    <div class="col-md-7 col-sm-8">
-                        <div class="btn btn-default btn-file col-md-12">
-                            <input
-                                class="form-control o_website_form_input"
-                                name="attachment"
-                                id="attachment"
-                                type="file"
-                                multiple="multiple"
-                            />
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-dm-4 control-label"
-                        for="description"
-                    >Description</label>
-                    <div class="col-md-7 col-sm-8">
-                        <textarea
-                            class="form-control"
-                            name="description"
-                            style="min-height: 120px"
-                            required="True"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
-                        <button class="btn btn-primary btn-lg">Submit Ticket</button>
-                    </div>
-                </div>
-            </form>
         </t>
     </template>
 </odoo>

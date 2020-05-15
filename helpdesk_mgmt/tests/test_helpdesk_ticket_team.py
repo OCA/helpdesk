@@ -77,7 +77,7 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
         self.team_id._compute_endpoint_webform()
         self.assertEqual(self.team_id.endpoint_webform, team_endpoint)
         self.assertEqual(
-            self.team_id.endpoint_full_webform, "helpdesk/{}".format(team_endpoint)
+            self.team_id.endpoint_full_webform, "help/team/{}".format(team_endpoint)
         )
 
         _team_id = self.env["helpdesk.ticket.team"].create({"name": "Team 1"})
@@ -89,5 +89,5 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
         )
         self.assertEqual(
             _team_id.endpoint_full_webform,
-            "helpdesk/{}-{}".format(team_endpoint, _team_id.id),
+            "help/team/{}-{}".format(team_endpoint, _team_id.id),
         )
