@@ -60,7 +60,7 @@ class HelpdeskTicket(models.Model):
     def _onchange_team_id(self):
         for record in self:
             record.analytic_account_id = \
-             record.team_id.default_analytic_account
+                record.team_id.default_analytic_account
 
     @api.depends('planned_hours', 'total_hours')
     def _compute_progress_hours(self):
