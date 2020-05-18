@@ -28,7 +28,7 @@
     'version': '12.0.1.0.0',
     'depends': [
         'helpdesk_mgmt',
-        'hr_timesheet',
+        'account',
     ],
     'data': [
         'views/helpdesk_team.xml',

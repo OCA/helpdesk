@@ -8,6 +8,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='alias_user_id']" position="after">
                 <field name="allow_timesheet" type="checkbox" />
+                <field name="default_analytic_account" attrs="{'invisible':[('allow_timesheet', '=', False)]}"/>
+                <button name="action_clear" help=" Clean Default Analytic Account" type="object" icon="fa-trash" attrs="{'invisible':['|',('allow_timesheet', '=', False),('default_analytic_account', '=', False)]}" class="oe_highlight" />
             </xpath>
         </field>
     </record>
