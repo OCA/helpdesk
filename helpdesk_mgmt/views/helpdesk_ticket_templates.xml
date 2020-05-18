@@ -16,7 +16,7 @@
                 <t t-else="">Tickets</t>
             </li>
             <li t-if="ticket" class="breadcrumb-item active">
-                <t t-esc="ticket.name" />
+                <t t-esc="ticket.name"/>
             </li>
         </xpath>
     </template>
@@ -29,8 +29,8 @@
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
             <t t-if="ticket_count" t-call="portal.portal_docs_entry">
                 <t t-set="title">Tickets</t>
-                <t t-set="url" t-value="'/my/tickets'" />
-                <t t-set="count" t-value="ticket_count" />
+                <t t-set="url" t-value="'/my/tickets'"/>
+                <t t-set="count" t-value="ticket_count"/>
             </t>
             <form method="POST" t-attf-action="/new/ticket">
                 <input
@@ -51,10 +51,10 @@
     </template>
     <template id="portal_my_tickets" name="My tickets">
         <t t-call="portal.portal_layout">
-            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
             <form method="POST" t-attf-action="/new/ticket">
                 <h3>Tickets
-                    <t t-call="portal.portal_searchbar" />
+                    <t t-call="portal.portal_searchbar"/>
                     <button
                         name="create_new_ticket"
                         type="action"
@@ -90,34 +90,34 @@
                         <t t-foreach="tickets" t-as="ticket">
                             <tr>
                                 <td>
-                                    <t t-esc="ticket.partner_id.name" />
+                                    <t t-esc="ticket.partner_id.name"/>
                                 </td>
                                 <td>
                                     <a t-attf-href="/my/ticket/#{ticket.id}">
-                                        <t t-esc="ticket.name" />
+                                        <t t-esc="ticket.name"/>
                                     </a>
                                 </td>
                                 <td>
-                                    <t t-esc="ticket.category_id.name" />
+                                    <t t-esc="ticket.category_id.name"/>
                                 </td>
                                 <td>
-                                    <t t-esc="ticket.stage_id.name" />
+                                    <t t-esc="ticket.stage_id.name"/>
                                 </td>
                                 <td>
-                                    <span t-field="ticket.create_date" />
+                                    <span t-field="ticket.create_date"/>
                                 </td>
                                 <td>
-                                    <span t-field="ticket.last_stage_update" />
+                                    <span t-field="ticket.last_stage_update"/>
                                 </td>
                                 <td>
-                                    <span t-field="ticket.closed_date" />
+                                    <span t-field="ticket.closed_date"/>
                                 </td>
                             </tr>
                         </t>
                     </table>
                 </div>
                 <div t-if="pager" class="o_portal_pager text-center">
-                    <t t-call="portal.pager" />
+                    <t t-call="portal.pager"/>
                 </div>
             </div>
         </t>
@@ -130,8 +130,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <h4>
-                                    <t t-call='portal.record_pager' />
-                                    <span t-field="ticket.name" />
+                                    <t t-call='portal.record_pager'/>
+                                    <span t-field="ticket.name"/>
                                 </h4>
                             </div>
                             <t t-foreach="closed_stages" t-as="stage">
@@ -155,7 +155,7 @@
                                         class="btn btn-success pull-right"
                                         style="margin-right:15px;margin-top:3px;"
                                     >
-                                        <span t-field="stage.name" />
+                                        <span t-field="stage.name"/>
                                     </button>
                                 </form>
                             </t>
@@ -166,36 +166,36 @@
                             <div>
                                 <div class="pull-left">
                                     <strong>Date:</strong>
-                                    <span t-field="ticket.create_date" />
-                                    <br />
+                                    <span t-field="ticket.create_date"/>
+                                    <br/>
                                     <b>Category:</b>
-                                    <t t-esc="ticket.category_id.name" />
-                                    <br />
+                                    <t t-esc="ticket.category_id.name"/>
+                                    <br/>
                                     <b>Stage:</b>
-                                    <t t-esc="ticket.stage_id.name" />
-                                    <br />
+                                    <t t-esc="ticket.stage_id.name"/>
+                                    <br/>
                                 </div>
                                 <div class="pull-right">
                                     <strong>Last Stage Update:</strong>
-                                    <span t-field="ticket.last_stage_update" />
-                                    <br />
+                                    <span t-field="ticket.last_stage_update"/>
+                                    <br/>
                                 </div>
                             </div>
-                            <br />
-                            <br />
+                            <br/>
+                            <br/>
                             <h4 class="page-header">Description</h4>
-                            <t t-raw="ticket.description" />
-                            <br />
+                            <t t-raw="ticket.description"/>
+                            <br/>
                         </div>
                         <h4 class="page-header">History</h4>
                         <!-- Options:Ticket Chatter: user can reply -->
                         <t t-call="portal.message_thread">
-                            <t t-set="object" t-value="ticket" />
+                            <t t-set="object" t-value="ticket"/>
                         </t>
                     </div>
                 </div>
             </div>
-            <div class="oe_structure mb32" />
+            <div class="oe_structure mb32"/>
         </t>
     </template>
     <template id="portal_create_ticket" name="Create Ticket">
@@ -213,7 +213,7 @@
                     </section>
                 </div>
                 <div class="row mb16">
-                    <div class="oe_structure" id="oe_structure_website_top" />
+                    <div class="oe_structure" id="oe_structure_website_top"/>
                     <div class="col-md-9 pl-4">
                         <div class="container">
                             <div id="helpdesk_section">
@@ -492,7 +492,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="oe_structure" id="oe_structure_website_bot" />
+                    <div class="oe_structure" id="oe_structure_website_bot"/>
                 </div>
             </div>
         </t>
@@ -520,7 +520,7 @@
                                     </p>
                                 </div>
                                 <div class="col-lg-4">
-                                    <t t-call="website.company_description" />
+                                    <t t-call="website.company_description"/>
                                 </div>
                             </div>
                         </div>

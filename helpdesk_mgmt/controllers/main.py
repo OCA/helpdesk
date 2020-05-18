@@ -127,7 +127,7 @@ class HelpdeskTicketController(http.Controller):
         r = False  # maybe some day someone'll make a cool error template
         if team_id:
             r = False
-            if team_id.enable_public_webform or user_id:
+            if team_id.alias_contact == "everyone" or user_id:
                 r = http.request.render(
                     "helpdesk_mgmt.portal_create_ticket",
                     {

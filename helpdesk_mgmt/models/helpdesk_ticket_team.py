@@ -104,12 +104,6 @@ class HelpdeskTeam(models.Model):
     endpoint_full_webform = fields.Char(
         string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
     )
-    enable_public_webform = fields.Boolean(
-        string="Allow public ticket creation",
-        help="If this option is being checked, the"
-        "enabled webform will be made public for"
-        "non-registered users",
-    )
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
