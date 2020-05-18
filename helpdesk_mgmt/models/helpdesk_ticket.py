@@ -12,6 +12,7 @@ class HelpdeskTicket(models.Model):
     def _get_default_stage_id(self):
         return self.env['helpdesk.ticket.stage'].search([], limit=1).id
 
+    active = fields.Boolean(default=True)
     number = fields.Char(string='Ticket number', default="/",
                          readonly=True)
     name = fields.Char(string='Title', required=True)
