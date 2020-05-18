@@ -123,19 +123,21 @@ class HelpdeskTicketController(http.Controller):
             .with_user(SUPERUSER_ID)
             .search([("active", "=", True)])
         )
-        id_team = self._search_id_team(endpoint)
+        team_id = self._search_team_id(endpoint)
         r = False  # maybe some day someone'll make a cool error template
-        if id_team:
-            r = http.request.render(
-                "helpdesk_mgmt.portal_create_ticket",
-                {
-                    "email": user_email,
-                    "name": user_name,
-                    "id_team": id_team,
-                    "id_user": user_id,
-                    "categories": category_ids,
-                },
-            )
+        if team_id:
+            r = False
+            if team_id.enable_public_webform or user_id:
+                r = http.request.render(
+                    "helpdesk_mgmt.portal_create_ticket",
+                    {
+                        "email": user_email,
+                        "name": user_name,
+                        "id_team": team_id.id,
+                        "id_user": user_id,
+                        "categories": category_ids,
+                    },
+                )
         return r
 
     @http.route(
@@ -196,13 +198,16 @@ class HelpdeskTicketController(http.Controller):
         )
         return channel_id[0].id if channel_id else None
 
+    def _search_id_team(self, endpoint: str) -> int:
+        team_id = self._search_team_id(endpoint)
+        return team_id[0].id if team_id else None
+
     @staticmethod
-    def _search_id_team(endpoint: str) -> int:
-        team_id = (
+    def _search_team_id(endpoint: str):
+        return (
             request.env["helpdesk.ticket.team"]
             .with_user(SUPERUSER_ID)
             .search(
                 [("endpoint_webform", "=", endpoint), ("enable_webform", "=", True)]
             )
         )
-        return team_id[0].id if team_id else None
