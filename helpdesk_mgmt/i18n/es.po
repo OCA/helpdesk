@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-17 08:43+0000\n"
-"PO-Revision-Date: 2020-03-25 19:13+0000\n"
-"Last-Translator: Nelson Ramírez Sánchez <info@konos.cl>\n"
+"PO-Revision-Date: 2020-05-18 12:19+0000\n"
+"Last-Translator: Josep M <jmyepes@mac.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "<?xml version=\"1.0\"?>\n"
 "<data><p>Hola ${object.user_id.name},</p>\n"
-"        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
+"        <p>Tienes asignado el ticket ${object.number}.</p>\n"
 "      </data>"
 
 #. module: helpdesk_mgmt
@@ -406,22 +406,22 @@ msgstr "Alias"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_contact
 msgid "Alias Contact Security"
-msgstr "Seguridad de Contacto de Alias"
+msgstr "Alias Contacto Seguridad"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
 msgid "Alias Name"
-msgstr "Nombre de Alias"
+msgstr "Alias del Nombre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Alias domain"
-msgstr "Dominio de Alias"
+msgstr "Alias de dominio"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
 msgid "Aliased Model"
-msgstr "Modelo de Alias"
+msgstr "Alias del Modelo"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
@@ -468,7 +468,7 @@ msgstr "Imagen del usuario asignado"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_attachment_count
 msgid "Attachment Count"
-msgstr "Cuenta Adjuntos"
+msgstr "Total Adjuntos"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -520,7 +520,7 @@ msgid ""
 "Channel indicates where the source of a ticketcomes from (it could be a "
 "phone call, an email...)"
 msgstr ""
-"El Canal indica el origen del que procede un ticket (podría ser una llamada "
+"El Canal indica el punto de entrada de un ticket (podría ser una llamada "
 "telefónica, un email...)"
 
 #. module: helpdesk_mgmt
@@ -560,7 +560,7 @@ msgstr "Índice de color"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__company_id
 msgid "Company"
-msgstr "Compañía"
+msgstr "Empresa"
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_config_main_menu
@@ -600,7 +600,7 @@ msgstr "Creado por"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__create_date
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__create_date
 msgid "Created on"
-msgstr "Creado en"
+msgstr "Creado el"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
@@ -732,32 +732,32 @@ msgstr "Ticket Helpdesk"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr "Categoría de ticket Helpdesk"
+msgstr "Categoría Ticket Helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_channel
 msgid "Helpdesk Ticket Channel"
-msgstr "Canal de ticket Helpdesk"
+msgstr "Canal Ticket Helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Estado de ticket Helpdesk"
+msgstr "Estado Ticket Helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
 msgid "Helpdesk Ticket Tag"
-msgstr "Etiqueta de ticket Helpdesk"
+msgstr "Etiqueta Ticket Helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Equipo de ticket Helpdesk"
+msgstr "Equipo Ticket Helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,description:helpdesk_mgmt.module_helpdesk_category
 msgid "Helps you handle your helpdesk security."
-msgstr "Le ayuda a manejar la seguridad de su servicio de asistencia."
+msgstr "Le ayuda a manejar la seguridad de su servicio de helpdesk."
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
@@ -785,7 +785,7 @@ msgstr "Historial"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__id
 msgid "ID"
-msgstr "ID (identificación)"
+msgstr "ID"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
@@ -793,26 +793,26 @@ msgid ""
 "ID of the parent record holding the alias (example: project holding the task "
 "creation alias)"
 msgstr ""
-"ID del registro principal que contiene el alias (ejemplo: proyecto que "
-"contiene el alias de creación de tareas)"
+"Identificación del registro padre que contiene el alias (ejemplo: proyecto "
+"que contiene la tarea de creación de alias )"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
 msgid "If checked new messages require your attention."
-msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
+msgstr "Si está seleccionado, los nuevos mensajes necesitan tu atención."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
+msgstr "Si está seleccionado, los nuevos mensajes necesitan tu atención."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si está seleccionado, algunos mensajes tuvieron error de entrega."
+msgstr "Si está seleccionado, algunos mensajes han tenido error en la entrega."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -820,7 +820,7 @@ msgid ""
 "If set an email will be sent to the customer when the ticketreaches this "
 "step."
 msgstr ""
-"Si está establecido, se enviará un email al cliente cuando el ticket alcance "
+"Si está marcado, se enviará un email al cliente cuando el ticket llegue ha "
 "este estado."
 
 #. module: helpdesk_mgmt
@@ -847,7 +847,7 @@ msgstr "Estado Kanban"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team____last_update
 msgid "Last Modified on"
-msgstr "Última modificación en"
+msgstr "Última modificación el"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:53
@@ -865,7 +865,7 @@ msgstr "Última actualización de la etapa"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__write_uid
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__write_uid
 msgid "Last Updated by"
-msgstr "Última actualización de"
+msgstr "Última actualización por"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__write_date
@@ -875,7 +875,7 @@ msgstr "Última actualización de"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__write_date
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__write_date
 msgid "Last Updated on"
-msgstr "Última actualización en"
+msgstr "Última actualización el"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -885,7 +885,7 @@ msgstr "Última Semana"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Late Activities"
-msgstr "Actividades tardías"
+msgstr "Últimas Actividades"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:69
@@ -910,7 +910,7 @@ msgstr "Archivos adjuntos"
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
-msgstr "Media"
+msgstr "Medio"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__user_ids
@@ -921,7 +921,7 @@ msgstr "Miembros"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
 msgid "Message Delivery error"
-msgstr "Mensaje de error de entrega"
+msgstr "Mensaje de error en la entrega"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_ids
@@ -1010,13 +1010,13 @@ msgstr "Número de errores"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr "Número de mensajes que requieren acción"
+msgstr "Número de mensajes que requieren una acción"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Número de mensajes con errores"
+msgstr "Número de mensajes con errores de entrega"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count
@@ -1026,7 +1026,7 @@ msgstr "Número de tickets"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_high_priority
 msgid "Number of tickets in high priority"
-msgstr "Número de tickets en prioridad alta"
+msgstr "Número de tickets con prioridad alta"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unassigned
@@ -1042,7 +1042,7 @@ msgstr "Número de tickets sin atender"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread_counter
 msgid "Number of unread messages"
-msgstr "Número de mensajer por leer"
+msgstr "Número de mensajer sin leer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1058,7 +1058,7 @@ msgid ""
 msgstr ""
 "ID opcional de un hilo (registro) al que se adjuntarán todos los mensajes "
 "entrantes, incluso si no respondieron a él. Si se establece, esto "
-"deshabilitará la creación de nuevos registros por completo."
+"deshabilitará completamente la creación de nuevos registros."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -1083,7 +1083,7 @@ msgstr "Modelo Principal"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
 msgid "Parent Record Thread ID"
-msgstr "ID de subproceso de registro principal"
+msgstr "ID del subproceso del registro principal"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
@@ -1100,7 +1100,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Partner"
-msgstr "Empresa"
+msgstr "Cliente"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:225
@@ -1113,12 +1113,12 @@ msgstr "Email del cliente"
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:227
 #, python-format
 msgid "Partner Id"
-msgstr "ID de cliente"
+msgstr "ID cliente"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_name
 msgid "Partner Name"
-msgstr "Nombre de la empresa"
+msgstr "Nombre del cliente"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
@@ -1141,7 +1141,7 @@ msgid ""
 msgstr ""
 "Política para publicar un mensaje en el documento usando el mailgateway.\n"
 "- todos: todos pueden publicar\n"
-"- socios: solo socios autenticados\n"
+"- clientes: solo clientes autenticados\n"
 "- seguidores: solo seguidores del documento relacionado o miembros de los "
 "siguientes canales\n"
 
@@ -1158,7 +1158,7 @@ msgstr "Listo para la siguiente etapa"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
 msgid "Record Thread ID"
-msgstr "Registro ID de hilo"
+msgstr "ID Registro del hilo"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
@@ -1191,7 +1191,7 @@ msgstr "Secuencia"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Show all records which has next action date is before today"
 msgstr ""
-"Mostrar todos los registros que tienen la próxima fecha de acción antes de "
+"Mostrar todos los registros que tienen la siguiente fecha de acción antes de "
 "hoy"
 
 #. module: helpdesk_mgmt
@@ -1244,7 +1244,7 @@ msgstr "Enviar Ticket"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
 msgid "Tag"
-msgstr "Tag"
+msgstr "Etiqueta"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
@@ -1272,9 +1272,9 @@ msgid ""
 "The email address associated with this channel. New emails received will "
 "automatically create new tickets assigned to the channel."
 msgstr ""
-"La dirección de correo electrónico asociada a este canal. Los nuevos correos "
-"electrónicos recibidos crearán automáticamente nuevos tickets asignados al "
-"canal."
+"La dirección de correo electrónico asociada a este canal. Los correos "
+"electrónicos nuevos recibidos crearán automáticamente nuevos tickets "
+"asignados al canal."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
@@ -1284,8 +1284,8 @@ msgid ""
 "new record of this model (e.g. a Project Task)"
 msgstr ""
 "El modelo (Odoo Document Kind) al que corresponde este alias. Cualquier "
-"correo electrónico entrante que no responda a un registro existente "
-"provocará la creación de un nuevo registro de este modelo (por ejemplo, una "
+"correo electrónico entrante que no responda a un registro ya existente "
+"generará la creación de un nuevo registro de este modelo (por ejemplo, una "
 "tarea de proyecto)"
 
 #. module: helpdesk_mgmt
@@ -1294,8 +1294,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
-"El nombre del alias de correo electrónico, p. 'jobs' si desea recibir "
-"correos electrónicos de <jobs@example.odoo.com>"
+"El nombre del alias de correo electrónico, por ejemplo 'incidencias' si "
+"desea recibir correos electrónicos de <incidencias@midominio.com>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
@@ -1308,7 +1308,7 @@ msgstr ""
 "El propietario de los registros creados al recibir correos electrónicos en "
 "este alias. Si este campo no está configurado, el sistema intentará "
 "encontrar el propietario correcto en función de la dirección del remitente "
-"(De), o utilizará la cuenta de administrador si no se encuentra ningún "
+"(De:), o utilizará la cuenta de administrador si no se encuentra ningún "
 "usuario del sistema para esa dirección."
 
 #. module: helpdesk_mgmt
@@ -1332,42 +1332,42 @@ msgid ""
 "This stage is folded in the kanban view when there are no records in that "
 "stage to display."
 msgstr ""
-"Esta etapa se repliega en la vista kanban cuando no hay registros para "
-"mostrar en la misma."
+"Esta etapa se pliega en la vista kanban cuando no hay registros para mostrar "
+"en la misma."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr "Buscar estado de ticket"
+msgstr "Buscar estado ticket"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_tree
 msgid "Ticket Stages"
-msgstr "Estados de ticket"
+msgstr "Estados ticket"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 msgid "Ticket Tag Search"
-msgstr "Buscar etiqueta de ticket"
+msgstr "Buscar etiqueta ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_tag_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_tag_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_tree
 msgid "Ticket Tags"
-msgstr "Etiquetas de ticket"
+msgstr "Etiquetas ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
-msgstr "Cantidad de tickets activos"
+msgstr "Total tickets activos"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
-msgstr "Cantidad de tickets"
+msgstr "Total tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
@@ -1405,7 +1405,7 @@ msgstr "Hoy"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Today Activities"
-msgstr "Actividades de Hoy"
+msgstr "Actividades para Hoy"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_ids
@@ -1430,13 +1430,13 @@ msgstr "Sin atender"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
 msgid "Unread Messages"
-msgstr "Mensajes por leer"
+msgstr "Mensajes sin leer"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread_counter
 msgid "Unread Messages Counter"
-msgstr "Contador mensajes por leer"
+msgstr "Contador mensajes sin leer"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
