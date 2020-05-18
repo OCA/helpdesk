@@ -3,8 +3,8 @@ from odoo import models, fields, api
 class HelpdeskTicketTeam(models.Model):
     _inherit = 'helpdesk.ticket.team'
 
-    archive = fields.Boolean('Archive', related='active', default=True, store=True, readonly=False)    
-    
+    archive = fields.Boolean('Archive', related='active', default=True, store=True, readonly=False)
+
     allow_timesheet = fields.Boolean(
         string="Allow Timesheet",
     )
@@ -20,7 +20,7 @@ class HelpdeskTicketTeam(models.Model):
     @api.constrains('allow_timesheet')
     def _constrains_allow_timesheet(self):
         if self.allow_timesheet == False:
-            self.default_analytic_account = False    
-    
+            self.default_analytic_account = False
+
     def action_clear(self):
         self.default_analytic_account = False
