@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <record id="timesheet_helpdesk_team_view_form" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.team.form.view</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <!-- Only For Fix Smart Button-->
+            <xpath expr="//div[@name='button_box']" position="replace">
+                <div class="oe_button_box" name="button_box">
+                    <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                        <field name="archive" widget="boolean_button"
+                            options='{"terminology": "archive"}'/>
+                    </button>
+                </div>
+            </xpath>
+            <!-- Timesheet And Project-->
+            <xpath expr="//field[@name='alias_user_id']" position="after">
+                <field name="allow_timesheet" type="checkbox" />
+                <field name="default_project" attrs="{'invisible':[('allow_timesheet', '=', False)]}" options="{'delete': True}" />
+                <button name="action_clear" help=" Clean Default Project" type="object" icon="fa-trash" attrs="{'invisible':['|',('allow_timesheet', '=', False),('default_project', '=', False)]}" class="oe_highlight" widget="statinfo" />
+            </xpath>
+        </field>
+    </record>
+</data>
