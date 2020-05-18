@@ -14,7 +14,7 @@
                 <page string="Timesheets" attrs="{'invisible':['|',('analytic_account_id', '=', False), ('allow_timesheet', '=', False)]}">
                     <field name="timesheet_ids" context="{'default_account_id': analytic_account_id}">
                         <tree editable="bottom" delete="true">
-                            <field name="account_id" invisible="0" />
+                            <field name="account_id" invisible="1" />
                             <field name="date" widget="date" />
                             <field name="user_id" required="1" />
                             <field name="name" />
