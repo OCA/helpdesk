@@ -29,7 +29,6 @@
     'depends': [
         'helpdesk_mgmt',
         'hr_timesheet',
-        'resource',
     ],
     'data': [
         'views/helpdesk_team.xml',
