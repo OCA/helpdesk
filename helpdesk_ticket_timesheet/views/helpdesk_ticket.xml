@@ -11,7 +11,15 @@
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
             <xpath expr="//page[@name='description']" position="after">
-                <page string="Timesheets" attrs="{'invisible':['|',('analytic_account_id', '=', False), ('allow_timesheet', '=', False)]}">
+                <page string="Timesheets" attrs="{'invisible':[('allow_timesheet', '=', False)]}">
+                    <group>
+                        <group>
+                            <field name="planned_hours" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </group>
                     <field name="timesheet_ids" context="{'default_account_id': analytic_account_id}">
                         <tree editable="bottom" delete="true">
                             <field name="account_id" invisible="0" />
@@ -31,7 +39,8 @@
                         </form>
                     </field>
                     <group class="oe_subtotal_footer oe_right">
-                        <field name="total_hours" widget="float_time" readonly="1" string="Hours Spent" />
+                        <field name="total_hours" widget="float_time"/>
+                        <field name="remaining_hours" widget="float_time"/>
                     </group>
                 </page>
             </xpath>
