@@ -21,6 +21,7 @@
     'summary': 'Add HR Timesheet to the tickets for Helpdesk Management.',
     'author': 'Aresoltec, '
               'SDi Soluciones, '
+              'Punt Sistemes, '
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/oca/helpdesk',
     'license': 'AGPL-3',
