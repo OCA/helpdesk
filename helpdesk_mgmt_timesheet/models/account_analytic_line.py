@@ -9,5 +9,5 @@ class AccountAnalyticLine(models.Model):
 
     ticket_id = fields.Many2one(
         comodel_name='helpdesk.ticket',
-        string='ticket_id',
+        string='Ticket',
     )
