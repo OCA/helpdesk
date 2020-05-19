@@ -11,7 +11,7 @@
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
             <xpath expr="//page[@name='description']" position="after">
-                <page string="Timesheets" attrs="{'invisible':[('allow_timesheet', '=', False)]}">
+                <page string="Timesheets" attrs="{'invisible':['|',('allow_timesheet', '=', False), ('analytic_account_id', '=', False)]}">
                     <group>
                         <group>
                             <field name="planned_hours" widget="float_time"/>
