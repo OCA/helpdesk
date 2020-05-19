@@ -136,8 +136,12 @@ class HelpdeskTicket(models.Model):
 
     ticket_return_rel = fields.Boolean(string="Return", related="team_id.ticket_return")
 
-    picking_count = fields.Integer(string="Returns", compute="_compute_pickings", store=True)
-    picking_ids = fields.Many2many(comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings")
+    picking_count = fields.Integer(
+        string="Returns", compute="_compute_pickings", store=True
+    )
+    picking_ids = fields.Many2many(
+        comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings"
+    )
 
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
@@ -171,7 +175,7 @@ class HelpdeskTicket(models.Model):
             selected_member = selected_member[1] if selected_member else None
         return selected_member
 
-    @api.depends('picking_ids')
+    @api.depends("picking_ids")
     def _compute_pickings(self):
         for record in self:
             record.picking_count = len(record.picking_ids)
@@ -241,8 +245,8 @@ class HelpdeskTicket(models.Model):
             "name": "Return Orders",
             "view_mode": "tree",
             "res_model": "stock.picking",
-            "domain": [('id', 'in', self.picking_ids.ids)],
-            "context": "{'create': False}"
+            "domain": [("id", "in", self.picking_ids.ids)],
+            "context": "{'create': False}",
         }
 
     # ---------------------------------------------------
