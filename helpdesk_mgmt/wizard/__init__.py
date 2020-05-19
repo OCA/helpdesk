@@ -1,1 +1,1 @@
-from . import return_product_wizard
+from . import stock_picking_return

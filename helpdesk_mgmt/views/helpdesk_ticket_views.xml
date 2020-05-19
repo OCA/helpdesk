@@ -94,9 +94,10 @@
                     />
                     <button
                         string="Return"
-                        name="action_return_product"
-                        type="object"
+                        name="%(act_return_product)d"
+                        type="action"
                         attrs="{'invisible': [('ticket_return_rel', '=', False)]}"
+                        context="{'default_related_ticket_id': id}"
                     />
                     <field name="stage_id" widget="statusbar" clickable="True" />
                 </header>
@@ -107,6 +108,7 @@
                             type="object"
                             class="oe_stat_button"
                             icon="fa-truck"
+                            attrs="{'invisible': [('picking_count', '=', 0)]}"
                         >
                             <field
                                 name="picking_count"

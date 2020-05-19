@@ -136,8 +136,8 @@ class HelpdeskTicket(models.Model):
 
     ticket_return_rel = fields.Boolean(string="Return", related="team_id.ticket_return")
 
-    picking_count = fields.Integer(string="Returns", compute="_compute_pickings")
-    picking_ids = fields.One2many(comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings")
+    picking_count = fields.Integer(string="Returns", compute="_compute_pickings", store=True)
+    picking_ids = fields.Many2many(comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings")
 
     def send_user_mail(self):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
@@ -171,9 +171,10 @@ class HelpdeskTicket(models.Model):
             selected_member = selected_member[1] if selected_member else None
         return selected_member
 
+    @api.depends('picking_ids')
     def _compute_pickings(self):
         for record in self:
-            record.picking_count = self.env["stock.picking"].search_count([("ticket_id", "=", self.id)])
+            record.picking_count = len(record.picking_ids)
 
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
@@ -232,18 +233,6 @@ class HelpdeskTicket(models.Model):
     def action_duplicate_tickets(self):
         for ticket in self.browse(self.env.context["active_ids"]):
             ticket.copy()
-
-
-    def action_return_product(self):
-        return {
-            "view_type": "form",
-            "view_mode": "form",
-            "res_model": "return.product.wizard",
-            "type": "ir.actions.act_window",
-            "target": "new",
-            "res_id": False,
-            "context": self.env.context,
-        }
 
     def action_view_picking(self):
         self.ensure_one()

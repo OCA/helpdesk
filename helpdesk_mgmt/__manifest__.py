@@ -30,7 +30,7 @@
         "views/helpdesk_ticket_tag_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
-        "wizard/return_product_wizard.xml"
+        "wizard/stock_picking_return_views.xml"
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "development_status": "Beta",
