@@ -25,7 +25,7 @@ class HelpdeskTeam(models.Model):
                 if record.env[record._name].search(domain):
                     _endpoint += "-{}".format(record.id)
                 record.endpoint_webform = _endpoint
-                record.endpoint_full_webform = "helpdesk/{}".format(
+                record.endpoint_full_webform = "help/team/{}".format(
                     record.endpoint_webform
                 )
 
@@ -108,7 +108,6 @@ class HelpdeskTeam(models.Model):
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
         for record in self:
-
             _todo_ticket_ids = record.todo_ticket_ids.filtered(lambda x: not x.closed)
             record.todo_ticket_count = len(_todo_ticket_ids)
             record.todo_ticket_count_unassigned = len(

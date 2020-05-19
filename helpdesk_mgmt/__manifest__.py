@@ -14,7 +14,7 @@
     "SDi Soluciones, "
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
-    "depends": ["mail", "portal"],
+    "depends": ["mail", "portal", "website"],
     "data": [
         "data/helpdesk_data.xml",
         "data/ir_cron.xml",

@@ -30,7 +30,6 @@ class HelpdeskTicket(models.Model):
         :return: user_id: for debugging purposes, as computation methods
         have to assign the value directly to the field
         """
-
         if self.team_id.auto_assign_type != "manual" and not self.user_id:
             if (
                 self.team_id.auto_assign_type == "fixed"
