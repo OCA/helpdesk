@@ -36,8 +36,7 @@
                         <field name="company_id" groups="base.group_multi_company"/>
                     </group>
                     <group>
-                        <group name="left">
-                            <field name="active" invisible="1"/>
+                        <group name="left"> 
                             <label for="alias_name" string="Email Alias"/>
                             <div class="oe_inline" name="alias_def">
                                 <field name="alias_id" class="oe_read_only oe_inline"
