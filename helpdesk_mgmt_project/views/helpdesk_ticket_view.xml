@@ -7,6 +7,17 @@
         <field name="search_view_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search"/>
     </record>
 
+    <!-- TREE TICKET HELP DESK -->
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="project_id"/>
+            </field>
+        </field>
+    </record>
+
     <!-- SEARCH TICKET HELP DESK -->
     <record id="helpdesk_ticket_view_search" model="ir.ui.view">
         <field name="model">helpdesk.ticket</field>
@@ -14,6 +25,7 @@
         <field name="arch" type="xml">
             <field name="user_id" position="after">
                 <field name="project_id"/>
+                <field name="task_id"/>
             </field>
         </field>
     </record>
@@ -25,6 +37,8 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_email']" position="after">
                 <field name="project_id"/>
+                <field name="task_id" domain="[('project_id', '=', project_id)]"
+                               attrs="{'invisible':[('project_id', '=', False)]}"/>
             </xpath>
         </field>
     </record>

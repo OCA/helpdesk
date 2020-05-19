@@ -17,10 +17,12 @@
     'data': [
         'views/helpdesk_ticket_view.xml',
         'views/project_view.xml',
+        'views/project_task_view.xml',
     ],
     'demo': [
     ],
-    'development_status': 'Alpha',
+    'development_status': 'Mature',
     'application': False,
     'installable': True,
+    'auto_install': True,
 }
