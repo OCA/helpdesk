@@ -7,7 +7,7 @@
         <field name="priority" eval="20" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_email']" position="after">
-                <field name="analytic_account_id"/>
+                <field name="analytic_account_id" attrs="{'invisible':[('allow_timesheet', '=', False)]}"/>
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
             <xpath expr="//page[@name='description']" position="after">
