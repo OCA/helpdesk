@@ -33,11 +33,5 @@ class TestHelpdeskTicket(TransactionCase):
         timesheet1.ticket_id = ticket.id
         timesheet2 = self.generate_timesheet(1)
         timesheet2.ticket_id = ticket.id
-        self.assertEqual(
-            ticket.total_hours,
-            3
-        )
-        self.assertEqual(
-            ticket.remaining_hours,
-            2
-        )
+        self.assertEqual(ticket.total_hours, 3)
+        self.assertEqual(ticket.remaining_hours, 2)
