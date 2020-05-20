@@ -11,7 +11,81 @@ _logger = logging.getLogger(__name__)
 
 
 class HelpdeskTicketController(http.Controller):
-    @http.route("/ticket/close", type="http", auth="user")
+    @http.route("/help", type="http", auth="public", website=True)
+    def render_public_ticket(self):
+        """
+        :return: rendered template
+        """
+
+        user_email = None
+        user_name = None
+        user_id = None
+        if not request.env.ref("base.public_user").id == request.env.user.id:
+            user_email = http.request.env.user.email
+            user_name = http.request.env.user.name
+            user_id = http.request.env.user.id
+        category_ids = (
+            http.request.env["helpdesk.ticket.category"]
+            .with_user(SUPERUSER_ID)
+            .search([("active", "=", True)])
+        )
+
+        return http.request.render(
+            "helpdesk_mgmt.portal_create_ticket",
+            {
+                "email": user_email,
+                "name": user_name,
+                "id_user": user_id,
+                "categories": category_ids,
+            },
+        )
+
+    @http.route("/help/ticket/submit", type="http", auth="public", website=True)
+    def submit_ticket(self, **kw):
+        """
+         Main submit endpoint which receives calls from public and private rendering
+        endpoints
+        :param kw: values
+        :return: a redirection to the thankyou endpoint
+        """
+
+        values = {
+            "partner_name": kw.get("name"),
+            "category_id": kw.get("category"),
+            "partner_email": kw.get("email"),
+            "description": kw.get("description"),
+            "name": kw.get("subject"),
+            "attachment_ids": False,
+            "company_id": http.request.env.user.company_id.id,
+            "channel_id": self._search_id_channel(),
+            "partner_id": self._search_id_partner(kw),
+        }
+
+        id_team = kw.get("id_team")
+        if id_team and str.isdigit(id_team):
+            values.update({"team_id": int(id_team)})
+
+        new_ticket = (
+            request.env["helpdesk.ticket"].with_user(SUPERUSER_ID).create(values)
+        )
+        new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
+
+        if kw.get("attachment"):
+            for c_file in request.httprequest.files.getlist("attachment"):
+                data = c_file.read()
+                if c_file.filename:
+                    request.env["ir.attachment"].with_user(SUPERUSER_ID).create(
+                        {
+                            "name": c_file.filename,
+                            "datas": b64encode(data),
+                            "store_fname": c_file.filename,
+                            "res_model": "helpdesk.ticket",
+                            "res_id": new_ticket.id,
+                        }
+                    )
+        return werkzeug.utils.redirect("/help/thankyou")
+
+    @http.route("/help/ticket/close", type="http", auth="user")
     def support_ticket_close(self, **kw):
         """Close the support ticket"""
         values = {}
@@ -27,78 +101,47 @@ class HelpdeskTicketController(http.Controller):
         )
         ticket.stage_id = values.get("stage_id")
 
-        return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
+        return werkzeug.utils.redirect("/my/ticket/%s" % str(ticket.id))
 
-    @http.route("/new/ticket", type="http", auth="user", website=True)
-    def create_new_ticket(self, **kw):
-        categories = http.request.env["helpdesk.ticket.category"].search(
-            [("active", "=", True)]
-        )
-        email = http.request.env.user.email
-        name = http.request.env.user.name
-        return http.request.render(
-            "helpdesk_mgmt.portal_create_ticket",
-            {"categories": categories, "email": email, "name": name},
-        )
+    @http.route("/help/thankyou", type="http", auth="public", website=True, csrf=True)
+    def thankyou_ticket(self):
+        return http.request.render("helpdesk_mgmt.portal_thankyou_ticket")
 
-    @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
-    def submit_ticket(self, **kw):
-        vals = {
-            "partner_name": kw.get("name"),
-            "company_id": http.request.env.user.company_id.id,
-            "category_id": kw.get("category"),
-            "partner_email": kw.get("email"),
-            "description": kw.get("description"),
-            "name": kw.get("subject"),
-            "attachment_ids": False,
-            "channel_id": request.env["helpdesk.ticket.channel"]
-            .with_user(SUPERUSER_ID)
-            .search([("name", "=", "Web")])
-            .id,
-            "partner_id": request.env["res.partner"]
-            .with_user(SUPERUSER_ID)
-            .search([("name", "=", kw.get("name")), ("email", "=", kw.get("email"))])
-            .id,
-        }
-        new_ticket = request.env["helpdesk.ticket"].with_user(SUPERUSER_ID).create(vals)
-        new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
-        if kw.get("attachment"):
-            for c_file in request.httprequest.files.getlist("attachment"):
-                data = c_file.read()
-                if c_file.filename:
-                    request.env["ir.attachment"].with_user(SUPERUSER_ID).create(
-                        {
-                            "name": c_file.filename,
-                            "datas": b64encode(data),
-                            "store_fname": c_file.filename,
-                            "res_model": "helpdesk.ticket",
-                            "res_id": new_ticket.id,
-                        }
-                    )
-        return werkzeug.utils.redirect("/my/tickets")
-
-
-class HelpdeskTeamForm(http.Controller):
-    @http.route("/helpdesk/<string:endpoint>", type="http", auth="user", website=True)
+    @http.route(
+        "/help/team/<string:endpoint>", type="http", auth="public", website=True
+    )
     def create_new_team_ticket(self, endpoint):
-        team_id = self._team_exists(endpoint)
-        r = False  # don't brake the flow ~~
+        user_email = None
+        user_name = None
+        user_id = None
+        if not request.env.ref("base.public_user").id == request.env.user.id:
+            user_email = http.request.env.user.email
+            user_name = http.request.env.user.name
+            user_id = http.request.env.user.id
+        category_ids = (
+            http.request.env["helpdesk.ticket.category"]
+            .with_user(SUPERUSER_ID)
+            .search([("active", "=", True)])
+        )
+        team_id = self._search_team_id(endpoint)
+        r = False  # maybe some day someone'll make a cool error template
         if team_id:
-            email = http.request.env.user.email
-            name = http.request.env.user.name
-            r = http.request.render(
-                "helpdesk_mgmt.portal_create_team_ticket",
-                {"email": email, "name": name, "id_team": team_id.id},
-            )
-
+            r = False
+            if team_id.alias_contact == "everyone" or user_id:
+                r = http.request.render(
+                    "helpdesk_mgmt.portal_create_ticket",
+                    {
+                        "email": user_email,
+                        "name": user_name,
+                        "id_team": team_id.id,
+                        "id_user": user_id,
+                        "categories": category_ids,
+                    },
+                )
         return r
 
     @http.route(
-        "/helpdesk/ticket/team/submit",
-        type="http",
-        auth="user",
-        website=True,
-        csrf=True,
+        "/help/ticket/team/submit", type="http", auth="user", website=True, csrf=True,
     )
     def submit_new_team_ticket(self, **kw):
         values = {
@@ -108,12 +151,10 @@ class HelpdeskTeamForm(http.Controller):
             "partner_email": kw.get("email"),
             "description": kw.get("description"),
             "name": kw.get("subject"),
-            "team_id": kw.get("id_team"),
+            "team_id": int(kw.get("id_team")),
             "attachment_ids": False,
-            "partner_id": request.env["res.partner"]
-            .with_user(SUPERUSER_ID)
-            .search([("name", "=", kw.get("name")), ("email", "=", kw.get("email"))])
-            .id,
+            "partner_id": self._search_id_partner(kw),
+            "channel_id": self._search_id_channel(),
         }
         new_ticket = (
             request.env["helpdesk.ticket"].with_user(SUPERUSER_ID).create(values)
@@ -135,7 +176,38 @@ class HelpdeskTeamForm(http.Controller):
         return werkzeug.utils.redirect("/my/tickets")
 
     @staticmethod
-    def _team_exists(endpoint: str):
-        return request.env["helpdesk.ticket.team"].search(
-            [("endpoint_webform", "=", endpoint), ("enable_webform", "=", True)]
+    def _search_id_partner(kw: dict) -> int:
+        id_partner = kw.get("id_partner")
+        if id_partner and str.isdigit(id_partner):
+            id_partner = int(id_partner)
+        else:
+            partner_id = (
+                request.env["res.partner"]
+                .with_user(SUPERUSER_ID)
+                .search([("email", "=", kw.get("email"))])
+            )
+            id_partner = partner_id[0].id if partner_id else None
+        return id_partner
+
+    @staticmethod
+    def _search_id_channel() -> int:
+        channel_id = (
+            request.env["helpdesk.ticket.channel"]
+            .with_user(SUPERUSER_ID)
+            .search([("name", "=", "Web")])
+        )
+        return channel_id[0].id if channel_id else None
+
+    def _search_id_team(self, endpoint: str) -> int:
+        team_id = self._search_team_id(endpoint)
+        return team_id[0].id if team_id else None
+
+    @staticmethod
+    def _search_team_id(endpoint: str):
+        return (
+            request.env["helpdesk.ticket.team"]
+            .with_user(SUPERUSER_ID)
+            .search(
+                [("endpoint_webform", "=", endpoint), ("enable_webform", "=", True)]
+            )
         )
