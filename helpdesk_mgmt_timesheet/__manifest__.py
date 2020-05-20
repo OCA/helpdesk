@@ -1,7 +1,7 @@
 ##############################################################################
-#    Copyright (C) 2020-Today Aresoltec Canarias <www.aresoltec.com>
-#    Copyright (C) 2020-Today Punt Sistemes <www.puntsistemes.es.es>
-#    Copyright (C) 2020-Today SDi Soluciones Informáticas <www.sdi.es>
+#    Copyright (C) 2020 Aresoltec Canarias <www.aresoltec.com>
+#    Copyright (C) 2020 Punt Sistemes <www.puntsistemes.es.es>
+#    Copyright (C) 2020 SDi Soluciones Digitales <www.sdi.es>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,7 +22,7 @@
     'summary': 'Add HR Timesheet to the tickets for Helpdesk Management.',
     'author': 'Aresoltec, '
               'Punt Sistemes, '
-              'SDi Soluciones, '
+              'SDi Soluciones Digitales, '
               'Odoo Community Association (OCA)',
     'website': 'https://github.com/oca/helpdesk',
     'license': 'AGPL-3',
