@@ -20,7 +20,7 @@
 {
     'name': 'Helpdesk Ticket Timesheet',
     'summary': 'Add HR Timesheet to the tickets for Helpdesk Management.',
-    'author': 'Aresoltec, '
+    'author': 'Aresoltec Canarias, '
               'Punt Sistemes, '
               'SDi Soluciones, '
               'Odoo Community Association (OCA)',
