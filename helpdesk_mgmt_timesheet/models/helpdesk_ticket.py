@@ -39,6 +39,7 @@ class HelpdeskTicket(models.Model):
     total_hours = fields.Float(
         compute='impute_hours',
         readonly=True,
+        store=True,
         string='Total Hours'
     )
 
