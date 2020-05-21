@@ -18,6 +18,20 @@
                         </div>
                     </div>
                 </div>
+                <div
+                    class="col-lg-6 o_setting_box"
+                    attrs="{'invisible': [('assign_sale_order', '=', False)]}"
+                >
+                    <div class="o_setting_left_pane">
+                        <field name="ticket_return" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="ticket_return" />
+                        <div class="text-muted">
+                            Allow product returns from tickets
+                        </div>
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>

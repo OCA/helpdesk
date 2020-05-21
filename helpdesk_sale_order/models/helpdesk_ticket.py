@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class HelpdeskTicket(models.Model):
@@ -16,6 +16,20 @@ class HelpdeskTicket(models.Model):
         invisible=True,
     )
 
+    ticket_return_rel = fields.Boolean(string="Return", related="team_id.ticket_return")
+
+    picking_count = fields.Integer(
+        string="Returns", compute="_compute_pickings", store=True
+    )
+    picking_ids = fields.Many2many(
+        comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings"
+    )
+
+    @api.depends("picking_ids")
+    def _compute_pickings(self):
+        for record in self:
+            record.picking_count = len(record.picking_ids)
+
     def action_create_sales_order(self):
         return {
             "view_type": "form",
@@ -25,4 +39,15 @@ class HelpdeskTicket(models.Model):
             "target": "new",
             "res_id": False,
             "context": self.env.context,
+        }
+
+    def action_view_picking(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Return Orders",
+            "view_mode": "tree,form",
+            "res_model": "stock.picking",
+            "domain": [("id", "in", self.picking_ids.ids)],
+            "context": "{'create': False}",
         }
