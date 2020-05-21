@@ -6,4 +6,3 @@ from . import helpdesk_ticket_category
 from . import helpdesk_ticket_team
 from . import res_partner
 from . import res_users
-from . import stock_picking

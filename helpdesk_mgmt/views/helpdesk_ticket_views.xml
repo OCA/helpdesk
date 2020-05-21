@@ -92,31 +92,9 @@
                         type="object"
                         attrs="{'invisible' : [('user_id', '!=', False)]}"
                     />
-                    <button
-                        string="Return"
-                        name="%(act_return_product)d"
-                        type="action"
-                        attrs="{'invisible': [('ticket_return_rel', '=', False)]}"
-                        context="{'default_related_ticket_id': id}"
-                    />
                     <field name="stage_id" widget="statusbar" clickable="True" />
                 </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button
-                            name="action_view_picking"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-truck"
-                            attrs="{'invisible': [('picking_count', '=', 0)]}"
-                        >
-                            <field
-                                name="picking_count"
-                                widget="statinfo"
-                                string="Returns"
-                            />
-                        </button>
-                    </div>
                     <widget
                         name="web_ribbon"
                         title="Archived"
@@ -157,7 +135,6 @@
                                 widget="many2many_tags"
                                 options="{'color_field': 'color', 'no_create_edit': True}"
                             />
-                            <field name="ticket_return_rel" invisible="1" />
                         </group>
                     </group>
                     <group>

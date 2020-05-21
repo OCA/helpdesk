@@ -172,17 +172,7 @@
                     </div>
                     <h2>After sales services</h2>
                     <div class="row mt32 o_settings_container" id="after-sale">
-                        <div class="col-lg-6 o_setting_box">
-                            <div class="o_setting_left_pane">
-                                <field name="ticket_return" />
-                            </div>
-                            <div class="o_setting_right_pane">
-                                <label for="ticket_return" />
-                                <div class="text-muted">
-                                    Allow product returns from tickets
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </sheet>
                 <div class="oe_chatter">
