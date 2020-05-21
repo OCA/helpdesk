@@ -51,7 +51,7 @@ Channels
 #. Set the name for the channel.
 #. You can also Activate or Deactivate channels.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/13.0/helpdesk_mgmt/helpdesk_mgmt/static/description/Channels.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/13.0/helpdesk_mgmt/static/description/Channels.PNG
    :alt: Channels
    :width: 600 px
 
@@ -196,6 +196,10 @@ Contributors
 
   * Marcel Savegnago
   * Eduardo Apar??cio
+
+* `Obertix <https://www.obertix.net>`_:
+
+  * Vicent Cubells
 
 Maintainers
 ~~~~~~~~~~~
