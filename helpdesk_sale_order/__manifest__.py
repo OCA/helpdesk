@@ -8,7 +8,11 @@
     "author": "Domatix," "Odoo Community Association (OCA)",
     "website": "https://github.com/Domatix/helpdesk",
     "depends": ["helpdesk_mgmt", "sale_management"],
-    "data": ["wizard/stock_picking_return_views.xml", "views/helpdesk_ticket_views.xml", "views/helpdesk_ticket_team_views.xml"],
+    "data": [
+        "wizard/stock_picking_return_views.xml",
+        "views/helpdesk_ticket_views.xml",
+        "views/helpdesk_ticket_team_views.xml",
+    ],
     "installable": True,
     "application": True,
 }

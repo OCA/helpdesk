@@ -22,7 +22,7 @@
                     string="Return"
                     name="%(act_return_product)d"
                     type="action"
-                    attrs="{'invisible': [('ticket_return_rel', '=', False)]}"
+                    attrs="{'invisible': [('ticket_return_rel', '=', False), ('sale_order_id', '=', False)]}"
                     context="{'default_related_ticket_id': id, 'default_related_sale_order_id': sale_order_id}"
                 />
             </xpath>
