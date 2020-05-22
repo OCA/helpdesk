@@ -91,7 +91,7 @@ msgid ""
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,"
 "Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hello ${object.user_id.name},</p>\n"
+"                                <p>Hello ${object.partner_id.name},</p>\n"
 "                                <p>The ticket ${object.number} has been "
 "closed.</p>\n"
 "                              </td>\n"
@@ -160,7 +160,7 @@ msgstr ""
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,"
 "Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>Hola ${object.partner_id.name},</p>\n"
 "                                <p>El ticket ${object.number} ha sido "
 "cerrado.</p>\n"
 "                              </td>\n"
@@ -232,7 +232,7 @@ msgid ""
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,"
 "Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hello ${object.user_id.name},</p>\n"
+"                                <p>Hello ${object.partner_id.name},</p>\n"
 "                                <p>The ticket ${object.number} stage has "
 "changed to ${object.stage_id.name}.</p>\n"
 "                              </td>\n"
@@ -302,7 +302,7 @@ msgstr ""
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,"
 "Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>Hola ${object.partner_id.name},</p>\n"
 "                                <p>El ticket ${object.number} ha cambiado de "
 "estado a ${object.stage_id.name}.</p>\n"
 "                              </td>\n"
@@ -1533,7 +1533,7 @@ msgstr "Servicios post-venta"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__endpoint_webform
 msgid "Webform endpoint"
-msgstr "Endpoint para el formulario web del equipo"
+msgstr "URL para el formulario web del equipo"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -1542,8 +1542,8 @@ msgid ""
 "                                        If a number is appended it means the endpoint generator found a conflict\n"
 "                                        of names between several teams"
 msgstr ""
-"Este es el endpoint generado basado en el nombre del equipo.\n"
-"                                        Si el endpoint tiene un número al final significa que ha habido un conflicto\n"
+"Esta es la URL generada basada en el nombre del equipo.\n"
+"                                        Si la misma tiene un número al final significa que ha habido un conflicto\n"
 "                                        entre varios equipos con el mismo nombre"
 
 #. module: helpdesk_mgmt
@@ -1570,3 +1570,18 @@ msgstr "Siguiente etapa"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 msgid "After"
 msgstr "Después de"
+
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid ""
+"Use this button if the team's attributes have been changed. If those attributes\n"
+"                                        are necessary for the computed URL it'll change accordingly."
+msgstr ""
+"Usa este botón si los atributos del equipo han cambiado. Si dichos atributos \n"
+"                                        son necesarios para la URL generado, esta cambiará acordemente"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid "Recompute endpoint"
+msgstr "Recalcular URL"

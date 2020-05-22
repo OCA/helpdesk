@@ -8,7 +8,7 @@ class HelpdeskTeam(models.Model):
     _inherit = ["mail.thread", "mail.alias.mixin"]
 
     @api.depends("name", "enable_webform")
-    def _compute_endpoint_webform(self):
+    def _compute_endpoint_webform(self, recompute=False):
         """
          Compute the endpoint webform name,
         which usually is the team name hyphen-separated.
@@ -17,7 +17,7 @@ class HelpdeskTeam(models.Model):
         :return:
         """
         for record in self:
-            if record.enable_webform and not record.endpoint_webform:
+            if (record.enable_webform and not record.endpoint_webform) or recompute:
                 _endpoint = "-".join(record.name.lower().split(" "))
                 domain = [("endpoint_webform", "=", _endpoint)]
                 if isinstance(record.id, int):
@@ -28,6 +28,9 @@ class HelpdeskTeam(models.Model):
                 record.endpoint_full_webform = "help/team/{}".format(
                     record.endpoint_webform
                 )
+
+    def recompute_endpoint(self):
+        self._compute_endpoint_webform(recompute=True)
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")

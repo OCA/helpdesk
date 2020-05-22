@@ -167,6 +167,20 @@
                                     </div>
                                     <field name="endpoint_full_webform" widget="url" />
                                 </div>
+                                <div
+                                    id="recompute_endpoint_box"
+                                    attrs="{'invisible': [('enable_webform', '=', False)]}"
+                                >
+                                    <div class="text-muted">
+                                        Use this button if the team's attributes have been changed. If those attributes
+                                        are necessary for the computed URL it'll change accordingly.
+                                    </div>
+                                    <button
+                                        name="recompute_endpoint"
+                                        type="object"
+                                        string="Recompute endpoint"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
