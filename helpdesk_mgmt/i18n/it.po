@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt
+# 	* helpdesk_mgmt
 #
 msgid ""
 msgstr ""
@@ -18,14 +18,16 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
+msgid ""
+"${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
 msgstr ""
-"${object.company_id.name} Assegnazione Ticket (Ref ${object.number or 'n/a' "
-"})"
+"${object.company_id.name} Assegnazione Ticket (Ref ${object.number or 'n/"
+"a' })"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-msgid "<?xml version=\"1.0\"?>\n"
+msgid ""
+"<?xml version=\"1.0\"?>\n"
 "<data><p>Hello ${object.user_id.name},</p>\n"
 "        <p>The ticket ${object.number} has been assigned to you.</p>\n"
 "      </data>"
@@ -37,7 +39,8 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                          <b>Category:</b>"
 msgstr ""
 "<br/>\n"
@@ -45,7 +48,8 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<br/>\n"
+msgid ""
+"<br/>\n"
 "                          <b>Stage:</b>"
 msgstr ""
 "<br/>\n"
@@ -53,18 +57,25 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
-msgid "<html>\n"
+msgid ""
+"<html>\n"
 "                <head></head>\n"
 "                <body style=\"margin: 0; padding: 0;\">\n"
-"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
 "                    <tbody>\n"
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
 "                              <td valign=\"middle\" align=\"right\">\n"
-"                                <img src=\"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${object.company_id.name}\">\n"
+"                                <img src=\"/logo.png?company=${object."
+"company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
+"\" alt=\"${object.company_id.name}\">\n"
 "                              </td>\n"
 "                            </tr>\n"
 "                          </table>\n"
@@ -73,11 +84,15 @@ msgid "<html>\n"
 "                      <!-- CONTENT -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: "
+"rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
-"                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,"
+"Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
 "                                <p>Hello ${object.user_id.name},</p>\n"
-"                                <p>The ticket ${object.number} has been closed.</p>\n"
+"                                <p>The ticket ${object.number} has been "
+"closed.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
 "                          </table>\n"
@@ -86,15 +101,20 @@ msgid "<html>\n"
 "                      <!-- FOOTER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.phone}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.email}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.website}\n"
 "                              </td>\n"
 "                            </tr>\n"
@@ -117,14 +137,14 @@ msgstr ""
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
 "rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
 "                              <td valign=\"middle\" align=\"right\">\n"
-"                                <img src=\""
-"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
-"height: auto; width: 80px;\" alt=\"${object.company_id.name}\">\n"
+"                                <img src=\"/logo.png?company=${object."
+"company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
+"\" alt=\"${object.company_id.name}\">\n"
 "                              </td>\n"
 "                            </tr>\n"
 "                          </table>\n"
@@ -133,15 +153,15 @@ msgstr ""
 "                      <!-- CONTENT -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
-"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: "
+"rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
-"                              <td valign=\"top\" style=\"font-"
-"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,"
+"Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
 "                                <p>Ciao${object.user_id.name},</p>\n"
-"                                <p>Il ticket ${object.number} è stato "
-"chiuso.</p>\n"
+"                                <p>Il ticket ${object.number} è stato chiuso."
+"</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
 "                          </table>\n"
@@ -150,20 +170,20 @@ msgstr ""
 "                      <!-- FOOTER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
 "rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.phone}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.email}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.website}\n"
 "                              </td>\n"
 "                            </tr>\n"
@@ -178,18 +198,25 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
-msgid "<html>\n"
+msgid ""
+"<html>\n"
 "                <head></head>\n"
 "                <body style=\"margin: 0; padding: 0;\">\n"
-"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
 "                    <tbody>\n"
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
 "                              <td valign=\"middle\" align=\"right\">\n"
-"                                <img src=\"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\">\n"
+"                                <img src=\"/logo.png?company=${object."
+"company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
+"\">\n"
 "                              </td>\n"
 "                            </tr>\n"
 "                          </table>\n"
@@ -198,11 +225,15 @@ msgid "<html>\n"
 "                      <!-- CONTENT -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: "
+"rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
-"                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,"
+"Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
 "                                <p>Hello ${object.user_id.name},</p>\n"
-"                                <p>The ticket ${object.number} stage has changed to ${object.stage_id.name}.</p>\n"
+"                                <p>The ticket ${object.number} stage has "
+"changed to ${object.stage_id.name}.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
 "                          </table>\n"
@@ -211,15 +242,20 @@ msgid "<html>\n"
 "                      <!-- FOOTER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.phone}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.email}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.website}\n"
 "                              </td>\n"
 "                            </tr>\n"
@@ -243,14 +279,14 @@ msgstr ""
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
 "rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
 "                              <td valign=\"middle\" align=\"right\">\n"
-"                                <img src=\""
-"/logo.png?company=${object.company_id}\" style=\"padding: 0px; margin: 0px; "
-"height: auto; width: 80px;\">\n"
+"                                <img src=\"/logo.png?company=${object."
+"company_id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;"
+"\">\n"
 "                              </td>\n"
 "                            </tr>\n"
 "                          </table>\n"
@@ -259,12 +295,12 @@ msgstr ""
 "                      <!-- CONTENT -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
-"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: "
+"rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
-"                              <td valign=\"top\" style=\"font-"
-"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,"
+"Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
 "                                <p>Ciao ${object.user_id.name},</p>\n"
 "                                <p>La fase del ticket ${object.number} è "
 "passata a ${object.stage_id.name}.</p>\n"
@@ -276,20 +312,20 @@ msgstr ""
 "                      <!-- FOOTER -->\n"
 "                      <tr>\n"
 "                        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
-" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"                          <table width=\"590\" border=\"0\" cellpadding="
+"\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
 "rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                            <tr>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.phone}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.email}\n"
 "                              </td>\n"
-"                              <td valign=\"middle\" align=\"left\" style=\""
-"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
 "                                ${object.company_id.website}\n"
 "                              </td>\n"
 "                            </tr>\n"
@@ -320,7 +356,9 @@ msgstr "<strong>Ultimo aggiornamento della fase:</strong>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_defaults
-msgid "A Python dictionary that will be evaluated to provide default values when creating new records for this alias."
+msgid ""
+"A Python dictionary that will be evaluated to provide default values when "
+"creating new records for this alias."
 msgstr ""
 "Un dizionario Python che verrà consultato per fornire valori predefiniti "
 "quando si crea un nuovo record per questo alias."
@@ -337,6 +375,7 @@ msgid "Action Needed"
 msgstr "Azione necessaria"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__active
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__active
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__active
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__active
@@ -393,6 +432,7 @@ msgid "All"
 msgstr "Tutto"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
@@ -478,7 +518,9 @@ msgstr "Canale"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__channel_id
-msgid "Channel indicates where the source of a ticketcomes from (it could be a phone call, an email...)"
+msgid ""
+"Channel indicates where the source of a ticketcomes from (it could be a "
+"phone call, an email...)"
 msgstr "Il Canale indica qual è l'origine di un ticket (telefonata, email...)"
 
 #. module: helpdesk_mgmt
@@ -718,7 +760,7 @@ msgid "Helps you handle your helpdesk security."
 msgstr "Ti aiuta a gestire la sicurezza del tuo helpdesk."
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "High"
@@ -747,7 +789,9 @@ msgstr "ID"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
-msgid "ID of the parent record holding the alias (example: project holding the task creation alias)"
+msgid ""
+"ID of the parent record holding the alias (example: project holding the task "
+"creation alias)"
 msgstr ""
 "ID del record padre che contiene l'alias (esempio: progetto che contiene "
 "l'alias di creazione del task)"
@@ -772,7 +816,9 @@ msgstr "Se abilitato, alcuni messaggi hanno un errore di consegna."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
-msgid "If set an email will be sent to the customer when the ticketreaches this step."
+msgid ""
+"If set an email will be sent to the customer when the ticketreaches this "
+"step."
 msgstr ""
 "Se impostato verrà mandata una mail al cliente quando il ticket raggiunge "
 "questa fase."
@@ -842,7 +888,7 @@ msgid "Late Activities"
 msgstr "Attività in ritardo"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:69
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:70
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Low"
@@ -860,7 +906,7 @@ msgid "Media Attachments"
 msgstr "Allegati Media"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:70
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
@@ -943,7 +989,7 @@ msgid "Next Activity Type"
 msgstr "Tipo prossima attività"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:187
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:188
 #, python-format
 msgid "No Subject"
 msgstr "Nessun oggetto"
@@ -1005,7 +1051,10 @@ msgstr "Aperto"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
-msgid "Optional ID of a thread (record) to which all incoming messages will be attached, even if they did not reply to it. If set, this will disable the creation of new records completely."
+msgid ""
+"Optional ID of a thread (record) to which all incoming messages will be "
+"attached, even if they did not reply to it. If set, this will disable the "
+"creation of new records completely."
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1035,7 +1084,10 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
-msgid "Parent model holding the alias. The model holding the alias reference is not necessarily the model given by alias_model_id (example: project (parent_model) and task (model))"
+msgid ""
+"Parent model holding the alias. The model holding the alias reference is not "
+"necessarily the model given by alias_model_id (example: project "
+"(parent_model) and task (model))"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1045,14 +1097,14 @@ msgid "Partner"
 msgstr "Cliente"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:225
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:226
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
 msgstr "Email Cliente"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:227
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:228
 #, python-format
 msgid "Partner Id"
 msgstr "Id Cliente"
@@ -1074,11 +1126,12 @@ msgstr "Pianificato"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_contact
-msgid "Policy to post a message on the document using the mailgateway.\n"
+msgid ""
+"Policy to post a message on the document using the mailgateway.\n"
 "- everyone: everyone can post\n"
 "- partners: only authenticated partners\n"
-"- followers: only followers of the related document or members of following channels\n"
-""
+"- followers: only followers of the related document or members of following "
+"channels\n"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1154,7 +1207,8 @@ msgstr "Fasi"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_state
-msgid "Status based on activities\n"
+msgid ""
+"Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
@@ -1198,26 +1252,37 @@ msgstr "Teams"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
-msgid "The email address associated with this channel. New emails received will automatically create new tickets assigned to the channel."
+msgid ""
+"The email address associated with this channel. New emails received will "
+"automatically create new tickets assigned to the channel."
 msgstr ""
 "L'indirizzo email associato a questo canale. Le nuove email ricevute "
 "creeranno automaticamente nuovi ticket da assegnare al canale."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
-msgid "The model (Odoo Document Kind) to which this alias corresponds. Any incoming email that does not reply to an existing record will cause the creation of a new record of this model (e.g. a Project Task)"
+msgid ""
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"email that does not reply to an existing record will cause the creation of a "
+"new record of this model (e.g. a Project Task)"
 msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
-msgid "The name of the email alias, e.g. 'jobs' if you want to catch emails for <jobs@example.odoo.com>"
+msgid ""
+"The name of the email alias, e.g. 'jobs' if you want to catch emails for "
+"<jobs@example.odoo.com>"
 msgstr ""
 "Il nome dell'alias email, ad esempio \"tickets\" se vuoi ricevere le email "
 "di <tickets@esempio.odoo.com>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
-msgid "The owner of records created upon receiving emails on this alias. If this field is not set the system will attempt to find the right owner based on the sender (From) address, or will use the Administrator account if no system user is found for that address."
+msgid ""
+"The owner of records created upon receiving emails on this alias. If this "
+"field is not set the system will attempt to find the right owner based on "
+"the sender (From) address, or will use the Administrator account if no "
+"system user is found for that address."
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1237,7 +1302,9 @@ msgstr "Non ci sono ticket nel tuo account."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
-msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgid ""
+"This stage is folded in the kanban view when there are no records in that "
+"stage to display."
 msgstr ""
 "Questa fase è minimizzata nel kanban se non ci sono record da mostrare in "
 "quella fase."
@@ -1363,7 +1430,7 @@ msgid "Users"
 msgstr "Utenti"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:73
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Very High"
