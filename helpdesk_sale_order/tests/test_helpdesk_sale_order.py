@@ -7,7 +7,6 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
         super(TestHelpdeskSalesOrder, cls).setUpClass()
         helpdesk_ticket = cls.env["helpdesk.ticket"]
         helpdesk_ticket_team = cls.env["helpdesk.ticket.team"]
-        stock_picking = cls.env["stock.picking"]
         cls.user_admin = cls.env.ref("base.user_root")
         cls.sale_order_1 = cls.env.ref("sale.sale_order_1")
         cls.sale_order_2 = cls.env.ref("sale.sale_order_2")
