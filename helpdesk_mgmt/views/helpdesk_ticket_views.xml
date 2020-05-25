@@ -123,6 +123,7 @@
                                 widget="many2many_tags"
                                 options="{'color_field': 'color', 'no_create_edit': True}"
                             />
+                            <field name="category_id" />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
@@ -134,7 +135,6 @@
                             <field name="partner_id" />
                             <field name="partner_name" />
                             <field name="partner_email" />
-                            <field name="category_id" />
                         </group>
                     </group>
                     <group>
