@@ -46,10 +46,11 @@
                     </button>
                 </div>
             </xpath>
-            <xpath expr="//group[@name='main']/group[2]" position="after">
-                <group>
-                    <field name="rating_status" widget="radio" />
-                </group>
+            <xpath
+                expr="//group[@name='main']/group[2]/field[@name='partner_email']"
+                position="after"
+            >
+                <field name="rating_status" widget="radio" />
             </xpath>
         </field>
     </record>
