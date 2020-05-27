@@ -8,7 +8,7 @@ class ReturnPickingLine(models.TransientModel):
 class ReturnPicking(models.TransientModel):
     _inherit = "stock.return.picking"
 
-    picking_id = fields.Many2one(domain="[('id', 'in', linked_transfer_ids)]")
+    picking_id = fields.Many2one(domain="[('id', 'in', linked_picking_ids)]")
 
     related_ticket_id = fields.Many2one(
         comodel_name="helpdesk.ticket", string="Related ticket"
@@ -20,8 +20,8 @@ class ReturnPicking(models.TransientModel):
         string="Related sale order",
     )
 
-    linked_transfer_ids = fields.Many2many(
-        comodel_name="stock.picking", compute="_compute_linked_transfer_ids"
+    linked_picking_ids = fields.Many2many(
+        comodel_name="stock.picking", compute="_compute_linked_picking_ids"
     )
 
     def create_returns(self):
@@ -39,11 +39,11 @@ class ReturnPicking(models.TransientModel):
         return {"domain": {"picking_id": res}}
 
     @api.depends("related_ticket_id.sale_order_id.picking_ids")
-    def _compute_linked_transfer_ids(self):
+    def _compute_linked_picking_ids(self):
         for record in self:
             res = [("state", "=", "done")]
             if record.related_sale_order_id:
                 res += [
                     ("id", "in", record.related_sale_order_id.picking_ids._origin.ids)
                 ]
-            record.linked_transfer_ids = self.env["stock.picking"].search(res)
+            record.linked_picking_ids = self.env["stock.picking"].search(res)

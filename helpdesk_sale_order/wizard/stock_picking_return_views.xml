@@ -9,7 +9,7 @@
                 <field name="move_dest_exists" invisible="1" />
                 <group>
                     <field name="related_sale_order_id" readonly="1" />
-                    <field name="linked_transfer_ids" invisible="1" />
+                    <field name="linked_picking_ids" invisible="1" />
                     <field
                         name="picking_id"
                         invisible="0"
