@@ -20,7 +20,9 @@ class ReturnPicking(models.TransientModel):
         string="Related sale order",
     )
 
-    linked_transfer_ids = fields.Many2many(comodel_name="stock.picking", compute="_compute_linked_transfer_ids")
+    linked_transfer_ids = fields.Many2many(
+        comodel_name="stock.picking", compute="_compute_linked_transfer_ids"
+    )
 
     def create_returns(self):
         picking = super(ReturnPicking, self).create_returns()
@@ -41,5 +43,7 @@ class ReturnPicking(models.TransientModel):
         for record in self:
             res = [("state", "=", "done")]
             if record.related_sale_order_id:
-                res += [("id", "in", record.related_sale_order_id.picking_ids._origin.ids)]
+                res += [
+                    ("id", "in", record.related_sale_order_id.picking_ids._origin.ids)
+                ]
             record.linked_transfer_ids = self.env["stock.picking"].search(res)
