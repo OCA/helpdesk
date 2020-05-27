@@ -10,6 +10,7 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
         cls.user_admin = cls.env.ref("base.user_root")
         cls.sale_order_1 = cls.env.ref("sale.sale_order_1")
         cls.sale_order_2 = cls.env.ref("sale.sale_order_2")
+        cls.picking1 = cls.env.ref("stock.incomming_shipment1")
         cls.ticket = helpdesk_ticket.create(
             {"name": "Test 1", "description": "Ticket test"}
         )
@@ -19,6 +20,13 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
                 "name": "Test 2",
                 "description": "Ticket test with sale order",
                 "sale_order_id": cls.sale_order_1.id,
+            }
+        )
+        cls.ticket_with_pickings = helpdesk_ticket.create(
+            {
+                "name": "Test 3",
+                "description": "Ticket with pickings",
+                "picking_ids": [(4, cls.picking1.id)],
             }
         )
 
@@ -54,3 +62,22 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
 
         self.ticket_with_sale_order.sale_order_id = None
         self.assertFalse(self.ticket_with_sale_order.sale_order_id.id)
+
+        # Test picking_id
+        self.assertFalse(self.ticket.picking_ids.ids)
+
+        self.ticket.picking_ids = [(4, self.picking1.id)]
+
+        self.assertEqual(
+            self.env["stock.picking"]
+            .search([("id", "in", self.ticket.picking_ids.ids)])
+            .id,
+            self.picking1.id,
+        )
+
+        self.assertEqual(
+            self.ticket_with_pickings.picking_ids.ids, self.ticket.picking_ids.ids
+        )
+
+        self.ticket_with_pickings.picking_ids = None
+        self.assertFalse(self.ticket_with_pickings.picking_ids.ids)

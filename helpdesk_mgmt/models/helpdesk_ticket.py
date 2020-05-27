@@ -238,6 +238,17 @@ class HelpdeskTicket(models.Model):
         for ticket in self.browse(self.env.context["active_ids"]):
             ticket.copy()
 
+    def action_view_picking(self):
+        self.ensure_one()
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Return Orders",
+            "view_mode": "tree",
+            "res_model": "stock.picking",
+            "domain": [("id", "in", self.picking_ids.ids)],
+            "context": "{'create': False}",
+        }
+
     # ---------------------------------------------------
     # Mail gateway
     # ---------------------------------------------------

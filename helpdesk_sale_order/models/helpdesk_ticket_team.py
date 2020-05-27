@@ -12,3 +12,5 @@ class HelpdeskTicketTeam(models.Model):
         allows assigning a past sale order the customer has
         """,
     )
+
+    ticket_return = fields.Boolean(string="Returns")
