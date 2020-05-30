@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <!-- View Form Task -->
+
     <record id="view_task_form2" model="ir.ui.view">
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_form2"/>
@@ -11,6 +11,16 @@
                         context="{'search_default_task_id': id, 'default_task_id': id}">
                     <field string="Tickets" name="ticket_count" widget="statinfo"/>
                 </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_task_search" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter string="Open Tickets" name="open_tickets" domain="[('todo_ticket_count', '&lt;', 0)]"/>
             </xpath>
         </field>
     </record>
