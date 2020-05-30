@@ -1,18 +1,30 @@
-from odoo import fields, models
+from odoo import api, fields, models, _
 
 
 class ProjectTask(models.Model):
     _inherit = 'project.task'
 
+    ticket_ids = fields.One2many(
+        'helpdesk.ticket',
+        'task_id',
+        string="Tickets")
     ticket_count = fields.Integer(
         compute='_compute_ticket_count',
-        string="Ticket Count")
+        string="Ticket Count",
+        store=True)
+    label_tickets = fields.Char(
+        string='Use Tickets as',
+        default=lambda s: _('Tickets'),
+        translate=True,
+        help="Gives label to tickets on project's kanban view.")
+    todo_ticket_count = fields.Integer(
+        string="Number of tickets",
+        compute='_compute_ticket_count',
+        store=True)
 
+    @api.depends('ticket_ids', 'ticket_ids.stage_id')
     def _compute_ticket_count(self):
-        ticket_data = self.env['helpdesk.ticket'].read_group(
-            [('task_id', 'in', self.ids)], ['task_id'], ['task_id']
-        )
-        result = dict((data['task_id'][0], data['task_id_count'])
-                      for data in ticket_data)
-        for task in self:
-            task.ticket_count = result.get(task.id, 0)
+        for record in self:
+            record.ticket_count = len(record.ticket_ids)
+            record.todo_ticket_count = len(record.ticket_ids.filtered(
+                lambda ticket: not ticket.closed))

@@ -2,8 +2,7 @@
 
 {
     'name': 'Helpdesk Project',
-    'summary': """
-        Helpdesk""",
+    'summary': "Add the option to select project in the tickets.",
     'version': '12.0.1.0.0',
     'license': 'AGPL-3',
     'category': 'After-Sales',
@@ -19,10 +18,6 @@
         'views/project_view.xml',
         'views/project_task_view.xml',
     ],
-    'demo': [
-    ],
-    'development_status': 'Alpha',
-    'application': False,
-    'installable': True,
+    'development_status': 'Beta',
     'auto_install': True,
 }

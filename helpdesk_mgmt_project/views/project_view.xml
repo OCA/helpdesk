@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
-    <!-- View Form Project -->
+
     <record id="edit_project" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
@@ -14,7 +14,7 @@
             </xpath>
         </field>
     </record>
-    <!-- View Kanban Project -->
+
     <record id="view_project_kanban" model="ir.ui.view">
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project_kanban"/>
@@ -38,5 +38,14 @@
             </xpath>
         </field>
     </record>
-</odoo>
 
+    <record id="view_project_search" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter string="Open Tickets" name="open_tickets" domain="[('todo_ticket_count', '&lt;', 0)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
