@@ -5,8 +5,8 @@ from odoo import fields, models
 
 class HelpdeskMotive(models.Model):
     _name = "helpdesk.ticket.motive"
-    _description = 'Helpdesk Motive'
+    _description = "Helpdesk Motive"
     _order = "name asc"
 
-    name = fields.Char('Name', required=True)
-    team_id = fields.Many2one('helpdesk.ticket.team', string='Helpdesk Team')
+    name = fields.Char("Name", required=True)
+    team_id = fields.Many2one("helpdesk.ticket.team", string="Helpdesk Team")
