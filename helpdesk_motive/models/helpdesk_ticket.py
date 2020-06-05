@@ -5,13 +5,14 @@ from odoo import api, fields, models
 
 
 class HelpdeskTicket(models.Model):
-    _inherit = 'helpdesk.ticket'
+    _inherit = "helpdesk.ticket"
 
     motive_id = fields.Many2one(
-        "helpdesk.ticket.motive", string="Motive", help="Motive")
+        "helpdesk.ticket.motive", string="Motive", help="Motive"
+    )
 
-    @api.multi
-    @api.onchange('team_id', 'user_id')
+    @api.onchange("team_id", "user_id")
     def _onchange_dominion_user_id(self):
         super()._onchange_dominion_user_id()
-        self.motive_id = False
+        for record in self:
+            record.motive_id = False
