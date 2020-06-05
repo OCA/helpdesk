@@ -9,7 +9,7 @@
     "summary": "Keep the motive ",
     "author": "Konos, " "Open Source Integrators, " "Odoo Community Association (OCA)",
     "website": "https://githut.com/OCA/helpdesk",
-    "depends": ["helpdesk_mgmt",],
+    "depends": ["helpdesk_mgmt"],
     "data": [
         "security/ir.model.access.csv",
         "views/helpdesk_ticket_motive.xml",
@@ -17,5 +17,5 @@
     ],
     "application": False,
     "development_status": "Stable",
-    "maintainers": ["nelsonramirezs", "max3903",],
+    "maintainers": ["nelsonramirezs", "max3903"],
 }
