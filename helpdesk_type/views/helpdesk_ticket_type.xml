@@ -25,7 +25,6 @@
     <record id="action_helpdesk_ticket_type" model="ir.actions.act_window">
         <field name="name">Helpdesk Ticket Type</field>
         <field name="res_model">helpdesk.ticket.type</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem
