@@ -4,11 +4,11 @@
 
 {
     "name": "Helpdesk Ticket Type",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.2",
     "license": "AGPL-3",
     "summary": "Add a type to your tickets",
     "author": "Konos, " "Open Source Integrators, " "Odoo Community Association (OCA)",
-    "website": "https://githut.com/OCA/helpdesk",
+    "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
         "security/ir.model.access.csv",
@@ -17,6 +17,6 @@
         "views/helpdesk_ticket.xml",
     ],
     "application": False,
-    "development_status": "Stable",
+    "development_status": "Beta",
     "maintainers": ["nelsonramirezs", "max3903"],
 }
