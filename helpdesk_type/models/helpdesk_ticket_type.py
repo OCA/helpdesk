@@ -5,12 +5,14 @@ from odoo import fields, models
 
 class HelpdeskType(models.Model):
     """Helpdesk Type"""
+
     _name = "helpdesk.ticket.type"
-    _description = 'Helpdesk Ticket Type'
+    _description = "Helpdesk Ticket Type"
     _order = "name asc"
 
-    name = fields.Char('Name', required=True)
+    name = fields.Char("Name", required=True)
     team_ids = fields.Many2many(
-        'helpdesk.ticket.team',
-        string='Teams',
-        help="Helpdesk teams allowed to use this type.")
+        "helpdesk.ticket.team",
+        string="Teams",
+        help="Helpdesk teams allowed to use this type.",
+    )
