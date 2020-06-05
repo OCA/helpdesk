@@ -4,25 +4,18 @@
 
 {
     "name": "Helpdesk Motive",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "license": "AGPL-3",
     "summary": "Keep the motive ",
-    "author": "Konos, "
-              "Open Source Integrators, "
-              "Odoo Community Association (OCA)",
+    "author": "Konos, " "Open Source Integrators, " "Odoo Community Association (OCA)",
     "website": "https://githut.com/OCA/helpdesk",
-    "depends": [
-        "helpdesk_mgmt",
-    ],
+    "depends": ["helpdesk_mgmt",],
     "data": [
-        'security/ir.model.access.csv',
-        'views/helpdesk_ticket_motive.xml',
-        'views/helpdesk_ticket.xml',
+        "security/ir.model.access.csv",
+        "views/helpdesk_ticket_motive.xml",
+        "views/helpdesk_ticket.xml",
     ],
     "application": False,
     "development_status": "Stable",
-    "maintainers": [
-        "nelsonramirezs",
-        "max3903",
-    ],
+    "maintainers": ["nelsonramirezs", "max3903",],
 }
