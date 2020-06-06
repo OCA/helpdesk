@@ -122,6 +122,7 @@
             </div>
         </t>
     </template>
+    
     <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">
         <t t-call="portal.portal_layout">
             <div class="container">
@@ -179,14 +180,25 @@
                                     <strong>Last Stage Update:</strong>
                                     <span t-field="ticket.last_stage_update" />
                                     <br />
+                                    <strong>Attachments:</strong><br />
+                                    <t t-foreach="files" t-as="f">
+                                        <a t-att-href="'/web/content/%i?download=true' % f.id">
+                                            <span class="fa fa-download" />
+                                            <span t-esc="f.name" />
+                                        </a>
+                                        <br />
+                                    </t>
+                                    <br />
                                 </div>
                             </div>
                             <br />
                             <br />
-                            <h4 class="page-header">Description</h4>
-                            <t t-raw="ticket.description" />
-                            <br />
                         </div>
+                        <br />
+                        <br />
+                        <h4 class="page-header">Description</h4>
+                        <t t-raw="ticket.description" /><br />
+                        <br />
                         <h4 class="page-header">History</h4>
                         <!-- Options:Ticket Chatter: user can reply -->
                         <t t-call="portal.message_thread">
