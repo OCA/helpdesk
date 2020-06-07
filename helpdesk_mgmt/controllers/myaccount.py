@@ -114,9 +114,9 @@ class CustomerPortalHelpdesk(CustomerPortal):
             [("closed", "=", True)]
         )
         file = (
-            request.env['ir.attachment']
+            request.env["ir.attachment"]
             .sudo()
-            .search([('res_model', '=', 'helpdesk.ticket'), ('res_id', '=', ticket.id)])
+            .search([("res_model", "=", "helpdesk.ticket"), ("res_id", "=", ticket.id)])
         )
         values = {
             "page_name": "ticket",

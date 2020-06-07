@@ -183,7 +183,7 @@
                                     <strong>Attachments:</strong>
                                     <br />
                                     <t t-foreach="files" t-as="f">
-                                        <a 
+                                        <a
                                             t-att-href="'/web/content/%i?download=true' % f.id"
                                         >
                                             <span class="fa fa-download" />
