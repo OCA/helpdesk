@@ -122,7 +122,6 @@
             </div>
         </t>
     </template>
-    
     <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">
         <t t-call="portal.portal_layout">
             <div class="container">
