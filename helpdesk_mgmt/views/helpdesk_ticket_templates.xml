@@ -180,9 +180,12 @@
                                     <strong>Last Stage Update:</strong>
                                     <span t-field="ticket.last_stage_update" />
                                     <br />
-                                    <strong>Attachments:</strong><br />
+                                    <strong>Attachments:</strong>
+                                    <br />
                                     <t t-foreach="files" t-as="f">
-                                        <a t-att-href="'/web/content/%i?download=true' % f.id">
+                                        <a 
+                                            t-att-href="'/web/content/%i?download=true' % f.id"
+                                        >
                                             <span class="fa fa-download" />
                                             <span t-esc="f.name" />
                                         </a>
@@ -197,7 +200,8 @@
                         <br />
                         <br />
                         <h4 class="page-header">Description</h4>
-                        <t t-raw="ticket.description" /><br />
+                        <t t-raw="ticket.description" />
+                        <br />
                         <br />
                         <h4 class="page-header">History</h4>
                         <!-- Options:Ticket Chatter: user can reply -->
