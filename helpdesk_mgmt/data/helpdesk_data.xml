@@ -15,7 +15,7 @@
             <field name="email_from">${object.company_id.partner_id.email}</field>
             <field
                 name="email_cc"
-            >${not object.partner_id and object.partner_email or ''|safe},</field>
+            >${not object.user_id.name and object.user_id.email or ''|safe},</field>
             <field
                 name="subject"
             >${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })</field>
