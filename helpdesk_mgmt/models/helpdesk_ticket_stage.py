@@ -7,7 +7,7 @@ class HelpdeskTicketStage(models.Model):
     _order = "sequence, id"
 
     name = fields.Char(string="Stage Name", required=True, translate=True)
-    description = fields.Text(translate=True)
+    description = fields.Html(translate=True, sanitize_style=True)
     sequence = fields.Integer(default=1)
     active = fields.Boolean(default=True)
     unattended = fields.Boolean(string="Unattended")
