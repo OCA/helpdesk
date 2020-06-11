@@ -404,11 +404,6 @@ msgid "Add Attachments"
 msgstr "A??adir Adjuntos"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
-msgid "Alias"
-msgstr "Alias"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_contact
 msgid "Alias Contact Security"
 msgstr ""
@@ -464,11 +459,6 @@ msgstr "Fecha de asignaci??n"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
 msgstr "Usuario asignado"
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
-msgid "Assigned user image"
-msgstr "Imagen del usuario asignado"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -678,6 +668,7 @@ msgstr "Editar"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Email"
 msgstr "Email"
@@ -1501,3 +1492,8 @@ msgstr "Mensajes de la Web"
 msgid "Website communication history"
 msgstr ""
 
+#~ msgid "Alias"
+#~ msgstr "Alias"
+
+#~ msgid "Assigned user image"
+#~ msgstr "Imagen del usuario asignado"
