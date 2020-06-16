@@ -7,6 +7,7 @@ class HelpdeskTicket(models.Model):
     _description = "Helpdesk Ticket"
     _rec_name = "number"
     _order = "number desc"
+    _mail_post_access = "read"
     _inherit = ["mail.thread.cc", "mail.activity.mixin"]
 
     def _get_default_stage_id(self):
