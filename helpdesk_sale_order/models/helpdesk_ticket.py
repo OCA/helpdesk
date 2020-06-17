@@ -19,7 +19,10 @@ class HelpdeskTicket(models.Model):
     ticket_return_rel = fields.Boolean(string="Return", related="team_id.ticket_return")
 
     picking_count = fields.Integer(
-        string="Returns", compute="_compute_pickings", store=True
+        string="Returns",
+        compute="_compute_pickings",
+        store=True,
+        track_visibility="onchange",
     )
     picking_ids = fields.Many2many(
         comodel_name="stock.picking", inverse_name="ticket_id", string="Pickings"
