@@ -77,7 +77,7 @@ class HelpdeskTicketStage(models.Model):
                     > self.compute_next_datetime(
                         x.auto_last_update,
                         self.auto_next_number,
-                        self.auto_next_stage_id,
+                        self.auto_next_stage_id.auto_next_type,
                     )
                 ):
                     ticket_id.stage_id = stage_id.auto_next_stage_id.id

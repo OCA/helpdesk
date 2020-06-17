@@ -7,9 +7,10 @@
     "category": "After-Sales",
     "author": "Domatix," "Odoo Community Association (OCA)",
     "website": "https://github.com/Domatix/helpdesk",
-    "depends": ["helpdesk_mgmt", "sale_management"],
+    "depends": ["helpdesk_mgmt", "sale_management", "sale_coupon"],
     "data": [
         "wizard/stock_picking_return_views.xml",
+        "wizard/sale_coupon_wizard_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_ticket_team_views.xml",
     ],

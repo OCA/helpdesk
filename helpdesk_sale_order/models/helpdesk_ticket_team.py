@@ -14,3 +14,7 @@ class HelpdeskTicketTeam(models.Model):
     )
 
     ticket_return = fields.Boolean(string="Returns")
+
+    assign_coupon = fields.Boolean(
+        string="Coupon", default=False, help="Allow tickets to assign a coupon"
+    )

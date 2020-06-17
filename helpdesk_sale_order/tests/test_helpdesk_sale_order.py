@@ -11,6 +11,7 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
         cls.sale_order_1 = cls.env.ref("sale.sale_order_1")
         cls.sale_order_2 = cls.env.ref("sale.sale_order_2")
         cls.picking1 = cls.env.ref("stock.incomming_shipment1")
+        cls.coupon_program_id = cls.env.ref("sale_coupon.10_percent_coupon")
         cls.ticket = helpdesk_ticket.create(
             {"name": "Test 1", "description": "Ticket test"}
         )
@@ -20,6 +21,7 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
                 "name": "Test 2",
                 "description": "Ticket test with sale order",
                 "sale_order_id": cls.sale_order_1.id,
+                "partner_id": cls.sale_order_1.partner_id.id,
             }
         )
         cls.ticket_with_pickings = helpdesk_ticket.create(
@@ -81,3 +83,19 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
 
         self.ticket_with_pickings.picking_ids = None
         self.assertFalse(self.ticket_with_pickings.picking_ids.ids)
+
+    def test_coupon_wizard(self):
+        coupon_obj = self.env["sale.coupon.wizard"]
+        self.ticket_with_sale_order.coupon_ids = [(5)]
+        self.assertTrue(len(self.ticket_with_sale_order.coupon_ids), 0)
+        values = {
+            "ticket_id": self.ticket_with_sale_order.id,
+            "partner_id": self.ticket_with_sale_order.partner_id.id,
+            "sale_order_id": self.ticket_with_sale_order.sale_order_id.id,
+            "program_id": self.coupon_program_id.id,
+        }
+        coupon_wizard_id = coupon_obj.create(values)
+        i = 5
+        for _ in range(0, i + 1):
+            coupon_wizard_id.action_create_coupon()
+        self.assertTrue(len(self.ticket_with_sale_order.coupon_ids), i)
