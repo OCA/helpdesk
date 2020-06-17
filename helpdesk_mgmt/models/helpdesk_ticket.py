@@ -111,6 +111,7 @@ class HelpdeskTicket(models.Model):
         ],
         string="Priority",
         default="0",
+        track_visibility="onchange",
     )
     attachment_ids = fields.One2many(
         comodel_name="ir.attachment",
