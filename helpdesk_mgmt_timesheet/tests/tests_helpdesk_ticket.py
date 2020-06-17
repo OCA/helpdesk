@@ -8,11 +8,11 @@ from odoo import fields
 _log = logging.getLogger(__name__)
 
 
-class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
+class TestHelpdeskTicketTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
 
     @classmethod
     def setUpClass(cls):
-        super(TestHelpdeskTicketProject, cls).setUpClass()
+        super(TestHelpdeskTicketTimesheet, cls).setUpClass()
         cls.account_id = cls.env['account.analytic.account'].create({
             'name': 'Test Account',
         })
