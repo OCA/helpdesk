@@ -2,28 +2,39 @@
 # For copyright and license notices, see __manifest__.py file in root directory
 ###############################################################################
 import logging
-from odoo.tests.common import TransactionCase
+from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 from odoo import fields
 
 _log = logging.getLogger(__name__)
 
 
-class TestHelpdeskTicket(TransactionCase):
+class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
 
-    def setUp(self):
-        super().setUp()
-        self.account_id = self.env['account'].create({
+    @classmethod
+    def setUpClass(cls):
+        super(TestHelpdeskTicketProject, cls).setUpClass()
+        cls.account_id = cls.env['account.analytic.account'].create({
             'name': 'Test Account',
+        })
+        cls.team_id = cls.env['helpdesk.ticket.team'].create({
+            'name': "Team 1",
+            'allow_timesheet': True,
+            'default_analytic_account': cls.account_id.id,
         })
 
     def generate_timesheet(self, hours=1.0):
         return self.env['account.analytic.line'].create({
-            'account_id': self.account_id.id,
             'amount': 0,
             'company_id': 1,
             'date': fields.Date.today(),
             'name': 'Test Timesheet',
             'unit_amount': hours,
+        })
+
+    def generate_ticket(self):
+        return self.env['helpdesk.ticket'].create({
+            'name': 'Test Ticket 1',
+            'team_id': self.team_id.id,
         })
 
     def test_total_and_remaining_hours(self):
