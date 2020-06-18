@@ -69,7 +69,6 @@ class HelpdeskTicketController(http.Controller):
                         {
                             "name": c_file.filename,
                             "datas": base64.b64encode(data),
-                            "datas_fname": c_file.filename,
                             "res_model": "helpdesk.ticket",
                             "res_id": new_ticket.id,
                         }
