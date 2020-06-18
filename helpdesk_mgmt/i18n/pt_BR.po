@@ -236,7 +236,7 @@ msgid "Add Attachments"
 msgstr "Anexos"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:110
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
 msgid "All"
@@ -578,7 +578,7 @@ msgid "Last Modified on"
 msgstr "Última Modificação em"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:53
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:62
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_last_stage_update
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
@@ -655,7 +655,7 @@ msgid "My Tickets"
 msgstr "Meus Chamados"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:51
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:60
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag_name
@@ -680,7 +680,7 @@ msgid "New Ticket"
 msgstr "Chamados"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:50
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:59
 #, python-format
 msgid "Newest"
 msgstr "Mais Recente"
@@ -773,6 +773,51 @@ msgid "Reporting"
 msgstr "Comunicação"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:84
+#, python-format
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
+#, fuzzy, python-format
+#| msgid "Assigned user"
+msgid "Search in Assigned users"
+msgstr "Usuário atribuído"
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
+#, fuzzy, python-format
+#| msgid "Categories"
+msgid "Search in Categories"
+msgstr "Categorias"
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:83
+#, python-format
+msgid "Search in Content"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
+#, fuzzy, python-format
+#| msgid "Description"
+msgid "Search in Descriptions"
+msgstr "Descrição"
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:80
+#, python-format
+msgid "Search in Messages"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:69
+#, python-format
+msgid "Search in Names"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #, fuzzy
 #| msgid "Related tickets"
@@ -790,7 +835,7 @@ msgid "Show all records which has next action date is before today"
 msgstr "Exibir todos os registros com data da próxima ação anterior a hoje"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:52
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:61
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
