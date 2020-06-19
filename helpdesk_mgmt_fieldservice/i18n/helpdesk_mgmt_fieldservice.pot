@@ -1,0 +1,193 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* helpdesk_mgmt_fieldservice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-19 14:56+0000\n"
+"PO-Revision-Date: 2020-06-19 14:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_count
+msgid "# Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__all_orders_closed
+msgid "All Orders Closed"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:20
+#, python-format
+msgid "Cannot move to Complete until 'Actual End' is filled in"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:23
+#, python-format
+msgid "Cannot move to Complete until 'Resolution' is filled in"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
+msgid "Close Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_search_closed_orders
+msgid "Closed FSM Orders"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
+msgid "Create FSM Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
+msgid "Create Helpdesk Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_order_close_wizard
+msgid "FSM Close - Option to Close Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__fsm_location_id
+msgid "FSM Location"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_location
+msgid "Field Service Location"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_order
+msgid "Field Service Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__team_id
+msgid "Helpdesk Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model,name:helpdesk_mgmt_fieldservice.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.actions.act_window,name:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
+msgid "Helpdesk Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
+msgid "Open"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.ui.menu,name:helpdesk_mgmt_fieldservice.menu_helpdesk_op
+msgid "Operations"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:32
+#, python-format
+msgid "Please complete all service orders related to this ticket to close it."
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__resolution
+msgid "Resolution"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__fsm_order_ids
+#: model:ir.ui.menu,name:helpdesk_mgmt_fieldservice.menu_helpdesk_fsm_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
+msgid "Service Orders"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
+msgid "There is an open Ticket, would you like to update the related ticket?"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
+msgid "Ticket Resolution"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
+msgid "Ticket Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.view_fsm_location_ticket_form
+msgid "Tickets"
+msgstr ""
+
