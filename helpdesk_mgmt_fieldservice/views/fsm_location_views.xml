@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_fsm_location_ticket" model="ir.actions.act_window">
+        <field name="name">Helpdesk Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('fsm_location_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create Helpdesk Tickets
+            </p>
+        </field>
+    </record>
+
+    <!-- FieldService Location Form View -->
+    <record id="view_fsm_location_ticket_form" model="ir.ui.view">
+        <field name="name">view.fsm.location.ticket.form</field>
+        <field name="model">fsm.location</field>
+        <field name="inherit_id" ref="fieldservice.fsm_location_form_view"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button name="action_view_ticket"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o">
+                    <field name="ticket_count"
+                           widget="statinfo"
+                           string="Tickets"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>
