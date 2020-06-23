@@ -108,6 +108,11 @@ class HelpdeskTeam(models.Model):
         string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
     )
 
+    @api.onchange("auto_assign_type")
+    def _onchange_assign_user_domain(self):
+        if self.auto_assign_type == "fixed":
+            return {"domain": {"auto_assign_fixed_user_id": [("share", "=", False)]}}
+
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
         for record in self:
