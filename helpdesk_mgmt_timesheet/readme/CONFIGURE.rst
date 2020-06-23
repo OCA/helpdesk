@@ -1,4 +1,5 @@
 To configure this module, you need to:
+
 #. Allow Timesheet for a Helpdesk's Team
 #. Set a Default Analytic Account (optional)
 
