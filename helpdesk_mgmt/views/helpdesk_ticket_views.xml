@@ -110,11 +110,11 @@
                     <group name="main">
                         <group>
                             <field name="active" invisible="1" />
-                            <field name="team_id" options='{"always_reload": True}' />
+                            <field name="team_id" />
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
                                 name="user_id"
-                                domain="['|', ('id', 'in', user_ids), ('share', '=', False)]"
+                                domain="[('id', 'in', user_ids)]"
                                 options="{'always_reload': True, 'no_create ': True, 'no_create_edit' : True}"
                             />
                             <field name="priority" widget="priority" class="mr-3" />
