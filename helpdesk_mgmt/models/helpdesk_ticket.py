@@ -122,6 +122,14 @@ class HelpdeskTicket(models.Model):
                 seq = seq.with_context(force_company=vals['company_id'])
             vals['number'] = seq.next_by_code(
                 'helpdesk.ticket.sequence') or '/'
+
+        if vals.get("partner_id") and (
+            "partner_name" not in vals or "partner_email" not in vals
+        ):
+            partner = self.env["res.partner"].browse(vals["partner_id"])
+            vals.setdefault("partner_name", partner.name)
+            vals.setdefault("partner_email", partner.email)
+
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
