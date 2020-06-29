@@ -67,3 +67,28 @@ class TestHelpdeskTicket(common.SavepointCase):
             old_ticket_number != copy_ticket_number,
             'Helpdesk Ticket: A new ticket can not '
             'have the same number than the origin ticket.')
+
+    def test_helpdesk_ticket_create(self):
+        partner = self.env.ref("base.main_partner")
+
+        auto_named = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Some name",
+                "description": "Some description",
+                "partner_id": partner.id,
+            }
+        )
+        self.assertEqual(auto_named.partner_name, partner.name)
+        self.assertEqual(auto_named.partner_email, partner.email)
+
+        manual_named = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Some name",
+                "description": "Some description",
+                "partner_id": partner.id,
+                "partner_name": "Special name",
+                "partner_email": "special@example.org",
+            }
+        )
+        self.assertEqual(manual_named.partner_name, "Special name")
+        self.assertEqual(manual_named.partner_email, "special@example.org")
