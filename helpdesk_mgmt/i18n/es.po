@@ -991,7 +991,7 @@ msgid "Next Activity Type"
 msgstr "Tipo próxima actividad"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:188
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:196
 #, python-format
 msgid "No Subject"
 msgstr "Sin asunto"
@@ -1105,14 +1105,14 @@ msgid "Partner"
 msgstr "Cliente"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:226
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:234
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
 msgstr "Email del cliente"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:228
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:236
 #, python-format
 msgid "Partner Id"
 msgstr "ID cliente"
