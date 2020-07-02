@@ -25,7 +25,7 @@ Helpdesk Management Rating
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This module adds the posibility to rate the assistance received through helpdesk
+This module adds the possibility to rate the assistance received through helpdesk
 tickets.
 
 **Table of contents**
@@ -80,7 +80,7 @@ Contributors
 
   * Samuel Calvo
 
-* `Obertix <https://www.obertix.net>`_:
+* `Obertix <https://obertix.net>`_:
 
   * Vicent Cubells <vicent@vcubells.net>
 
