@@ -169,10 +169,13 @@ class CustomerPortal(CustomerPortal):
     def _ticket_get_page_view_values(self, ticket, **kwargs):
         closed_stages = request.env['helpdesk.ticket.stage'].search(
             [('closed', '=', True)])
+        files = request.env['ir.attachment'].search(
+            [('res_model', '=', 'helpdesk.ticket'), ('res_id', '=', ticket.id)])
         values = {
             'page_name': 'ticket',
             'ticket': ticket,
             'closed_stages': closed_stages,
+            "files": files,
         }
 
         if kwargs.get('error'):

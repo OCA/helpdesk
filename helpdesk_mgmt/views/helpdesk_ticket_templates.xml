@@ -90,7 +90,7 @@
       <t t-call="portal.portal_layout">
           <div class="container">
               <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading mt32">
                       <div class="row">
                           <div class="col-md-6">
                               <h4>
@@ -110,26 +110,36 @@
 
                   <div class="panel-body">
                     <div class="mb8">
-                      <div>
-                        <div class="pull-left">
+                      <div class="row">
+                        <div class="col-md-6">
                           <strong>Date:</strong> <span t-field="ticket.create_date" /><br/>
                           <b>Category:</b> <t t-esc="ticket.category_id.name"/><br/>
                           <b>Stage:</b> <t t-esc="ticket.stage_id.name"/><br/>
                         </div>
-                        <div class="pull-right">
+                        <div class="col-md-6">
                           <strong>Last Stage Update:</strong> <span t-field="ticket.last_stage_update" /><br/>
+                          <strong>Attachments:</strong><br />
+                          <t t-foreach="files" t-as="f">
+                              <a t-att-href="'/web/content/%i?download=true' % f.id">
+                                  <span class="fa fa-download" />
+                                  <span t-esc="f.name" />
+                              </a>
+                              <br />
+                          </t>
                         </div>
                       </div>
-                      <br/>
-                      <br/>
-                      <h4 class="page-header">Description</h4>
-                      <t t-raw="ticket.description"/><br/>
+                      <div class="row mt8">
+                        <div class="col-md-12">
+                          <h4 class="page-header">Description</h4>
+                          <t t-raw="ticket.description"/><br/>
+                        </div>
                       </div>
-                      <h4 class="page-header">History</h4>
-                      <!-- Options:Ticket Chatter: user can reply -->
-                      <t t-call="portal.message_thread">
-                        <t t-set="object" t-value="ticket"/>
-                      </t>
+                    </div>
+                    <h4 class="page-header">History</h4>
+                    <!-- Options:Ticket Chatter: user can reply -->
+                    <t t-call="portal.message_thread">
+                      <t t-set="object" t-value="ticket"/>
+                    </t>
 
                   </div>
                 </div>
