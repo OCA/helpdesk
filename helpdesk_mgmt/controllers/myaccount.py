@@ -113,10 +113,21 @@ class CustomerPortalHelpdesk(CustomerPortal):
         closed_stages = request.env["helpdesk.ticket.stage"].search(
             [("closed", "=", True)]
         )
+        files = (
+            request.env["ir.attachment"]
+            .sudo()
+            .search(
+                [
+                    ("res_model", "=", "helpdesk.ticket"),
+                    ("res_id", "=", ticket.id),
+                ]
+            )
+        )
         values = {
             "page_name": "ticket",
             "ticket": ticket,
             "closed_stages": closed_stages,
+            "files": files,
         }
 
         if kwargs.get("error"):

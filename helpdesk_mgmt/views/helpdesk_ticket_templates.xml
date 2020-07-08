@@ -54,14 +54,14 @@
             <t t-set="breadcrumbs_searchbar" t-value="True" />
             <form method="POST" t-attf-action="/new/ticket">
                 <h3>Tickets
-            <t t-call="portal.portal_searchbar" />
-            <button
+                    <t t-call="portal.portal_searchbar" />
+                    <button
                         name="create_new_ticket"
                         type="action"
                         class="btn btn-primary"
                         style="float: right; margin-right: 5px;"
                     >New Ticket</button>
-          </h3>
+                </h3>
                 <input
                     type="hidden"
                     name="csrf_token"
@@ -165,32 +165,47 @@
                     </div>
                     <div class="panel-body">
                         <div class="mb8">
-                            <div>
-                                <div class="pull-left">
-                                    <strong>Number:</strong>
-                                    <span t-field="ticket.number" />
-                                    <br />
-                                    <strong>Date:</strong>
-                                    <span t-field="ticket.create_date" />
-                                    <br />
-                                    <b>Category:</b>
-                                    <t t-esc="ticket.category_id.name" />
-                                    <br />
-                                    <b>Stage:</b>
-                                    <t t-esc="ticket.stage_id.name" />
-                                    <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                <strong>Number:</strong>
+                                <span t-field="ticket.number" />
+                                <br />
+                                <strong>Date:</strong>
+                                <span t-field="ticket.create_date" />
+                                <br />
+                                <b>Category:</b>
+                                <t t-esc="ticket.category_id.name" />
+                                <br />
+                                <b>Stage:</b>
+                                <t t-esc="ticket.stage_id.name" />
+                                <br />
                                 </div>
-                                <div class="pull-right">
+                                <div class="col-md-6">
                                     <strong>Last Stage Update:</strong>
                                     <span t-field="ticket.last_stage_update" />
                                     <br />
+                                    <strong>Attachments:</strong>
+                                    <br />
+                                    <t t-foreach="files" t-as="f">
+                                        <t t-if="f.access_token">
+                                        <a
+                                                t-attf-href="/web/content/#{f.id}?download=true&amp;access_token=#{f.access_token}"
+                                                target="_blank"
+                                            >
+                                            <span class="fa fa-download" />
+                                            <span t-esc="f.name" />
+                                        </a>
+                                        <br />
+                                    </t>
+                                    </t>
                                 </div>
                             </div>
-                            <br />
-                            <br />
-                            <h4 class="page-header">Description</h4>
-                            <t t-raw="ticket.description" />
-                            <br />
+                            <div class="row mt8">
+                                <div class="col-md-12">
+                                    <h4 class="page-header">Description</h4>
+                                    <t t-raw="ticket.description" /><br />
+                                </div>
+                            </div>
                         </div>
                         <h4 class="page-header">History</h4>
                         <!-- Options:Ticket Chatter: user can reply -->
