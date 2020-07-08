@@ -1,3 +1,5 @@
+from email.utils import getaddresses
+
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
 
@@ -111,6 +113,26 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
+    def _send_mail_to_partner(self, template_name):
+        """Send a feedback message to the contact linked to this newly created ticket
+        (whatever it is a real partner or just its e-mail).
+        Note: The purpose of this function is to replace the stage's `mail_template_id`
+        role (that just doesn't work when the ticket is created from the portal or when
+        `partner_id` is set)"""
+        created_ticket_template = self.env.ref(template_name, raise_if_not_found=False)
+        if created_ticket_template:
+            created_ticket_template.send_mail(
+                self.id, force_send=True, notif_layout="mail.mail_notification_light"
+            )
+
+    @api.model
+    def _get_created_ticket_template_name(self):
+        return (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("helpdesk_mgmt.created_ticket_template_name")
+        )
+
     def name_get(self):
         res = []
         for rec in self:
@@ -134,6 +156,15 @@ class HelpdeskTicket(models.Model):
     def _creation_subtype(self):
         return self.env.ref("helpdesk_mgmt.hlp_tck_created")
 
+    def _message_auto_subscribe_followers(self, updated_values, default_subtype_ids):
+        """Auto-subscribe ticket partner."""
+        result = super()._message_auto_subscribe_followers(
+            updated_values, default_subtype_ids
+        )
+        if updated_values.get("partner_id"):
+            result.append((self.partner_id.id, default_subtype_ids, False))
+        return result
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
@@ -143,7 +174,13 @@ class HelpdeskTicket(models.Model):
                 vals["team_id"] = self._prepare_team_id(vals)
             if vals.get("user_id") and not vals.get("assigned_date"):
                 vals["assigned_date"] = fields.Datetime.now()
-        return super().create(vals_list)
+        res = super().create(vals_list)
+        created_ticket_template_name = self._get_created_ticket_template_name()
+        if created_ticket_template_name:
+            for rec in res:
+                if rec.partner_id or rec.partner_email:
+                    rec._send_mail_to_partner(created_ticket_template_name)
+        return res
 
     def copy(self, default=None):
         self.ensure_one()
@@ -175,11 +212,6 @@ class HelpdeskTicket(models.Model):
         if "company_id" in values:
             seq = seq.with_company(values["company_id"])
         return seq.next_by_code("helpdesk.ticket.sequence") or "/"
-
-    def _compute_access_url(self):
-        super()._compute_access_url()
-        for item in self:
-            item.access_url = "/my/ticket/%s" % (item.id)
 
     def _prepare_team_id(self, values):
         category = self.env["helpdesk.ticket.category"].browse(values["category_id"])
@@ -219,11 +251,15 @@ class HelpdeskTicket(models.Model):
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
         }
+        msg_from = msg.get("from", "")
+        if msg_from:
+            res = getaddresses([msg_from])
+            if res:
+                defaults["partner_name"] = res[0][0]
+                defaults["partner_email"] = res[0][1]
         defaults.update(custom_values)
-
         # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
-
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
@@ -236,7 +272,6 @@ class HelpdeskTicket(models.Model):
             if p
         ]
         ticket.message_subscribe(partner_ids)
-
         return ticket
 
     def message_update(self, msg, update_vals=None):
@@ -318,3 +353,38 @@ class HelpdeskTicket(models.Model):
             "target": "new",
             "context": ctx,
         }
+
+    # ---------------------------------------------------
+    # Portal
+    # ---------------------------------------------------
+
+    def _compute_access_url(self):
+        super(HelpdeskTicket, self)._compute_access_url()
+        for ticket in self:
+            ticket.access_url = "/my/ticket/%s" % (ticket.id)
+
+    def _notify_get_groups(self, msg_vals=None):
+        groups = super(HelpdeskTicket, self)._notify_get_groups(msg_vals=msg_vals)
+        self.ensure_one()
+        for group_name, _group_method, group_data in groups:
+            if group_name == "portal":
+                group_data["has_button_access"] = True
+        return groups
+
+    def partner_can_access(self):
+        if not self.partner_id:
+            return False
+        user = (
+            self.env["res.users"]
+            .sudo()
+            .search([("partner_id", "=", self.partner_id.id)])
+        )
+        if not user or not self.with_user(user).check_access_rights(
+            "read", raise_exception=False
+        ):
+            return False
+        return True
+
+    def get_access_link(self):
+        # _notify_get_action_link is not callable from email template
+        return self._notify_get_action_link("view")

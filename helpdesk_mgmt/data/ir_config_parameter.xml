@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record model="ir.config_parameter" id="created_ticket_template_name">
+        <field name="key">helpdesk_mgmt.created_ticket_template_name</field>
+        <field name="value">created_ticket_template</field>
+    </record>
+
+</odoo>

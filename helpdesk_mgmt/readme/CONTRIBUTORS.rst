@@ -33,6 +33,10 @@
   * Marcel Savegnago
   * Eduardo Aparício
 
+* `TAKOBI <https://takobi.online>`_:
+
+  * Lorenzo Battistini
+
 * `Obertix <https://www.obertix.net>`_:
 
   * Vicent Cubells
