@@ -12,6 +12,10 @@ class HelpdeskTicketStage(models.Model):
     active = fields.Boolean(default=True)
     unattended = fields.Boolean(string="Unattended")
     closed = fields.Boolean(string="Closed")
+    portal_user_can_close = fields.Boolean(
+        help="If checked, a portal user will be able to close a ticket "
+        "in this stage from the portal"
+    )
     mail_template_id = fields.Many2one(
         comodel_name="mail.template",
         string="Email Template",
