@@ -137,6 +137,14 @@ class HelpdeskTicket(models.Model):
                 vals["team_id"] = self._prepare_team_id(vals)
             if vals.get("user_id") and not vals.get("assigned_date"):
                 vals["assigned_date"] = fields.Datetime.now()
+            # Automatically set e-mail channel when created from the
+            # fetchmail cron task
+            if self.env.context.get("fetchmail_cron_running") and not vals.get(
+                "channel_id"
+            ):
+                vals["channel_id"] = self.env.ref(
+                    "helpdesk_mgmt.helpdesk_ticket_channel_email"
+                ).id
         return super().create(vals_list)
 
     def copy(self, default=None):
