@@ -82,6 +82,7 @@ class HelpdeskTicketController(http.Controller):
             "channel_id": request.env.ref(
                 "helpdesk_mgmt.helpdesk_ticket_channel_web", False
             ).id,
+            "stage_id": request.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new").id,
             "partner_id": request.env.user.partner_id.id,
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
