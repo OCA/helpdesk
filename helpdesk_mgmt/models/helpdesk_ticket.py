@@ -122,6 +122,12 @@ class HelpdeskTicket(models.Model):
             vals.setdefault("partner_name", partner.name)
             vals.setdefault("partner_email", partner.email)
 
+        if self.env.context.get(
+            'fetchmail_cron_running'
+        ) and not vals.get('channel_id'):
+            vals['channel_id'] = self.env.ref(
+                'helpdesk_mgmt.helpdesk_ticket_channel_email').id
+
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
