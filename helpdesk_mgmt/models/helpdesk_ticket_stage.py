@@ -14,6 +14,7 @@ class HelpdeskTicketStage(models.Model):
         string='Unattended')
     closed = fields.Boolean(
         string='Closed')
+    portal_user_can_close = fields.Boolean()
     mail_template_id = fields.Many2one(
         'mail.template',
         string='Email Template',

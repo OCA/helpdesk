@@ -99,7 +99,8 @@
                               </h4>
                           </div>
                           <t t-foreach="closed_stages" t-as="stage">
-                            <form method="GET" t-if="not ticket.closed_date" t-attf-action="/ticket/close" style="display:inline;">
+                            <form method="GET" t-if="not ticket.closed_date and stage.portal_user_can_close"
+                                  t-attf-action="/ticket/close" style="display:inline;">
                               <input type="hidden" name="ticket_id" t-attf-value="#{ticket.id}"/>
                               <input type="hidden" name="stage_id" t-attf-value="#{stage.id}"/>
                               <button class="btn btn-success pull-right" style="margin-right:15px;margin-top:3px;"><span t-field="stage.name"/></button>

@@ -38,6 +38,7 @@
                         </group>
                         <group name="main_right">
                             <field name="closed"/>
+                            <field name="portal_user_can_close" attrs="{'invisible': [('closed', '=', False)]}"/>
                             <field name="unattended"/>
                             <field name="fold"/>
                         </group>
