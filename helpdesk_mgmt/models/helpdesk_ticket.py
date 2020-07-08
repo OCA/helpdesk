@@ -1,3 +1,5 @@
+from email.utils import getaddresses
+
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
 
@@ -111,6 +113,17 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
+    def send_partner_mail(self):
+        """Send a feedback e-mail to the partner that created the ticket.
+        Note: Assigning `mail_template_id` to `helpdesk_ticket_stage_new` doesn't work
+        when the ticket is created from the portal, that's the purpose of this
+        function."""
+        created_ticket_template = self.env.ref(
+            "helpdesk_mgmt.created_ticket_template", raise_if_not_found=False
+        )
+        if created_ticket_template:
+            created_ticket_template.send_mail(self.id, force_send=True)
+
     def name_get(self):
         res = []
         for rec in self:
@@ -151,7 +164,13 @@ class HelpdeskTicket(models.Model):
                 vals["channel_id"] = self.env.ref(
                     "helpdesk_mgmt.helpdesk_ticket_channel_email"
                 ).id
-        return super().create(vals_list)
+        res = super().create(vals_list)
+        for rec in res:
+            if rec.partner_id or rec.partner_email:
+                rec.send_partner_mail()
+                if rec.partner_id:
+                    rec.message_subscribe(partner_ids=rec.partner_id.ids)
+        return res
 
     def copy(self, default=None):
         self.ensure_one()
@@ -183,11 +202,6 @@ class HelpdeskTicket(models.Model):
         if "company_id" in values:
             seq = seq.with_company(values["company_id"])
         return seq.next_by_code("helpdesk.ticket.sequence") or "/"
-
-    def _compute_access_url(self):
-        super()._compute_access_url()
-        for item in self:
-            item.access_url = "/my/ticket/%s" % (item.id)
 
     def _prepare_team_id(self, values):
         category = self.env["helpdesk.ticket.category"].browse(values["category_id"])
@@ -227,6 +241,10 @@ class HelpdeskTicket(models.Model):
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
         }
+        res = getaddresses([msg.get("from", "")])
+        if res:
+            defaults["partner_name"] = res[0][0]
+            defaults["partner_email"] = res[0][1]
         defaults.update(custom_values)
 
         # Write default values coming from msg
@@ -326,3 +344,39 @@ class HelpdeskTicket(models.Model):
             "target": "new",
             "context": ctx,
         }
+
+    # ---------------------------------------------------
+    # Portal
+    # ---------------------------------------------------
+
+    def _compute_access_url(self):
+        super(HelpdeskTicket, self)._compute_access_url()
+        for ticket in self:
+            ticket.access_url = "/my/ticket/%s" % (ticket.id)
+
+    def _notify_get_groups(self, msg_vals=None):
+        groups = super(HelpdeskTicket, self)._notify_get_groups(msg_vals=msg_vals)
+        self.ensure_one()
+        for group_name, _group_method, group_data in groups:
+            if group_name == "portal":
+                group_data["has_button_access"] = True
+        return groups
+
+    def partner_can_access(self):
+        if not self.partner_id:
+            return False
+        user = (
+            self.env["res.users"]
+            .sudo()
+            .search([("partner_id", "=", self.partner_id.id)])
+        )
+        if not user:
+            return False
+        if not self.with_user(user).check_access_rights("read", raise_exception=False):
+            return False
+        else:
+            return True
+
+    def get_access_link(self):
+        # _notify_get_action_link is not callable from email template
+        return self._notify_get_action_link("view")

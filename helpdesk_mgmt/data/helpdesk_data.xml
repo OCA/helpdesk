@@ -14,7 +14,7 @@
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="email_from">${object.company_id.partner_id.email}</field>
             <field
-                name="email_cc"
+                name="email_to"
             >${not object.partner_id and object.partner_email or ''|safe},</field>
             <field name="subject">The ticket ${object.number} has been closed.</field>
             <field name="partner_to">${object.partner_id.id}</field>
@@ -22,66 +22,108 @@
             <field name="lang">${object.partner_id.lang}</field>
             <field
                 name="body_html"
-            ><![CDATA[<html>
-                <head></head>
-                <body style="margin: 0; padding: 0;">
-                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;">
-                    <tbody>
-                      <!-- HEADER -->
-                      <tr>
+            ><![CDATA[
+              <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; padding-bottom:16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tr><td align="center">
+                <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                <tbody>
+                    <!-- HEADER -->
+                    <tr>
                         <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
-                            <tr>
-                              <td valign="middle" align="right">
-                                <img src="/logo.png?company=${object.company_id.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}">
-                              </td>
-                            </tr>
-                          </table>
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                <tr><td valign="middle">
+                                    <span style="font-size: 10px;">Ticket</span><br/>
+                                    <span style="font-size: 20px; font-weight: bold;">
+                                        ${object.number or 'n/a'}
+                                    </span>
+                                </td><td valign="middle" align="right">
+                                    <img src="/logo.png?company=${object.company_id.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}"/>
+                                </td></tr>
+                                <tr><td colspan="2" style="text-align:center;">
+                                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                </td></tr>
+                            </table>
                         </td>
-                      </tr>
-                      <!-- CONTENT -->
-                      <tr>
+                    </tr>
+                    <!-- CONTENT -->
+                    <tr>
                         <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;">
-                            <tbody>
-                              <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
-                                <p>Hello ${object.user_id.name},</p>
-                                <p>The ticket "${object.display_name}" has been closed.</p>
-                              </td>
-                            </tbody>
-                          </table>
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                <tr><td valign="top" style="font-size: 13px;">
+                                    <div>
+                                        <p>Hello ${object.partner_id.name or ''},</p>
+                                        <p>The ticket ${object.number or 'n/a'} has been closed.</p>
+                                        % if object.partner_can_access():
+                                            <div style="margin: 16px 0px 16px 0px;">
+                                                <a href="${object.get_access_link()}" style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                                    View Ticket
+                                                </a>
+                                            </div>
+                                        % endif
+                                        Thank you,<br/><br/>
+                                        ${user.signature | safe}<br/>
+                                    </div>
+                                </td></tr>
+                                <tr><td style="text-align:center;">
+                                  <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;"/>
+                                </td></tr>
+                            </table>
                         </td>
-                      </tr>
-                      <!-- FOOTER -->
-                      <tr>
+                    </tr>
+                    <!-- FOOTER -->
+                    <tr>
                         <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
-                            <tr>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.phone}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.email}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.website}
-                              </td>
-                            </tr>
-                          </table>
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                <tr><td valign="middle" align="left">
+                                    ${object.company_id.name}
+                                </td></tr>
+                                <tr><td valign="middle" align="left" style="opacity: 0.7;">
+                                    ${object.company_id.phone}
+                                    % if object.company_id.email
+                                        | <a href="'mailto:%s' % ${object.company_id.email}" style="text-decoration:none; color: #454748;">${object.company_id.email}</a>
+                                    % endif
+                                    % if object.company_id.website
+                                        | <a href="'%s' % ${object.company_id.website}" style="text-decoration:none; color: #454748;">
+                                        ${object.company_id.website}
+                                    </a>
+                                    % endif
+                                </td></tr>
+                            </table>
                         </td>
-                      </tr>
-                    </tbody>
+                    </tr>
+                </tbody>
                 </table>
-                </body>
-                </html>
+                </td></tr>
+                </table>
             ]]></field>
         </record>
-        <record id="changed_stage_template" model="mail.template">
-            <field name="name">Helpdesk Changed Stage notification Email</field>
+        <record id="created_ticket_template" model="mail.template">
+            <field name="name">Helpdesk Created Ticket Notification Email</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="email_from">${object.company_id.partner_id.email}</field>
             <field
-                name="email_cc"
+                name="email_to"
+            >${not object.partner_id and object.partner_email or ''|safe},</field>
+            <field name="subject">The ticket ${object.number} has been created.</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="auto_delete" eval="False" />
+            <field name="lang">${object.partner_id.lang}</field>
+            <field
+                name="body_html"
+            ><![CDATA[<html>
+                <div>
+                    <p>Hello ${object.partner_id.name or ''},</p>
+                    <p>The ticket ${object.number or 'n/a'} has been created.</p>
+                    <p>You can reply to this email to add information to the ticket.</p>
+                </div>
+            ]]>
+            </field>
+        </record>
+        <record id="changed_stage_template" model="mail.template">
+            <field name="name">Helpdesk Changed Stage Notification Email</field>
+            <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+            <field name="email_from">${object.company_id.partner_id.email}</field>
+            <field
+                name="email_to"
             >${not object.partner_id and object.partner_email or ''|safe},</field>
             <field name="subject">The ticket ${object.number} stage has changed.</field>
             <field name="partner_to">${object.partner_id.id}</field>

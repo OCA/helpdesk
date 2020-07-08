@@ -73,6 +73,7 @@ class HelpdeskTicketController(http.Controller):
             "description": kw.get("description"),
             "name": kw.get("subject"),
             "attachment_ids": False,
+            "stage_id": request.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new").id,
             "channel_id": request.env["helpdesk.ticket.channel"]
             .sudo()
             .search([("name", "=", "Web")])
