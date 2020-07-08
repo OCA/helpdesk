@@ -23,9 +23,7 @@ class HelpdeskTicketStage(models.Model):
              "reaches this step.")
     fold = fields.Boolean(
         string='Folded in Kanban',
-        help="This stage is folded in the kanban view "
-             "when there are no records in that stage "
-             "to display.")
+        help="This stage is folded in the kanban view.")
     company_id = fields.Many2one(
         'res.company',
         string="Company",
