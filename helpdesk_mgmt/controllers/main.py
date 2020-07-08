@@ -19,14 +19,22 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = int(field_value)
             else:
                 values[field_name] = field_value
-        ticket = (
-            http.request.env["helpdesk.ticket"]
-            .sudo()
-            .search([("id", "=", values["ticket_id"])])
-        )
-        ticket.stage_id = values.get("stage_id")
-
-        return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
+        if "ticket_id" in values:
+            ticket = (
+                http.request.env["helpdesk.ticket"]
+                .sudo()
+                .search([("id", "=", values.get("ticket_id"))])
+            )
+            if ticket and "stage_id" in values:
+                stage = (
+                    http.request.env["helpdesk.ticket.stage"]
+                    .sudo()
+                    .search([("id", "=", values.get("stage_id"))])
+                )
+                if stage and stage.portal_user_can_close:
+                    ticket.stage_id = stage
+                return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
+        return werkzeug.utils.redirect("/my/tickets")
 
     def _get_teams(self):
         return (
