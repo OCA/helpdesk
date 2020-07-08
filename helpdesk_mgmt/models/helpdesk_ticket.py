@@ -161,6 +161,17 @@ class HelpdeskTicket(models.Model):
                 team = self.env["helpdesk.ticket.team"].browse([vals["team_id"]])
                 if team.company_id:
                     vals["company_id"] = team.company_id.id
+            # Automatically set default e-mail channel when created from the
+            # fetchmail cron task
+            if self.env.context.get("fetchmail_cron_running") and not vals.get(
+                "channel_id"
+            ):
+                channel_email_id = self.env.ref(
+                    "helpdesk_mgmt.helpdesk_ticket_channel_email",
+                    raise_if_not_found=False,
+                )
+                if channel_email_id:
+                    vals["channel_id"] = channel_email_id.id
         return super().create(vals_list)
 
     def copy(self, default=None):
