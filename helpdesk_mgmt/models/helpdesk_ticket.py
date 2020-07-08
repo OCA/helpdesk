@@ -121,6 +121,12 @@ class HelpdeskTicket(models.Model):
             self.partner_email = self.partner_id.email
             self.partner_lang = self.partner_id.lang
 
+    def _get_default_email_channel(self):
+        return self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_channel_email",
+            raise_if_not_found=False,
+        )
+
     # ---------------------------------------------------
     # CRUD
     # ---------------------------------------------------
@@ -137,6 +143,14 @@ class HelpdeskTicket(models.Model):
                 vals["team_id"] = self._prepare_team_id(vals)
             if vals.get("user_id") and not vals.get("assigned_date"):
                 vals["assigned_date"] = fields.Datetime.now()
+            # Automatically set default e-mail channel when created from the
+            # fetchmail cron task
+            if self.env.context.get("fetchmail_cron_running") and not vals.get(
+                "channel_id"
+            ):
+                channel_email_id = self._get_default_email_channel()
+                if channel_email_id:
+                    vals["channel_id"] = channel_email_id.id
         return super().create(vals_list)
 
     def copy(self, default=None):
