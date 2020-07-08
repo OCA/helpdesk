@@ -242,6 +242,20 @@
                                     </form>
                                 </t>
                             </div>
+                            <strong>Attachments:</strong>
+                            <br />
+                            <t t-foreach="files" t-as="f">
+                                <t t-if="f.access_token">
+                                    <a
+                                        t-attf-href="/web/content/#{f.id}?download=true&amp;access_token=#{f.access_token}"
+                                        target="_blank"
+                                    >
+                                        <span class="fa fa-download" />
+                                        <span t-esc="f.name" />
+                                    </a>
+                                <br />
+                                </t>
+                            </t>
                         </div>
                     </div>
                     <div class="row mt-3" t-if="ticket.user_id or ticket.partner_id">
