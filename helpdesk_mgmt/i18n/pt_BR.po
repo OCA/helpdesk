@@ -474,11 +474,6 @@ msgid "Attachment Count"
 msgstr "Número de Anexos"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
-msgid "Attachments"
-msgstr "Anexos"
-
-#. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_awaiting
 msgid "Awaiting"
 msgstr "Aguardando"
@@ -906,11 +901,6 @@ msgid "Main Attachment"
 msgstr "Anexo Principal"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__attachment_ids
-msgid "Media Attachments"
-msgstr "Mídias Anexadas"
-
-#. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
 #: selection:helpdesk.ticket,priority:0
 #, python-format
@@ -994,7 +984,7 @@ msgid "Next Activity Type"
 msgstr "Tipo da Próxima Atividade"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:196
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:192
 #, python-format
 msgid "No Subject"
 msgstr "Sem Assunto"
@@ -1102,14 +1092,14 @@ msgid "Partner"
 msgstr "Parceiro"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:234
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:230
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
 msgstr "E-mail do Parceiro"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:236
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:232
 #, python-format
 msgid "Partner Id"
 msgstr "Id do Parceiro"
@@ -1451,3 +1441,9 @@ msgstr "Mensagens do Website"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
 msgstr "Histórico de comunicações do Website"
+
+#~ msgid "Attachments"
+#~ msgstr "Anexos"
+
+#~ msgid "Media Attachments"
+#~ msgstr "Mídias Anexadas"
