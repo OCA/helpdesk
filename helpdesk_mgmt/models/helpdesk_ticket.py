@@ -72,10 +72,6 @@ class HelpdeskTicket(models.Model):
         ('2', _('High')),
         ('3', _('Very High')),
     ], string='Priority', default='1')
-    attachment_ids = fields.One2many(
-        'ir.attachment', 'res_id',
-        domain=[('res_model', '=', 'helpdesk.ticket')],
-        string="Media Attachments")
     color = fields.Integer(string='Color Index')
     kanban_state = fields.Selection([
         ('normal', 'Default'),
