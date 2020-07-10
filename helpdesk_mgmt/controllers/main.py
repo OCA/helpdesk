@@ -128,8 +128,7 @@ class HelpdeskTicketController(http.Controller):
         if team_id:
             r = False
             if team_id.alias_contact == "everyone" or user_id:
-                r = http.request.render(
-                    "helpdesk_mgmt.portal_create_ticket",
+                r = team_id.endpoint_view_id.render(
                     {
                         "email": user_email,
                         "name": user_name,

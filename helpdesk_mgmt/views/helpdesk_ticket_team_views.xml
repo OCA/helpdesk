@@ -42,6 +42,7 @@
                     </div>
                     <group>
                         <group name="left">
+                            <field name="endpoint_view_id"/>
                             <field name="active" invisible="1" />
                             <field name="user_id" domain="[('share', '=', False)]" />
                             <label for="alias_name" string="Email Alias" />

@@ -1,11 +1,41 @@
 from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
+#
+# class VIEW(models.Model):
+#     _inherit = "ir.ui.view"
+#
+#     def write(self, vals):
+#         import pdb; pdb.set_trace()
+#         return super(VIEW, self).write(vals)
+
 
 class HelpdeskTeam(models.Model):
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
+
+    def _compute_endpoint_view_id(self):
+        if self.name == "Soporte":
+            self.endpoint_view_id = False
+            if not self.endpoint_view_id:
+                _template = self.env.ref("helpdesk_mgmt.portal_create_ticket")
+                xmlid = _template.xml_id + str(self.id)
+                form_template = self.env['ir.ui.view'].create({
+                    'type': 'qweb',
+                    'arch': _template.arch,
+                    'name': xmlid,
+                    'key': xmlid
+                })
+                self.env['ir.model.data'].create({
+                    'module': 'helpdesk_mgmt',
+                    'name': xmlid.split('.')[1],
+                    'model': 'ir.ui.view',
+                    'res_id': form_template.id,
+                    'noupdate': True
+                })
+                self.write({'endpoint_view_id': form_template.id})
+
 
     @api.depends("name", "enable_webform")
     def _compute_endpoint_webform(self, recompute=False):
@@ -31,6 +61,7 @@ class HelpdeskTeam(models.Model):
 
     def recompute_endpoint(self):
         self._compute_endpoint_webform(recompute=True)
+        self._compute_endpoint_view_id()
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
@@ -107,6 +138,9 @@ class HelpdeskTeam(models.Model):
     endpoint_full_webform = fields.Char(
         string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
     )
+    endpoint_view_id = fields.Many2one(
+        comodel_name='ir.ui.view',
+        string='Endpoint view')
 
     @api.onchange("auto_assign_type")
     def _onchange_assign_user_domain(self):
