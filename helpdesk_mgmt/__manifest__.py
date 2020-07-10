@@ -36,7 +36,7 @@
     'demo': [
         'demo/helpdesk_demo.xml',
     ],
-    'development_status': 'Alpha',
+    'development_status': 'Beta',
     'application': True,
     'installable': True,
 }
