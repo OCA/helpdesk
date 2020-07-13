@@ -10,8 +10,8 @@
                     name="inactive"
                     domain="[('active','=',False)]"
                 />
-                <separator/>
-                <field name="name" filter_domain="[('name', 'ilike', self)]"/>
+                <separator />
+                <field name="name" filter_domain="[('name', 'ilike', self)]" />
                 <field
                     name="user_ids"
                     string="User"
@@ -27,27 +27,33 @@
             <form string="Helpdesk Team">
                 <header>
                     <div class="oe_button_box" name="expense_button_box">
-                        <button name="toggle_active"
-                                type="object"
-                                class="oe_stat_button"
-                                icon="fa-archive">
-                            <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                        <button
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                        >
+                            <field
+                                name="active"
+                                widget="boolean_button"
+                                options='{"terminology": "archive"}'
+                            />
                         </button>
                     </div>
                     <button
                         name="recompute_endpoint"
+                        class="btn btn-info"
                         type="object"
                         string="Recompute endpoint"
                         attrs="{'invisible': [('enable_webform', '=', False)]}"
-                        groups="base.group_admin"
                     />
                     <button
                         name="restore_endpoint_view"
+                        class="btn btn-danger"
                         type="object"
-                        confirm="Restoring the endpoint's view will undo all user-made changes to the webform. Are you sure you want to proceed?"
+                        confirm="Restoring the endpoint's view will undo and **DELETE** all user-made changes to the webform. Are you sure you want to proceed?"
                         string="Restore endpoint view"
                         attrs="{'invisible': [('enable_webform', '=', False)]}"
-                        groups="base.group_admin"
                     />
                 </header>
                 <sheet>
@@ -58,18 +64,18 @@
                         attrs="{'invisible': [('active', '=', True)]}"
                     />
                     <div class="oe_title">
-                        <label for="name" class="oe_edit_only" string="Helpdesk Team"/>
+                        <label for="name" class="oe_edit_only" string="Helpdesk Team" />
                         <h1>
-                            <field name="name" placeholder="Helpdesk Team name..."/>
+                            <field name="name" placeholder="Helpdesk Team name..." />
                         </h1>
-                        <div name="options_active"/>
+                        <div name="options_active" />
                     </div>
                     <group>
                         <group name="left">
-                            <field name="endpoint_view_id" groups="base.group_admin"/>
-                            <field name="active" invisible="1"/>
-                            <field name="user_id" domain="[('share', '=', False)]"/>
-                            <label for="alias_name" string="Email Alias"/>
+                            <field name="endpoint_view_id" invisible="1" />
+                            <field name="active" invisible="1" />
+                            <field name="user_id" domain="[('share', '=', False)]" />
+                            <label for="alias_name" string="Email Alias" />
                             <div class="oe_inline" name="alias_def">
                                 <field
                                     name="alias_id"
@@ -82,7 +88,7 @@
                                     name="edit_alias"
                                     style="display: inline;"
                                 >
-                                    <field name="alias_name" class="oe_inline"/>@
+                                    <field name="alias_name" class="oe_inline" />@
                                     <field
                                         name="alias_domain"
                                         class="oe_inline"
@@ -121,7 +127,7 @@
                     <div class="row mt16 o_settings_containe" id="visibility">
                         <div class="col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
-                                <label for="auto_assign_type"/>
+                                <label for="auto_assign_type" />
                                 <div class="text-muted">
                                     Assignment type
                                 </div>
@@ -136,7 +142,7 @@
                         </div>
                         <div class="col-lg-6 o_setting_box">
                             <div class="o_setting_right_pane">
-                                <label for="user_ids"/>
+                                <label for="user_ids" />
                                 <div class="text-muted">
                                     Members of the team
                                 </div>
@@ -155,7 +161,7 @@
                             attrs="{'invisible': [('auto_assign_type', '!=', 'fixed')]}"
                         >
                             <div class="o_setting_left_pane">
-                                <label for="auto_assign_fixed_user_id"/>
+                                <label for="auto_assign_fixed_user_id" />
                                 <div class="text-muted">
                                     Fixed assignment user
                                 </div>
@@ -172,10 +178,10 @@
                     <div class="row mt32 o_settings_container" id="misc">
                         <div class="col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
-                                <field name="enable_webform"/>
+                                <field name="enable_webform" />
                             </div>
                             <div class="o_setting_right_pane">
-                                <label for="enable_webform"/>
+                                <label for="enable_webform" />
                                 <div class="text-muted">
                                     Enable the team webform in order for website-logged customers
                                     to create tickets assigned directly to this team
@@ -184,15 +190,14 @@
                                     id="enable_webform_endpoint"
                                     attrs="{'invisible': [('enable_webform', '=', False)]}"
                                 >
-                                    <label for="endpoint_webform"/>
+                                    <label for="endpoint_webform" />
                                     <div class="text-muted">
                                         This is the generated website endpoint based on the ticket name.
                                         If a number is appended it means the endpoint generator found a conflict
                                         of names between several teams
                                     </div>
-                                    <field name="endpoint_full_webform" widget="url"/>
+                                    <field name="endpoint_full_webform" widget="url" />
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -207,7 +212,7 @@
                         widget="mail_followers"
                         help="Follow this salesteam to automatically track the events associated to users of this team."
                     />
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
         </field>
@@ -217,7 +222,7 @@
         <field name="model">helpdesk.ticket.team</field>
         <field name="arch" type="xml">
             <tree string="Team">
-                <field name="name"/>
+                <field name="name" />
             </tree>
         </field>
     </record>

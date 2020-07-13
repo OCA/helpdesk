@@ -26,38 +26,18 @@ class HelpdeskTicketController(http.Controller):
             user_id = http.request.env.user.id
         category_ids = (
             http.request.env["helpdesk.ticket.category"]
-                .with_user(SUPERUSER_ID)
-                .search([("active", "=", True)])
+            .with_user(SUPERUSER_ID)
+            .search([("active", "=", True)])
         )
 
         _template = request.env.ref("helpdesk_mgmt.portal_create_ticket_inner_form")
         xml_id = f"{_template.xml_id}_root"
-        view_id = request.env['ir.ui.view'].search([
-            ('name', '=', xml_id,),
-            ('key', '=', xml_id)
-        ])
-        if not view_id:
-            template_id = request.env['ir.ui.view'].with_user(SUPERUSER_ID).create({
-                'type': 'qweb',
-                'arch': _template.arch,
-                'name': xml_id,
-                'key': xml_id
-            })
-            _xml_id: list = xml_id.split('.')
-            request.env['ir.model.data'].with_user(SUPERUSER_ID).create({
-                'module': _xml_id[0],
-                'name': _xml_id[1],
-                'model': 'ir.ui.view',
-                'res_id': template_id.id,
-                'noupdate': True
-            })
-            view_id = self.create_root_view_id(
-                _template,
-                xml_id
-            )
+        view_id = request.env["ir.ui.view"].search(
+            [("name", "=", xml_id,), ("key", "=", xml_id)]
+        )
 
         return request.render(
-            "helpdesk_mgmt.portal_create_ticket_main_layout",
+            "helpdesk_mgmt.portal_create_ticket_main_root_layout",
             {
                 "view_id": view_id,
                 "email": user_email,
@@ -123,8 +103,8 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = field_value
         ticket = (
             http.request.env["helpdesk.ticket"]
-                .with_user(SUPERUSER_ID)
-                .search([("id", "=", values["ticket_id"])])
+            .with_user(SUPERUSER_ID)
+            .search([("id", "=", values["ticket_id"])])
         )
         ticket.stage_id = values.get("stage_id")
 
@@ -147,8 +127,8 @@ class HelpdeskTicketController(http.Controller):
             user_id = http.request.env.user.id
         category_ids = (
             http.request.env["helpdesk.ticket.category"]
-                .with_user(SUPERUSER_ID)
-                .search([("active", "=", True)])
+            .with_user(SUPERUSER_ID)
+            .search([("active", "=", True)])
         )
         team_id = self._search_team_id(endpoint)
         r = False  # maybe some day someone'll make a cool error template
@@ -164,7 +144,7 @@ class HelpdeskTicketController(http.Controller):
                         "id_team": team_id.id,
                         "id_user": user_id,
                         "categories": category_ids,
-                    }
+                    },
                 )
         return r
 
@@ -211,8 +191,8 @@ class HelpdeskTicketController(http.Controller):
         else:
             partner_id = (
                 request.env["res.partner"]
-                    .with_user(SUPERUSER_ID)
-                    .search([("email", "=", kw.get("email"))])
+                .with_user(SUPERUSER_ID)
+                .search([("email", "=", kw.get("email"))])
             )
             id_partner = partner_id[0].id if partner_id else None
         return id_partner
@@ -221,8 +201,8 @@ class HelpdeskTicketController(http.Controller):
     def _search_id_channel() -> int:
         channel_id = (
             request.env["helpdesk.ticket.channel"]
-                .with_user(SUPERUSER_ID)
-                .search([("name", "=", "Web")])
+            .with_user(SUPERUSER_ID)
+            .search([("name", "=", "Web")])
         )
         return channel_id[0].id if channel_id else None
 
@@ -234,9 +214,8 @@ class HelpdeskTicketController(http.Controller):
     def _search_team_id(endpoint: str):
         return (
             request.env["helpdesk.ticket.team"]
-                .with_user(SUPERUSER_ID)
-                .search(
+            .with_user(SUPERUSER_ID)
+            .search(
                 [("endpoint_webform", "=", endpoint), ("enable_webform", "=", True)]
             )
         )
-
