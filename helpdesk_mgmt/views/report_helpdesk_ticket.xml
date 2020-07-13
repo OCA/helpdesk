@@ -36,7 +36,7 @@
                         </div>
 
                         <div t-if="doc.create_date" class="col-auto mw-100 mb-2">
-                            <strong>Create on:</strong>
+                            <strong>Created on:</strong>
                             <p class="m-0" t-field="doc.create_date" />
                         </div>
 
