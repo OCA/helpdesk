@@ -73,10 +73,10 @@
                         </div>
                     </div>
 
-                    <div class="row mt32 mb32" id="description">
-                        <div t-if="doc.description" class="col-auto mw-100 mb-2">
+                    <div id="description">
+                        <div t-if="doc.description" >
                             <h3>Description:</h3>
-                            <p class="m-0" t-field="doc.description" />
+                            <p t-field="doc.description"/>
                         </div>
                     </div>
                 </div>
