@@ -1,41 +1,40 @@
 from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
-#
-# class VIEW(models.Model):
-#     _inherit = "ir.ui.view"
-#
-#     def write(self, vals):
-#         import pdb; pdb.set_trace()
-#         return super(VIEW, self).write(vals)
-
 
 class HelpdeskTeam(models.Model):
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
 
-    def _compute_endpoint_view_id(self):
-        if self.name == "Soporte":
-            self.endpoint_view_id = False
-            if not self.endpoint_view_id:
-                _template = self.env.ref("helpdesk_mgmt.portal_create_ticket")
-                xmlid = _template.xml_id + str(self.id)
-                form_template = self.env['ir.ui.view'].create({
-                    'type': 'qweb',
-                    'arch': _template.arch,
-                    'name': xmlid,
-                    'key': xmlid
-                })
-                self.env['ir.model.data'].create({
-                    'module': 'helpdesk_mgmt',
-                    'name': xmlid.split('.')[1],
-                    'model': 'ir.ui.view',
-                    'res_id': form_template.id,
-                    'noupdate': True
-                })
-                self.write({'endpoint_view_id': form_template.id})
+    def compute_endpoint_view_id(self):
+        """
+         Create and assign a `ir.ui.view` spawned from the `helpdesk_mgmt.portal_create_ticket_inner_form`
+        template, if it doesn't exist yet or it was deleted
+        """
+        if not self.endpoint_view_id:
+            _template = self.env.ref("helpdesk_mgmt.portal_create_ticket_inner_form")
+            xml_id = f"{_template.xml_id}_{self.id}"
+            _xml_id: list = xml_id.split('.')
+            template_id = self.env['ir.ui.view'].create({
+                'type': 'qweb',
+                'arch': _template.arch,
+                'name': xml_id,
+                'key': xml_id
+            })
+            self.env['ir.model.data'].create({
+                'module': _xml_id[0],
+                'name': _xml_id[1],
+                'model': 'ir.ui.view',
+                'res_id': template_id.id,
+                'noupdate': True
+            })
+            self.write({'endpoint_view_id': template_id.id})
 
+    def restore_endpoint_view(self):
+        if self.endpoint_view_id:
+            self.endpoint_view_id.unlink()  # DEBUG
+        self.compute_endpoint_view_id()
 
     @api.depends("name", "enable_webform")
     def _compute_endpoint_webform(self, recompute=False):
@@ -44,7 +43,6 @@ class HelpdeskTeam(models.Model):
         which usually is the team name hyphen-separated.
         As team names conflicts can exist,
         the endpoint string will be appended the team id to, if necessary
-        :return:
         """
         for record in self:
             if (record.enable_webform and not record.endpoint_webform) or recompute:
@@ -58,10 +56,10 @@ class HelpdeskTeam(models.Model):
                 record.endpoint_full_webform = "help/team/{}".format(
                     record.endpoint_webform
                 )
+                self.compute_endpoint_view_id()
 
     def recompute_endpoint(self):
         self._compute_endpoint_webform(recompute=True)
-        self._compute_endpoint_view_id()
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
