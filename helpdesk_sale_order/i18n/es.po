@@ -1,4 +1,4 @@
- # Translation of Odoo Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # 	* helpdesk_sale_order
 #
@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 09:11+0000\n"
-"PO-Revision-Date: 2020-04-30 09:11+0000\n"
+"POT-Creation-Date: 2020-07-14 09:49+0000\n"
+"PO-Revision-Date: 2020-07-14 09:49+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,32 @@ msgstr ""
 "        "
 
 #. module: helpdesk_sale_order
+#: code:addons/addons/helpdesk/helpdesk_sale_order/models/helpdesk_ticket.py:0
+#: code:addons/helpdesk_sale_order/models/helpdesk_ticket.py:0
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
+#, python-format
+msgid "Add coupon"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_sale_coupon_wizard
+msgid "Add new sale coupon wizard"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_team_view_form
+msgid "Allow product returns from tickets"
+msgstr "Permite devoluciones desde los tickets"
+
+#. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_team_view_form
+msgid ""
+"Allow team members to add coupons to a ticket which can be sent\n"
+"                            to the customer"
+msgstr "Permite a los miembros del equipo añadir cupones a un ticket que pueden ser\n"
+"                            enviados al cliente"
+
+#. module: helpdesk_sale_order
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_team_view_form
 msgid ""
 "Allow team members to set the sale order of a ticket given\n"
@@ -39,15 +65,79 @@ msgstr ""
 "                            dadas las ventas de un cliente"
 
 #. module: helpdesk_sale_order
+#: model:ir.model.fields,help:helpdesk_sale_order.field_helpdesk_ticket__assign_coupon
+#: model:ir.model.fields,help:helpdesk_sale_order.field_helpdesk_ticket_team__assign_coupon
+msgid "Allow tickets to assign a coupon"
+msgstr ""
+
+#. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__assign_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket_team__assign_sale_order
 msgid "Assign sale order"
 msgstr "Asignar pedido de venta"
 
 #. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.sale_coupon_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__assign_coupon
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket_team__assign_coupon
+msgid "Coupon"
+msgstr "Cupón"
+
+#. module: helpdesk_sale_order
+#: code:addons/addons/helpdesk/helpdesk_sale_order/wizard/sale_coupon_wizard.py:0
+#: code:addons/helpdesk_sale_order/wizard/sale_coupon_wizard.py:0
+#, python-format
+msgid "Coupon %s"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__program_id
+msgid "Coupon program"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: code:addons/addons/helpdesk/helpdesk_sale_order/models/helpdesk_ticket.py:0
+#: code:addons/helpdesk_sale_order/models/helpdesk_ticket.py:0
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__coupon_count
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__coupon_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
+#, python-format
+msgid "Coupons"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.sale_coupon_wizard_view_form
+msgid "Create coupon"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.sale_coupon_wizard_view_form
+msgid "Create new coupon"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_sale_order
 #: model:ir.model,name:helpdesk_sale_order.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Tiquet"
+msgstr "Ticket Helpdesk"
 
 #. module: helpdesk_sale_order
 #: model:ir.model,name:helpdesk_sale_order.model_helpdesk_ticket_team
@@ -55,6 +145,105 @@ msgid "Helpdesk Ticket Team"
 msgstr "Equipo de ticket Helpdesk"
 
 #. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__linked_picking_ids
+msgid "Linked Picking"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__name
+msgid "Name"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__sale_order_id
+msgid "Order reference"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__partner_id
+msgid "Partner"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__picking_id
+msgid "Picking"
+msgstr "Albarán"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__picking_ids
+msgid "Pickings"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__related_sale_order_id
+msgid "Related sale order"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__related_ticket_id
+msgid "Related ticket"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__ticket_return_rel
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
+msgid "Return"
+msgstr ""
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_stock_return_picking
+msgid "Return Picking"
+msgstr "Albarán de devolución"
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_stock_return_picking_line
+msgid "Return Picking Line"
+msgstr "Línea de Albarán de devolución"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__picking_count
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket_team__ticket_return
+#: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
+msgid "Returns"
+msgstr "Devolución"
+
+#. module: helpdesk_sale_order
+#: model:ir.actions.act_window,name:helpdesk_sale_order.act_return_product
+msgid "Reverse Transfer"
+msgstr ""
+
+#. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__sale_order_id
 msgid "Sale order"
 msgstr "Pedido de venta"
+
+#. module: helpdesk_sale_order
+#: model:ir.model,name:helpdesk_sale_order.model_sale_coupon
+msgid "Sales Coupon"
+msgstr "Cupón de ventas"
+
+#. module: helpdesk_sale_order
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__ticket_id
+msgid "Ticket"
+msgstr ""
