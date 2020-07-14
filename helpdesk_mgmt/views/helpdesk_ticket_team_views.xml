@@ -113,6 +113,7 @@
                                 name="alias_user_id"
                                 string="Assign to"
                                 domain="[('share', '=', False)]"
+                                invisible="1"
                             />
                             <field
                                 name="company_id"
@@ -123,7 +124,6 @@
                         <group name="right">
                         </group>
                     </group>
-                    <h2>Visibility</h2>
                     <div class="row mt16 o_settings_containe" id="visibility">
                         <div class="col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
@@ -168,6 +168,7 @@
                                 <div>
                                     <field
                                         name="auto_assign_fixed_user_id"
+                                        domain="[('share', '=', False)]"
                                         class="mt16"
                                     />
                                 </div>
