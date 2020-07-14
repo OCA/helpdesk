@@ -1718,11 +1718,6 @@ msgstr ""
 "                                                    </span>"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
-msgid "<span>View</span>"
-msgstr "<span>Vista</span>"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
 msgid ""
 "Submit\n"
