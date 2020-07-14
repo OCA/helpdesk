@@ -7,6 +7,35 @@ class HelpdeskTeam(models.Model):
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
 
+    def compute_endpoint_view_id(self):
+        """
+         Create and assign a `ir.ui.view` spawned from the
+        `helpdesk_mgmt.portal_create_ticket_inner_form`template,
+        if it doesn't exist yet or it was deleted
+        """
+        if not self.endpoint_view_id:
+            _template = self.env.ref("helpdesk_mgmt.portal_create_ticket_inner_form")
+            xml_id = f"{_template.xml_id}_{self.id}"
+            _xml_id: list = xml_id.split(".")
+            template_id = self.env["ir.ui.view"].create(
+                {"type": "qweb", "arch": _template.arch, "name": xml_id, "key": xml_id}
+            )
+            self.env["ir.model.data"].create(
+                {
+                    "module": _xml_id[0],
+                    "name": _xml_id[1],
+                    "model": "ir.ui.view",
+                    "res_id": template_id.id,
+                    "noupdate": True,
+                }
+            )
+            self.write({"endpoint_view_id": template_id.id})
+
+    def restore_endpoint_view(self):
+        if self.endpoint_view_id:
+            self.endpoint_view_id.unlink()  # DEBUG
+        self.compute_endpoint_view_id()
+
     @api.depends("name", "enable_webform")
     def _compute_endpoint_webform(self, recompute=False):
         """
@@ -14,7 +43,6 @@ class HelpdeskTeam(models.Model):
         which usually is the team name hyphen-separated.
         As team names conflicts can exist,
         the endpoint string will be appended the team id to, if necessary
-        :return:
         """
         for record in self:
             if (record.enable_webform and not record.endpoint_webform) or recompute:
@@ -28,6 +56,7 @@ class HelpdeskTeam(models.Model):
                 record.endpoint_full_webform = "help/team/{}".format(
                     record.endpoint_webform
                 )
+                self.compute_endpoint_view_id()
 
     def recompute_endpoint(self):
         self._compute_endpoint_webform(recompute=True)
@@ -105,7 +134,13 @@ class HelpdeskTeam(models.Model):
         string="Webform endpoint", store=True, compute=_compute_endpoint_webform
     )
     endpoint_full_webform = fields.Char(
-        string="Full webform endpoint", store=True, compute=_compute_endpoint_webform
+        string="Full webform endpoint",
+        store=True,
+        compute=_compute_endpoint_webform,
+        track_visibility="onchange",
+    )
+    endpoint_view_id = fields.Many2one(
+        comodel_name="ir.ui.view", string="Endpoint view", track_visibility="onchange"
     )
 
     @api.onchange("auto_assign_type")

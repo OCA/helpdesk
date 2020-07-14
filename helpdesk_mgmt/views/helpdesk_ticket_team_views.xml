@@ -25,8 +25,38 @@
         <field name="model">helpdesk.ticket.team</field>
         <field name="arch" type="xml">
             <form string="Helpdesk Team">
+                <header>
+                    <div class="oe_button_box" name="expense_button_box">
+                        <button
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                        >
+                            <field
+                                name="active"
+                                widget="boolean_button"
+                                options='{"terminology": "archive"}'
+                            />
+                        </button>
+                    </div>
+                    <button
+                        name="recompute_endpoint"
+                        class="btn btn-info"
+                        type="object"
+                        string="Recompute endpoint"
+                        attrs="{'invisible': [('enable_webform', '=', False)]}"
+                    />
+                    <button
+                        name="restore_endpoint_view"
+                        class="btn btn-danger"
+                        type="object"
+                        confirm="Restoring the endpoint's view will undo and **DELETE** all user-made changes to the webform. Are you sure you want to proceed?"
+                        string="Restore endpoint view"
+                        attrs="{'invisible': [('enable_webform', '=', False)]}"
+                    />
+                </header>
                 <sheet>
-                    <div class="oe_button_box" name="button_box" />
                     <widget
                         name="web_ribbon"
                         text="Archived"
@@ -42,6 +72,7 @@
                     </div>
                     <group>
                         <group name="left">
+                            <field name="endpoint_view_id" invisible="1" />
                             <field name="active" invisible="1" />
                             <field name="user_id" domain="[('share', '=', False)]" />
                             <label for="alias_name" string="Email Alias" />
@@ -166,20 +197,6 @@
                                         of names between several teams
                                     </div>
                                     <field name="endpoint_full_webform" widget="url" />
-                                </div>
-                                <div
-                                    id="recompute_endpoint_box"
-                                    attrs="{'invisible': [('enable_webform', '=', False)]}"
-                                >
-                                    <div class="text-muted">
-                                        Use this button if the team's attributes have been changed. If those attributes
-                                        are necessary for the computed URL it'll change accordingly.
-                                    </div>
-                                    <button
-                                        name="recompute_endpoint"
-                                        type="object"
-                                        string="Recompute endpoint"
-                                    />
                                 </div>
                             </div>
                         </div>

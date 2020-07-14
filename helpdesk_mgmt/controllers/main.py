@@ -30,9 +30,16 @@ class HelpdeskTicketController(http.Controller):
             .search([("active", "=", True)])
         )
 
-        return http.request.render(
-            "helpdesk_mgmt.portal_create_ticket",
+        _template = request.env.ref("helpdesk_mgmt.portal_create_ticket_inner_form")
+        xml_id = f"{_template.xml_id}_root"
+        view_id = request.env["ir.ui.view"].search(
+            [("name", "=", xml_id,), ("key", "=", xml_id)]
+        )
+
+        return request.render(
+            "helpdesk_mgmt.portal_create_ticket_main_root_layout",
             {
+                "view_id": view_id,
                 "email": user_email,
                 "name": user_name,
                 "id_user": user_id,
@@ -128,9 +135,10 @@ class HelpdeskTicketController(http.Controller):
         if team_id:
             r = False
             if team_id.alias_contact == "everyone" or user_id:
-                r = http.request.render(
-                    "helpdesk_mgmt.portal_create_ticket",
+                r = request.render(
+                    "helpdesk_mgmt.portal_create_ticket_main_layout",
                     {
+                        "team_id": team_id,
                         "email": user_email,
                         "name": user_name,
                         "id_team": team_id.id,

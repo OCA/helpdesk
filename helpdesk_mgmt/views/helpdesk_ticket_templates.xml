@@ -198,7 +198,7 @@
             <div class="oe_structure mb32" />
         </t>
     </template>
-    <template id="portal_create_ticket" name="Create Ticket">
+    <template id="portal_create_ticket_main_root_layout" name="Create ticket">
         <t t-call="website.layout">
             <div id="wrap" class="container mt-4">
                 <div class="oe_structure">
@@ -216,286 +216,586 @@
                     <div class="oe_structure" id="oe_structure_website_top" />
                     <div class="col-md-9 pl-4">
                         <div class="container">
-                            <div id="helpdesk_section">
-                                <section
-                                    id="forms"
-                                    class="s_website_form"
-                                    data-vcss="001"
-                                    data-snippet="s_website_form"
-                                >
-                                    <div class="container">
-                                        <form
-                                            action="/help/ticket/submit"
-                                            method="POST"
-                                            class="s_website_form container-fluid mt32"
-                                            enctype="multipart/form-data"
-                                            data-success_page="/help/thankyou"
+                            <section
+                                class="s_website_form"
+                                data-vcss="001"
+                                data-snippet="s_website_form"
+                            >
+                                <div class="container">
+                                    <form
+                                        action="/help/ticket/submit"
+                                        method="POST"
+                                        class="s_website_form container-fluid mt32"
+                                        enctype="multipart/form-data"
+                                        data-success_page="/help/thankyou"
+                                    >
+                                        <div
+                                            class="s_website_form_rows s_col_no_bgcolor"
                                         >
+                                            <!-- TOKEN -->
+                                            <input
+                                                type="hidden"
+                                                name="csrf_token"
+                                                t-att-value="request.csrf_token()"
+                                            />
+                                            <input
+                                                type="hidden"
+                                                name="id_team"
+                                                t-attf-value="#{id_team}"
+                                            />
+                                            <input
+                                                type="hidden"
+                                                name="id_user"
+                                                t-attf-value="#{id_user}"
+                                            />
+                                            <!-- NAME -->
                                             <div
-                                                class="s_website_form_rows s_col_no_bgcolor"
+                                                class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                data-type="char"
+                                                data-name="Block"
                                             >
-                                                <!-- TOKEN -->
-                                                <input
-                                                    type="hidden"
-                                                    name="csrf_token"
-                                                    t-att-value="request.csrf_token()"
-                                                />
-                                                <input
-                                                    type="hidden"
-                                                    name="id_team"
-                                                    t-attf-value="#{id_team}"
-                                                />
-                                                <input
-                                                    type="hidden"
-                                                    name="id_user"
-                                                    t-attf-value="#{id_user}"
-                                                />
-                                                <!-- NAME -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
-                                                    data-type="char"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="id_name_field"
                                                         >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="id_name_field"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Name
-                                                                </span>
-                                                            </label>
-                                                            <div class="col-sm">
-                                                                <input
-                                                                    id="id_name_field"
-                                                                    type="text"
-                                                                    class="form-control o_website_form_input"
-                                                                    required="True"
-                                                                    name="name"
-                                                                />
-                                                            </div>
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Name
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm">
+                                                            <input
+                                                                id="id_name_field"
+                                                                type="text"
+                                                                class="form-control o_website_form_input"
+                                                                required="True"
+                                                                name="name"
+                                                            />
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <!-- EMAIL -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
-                                                    data-type="email"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
-                                                        >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="id_email_field"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Email
-                                                                </span>
-                                                            </label>
-                                                            <div
-                                                                class="col-sm col-xs-12"
-                                                            >
-                                                                <input
-                                                                    id="id_email_field"
-                                                                    type='email'
-                                                                    class='form-control s_website_form_input'
-                                                                    required="True"
-                                                                    name="email"
-                                                                    readonly="False"
-                                                                    t-if="id_user"
-                                                                    t-attf-value="#{email}"
-                                                                />
-                                                                <input
-                                                                    id="id_email_field"
-                                                                    type='email'
-                                                                    class='form-control s_website_form_input'
-                                                                    required="True"
-                                                                    name="email"
-                                                                    t-else=""
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- CATEGORIES -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
-                                                    data-type="select"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
-                                                        >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="id_category_field"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Categories
-                                                                </span>
-                                                            </label>
-                                                            <div
-                                                                class="col-sm col-xs-12"
-                                                            >
-                                                                <select
-                                                                    class='form-control s_website_form_input'
-                                                                    id="id_category_field"
-                                                                    name="category"
-                                                                    required="True"
-                                                                >
-                                                                    <t
-                                                                        t-foreach="categories"
-                                                                        t-as="cat"
-                                                                    >
-                                                                        <option
-                                                                            t-attf-value="#{cat.id}"
-                                                                        >
-                                                                            <t
-                                                                                t-esc="cat.name"
-                                                                            />
-                                                                        </option>
-                                                                    </t>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- SUBJECT -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
-                                                    data-type="char"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
-                                                        >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="id_subject_field"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Subject
-                                                                </span>
-                                                            </label>
-                                                            <div
-                                                                class="col-sm col-xs-12"
-                                                            >
-                                                                <input
-                                                                    id="id_subject_field"
-                                                                    type="text"
-                                                                    class="form-control s_website_form_input"
-                                                                    name="subject"
-                                                                    required="1"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- DESCRIPTION -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom o_website_form_required_custom"
-                                                    data-type="char"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
-                                                        >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="id_description_field"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Description
-                                                                </span>
-                                                            </label>
-                                                            <div
-                                                                class="col-sm col-xs-12"
-                                                            >
-                                                                <textarea
-                                                                    id="id_description_field"
-                                                                    class="form-control s_website_form_input"
-                                                                    name="description"
-                                                                    required="True"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- ATTACHMENTS -->
-                                                <div
-                                                    class="form-group row form-field o_website_form_custom"
-                                                    data-type="binary"
-                                                    data-name="Block"
-                                                >
-                                                    <div class="container">
-                                                        <div
-                                                            class="row s_col_no_resize s_col_no_bgcolor"
-                                                        >
-                                                            <label
-                                                                class="col-form-label col-auto s_website_form_label"
-                                                                style="width: 200px"
-                                                                for="helpdesk5"
-                                                            >
-                                                                <span
-                                                                    class="s_website_form_label_content"
-                                                                >Attachment(s)
-                                                                </span>
-                                                            </label>
-                                                            <div
-                                                                class="col-sm col-xs-12"
-                                                            >
-                                                                <input
-                                                                    id="helpdesk5"
-                                                                    type="file"
-                                                                    name="attachments"
-                                                                    class="form-control s_website_form_input"
-                                                                    multiple="true"
-                                                                    accept="image/*,application/pdf,video/*"
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- SUBMIT BUTTON -->
-                                                <div
-                                                    class="form-group form-field s_website_form_submit"
-                                                >
-                                                    <button
-                                                        class="btn btn-primary btn-lg s_website_form_send"
-                                                    >Submit
-                                                        Ticket
-                                                    </button>
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </section>
-                            </div>
+                                            <!-- EMAIL -->
+                                            <div
+                                                class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                data-type="email"
+                                                data-name="Block"
+                                            >
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="id_email_field"
+                                                        >
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Email
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm col-xs-12">
+                                                            <input
+                                                                id="id_email_field"
+                                                                type='email'
+                                                                class='form-control s_website_form_input'
+                                                                required="True"
+                                                                name="email"
+                                                                readonly="False"
+                                                                t-if="id_user"
+                                                                t-attf-value="#{email}"
+                                                            />
+                                                            <input
+                                                                id="id_email_field"
+                                                                type='email'
+                                                                class='form-control s_website_form_input'
+                                                                required="True"
+                                                                name="email"
+                                                                t-else=""
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- CATEGORIES -->
+                                            <div
+                                                class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                data-type="select"
+                                                data-name="Block"
+                                            >
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="id_category_field"
+                                                        >
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Categories
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm col-xs-12">
+                                                            <select
+                                                                class='form-control s_website_form_input'
+                                                                id="id_category_field"
+                                                                name="category"
+                                                                required="True"
+                                                            >
+                                                                <t
+                                                                    t-foreach="categories"
+                                                                    t-as="cat"
+                                                                >
+                                                                    <option
+                                                                        t-attf-value="#{cat.id}"
+                                                                    >
+                                                                        <t
+                                                                            t-esc="cat.name"
+                                                                        />
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- SUBJECT -->
+                                            <div
+                                                class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                data-type="char"
+                                                data-name="Block"
+                                            >
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="id_subject_field"
+                                                        >
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Subject
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm col-xs-12">
+                                                            <input
+                                                                id="id_subject_field"
+                                                                type="text"
+                                                                class="form-control s_website_form_input"
+                                                                name="subject"
+                                                                required="1"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- DESCRIPTION -->
+                                            <div
+                                                class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                                data-type="char"
+                                                data-name="Block"
+                                            >
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="id_description_field"
+                                                        >
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Description
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm col-xs-12">
+                                                            <textarea
+                                                                id="id_description_field"
+                                                                class="form-control s_website_form_input"
+                                                                name="description"
+                                                                required="True"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ATTACHMENTS -->
+                                            <div
+                                                class="form-group row form-field o_website_form_custom"
+                                                data-type="binary"
+                                                data-name="Block"
+                                            >
+                                                <div class="container">
+                                                    <div
+                                                        class="row s_col_no_resize s_col_no_bgcolor"
+                                                    >
+                                                        <label
+                                                            class="col-form-label col-auto s_website_form_label"
+                                                            style="width: 200px"
+                                                            for="helpdesk5"
+                                                        >
+                                                            <span
+                                                                class="s_website_form_label_content"
+                                                            >Attachment(s)
+                                                            </span>
+                                                        </label>
+                                                        <div class="col-sm col-xs-12">
+                                                            <input
+                                                                id="helpdesk5"
+                                                                type="file"
+                                                                name="attachments"
+                                                                class="form-control s_website_form_input"
+                                                                multiple="true"
+                                                                accept="image/*,application/pdf,video/*"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- SUBMIT BUTTON -->
+                                            <div
+                                                class="form-group form-field s_website_form_submit"
+                                            >
+                                                <button
+                                                    class="btn btn-primary btn-lg s_website_form_send"
+                                                >Submit
+                                                    Ticket
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
                         </div>
                     </div>
                     <div class="oe_structure" id="oe_structure_website_bot" />
                 </div>
             </div>
         </t>
+    </template>
+    <!---
+     The ticket creation is separated into three templates as I do not know any other way to allow different templates spawned from a single one to coexist separately, this is:
+    the former template for creating tickets -`portal_create_ticket`- was rendered by all teams' webforms and was user-editable, which meant that any modifications
+    made by the localization team (demo data) will also affect the helpdesk team (demo data) rendered website, as an example.
+
+     This three-way template separation alongside a dynamic `ir.ui.view` many2one record assigned to each team allows to modify and persist the changes of a team webform
+    -->
+    <!-- Ticket creation main layout which defines the needed website.layout `t` tag -->
+    <template id="portal_create_ticket_main_layout" name="Create ticket">
+        <t t-call="website.layout">
+            <div id="wrap" class="container mt-4">
+            </div>
+        </t>
+    </template>
+    <!-- Main form which displays what a user can see, from the title to the input tags.
+    As mentioned before, this template is assigned to all teams which have a webform endpoint as a `ir.ui.view` many2one object
+    -->
+    <template id="portal_create_ticket_inner_form" name="Create ticket inner form">
+        <!-- Ticket creation inner form definition.  -->
+        <div class="oe_structure">
+            <section class="pt8 pb8">
+                <div class="container">
+                    <div class="row s_nb_column_fixed">
+                        <div class="col-lg-12 s_title pt16 pb16">
+                            <h1>Send a new ticket</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="row mb16">
+            <div class="oe_structure" id="oe_structure_website_top" />
+            <div class="col-md-9 pl-4">
+                <div class="container">
+                    <section
+                        class="s_website_form"
+                        data-vcss="001"
+                        data-snippet="s_website_form"
+                    >
+                        <div class="container">
+                            <form
+                                action="/help/ticket/submit"
+                                method="POST"
+                                class="s_website_form container-fluid mt32"
+                                enctype="multipart/form-data"
+                                data-success_page="/help/thankyou"
+                            >
+                                <div class="s_website_form_rows s_col_no_bgcolor">
+                                    <!-- TOKEN -->
+                                    <input
+                                        type="hidden"
+                                        name="csrf_token"
+                                        t-att-value="request.csrf_token()"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="id_team"
+                                        t-attf-value="#{id_team}"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="id_user"
+                                        t-attf-value="#{id_user}"
+                                    />
+                                    <!-- NAME -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                        data-type="char"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="id_name_field"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Name
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input
+                                                        id="id_name_field"
+                                                        type="text"
+                                                        class="form-control o_website_form_input"
+                                                        required="True"
+                                                        name="name"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- EMAIL -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                        data-type="email"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="id_email_field"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Email
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input
+                                                        id="id_email_field"
+                                                        type='email'
+                                                        class='form-control s_website_form_input'
+                                                        required="True"
+                                                        name="email"
+                                                        readonly="False"
+                                                        t-if="id_user"
+                                                        t-attf-value="#{email}"
+                                                    />
+                                                    <input
+                                                        id="id_email_field"
+                                                        type='email'
+                                                        class='form-control s_website_form_input'
+                                                        required="True"
+                                                        name="email"
+                                                        t-else=""
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- CATEGORIES -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                        data-type="select"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="id_category_field"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Categories
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <select
+                                                        class='form-control s_website_form_input'
+                                                        id="id_category_field"
+                                                        name="category"
+                                                        required="True"
+                                                    >
+                                                        <t
+                                                            t-foreach="categories"
+                                                            t-as="cat"
+                                                        >
+                                                            <option
+                                                                t-attf-value="#{cat.id}"
+                                                            >
+                                                                <t t-esc="cat.name" />
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- SUBJECT -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                        data-type="char"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="id_subject_field"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Subject
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input
+                                                        id="id_subject_field"
+                                                        type="text"
+                                                        class="form-control s_website_form_input"
+                                                        name="subject"
+                                                        required="1"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- DESCRIPTION -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom o_website_form_required_custom"
+                                        data-type="char"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="id_description_field"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Description
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <textarea
+                                                        id="id_description_field"
+                                                        class="form-control s_website_form_input"
+                                                        name="description"
+                                                        required="True"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ATTACHMENTS -->
+                                    <div
+                                        class="form-group row form-field o_website_form_custom"
+                                        data-type="binary"
+                                        data-name="Block"
+                                    >
+                                        <div class="container">
+                                            <div
+                                                class="row s_col_no_resize s_col_no_bgcolor"
+                                            >
+                                                <label
+                                                    class="col-form-label col-auto s_website_form_label"
+                                                    style="width: 200px"
+                                                    for="helpdesk5"
+                                                >
+                                                    <span
+                                                        class="s_website_form_label_content"
+                                                    >Attachment(s)
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm col-xs-12">
+                                                    <input
+                                                        id="helpdesk5"
+                                                        type="file"
+                                                        name="attachments"
+                                                        class="form-control s_website_form_input"
+                                                        multiple="true"
+                                                        accept="image/*,application/pdf,video/*"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- SUBMIT BUTTON -->
+                                    <div
+                                        class="form-group form-field s_website_form_submit"
+                                    >
+                                        <button
+                                            class="btn btn-primary btn-lg s_website_form_send"
+                                        >Submit
+                                            Ticket
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="oe_structure" id="oe_structure_website_bot" />
+        </div>
+    </template>
+    <!-- Template wrapper which inherits the main layout -->
+    <template
+        id="portal_create_ticket_wrapper"
+        name="Create ticket wrapper"
+        inherit_id="helpdesk_mgmt.portal_create_ticket_main_layout"
+    >
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div t-if="team_id.endpoint_view_id">
+                <t t-set="inner_form_xmlid" t-value="team_id.endpoint_view_id.xml_id" />
+                <t t-call="#{inner_form_xmlid}" />
+            </div>
+            <div t-else="view_id">
+                <t t-set="inner_form_xmlid" t-value="view_id" />
+                <t t-call="#{inner_form_xmlid}" />
+            </div>
+        </xpath>
     </template>
     <template id="portal_thankyou_ticket" name="Thank you for your ticket submission">
         <t t-call="website.layout">
