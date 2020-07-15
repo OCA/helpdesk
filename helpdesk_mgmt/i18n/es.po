@@ -23,6 +23,15 @@ msgstr ""
 "${object.company_id.name} Ticket Asignado (Ref ${object.name or 'n/a' })"
 
 #. module: helpdesk_mgmt
+#: model:mail.template,subject:helpdesk_mgmt.user_resolution_email_template
+msgid ""
+" Ticket Resolution Assignment (Ref ${object.number or 'n/a' })\n"
+"            "
+msgstr ""
+" Asignación de resolución de ticket (Ref ${object.number or 'n/a' })\n"
+"            "
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
 msgid "&amp;times;"
 msgstr ""
@@ -31,15 +40,29 @@ msgstr ""
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
 msgid ""
 "<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.user_id.name},</p>\n"
+"<data><p>Hello ${object.partner_name},</p>\n"
 "        <p>The ticket ${object.number} has been assigned to you.</p>\n"
 "      </data>"
 msgstr ""
 "<?xml version=\"1.0\"?>\n"
-"<data><p>Hola ${object.user_id.name},</p>\n"
+"<data><p>Hola ${object.partner_name},</p>\n"
 "        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
 "      </data>"
 
+#. module: helpdesk_mgmt
+#: model:mail.template,body_html:helpdesk_mgmt.user_resolution_email_template
+msgid ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Hello ${object.user_id.name},</p>\n"
+"                <p>The ${object.name} ticket's resolution has been assigned to you.</p>\n"
+"                <p>You have been added as a follower of the aforementioned document</p>\n"
+"            </data>"
+msgstr ""
+"<?xml version=\"1.0\"?>\n"
+"<data><p>Hola ${object.user_id.name},</p>\n"
+"                <p>Se te ha asignado la resolución del ticket ${object.name}.</p>\n"
+"                <p>Has sido añadido como seguidor del documento mencionado.</p>\n"
+"            </data>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid ""
@@ -288,13 +311,16 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Attachment(s)\n"
 "                                                            </span>"
 msgstr ""
-
+"<span class=\"s_website_form_label_content\">Ficheros adjuntos\n"
+"                                                            </span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
 msgid ""
 "<span class=\"s_website_form_label_content\">Attachment(s)\n"
 "                                                    </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Ficheros adjuntos\n"
+"                                                    </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
@@ -302,13 +328,16 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Categories\n"
 "                                                            </span>"
 msgstr ""
-
+"<span class=\"s_website_form_label_content\">Categorías\n"
+"                                                            </span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
 msgid ""
 "<span class=\"s_website_form_label_content\">Categories\n"
 "                                                    </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Categorías\n"
+"                                                            </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
@@ -316,13 +345,16 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Description\n"
 "                                                            </span>"
 msgstr ""
-
+"<span class=\"s_website_form_label_content\">Descripción\n"
+"                                                            </span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
 msgid ""
 "<span class=\"s_website_form_label_content\">Description\n"
 "                                                    </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Descripción\n"
+"                                                            </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
@@ -344,13 +376,16 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Name\n"
 "                                                            </span>"
 msgstr ""
-
+"<span class=\"s_website_form_label_content\">Nombre\n"
+"                                                            </span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
 msgid ""
 "<span class=\"s_website_form_label_content\">Name\n"
 "                                                    </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Nombre\n"
+"                                                            </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
@@ -358,6 +393,8 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Subject\n"
 "                                                            </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Asunto\n"
+"                                                            </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
@@ -365,6 +402,8 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Subject\n"
 "                                                    </span>"
 msgstr ""
+"<span class=\"s_website_form_label_content\">Asunto\n"
+"                                                            </span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -387,6 +426,8 @@ msgid ""
 "A Python dictionary that will be evaluated to provide default values when "
 "creating new records for this alias."
 msgstr ""
+"Un diccionario python el cual será evaluado para proveer valores por defecto cuando "
+"se creen nuevos registros para este alias."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -645,7 +686,7 @@ msgstr "Creado en"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Creation date"
-msgstr ""
+msgstr "Fecha de creación"
 
 #. module: helpdesk_mgmt
 #: code:addons/addons/helpdesk/helpdesk_mgmt/models/helpdesk_ticket.py:0
@@ -670,7 +711,7 @@ msgstr "Tablero"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_stage__auto_next_type__day
 msgid "Days"
-msgstr ""
+msgstr "Días"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__normal
@@ -782,6 +823,7 @@ msgid ""
 "Follow this salesteam to automatically track the events associated to users "
 "of this team."
 msgstr ""
+"Sigue a este equipo para estar al tanto de los eventos asociados a los usuarios del mismo."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_follower_ids
@@ -826,7 +868,7 @@ msgstr "Buscar categoría Helpdesk"
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_manager
 msgid "Helpdesk Manager"
-msgstr "Manager Helpdesk"
+msgstr "Manager helpdesk"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -836,7 +878,7 @@ msgstr "Equipo"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
 msgid "Helpdesk Team Search"
-msgstr "Buscar equipo Helpdesk"
+msgstr "Buscar equipo helpdesk"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -848,44 +890,44 @@ msgstr "Nombre del equipo..."
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Helpdesk Ticket"
-msgstr "Ticket Helpdesk"
+msgstr "Ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr "Categoría de ticket Helpdesk"
+msgstr "Categoría de ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_channel
 msgid "Helpdesk Ticket Channel"
-msgstr "Canal de ticket Helpdesk"
+msgstr "Canal de ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Estado de ticket Helpdesk"
+msgstr "Estado de ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
 msgid "Helpdesk Ticket Tag"
-msgstr "Etiqueta de ticket Helpdesk"
+msgstr "Etiqueta de ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Equipo de ticket Helpdesk"
+msgstr "Equipo de ticket helpdesk"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.ir_cron_subscription_management_ir_actions_server
 #: model:ir.cron,cron_name:helpdesk_mgmt.ir_cron_subscription_management
 #: model:ir.cron,name:helpdesk_mgmt.ir_cron_subscription_management
 msgid "Helpdesk: auto stage change"
-msgstr ""
+msgstr "Helpdesk: cambio automático de estado"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,description:helpdesk_mgmt.module_helpdesk_category
 msgid "Helps you handle your helpdesk security."
-msgstr "Ayuda a manejar tu seguridad de Helpdesk."
+msgstr "Ayuda a manejar tu seguridad de helpdesk."
 
 #. module: helpdesk_mgmt
 #: code:addons/addons/helpdesk/helpdesk_mgmt/models/helpdesk_ticket.py:0
@@ -908,7 +950,7 @@ msgstr "Historial"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_stage__auto_next_type__hour
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__id
@@ -943,7 +985,7 @@ msgstr ""
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
 msgid "If checked, new messages require your attention."
-msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
+msgstr "Si estás seleccionado nuevos mensajes necesitan tu atención."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
@@ -951,7 +993,7 @@ msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Si está seleccionado, algunos mensajes tuvieron error de entrega."
+msgstr "Si estás seleccionado, algunos mensajes tuvieron error de entrega."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -959,7 +1001,7 @@ msgid ""
 "If set an email will be sent to the customer when the ticketreaches this "
 "step."
 msgstr ""
-"Si está establecido, se enviará un email al cliente cuando el ticket alcance"
+"Si estás establecido, se enviará un email al cliente cuando el ticket alcance"
 " este estado."
 
 #. module: helpdesk_mgmt
@@ -971,12 +1013,12 @@ msgstr "En progreso"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_is_follower
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_is_follower
 msgid "Is Follower"
-msgstr "Es Seguidor"
+msgstr "Es seguidor"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__kanban_state
 msgid "Kanban State"
-msgstr "Estado Kanban"
+msgstr "Estado kanban"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket____last_update
@@ -1020,7 +1062,7 @@ msgstr "Última actualización en"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__email_cc
 msgid "List of cc from incoming emails."
-msgstr ""
+msgstr "Lista de CC de los emails de entrada"
 
 #. module: helpdesk_mgmt
 #: code:addons/addons/helpdesk/helpdesk_mgmt/models/helpdesk_ticket.py:0
@@ -1112,7 +1154,7 @@ msgstr "Nuevo"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "New Ticket"
-msgstr "Nuevo Ticket"
+msgstr "Nuevo ticket"
 
 #. module: helpdesk_mgmt
 #: code:addons/addons/helpdesk/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1214,6 +1256,7 @@ msgid ""
 "Numbers which are not multiple of ten are not advised, since the automatic "
 "check is done hourly"
 msgstr ""
+"No se recomienda usar números que no sean múltiplos de diez ya que la periodicidad es de hora en hora"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1274,7 +1317,10 @@ msgid ""
 "- partners: only authenticated partners\n"
 "- followers: only followers of the related document or members of following channels\n"
 msgstr ""
-
+"Política para enviar un mensaje en el documento usando «mailgateway».\n"
+"- everyone: todos pueden enviarpost\n"
+"- partners: solo los clientes autenticadosonly authenticated partners\n"
+"- followers: solo los seguidores de este documento\n"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
 msgid "Priority"
@@ -1298,6 +1344,15 @@ msgid ""
 "        defined members on the left of this field\n"
 "        "
 msgstr ""
+"Aleatorio y balanceado son ambos algoritmos de balanceo: `Aleatorio`\n"
+"        asegurará que todos los miembros tengan el mismo número de tickets mientras que `Balanceado`\n"
+"        asignará tickets al miembro con el menor número de tickets asignados y sin cerrar.\n"
+"        Por otra parte, la selección `Fija` asegurará que el miembro seleccionado en el campo\n"
+"        `Usuario fijo asignado` será siempre el elegido como el responsable del ticket.\n"
+"\n"
+"         Todas las asignaciones, ya sean manuales o automáticas, serán realizadas sobre los miembros designados\n"
+"        en la lista de miembros del equipo\n"
+"        "
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
@@ -1307,7 +1362,7 @@ msgstr "Listo para la siguiente etapa"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Recompute endpoint"
-msgstr ""
+msgstr "Recalcular URL"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
@@ -1335,7 +1390,7 @@ msgstr "Usuario Responsable"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Restore endpoint view"
-msgstr ""
+msgstr "Restaurar vistas de la página web"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -1343,6 +1398,8 @@ msgid ""
 "Restoring the endpoint's view will undo and **DELETE** all user-made changes"
 " to the webform. Are you sure you want to proceed?"
 msgstr ""
+"Restaurar las vistas de la página web deshará y **BORRARRÁ** cualquier cambio hecho a niel de usuario."
+" ¿Quieres proceder?"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
@@ -1354,7 +1411,7 @@ msgstr "Error de entrega del SMS"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout
 msgid "Send a new ticket"
-msgstr ""
+msgstr "Enviar nuevo ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__sequence
@@ -1409,6 +1466,8 @@ msgid ""
 "Submit\n"
 "                                                    Ticket"
 msgstr ""
+"Enviar\n"
+
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_inner_form
@@ -1416,6 +1475,7 @@ msgid ""
 "Submit\n"
 "                                            Ticket"
 msgstr ""
+"Enviar\n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
@@ -1446,7 +1506,7 @@ msgstr "Equipos"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
 msgid "Thanks!"
-msgstr ""
+msgstr "¡Gracias!"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
@@ -1456,6 +1516,10 @@ msgid ""
 "automatically create new tickets assigned                                to "
 "the channel."
 msgstr ""
+"El email asocaido con                                este "
+"canal. Los nuevos emails recibidos                                "
+"crearán automáticamente nuevos tickets asignados                                al "
+"canal."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
@@ -1464,6 +1528,9 @@ msgid ""
 " email that does not reply to an existing record will cause the creation of "
 "a new record of this model (e.g. a Project Task)"
 msgstr ""
+"El modelo (documento Odoo) al que el alias corresponde. Cualquier email de entrada"
+" que no responda a un record existente creará "
+"uno nuevo de este modelo (por ejemplo, una tarea de proyecto)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
@@ -1471,6 +1538,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
+"El nombre del alias de email, por ejemplo 'contacto' si quieres recoger emails de  "
+"<contacto@example.odoo.com>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
@@ -1480,6 +1549,9 @@ msgid ""
 "the sender (From) address, or will use the Administrator account if no "
 "system user is found for that address."
 msgstr ""
+"El dueño de los records creados al recibir emails a este alias. Si este "
+"campo no tiene valor el sistema intentará buscar el dueño correcto con una búsqueda basada en "
+"el la dirección de envio (Desde) o usará el administrador de la cuenta si no se encuentra ningún usuario"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
@@ -1660,14 +1732,14 @@ msgstr "Mensajes de la Web"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Historial de comunicación del sitio web"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_stage__auto_next_type__week
 msgid "Weeks"
-msgstr ""
+msgstr "Semanas"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
 msgid "Your ticket has been sent successfully."
-msgstr ""
+msgstr "Tu tíquet se ha enviado satisfactoriamente"

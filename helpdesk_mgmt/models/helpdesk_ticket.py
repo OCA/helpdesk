@@ -97,7 +97,7 @@ class HelpdeskTicket(models.Model):
         comodel_name="helpdesk.ticket.channel",
         string="Channel",
         help="Channel indicates where the source of a ticket"
-             "comes from (it could be a phone call, an email...)",
+        "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
@@ -186,12 +186,16 @@ class HelpdeskTicket(models.Model):
                 id_partner = _user_id.partner_id.id
             if id_partner not in record.message_follower_ids.mapped("partner_id.id"):
                 record.env["mail.followers"].create(
-                    {"res_id": record.id, "res_model": record._name, "partner_id": id_partner}
+                    {
+                        "res_id": record.id,
+                        "res_model": record._name,
+                        "partner_id": id_partner,
+                    }
                 )
 
-                record.env.ref("helpdesk_mgmt.user_resolution_email_template").send_mail(
-                    record.id
-                )
+                record.env.ref(
+                    "helpdesk_mgmt.user_resolution_email_template"
+                ).send_mail(record.id)
             if delete_follower_user_id:
                 record.message_follower_ids.filtered(
                     lambda x: x.partner_id.id == delete_follower_user_id.partner_id.id

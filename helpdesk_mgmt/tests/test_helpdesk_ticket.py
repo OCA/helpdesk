@@ -125,15 +125,21 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(self.auto_stage_ticket_id.stage_id.id, self.stage_closed.id)
 
     def _get_ticket_resolution_mail_size(self) -> int:
-        return len(self.env['mail.mail'].search([('subject', 'ilike', 'ticket Resolution assignment')]))
+        return len(
+            self.env["mail.mail"].search(
+                [("subject", "ilike", "ticket Resolution assignment")]
+            )
+        )
 
     def test_automatic_assign(self):
         mail_size: int = self._get_ticket_resolution_mail_size()
-        demo2 = self.env["res.users"].create({
-            "name": "demo2",
-            "login": "demo2",
-            "partner_id": self.user_demo.partner_id.id
-        })
+        demo2 = self.env["res.users"].create(
+            {
+                "name": "demo2",
+                "login": "demo2",
+                "partner_id": self.user_demo.partner_id.id,
+            }
+        )
         self.team_id.user_ids = [(4, demo2.id)]
         self.assertEqual(len(self.team_id.user_ids), 2)
 
