@@ -87,6 +87,16 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
         self.assertEqual(
             _team_id.endpoint_webform, "{}-{}".format(team_endpoint, _team_id.id)
         )
+        self.assertNotEqual(_team_id.endpoint_view_id.id, False)
+        _team_id.endpoint_view_id.unlink()
+        self.assertEqual(_team_id.endpoint_view_id.id, False)
+        _team_id.compute_endpoint_view_id()
+        self.assertNotEqual(_team_id.endpoint_view_id.id, False)
+        self.assertEqual(
+            _team_id.endpoint_view_id.xml_id,
+            f"{self.env.ref('helpdesk_mgmt.portal_create_ticket_inner_form').xml_id}"
+            f"_{_team_id.id}",
+        )
         self.assertEqual(
             _team_id.endpoint_full_webform,
             "help/team/{}-{}".format(team_endpoint, _team_id.id),
