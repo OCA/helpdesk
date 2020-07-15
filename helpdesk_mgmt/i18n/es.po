@@ -23,63 +23,17 @@ msgstr ""
 "${object.company_id.name} Ticket Asignado (Ref ${object.name or 'n/a' })"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,subject:helpdesk_mgmt.user_resolution_email_template
-msgid ""
-" Ticket Resolution Assignment (Ref ${object.number or 'n/a' })\n"
-"            "
-msgstr ""
-" Asignación de resolución de ticket (Ref ${object.number or 'n/a' })\n"
-"            "
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
-msgid "&amp;times;"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
 msgid ""
 "<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.partner_name},</p>\n"
-"        <p>The ticket ${object.number} has been assigned to you.</p>\n"
-"      </data>"
-msgstr ""
-"<?xml version=\"1.0\"?>\n"
-"<data><p>Hola ${object.partner_name},</p>\n"
-"        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
-"      </data>"
-
-#. module: helpdesk_mgmt
-#: model:mail.template,body_html:helpdesk_mgmt.user_resolution_email_template
-msgid ""
-"<?xml version=\"1.0\"?>\n"
 "<data><p>Hello ${object.user_id.name},</p>\n"
-"                <p>The ${object.name} ticket's resolution has been assigned to you.</p>\n"
-"                <p>You have been added as a follower of the aforementioned document</p>\n"
+"                <p>The ticket ${object.number} has been assigned to you.</p>\n"
 "            </data>"
 msgstr ""
 "<?xml version=\"1.0\"?>\n"
 "<data><p>Hola ${object.user_id.name},</p>\n"
-"                <p>Se te ha asignado la resolución del ticket ${object.name}.</p>\n"
-"                <p>Has sido añadido como seguidor del documento mencionado.</p>\n"
+"                <p>Se te ha asignado el ticket ${object.number}.</p>\n"
 "            </data>"
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <b>Category:</b>"
-msgstr ""
-"<br/>\n"
-"                          <b>Categoría:</b>"
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <b>Stage:</b>"
-msgstr ""
-"<br/>\n"
-"                          <b>Estado:</b>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -107,7 +61,7 @@ msgid ""
 "                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hello ${object.user_id.name},</p>\n"
+"                                <p>Hello ${object.partner_id.name},</p>\n"
 "                                <p>The ticket ${object.number} has been closed.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
@@ -161,7 +115,7 @@ msgstr ""
 "                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>Hola ${object.partner_id.name},</p>\n"
 "                                <p>El ticket ${object.number} ha sido cerrado.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
@@ -218,7 +172,7 @@ msgid ""
 "                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hello ${object.user_id.name},</p>\n"
+"                                <p>Hello ${object.partner_id.name},</p>\n"
 "                                <p>The ticket ${object.number} stage has changed to ${object.stage_id.name}.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
@@ -248,7 +202,7 @@ msgid ""
 "                </body>\n"
 "                </html>\n"
 "            \n"
-"      "
+"            "
 msgstr ""
 "<html>\n"
 "                <head></head>\n"
@@ -273,7 +227,7 @@ msgstr ""
 "                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
 "                            <tbody>\n"
 "                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
-"                                <p>Hola ${object.user_id.name},</p>\n"
+"                                <p>Hola ${object.partner_id.name},</p>\n"
 "                                <p>El ticket ${object.number} ha cambiado de estado a ${object.stage_id.name}.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
@@ -304,6 +258,29 @@ msgstr ""
 "                </html>\n"
 "            \n"
 "      "
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
+msgid "&amp;times;"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid ""
+"<br/>\n"
+"                                    <b>Category:</b>"
+msgstr ""
+"<br/>\n"
+"                          <b>Categoría:</b>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid ""
+"<br/>\n"
+"                                    <b>Stage:</b>"
+msgstr ""
+"<br/>\n"
+"                          <b>Estado:</b>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket_main_root_layout

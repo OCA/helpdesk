@@ -132,7 +132,6 @@ class TestHelpdeskTicket(common.SavepointCase):
         )
 
     def test_automatic_assign(self):
-        mail_size: int = self._get_ticket_resolution_mail_size()
         demo2 = self.env["res.users"].create(
             {
                 "name": "demo2",
@@ -151,16 +150,12 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(self.auto_assign_ticket_id.user_id.id, self.user_demo.id)
         self.auto_assign_ticket_id.user_id = None
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
-        self.assertGreater(self._get_ticket_resolution_mail_size(), mail_size)
-        mail_size = self._get_ticket_resolution_mail_size()
         # Fixed
         self.team_id.auto_assign_type = "fixed"
         self.team_id._onchange_assign_user_domain()
         self.assertEqual(self.auto_assign_ticket_id.user_id.id, self.user_demo.id)
         self.auto_assign_ticket_id.user_id = None
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
-        self.assertGreater(self._get_ticket_resolution_mail_size(), mail_size)
-        mail_size = self._get_ticket_resolution_mail_size()
         # Random
         # We can't really test randomness, so the only check one can make in this chase
         # is if the result user happens to be a member of the user_ids list
@@ -168,8 +163,6 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertIn(self.auto_assign_ticket_id.user_id, self.team_id.user_ids)
         self.auto_assign_ticket_id.user_id = None
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
-        self.assertGreater(self._get_ticket_resolution_mail_size(), mail_size)
-        mail_size = self._get_ticket_resolution_mail_size()
         # Balanced
         self.team_id.auto_assign_type = "balanced"
 
@@ -182,5 +175,4 @@ class TestHelpdeskTicket(common.SavepointCase):
                 lambda x: x != self.auto_assign_ticket_id.user_id
             ).id,
         )
-        self.assertGreater(self._get_ticket_resolution_mail_size(), mail_size)
         demo2.unlink()
