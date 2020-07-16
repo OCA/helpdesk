@@ -43,8 +43,17 @@ class HelpdeskTicket(models.Model):
                 _user_id = self.search_user_id_by_strategy()
                 self.user_id = _user_id.id if _user_id else None
 
-    def _inverse_automatic_user_assignment(self):
-        pass
+
+    # def _get_user_domain(self):
+    #
+    #         # if rec.user_id and rec.user_ids and rec.user_id not in rec.team_id.user_ids:
+    #         #     rec.update({"user_id": False})
+    #     res = [("share", "=", False)]
+    #     if self.team_id and self.team_id.user_ids and self.user_id in self.team_id.user_ids:
+    #         import pdb; pdb.set_trace()
+    #         res.append(("id", "in", self.user_ids.ids))
+    #     print(res)
+    #     return res
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
@@ -59,7 +68,7 @@ class HelpdeskTicket(models.Model):
         string="Assigned user",
         compute=_compute_automatic_user_assignment,
         store=True,
-        inverse=_inverse_automatic_user_assignment,
+        readonly=False
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -77,6 +86,9 @@ class HelpdeskTicket(models.Model):
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
+    computed_domain = fields.Boolean(
+        compute="_compute_computed_domain"
+    )
 
     last_stage_update = fields.Datetime(
         string="Last Stage Update", default=fields.Datetime.now
@@ -174,18 +186,32 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange("team_id", "user_id")
     def _onchange_domain_user_id(self):
-        if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
-            self.update({"user_id": False})
+        res = ""
         if self.team_id and self.team_id.user_ids:
-            return {
+            if self.user_id not in self.team_id.user_ids:
+                self.update({"user_id": False})
+            res = {
                 "domain": {
-                    "user_id": [("id", "in", self.user_ids.ids), ("share", "=", False)]
+                    "user_id": [
+                        ("id", "in", self.team_id.user_ids.ids), ("share", "=", False)
+                    ]
                 }
             }
-        if self.team_id and not self.team_id.user_ids:
-            return {"domain": {"user_id": [("share", "=", False)]}}
         else:
-            return {"domain": {"user_id": []}}
+            res = {
+                "domain": {
+                    "user_id": [
+                        ("share", "=", False)
+                    ]
+                }
+            }
+        print(res)
+        return res
+
+    def _compute_computed_domain(self):
+        for record in self:
+            record._onchange_domain_user_id()
+            record.computed_domain = True
 
     # ---------------------------------------------------
     # CRUD
