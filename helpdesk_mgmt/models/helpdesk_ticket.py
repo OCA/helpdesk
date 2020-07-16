@@ -30,18 +30,22 @@ class HelpdeskTicket(models.Model):
         :return: user_id: for debugging purposes, as computation methods
         have to assign the value directly to the field
         """
-        if self.team_id.auto_assign_type != "manual" and not self.user_id:
-            if (
-                self.team_id.auto_assign_type == "fixed"
-                and self.team_id.auto_assign_fixed_user_id
-            ):
-                self.user_id = self.team_id.auto_assign_fixed_user_id.id
-            elif self.team_id.user_ids and (
-                self.team_id.auto_assign_type == "random"
-                or self.team_id.auto_assign_type == "balanced"
-            ):
-                _user_id = self.search_user_id_by_strategy()
-                self.user_id = _user_id.id if _user_id else None
+        for record in self:
+            user_id = record.user_id
+            if record.team_id.auto_assign_type != "manual" and not record.user_id:
+                if (
+                    record.team_id.auto_assign_type == "fixed"
+                    and record.team_id.auto_assign_fixed_user_id
+                ):
+                    record.user_id = record.team_id.auto_assign_fixed_user_id.id
+                elif record.team_id.user_ids and (
+                    record.team_id.auto_assign_type == "random"
+                    or record.team_id.auto_assign_type == "balanced"
+                ):
+                    _user_id = record.search_user_id_by_strategy()
+                    record.user_id = _user_id.id if _user_id else None
+            if isinstance(record.user_id.id, int) and record.user_id.id != user_id.id:
+                record.send_user_mail()
 
     def _inverse_automatic_user_assignment(self):
         pass
@@ -166,6 +170,42 @@ class HelpdeskTicket(models.Model):
             selected_member = selected_member[1] if selected_member else None
         return selected_member
 
+    # # not needed as if this commit, but it may be useful in the future
+    # # please change or delete this comment when appropriate
+    # def notify_user(self, id_user=None, delete_follower_user_id=None):
+    #     """
+    #      Notifies the assigned user that the ticket resolution is now their
+    #     responsibility and it adds them as this record's follower
+    #     :param id_user: by default the self.user_id will be used
+    #     but as this method can -and will- be called before the user changes,
+    #     one can provide beforehand the user's id, if it is known --
+    #     this is useful when calling from the write() method
+    #     :param delete_follower_user_id: a res.users record of an existing
+    #     partner_id which is part of the message_follower_ids records --
+    #     it is used to delete the previous user_id as follower
+    #     """
+    #     for record in self:
+    #         id_partner = record.user_id.partner_id.id
+    #         if id_user:
+    #             _user_id = record.env["res.users"].browse([id_user])
+    #             id_partner = _user_id.partner_id.id
+    #         if id_partner not in record.message_follower_ids.mapped("partner_id.id"):
+    #             record.env["mail.followers"].create(
+    #                 {
+    #                     "res_id": record.id,
+    #                     "res_model": record._name,
+    #                     "partner_id": id_partner,
+    #                 }
+    #             )
+    #
+    #             record.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(
+    #                 record.id
+    #             )
+    #         if delete_follower_user_id:
+    #             record.message_follower_ids.filtered(
+    #                 lambda x: x.partner_id.id == delete_follower_user_id.partner_id.id
+    #             ).unlink()
+
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
@@ -217,14 +257,15 @@ class HelpdeskTicket(models.Model):
         return res
 
     def write(self, vals):
-        for _ticket in self:
+        for __ in self:
             now = fields.Datetime.now()
             if vals.get("stage_id"):
                 stage = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
                 vals["last_stage_update"] = now
                 if stage.closed:
                     vals["closed_date"] = now
-            if vals.get("user_id"):
+            id_user = vals.get("user_id")
+            if id_user:
                 vals["assigned_date"] = now
 
         res = super().write(vals)
@@ -233,6 +274,7 @@ class HelpdeskTicket(models.Model):
         for ticket in self:
             if vals.get("user_id"):
                 ticket.send_user_mail()
+
         return res
 
     def action_duplicate_tickets(self):
