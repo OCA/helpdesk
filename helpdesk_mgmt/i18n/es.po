@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-17 08:43+0000\n"
-"PO-Revision-Date: 2020-05-18 12:19+0000\n"
-"Last-Translator: Josep M <jmyepes@mac.com>\n"
+"PO-Revision-Date: 2020-07-17 15:19+0000\n"
+"Last-Translator: j-zaballa <jonzaballa@digital5.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1173,47 +1173,43 @@ msgstr "Usuario Responsable"
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:84
 #, python-format
 msgid "Search in All"
-msgstr ""
+msgstr "Buscar en todo"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
-#, fuzzy, python-format
-#| msgid "Assigned user"
+#, python-format
 msgid "Search in Assigned users"
-msgstr "Usuario asignado"
+msgstr "Buscar en usuarios asignados"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
-#, fuzzy, python-format
-#| msgid "Categories"
+#, python-format
 msgid "Search in Categories"
-msgstr "Categorías"
+msgstr "Buscar en categorías"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:83
 #, python-format
 msgid "Search in Content"
-msgstr ""
+msgstr "Buscar en contenido"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
-#, fuzzy, python-format
-#| msgid "Description"
+#, python-format
 msgid "Search in Descriptions"
-msgstr "Descripción"
+msgstr "Buscar en descripciones"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:80
-#, fuzzy, python-format
-#| msgid "Unread Messages"
+#, python-format
 msgid "Search in Messages"
-msgstr "Mensajes sin leer"
+msgstr "Buscar en mensajes"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:69
 #, python-format
 msgid "Search in Names"
-msgstr ""
+msgstr "Buscar en nombres"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
