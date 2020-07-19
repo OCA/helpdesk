@@ -154,8 +154,38 @@ msgid "<html>\n"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<span>Ticket #</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span>View</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Assigned user:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Category:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Channel:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Closed Date:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Created on:</strong>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -166,6 +196,26 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Last Stage Update:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Priority:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Stage:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Tag:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "<strong>Team:</strong>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -433,6 +483,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+msgid "Description:"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1111,6 +1166,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid "This stage is folded in the kanban view when there are no records in that stage to display."
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.actions.report,name:helpdesk_mgmt.action_report_helpdesk_ticket
+msgid "Ticket"
 msgstr ""
 
 #. module: helpdesk_mgmt
