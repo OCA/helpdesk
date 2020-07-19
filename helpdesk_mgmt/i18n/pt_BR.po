@@ -539,12 +539,12 @@ msgid "History"
 msgstr "Histórico"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_id_2111
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_id_2101
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_id_2149
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_id_2139
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id_2080
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id_2118
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_id_2130
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_id_2168
 msgid "ID"
 msgstr "ID"
 
