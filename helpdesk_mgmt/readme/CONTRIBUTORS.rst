@@ -27,7 +27,7 @@
 
   * Pedro M. Baeza
 
-* `ID42 Sistemas <https://www.id42.com.br>`_:
+* `Escodoo <https://www.escodoo.com.br>`_:
 
-  * Marcel Savegnago
-  * Eduardo Aparício
+  * Marcel Savegnago <marcel.savegnago@escodoo.com.br>
+  * Eduardo Aparício <eduardo.aparicio@escodoo.com.br>

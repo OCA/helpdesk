@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_helpdesk_ticket_document">
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)" />
+
+                <t t-set="address">
+                    <div t-field="doc.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}' />
+                    <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'" />: <span t-field="doc.partner_id.vat" /></p>
+                </t>
+
+                <div class="page">
+                    <div class="oe_structure" />
+
+                    <h2 class="mt16">
+                        <t>
+                            <span>Ticket #</span>
+                        </t>
+                        <span t-field="doc.number" />
+                    </h2>
+
+                    <h3 class="mt16">
+                        <span t-field="doc.name" />
+                    </h3>
+
+                    <div class="row mt32 mb32" id="informations">
+                        <div t-if="doc.team_id" class="col-auto mw-100 mb-2">
+                            <strong>Team:</strong>
+                            <p class="m-0" t-field="doc.team_id" />
+                        </div>
+
+                        <div t-if="doc.user_id" class="col-auto mw-100 mb-2">
+                            <strong>Assigned user:</strong>
+                            <p class="m-0" t-field="doc.user_id" />
+                        </div>
+
+                        <div t-if="doc.create_date" class="col-auto mw-100 mb-2">
+                            <strong>Created on:</strong>
+                            <p class="m-0" t-field="doc.create_date" />
+                        </div>
+
+                        <div t-if="doc.closed_date" class="col-auto mw-100 mb-2">
+                            <strong>Closed Date:</strong>
+                            <p class="m-0" t-field="doc.closed_date" />
+                        </div>
+
+                        <div t-if="doc.priority" class="col-auto mw-100 mb-2">
+                            <strong>Priority:</strong>
+                            <p class="m-0" t-field="doc.priority" />
+                        </div>
+
+                        <div t-if="doc.stage_id" class="col-auto mw-100 mb-2">
+                            <strong>Stage:</strong>
+                            <p class="m-0" t-field="doc.stage_id" />
+                        </div>
+                    </div>
+
+                    <div class="row mt32 mb32" id="ticket_informations">
+                        <div t-if="doc.channel_id" class="col-auto mw-100 mb-2">
+                            <strong>Channel:</strong>
+                            <p class="m-0" t-field="doc.channel_id" />
+                        </div>
+
+                        <div t-if="doc.category_id" class="col-auto mw-100 mb-2">
+                            <strong>Category:</strong>
+                            <p class="m-0" t-field="doc.category_id" />
+                        </div>
+
+                        <div t-if="doc.tag_ids" class="col-auto mw-100 mb-2">
+                            <strong>Tag:</strong>
+                            <p class="m-0" t-field="doc.tag_ids" />
+                        </div>
+                    </div>
+
+                    <div id="description">
+                        <div t-if="doc.description" >
+                            <h3>Description:</h3>
+                            <p t-field="doc.description"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_helpdesk_ticket">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="helpdesk_mgmt.report_helpdesk_ticket_document" t-lang="doc.partner_id.lang" />
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="action_report_helpdesk_ticket"
+            string="Ticket"
+            model="helpdesk.ticket"
+            report_type="qweb-pdf"
+            file="helpdesk_mgmt.report_helpdesk_ticket"
+            name="helpdesk_mgmt.report_helpdesk_ticket"
+            print_report_name="'Ticket - %s' % (object.name)"
+        />
+    </data>
+</odoo>
