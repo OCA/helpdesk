@@ -339,9 +339,51 @@ msgstr ""
 "      "
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<span>View</span>"
+msgid "<span>Ticket #</span>"
+msgstr "<span>Betrachten</span>"
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span>View</span>"
 msgstr "<span>Betrachten</span>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Assigned user:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Category:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Channel:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Closed Date:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Created on:</strong>"
+msgstr "<strong>Datum:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -352,6 +394,34 @@ msgstr "<strong>Datum:</strong>"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Last Stage Update:</strong>"
 msgstr "<strong>Letzte Aktualisierung:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Priority:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Stage:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Tag:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "<strong>Date:</strong>"
+msgid "<strong>Team:</strong>"
+msgstr "<strong>Datum:</strong>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_defaults
@@ -632,6 +702,13 @@ msgstr "Löschen"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
+msgstr "Beschreibung"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
+#, fuzzy
+#| msgid "Description"
+msgid "Description:"
 msgstr "Beschreibung"
 
 #. module: helpdesk_mgmt
@@ -1354,6 +1431,13 @@ msgid ""
 msgstr ""
 "Diese Stufe wird in der Kanbanansicht gefaltet, wenn in dieser Stufe keine "
 "anzuzeigenden Datensätze vorhanden sind."
+
+#. module: helpdesk_mgmt
+#: model:ir.actions.report,name:helpdesk_mgmt.action_report_helpdesk_ticket
+#, fuzzy
+#| msgid "Tickets"
+msgid "Ticket"
+msgstr "Tickets"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
