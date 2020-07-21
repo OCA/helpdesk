@@ -44,7 +44,7 @@ class HelpdeskTicket(models.Model):
                 ):
                     _user_id = record.search_user_id_by_strategy()
                     record.user_id = _user_id.id if _user_id else None
-            if isinstance(record.user_id.id, int) and record.user_id.id != user_id.id:
+            if isinstance(record.id, int) and record.user_id.id != user_id.id:
                 record.send_user_mail()
 
     @api.depends("team_id")
