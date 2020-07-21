@@ -44,11 +44,20 @@ class HelpdeskTicket(models.Model):
                 ):
                     _user_id = record.search_user_id_by_strategy()
                     record.user_id = _user_id.id if _user_id else None
-            if isinstance(record.user_id.id, int) and record.user_id.id != user_id.id:
+            if isinstance(record.id, int) and record.user_id.id != user_id.id:
                 record.send_user_mail()
 
-    def _inverse_automatic_user_assignment(self):
-        pass
+    @api.depends("team_id")
+    def _compute_domain_user_id(self):
+        for record in self:
+            if record.team_id and record.user_ids:
+                helpdesk_team = self.env["res.users"].search(
+                    [("id", "in", record.user_ids.ids)]
+                )
+                record.computed_domain_user_id = [(6, 0, helpdesk_team.ids)]
+            else:
+                helpdesk_team = self.env["res.users"].search([("share", "=", False)])
+                record.computed_domain_user_id = [(6, 0, helpdesk_team.ids)]
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
@@ -58,12 +67,15 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Text(required=True)
+    computed_domain_user_id = fields.Many2many(
+        "res.users", compute="_compute_domain_user_id"
+    )
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Assigned user",
         compute=_compute_automatic_user_assignment,
         store=True,
-        inverse=_inverse_automatic_user_assignment,
+        readonly=False,
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -81,7 +93,6 @@ class HelpdeskTicket(models.Model):
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
-
     last_stage_update = fields.Datetime(
         string="Last Stage Update", default=fields.Datetime.now
     )
@@ -214,18 +225,21 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange("team_id", "user_id")
     def _onchange_domain_user_id(self):
-        if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
-            self.update({"user_id": False})
+        res = ""
         if self.team_id and self.team_id.user_ids:
-            return {
+            if self.user_id not in self.team_id.user_ids:
+                self.update({"user_id": False})
+            res = {
                 "domain": {
-                    "user_id": [("id", "in", self.user_ids.ids), ("share", "=", False)]
+                    "user_id": [
+                        ("id", "in", self.team_id.user_ids.ids),
+                        ("share", "=", False),
+                    ]
                 }
             }
-        if self.team_id and not self.team_id.user_ids:
-            return {"domain": {"user_id": [("share", "=", False)]}}
         else:
-            return {"domain": {"user_id": []}}
+            res = {"domain": {"user_id": [("share", "=", False)]}}
+        return res
 
     # ---------------------------------------------------
     # CRUD
