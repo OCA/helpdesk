@@ -124,8 +124,21 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.env[self.stage_new._name].change_stage()
         self.assertEqual(self.auto_stage_ticket_id.stage_id.id, self.stage_closed.id)
 
+    def _get_ticket_resolution_mail_size(self) -> int:
+        return len(
+            self.env["mail.mail"].search(
+                [("subject", "ilike", "ticket Resolution assignment")]
+            )
+        )
+
     def test_automatic_assign(self):
-        demo2 = self.env["res.users"].create({"name": "demo2", "login": "demo2"})
+        demo2 = self.env["res.users"].create(
+            {
+                "name": "demo2",
+                "login": "demo2",
+                "partner_id": self.user_demo.partner_id.id,
+            }
+        )
         self.team_id.user_ids = [(4, demo2.id)]
         self.assertEqual(len(self.team_id.user_ids), 2)
 
@@ -139,14 +152,13 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
         self._onchange_domain_user_id()
         self._compute_domain_user_id()
-
+        
         # Fixed
         self.team_id.auto_assign_type = "fixed"
         self.team_id._onchange_assign_user_domain()
         self.assertEqual(self.auto_assign_ticket_id.user_id.id, self.user_demo.id)
         self.auto_assign_ticket_id.user_id = None
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
-
         # Random
         # We can't really test randomness, so the only check one can make in this chase
         # is if the result user happens to be a member of the user_ids list
@@ -154,7 +166,6 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertIn(self.auto_assign_ticket_id.user_id, self.team_id.user_ids)
         self.auto_assign_ticket_id.user_id = None
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
-
         # Balanced
         self.team_id.auto_assign_type = "balanced"
 
