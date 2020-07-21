@@ -152,7 +152,7 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(len(self.auto_assign_ticket_id.user_id), 0)
         self._onchange_domain_user_id()
         self._compute_domain_user_id()
-        
+
         # Fixed
         self.team_id.auto_assign_type = "fixed"
         self.team_id._onchange_assign_user_domain()
