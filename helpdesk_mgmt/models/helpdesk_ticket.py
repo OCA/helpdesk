@@ -43,17 +43,17 @@ class HelpdeskTicket(models.Model):
                 _user_id = self.search_user_id_by_strategy()
                 self.user_id = _user_id.id if _user_id else None
 
-
-    # def _get_user_domain(self):
-    #
-    #         # if rec.user_id and rec.user_ids and rec.user_id not in rec.team_id.user_ids:
-    #         #     rec.update({"user_id": False})
-    #     res = [("share", "=", False)]
-    #     if self.team_id and self.team_id.user_ids and self.user_id in self.team_id.user_ids:
-    #         import pdb; pdb.set_trace()
-    #         res.append(("id", "in", self.user_ids.ids))
-    #     print(res)
-    #     return res
+    @api.depends("team_id")
+    def _compute_domain_user_id(self):
+        for record in self:
+            if record.team_id and record.user_ids:
+                helpdesk_team = self.env["res.users"].search(
+                    [("id", "in", record.user_ids.ids)]
+                )
+                record.computed_domain_user_id = [(6, 0, helpdesk_team.ids)]
+            else:
+                helpdesk_team = self.env["res.users"].search([("share", "=", False)])
+                record.computed_domain_user_id = [(6, 0, helpdesk_team.ids)]
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
@@ -63,12 +63,15 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Text(required=True)
+    computed_domain_user_id = fields.Many2many(
+        "res.users", compute="_compute_domain_user_id"
+    )
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Assigned user",
         compute=_compute_automatic_user_assignment,
         store=True,
-        readonly=False
+        readonly=False,
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -86,10 +89,6 @@ class HelpdeskTicket(models.Model):
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
-    computed_domain = fields.Boolean(
-        compute="_compute_computed_domain"
-    )
-
     last_stage_update = fields.Datetime(
         string="Last Stage Update", default=fields.Datetime.now
     )
@@ -193,25 +192,14 @@ class HelpdeskTicket(models.Model):
             res = {
                 "domain": {
                     "user_id": [
-                        ("id", "in", self.team_id.user_ids.ids), ("share", "=", False)
+                        ("id", "in", self.team_id.user_ids.ids),
+                        ("share", "=", False),
                     ]
                 }
             }
         else:
-            res = {
-                "domain": {
-                    "user_id": [
-                        ("share", "=", False)
-                    ]
-                }
-            }
-        print(res)
+            res = {"domain": {"user_id": [("share", "=", False)]}}
         return res
-
-    def _compute_computed_domain(self):
-        for record in self:
-            record._onchange_domain_user_id()
-            record.computed_domain = True
 
     # ---------------------------------------------------
     # CRUD
