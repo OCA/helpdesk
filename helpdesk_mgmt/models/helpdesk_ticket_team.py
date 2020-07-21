@@ -9,7 +9,7 @@ class HelpdeskTeam(models.Model):
 
     def compute_endpoint_view_id(self):
         """
-         Create and assign a `ir.ui.view` spawned from the
+         Create and assign a `ir.ui.view` record, spawned from the
         `helpdesk_mgmt.portal_create_ticket_inner_form`template,
         if it doesn't exist yet or it was deleted
         """
