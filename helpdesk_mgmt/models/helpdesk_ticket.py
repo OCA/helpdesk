@@ -7,7 +7,7 @@ class HelpdeskTicket(models.Model):
     _name = 'helpdesk.ticket'
     _description = 'Helpdesk Ticket'
     _rec_name = 'number'
-    _order = 'number desc'
+    _order = 'priority desc, sequence, number desc'
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
 
     def _get_default_stage_id(self):
@@ -78,6 +78,9 @@ class HelpdeskTicket(models.Model):
         ('normal', 'Default'),
         ('done', 'Ready for next stage'),
         ('blocked', 'Blocked')], string='Kanban State')
+    sequence = fields.Integer(
+        string='Sequence', index=True, default=10,
+        help="Gives the sequence order when displaying a list of tickets.")
 
     def send_user_mail(self):
         self.env.ref('helpdesk_mgmt.assignment_email_template'). \

@@ -95,6 +95,7 @@
                             <field name="partner_email"/>
                             <field name="category_id"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            <field name="sequence" groups="base.group_no_one"/>
                         </group>
                     </group>
                     <group>
@@ -147,6 +148,7 @@
               <field name="name"/>
               <field name="partner_name"/>
               <field name="user_id"/>
+              <field name="sequence"/>
               <field name="color"/>
               <field name="stage_id"/>
               <field name="priority" widget="priority"/>
