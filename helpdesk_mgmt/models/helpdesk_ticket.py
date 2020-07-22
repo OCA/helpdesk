@@ -6,7 +6,7 @@ class HelpdeskTicket(models.Model):
     _name = "helpdesk.ticket"
     _description = "Helpdesk Ticket"
     _rec_name = "number"
-    _order = "priority desc, number desc, id desc"
+    _order = "priority desc, sequence, number desc, id desc"
     _mail_post_access = "read"
     _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
 
@@ -93,6 +93,11 @@ class HelpdeskTicket(models.Model):
             ("done", "Ready for next stage"),
             ("blocked", "Blocked"),
         ],
+    )
+    sequence = fields.Integer(
+        index=True,
+        default=10,
+        help="Gives the sequence order when displaying a list of tickets.",
     )
     active = fields.Boolean(default=True)
 
