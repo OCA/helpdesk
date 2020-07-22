@@ -178,6 +178,7 @@
                                 widget="many2many_tags"
                                 options="{'no_create_edit': True, 'color_field': 'color',}"
                             />
+                            <field name="sequence" groups="base.group_no_one" />
                         </group>
                     </group>
                     <notebook>
@@ -238,6 +239,7 @@
                 <field name="name" />
                 <field name="partner_name" />
                 <field name="user_id" />
+                <field name="sequence" />
                 <field name="color" />
                 <field name="stage_id" />
                 <field name="priority" widget="priority" />
