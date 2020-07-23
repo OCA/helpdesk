@@ -4,6 +4,23 @@
 
 # Odoo modules for Helpdesk management
 
+[//]: # (addons)
+
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.0.3 | Helpdesk
+[helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 13.0.1.0.0 | This module allows customer to rate the assistance received on a ticket.
+[helpdesk_motive](helpdesk_motive/) | 13.0.1.0.0 | Keep the motive
+[helpdesk_type](helpdesk_type/) | 13.0.1.0.0 | Add a type to your tickets
+
+[//]: # (end addons)
+
+## Translation Status
+
+[![Translation status](https://translation.odoo-community.org/widgets/helpdesk-13-0/-/multi-auto.svg)](https://translation.odoo-community.org/engage/helpdesk-13-0/?utm_source=widget)
+
 ----
 
 OCA, or the [Odoo Community Association](http://odoo-community.org/), is a nonprofit organization whose
