@@ -181,42 +181,6 @@ class HelpdeskTicket(models.Model):
             selected_member = selected_member[1] if selected_member else None
         return selected_member
 
-    # # not needed as if this commit, but it may be useful in the future
-    # # please change or delete this comment when appropriate
-    # def notify_user(self, id_user=None, delete_follower_user_id=None):
-    #     """
-    #      Notifies the assigned user that the ticket resolution is now their
-    #     responsibility and it adds them as this record's follower
-    #     :param id_user: by default the self.user_id will be used
-    #     but as this method can -and will- be called before the user changes,
-    #     one can provide beforehand the user's id, if it is known --
-    #     this is useful when calling from the write() method
-    #     :param delete_follower_user_id: a res.users record of an existing
-    #     partner_id which is part of the message_follower_ids records --
-    #     it is used to delete the previous user_id as follower
-    #     """
-    #     for record in self:
-    #         id_partner = record.user_id.partner_id.id
-    #         if id_user:
-    #             _user_id = record.env["res.users"].browse([id_user])
-    #             id_partner = _user_id.partner_id.id
-    #         if id_partner not in record.message_follower_ids.mapped("partner_id.id"):
-    #             record.env["mail.followers"].create(
-    #                 {
-    #                     "res_id": record.id,
-    #                     "res_model": record._name,
-    #                     "partner_id": id_partner,
-    #                 }
-    #             )
-    #
-    #             record.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(
-    #                 record.id
-    #             )
-    #         if delete_follower_user_id:
-    #             record.message_follower_ids.filtered(
-    #                 lambda x: x.partner_id.id == delete_follower_user_id.partner_id.id
-    #             ).unlink()
-
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
@@ -346,9 +310,11 @@ class HelpdeskTicket(models.Model):
         ticket = super().message_new(msg, custom_values=defaults)
 
         # Use mail gateway tools to search for partners to subscribe
+
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
+
         partner_ids = [
             p
             for p in self.env["mail.thread"]._mail_find_partner_from_emails(
@@ -356,46 +322,48 @@ class HelpdeskTicket(models.Model):
             )
             if p
         ]
-        ticket.message_subscribe(partner_ids)
+
+        # `partner_ids` is a python list of `res.partner` records,
+        # not an Odoo recordlist, which means a native treatment is necessary
+
+        ticket.message_subscribe(list(set(map(lambda x: x.id, partner_ids))))
 
         return ticket
 
-    def message_update(self, msg, update_vals=None):
-        """ Override message_update to subscribe partners """
-        email_list = tools.email_split(
-            (msg.get("to") or "") + "," + (msg.get("cc") or "")
-        )
-        partner_ids = list(
-            map(
-                lambda x: x.id,
-                self.env["mail.thread"]._mail_find_partner_from_emails(
-                    email_list, records=self, force_create=False
-                ),
-            )
-        )
-        self.message_subscribe(partner_ids)
-        stage_id_new = self.env["helpdesk.ticket.stage"].search(
-            [("unattended", "=", True), ("closed", "=", False)], limit=1
-        )
-        self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
-        return super().message_update(msg, update_vals=update_vals)
 
-    def _message_get_suggested_recipients(self):
-        recipients = super()._message_get_suggested_recipients()
-        try:
-            for ticket in self:
-                if ticket.partner_id:
-                    ticket._message_add_suggested_recipient(
-                        recipients, partner=ticket.partner_id, reason=_("Customer")
-                    )
-                elif ticket.partner_email:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        email=ticket.partner_email,
-                        reason=_("Customer Email"),
-                    )
-        except AccessError:
-            # no read access rights -> just ignore suggested recipients because this
-            # imply modifying followers
-            pass
-        return recipients
+def message_update(self, msg, update_vals=None):
+    """ Override message_update to subscribe partners """
+    email_list = tools.email_split((msg.get("to") or "") + "," + (msg.get("cc") or ""))
+    partner_ids = list(
+        map(
+            lambda x: x.id,
+            self.env["mail.thread"]._mail_find_partner_from_emails(
+                email_list, records=self, force_create=False
+            ),
+        )
+    )
+    self.message_subscribe(partner_ids)
+    stage_id_new = self.env["helpdesk.ticket.stage"].search(
+        [("unattended", "=", True), ("closed", "=", False)], limit=1
+    )
+    self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
+    return super().message_update(msg, update_vals=update_vals)
+
+
+def _message_get_suggested_recipients(self):
+    recipients = super()._message_get_suggested_recipients()
+    try:
+        for ticket in self:
+            if ticket.partner_id:
+                ticket._message_add_suggested_recipient(
+                    recipients, partner=ticket.partner_id, reason=_("Customer")
+                )
+            elif ticket.partner_email:
+                ticket._message_add_suggested_recipient(
+                    recipients, email=ticket.partner_email, reason=_("Customer Email"),
+                )
+    except AccessError:
+        # no read access rights -> just ignore suggested recipients because this
+        # imply modifying followers
+        pass
+    return recipients
