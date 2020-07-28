@@ -11,10 +11,6 @@ class HelpdeskTicket(models.Model):
         string='Allow Timesheet',
         related='team_id.allow_timesheet',
     )
-    analytic_account_id = fields.Many2one(
-        comodel_name='account.analytic.account',
-        string='Analityc Account',
-    )
     planned_hours = fields.Float(
         string='Planned Hours',
         track_visibility='onchange',
@@ -50,18 +46,17 @@ class HelpdeskTicket(models.Model):
                 record.timesheet_ids.mapped('unit_amount')
             )
 
-    @api.constrains('analytic_account_id')
-    def _constrains_account_timesheets(self):
+    @api.constrains('project_id')
+    def _constrains_project_timesheets(self):
         for record in self:
             record.timesheet_ids.update({
-                'account_id': record.analytic_account_id.id
+                'project_id': record.project_id.id
             })
 
     @api.onchange('team_id')
     def _onchange_team_id(self):
         for record in self:
-            record.analytic_account_id = \
-                record.team_id.default_analytic_account
+            record.project_id = record.team_id.default_project_id
 
     @api.depends('planned_hours', 'total_hours')
     def _compute_progress_hours(self):

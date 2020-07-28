@@ -9,17 +9,20 @@
     'author': 'Aresoltec Canarias, '
               'Punt Sistemes, '
               'SDi Soluciones Digitales, '
+              'Solvos, '
               'Odoo Community Association (OCA)',
-    'website': 'https://github.com/oca/helpdesk',
+    'website': 'https://github.com/OCA/helpdesk',
     'license': 'AGPL-3',
     'category': 'After-Sales',
     'version': '12.0.1.0.0',
     'depends': [
-        'helpdesk_mgmt',
-        'account',
+        'helpdesk_mgmt_project',
+        'hr_timesheet',
     ],
     'data': [
-        'views/helpdesk_team.xml',
-        'views/helpdesk_ticket.xml',
+        'security/helpdesk_mgmt_timesheet_security.xml',
+        'views/helpdesk_team_view.xml',
+        'views/helpdesk_ticket_view.xml',
+        'views/hr_timesheet_view.xml',
     ]
 }

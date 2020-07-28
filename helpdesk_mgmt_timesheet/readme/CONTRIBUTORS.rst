@@ -10,3 +10,7 @@
 * `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`_:
 
   * Carlos Ramos
+
+* `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`_:
+
+  * David Alonso

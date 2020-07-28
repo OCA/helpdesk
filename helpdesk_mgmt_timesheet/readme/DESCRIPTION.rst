@@ -1,1 +1,1 @@
-This module add Timesheet funcionality in Helpdesk module.
+This module adds Timesheet funcionality in Helpdesk module.

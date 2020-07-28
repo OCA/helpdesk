@@ -10,18 +10,18 @@ class HelpdeskTicketTeam(models.Model):
     allow_timesheet = fields.Boolean(
         string='Allow Timesheet',
     )
-    default_analytic_account = fields.Many2one(
-        comodel_name='account.analytic.account',
-        string='Default Analytic Account',
+    default_project_id = fields.Many2one(
+        comodel_name='project.project',
+        string='Default Project',
     )
-    reset_default_analytic_account = fields.Boolean(
-        string='Reset Analytic Account',
+    reset_default_project = fields.Boolean(
+        string='Reset Project',
     )
 
     @api.constrains('allow_timesheet')
     def _constrains_allow_timesheet(self):
         if not self.allow_timesheet:
-            self.default_analytic_account = False
+            self.default_project = False
 
     def action_clear(self):
-        self.default_analytic_account = False
+        self.default_project_id = False

@@ -8,41 +8,49 @@ from odoo import fields
 _log = logging.getLogger(__name__)
 
 
-class TestHelpdeskTicketTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
+class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
 
     @classmethod
     def setUpClass(cls):
-        super(TestHelpdeskTicketTimesheet, cls).setUpClass()
-        cls.account_id = cls.env['account.analytic.account'].create({
-            'name': 'Test Account',
+        super(TestHelpdeskMgmtTimesheet, cls).setUpClass()
+        cls.project_id = cls.env['project.project'].create({
+            'name': 'Project',
         })
         cls.team_id = cls.env['helpdesk.ticket.team'].create({
             'name': "Team 1",
             'allow_timesheet': True,
-            'default_analytic_account': cls.account_id.id,
+            'default_project_id': cls.project_id.id,
         })
 
-    def generate_timesheet(self, hours=1.0):
+    def generate_timesheet(self, ticket, hours=1.0):
         return self.env['account.analytic.line'].create({
             'amount': 0,
-            'company_id': 1,
+            #'company_id': 1,
             'date': fields.Date.today(),
             'name': 'Test Timesheet',
             'unit_amount': hours,
+            'ticket_id': ticket.id,
+            'project_id': ticket.project_id.id,
         })
 
     def generate_ticket(self):
         return self.env['helpdesk.ticket'].create({
             'name': 'Test Ticket 1',
+            'description': 'Test ticket description',
             'team_id': self.team_id.id,
         })
 
-    def test_total_and_remaining_hours(self):
+    def test_helpdesk_mgmt_timesheet(self):
         ticket = self.generate_ticket()
+        ticket._onchange_team_id()
+        self.assertEqual(
+            ticket.project_id.id, self.team_id.default_project_id.id)
         ticket.planned_hours = 5
-        timesheet1 = self.generate_timesheet(2)
-        timesheet1.ticket_id = ticket.id
-        timesheet2 = self.generate_timesheet(1)
-        timesheet2.ticket_id = ticket.id
-        self.assertEqual(ticket.total_hours, 3)
-        self.assertEqual(ticket.remaining_hours, 2)
+        timesheet1 = self.generate_timesheet(ticket, 2)
+        timesheet2 = self.generate_timesheet(ticket, 1)
+        self.assertEqual(
+            ticket.total_hours,
+            timesheet1.unit_amount + timesheet2.unit_amount)
+        self.assertEqual(
+            ticket.remaining_hours,
+            ticket.planned_hours - ticket.total_hours)
