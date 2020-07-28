@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <filter name="last_week" position="before">
+                <filter name="timesheet_allowed" string="Timesheet allowed"
+                        groups="hr_timesheet.group_hr_timesheet_user"
+                        domain="[('project_id', '!=', False)]"/>
+                <separator/>
+                <filter name="late" string="Late"
+                        groups="hr_timesheet.group_hr_timesheet_user"
+                        domain="[('remaining_hours', '&lt;', 0)]"/>
+                <separator/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="." position="attributes">
+                <attribute name="decoration-danger">remaining_hours &lt; 0</attribute>
+            </xpath>
+            <field name="last_stage_update" position="after">
+                <field name="planned_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
+                <field name="total_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
+                <field name="remaining_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
+            </field>
+        </field>
+    </record>
+
+    <record id="timesheet_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.ticket.form.view</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_email']" position="after">
+                <field name="allow_timesheet" invisible="1" />
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page string="Timesheets" attrs="{'invisible':[('project_id', '=', False)]}"
+                      groups="hr_timesheet.group_hr_timesheet_user">
+                    <group>
+                        <group>
+                            <field name="planned_hours" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="progress" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <field name="timesheet_ids" context="{'default_project_id': project_id, 'default_task_id': task_id}">
+                        <tree editable="bottom" delete="true">
+                            <field name="project_id" invisible="1" />
+                            <field name="task_id" invisible="1" />
+                            <field name="date" widget="date" />
+                            <field name="user_id" required="1" />
+                            <field name="name" />
+                            <field name="unit_amount" string="Duration (Hour(s))" widget="float_time" />
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="date" />
+                                <field name="user_id" />
+                                <field name="name" />
+                                <field name="unit_amount" string="Duration (Hour(s))" widget="float_time" />
+                            </group>
+                        </form>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="total_hours" widget="float_time"/>
+                        <field name="remaining_hours" widget="float_time"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ticket_view_form_project_required" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.ticket.form.view project required</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_project.ticket_view_form" />
+        <field name="arch" type="xml">
+            <field name="project_id" position="attributes">
+                <attribute name="attrs">{'required': [('allow_timesheet', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+</data>
