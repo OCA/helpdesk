@@ -33,14 +33,14 @@ class HelpdeskTicket(models.Model):
         string='Timesheet',
     )
     total_hours = fields.Float(
-        compute='impute_hours',
+        compute='_compute_total_hours',
         readonly=True,
         store=True,
         string='Total Hours'
     )
 
     @api.depends('timesheet_ids.unit_amount')
-    def impute_hours(self):
+    def _compute_total_hours(self):
         for record in self:
             record.total_hours = sum(
                 record.timesheet_ids.mapped('unit_amount')

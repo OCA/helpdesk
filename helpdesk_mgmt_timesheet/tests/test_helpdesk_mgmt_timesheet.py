@@ -25,7 +25,6 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
     def generate_timesheet(self, ticket, hours=1.0):
         return self.env['account.analytic.line'].create({
             'amount': 0,
-            #'company_id': 1,
             'date': fields.Date.today(),
             'name': 'Test Timesheet',
             'unit_amount': hours,

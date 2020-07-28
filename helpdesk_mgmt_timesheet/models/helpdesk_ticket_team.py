@@ -14,14 +14,8 @@ class HelpdeskTicketTeam(models.Model):
         comodel_name='project.project',
         string='Default Project',
     )
-    reset_default_project = fields.Boolean(
-        string='Reset Project',
-    )
 
     @api.constrains('allow_timesheet')
     def _constrains_allow_timesheet(self):
         if not self.allow_timesheet:
             self.default_project = False
-
-    def action_clear(self):
-        self.default_project_id = False

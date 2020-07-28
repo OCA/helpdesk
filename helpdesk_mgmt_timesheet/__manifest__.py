@@ -1,6 +1,7 @@
 #    Copyright (C) 2020 Aresoltec Canarias <www.aresoltec.com>
 #    Copyright (C) 2020 Punt Sistemes <www.puntsistemes.es.es>
 #    Copyright (C) 2020 SDi Soluciones Digitales <www.sdi.es>
+#    Copyright (C) 2020 Solvos Consultoría Informática <www.solvos.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
@@ -20,9 +21,12 @@
         'hr_timesheet',
     ],
     'data': [
-        'security/helpdesk_mgmt_timesheet_security.xml',
         'views/helpdesk_team_view.xml',
         'views/helpdesk_ticket_view.xml',
         'views/hr_timesheet_view.xml',
-    ]
+        'report/report_timesheet_templates.xml',
+    ],
+    'demo': [
+        'demo/helpdesk_mgmt_timesheet_demo.xml',
+    ],
 }

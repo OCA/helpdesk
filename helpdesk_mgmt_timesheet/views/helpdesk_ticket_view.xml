@@ -7,9 +7,11 @@
         <field name="arch" type="xml">
             <filter name="last_week" position="before">
                 <filter name="timesheet_allowed" string="Timesheet allowed"
+                        groups="hr_timesheet.group_hr_timesheet_user"
                         domain="[('project_id', '!=', False)]"/>
                 <separator/>
-                <filter name="overtimed" string="Overtimed"
+                <filter name="late" string="Late"
+                        groups="hr_timesheet.group_hr_timesheet_user"
                         domain="[('remaining_hours', '&lt;', 0)]"/>
                 <separator/>
             </filter>
@@ -25,9 +27,12 @@
                 <attribute name="decoration-danger">remaining_hours &lt; 0</attribute>
             </xpath>
             <field name="last_stage_update" position="after">
-                <field name="planned_hours" widget="float_time"/>
-                <field name="total_hours" widget="float_time"/>
-                <field name="remaining_hours" widget="float_time"/>
+                <field name="planned_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
+                <field name="total_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
+                <field name="remaining_hours" widget="float_time"
+                       groups="hr_timesheet.group_hr_timesheet_user" />
             </field>
         </field>
     </record>
@@ -42,7 +47,8 @@
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
             <xpath expr="//page[@name='description']" position="after">
-                <page string="Timesheets" attrs="{'invisible':[('project_id', '=', False)]}">
+                <page string="Timesheets" attrs="{'invisible':[('project_id', '=', False)]}"
+                      groups="hr_timesheet.group_hr_timesheet_user">
                     <group>
                         <group>
                             <field name="planned_hours" widget="float_time"/>

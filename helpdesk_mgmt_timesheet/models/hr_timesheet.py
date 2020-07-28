@@ -10,6 +10,7 @@ class AccountAnalyticLine(models.Model):
     ticket_id = fields.Many2one(
         comodel_name='helpdesk.ticket',
         string='Ticket',
+        domain=[("project_id", "!=", False)],
         groups="helpdesk_mgmt.group_helpdesk_user",
     )
     ticket_partner_id = fields.Many2one(
