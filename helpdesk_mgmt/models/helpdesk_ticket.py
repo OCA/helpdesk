@@ -111,7 +111,7 @@ class HelpdeskTicket(models.Model):
         comodel_name="helpdesk.ticket.channel",
         string="Channel",
         help="Channel indicates where the source of a ticket"
-             "comes from (it could be a phone call, an email...)",
+        "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
@@ -152,10 +152,7 @@ class HelpdeskTicket(models.Model):
     def send_user_mail(self):
         template = self.env.ref("helpdesk_mgmt.assignment_email_template")
         self.message_post_with_template(
-            template.id,
-            composition_mode="comment",
-            model=self._name,
-            res_id=self.id
+            template.id, composition_mode="comment", model=self._name, res_id=self.id
         )
 
     def assign_to_me(self):
