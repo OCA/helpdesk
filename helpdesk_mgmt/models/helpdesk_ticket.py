@@ -150,7 +150,10 @@ class HelpdeskTicket(models.Model):
     )
 
     def send_user_mail(self):
-        self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
+        template = self.env.ref("helpdesk_mgmt.assignment_email_template")
+        self.message_post_with_template(
+            template.id, composition_mode="comment", model=self._name, res_id=self.id
+        )
 
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
