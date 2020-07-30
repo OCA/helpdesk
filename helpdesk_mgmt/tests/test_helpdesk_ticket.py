@@ -1,5 +1,7 @@
 import time
 
+from odoo.tests import tagged
+
 from .common import TestHelpdeskTicketBase
 
 
@@ -97,3 +99,71 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         self.assertEqual(
             t.name, title, "The ticket should have the correct (new) title."
         )
+
+    def test_helpdesk_ticket_multiple(self):
+        Ticket = self.env["helpdesk.ticket"]
+        Partner = self.env["res.partner"]
+
+        partner_1 = Partner.create({"name": "Partner 1", "email": "partner1@test.com"})
+        partner_2 = Partner.create({"name": "Partner 2", "email": "partner2@test.com"})
+        tickets = Ticket.create(
+            [
+                {
+                    "name": "Test 1",
+                    "description": "Ticket test number 1",
+                    "user_id": self.user.id,
+                    "partner_id": partner_1.id,
+                },
+                {
+                    "name": "Test 2",
+                    "description": "Ticket test number 2",
+                    "user_id": self.user_demo.id,
+                    "partner_id": partner_2.id,
+                },
+            ]
+        )
+        self.assertEqual(len(tickets), 2)
+
+    def test_helpdesk_ticket_access(self):
+        Ticket = self.env["helpdesk.ticket"]
+
+        t = Ticket.create(
+            {
+                "name": "Test 1",
+                "description": "Ticket test",
+            }
+        )
+        self.assertEqual(t.access_url, "/my/ticket/%s" % t.id)
+        t.partner_id = self.user_portal.partner_id.id
+        self.assertTrue(t.partner_can_access())
+
+
+@tagged("post_install", "-at_install")
+class TestHelpdeskTicketPostInstall(TestHelpdeskTicketBase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+    def test_helpdesk_ticket_assign_notify(self):
+        Ticket = self.env["helpdesk.ticket"]
+        Message = self.env["mail.message"]
+
+        t = Ticket.create(
+            {
+                "name": "Test 1",
+                "description": "Ticket test",
+            }
+        )
+        t.user_id = self.user_demo.id
+        m = Message.search(
+            [
+                ("model", "=", "helpdesk.ticket"),
+                ("res_id", "=", t.id),
+                ("message_type", "=", "user_notification"),
+            ]
+        )
+        self.assertTrue(
+            "You have been assigned to the Helpdesk Ticket %s" % t.display_name
+            in m.body
+        )
+        self.assertTrue("res_id=%s" % t.id in m.body)

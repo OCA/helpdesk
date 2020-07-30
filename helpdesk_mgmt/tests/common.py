@@ -32,6 +32,9 @@ class TestHelpdeskTicketBase(common.SavepointCase):
             groups="helpdesk_mgmt.group_helpdesk_user",
             context=ctx,
         )
+        cls.admin = cls.env.ref("base.user_admin")
+        cls.user_portal = cls.env.ref("base.demo_user0")
+        cls.user_demo = cls.env.ref("base.user_demo")
         cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         cls.team_a = helpdesk_ticket_team.create(
             {"name": "Team A", "user_ids": [(6, 0, [cls.user_own.id, cls.user.id])]}
