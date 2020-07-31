@@ -120,7 +120,11 @@
                         type="object"
                         attrs="{'invisible' : [('user_id', '!=', False)]}"
                     />
-                    <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" />
+                    <field 
+                        name="stage_id"
+                        widget="statusbar"
+                        options="{'clickable': '1', 'fold_field': 'fold'}"
+                    />
                 </header>
                 <sheet>
                     <widget
