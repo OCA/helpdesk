@@ -1,5 +1,5 @@
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
@@ -148,6 +148,33 @@ class HelpdeskTicket(models.Model):
     auto_last_update = fields.Datetime(
         string="Automatic last update", default=datetime.now()
     )
+
+    ticket_change = fields.Datetime(
+        string="Next stage date", compute="_compute_next_stage"
+    )
+
+    @api.depends("stage_id")
+    def _compute_next_stage(self):
+        for record in self:
+            if (
+                record.stage_id.auto_next_number
+                and record.stage_id.auto_next_type
+                and record.stage_id.auto_next_stage_id
+            ):
+                record.ticket_change = (
+                    timedelta(hours=record.stage_id.auto_next_number)
+                    + record.auto_last_update
+                )
+                if record.stage_id.auto_next_type == "day":
+                    record.ticket_change = (
+                        timedelta(days=record.stage_id.auto_next_number)
+                        + record.auto_last_update
+                    )
+                elif record.stage_id.auto_next_type == "week":
+                    record.ticket_change = (
+                        timedelta(weeks=record.stage_id.auto_next_number)
+                        + record.auto_last_update
+                    )
 
     def send_user_mail(self):
         template = self.env.ref("helpdesk_mgmt.assignment_email_template")
