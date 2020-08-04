@@ -18,6 +18,7 @@ class AccountAnalyticLine(models.Model):
         related="ticket_id.partner_id",
         string="Ticket partner",
         store=True,
+        compute_sudo=True,
         groups="helpdesk_mgmt.group_helpdesk_user",
     )
 
