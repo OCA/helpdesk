@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -51,18 +51,6 @@ class HelpdeskTicketStage(models.Model):
         comodel_name="helpdesk.ticket", inverse_name="stage_id", string="Tickets",
     )
 
-    @staticmethod
-    def compute_next_datetime(
-        date: datetime, increment: int, auto_type: str
-    ) -> datetime:
-        _date = timedelta(hours=increment) + date
-        if auto_type == "day":
-            _date = timedelta(days=increment) + date
-        elif auto_type == "week":
-            _date = timedelta(weeks=increment) + date
-
-        return _date
-
     # called by cron
     @api.model
     def change_stage(self):
@@ -73,12 +61,7 @@ class HelpdeskTicketStage(models.Model):
                 and stage_id.auto_next_stage_id
             ):
                 for ticket_id in stage_id.ticket_ids.filtered(
-                    lambda x: datetime.now()
-                    > self.compute_next_datetime(
-                        x.auto_last_update,
-                        self.auto_next_number,
-                        self.auto_next_stage_id.auto_next_type,
-                    )
+                    lambda x: datetime.now() > x.ticket_change
                 ):
                     ticket_id.stage_id = stage_id.auto_next_stage_id.id
                     ticket_id.auto_last_update = datetime.now()
