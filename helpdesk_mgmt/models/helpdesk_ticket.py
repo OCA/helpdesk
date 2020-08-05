@@ -153,7 +153,11 @@ class HelpdeskTicket(models.Model):
         string="Next stage date", compute="_compute_next_stage"
     )
 
-    @api.depends("stage_id")
+    @api.depends(
+        "stage_id.auto_next_number",
+        "stage_id.auto_next_type",
+        "stage_id.auto_next_stage_id",
+    )
     def _compute_next_stage(self):
         for record in self:
             if (
