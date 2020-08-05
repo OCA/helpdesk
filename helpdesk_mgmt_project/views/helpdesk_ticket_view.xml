@@ -38,7 +38,8 @@
             <xpath expr="//field[@name='partner_email']" position="after">
                 <field name="project_id"/>
                 <field name="task_id" domain="[('project_id', '=', project_id)]"
-                               attrs="{'invisible':[('project_id', '=', False)]}"/>
+                               attrs="{'invisible':[('project_id', '=', False)]}"
+							   context="{'default_project_id': project_id}"/>
             </xpath>
         </field>
     </record>
