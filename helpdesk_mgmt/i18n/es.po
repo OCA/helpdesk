@@ -20,8 +20,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
 #, fuzzy
-#| msgid ""
-#| "${object.company_id.name} Payment Receipt (Ref ${object.name or 'n/a' })"
 msgid ""
 "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
 msgstr ""
@@ -232,7 +230,6 @@ msgstr "Activo"
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #, fuzzy
-#| msgid "Attachments"
 msgid "Add Attachments"
 msgstr "Adjuntos"
 
@@ -680,7 +677,6 @@ msgstr "Nuevo"
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, fuzzy
-#| msgid "Tickets"
 msgid "New Ticket"
 msgstr "Tickets"
 
@@ -786,14 +782,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
 #, fuzzy, python-format
-#| msgid "Assigned user"
 msgid "Search in Assigned users"
 msgstr "Usuario asignado"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
 #, fuzzy, python-format
-#| msgid "Categories"
 msgid "Search in Categories"
 msgstr "Categorías"
 
@@ -806,7 +800,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
 #, fuzzy, python-format
-#| msgid "Description"
 msgid "Search in Descriptions"
 msgstr "Descripción"
 
@@ -825,7 +818,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #, fuzzy
-#| msgid "Related tickets"
 msgid "Send a new ticket"
 msgstr "Tickets relacionados"
 
@@ -868,14 +860,12 @@ msgstr "Etapas"
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #, fuzzy
-#| msgid "No Subject"
 msgid "Subject"
 msgstr "Sin asunto"
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #, fuzzy
-#| msgid "My Tickets"
 msgid "Submit Ticket"
 msgstr "Mis tickets"
 
@@ -1042,6 +1032,5 @@ msgstr "Muy alta"
 #. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 #, fuzzy
-#| msgid "Assigned user"
 msgid "assigned user"
 msgstr "Usuario asignado"
