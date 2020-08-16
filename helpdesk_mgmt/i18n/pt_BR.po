@@ -26,11 +26,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
 #, fuzzy
-#| msgid ""
-#| "<?xml version=\"1.0\"?>\n"
-#| "<data><p>Hello ${object.user_id.name},</p>\n"
-#| "        <p>The ticket ${object.number} has been assigned to you.</p>\n"
-#| "      </data>"
 msgid ""
 "<?xml version=\"1.0\"?>\n"
 "<data><p>Hello ${object.user_id.name},</p>\n"
@@ -46,9 +41,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #, fuzzy
-#| msgid ""
-#| "<br/>\n"
-#| "                          <b>Category:</b>"
 msgid ""
 "<br/>\n"
 "                                    <b>Category:</b>"
@@ -59,9 +51,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #, fuzzy
-#| msgid ""
-#| "<br/>\n"
-#| "                          <b>Stage:</b>"
 msgid ""
 "<br/>\n"
 "                                    <b>Stage:</b>"
@@ -287,7 +276,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
 #, fuzzy
-#| msgid "Display Name"
 msgid "Alias Name"
 msgstr "Nome de Exibi????o"
 
@@ -321,7 +309,6 @@ msgstr "Arquivado"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Assign to me"
 msgid "Assign to"
 msgstr "Atribu??do a mim"
 
@@ -444,7 +431,6 @@ msgstr "Configura????o"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Configuration"
 msgid "Configure domain name"
 msgstr "Configura????o"
 
@@ -488,7 +474,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #, fuzzy, python-format
-#| msgid "Partner Email"
 msgid "Customer Email"
 msgstr "E-mail do Parceiro"
 
@@ -506,7 +491,6 @@ msgstr "Padr??o"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_defaults
 #, fuzzy
-#| msgid "Default"
 msgid "Default Values"
 msgstr "Padr??o"
 
@@ -559,7 +543,6 @@ msgstr "Email"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Email Template"
 msgid "Email Alias"
 msgstr "Modelo de E-mail"
 
@@ -571,7 +554,6 @@ msgstr "Modelo de E-mail"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__email_cc
 #, fuzzy
-#| msgid "Email"
 msgid "Email cc"
 msgstr "Email"
 
@@ -635,7 +617,6 @@ msgstr "Gerente de Atendimento"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Helpdesk Team Search"
 msgid "Helpdesk Team"
 msgstr "Buscar em Equipe de Atendimento"
 
@@ -647,7 +628,6 @@ msgstr "Buscar em Equipe de Atendimento"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Helpdesk Team Search"
 msgid "Helpdesk Team name..."
 msgstr "Buscar em Equipe de Atendimento"
 
@@ -944,7 +924,6 @@ msgstr "N??mero de A????es"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error_counter
 #, fuzzy
-#| msgid "Number of error"
 msgid "Number of errors"
 msgstr "N??mero do erro"
 
@@ -1088,7 +1067,6 @@ msgstr "Usu??rio Respons??vel"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 #, fuzzy
-#| msgid "Message Delivery error"
 msgid "SMS Delivery error"
 msgstr "Erro de entrega de mensagem"
 
@@ -1181,7 +1159,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Members"
 msgid "Team Members"
 msgstr "Membros"
 
