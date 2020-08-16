@@ -342,7 +342,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<span>View</span>"
 msgid "<span>Ticket #</span>"
 msgstr "<span>Ver</span>"
 
@@ -354,35 +353,30 @@ msgstr "<span>Ver</span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Assigned user:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Category:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Channel:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Closed Date:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Created on:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
@@ -399,28 +393,24 @@ msgstr "<strong>Última actualización de estado:</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Priority:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Stage:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Tag:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Team:</strong>"
 msgstr "<strong>Fecha:</strong>"
 
@@ -702,7 +692,6 @@ msgstr "Descripción"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "Description"
 msgid "Description:"
 msgstr "Descripción"
 
@@ -1449,7 +1438,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.actions.report,name:helpdesk_mgmt.action_report_helpdesk_ticket
 #, fuzzy
-#| msgid "Tickets"
 msgid "Ticket"
 msgstr "Tickets"
 

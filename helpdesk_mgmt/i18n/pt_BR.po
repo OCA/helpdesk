@@ -341,7 +341,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<span>View</span>"
 msgid "<span>Ticket #</span>"
 msgstr "<span>Ver</span>"
 
@@ -353,35 +352,30 @@ msgstr "<span>Ver</span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Assigned user:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Category:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Channel:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Closed Date:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Created on:</strong>"
 msgstr "<strong>Data:</strong>"
 
@@ -398,28 +392,24 @@ msgstr "<strong>Última Atualização de Estágio:</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Priority:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Stage:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Tag:</strong>"
 msgstr "<strong>Data:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "<strong>Date:</strong>"
 msgid "<strong>Team:</strong>"
 msgstr "<strong>Data:</strong>"
 
@@ -479,7 +469,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
 #, fuzzy
-#| msgid "Display Name"
 msgid "Alias Name"
 msgstr "Nome de Exibição"
 
@@ -513,7 +502,6 @@ msgstr "Arquivado"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Assign to me"
 msgid "Assign to"
 msgstr "Atribuído a mim"
 
@@ -636,7 +624,6 @@ msgstr "Configuração"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Configuration"
 msgid "Configure domain name"
 msgstr "Configuração"
 
@@ -684,7 +671,6 @@ msgstr "Padrão"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_defaults
 #, fuzzy
-#| msgid "Default"
 msgid "Default Values"
 msgstr "Padrão"
 
@@ -705,7 +691,6 @@ msgstr "Descrição"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
 #, fuzzy
-#| msgid "Description"
 msgid "Description:"
 msgstr "Descrição"
 
@@ -737,7 +722,6 @@ msgstr "Email"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 #, fuzzy
-#| msgid "Email Template"
 msgid "Email Alias"
 msgstr "Modelo de E-mail"
 
@@ -1247,14 +1231,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
 #, fuzzy, python-format
-#| msgid "Assigned user"
 msgid "Search in Assigned users"
 msgstr "Usuário atribuído"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
 #, fuzzy, python-format
-#| msgid "Categories"
 msgid "Search in Categories"
 msgstr "Categorias"
 
@@ -1267,14 +1249,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
 #, fuzzy, python-format
-#| msgid "Description"
 msgid "Search in Descriptions"
 msgstr "Descrição"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:80
 #, fuzzy, python-format
-#| msgid "Unread Messages"
 msgid "Search in Messages"
 msgstr "Mensagens Não Lidas"
 
@@ -1429,7 +1409,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.actions.report,name:helpdesk_mgmt.action_report_helpdesk_ticket
 #, fuzzy
-#| msgid "Tickets"
 msgid "Ticket"
 msgstr "Chamados"
 
