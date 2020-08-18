@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="edit_project" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="action"
+                    icon="fa-file"
+                    name="%(ticket_action_from_project)d"
+                    context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_project_kanban" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='task_count']" position="after">
+                <field name="ticket_count" />
+                <field name="label_tickets" />
+            </xpath>
+            <xpath expr="//a[hasclass('o_project_kanban_box')]" position="after">
+                <a
+                    class="o_project_kanban_box"
+                    name="%(ticket_action_from_project)d"
+                    type="action"
+                    context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                >
+                    <span class="o_value">
+                        <t t-esc="record.ticket_count.value" />
+                    </span>
+                    <span class="o_label">
+                        <t t-esc="record.label_tickets.value" />
+                    </span>
+                </a>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_project_search" model="ir.ui.view">
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter
+                    string="Open Tickets"
+                    name="open_tickets"
+                    domain="[('todo_ticket_count', '&lt;', 0)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
