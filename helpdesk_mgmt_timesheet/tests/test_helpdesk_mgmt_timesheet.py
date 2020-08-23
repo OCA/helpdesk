@@ -14,7 +14,7 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
     @classmethod
     def setUpClass(cls):
         super(TestHelpdeskMgmtTimesheet, cls).setUpClass()
-        cls.project_id = cls.env["project.project"].create({"name": "Project",})
+        cls.project_id = cls.env["project.project"].create({"name": "Project"})
         cls.team_id = cls.env["helpdesk.ticket.team"].create(
             {
                 "name": "Team 1",
