@@ -5,28 +5,23 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Helpdesk Ticket Timesheet',
-    'summary': 'Add HR Timesheet to the tickets for Helpdesk Management.',
-    'author': 'Aresoltec Canarias, '
-              'Punt Sistemes, '
-              'SDi Soluciones Digitales, '
-              'Solvos, '
-              'Odoo Community Association (OCA)',
-    'website': 'https://github.com/OCA/helpdesk',
-    'license': 'AGPL-3',
-    'category': 'After-Sales',
-    'version': '12.0.1.1.0',
-    'depends': [
-        'helpdesk_mgmt_project',
-        'hr_timesheet',
+    "name": "Helpdesk Ticket Timesheet",
+    "summary": "Add HR Timesheet to the tickets for Helpdesk Management.",
+    "author": "Aresoltec Canarias, "
+    "Punt Sistemes, "
+    "SDi Soluciones Digitales, "
+    "Solvos, "
+    "Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/helpdesk",
+    "license": "AGPL-3",
+    "category": "After-Sales",
+    "version": "12.0.1.1.0",
+    "depends": ["helpdesk_mgmt_project", "hr_timesheet",],
+    "data": [
+        "views/helpdesk_team_view.xml",
+        "views/helpdesk_ticket_view.xml",
+        "views/hr_timesheet_view.xml",
+        "report/report_timesheet_templates.xml",
     ],
-    'data': [
-        'views/helpdesk_team_view.xml',
-        'views/helpdesk_ticket_view.xml',
-        'views/hr_timesheet_view.xml',
-        'report/report_timesheet_templates.xml',
-    ],
-    'demo': [
-        'demo/helpdesk_mgmt_timesheet_demo.xml',
-    ],
+    "demo": ["demo/helpdesk_mgmt_timesheet_demo.xml",],
 }
