@@ -5,16 +5,16 @@ from odoo import api, fields, models
 
 
 class AccountAnalyticLine(models.Model):
-    _inherit = 'account.analytic.line'
+    _inherit = "account.analytic.line"
 
     ticket_id = fields.Many2one(
-        comodel_name='helpdesk.ticket',
-        string='Ticket',
+        comodel_name="helpdesk.ticket",
+        string="Ticket",
         domain=[("project_id", "!=", False)],
         groups="helpdesk_mgmt.group_helpdesk_user",
     )
     ticket_partner_id = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name="res.partner",
         related="ticket_id.partner_id",
         string="Ticket partner",
         store=True,
