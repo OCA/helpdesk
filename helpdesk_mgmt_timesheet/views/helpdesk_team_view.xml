@@ -8,7 +8,11 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='alias_user_id']" position="after">
                 <field name="allow_timesheet" type="checkbox" />
-                <field name="default_project_id" attrs="{'invisible':[('allow_timesheet', '=', False)]}" help=" Change the Default Project will not have retroactive effects."/>
+                <field
+                    name="default_project_id"
+                    attrs="{'invisible':[('allow_timesheet', '=', False)]}"
+                    help=" Change the Default Project will not have retroactive effects."
+                />
             </xpath>
         </field>
     </record>
