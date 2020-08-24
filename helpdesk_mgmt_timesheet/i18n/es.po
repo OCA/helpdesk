@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-19 07:54+0000\n"
-"PO-Revision-Date: 2020-05-19 10:00+0200\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2020-08-24 15:59+0000\n"
+"Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: \n"
-"X-Generator: Poedit 2.3.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
@@ -30,15 +30,13 @@ msgstr "Línea Analítica"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
-#, fuzzy
 msgid "Change the Default Project will not have retroactive effects."
-msgstr ""
-"Cambiar la cuenta analítica por defecto no tendrá efectos retroactivos."
+msgstr "Cambiar el proyecto por defecto no tendrá efectos retroactivos."
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__default_project_id
 msgid "Default Project"
-msgstr ""
+msgstr "Proyecto por defecto"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
@@ -58,7 +56,7 @@ msgstr "Equipo de ticket Helpdesk"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
 msgid "Late"
-msgstr ""
+msgstr "Tarde"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__planned_hours
@@ -78,7 +76,7 @@ msgstr "Horas restantes"
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1
 msgid "Tasks"
-msgstr ""
+msgstr "Tareas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_id
@@ -90,16 +88,14 @@ msgstr "Ticket"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_partner_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
-#, fuzzy
 msgid "Ticket partner"
-msgstr "Ticket"
+msgstr "Contacto del ticket"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
 #: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
-#, fuzzy
 msgid "Tickets"
-msgstr "Ticket"
+msgstr "Tickets"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
@@ -108,9 +104,8 @@ msgstr "Parte de Horas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
-#, fuzzy
 msgid "Timesheet allowed"
-msgstr "Parte de Horas"
+msgstr "Parte de Horas permitidos"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
@@ -127,7 +122,7 @@ msgstr "Total horas"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 msgid "With ticket"
-msgstr ""
+msgstr "Con ticket"
 
 #~ msgid "Analityc Account"
 #~ msgstr "Cuenta analítica"
