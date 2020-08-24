@@ -59,8 +59,8 @@ msgid "Ticket Count"
 msgstr "Contador Tickets"
 
 #. module: helpdesk_mgmt_project
-#: code:addons/helpdesk_mgmt_project/models/project.py:17
-#: code:addons/helpdesk_mgmt_project/models/project_task.py:17
+#: code:addons/helpdesk_mgmt_project/models/project.py:0
+#: code:addons/helpdesk_mgmt_project/models/project_task.py:0
 #: model:ir.actions.act_window,name:helpdesk_mgmt_project.ticket_action_from_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_ids
