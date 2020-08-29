@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record model="ir.ui.view" id="inherit_view_helpdesk_sla_team_hisform">
         <field name="name">inherit.view_helpdesk_sla_team_form</field>
