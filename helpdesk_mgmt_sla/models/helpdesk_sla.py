@@ -2,13 +2,13 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import models, fields, api, _
-from datetime import timedelta, datetime
+from datetime import datetime
 
 
 class HelpdeskSla(models.Model):
     _name = "helpdesk.sla"
     _description = "Helpdesk SLA"
-    
+
     name = fields.Char(string='Name', required=True)
     team_id = fields.Many2one('helpdesk.ticket.team', 'Team', required=True)
     stage_id = fields.Many2one(

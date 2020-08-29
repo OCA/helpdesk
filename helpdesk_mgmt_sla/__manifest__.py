@@ -3,7 +3,8 @@
 {
     "name": "Helpdesk Ticket SLA",
     'summary': "Add SLA to the tickets for Helpdesk Management.",
-    "author": "GARCO Consulting",
+    "author": "GARCO Consulting,"
+    "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     'license': 'AGPL-3',
     "category": "After-Sales",
