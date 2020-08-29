@@ -183,7 +183,7 @@ msgid "Add Attachments"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:56
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:110
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
 msgid "All"
@@ -466,7 +466,7 @@ msgid "Helps you handle your helpdesk security."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:73
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "High"
@@ -484,12 +484,12 @@ msgid "History"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_id_2111
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_id_2101
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_id_2149
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_id_2139
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id_2080
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id_2118
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_id_2130
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_id_2168
 msgid "ID"
 msgstr ""
 
@@ -519,7 +519,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:53
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:62
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_last_stage_update
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #, python-format
@@ -557,7 +557,7 @@ msgid "Late Activities"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:69
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Low"
@@ -569,7 +569,7 @@ msgid "Media Attachments"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:70
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
@@ -596,7 +596,7 @@ msgid "My Tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:51
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:60
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag_name
@@ -619,13 +619,13 @@ msgid "New Ticket"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:50
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:59
 #, python-format
 msgid "Newest"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:189
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:191
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -667,14 +667,14 @@ msgid "Partner"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:227
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:229
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_partner_email
 #, python-format
 msgid "Partner Email"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:229
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:231
 #, python-format
 msgid "Partner Id"
 msgstr ""
@@ -712,6 +712,48 @@ msgid "Reporting"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:84
+#, python-format
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:73
+#, python-format
+msgid "Search in Assigned users"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:75
+#, python-format
+msgid "Search in Categories"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:83
+#, python-format
+msgid "Search in Content"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:71
+#, python-format
+msgid "Search in Descriptions"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:80
+#, python-format
+msgid "Search in Messages"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:69
+#, python-format
+msgid "Search in Names"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Send a new ticket"
 msgstr ""
@@ -727,7 +769,7 @@ msgid "Show all records which has next action date is before today"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:52
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:61
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage_id
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
@@ -909,7 +951,7 @@ msgid "Users"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:74
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Very High"
