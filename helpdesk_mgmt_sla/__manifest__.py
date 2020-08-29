@@ -9,6 +9,7 @@
     "category": "After-Sales",
     "version": "13.0.1.1.0",
     "depends": [
+        "base",
         "helpdesk_mgmt",
         "resource"
     ],
