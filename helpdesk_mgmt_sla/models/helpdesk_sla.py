@@ -7,7 +7,8 @@ from datetime import timedelta, datetime
 
 class HelpdeskSla(models.Model):
     _name = "helpdesk.sla"
-
+    _description = "Helpdesk SLA"
+    
     name = fields.Char(string='Name', required=True)
     team_id = fields.Many2one('helpdesk.ticket.team', 'Team', required=True)
     stage_id = fields.Many2one(
