@@ -10,6 +10,7 @@
     "version": "13.0.1.1.0",
     "depends": [
         "helpdesk_mgmt",
+        "resource"
     ],
     "data": [
         "data/helpdesk_sla_cron.xml",
