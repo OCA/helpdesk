@@ -16,7 +16,7 @@ class HelpdeskTicket(models.Model):
                          readonly=True)
     name = fields.Char(string='Title', required=True)
     description = fields.Html(
-        required=True, sanitize_style=True, strip_classes=True
+        sanitize_style=True, strip_classes=True
     )
     user_id = fields.Many2one(
         'res.users',

@@ -169,7 +169,7 @@
         <field name="model">helpdesk.ticket</field>
         <field name="priority" eval="100"/>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" archivable="false"  default_group_by="stage_id" >
+            <kanban class="o_kanban_mobile" archivable="false"  default_group_by="stage_id" quick_create="false">
                 <field name="number"/>
                 <field name="name"/>
                 <field name="partner_name"/>
