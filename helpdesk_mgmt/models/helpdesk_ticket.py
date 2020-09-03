@@ -114,7 +114,8 @@ class HelpdeskTicket(models.Model):
         "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.category", string="Category",
+        comodel_name="helpdesk.ticket.category",
+        string="Category",
     )
     team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team")
     priority = fields.Selection(
@@ -326,7 +327,7 @@ class HelpdeskTicket(models.Model):
 
     @api.model
     def message_new(self, msg, custom_values=None):
-        """ Override message_new from mail gateway so we can set correct
+        """Override message_new from mail gateway so we can set correct
         default values.
         """
 
@@ -364,10 +365,11 @@ class HelpdeskTicket(models.Model):
 
         return ticket
 
-
     def message_update(self, msg, update_vals=None):
         """ Override message_update to subscribe partners """
-        email_list = tools.email_split((msg.get("to") or "") + "," + (msg.get("cc") or ""))
+        email_list = tools.email_split(
+            (msg.get("to") or "") + "," + (msg.get("cc") or "")
+        )
         partner_ids = list(
             map(
                 lambda x: x.id,
@@ -383,7 +385,6 @@ class HelpdeskTicket(models.Model):
         self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
         return super().message_update(msg, update_vals=update_vals)
 
-
     def _message_get_suggested_recipients(self):
         recipients = super()._message_get_suggested_recipients()
         try:
@@ -394,7 +395,9 @@ class HelpdeskTicket(models.Model):
                     )
                 elif ticket.partner_email:
                     ticket._message_add_suggested_recipient(
-                        recipients, email=ticket.partner_email, reason=_("Customer Email"),
+                        recipients,
+                        email=ticket.partner_email,
+                        reason=_("Customer Email"),
                     )
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this
