@@ -326,7 +326,7 @@ class HelpdeskTicket(models.Model):
 
     @api.model
     def message_new(self, msg, custom_values=None):
-        """ Override message_new from mail gateway so we can set correct
+        """Override message_new from mail gateway so we can set correct
         default values.
         """
 
@@ -364,40 +364,42 @@ class HelpdeskTicket(models.Model):
 
         return ticket
 
-
-def message_update(self, msg, update_vals=None):
-    """ Override message_update to subscribe partners """
-    email_list = tools.email_split((msg.get("to") or "") + "," + (msg.get("cc") or ""))
-    partner_ids = list(
-        map(
-            lambda x: x.id,
-            self.env["mail.thread"]._mail_find_partner_from_emails(
-                email_list, records=self, force_create=False
-            ),
+    def message_update(self, msg, update_vals=None):
+        """ Override message_update to subscribe partners """
+        email_list = tools.email_split(
+            (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
-    )
-    self.message_subscribe(partner_ids)
-    stage_id_new = self.env["helpdesk.ticket.stage"].search(
-        [("unattended", "=", True), ("closed", "=", False)], limit=1
-    )
-    self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
-    return super().message_update(msg, update_vals=update_vals)
+        partner_ids = list(
+            map(
+                lambda x: x.id,
+                self.env["mail.thread"]._mail_find_partner_from_emails(
+                    email_list, records=self, force_create=False
+                ),
+            )
+        )
+        self.message_subscribe(partner_ids)
+        stage_id_new = self.env["helpdesk.ticket.stage"].search(
+            [("unattended", "=", True), ("closed", "=", False)], limit=1
+        )
+        self.stage_id = stage_id_new.id if stage_id_new else self.stage_id.id
+        return super().message_update(msg, update_vals=update_vals)
 
-
-def _message_get_suggested_recipients(self):
-    recipients = super()._message_get_suggested_recipients()
-    try:
-        for ticket in self:
-            if ticket.partner_id:
-                ticket._message_add_suggested_recipient(
-                    recipients, partner=ticket.partner_id, reason=_("Customer")
-                )
-            elif ticket.partner_email:
-                ticket._message_add_suggested_recipient(
-                    recipients, email=ticket.partner_email, reason=_("Customer Email"),
-                )
-    except AccessError:
-        # no read access rights -> just ignore suggested recipients because this
-        # imply modifying followers
-        pass
-    return recipients
+    def _message_get_suggested_recipients(self):
+        recipients = super()._message_get_suggested_recipients()
+        try:
+            for ticket in self:
+                if ticket.partner_id:
+                    ticket._message_add_suggested_recipient(
+                        recipients, partner=ticket.partner_id, reason=_("Customer")
+                    )
+                elif ticket.partner_email:
+                    ticket._message_add_suggested_recipient(
+                        recipients,
+                        email=ticket.partner_email,
+                        reason=_("Customer Email"),
+                    )
+        except AccessError:
+            # no read access rights -> just ignore suggested recipients because this
+            # imply modifying followers
+            pass
+        return recipients

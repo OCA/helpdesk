@@ -180,3 +180,17 @@ class TestHelpdeskTicket(common.SavepointCase):
             ).id,
         )
         demo2.unlink()
+
+    def test_message_update(self):
+        self.user_demo.partner_id.email = "test999@gmail.com"
+        msg = {"to": "test999@gmail.com"}
+        self.ticket.message_update(msg)
+
+    def test_message_get_suggested_recipients(self):
+        # With Partner
+        self.ticket.partner_id = self.user_demo.partner_id.id
+        self.ticket._message_get_suggested_recipients()
+        # With mail
+        self.ticket.partner_id = False
+        self.ticket.partner_email = "test99@gmail.com"
+        self.ticket._message_get_suggested_recipients()
