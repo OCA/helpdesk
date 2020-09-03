@@ -114,8 +114,7 @@ class HelpdeskTicket(models.Model):
         "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.category",
-        string="Category",
+        comodel_name="helpdesk.ticket.category", string="Category",
     )
     team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team")
     priority = fields.Selection(
