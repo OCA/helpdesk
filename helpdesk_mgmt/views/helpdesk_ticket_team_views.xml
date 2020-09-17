@@ -148,6 +148,20 @@
         <field name="arch" type="xml">
             <tree string="Team">
                 <field name="name" />
+                <field name="category_ids" widget="many2many_tags" />
+                <field name="todo_ticket_count" string="Active tickets" />
+                <field
+                    name="todo_ticket_count_unassigned"
+                    string="Unassigned tickets"
+                />
+                <field
+                    name="todo_ticket_count_unattended"
+                    string="Unattended tickets"
+                />
+                <field
+                    name="todo_ticket_count_high_priority"
+                    string="Priority tickets"
+                />
             </tree>
         </field>
     </record>
