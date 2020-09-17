@@ -57,6 +57,6 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
                          'have one ticket unattended.')
 
         self.assertEqual(self.team_id.todo_ticket_count,
-                         2,
+                         1,
                          'Helpdesk Ticket: Helpdesk ticket team should '
-                         'have two tickets to do.')
+                         'have one ticket to do.')
