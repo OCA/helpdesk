@@ -30,11 +30,6 @@ class HelpdeskTeam(models.Model):
         'team_id',
         string="Tickets")
 
-    todo_ticket_ids = fields.One2many(
-        'helpdesk.ticket',
-        'team_id',
-        string="Todo tickets")
-
     todo_ticket_count = fields.Integer(
         string="Number of tickets",
         compute='_compute_todo_tickets')
@@ -55,7 +50,7 @@ class HelpdeskTeam(models.Model):
     def _compute_todo_tickets(self):
         ticket_model = self.env["helpdesk.ticket"]
         fetch_data = ticket_model.read_group(
-            [("team_id", "in", self.ids)],
+            [("team_id", "in", self.ids), ("closed", "=", False)],
             ["team_id", "user_id", "unattended", "priority"],
             ["team_id", "user_id", "unattended", "priority"],
             lazy=False,
