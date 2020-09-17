@@ -56,19 +56,33 @@ class HelpdeskTeam(models.Model):
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
-        for record in self:
-            todo_ticket_ids = self.env["helpdesk.ticket"].search(
-                [("team_id", "=", record.id), ("closed", "=", False)]
+        ticket_model = self.env["helpdesk.ticket"]
+        fetch_data = ticket_model.read_group(
+            [("team_id", "in", self.ids), ("closed", "=", False)],
+            ["team_id", "user_id", "unattended", "priority"],
+            ["team_id", "user_id", "unattended", "priority"],
+            lazy=False,
+        )
+        result = [
+            [
+                data["team_id"][0],
+                data["user_id"] and data["user_id"][0],
+                data["unattended"],
+                data["priority"],
+                data["__count"],
+            ]
+            for data in fetch_data
+        ]
+        for team in self:
+            team.todo_ticket_count = sum([r[4] for r in result if r[0] == team.id])
+            team.todo_ticket_count_unassigned = sum(
+                [r[4] for r in result if r[0] == team.id and not r[1]]
             )
-            record.todo_ticket_count = len(todo_ticket_ids)
-            record.todo_ticket_count_unassigned = len(
-                todo_ticket_ids.filtered(lambda ticket: not ticket.user_id)
+            team.todo_ticket_count_unattended = sum(
+                [r[4] for r in result if r[0] == team.id and r[2]]
             )
-            record.todo_ticket_count_unattended = len(
-                todo_ticket_ids.filtered(lambda ticket: ticket.unattended)
-            )
-            record.todo_ticket_count_high_priority = len(
-                todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
+            team.todo_ticket_count_high_priority = sum(
+                [r[4] for r in result if r[0] == team.id and r[3] == "3"]
             )
 
     def _alias_get_creation_values(self):
