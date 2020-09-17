@@ -30,6 +30,11 @@ class HelpdeskTeam(models.Model):
         'team_id',
         string="Tickets")
 
+    todo_ticket_ids = fields.One2many(
+        'helpdesk.ticket',
+        'team_id',
+        string="Todo tickets", domain=[("closed", '=', False)])
+
     todo_ticket_count = fields.Integer(
         string="Number of tickets",
         compute='_compute_todo_tickets')
