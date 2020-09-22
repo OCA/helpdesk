@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_timesheet" inherit_id="hr_timesheet.report_timesheet">
+        <xpath expr="//t[@t-set='show_project']" position="after">
+            <t t-set="show_ticket" t-value="bool(docs.mapped('ticket_id'))"
+               groups="helpdesk_mgmt.group_helpdesk_user"/>
+        </xpath>
+        <xpath expr="//table[hasclass('table-condensed')]/thead/tr/th[3]" position="after">
+            <th t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user">Ticket</th>
+        </xpath>
+        
+        <xpath expr="//table[hasclass('table-condensed')]/tbody/t/tr/td[3]" position="after">
+            <td t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user">
+                <span t-field="l.ticket_id.number"/> - <span t-field="l.ticket_id.name"/>
+            </td>
+        </xpath>
+        
+        <xpath expr="//table[hasclass('table-condensed')]/tbody/tr/td[3]" position="after">
+            <td t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user" />
+        </xpath>
+        
+    </template>
+</odoo>
