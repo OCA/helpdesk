@@ -5,6 +5,7 @@
     <field name="name">view_partner_form</field>
     <field name="model">res.partner</field>
     <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="groups_id" eval="[(4, ref('group_helpdesk_user_own'))]"/>
     <field name="arch" type="xml">
       <div class="oe_button_box" name="button_box">
         <button context="{'search_default_open': True, 'default_partner_id': active_id}" name="action_view_helpdesk_tickets" type="object" class="oe_stat_button" icon="fa-life-ring">
