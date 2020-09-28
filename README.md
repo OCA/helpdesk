@@ -10,7 +10,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 12.0.1.19.0 | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 12.0.1.20.0 | Helpdesk
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 12.0.1.1.0 | Add the option to select project in the tickets.
 [helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 12.0.1.1.0 | Add HR Timesheet to the tickets for Helpdesk Management.
 [helpdesk_motive](helpdesk_motive/) | 12.0.1.0.0 | Keep the motive
