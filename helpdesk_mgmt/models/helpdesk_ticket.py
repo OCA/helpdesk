@@ -49,7 +49,7 @@ class HelpdeskTicket(models.Model):
     assigned_date = fields.Datetime(string='Assigned Date')
     closed_date = fields.Datetime(string='Closed Date')
     closed = fields.Boolean(related='stage_id.closed')
-    unattended = fields.Boolean(related='stage_id.unattended')
+    unattended = fields.Boolean(related='stage_id.unattended', store=True)
     tag_ids = fields.Many2many('helpdesk.ticket.tag')
     company_id = fields.Many2one(
         'res.company',
