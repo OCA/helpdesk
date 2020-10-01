@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo11-addon-helpdesk_mgmt',
         'odoo11-addon-helpdesk_mgmt_rating',
+        'odoo11-addon-helpdesk_type',
     ],
     classifiers=[
         'Programming Language :: Python',
