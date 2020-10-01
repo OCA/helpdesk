@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_type
+# 	* helpdesk_type
 #
 msgid ""
 msgstr ""
@@ -17,17 +17,17 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_uid
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_create_uid
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_date
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_create_date
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
@@ -48,42 +48,42 @@ msgid "Helpdesk Ticket Type"
 msgstr "Tipo Ticket Helpdesk"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type_team_ids
 msgid "Helpdesk teams allowed to use this type."
 msgstr "Team helpdesk abilitati all'utilizzo di questo  tipo."
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id_2194
 msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type____last_update
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type___last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_uid
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_write_uid
 msgid "Last Updated by"
 msgstr "Ultima modifica di"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_date
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__name
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_name
 msgid "Name"
 msgstr "Nome"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__team_ids
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_team_ids
 msgid "Teams"
 msgstr "Team"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__type_ids
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team_type_ids
 msgid "Ticket Type"
 msgstr "Tipo Ticket"
 
@@ -93,19 +93,21 @@ msgid "Ticket Types"
 msgstr "Tipi Ticket"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
-msgid "Ticket Types the team will use. This team's tickets will only be able to use those types."
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team_type_ids
+msgid ""
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 "Tipi Ticket che il team utilizzerà. Questo team sarà in grado di utilizzare "
 "solo questi tipi."
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id
+#: model:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
 msgid "Type"
 msgstr "Tipo"
 
 #. module: helpdesk_type
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
+#: model:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
 msgid "Types"
 msgstr "Tipi"
