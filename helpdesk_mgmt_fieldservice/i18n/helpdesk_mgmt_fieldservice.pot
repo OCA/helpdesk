@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-19 14:56+0000\n"
-"PO-Revision-Date: 2020-06-19 14:56+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,18 +26,6 @@ msgstr ""
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Cancel"
-msgstr ""
-
-#. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:20
-#, python-format
-msgid "Cannot move to Complete until 'Actual End' is filled in"
-msgstr ""
-
-#. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:23
-#, python-format
-msgid "Cannot move to Complete until 'Resolution' is filled in"
 msgstr ""
 
 #. module: helpdesk_mgmt_fieldservice
@@ -143,7 +129,7 @@ msgid "Operations"
 msgstr ""
 
 #. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:32
+#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:30
 #, python-format
 msgid "Please complete all service orders related to this ticket to close it."
 msgstr ""
