@@ -59,6 +59,9 @@ class TestHelpdeskTicket(common.SavepointCase):
             "/",
             "Helpdesk Ticket: A ticket should have " "a number.",
         )
+        ticket_number_1 = int(self.ticket._prepare_ticket_number(values={})[2:])
+        ticket_number_2 = int(self.ticket._prepare_ticket_number(values={})[2:])
+        self.assertEquals(ticket_number_1 + 1, ticket_number_2)
 
     def test_helpdesk_ticket_copy(self):
         old_ticket_number = self.ticket.number
