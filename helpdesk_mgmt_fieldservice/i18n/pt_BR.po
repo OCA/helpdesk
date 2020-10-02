@@ -8,14 +8,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-19 14:56+0000\n"
 "PO-Revision-Date: 2020-06-19 14:59-0300\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: \n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.3.1\n"
-"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
-"Language: pt_BR\n"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_count
@@ -31,18 +31,6 @@ msgstr "Todas as Ordens Fechadas"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Cancel"
 msgstr "Cancelar"
-
-#. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:20
-#, python-format
-msgid "Cannot move to Complete until 'Actual End' is filled in"
-msgstr "Não pode passar para Completado até que ‘Fim Real’ seja preenchido"
-
-#. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/fsm_order.py:23
-#, python-format
-msgid "Cannot move to Complete until 'Resolution' is filled in"
-msgstr "Não pode passar para Concluído até que 'Resolução' seja preenchida"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
@@ -145,10 +133,12 @@ msgid "Operations"
 msgstr "Operações"
 
 #. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:32
+#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:30
 #, python-format
 msgid "Please complete all service orders related to this ticket to close it."
-msgstr "Por favor, complete todas as ordens de serviço relacionadas a este chamado para fechá-lo."
+msgstr ""
+"Por favor, complete todas as ordens de serviço relacionadas a este chamado "
+"para fechá-lo."
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__resolution
@@ -192,3 +182,9 @@ msgstr "Buscar em Estágio do Chamado"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.view_fsm_location_ticket_form
 msgid "Tickets"
 msgstr "Chamados"
+
+#~ msgid "Cannot move to Complete until 'Actual End' is filled in"
+#~ msgstr "Não pode passar para Completado até que ‘Fim Real’ seja preenchido"
+
+#~ msgid "Cannot move to Complete until 'Resolution' is filled in"
+#~ msgstr "Não pode passar para Concluído até que 'Resolução' seja preenchida"
