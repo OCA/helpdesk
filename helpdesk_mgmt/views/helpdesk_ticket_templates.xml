@@ -90,7 +90,7 @@
       <t t-call="portal.portal_layout">
           <div class="container">
               <div class="panel panel-default">
-                  <div class="panel-heading">
+                  <div class="panel-heading mt32">
                       <div class="row">
                           <div class="col-md-6">
                               <h4>
@@ -99,7 +99,8 @@
                               </h4>
                           </div>
                           <t t-foreach="closed_stages" t-as="stage">
-                            <form method="GET" t-if="not ticket.closed_date" t-attf-action="/ticket/close" style="display:inline;">
+                            <form method="GET" t-if="not ticket.closed_date and stage.portal_user_can_close"
+                                  t-attf-action="/ticket/close" style="display:inline;">
                               <input type="hidden" name="ticket_id" t-attf-value="#{ticket.id}"/>
                               <input type="hidden" name="stage_id" t-attf-value="#{stage.id}"/>
                               <button class="btn btn-success pull-right" style="margin-right:15px;margin-top:3px;"><span t-field="stage.name"/></button>
@@ -110,26 +111,36 @@
 
                   <div class="panel-body">
                     <div class="mb8">
-                      <div>
-                        <div class="pull-left">
+                      <div class="row">
+                        <div class="col-md-6">
                           <strong>Date:</strong> <span t-field="ticket.create_date" /><br/>
                           <b>Category:</b> <t t-esc="ticket.category_id.name"/><br/>
                           <b>Stage:</b> <t t-esc="ticket.stage_id.name"/><br/>
                         </div>
-                        <div class="pull-right">
+                        <div class="col-md-6">
                           <strong>Last Stage Update:</strong> <span t-field="ticket.last_stage_update" /><br/>
+                          <strong>Attachments:</strong><br />
+                          <t t-foreach="files" t-as="f">
+                              <a t-att-href="'/web/content/%i?download=true' % f.id">
+                                  <span class="fa fa-download" />
+                                  <span t-esc="f.name" />
+                              </a>
+                              <br />
+                          </t>
                         </div>
                       </div>
-                      <br/>
-                      <br/>
-                      <h4 class="page-header">Description</h4>
-                      <t t-raw="ticket.description"/><br/>
+                      <div class="row mt8">
+                        <div class="col-md-12">
+                          <h4 class="page-header">Description</h4>
+                          <t t-raw="ticket.description"/><br/>
+                        </div>
                       </div>
-                      <h4 class="page-header">History</h4>
-                      <!-- Options:Ticket Chatter: user can reply -->
-                      <t t-call="portal.message_thread">
-                        <t t-set="object" t-value="ticket"/>
-                      </t>
+                    </div>
+                    <h4 class="page-header">History</h4>
+                    <!-- Options:Ticket Chatter: user can reply -->
+                    <t t-call="portal.message_thread">
+                      <t t-set="object" t-value="ticket"/>
+                    </t>
 
                   </div>
                 </div>

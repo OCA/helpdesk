@@ -31,3 +31,7 @@
 
   * Marcel Savegnago <marcel.savegnago@escodoo.com.br>
   * Eduardo Aparício <eduardo.aparicio@escodoo.com.br>
+
+* `TAKOBI <https://takobi.online>`_:
+
+  * Lorenzo Battistini

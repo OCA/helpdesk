@@ -14,6 +14,7 @@ class HelpdeskTicketStage(models.Model):
         string='Unattended')
     closed = fields.Boolean(
         string='Closed')
+    portal_user_can_close = fields.Boolean()
     mail_template_id = fields.Many2one(
         'mail.template',
         string='Email Template',
@@ -23,9 +24,7 @@ class HelpdeskTicketStage(models.Model):
              "reaches this step.")
     fold = fields.Boolean(
         string='Folded in Kanban',
-        help="This stage is folded in the kanban view "
-             "when there are no records in that stage "
-             "to display.")
+        help="This stage is folded in the kanban view.")
     company_id = fields.Many2one(
         'res.company',
         string="Company",

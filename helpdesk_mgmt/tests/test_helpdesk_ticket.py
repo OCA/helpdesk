@@ -10,6 +10,7 @@ class TestHelpdeskTicket(common.SavepointCase):
         helpdesk_ticket = cls.env['helpdesk.ticket']
         cls.user_admin = cls.env.ref('base.user_root')
         cls.user_demo = cls.env.ref('base.user_demo')
+        cls.user_portal = cls.env.ref('base.demo_user0')
         cls.stage_closed = cls.env.ref(
             'helpdesk_mgmt.helpdesk_ticket_stage_done'
         )
@@ -97,3 +98,14 @@ class TestHelpdeskTicket(common.SavepointCase):
         )
         self.assertEqual(manual_named.partner_name, "Special name")
         self.assertEqual(manual_named.partner_email, "special@example.org")
+
+    def test_helpdesk_ticket_access(self):
+        self.assertEqual(self.ticket.access_url, '/my/ticket/%s' % self.ticket.id)
+        self.ticket.partner_id = self.user_portal.partner_id.id
+        self.assertTrue(self.ticket.partner_can_access())
+        self.ticket.user_id = self.user_demo.id
+        self.assertTrue(
+            'The ticket %s has been assigned to you' % self.ticket.number in
+            self.ticket.message_ids[0].body)
+        self.assertTrue(
+            'res_id=%s' % self.ticket.id in self.ticket.message_ids[0].body)
