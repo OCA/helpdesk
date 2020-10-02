@@ -119,10 +119,7 @@ class HelpdeskTicket(models.Model):
     @api.model
     def create(self, vals):
         if vals.get("number", "/") == "/":
-            seq = self.env["ir.sequence"]
-            if "company_id" in vals:
-                seq = seq.with_context(force_company=vals["company_id"])
-            vals["number"] = seq.next_by_code("helpdesk.ticket.sequence") or "/"
+            vals["number"] = self._prepare_ticket_number(vals)
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
@@ -135,9 +132,7 @@ class HelpdeskTicket(models.Model):
         if default is None:
             default = {}
         if "number" not in default:
-            default["number"] = (
-                self.env["ir.sequence"].next_by_code("helpdesk.ticket.sequence") or "/"
-            )
+            default["number"] = self._prepare_ticket_number(default)
         res = super().copy(default)
         return res
 
@@ -163,6 +158,12 @@ class HelpdeskTicket(models.Model):
     def action_duplicate_tickets(self):
         for ticket in self.browse(self.env.context["active_ids"]):
             ticket.copy()
+
+    def _prepare_ticket_number(self, values):
+        seq = self.env["ir.sequence"]
+        if "company_id" in values:
+            seq = seq.with_context(force_company=values["company_id"])
+        return seq.next_by_code("helpdesk.ticket.sequence") or "/"
 
     # ---------------------------------------------------
     # Mail gateway
