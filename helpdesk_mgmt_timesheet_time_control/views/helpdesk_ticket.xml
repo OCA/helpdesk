@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Graeme Gellatly
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_form_view">
+        <field
+            name="name"
+        >helpdesk.ticket.form (in helpdesk_mgmt_timesheet_time_control)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field
+            name="inherit_id"
+            ref="helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form"
+        />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="show_time_control" invisible="1" />
+                <button
+                    name="button_start_work"
+                    string="Start work"
+                    type="object"
+                    icon="fa-play-circle text-success"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="oe_stat_button"
+                />
+                <button
+                    name="button_end_work"
+                    string="Stop work"
+                    type="object"
+                    icon="fa-stop-circle text-warning"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="oe_stat_button"
+                />
+            </div>
+            <!-- Sub-tree view for timesheet_ids -->
+            <xpath
+                expr="//field[@name='timesheet_ids']/tree//field[@name='date']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='timesheet_ids']/tree//field[@name='date']"
+                position="after"
+            >
+                <field name="date_time" string="Date" required="1" />
+            </xpath>
+            <xpath expr="//field[@name='timesheet_ids']/tree" position="inside">
+                <field name="show_time_control" invisible="1" />
+                <button
+                    name="button_resume_work"
+                    string="Resume work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-play-circle text-success"
+                    attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                    class="oe_stat_button"
+                />
+                <button
+                    name="button_end_work"
+                    string="Stop work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-stop-circle text-warning"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="oe_stat_button"
+                />
+            </xpath>
+            <xpath expr="//field[@name='timesheet_ids']/tree" position="attributes">
+                <attribute name="default_order">date_time</attribute>
+            </xpath>
+            <!-- Sub-form view for timesheet_ids -->
+            <xpath
+                expr="//field[@name='timesheet_ids']/form//field[@name='date']"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='timesheet_ids']/form//field[@name='date']"
+                position="after"
+            >
+                <field name="date_time" required="1" />
+            </xpath>
+            <xpath expr="//field[@name='timesheet_ids']/form/*" position="before">
+                <div class="oe_button_box" name="button_box">
+                    <field name="show_time_control" invisible="1" />
+                    <button
+                        name="button_resume_work"
+                        string="Resume work"
+                        tabindex="-1"
+                        type="object"
+                        icon="fa-play-circle text-success"
+                        attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                        class="oe_stat_button"
+                        context="{'show_created_timer': True}"
+                    />
+                    <button
+                        name="button_end_work"
+                        string="Stop work"
+                        tabindex="-1"
+                        type="object"
+                        icon="fa-stop-circle text-warning"
+                        attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                        class="oe_stat_button"
+                    />
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_kanban_view">
+        <field
+            name="name"
+        >helpdesk.ticket.kanban (in helpdesk_mgmt_timesheet_time_control)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//*[hasclass('oe_kanban_bottom_left')]" position="inside">
+                <field name="show_time_control" invisible="1" />
+                <a
+                    name="button_start_work"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="o_kanban_inline_block fa fa-lg fa-play-circle text-success"
+                    string="Start work"
+                    tabindex="-1"
+                    type="object"
+                />
+                <a
+                    name="button_end_work"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="o_kanban_inline_block fa fa-lg fa-stop-circle text-warning"
+                    string="Stop work"
+                    tabindex="-1"
+                    type="object"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_tree_view">
+        <field
+            name="name"
+        >helpdesk.ticket.tree (in helpdesk_mgmt_timesheet_time_control)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_timesheet.ticket_view_tree" />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="arch" type="xml">
+            <tree position="inside">
+                <field name="show_time_control" invisible="1" />
+                <button
+                    name="button_start_work"
+                    string="Start work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-play-circle text-success"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="oe_stat_button"
+                />
+                <button
+                    name="button_end_work"
+                    string="Stop work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-stop-circle text-warning"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="oe_stat_button"
+                />
+            </tree>
+        </field>
+    </record>
+</odoo>
