@@ -25,5 +25,7 @@ class AccountAnalyticLine(models.Model):
     @api.onchange("ticket_id")
     def onchange_ticket_id(self):
         for record in self:
+            if not record.ticket_id:
+                continue
             record.project_id = record.ticket_id.project_id
             record.task_id = record.ticket_id.task_id
