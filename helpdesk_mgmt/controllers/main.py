@@ -49,10 +49,7 @@ class HelpdeskTicketController(http.Controller):
             'channel_id':
                 request.env['helpdesk.ticket.channel'].
                 sudo().search([('name', '=', 'Web')]).id,
-            'partner_id':
-                request.env['res.partner'].sudo().search([
-                    ('name', '=', kw.get('name')),
-                    ('email', '=', kw.get('email'))]).id
+            'partner_id': request.env.user.partner_id.id,
         }
         new_ticket = request.env['helpdesk.ticket'].sudo().create(
             vals)
