@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-10-14 18:08+0000\n"
+"PO-Revision-Date: 2020-10-28 12:08+0000\n"
 "Last-Translator: GorkaMagra <gorka.magra@gmail.com>\n"
 "Language-Team: none\n"
 "Language: eu_ES\n"
@@ -616,11 +616,13 @@ msgid ""
 "A Python dictionary that will be evaluated to provide default values when "
 "creating new records for this alias."
 msgstr ""
+"Python-en hiztegi bat, ezizen honentzako erregistro berriak sortzean aurrez "
+"zehaztutako balioak emateko ebaluatuko dena."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Accept Emails From"
-msgstr ""
+msgstr "Honako e-posta hauek onartzea"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_warning
