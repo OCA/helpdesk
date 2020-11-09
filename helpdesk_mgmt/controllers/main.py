@@ -33,7 +33,14 @@ class HelpdeskTicketController(http.Controller):
         _template = request.env.ref("helpdesk_mgmt.portal_create_ticket_inner_form")
         xml_id = f"{_template.xml_id}_root"
         view_id = request.env["ir.ui.view"].search(
-            [("name", "=", xml_id,), ("key", "=", xml_id)]
+            [
+                (
+                    "name",
+                    "=",
+                    xml_id,
+                ),
+                ("key", "=", xml_id),
+            ]
         )
 
         return request.render(
@@ -125,15 +132,16 @@ class HelpdeskTicketController(http.Controller):
             user_email = http.request.env.user.email
             user_name = http.request.env.user.name
             user_id = http.request.env.user.id
-        category_ids = (
-            http.request.env["helpdesk.ticket.category"]
-            .with_user(SUPERUSER_ID)
-            .search([("active", "=", True)])
-        )
+
         team_id = self._search_team_id(endpoint)
         r = False  # maybe some day someone'll make a cool error template
         if team_id:
             r = False
+            category_ids = (
+                http.request.env["helpdesk.ticket.category"]
+                .with_user(SUPERUSER_ID)
+                .get_categories_by_team(team_id)
+            )
             if team_id.alias_contact == "everyone" or user_id:
                 r = request.render(
                     "helpdesk_mgmt.portal_create_ticket_main_layout",
@@ -149,7 +157,11 @@ class HelpdeskTicketController(http.Controller):
         return r
 
     @http.route(
-        "/help/ticket/team/submit", type="http", auth="user", website=True, csrf=True,
+        "/help/ticket/team/submit",
+        type="http",
+        auth="user",
+        website=True,
+        csrf=True,
     )
     def submit_new_team_ticket(self, **kw):
         values = {

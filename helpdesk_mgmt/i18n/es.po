@@ -498,7 +498,7 @@ msgstr "Asignar a"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Assign to me"
-msgstr "Asignar a mi"
+msgstr "Asignármelo"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__assigned_date
@@ -560,7 +560,6 @@ msgstr "Categorías"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Category"
 msgstr "Categoría"
@@ -1720,3 +1719,13 @@ msgstr "Semanas"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_thankyou_ticket
 msgid "Your ticket has been sent successfully."
 msgstr "Tu tíquet se ha enviado satisfactoriamente"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
+msgid "Applied categories"
+msgstr "Categorías"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__team_ids
+msgid "Applied on"
+msgstr "Aplicada en"
