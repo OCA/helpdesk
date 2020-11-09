@@ -31,6 +31,8 @@ it'll appear regardless of the team selected
         string="Applied on",
     )
 
+    sequence = fields.Integer(string="Sequence")
+
     @api.model
     def get_categories_by_team(self, team_id) -> list:
         return self.env[self._name].search(
