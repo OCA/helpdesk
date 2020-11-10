@@ -60,8 +60,8 @@
         <field name="model">helpdesk.ticket.category</field>
         <field name="arch" type="xml">
             <tree string="Team">
-              <field name="sequence" widget="handle" />
-              <field name="name" />
+                <field name="sequence" widget="handle" />
+                <field name="name" />
             </tree>
         </field>
     </record>
