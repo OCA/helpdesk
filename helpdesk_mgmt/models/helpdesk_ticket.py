@@ -114,7 +114,7 @@ class HelpdeskTicket(models.Model):
         "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.category", string="Category",
+        comodel_name="helpdesk.ticket.category", string="Category"
     )
     team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team")
     priority = fields.Selection(
@@ -180,6 +180,16 @@ class HelpdeskTicket(models.Model):
                         + record.auto_last_update
                     )
 
+    def _compute_category_domain(self) -> list:
+        other_ids = self.env["helpdesk.ticket.category"].search(
+            [("team_ids", "=", False)]
+        )
+        return (
+            [("id", "in", list(set((self.team_id.category_ids + other_ids).ids)))]
+            if self.team_id
+            else None
+        )
+
     def send_user_mail(self):
         template = self.env.ref("helpdesk_mgmt.assignment_email_template")
         self.message_post_with_template(
@@ -223,20 +233,17 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange("team_id", "user_id")
     def _onchange_domain_user_id(self):
-        res = ""
+        res = {"domain": {"user_id": [("share", "=", False)]}}
+        category_ids = self._compute_category_domain()
+        if category_ids:
+            res["domain"]["category_id"] = category_ids
         if self.team_id and self.team_id.user_ids:
             if self.user_id not in self.team_id.user_ids:
                 self.update({"user_id": False})
-            res = {
-                "domain": {
-                    "user_id": [
-                        ("id", "in", self.team_id.user_ids.ids),
-                        ("share", "=", False),
-                    ]
-                }
-            }
-        else:
-            res = {"domain": {"user_id": [("share", "=", False)]}}
+            res["domain"]["user_id"] = [
+                ("id", "in", self.team_id.user_ids.ids),
+                ("share", "=", False),
+            ]
         return res
 
     # ---------------------------------------------------

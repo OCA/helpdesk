@@ -104,5 +104,6 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
         _team_id.name = "team-69"
         _team_id.recompute_endpoint()
         self.assertEqual(
-            _team_id.endpoint_full_webform, "help/team/{}".format("team-69"),
+            _team_id.endpoint_full_webform,
+            "help/team/{}".format("team-69"),
         )

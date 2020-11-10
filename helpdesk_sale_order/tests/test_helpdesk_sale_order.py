@@ -46,7 +46,8 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
         # variable equal check and database equal search
         self.ticket.sale_order_id = self.sale_order_1.id
         self.assertEqual(
-            self.ticket.sale_order_id.id, self.sale_order_1.id,
+            self.ticket.sale_order_id.id,
+            self.sale_order_1.id,
         )
         self.assertEqual(
             self.env["helpdesk.ticket"].browse([self.ticket.id]).sale_order_id.id,
@@ -59,7 +60,8 @@ class TestHelpdeskSalesOrder(common.SavepointCase):
 
         self.ticket_with_sale_order.sale_order_id = self.sale_order_2.id
         self.assertEqual(
-            self.ticket_with_sale_order.sale_order_id.id, self.sale_order_2.id,
+            self.ticket_with_sale_order.sale_order_id.id,
+            self.sale_order_2.id,
         )
 
         self.ticket_with_sale_order.sale_order_id = None

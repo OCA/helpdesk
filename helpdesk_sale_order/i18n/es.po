@@ -35,12 +35,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
 #, python-format
 msgid "Add coupon"
-msgstr ""
+msgstr "Añadir cupón"
 
 #. module: helpdesk_sale_order
 #: model:ir.model,name:helpdesk_sale_order.model_sale_coupon_wizard
 msgid "Add new sale coupon wizard"
-msgstr ""
+msgstr "Wizard para añadir nuevo cupón"
 
 #. module: helpdesk_sale_order
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_team_view_form
@@ -92,12 +92,12 @@ msgstr "Cupón"
 #: code:addons/helpdesk_sale_order/wizard/sale_coupon_wizard.py:0
 #, python-format
 msgid "Coupon %s"
-msgstr ""
+msgstr "Cupón %s"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__program_id
 msgid "Coupon program"
-msgstr ""
+msgstr "Programa de cupones"
 
 #. module: helpdesk_sale_order
 #: code:addons/addons/helpdesk/helpdesk_sale_order/models/helpdesk_ticket.py:0
@@ -107,32 +107,32 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
 #, python-format
 msgid "Coupons"
-msgstr ""
+msgstr "Cupones"
 
 #. module: helpdesk_sale_order
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.sale_coupon_wizard_view_form
 msgid "Create coupon"
-msgstr ""
+msgstr "Crear cupón"
 
 #. module: helpdesk_sale_order
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.sale_coupon_wizard_view_form
 msgid "Create new coupon"
-msgstr ""
+msgstr "Crear nuevo cupón"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creado por"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creado el"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: helpdesk_sale_order
 #: model:ir.model,name:helpdesk_sale_order.model_helpdesk_ticket
@@ -152,37 +152,37 @@ msgstr ""
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Modificado por última vez el"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Modificado por última vez por"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Actualizado por última vez el"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__linked_picking_ids
 msgid "Linked Picking"
-msgstr ""
+msgstr "Albarán enlazado"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__name
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__sale_order_id
 msgid "Order reference"
-msgstr ""
+msgstr "Pedido de venta"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_sale_coupon_wizard__partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Contacto"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__picking_id
@@ -192,23 +192,23 @@ msgstr "Albarán"
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__picking_ids
 msgid "Pickings"
-msgstr ""
+msgstr "Albaranes"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__related_sale_order_id
 msgid "Related sale order"
-msgstr ""
+msgstr "Pedido de venta"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_stock_return_picking__related_ticket_id
 msgid "Related ticket"
-msgstr ""
+msgstr "Ticket"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__ticket_return_rel
 #: model_terms:ir.ui.view,arch_db:helpdesk_sale_order.helpdesk_ticket_view_form
 msgid "Return"
-msgstr ""
+msgstr "Realizar una devolución"
 
 #. module: helpdesk_sale_order
 #: model:ir.model,name:helpdesk_sale_order.model_stock_return_picking
@@ -230,7 +230,7 @@ msgstr "Devolución"
 #. module: helpdesk_sale_order
 #: model:ir.actions.act_window,name:helpdesk_sale_order.act_return_product
 msgid "Reverse Transfer"
-msgstr ""
+msgstr "Transferencia inversa"
 
 #. module: helpdesk_sale_order
 #: model:ir.model.fields,field_description:helpdesk_sale_order.field_helpdesk_ticket__sale_order_id

@@ -9,7 +9,10 @@ class HelpdeskTicket(models.Model):
         for record in self:
             record.coupon_count = len(record.coupon_ids)
 
-    sale_order_id = fields.Many2one(comodel_name="sale.order", string="Sale order",)
+    sale_order_id = fields.Many2one(
+        comodel_name="sale.order",
+        string="Sale order",
+    )
 
     assign_sale_order = fields.Boolean(
         string="Assign sale order",

@@ -48,7 +48,9 @@ class HelpdeskTicketStage(models.Model):
     )
 
     ticket_ids = fields.One2many(
-        comodel_name="helpdesk.ticket", inverse_name="stage_id", string="Tickets",
+        comodel_name="helpdesk.ticket",
+        inverse_name="stage_id",
+        string="Tickets",
     )
 
     # called by cron

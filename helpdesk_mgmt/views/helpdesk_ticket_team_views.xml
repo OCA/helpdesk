@@ -120,6 +120,11 @@
                                 options="{'no_create': True}"
                                 groups="base.group_multi_company"
                             />
+                            <field
+                                name="category_ids"
+                                groups="helpdesk_mgmt.group_helpdesk_manager"
+                                widget="many2many_tags"
+                            />
                         </group>
                         <group name="right">
                         </group>
