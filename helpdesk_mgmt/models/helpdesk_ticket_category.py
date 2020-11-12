@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class HelpdeskCategory(models.Model):
     _name = "helpdesk.ticket.category"
     _description = "Helpdesk Ticket Category"
+    _order = "sequence, id"
 
     active = fields.Boolean(
         string="Active",
@@ -30,6 +31,8 @@ it'll appear regardless of the team selected
         relation="category_team_rel",
         string="Applied on",
     )
+
+    sequence = fields.Integer(string="Sequence")
 
     @api.model
     def get_categories_by_team(self, team_id) -> list:
