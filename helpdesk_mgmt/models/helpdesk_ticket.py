@@ -207,7 +207,7 @@ class HelpdeskTicket(models.Model):
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
         partner_ids = [
-            p
+            p.id
             for p in self.env["mail.thread"]._mail_find_partner_from_emails(
                 email_list, records=ticket, force_create=False
             )
@@ -223,7 +223,7 @@ class HelpdeskTicket(models.Model):
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
         partner_ids = [
-            p
+            p.id
             for p in self.env["mail.thread"]._mail_find_partner_from_emails(
                 email_list, records=self, force_create=False
             )
