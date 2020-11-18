@@ -6,8 +6,14 @@ class HelpdeskCategory(models.Model):
     _name = "helpdesk.ticket.category"
     _description = "Helpdesk Ticket Category"
 
-    active = fields.Boolean(string="Active", default=True,)
-    name = fields.Char(string="Name", required=True,)
+    active = fields.Boolean(
+        string="Active",
+        default=True,
+    )
+    name = fields.Char(
+        string="Name",
+        required=True,
+    )
     company_id = fields.Many2one(
         comodel_name="res.company",
         string="Company",
