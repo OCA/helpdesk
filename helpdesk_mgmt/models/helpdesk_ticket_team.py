@@ -20,7 +20,9 @@ class HelpdeskTeam(models.Model):
         default=lambda self: self.env.company,
     )
     user_id = fields.Many2one(
-        comodel_name="res.users", string="Team Leader", check_company=True,
+        comodel_name="res.users",
+        string="Team Leader",
+        check_company=True,
     )
     alias_id = fields.Many2one(
         comodel_name="mail.alias",
@@ -34,7 +36,9 @@ class HelpdeskTeam(models.Model):
     )
     color = fields.Integer(string="Color Index", default=0)
     ticket_ids = fields.One2many(
-        comodel_name="helpdesk.ticket", inverse_name="team_id", string="Tickets",
+        comodel_name="helpdesk.ticket",
+        inverse_name="team_id",
+        string="Tickets",
     )
     todo_ticket_ids = fields.One2many(
         related="ticket_ids",
