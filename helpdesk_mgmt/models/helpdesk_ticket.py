@@ -60,9 +60,13 @@ class HelpdeskTicket(models.Model):
         "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.category", string="Category",
+        comodel_name="helpdesk.ticket.category",
+        string="Category",
     )
-    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
+    team_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.team",
+        string="Team",
+    )
     priority = fields.Selection(
         selection=[
             ("0", _("Low")),
@@ -187,7 +191,7 @@ class HelpdeskTicket(models.Model):
 
     @api.model
     def message_new(self, msg, custom_values=None):
-        """ Override message_new from mail gateway so we can set correct
+        """Override message_new from mail gateway so we can set correct
         default values.
         """
         if custom_values is None:
