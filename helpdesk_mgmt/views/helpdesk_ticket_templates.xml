@@ -44,7 +44,6 @@
                     name="create_new_ticket"
                     type="action"
                     class="btn btn-primary"
-                    groups="base.group_portal"
                     style="float: right; margin-right: 0px; margin-top:5px;"
                 >New Ticket</button>
             </form>
@@ -60,7 +59,6 @@
                         name="create_new_ticket"
                         type="action"
                         class="btn btn-primary"
-                        groups="base.group_portal"
                         style="float: right; margin-right: 5px;"
                     >New Ticket</button>
           </h3>
