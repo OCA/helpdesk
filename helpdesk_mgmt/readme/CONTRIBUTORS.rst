@@ -1,8 +1,8 @@
 * `Domatix <https://www.domatix.com>`_:
 
-  * Carlos Mart??nez
+  * Carlos Martínez
   * Catalin Airimitoaie
-  * ??lvaro L??pez
+  * Álvaro López
   * Samuel Calvo
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
@@ -20,7 +20,7 @@
 
 * `Factor Libre <https://factorlibre.com>`_:
 
-  * Mar??a Alhambra
+  * María Alhambra
   * Daniel Cano
 
 * `Tecnativa <https://www.tecnativa.com>`_:
@@ -30,7 +30,7 @@
 * `ID42 Sistemas <https://www.id42.com.br>`_:
 
   * Marcel Savegnago
-  * Eduardo Apar??cio
+  * Eduardo Aparício
 
 * `Obertix <https://www.obertix.net>`_:
 
