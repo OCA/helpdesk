@@ -193,7 +193,7 @@
             <field name="company_id" />
         </record>
         <record id="helpdesk_ticket_stage_done" model="helpdesk.ticket.stage">
-            <field name="sequence">3</field>
+            <field name="sequence">4</field>
             <field name="name">Done</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
@@ -202,7 +202,7 @@
             <field name="company_id" />
         </record>
         <record id="helpdesk_ticket_stage_cancelled" model="helpdesk.ticket.stage">
-            <field name="sequence">4</field>
+            <field name="sequence">5</field>
             <field name="name">Cancelled</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
