@@ -30,7 +30,7 @@ class HelpdeskTicket(models.Model):
         string="Stage",
         group_expand="_read_group_stage_ids",
         default=_get_default_stage_id,
-        track_visibility="onchange",
+        tracking=True,
         ondelete="restrict",
         index=True,
         copy=False,
