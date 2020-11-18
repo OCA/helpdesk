@@ -20,6 +20,11 @@
         <field name="company_id" ref="base.main_company" />
         <field eval="&quot;1&quot;" name="active" />
     </record>
+    <!-- Mail aliases -->
+    <record id="mail_alias_1" model="mail.alias">
+        <field eval="&quot;General Alias for tickets&quot;" name="alias_name" />
+        <field ref="model_helpdesk_ticket" name="alias_model_id" />
+    </record>
     <!-- Teams -->
     <record id="helpdesk_team_1" model="helpdesk.ticket.team">
         <field eval="&quot;Localization team&quot;" name="name" />
@@ -33,13 +38,15 @@
             eval="[(6,0,[ref('helpdesk_category_1'), ref('helpdesk_category_2')])]"
         />
         <field name="company_id" ref="base.main_company" />
+        <field name="alias_id" ref="mail_alias_1" />
     </record>
     <record id="helpdesk_team_2" model="helpdesk.ticket.team">
-        <field eval="&quot;Helpesk&quot;" name="name" />
+        <field name="name">Helpdesk</field>
         <field name="user_ids" eval="[(6,0,[ref('base.user_demo')])]" />
         <field eval="&quot;1&quot;" name="active" />
         <field name="category_ids" eval="[(6,0,[ref('helpdesk_category_1')])]" />
         <field name="company_id" ref="base.main_company" />
+        <field name="alias_id" ref="mail_alias_1" />
     </record>
     <record id="helpdesk_team_3" model="helpdesk.ticket.team">
         <field eval="&quot;Consultants&quot;" name="name" />
@@ -47,6 +54,7 @@
         <field eval="&quot;1&quot;" name="active" />
         <field name="category_ids" eval="[(6,0,[ref('helpdesk_category_2')])]" />
         <field name="company_id" ref="base.main_company" />
+        <field name="alias_id" ref="mail_alias_1" />
     </record>
     <!-- Tags -->
     <record id="helpdesk_tag_1" model="helpdesk.ticket.tag">
