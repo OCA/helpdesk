@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-11-27 12:36+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,47 +15,48 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Gives label to tickets on project's kanban view."
-msgstr ""
+msgstr "Poda etiketo zahtevkov na projektnem kanban prikazu."
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Zahtevek podpore"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__todo_ticket_count
 msgid "Number of tickets"
-msgstr ""
+msgstr "Število zahtevkov"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search
 msgid "Open Tickets"
-msgstr ""
+msgstr "Odprti zahtevki"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_task
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__task_id
 msgid "Task"
-msgstr ""
+msgstr "Opravilo"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_count
 msgid "Ticket Count"
-msgstr ""
+msgstr "Št. zahtevkov"
 
 #. module: helpdesk_mgmt_project
 #: code:addons/helpdesk_mgmt_project/models/project.py:17
@@ -66,10 +68,10 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_form2
 #, python-format
 msgid "Tickets"
-msgstr ""
+msgstr "Zahtevki"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
-msgstr ""
+msgstr "Uporabi zahtevke kot"
