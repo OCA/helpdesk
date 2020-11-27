@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-11-27 12:36+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@matmoz.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,76 +15,77 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_motive
 msgid "Helpdesk Motive"
-msgstr ""
+msgstr "Motiv podpore"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__team_id
 msgid "Helpdesk Team"
-msgstr ""
+msgstr "Ekipa podpore"
 
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Zahtevek podpore"
 
 #. module: helpdesk_motive
 #: model:ir.actions.act_window,name:helpdesk_motive.action_helpdesk_ticket_motive_tree
 msgid "Helpdesk Ticket Motive"
-msgstr ""
+msgstr "Motiv zahtevka podpore"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Zadnjič spremenjeno"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnja posodobitev"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__motive_id
 #: model:ir.model.fields,help:helpdesk_motive.field_helpdesk_ticket__motive_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_form
 msgid "Motive"
-msgstr ""
+msgstr "Motiv"
 
 #. module: helpdesk_motive
 #: model:ir.ui.menu,name:helpdesk_motive.helpdesk_motive
 #: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_tree
 msgid "Motives"
-msgstr ""
+msgstr "Motivi"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
