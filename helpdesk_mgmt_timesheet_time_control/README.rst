@@ -37,7 +37,7 @@ easily.
 Installation
 ============
 
-This module auto installs when `helpdesk_mgmt_timesheet` and `project_timesheet_time_control` are
+This module auto installs when ``helpdesk_mgmt_timesheet`` and ``project_timesheet_time_control`` are
 installed.
 
 This module depends on modules found in these repositories:
@@ -49,7 +49,7 @@ This module depends on modules found in these repositories:
 Usage
 =====
 
-In general the usage instructions from `project_timesheet_time_control` apply with the following additions.
+In general the usage instructions from ``project_timesheet_time_control`` apply with the following additions.
 
 Via helpdesk tickets:
 
@@ -90,7 +90,7 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* `O4SB <https://o4sb.com>`_:
+* `O4SB <https://o4sb.com>`__:
 
 Maintainers
 ~~~~~~~~~~~
