@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-helpdesk_mgmt_project',
         'odoo13-addon-helpdesk_mgmt_rating',
         'odoo13-addon-helpdesk_mgmt_timesheet',
+        'odoo13-addon-helpdesk_mgmt_timesheet_time_control',
         'odoo13-addon-helpdesk_motive',
         'odoo13-addon-helpdesk_type',
     ],
