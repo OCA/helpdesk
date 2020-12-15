@@ -41,6 +41,7 @@
                 <thead>
                   <tr class="active">
                     <th>By</th>
+                    <th>Number</th>
                     <th>Name</th>
                     <th>Category</th>
                     <th>Stage</th>
@@ -53,6 +54,9 @@
                   <tr>
                     <td>
                       <t t-esc="ticket.partner_id.name"/>
+                    </td>
+                    <td>
+                      <t t-esc="ticket.number"/>
                     </td>
                     <td>
                       <a t-attf-href="/my/ticket/#{ticket.id}">
