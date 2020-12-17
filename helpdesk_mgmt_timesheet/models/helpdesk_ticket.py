@@ -8,9 +8,13 @@ class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     allow_timesheet = fields.Boolean(
-        string="Allow Timesheet", related="team_id.allow_timesheet",
+        string="Allow Timesheet",
+        related="team_id.allow_timesheet",
     )
-    planned_hours = fields.Float(string="Planned Hours", track_visibility="onchange",)
+    planned_hours = fields.Float(
+        string="Planned Hours",
+        track_visibility="onchange",
+    )
     progress = fields.Float(
         compute="_compute_progress_hours",
         group_operator="avg",
