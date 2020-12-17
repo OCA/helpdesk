@@ -21,7 +21,7 @@
                 />
             </td>
         </xpath>
-        <xpath expr="//table[hasclass('table-sm')]/tbody/tr[2]/td[3]" position="after">
+        <xpath expr="//table[hasclass('table-sm')]/tbody/tr[2]/td" position="after">
             <td t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user" />
         </xpath>
     </template>
