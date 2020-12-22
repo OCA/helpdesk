@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "category": "Hidden",
     "author": "Graeme Gellatly,Odoo Community Association (OCA)",
-    "website": "https://o4sb.com",
+    "website": "https://github.com/OCA/helpdesk",
     "depends": [
         "helpdesk_mgmt_timesheet",
         "project_timesheet_time_control",
