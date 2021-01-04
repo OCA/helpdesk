@@ -62,6 +62,7 @@
             <xpath expr="//page[@name='description']" position="after">
                 <page
                     string="Timesheets"
+                    name="timesheets"
                     attrs="{'invisible':[('project_id', '=', False)]}"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 >
