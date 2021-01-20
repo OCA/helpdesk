@@ -10,7 +10,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.1.0 | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.2.0 | Helpdesk
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 13.0.1.0.0 | Add the option to select project in the tickets.
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 13.0.1.0.0 | This module allows customer to rate the assistance received on a ticket.
 [helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 13.0.1.0.1 | Add HR Timesheet to the tickets for Helpdesk Management.
