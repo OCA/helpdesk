@@ -39,6 +39,15 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
             'team_id': self.team_id.id,
         })
 
+    def generate_timesheet_without_ticket(self, project_id, hours=1.0):
+        return self.env['account.analytic.line'].create({
+            'amount': 0,
+            'date': fields.Date.today(),
+            'name': 'Test Timesheet',
+            'unit_amount': hours,
+            'project_id': project_id.id,
+        })
+
     def test_helpdesk_mgmt_timesheet(self):
         ticket = self.generate_ticket()
         ticket._onchange_team_id()
@@ -53,3 +62,11 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
         self.assertEqual(
             ticket.remaining_hours,
             ticket.planned_hours - ticket.total_hours)
+
+    def test_helpdesk_mgmt_timesheet_wo_ticket(self):
+        timesheet1 = self.generate_timesheet_without_ticket(self.project_id)
+        timesheet1.onchange_ticket_id()
+        self.assertEqual(
+            timesheet1.project_id,
+            self.project_id
+        )
