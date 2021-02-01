@@ -4,7 +4,7 @@
 {
     "name": "Helpdesk Mgmt Timesheet Time Control",
     "summary": "Helpdesk Management Timesheet Time Control",
-    "version": "13.0.1.0.0",
+    "version": "12.0.1.0.0",
     "license": "AGPL-3",
     "category": "Hidden",
     "author": "Graeme Gellatly,Odoo Community Association (OCA)",
