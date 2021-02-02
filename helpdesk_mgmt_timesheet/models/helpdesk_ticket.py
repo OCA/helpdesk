@@ -38,6 +38,11 @@ class HelpdeskTicket(models.Model):
         store=True,
         string='Total Hours'
     )
+    last_timesheet_activity = fields.Date(
+        compute='_compute_last_timesheet_activity',
+        readonly=True,
+        store=True,
+    )
 
     @api.depends('timesheet_ids.unit_amount')
     def _compute_total_hours(self):
@@ -71,3 +76,13 @@ class HelpdeskTicket(models.Model):
                         2
                     )
             ticket.remaining_hours = ticket.planned_hours - ticket.total_hours
+
+    @api.depends('timesheet_ids.date')
+    def _compute_last_timesheet_activity(self):
+        for record in self:
+            record.last_timesheet_activity = (
+                record.timesheet_ids and
+                record.timesheet_ids.sorted(
+                    key='date', reverse=True
+                )[0].date
+            ) or False
