@@ -10,7 +10,7 @@
     "author": "Konos, "
               "Open Source Integrators, "
               "Odoo Community Association (OCA)",
-    "website": "https://githut.com/OCA/helpdesk",
+    "website": "https://github.com/OCA/helpdesk",
     "depends": [
         "helpdesk_mgmt",
     ],
@@ -19,6 +19,9 @@
         "views/helpdesk_ticket_type.xml",
         "views/helpdesk_ticket_team.xml",
         "views/helpdesk_ticket.xml",
+    ],
+    "demo": [
+        "demo/helpdesk_type_demo.xml",
     ],
     "application": False,
     "development_status": "Beta",
