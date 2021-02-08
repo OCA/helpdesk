@@ -29,7 +29,7 @@ class FSMLocation(models.Model):
             action['context'] = {}
             if len(ticket_ids) == 1:
                 action['views'] = [(
-                    self.env.ref('helpdesk.helpdesk_ticket_view_form').id,
+                    self.env.ref('helpdesk_mgmt.ticket_view_form').id,
                     'form')]
                 action['res_id'] = ticket_ids.ids[0]
             else:
