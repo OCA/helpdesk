@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt_timesheet
+# 	* helpdesk_mgmt_timesheet
 #
 msgid ""
 msgstr ""
@@ -48,6 +48,11 @@ msgstr ""
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__last_timesheet_activity
+msgid "Last Timesheet Activity"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
@@ -114,6 +119,11 @@ msgstr ""
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__total_hours
 msgid "Total Hours"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "With activity today"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
