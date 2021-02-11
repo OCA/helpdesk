@@ -20,6 +20,13 @@
                     domain="[('remaining_hours', '&lt;', 0)]"
                 />
                 <separator />
+                <filter
+                    name="with_activity_today"
+                    string="With activity today"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                    domain="[('last_timesheet_activity', '=', datetime.datetime.today())]"
+                />
+                <separator />
             </filter>
         </field>
     </record>
