@@ -10,7 +10,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 12.0.1.22.2 | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 12.0.1.22.3 | Helpdesk
 [helpdesk_mgmt_fieldservice](helpdesk_mgmt_fieldservice/) | 12.0.1.0.0 | Create service requests from a ticket
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 12.0.1.1.0 | Add the option to select project in the tickets.
 [helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 12.0.1.2.0 | Add HR Timesheet to the tickets for Helpdesk Management.
