@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo12-addon-helpdesk_mgmt',
         'odoo12-addon-helpdesk_mgmt_fieldservice',
+        'odoo12-addon-helpdesk_mgmt_partner_sequence',
         'odoo12-addon-helpdesk_mgmt_project',
         'odoo12-addon-helpdesk_mgmt_timesheet',
         'odoo12-addon-helpdesk_mgmt_timesheet_time_control',
