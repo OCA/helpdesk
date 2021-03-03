@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-17 08:43+0000\n"
-"PO-Revision-Date: 2020-09-25 15:00+0000\n"
-"Last-Translator: GorkaMagra <gorka.magra@gmail.com>\n"
+"PO-Revision-Date: 2021-03-03 12:45+0000\n"
+"Last-Translator: Christian Santamaría <christiancameselle@hotmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
@@ -76,15 +76,13 @@ msgstr "<strong>Canal:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Closed Date:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Fecha de cierre:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Created on:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Creado en:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -98,27 +96,23 @@ msgstr "<strong>Última actualización de estado:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Priority:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Prioridad:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Stage:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Etapa:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Tag:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Etiqueta:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.report_helpdesk_ticket_document
-#, fuzzy
 msgid "<strong>Team:</strong>"
-msgstr "<strong>Fecha:</strong>"
+msgstr "<strong>Equipo:</strong>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -440,7 +434,7 @@ msgstr "Aceptar correos electrónicos de"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Advertencia de acceso"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
@@ -461,7 +455,7 @@ msgstr "Activo"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Active tickets"
-msgstr ""
+msgstr "Tickets activos"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_ids
@@ -513,7 +507,7 @@ msgstr "Todos"
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_menu
 msgid "All Tickets"
-msgstr ""
+msgstr "Todos los Tickets"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
