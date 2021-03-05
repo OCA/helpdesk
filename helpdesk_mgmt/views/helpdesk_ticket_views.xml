@@ -17,7 +17,11 @@
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
             <search>
-                <field name="number" />
+                <field
+                    string="Ticket"
+                    name="number"
+                    filter_domain="['|',('number', 'ilike', self),('name', 'ilike', self)]"
+                />
                 <field name="partner_id" />
                 <field name="user_id" />
                 <field name="name" />
