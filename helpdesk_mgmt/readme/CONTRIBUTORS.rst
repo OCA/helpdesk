@@ -35,3 +35,7 @@
 * `TAKOBI <https://takobi.online>`_:
 
   * Lorenzo Battistini
+
+* `Open Source Integrators <https://www.opensourceintegrators.com>`_:
+
+  * Bhavesh Odedra
