@@ -200,6 +200,10 @@ Contributors
 
   * Lorenzo Battistini
 
+* `Open Source Integrators <https://www.opensourceintegrators.com>`_:
+
+  * Bhavesh Odedra
+
 Maintainers
 ~~~~~~~~~~~
 
