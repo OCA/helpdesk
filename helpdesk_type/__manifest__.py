@@ -16,6 +16,7 @@
         "views/helpdesk_ticket_team.xml",
         "views/helpdesk_ticket.xml",
     ],
+    "demo": ["demo/helpdesk_type_demo.xml"],
     "application": False,
     "development_status": "Beta",
     "maintainers": ["nelsonramirezs", "max3903"],
