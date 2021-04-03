@@ -42,6 +42,7 @@
             <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
                 <thead>
                   <tr class="active">
+                      <th>Number</th>
                     <th>By</th>
                     <th>Name</th>
                     <th>Category</th>
@@ -52,14 +53,16 @@
                   </tr>
                 </thead>
                 <t t-foreach="tickets" t-as="ticket">
-                  <tr>
+                  <tr t-attf-onclick="window.location='/my/ticket/#{{ticket.id}}';" style="cursor: pointer;">
+                      <td>
+                          <t t-esc="ticket.number"/>
+                      </td>
                     <td>
                       <t t-esc="ticket.partner_id.name"/>
                     </td>
                     <td>
-                      <a t-attf-href="/my/ticket/#{ticket.id}">
-                        <t t-esc="ticket.name"/>
-                      </a>
+                      <t t-esc="ticket.name"/>
+
                     </td>
                     <td>
                       <t t-esc="ticket.category_id.name"/>
