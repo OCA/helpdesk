@@ -53,7 +53,7 @@
                   </tr>
                 </thead>
                 <t t-foreach="tickets" t-as="ticket">
-                  <tr t-attf-onclick="window.location='/my/ticket/#{{ticket.id}}';" style="cursor: pointer;">
+                  <tr t-attf-onclick="window.location='/my/ticket/#{ticket.id}';" style="cursor: pointer;">
                       <td>
                           <t t-esc="ticket.number"/>
                       </td>
