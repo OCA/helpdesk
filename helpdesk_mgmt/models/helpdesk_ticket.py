@@ -1,4 +1,5 @@
 from odoo import _, api, fields, models, tools
+from odoo.osv import expression
 from email.utils import getaddresses
 
 
@@ -81,6 +82,29 @@ class HelpdeskTicket(models.Model):
     sequence = fields.Integer(
         string='Sequence', index=True, default=10,
         help="Gives the sequence order when displaying a list of tickets.")
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for ticket in self:
+            name = "[%s] %s" % (ticket.number, ticket.name)
+            result.append((ticket.id, name))
+        return result
+
+    @api.model
+    def _name_search(
+        self, name, args=None, operator='ilike', limit=100, name_get_uid=None
+    ):
+        args = args or []
+        domain = []
+        if name:
+            domain = ['|', ('number', operator, name), ('name', operator, name)]
+            if operator in expression.NEGATIVE_TERM_OPERATORS:
+                domain = ['&', '!'] + domain[1:]
+        ticket_ids = self._search(
+            expression.AND([domain, args]), limit=limit,
+            access_rights_uid=name_get_uid)
+        return self.browse(ticket_ids).name_get()
 
     def send_user_mail(self):
         self.env.ref('helpdesk_mgmt.assignment_email_template'). \
