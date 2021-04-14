@@ -38,8 +38,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
     ):
         values = self._prepare_portal_layout_values()
         HelpdesTicket = request.env["helpdesk.ticket"]
-        partner = request.env.user.partner_id
-        domain = [("partner_id", "child_of", partner.id)]
+        domain = []
 
         searchbar_sortings = {
             "date": {"label": _("Newest"), "order": "create_date desc"},
