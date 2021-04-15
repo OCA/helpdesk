@@ -13,9 +13,13 @@ class CustomerPortal(CustomerPortal):
 
     def _prepare_portal_layout_values(self):
         values = super(CustomerPortal, self)._prepare_portal_layout_values()
-        partner = request.env.user.partner_id
-        ticket_count = request.env['helpdesk.ticket'].search_count(
-            [('partner_id', 'child_of', partner.id)])
+        ticket_count = (
+            request.env["helpdesk.ticket"].search_count([])
+            if request.env["helpdesk.ticket"].check_access_rights(
+                "read", raise_exception=False
+            )
+            else 0
+        )
         values['ticket_count'] = ticket_count
         return values
 
@@ -52,8 +56,7 @@ class CustomerPortal(CustomerPortal):
             **kw):
         values = self._prepare_portal_layout_values()
         HelpdesTicket = request.env['helpdesk.ticket']
-        partner = request.env.user.partner_id
-        domain = [('partner_id', 'child_of', partner.id)]
+        domain = []
 
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
