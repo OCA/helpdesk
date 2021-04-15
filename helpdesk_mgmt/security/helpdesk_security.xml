@@ -22,7 +22,7 @@
         </record>
     </data>
     <data noupdate="1">
-        <record id="helpesk_ticket_personal_rule" model="ir.rule">
+        <record id="helpdesk_ticket_personal_rule" model="ir.rule">
             <field name="name">Personal Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
             <field
