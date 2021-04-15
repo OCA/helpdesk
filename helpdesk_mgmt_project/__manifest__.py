@@ -3,7 +3,7 @@
 {
     'name': 'Helpdesk Project',
     'summary': "Add the option to select project in the tickets.",
-    'version': '12.0.1.1.0',
+    'version': '12.0.1.1.1',
     'license': 'AGPL-3',
     'category': 'After-Sales',
     'author': 'PuntSistemes S.L.U., '
