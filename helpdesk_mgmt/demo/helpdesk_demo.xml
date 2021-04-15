@@ -5,7 +5,7 @@
 
     <record id="base.user_demo" model="res.users">
             <field name="groups_id" eval="[(4,ref('group_helpdesk_user'))]"/>
-    </record>    
+    </record>
     
     <!-- Categories -->
 
@@ -38,7 +38,7 @@
     </record>
 
     <record id="helpdesk_team_2" model="helpdesk.ticket.team">
-        <field eval="&quot;Helpesk&quot;" name="name"/>
+        <field eval="&quot;Helpdesk&quot;" name="name"/>
         <field name="user_ids" eval="[(6,0,[ref('base.user_demo')])]"/>
         <field eval="&quot;1&quot;" name="active"/>
         <field name="category_ids" eval="[(6,0,[ref('helpdesk_category_1')])]"/>
