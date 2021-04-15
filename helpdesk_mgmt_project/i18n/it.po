@@ -25,7 +25,7 @@ msgstr "Dare  un'etichetta ai ticket sulla vista kanban del progetto."
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Ticket dell'Helpesk"
+msgstr "Ticket dell'Helpdesk"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
