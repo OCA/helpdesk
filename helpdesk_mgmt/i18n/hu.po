@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-04-16 09:00+0000\n"
+"PO-Revision-Date: 2021-04-16 09:32+0000\n"
 "Last-Translator: Tamás Dombos <tdombos@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -274,7 +274,7 @@ msgstr "Archivált"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Assign to"
-msgstr "Hozzá rendel"
+msgstr "Felelős"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -289,7 +289,7 @@ msgstr "Hozzárendelés dátuma"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
-msgstr "Hozzárendelt felhasználó"
+msgstr "Felelős"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -365,7 +365,7 @@ msgstr "Lezárás dátuma"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__closed
 msgid "Closed"
-msgstr "Lezárva"
+msgstr "Lezárt"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed_date
@@ -501,9 +501,8 @@ msgstr "Szerkesztés"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#, fuzzy
 msgid "Email"
-msgstr "Email"
+msgstr "Email címe"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -917,7 +916,7 @@ msgstr "Felelős nélküli esetek száma"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr ""
+msgstr "Ellátatlan esetek száma"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
@@ -928,7 +927,7 @@ msgstr "Olvasatlan üzenetek száma"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
-msgstr "Nyitva"
+msgstr "Nyitott"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
@@ -949,7 +948,7 @@ msgstr "Egyéb információk"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
 msgid "Owner"
-msgstr ""
+msgstr "Létrehozó"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
@@ -1027,7 +1026,7 @@ msgstr "Kapcsolódó esetek"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
-msgstr "Jelentések"
+msgstr "Kimutatás készítés"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_user_id
@@ -1179,10 +1178,10 @@ msgid ""
 "the sender (From) address, or will use the Administrator account if no "
 "system user is found for that address."
 msgstr ""
-"Az álnévre érkező emailekhez kapcsolódóan létrehozott rekordok létrehozója. "
-"Ha ez a mező nincs beállítva, a rendszer az email feladója alapján próbálja "
-"meg beállítani a létrehozót, vagy ha nincs az email címhez kapcsolódó "
-"felhasználó, akkor az Adminstrator lesz beállítva."
+"Az álnévre érkező emailekhez kapcsolódóan létrehozott rekordok felelőse. Ha "
+"ez a mező nincs beállítva, a rendszer az email feladója alapján próbálja meg "
+"beállítani a felelőst, vagy ha nincs az email címhez kapcsolódó felhasználó, "
+"akkor az Adminisztrátor lesz beállítva."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
@@ -1245,7 +1244,7 @@ msgstr "Esetek száma"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
 msgid "Ticket number"
-msgstr "Eset száma"
+msgstr "Azonosító"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
@@ -1268,7 +1267,7 @@ msgstr "Cím"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "To Do"
-msgstr ""
+msgstr "nyitott"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1278,7 +1277,7 @@ msgstr "Mai tevékenységek"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_ids
 msgid "Todo tickets"
-msgstr ""
+msgstr "Nyitott esetek"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_decoration
@@ -1297,7 +1296,7 @@ msgstr "Felelős nélkül"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
-msgstr ""
+msgstr "Ellátatlan"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread
