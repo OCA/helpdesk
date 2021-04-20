@@ -24,6 +24,11 @@ class Partner(models.Model):
 
     def _compute_helpdesk_ticket_count(self):
         for record in self:
+            record.helpdesk_ticket_count = 0
+            record.helpdesk_ticket_active_count = 0
+            record.helpdesk_ticket_count_string = ""
+            if not self.env.user.has_group('helpdesk_mgmt.group_helpdesk_user_own'):
+                continue
             ticket_ids = self.env["helpdesk.ticket"].search(
                 [("partner_id", "child_of", record.id)]
             )
