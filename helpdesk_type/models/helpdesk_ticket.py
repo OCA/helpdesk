@@ -11,5 +11,6 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange("type_id")
     def _onchange_type_id(self):
-        self.team_id = False
-        self.user_id = False
+        if self.type_id and self.team_id and self.type_id not in self.team_id.type_ids:
+            self.team_id = False
+            self.user_id = False
