@@ -15,4 +15,4 @@ class HelpdeskTicketTeam(models.Model):
     @api.constrains("allow_timesheet")
     def _constrains_allow_timesheet(self):
         if not self.allow_timesheet:
-            self.default_project = False
+            self.default_project_id = False
