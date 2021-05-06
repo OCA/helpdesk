@@ -166,7 +166,7 @@ class HelpdeskTicket(models.Model):
     def _prepare_ticket_number(self, values):
         seq = self.env["ir.sequence"]
         if "company_id" in values:
-            seq = seq.with_context(force_company=values["company_id"])
+            seq = seq.with_company(values["company_id"])
         return seq.next_by_code("helpdesk.ticket.sequence") or "/"
 
     # ---------------------------------------------------
