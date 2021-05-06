@@ -5,13 +5,16 @@ class HelpdeskTicket(models.Model):
 
     _inherit = "helpdesk.ticket"
 
-    project_id = fields.Many2one(string="Project", comodel_name="project.project")
+    project_id = fields.Many2one(
+        string="Project",
+        comodel_name="project.project"
+    )
     task_id = fields.Many2one(
         string="Task",
         comodel_name="project.task",
         compute="_compute_task_id",
         readonly=False,
-        store=True,
+        store=True
     )
 
     @api.depends("project_id")
