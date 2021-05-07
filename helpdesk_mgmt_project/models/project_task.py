@@ -4,7 +4,9 @@ from odoo import _, api, fields, models
 class ProjectTask(models.Model):
     _inherit = "project.task"
 
-    ticket_ids = fields.One2many("helpdesk.ticket", "task_id", string="Tickets")
+    ticket_ids = fields.One2many(
+        comodel_name="helpdesk.ticket", inverse_name="task_id", string="Tickets"
+    )
     ticket_count = fields.Integer(
         compute="_compute_ticket_count", string="Ticket Count", store=True
     )

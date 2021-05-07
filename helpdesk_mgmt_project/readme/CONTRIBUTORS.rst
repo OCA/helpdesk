@@ -13,3 +13,7 @@
 * `Solvos <https://www.solvos.es>`_:
 
   * David Alonso
+
+* `Sygel <https://www.sygel.es>`_:
+
+  * Manuel Regidor
