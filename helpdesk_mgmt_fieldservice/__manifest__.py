@@ -5,10 +5,11 @@
     'name': 'Helpdesk Mgmt Fieldservice',
     'summary': """
         Create service requests from a ticket""",
-    'version': '12.0.1.1.0',
+    'version': '12.0.1.2.0',
     'license': 'LGPL-3',
     "author": "Open Source Integrators, "
               "Escodoo, "
+              "PyTech SRL, "
               "Odoo Community Association (OCA)",
     'website': 'https://github.com/OCA/helpdesk',
     'depends': [

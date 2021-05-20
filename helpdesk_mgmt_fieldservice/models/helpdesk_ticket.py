@@ -78,13 +78,16 @@ class HelpdeskTicket(models.Model):
         result['views'] = [(res and res.id or False, 'form')]
         return result
 
-    @api.depends('fsm_order_ids', 'stage_id', 'fsm_order_ids.stage_id')
+    @api.depends(
+        "fsm_order_ids",
+        "fsm_order_ids.stage_id",
+        "fsm_order_ids.stage_id.is_closed",
+    )
     def _compute_all_closed(self):
         for ticket in self:
-            ticket.all_orders_closed = True
             if ticket.fsm_order_ids:
-                for order in ticket.fsm_order_ids:
-                    if order.stage_id.name not in ['Closed', 'Cancelled']:
-                        ticket.all_orders_closed = False
+                ticket.all_orders_closed = all(
+                    order.stage_id.is_closed for order in ticket.fsm_order_ids
+                )
             else:
                 ticket.all_orders_closed = False
