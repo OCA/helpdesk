@@ -13,16 +13,9 @@ class FSMOrder(models.Model):
     def action_complete(self):
         res = super().action_complete()
         if self.ticket_id:
-            open_fsm_orders_count = self.env["fsm.order"].search_count(
-                [
-                    ("ticket_id", "=", self.ticket_id.id),
-                    ("stage_id.is_closed", "=", False),
-                ]
-            )
-
             if self.ticket_id.stage_id.closed:
                 return res
-            elif open_fsm_orders_count == 0:
+            elif self.ticket_id.all_orders_closed:
                 view_id = self.env.ref(
                     "helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form"
                 ).id
