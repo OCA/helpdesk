@@ -5,15 +5,19 @@ from odoo import models
 
 
 class HelpdeskTicket(models.Model):
-    _inherit = 'helpdesk.ticket'
+    _inherit = "helpdesk.ticket"
 
     def _prepare_ticket_number(self, values):
         seq = False
         if "partner_id" in values or self.partner_id:
-            partner = self.env["res.partner"].browse(values["partner_id"]) \
-                if "partner_id" in values else self.partner_id
-            company_id = values["company_id"] \
-                if "company_id" in values else self.company_id.id
+            partner = (
+                self.env["res.partner"].browse(values["partner_id"])
+                if "partner_id" in values
+                else self.partner_id
+            )
+            company_id = (
+                values["company_id"] if "company_id" in values else self.company_id.id
+            )
             # look for ticket sequence in partner
             seq = partner.helpdesk_ticket_sequence_id
             if company_id and seq.company_id:
