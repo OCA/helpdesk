@@ -16,4 +16,22 @@
             </xpath>
         </field>
     </record>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="type_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_stage']" position="after">
+                <filter
+                    string="Type"
+                    name="group_type"
+                    domain="[]"
+                    context="{'group_by':'type_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
 </odoo>
