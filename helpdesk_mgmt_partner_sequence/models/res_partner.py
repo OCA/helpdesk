@@ -19,7 +19,6 @@ class Partner(models.Model):
         inverse="_inverse_seq_helpdesk_ticket_number_next",
     )
 
-    @api.multi
     @api.depends(
         "helpdesk_ticket_sequence_id.use_date_range",
         "helpdesk_ticket_sequence_id.number_next_actual",
@@ -36,13 +35,13 @@ class Partner(models.Model):
             else:
                 p.helpdesk_ticket_sequence_number_next = None
 
-    @api.multi
     def _inverse_seq_helpdesk_ticket_number_next(self):
         """Inverse 'helpdesk_ticket_sequence_number_next'
         to edit the current sequence next number.
         """
-        for p in self:
-            if p.helpdesk_ticket_sequence_id:
-                if p.helpdesk_ticket_sequence_number_next:
-                    seq = p.helpdesk_ticket_sequence_id._get_current_sequence()
-                    seq.sudo().number_next = p.helpdesk_ticket_sequence_number_next
+        for p in self.filtered(
+            lambda x: x.helpdesk_ticket_sequence_id
+            and x.helpdesk_ticket_sequence_number_next
+        ):
+            seq = p.helpdesk_ticket_sequence_id._get_current_sequence()
+            seq.sudo().number_next = p.helpdesk_ticket_sequence_number_next
