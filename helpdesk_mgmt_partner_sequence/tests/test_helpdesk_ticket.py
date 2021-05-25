@@ -7,7 +7,7 @@ class TestHelpdeskTicket(common.SavepointCase):
         super(TestHelpdeskTicket, cls).setUpClass()
         cls.user_admin = cls.env.ref("base.user_root")
         cls.company_1 = cls.env.ref("base.main_company")
-        cls.company_2 = cls.env["res.company"].create({"name": "company 2",})
+        cls.company_2 = cls.env["res.company"].create({"name": "company 2"})
         cls.partner_sequence = cls.env["ir.sequence"].create(
             {
                 "name": "Helpdesk partner sequence",
@@ -36,7 +36,7 @@ class TestHelpdeskTicket(common.SavepointCase):
             }
         )
         cls.test_addr_1 = cls.env["res.partner"].create(
-            {"name": "Fiscal address", "parent_id": cls.test_partner.id,}
+            {"name": "Fiscal address", "parent_id": cls.test_partner.id}
         )
         cls.test_addr_2 = cls.env["res.partner"].create(
             {
@@ -52,6 +52,7 @@ class TestHelpdeskTicket(common.SavepointCase):
                 "name": "Test 1",
                 "description": "Ticket test 1",
                 "partner_id": self.test_partner.id,
+                "company_id": self.company_1.id,
             }
         )
         self.assertEqual(
@@ -65,6 +66,7 @@ class TestHelpdeskTicket(common.SavepointCase):
                 "name": "Test 2",
                 "description": "Ticket test 2",
                 "partner_id": self.test_addr_1.id,
+                "company_id": self.company_1.id,
             }
         )
         self.assertEqual(
@@ -78,6 +80,7 @@ class TestHelpdeskTicket(common.SavepointCase):
                 "name": "Test 3",
                 "description": "Ticket test 3",
                 "partner_id": self.test_addr_2.id,
+                "company_id": self.company_1.id,
             }
         )
         self.assertEqual(
@@ -87,7 +90,7 @@ class TestHelpdeskTicket(common.SavepointCase):
             "the number must be HAS00001.",
         )
         new_ticket_4 = self.env["helpdesk.ticket"].create(
-            {"name": "Test 4", "description": "Ticket test 4",}
+            {"name": "Test 4", "description": "Ticket test 4"}
         )
         self.assertNotEqual(
             new_ticket_4.number[0:3],
@@ -109,9 +112,7 @@ class TestHelpdeskTicket(common.SavepointCase):
             "Helpdesk Ticket: When create a test_addr_2 ticket "
             "with other company the ticket number must be HTxxx.",
         )
-        self.partner_sequence.write(
-            {"number_next": 6,}
-        )
+        self.partner_sequence.write({"number_next": 6})
         self.assertEqual(
             self.test_partner.helpdesk_ticket_sequence_number_next,
             6,
@@ -119,9 +120,7 @@ class TestHelpdeskTicket(common.SavepointCase):
             "partner_sequence must be change in test_partner the "
             "helpdesk_ticket_sequence_number_next too.",
         )
-        self.test_partner.write(
-            {"helpdesk_ticket_sequence_number_next": 7,}
-        )
+        self.test_partner.write({"helpdesk_ticket_sequence_number_next": 7})
         self.assertEqual(
             self.partner_sequence.number_next,
             7,
@@ -129,9 +128,7 @@ class TestHelpdeskTicket(common.SavepointCase):
             "test_partner must be change in partner_sequence the "
             "number_next too.",
         )
-        self.test_addr_2.write(
-            {"helpdesk_ticket_sequence_id": None,}
-        )
+        self.test_addr_2.write({"helpdesk_ticket_sequence_id": None})
         self.assertEqual(
             self.test_addr_2.helpdesk_ticket_sequence_number_next,
             0,

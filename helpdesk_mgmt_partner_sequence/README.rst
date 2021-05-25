@@ -14,13 +14,13 @@ Helpdesk Management Partner sequence
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/12.0/helpdesk_mgmt_partner_sequence
+    :target: https://github.com/OCA/helpdesk/tree/13.0/helpdesk_mgmt_partner_sequence
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-12-0/helpdesk-12-0-helpdesk_mgmt_partner_sequence
+    :target: https://translation.odoo-community.org/projects/helpdesk-13-0/helpdesk-13-0-helpdesk_mgmt_partner_sequence
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/282/12.0
+    :target: https://runbot.odoo-community.org/runbot/282/13.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -32,13 +32,28 @@ Provides different partner sequence in Helpdesk for ticket number generation.
 .. contents::
    :local:
 
+Usage
+=====
+
+#. Go to *Contact* to see the partners.
+#. Edit or create a new partner. 
+#. Fill in the *Helpdesk Ticket Sequence* field with an existing sequence or create a new one. 
+#. Go to *Helpdesk > Tickets > Create* to see the form.
+#. In the *Contact* field select the partner that has the related sequence.
+#. When saved, the next ticket number in the sequence will be generated. 
+
+- Notes: 
+    * Use the contact ticket sequence, if defined. There's a validation if sequence company doesn't match with ticket company, in that case sequence is ignored.
+    * If the contact hasn't associated sequence, try the same with parent contact (company of the contact).
+    * Then, it's possible to use a general custom sequence for a contact company and its contacts, and for a certain contact of this company use another specific sequence.
+
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_partner_sequence%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_partner_sequence%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -68,6 +83,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/12.0/helpdesk_mgmt_partner_sequence>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/13.0/helpdesk_mgmt_partner_sequence>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
