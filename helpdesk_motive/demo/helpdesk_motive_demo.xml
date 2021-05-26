@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="helpdesk_motive_1" model="helpdesk.ticket.motive">
+            <field name="name">Client requirement</field>
+            <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_1" />
+        </record>
+        <record id="helpdesk_motive_2" model="helpdesk.ticket.motive">
+            <field name="name">Update required</field>
+            <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_1" />
+        </record>
+
+        <record id="helpdesk_mgmt.helpdesk_ticket_7" model="helpdesk.ticket">
+            <field name="motive_id" ref="helpdesk_motive_1" />
+        </record>
+    </data>
+</odoo>
