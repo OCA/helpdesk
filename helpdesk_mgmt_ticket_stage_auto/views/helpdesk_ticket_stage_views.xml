@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_helpdesk_ticket_stage_form_auto_stage" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.stage.view.form (auto_stage)</field>
+        <field name="model">helpdesk.ticket.stage</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="after">
+                <group name="main2">
+                    <group name="main_left">
+                        <field name="auto_stage"/>
+                        <field name="destination_stage" 
+                               attrs="{'invisible':[('auto_stage', '=', False)], 'required': [('auto_stage', '!=', False)]}"/>
+                        <field name="inactivity_time" 
+                               attrs="{'invisible':[('auto_stage', '=', False)], 'required': [('auto_stage', '!=', False)]}"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_helpdesk_ticket_stage_tree_auto_stage" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.stage.view.tree (auto_stage)</field>
+        <field name="model">helpdesk.ticket.stage</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mail_template_id']" position="after">        
+                <field name="destination_stage"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

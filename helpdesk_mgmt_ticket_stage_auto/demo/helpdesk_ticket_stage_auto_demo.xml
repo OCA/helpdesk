@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="helpdesk_mgmt.helpdesk_ticket_stage_in_progress" model="helpdesk.ticket.stage">
+        <field name="auto_stage">True</field>
+        <field name="destination_stage" ref="helpdesk_mgmt.helpdesk_ticket_stage_awaiting"/>
+        <field name="inactivity_time">30</field>
+    </record>
+
+</odoo>
