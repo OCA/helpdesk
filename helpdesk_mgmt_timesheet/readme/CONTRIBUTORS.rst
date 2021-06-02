@@ -18,3 +18,7 @@
 * `Guadaltech Soluciones Tecnológicas, S.L. <https://www.guadaltech.es/>`_:
 
   * Fernando La Chica <fernandolachica@gmail.com>
+
+* `Sygel Technology, S.L. <https://www.sygel.es/>`_:
+
+  * Manuel Regidor <manuel.regidor@sygel.es>
