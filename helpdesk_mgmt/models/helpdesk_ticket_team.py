@@ -36,12 +36,7 @@ class HelpdeskTeam(models.Model):
     ticket_ids = fields.One2many(
         comodel_name="helpdesk.ticket", inverse_name="team_id", string="Tickets",
     )
-    todo_ticket_ids = fields.One2many(
-        related="ticket_ids",
-        domain="[('closed', '=', False)]",
-        string="Todo tickets",
-        readonly=True,
-    )
+
     todo_ticket_count = fields.Integer(
         string="Number of tickets", compute="_compute_todo_tickets"
     )
@@ -58,18 +53,18 @@ class HelpdeskTeam(models.Model):
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
         for record in self:
-            record.todo_ticket_ids = record.ticket_ids.filtered(
-                lambda ticket: not ticket.closed
+            todo_ticket_ids = self.env["helpdesk.ticket"].search(
+                [("team_id", "=", record.id), ("closed", "=", False)]
             )
-            record.todo_ticket_count = len(record.todo_ticket_ids)
+            record.todo_ticket_count = len(todo_ticket_ids)
             record.todo_ticket_count_unassigned = len(
-                record.todo_ticket_ids.filtered(lambda ticket: not ticket.user_id)
+                todo_ticket_ids.filtered(lambda ticket: not ticket.user_id)
             )
             record.todo_ticket_count_unattended = len(
-                record.todo_ticket_ids.filtered(lambda ticket: ticket.unattended)
+                todo_ticket_ids.filtered(lambda ticket: ticket.unattended)
             )
             record.todo_ticket_count_high_priority = len(
-                record.todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
+                todo_ticket_ids.filtered(lambda ticket: ticket.priority == "3")
             )
 
     def get_alias_model_name(self, vals):

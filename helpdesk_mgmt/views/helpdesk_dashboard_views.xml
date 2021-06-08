@@ -7,7 +7,6 @@
             <kanban class="oe_background_grey o_kanban_dashboard" create="0">
                 <field name="name" />
                 <field name="color" />
-                <field name="todo_ticket_ids" />
                 <field name="todo_ticket_count" />
                 <field name="todo_ticket_count_unassigned" />
                 <field name="todo_ticket_count_unattended" />
