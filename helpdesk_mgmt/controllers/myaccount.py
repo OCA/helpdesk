@@ -129,7 +129,7 @@ class CustomerPortal(CustomerPortal):
         # pager
         pager = portal_pager(
             url="/my/tickets",
-            url_args={},
+            url_args={"sortby": sortby, "filterby": filterby},
             total=ticket_count,
             page=page,
             step=self._items_per_page
