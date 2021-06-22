@@ -32,6 +32,21 @@
                 <t t-set="url" t-value="'/my/tickets'" />
                 <t t-set="count" t-value="ticket_count" />
             </t>
+            <form method="POST" t-attf-action="/new/ticket">
+                <input
+                    type="hidden"
+                    name="csrf_token"
+                    t-att-value="request.csrf_token()"
+                />
+                <button
+                    name="create_new_ticket"
+                    type="action"
+                    class="btn btn-primary"
+                    groups="base.group_portal"
+                    style="float: right; margin-right: 0px; margin-top:5px;"
+                >New Ticket
+                </button>
+            </form>
         </xpath>
     </template>
     <template id="portal_my_tickets" name="My tickets">
