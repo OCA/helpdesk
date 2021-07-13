@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Sequence -->
+        <record id="helpdesk_partner_sequence" model="ir.sequence">
+            <field name="name">Helpdesk Partner Sequence</field>
+            <field name="code">helpdesk.partner.sequence</field>
+            <field name="prefix">HPS</field>
+            <field name="padding">5</field>
+            <field name="company_id" />
+        </record>
+        <record id="helpdesk_partner_sequence_address" model="ir.sequence">
+            <field name="name">Helpdesk Address Sequence</field>
+            <field name="code">helpdesk.partner.sequence.address</field>
+            <field name="prefix">HAS</field>
+            <field name="padding">5</field>
+            <field name="company_id" />
+        </record>
+        <!-- Add this sequence on a demo partner -->
+        <record id="res_partner_helpdesk_partner_sequence" model="res.partner">
+            <field name="name">Solvos</field>
+            <field name="is_company">1</field>
+            <field name="street">30 García Barbón</field>
+            <field name="city">Vigo</field>
+            <field name="zip">36201</field>
+            <field name="country_id" ref="base.es" />
+            <field name="helpdesk_ticket_sequence_id" ref="helpdesk_partner_sequence" />
+        </record>
+        <record
+            id="res_partner_address_1_helpdesk_partner_sequence"
+            model="res.partner"
+        >
+            <field name="name">Fiscal Address</field>
+            <field
+                name="parent_id"
+                eval="ref('res_partner_helpdesk_partner_sequence')"
+            />
+        </record>
+        <record
+            id="res_partner_address_2_helpdesk_partner_sequence"
+            model="res.partner"
+        >
+            <field name="name">Social Address</field>
+            <field
+                name="parent_id"
+                eval="ref('res_partner_helpdesk_partner_sequence')"
+            />
+            <field
+                name="helpdesk_ticket_sequence_id"
+                ref="helpdesk_partner_sequence_address"
+            />
+        </record>
+        <!-- Demo tickets with custom sequences -->
+        <record id="helpdesk_partner_sequence_ticket_1" model="helpdesk.ticket">
+            <field eval="&quot;Goods not received&quot;" name="name" />
+            <field eval="&quot;Goods not received&quot;" name="description" />
+            <field eval="&quot;1&quot;" name="priority" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new" />
+            <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web" />
+            <field name="partner_id" ref="res_partner_helpdesk_partner_sequence" />
+            <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
+        </record>
+        <record id="helpdesk_partner_sequence_ticket_2" model="helpdesk.ticket">
+            <field eval="&quot;Problems with website&quot;" name="name" />
+            <field eval="&quot;Problems with website&quot;" name="description" />
+            <field eval="&quot;1&quot;" name="priority" />
+            <field name="user_id" ref="base.user_root" />
+            <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new" />
+            <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web" />
+            <field
+                name="partner_id"
+                ref="res_partner_address_2_helpdesk_partner_sequence"
+            />
+            <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
+        </record>
+    </data>
+</odoo>

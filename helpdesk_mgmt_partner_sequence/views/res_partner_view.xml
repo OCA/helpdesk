@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">view_partner_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field
+            name="groups_id"
+            eval="[(4, ref('helpdesk_mgmt.group_helpdesk_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field
+                    name="helpdesk_ticket_sequence_number_next"
+                    attrs="{'invisible': [('helpdesk_ticket_sequence_id','=', False)] }"
+                />
+                <field name="helpdesk_ticket_sequence_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
