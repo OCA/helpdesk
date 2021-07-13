@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt_partner_sequence
+# 	* helpdesk_mgmt_partner_sequence
 #
 msgid ""
 msgstr ""
@@ -27,37 +27,32 @@ msgid "Helpdesk Ticket"
 msgstr "Chamado"
 
 #. module: helpdesk_mgmt_partner_sequence
-#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_fsm_location__helpdesk_ticket_sequence_number_next
-#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_number_next
 msgid "Helpdesk Ticket Next Number"
 msgstr "Próximo Número do Chamado da Central de Ajuda"
 
 #. module: helpdesk_mgmt_partner_sequence
-#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_fsm_location__helpdesk_ticket_sequence_id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_id
 msgid "Helpdesk Ticket Sequence"
 msgstr "Sequência de Chamados da Central de Ajuda"
 
 #. module: helpdesk_mgmt_partner_sequence
-#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_location__helpdesk_ticket_sequence_number_next
-#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_number_next
-msgid "The next sequence number will be used for the next ticket of this partner."
+msgid ""
+"The next sequence number will be used for the next ticket of this partner."
 msgstr ""
 "O próximo número de sequência será usado para o próximo chamado deste "
 "parceiro."
 
 #. module: helpdesk_mgmt_partner_sequence
-#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_location__helpdesk_ticket_sequence_id
-#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_id
-msgid "This field contains the information related to the numbering of the tickets of this partner."
+msgid ""
+"This field contains the information related to the numbering of the tickets "
+"of this partner."
 msgstr ""
 "Este campo contém as informações relacionadas à numeração dos chamados deste "
 "parceiro."
