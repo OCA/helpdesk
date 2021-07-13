@@ -5,7 +5,7 @@
     "name": "Helpdesk Management Partner sequence",
     "summary": """
         Provides different partner sequence in Helpdesk.""",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "license": "AGPL-3",
     "author": "Solvos, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
