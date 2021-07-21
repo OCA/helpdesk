@@ -1,0 +1,37 @@
+<!-- Copyright (C) 2019 Konos
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_type_form">
+        <field name="name">helpdesk.ticket.type.form</field>
+        <field name="model">helpdesk.ticket.type</field>
+        <field name="arch" type="xml">
+            <form string="Type">
+                <group>
+                    <field name="name" />
+                    <field name="team_ids" />
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_type_tree">
+        <field name="name">helpdesk.ticket.type.tree</field>
+        <field name="model">helpdesk.ticket.type</field>
+        <field name="arch" type="xml">
+            <tree string="Types">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_helpdesk_ticket_type" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket Type</field>
+        <field name="res_model">helpdesk.ticket.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        name="Ticket Types"
+        id="helpdesk_ticket_type"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+        action="action_helpdesk_ticket_type"
+        sequence="5"
+    />
+</odoo>

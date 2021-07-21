@@ -1,0 +1,37 @@
+<!-- Copyright (C) 2019 Konos
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="view_helpdesk_ticket_form_type" model="ir.ui.view">
+        <field name="name">Add Type on Helpdesk</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="before">
+                <field name="type_id" />
+            </field>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="domain">
+                    [('type_ids', 'in', type_id)]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="after">
+                <field name="type_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_stage']" position="after">
+                <filter
+                    string="Type"
+                    name="group_type"
+                    domain="[]"
+                    context="{'group_by':'type_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
