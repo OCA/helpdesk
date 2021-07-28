@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-helpdesk_mgmt',
         'odoo14-addon-helpdesk_mgmt_project',
+        'odoo14-addon-helpdesk_motive',
         'odoo14-addon-helpdesk_type',
     ],
     classifiers=[
