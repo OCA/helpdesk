@@ -1,0 +1,38 @@
+<!-- Copyright (C) 2019 Konos
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_motive_form">
+        <field name="name">helpdesk.ticket.motive.form</field>
+        <field name="model">helpdesk.ticket.motive</field>
+        <field name="arch" type="xml">
+            <form string="Motive">
+                <group>
+                    <field name="name" />
+                    <field name="team_id" />
+                </group>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_motive_tree">
+        <field name="name">helpdesk.ticket.motive.tree</field>
+        <field name="model">helpdesk.ticket.motive</field>
+        <field name="arch" type="xml">
+            <tree string="Motives">
+                <field name="name" />
+                <field name="team_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_helpdesk_ticket_motive_tree" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket Motive</field>
+        <field name="res_model">helpdesk.ticket.motive</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="helpdesk_motive"
+        name="Motives"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+        action="action_helpdesk_ticket_motive_tree"
+        sequence="7"
+    />
+</odoo>

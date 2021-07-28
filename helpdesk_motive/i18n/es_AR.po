@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_motive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-08-10 17:59+0000\n"
+"Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: helpdesk_motive
+#: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_motive
+msgid "Helpdesk Motive"
+msgstr "Motivo de la Mesa de Ayuda"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__team_id
+msgid "Helpdesk Team"
+msgstr "Equipo de la Mesa de Ayuda"
+
+#. module: helpdesk_motive
+#: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_motive
+#: model:ir.actions.act_window,name:helpdesk_motive.action_helpdesk_ticket_motive_tree
+msgid "Helpdesk Ticket Motive"
+msgstr "Motivo del Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive____last_update
+msgid "Last Modified on"
+msgstr "??ltima Modificaci??n el"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_uid
+msgid "Last Updated by"
+msgstr "??ltima Actualizaci??n por"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_date
+msgid "Last Updated on"
+msgstr "??ltima Actualizaci??n el"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__motive_id
+#: model:ir.model.fields,help:helpdesk_motive.field_helpdesk_ticket__motive_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_form
+msgid "Motive"
+msgstr "Motivo"
+
+#. module: helpdesk_motive
+#: model:ir.ui.menu,name:helpdesk_motive.helpdesk_motive
+#: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_tree
+msgid "Motives"
+msgstr "Motivos"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__name
+msgid "Name"
+msgstr "Nombre"
