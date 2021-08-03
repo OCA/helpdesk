@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 14.0.1.0.2 | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 14.0.1.0.3 | Helpdesk
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 14.0.1.0.0 | Add the option to select project in the tickets.
 [helpdesk_motive](helpdesk_motive/) | 14.0.1.0.1 | Keep the motive
 [helpdesk_type](helpdesk_type/) | 14.0.1.0.1 | Add a type to your tickets
