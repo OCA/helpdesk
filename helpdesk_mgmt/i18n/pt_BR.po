@@ -685,9 +685,7 @@ msgid "Helps you handle your helpdesk security."
 msgstr "Auxilia a gerir a segurança do seu atendimento."
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__2
-#, python-format
 msgid "High"
 msgstr "Alta"
 
@@ -833,9 +831,7 @@ msgid "List of cc from incoming emails."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
-#, python-format
 msgid "Low"
 msgstr "Baixa"
 
@@ -851,9 +847,7 @@ msgid "Media Attachments"
 msgstr "Mídias Anexadas"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__1
-#, python-format
 msgid "Medium"
 msgstr "Média"
 
@@ -1382,9 +1376,7 @@ msgid "Users"
 msgstr "Usuários"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__3
-#, python-format
 msgid "Very High"
 msgstr "Muito Alta"
 
