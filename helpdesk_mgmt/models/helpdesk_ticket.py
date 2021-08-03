@@ -69,10 +69,10 @@ class HelpdeskTicket(models.Model):
     )
     priority = fields.Selection(
         selection=[
-            ("0", _("Low")),
-            ("1", _("Medium")),
-            ("2", _("High")),
-            ("3", _("Very High")),
+            ("0", "Low"),
+            ("1", "Medium"),
+            ("2", "High"),
+            ("3", "Very High"),
         ],
         string="Priority",
         default="1",
