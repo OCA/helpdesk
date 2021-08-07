@@ -5,7 +5,7 @@
     'name': 'Helpdesk Mgmt Fieldservice',
     'summary': """
         Create service requests from a ticket""",
-    'version': '12.0.1.0.1',
+    'version': '12.0.1.1.0',
     'license': 'LGPL-3',
     "author": "Open Source Integrators, "
               "Escodoo, "
