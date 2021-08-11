@@ -33,7 +33,7 @@ class HelpdeskTeam(models.Model):
 
     def restore_endpoint_view(self):
         if self.endpoint_view_id:
-            self.endpoint_view_id.unlink()  # DEBUG
+            self.env['ir.ui.view'].search([('name', '=', self.endpoint_view_id.name)]).unlink()
         self.compute_endpoint_view_id()
 
     @api.depends("name", "enable_webform")
@@ -50,8 +50,13 @@ class HelpdeskTeam(models.Model):
                 domain = [("endpoint_webform", "=", _endpoint)]
                 if isinstance(record.id, int):
                     domain.append(("id", "!=", record.id))
+                else:
+                    domain.append(("id", "!=", record._origin.id))
                 if record.env[record._name].search(domain):
-                    _endpoint += "-{}".format(record.id)
+                    if isinstance(record.id, int):
+                        _endpoint += "-{}".format(record.id)
+                    else:
+                        _endpoint += "-{}".format(record._origin.id)
                 record.endpoint_webform = _endpoint
                 record.endpoint_full_webform = "help/team/{}".format(
                     record.endpoint_webform
