@@ -17,12 +17,12 @@ TODO: add repo description.
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 14.0.1.0.3 | Helpdesk
-[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 14.0.1.0.0 | Add the option to select project in the tickets.
-[helpdesk_motive](helpdesk_motive/) | 14.0.1.0.1 | Keep the motive
-[helpdesk_type](helpdesk_type/) | 14.0.1.0.1 | Add a type to your tickets
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[helpdesk_mgmt](helpdesk_mgmt/) | 14.0.1.0.3 |  | Helpdesk
+[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 14.0.1.0.0 |  | Add the option to select project in the tickets.
+[helpdesk_motive](helpdesk_motive/) | 14.0.1.0.1 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Keep the motive
+[helpdesk_type](helpdesk_type/) | 14.0.1.0.1 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
 
 [//]: # (end addons)
 
