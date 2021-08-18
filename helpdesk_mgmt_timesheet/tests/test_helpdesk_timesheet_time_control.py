@@ -11,6 +11,15 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
     def setUp(self):
         super().setUp()
         admin = self.browse_ref("base.user_admin")
+        # Stop any timer running
+        self.env["account.analytic.line"].search(
+            [
+                ("date_time", "!=", False),
+                ("user_id", "=", admin.id),
+                ("project_id.allow_timesheets", "=", True),
+                ("unit_amount", "=", 0),
+            ]
+        ).button_end_work()
         admin.groups_id |= self.browse_ref("hr_timesheet.group_hr_timesheet_user")
         self.uid = admin.id
         self.project = self.env["project.project"].create(
@@ -83,7 +92,7 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.ticket.invalidate_cache()
         self.assertEqual(self.ticket.show_time_control, "start")
         start_action = self.ticket.button_start_work()
-        wizard = self._create_wizard(start_action, self.ticket)
+        wizard = self._create_wizard(start_action, self.ticket_line)
         self.assertFalse(wizard.amount)
         self.assertLessEqual(wizard.date_time, datetime.now())
         self.assertLessEqual(wizard.date, fields.Date.context_today(wizard))
