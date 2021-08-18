@@ -63,6 +63,7 @@
                 <field name="show_time_control" invisible="1" />
                 <button
                     name="button_start_work"
+                    title="Start work"
                     string="Start work"
                     tabindex="-1"
                     type="object"
@@ -72,6 +73,7 @@
                 />
                 <button
                     name="button_end_work"
+                    title="End work"
                     string="Stop work"
                     tabindex="-1"
                     type="object"
@@ -96,6 +98,7 @@
                 <field name="show_time_control" invisible="1" />
                 <button
                     name="button_start_work"
+                    title="Start work"
                     string="Start work"
                     type="object"
                     icon="fa-play-circle text-success"
@@ -104,6 +107,7 @@
                 />
                 <button
                     name="button_end_work"
+                    title="End work"
                     string="Stop work"
                     type="object"
                     icon="fa-stop-circle text-warning"
@@ -158,6 +162,7 @@
                             />
                             <button
                                 name="button_end_work"
+                                title="End work"
                                 string="Stop work"
                                 tabindex="-1"
                                 type="object"
@@ -181,6 +186,7 @@
                                 />
                                 <button
                                     name="button_end_work"
+                                    title="End work"
                                     string="Stop work"
                                     tabindex="-1"
                                     type="object"
@@ -224,6 +230,7 @@
                 <field name="show_time_control" invisible="1" />
                 <a
                     name="button_start_work"
+                    title="Start work"
                     attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
                     class="o_kanban_inline_block fa fa-lg fa-play-circle text-success"
                     string="Start work"
@@ -232,6 +239,7 @@
                 />
                 <a
                     name="button_end_work"
+                    title="End work"
                     attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
                     class="o_kanban_inline_block fa fa-lg fa-stop-circle text-warning"
                     string="Stop work"

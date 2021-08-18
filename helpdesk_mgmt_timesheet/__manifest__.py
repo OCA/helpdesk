@@ -16,7 +16,11 @@
     "license": "AGPL-3",
     "category": "After-Sales",
     "version": "14.0.1.0.0",
-    "depends": ["helpdesk_mgmt_project", "hr_timesheet"],
+    "depends": [
+        "helpdesk_mgmt_project",
+        "hr_timesheet",
+        "project_timesheet_time_control",
+    ],
     "data": [
         "views/helpdesk_team_view.xml",
         "views/helpdesk_ticket_view.xml",
