@@ -11,10 +11,7 @@ class HelpdeskTicket(models.Model):
         string="Allow Timesheet",
         related="team_id.allow_timesheet",
     )
-    planned_hours = fields.Float(
-        string="Planned Hours",
-        track_visibility="onchange",
-    )
+    planned_hours = fields.Float(string="Planned Hours", tracking=True)
     progress = fields.Float(
         compute="_compute_progress_hours",
         group_operator="avg",
@@ -53,7 +50,7 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange("team_id")
     def _onchange_team_id(self):
-        for record in self:
+        for record in self.filtered(lambda a: a.team_id and a.team_id.allow_timesheet):
             record.project_id = record.team_id.default_project_id
 
     @api.depends("planned_hours", "total_hours")
