@@ -21,8 +21,13 @@
                 />
             </td>
         </xpath>
-        <xpath expr="//table[hasclass('table-sm')]/tbody/tr[2]/td[3]" position="after">
-            <td t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user" />
+        <xpath expr="//table[hasclass('table-sm')]/tbody/tr[2]/td" position="before">
+            <t
+                t-if="show_ticket"
+                t-set="nbCols"
+                t-value="nbCols + 1"
+                groups="helpdesk_mgmt.group_helpdesk_user"
+            />
         </xpath>
     </template>
 </odoo>
