@@ -75,7 +75,7 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* `GARCO Consulting <https://www.garcoconsulting.com>`_:
+* `GARCO Consulting <https://www.garcoconsulting.es>`_:
 
   * Héctor Garrido
 
