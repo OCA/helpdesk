@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="helpdesk_mgmt.helpdesk_team_2" model="helpdesk.ticket.team">
+            <field name="use_sla" eval="True" />
+        </record>
+        <record id="sla_1" model="helpdesk.sla">
+            <field name="name">General SLA</field>
+            <field
+                name="team_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_team_2')])]"
+            />
+            <field
+                name="stage_id"
+                ref="helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+            />
+            <field name="hours">2</field>
+        </record>
+    </data>
+</odoo>
