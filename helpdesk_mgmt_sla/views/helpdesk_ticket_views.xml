@@ -23,4 +23,19 @@
             </xpath>
         </field>
     </record>
+    <record id="inherit_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="name">inherit.helpdesk.ticket.form.view</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='channel_id']" position="after">
+                <field name="team_sla" invisible="1" />
+                <field
+                    name="sla_deadline"
+                    attrs="{'invisible': [('team_sla', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
 </odoo>

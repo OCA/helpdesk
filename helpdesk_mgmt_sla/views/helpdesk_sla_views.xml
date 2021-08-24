@@ -14,7 +14,11 @@
                     <group>
                         <group>
                             <separator colspan="2" string="Apply on" />
-                            <field name="team_id" domain="[('use_sla', '=', True)]" />
+                            <field
+                                name="team_ids"
+                                domain="[('use_sla', '=', True)]"
+                                widget="many2many_tags"
+                            />
                             <separator colspan="2" string="Target" class="mt32" />
                             <field name="stage_id" string="Reach Stage" />
                             <label for="time_days" string="Reach In" />
