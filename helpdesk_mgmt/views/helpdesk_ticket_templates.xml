@@ -13,15 +13,11 @@
     </template>
       <template id="portal_my_home" name="Portal My Home : ticket entries" inherit_id="portal.portal_my_home" priority="40">
           <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-              <t t-if="ticket_count" t-call="portal.portal_docs_entry">
+              <t t-call="portal.portal_docs_entry">
                 <t t-set="title">Tickets</t>
                 <t t-set="url" t-value="'/my/tickets'"/>
                 <t t-set="count" t-value="ticket_count"/>
               </t>
-              <form method="POST" t-attf-action="/new/ticket">
-                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                <button name="create_new_ticket" type="action" class="btn btn-primary" groups="base.group_portal,base.group_user" style="float: right; margin-right: 0px; margin-top:5px;">New Ticket</button>
-              </form>
           </xpath>
       </template>
 
@@ -30,11 +26,11 @@
         <t t-set="breadcrumbs_searchbar" t-value="True"/>
         <t t-call="portal.portal_searchbar">
             <t t-set="title">Tickets</t>
+            <form class="form-inline ml-lg-4" method="POST" t-attf-action="/new/ticket">
+                <button name="create_new_ticket" type="action" class="btn btn-success btn-sm" groups="base.group_portal,base.group_user"><i class="fa fa-plus"/> New Ticket</button>
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+            </form>
         </t>
-        <form method="POST" t-attf-action="/new/ticket">
-            <button name="create_new_ticket" type="action" class="btn btn-primary" groups="base.group_portal,base.group_user" style="float: right; margin-right: 5px;">New Ticket</button>
-            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-        </form>
         <t t-if="not tickets">
             <p>There are no tickets in your account.</p>
         </t>
