@@ -20,7 +20,10 @@ class HelpdeskTicketController(http.Controller):
         ticket = http.request.env['helpdesk.ticket'].sudo().search([
             ('id', '=', values['ticket_id']),
         ])
-        if ticket.stage_id.portal_user_can_close:
+        stage = http.request.env['helpdesk.ticket.stage'].sudo().search([
+            ('id', '=', values['stage_id']),
+        ])
+        if stage.portal_user_can_close:
             ticket.stage_id = values.get('stage_id')
             return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
         else:
