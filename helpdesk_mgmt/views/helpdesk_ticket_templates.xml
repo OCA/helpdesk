@@ -81,67 +81,113 @@
     </template>
 
     <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">
-      <t t-call="portal.portal_layout">
-          <div class="container">
-              <div class="panel panel-default">
-                  <div class="panel-heading mt32">
-                      <div class="row">
-                          <div class="col-md-6">
-                              <h4>
-                                  <t t-call='portal.record_pager'/>
-                                  <span t-field="ticket.name"/>
-                              </h4>
-                          </div>
-                          <t t-foreach="closed_stages" t-as="stage">
-                            <form method="GET" t-if="not ticket.closed_date and stage.portal_user_can_close"
-                                  t-attf-action="/ticket/close" style="display:inline;">
-                              <input type="hidden" name="ticket_id" t-attf-value="#{ticket.id}"/>
-                              <input type="hidden" name="stage_id" t-attf-value="#{stage.id}"/>
-                              <button class="btn btn-success pull-right" style="margin-right:15px;margin-top:3px;"><span t-field="stage.name"/></button>
-                            </form>
-                          </t>
+        <t t-call="portal.portal_layout">
+            <t t-set="wrapwrap_classes" t-value="'o_portal_bg_dark'"/>
+            <t t-set="o_portal_fullwidth_alert" groups="helpdesk_mgmt.group_helpdesk_manager">
+                <t t-call="portal.portal_back_in_edit_mode">
+                    <t t-set="backend_url" t-value="'/web#return_label=Website&amp;model=helpdesk.ticket&amp;id=%s&amp;view_type=form' % (ticket.id)" />
+                </t>
+            </t>
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-md">
+                            <h5 class="mb-1 mb-md-0">
+                                <span t-field="ticket.name"/>
+                                <small class="text-muted"> (#<span t-field="ticket.id"/>)</small>
+                            </h5>
                         </div>
-                  </div>
-
-                  <div class="panel-body">
-                    <div class="mb8">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <strong>Date:</strong> <span t-field="ticket.create_date" /><br/>
-                          <b>Category:</b> <t t-esc="ticket.category_id.name"/><br/>
-                          <b>Stage:</b> <t t-esc="ticket.stage_id.name"/><br/>
+                        <div class="col-md text-md-right">
+                            <small class="text-right">Stage:</small>
+                            <span t-field="ticket.stage_id.name" class="badge badge-pill badge-info" title="Current Stage of this ticket" />
                         </div>
-                        <div class="col-md-6">
-                          <strong>Last Stage Update:</strong> <span t-field="ticket.last_stage_update" /><br/>
-                          <strong>Attachments:</strong><br />
-                          <t t-foreach="files" t-as="f">
-                              <a t-att-href="'/web/content/%i?download=true' % f.id">
-                                  <span class="fa fa-download" />
-                                  <span t-esc="f.name" />
-                              </a>
-                              <br />
-                          </t>
-                        </div>
-                      </div>
-                      <div class="row mt8">
-                        <div class="col-md-12">
-                          <h4 class="page-header">Description</h4>
-                          <t t-raw="ticket.description"/><br/>
-                        </div>
-                      </div>
                     </div>
-                    <h4 class="page-header">History</h4>
-                    <!-- Options:Ticket Chatter: user can reply -->
-                    <t t-call="portal.message_thread">
-                      <t t-set="object" t-value="ticket"/>
+                </t>
+                <t t-set="card_body">
+                    <t t-foreach="closed_stages" t-as="stage">
+                        <form method="GET" t-if="not ticket.closed_date and stage.portal_user_can_close"
+                              t-attf-action="/ticket/close" style="display:inline;">
+                          <input type="hidden" name="ticket_id" t-attf-value="#{ticket.id}"/>
+                          <input type="hidden" name="stage_id" t-attf-value="#{stage.id}"/>
+                          <button class="btn btn-success pull-right btn-sm" style="margin-right:15px;margin-top:3px;"><span t-field="stage.name"/></button>
+                        </form>
                     </t>
-
-                  </div>
-                </div>
-              </div>
-          <div class="oe_structure mb32"/>
-      </t>
-  </template>
+                    <div class="mb-1">
+                        <strong>Category:</strong> <span t-field="ticket.category_id"/>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Create Date:</strong> <span t-field="ticket.create_date" t-options='{"widget": "date"}'/>
+                        </div>
+                        <div class="col-12 col-md-6" t-if="ticket.closed_date">
+                            <strong>Closed Date:</strong> <span t-field="ticket.closed_date" t-options='{"widget": "date"}'/>
+                        </div>
+                        <div class="col-12 col-md-6 mb-1">
+                            <strong>Last Stage Update::</strong> <span t-field="ticket.last_stage_update" t-options='{"widget": "date"}'/>
+                        </div>
+                    </div>
+                    <div class="row mb-4" t-if="ticket.user_id or ticket.partner_id">
+                        <div class="coll-12 col-md-6 pb-2" t-if="ticket.partner_id">
+                            <strong>Reported by</strong>
+                            <div class="row">
+                                <div class="col flex-grow-0 pr-3">
+                                    <img t-if="ticket.partner_id.image" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(ticket.partner_id.image)" alt="Contact"/>
+                                    <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Contact"/>
+                                </div>
+                                <div class="col pl-md-0">
+                                    <div t-field="ticket.partner_id" t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 pb-2" t-if="ticket.user_id">
+                            <strong>Assigned to</strong>
+                            <div class="row">
+                                <div class="col flex-grow-0 pr-3">
+                                    <img t-if="ticket.user_id.image" class="rounded-circle mt-1 o_portal_contact_img" t-att-src="image_data_uri(ticket.user_id.image)" alt="Contact"/>
+                                    <img t-else="" class="rounded-circle mt-1 o_portal_contact_img" src="/web/static/src/img/user_menu_avatar.png" alt="Contact"/>
+                                </div>
+                                <div class="col pl-md-0">
+                                    <div t-field="ticket.user_id" t-options='{"widget": "contact", "fields": ["name", "email", "phone"]}'/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <h4 class="col-lg-12">
+                            <span>Attachments</span>
+                        </h4>
+                        <div class="col-lg-12">
+                            <t t-foreach="files" t-as="f" >
+                                <a t-att-href="'/web/content/%i?download=true' % f.id">
+                                    <span class="fa fa-download" />
+                                    <span t-esc="f.name" />
+                                </a>
+                                <br />
+                            </t>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <h4 class="col-lg-12">
+                            <span>Description</span>
+                        </h4>
+                        <div t-if="ticket.description" class="col-lg-12" t-raw="ticket.description" />
+                        <div t-else="" class="col-lg-10">
+                            <em class="text-muted"><small>No content</small></em>
+                        </div>
+                    </div>
+                </t>
+            </t>
+            <div class="mt32">
+                <h4><strong>Message and communication history</strong></h4>
+                <t t-call="portal.message_thread">
+                    <t t-set="object" t-value="ticket"/>
+                    <t t-set="token" t-value="ticket.access_token"/>
+                    <t t-set="pid" t-value="pid"/>
+                    <t t-set="hash" t-value="hash"/>
+                </t>
+            </div>
+        </t>
+    </template>
   <template id="portal_create_ticket" name="Create Ticket">
     <t t-call="portal.portal_layout">
       <div class="container">
