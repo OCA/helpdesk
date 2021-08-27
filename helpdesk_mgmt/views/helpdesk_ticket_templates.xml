@@ -34,8 +34,7 @@
         <t t-if="not tickets">
             <p>There are no tickets in your account.</p>
         </t>
-        <div t-if="tickets" class="panel panel-default">
-            <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
+            <t t-if="tickets" t-call="portal.portal_table">
                 <thead>
                   <tr class="active">
                     <th>By</th>
@@ -74,11 +73,10 @@
                     </td>
                   </tr>
                 </t>
-            </table></div>
+            </t>
             <div t-if="pager" class="o_portal_pager text-center">
                 <t t-call="portal.pager"/>
             </div>
-        </div>
       </t>
     </template>
 
