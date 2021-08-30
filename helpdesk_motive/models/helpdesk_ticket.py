@@ -13,5 +13,6 @@ class HelpdeskTicket(models.Model):
     @api.multi
     @api.onchange('team_id', 'user_id')
     def _onchange_dominion_user_id(self):
-        super()._onchange_dominion_user_id()
+        ret = super()._onchange_dominion_user_id()
         self.motive_id = False
+        return ret
