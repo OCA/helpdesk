@@ -60,6 +60,7 @@ class CustomerPortal(CustomerPortal):
 
         searchbar_sortings = {
             'date': {'label': _('Newest'), 'order': 'create_date desc'},
+            'number': {'label': _('Reference'), 'order': 'number desc'},
             'name': {'label': _('Name'), 'order': 'name'},
             'stage': {'label': _('Stage'), 'order': 'stage_id'},
             'update': {'label': _('Last Stage Update'),
@@ -68,6 +69,8 @@ class CustomerPortal(CustomerPortal):
 
         # search input (text)
         searchbar_inputs = {
+            'number': {'input': 'Reference',
+                       'label': _('Search in Reference')},
             'name': {'input': 'name',
                      'label': _('Search in Names')},
             'description': {'input': 'description',

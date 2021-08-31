@@ -37,30 +37,25 @@
             <t t-if="tickets" t-call="portal.portal_table">
                 <thead>
                   <tr class="active">
-                    <th>By</th>
+                    <th>Ref.</th>
                     <th>Name</th>
-                    <th>Category</th>
-                    <th>Stage</th>
                     <th>Create Date</th>
                     <th>Last Stage Update</th>
                     <th>Close Date</th>
+                    <th class="text-center">Stage</th>
                   </tr>
                 </thead>
                 <t t-foreach="tickets" t-as="ticket">
                   <tr>
                     <td>
-                      <t t-esc="ticket.partner_id.name"/>
+                      <a t-attf-href="/my/ticket/#{ticket.id}">
+                        <t t-esc="ticket.number"/>
+                      </a>
                     </td>
                     <td>
                       <a t-attf-href="/my/ticket/#{ticket.id}">
                         <t t-esc="ticket.name"/>
                       </a>
-                    </td>
-                    <td>
-                      <t t-esc="ticket.category_id.name"/>
-                    </td>
-                    <td>
-                      <t t-esc="ticket.stage_id.name"/>
                     </td>
                     <td>
                       <span t-field="ticket.create_date"/>
@@ -71,12 +66,12 @@
                     <td>
                       <span t-field="ticket.closed_date" />
                     </td>
+                      <td class="text-center">
+                          <span class="badge badge-pill badge-info" t-field="ticket.stage_id.name"/>
+                      </td>
                   </tr>
                 </t>
             </t>
-            <div t-if="pager" class="o_portal_pager text-center">
-                <t t-call="portal.pager"/>
-            </div>
       </t>
     </template>
 
