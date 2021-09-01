@@ -112,13 +112,12 @@ class CustomerPortal(CustomerPortal):
             domain += search_domain
         searchbar_inputs.update(searchbar_meta_inputs)
 
-        # search filters (by stage)
-        searchbar_filters = {'all': {'label': _('All'), 'domain': []}}
-        for stage in request.env['helpdesk.ticket.stage'].search([]):
-            searchbar_filters.update({
-                str(stage.id): {'label': stage.name,
-                                'domain': [('stage_id', '=', stage.id)]}
-            })
+        # search filters
+        searchbar_filters = {
+            'all': {'label': _('All'), 'domain': []},
+            'open': {'label': _('Open'), 'domain': [('closed_date', '=', False)]},
+            'closed': {'label': _('Closed'), 'domain': [('closed_date', '!=', False)]},
+        }
 
         # default sort by order
         if not sortby:
