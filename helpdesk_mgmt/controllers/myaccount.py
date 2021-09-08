@@ -157,7 +157,11 @@ class CustomerPortal(CustomerPortal):
             offset=pager['offset']
         )
         if groupby == 'stage':
-            grouped_tickets = [request.env['helpdesk.ticket'].concat(*g) for k, g in groupbyelem(tickets, itemgetter('stage_id'))]
+            grouped_tickets = [
+                request.env['helpdesk.ticket'].concat(*g) for k, g in groupbyelem(
+                    tickets, itemgetter('stage_id')
+                )
+            ]
         else:
             grouped_tickets = [tickets]
         values.update({
