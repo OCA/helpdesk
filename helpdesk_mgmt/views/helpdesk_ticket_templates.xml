@@ -31,48 +31,56 @@
                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
             </form>
         </t>
-        <t t-if="not tickets">
-            <p>There are no tickets in your account.</p>
-        </t>
-            <t t-if="tickets" t-call="portal.portal_table">
-                <thead>
-                  <tr class="active">
-                    <th>Ref.</th>
-                    <th>Name</th>
-                    <th>Create Date</th>
-                    <th>Last Stage Update</th>
-                    <th>Close Date</th>
-                    <th class="text-center">Stage</th>
-                  </tr>
-                </thead>
-                <t t-foreach="tickets" t-as="ticket">
-                  <tr>
-                    <td>
-                      <a t-attf-href="/my/ticket/#{ticket.id}">
-                        <t t-esc="ticket.number"/>
-                      </a>
-                    </td>
-                    <td>
-                      <a t-attf-href="/my/ticket/#{ticket.id}">
-                        <t t-esc="ticket.name"/>
-                      </a>
-                    </td>
-                    <td>
-                      <span t-field="ticket.create_date"/>
-                    </td>
-                    <td>
-                      <span t-field="ticket.last_stage_update"/>
-                    </td>
-                    <td>
-                      <span t-field="ticket.closed_date" />
-                    </td>
-                      <td class="text-center">
-                          <span class="badge badge-pill badge-info" t-field="ticket.stage_id.name"/>
-                      </td>
-                  </tr>
+            <div t-if="not grouped_tickets" class="alert alert-info">
+                There are currently no Ticket for your account.
+            </div>
+            <t t-else="">
+                <t t-call="portal.portal_table">
+                    <t t-foreach="grouped_tickets" t-as="tickets">
+                        <thead>
+                            <tr t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}">
+                                <th class="text-left">Ref.</th>
+                                <th t-if="groupby == 'none'" class="w-100">Name</th>
+                                <th t-else="">
+                                    <em class="font-weight-normal text-muted">Tickets in stage:</em>
+                                    <span t-field="tickets[0].stage_id.name"/>
+                                </th>
+                                <th>Create Date</th>
+                                <th>Last Stage Update</th>
+                                <th>Close Date</th>
+                                <th t-if="groupby != 'stage'" class="text-center">Stage</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="tickets" t-as="ticket">
+                            <tr>
+                                <td>
+                                    <a t-attf-href="/my/ticket/#{ticket.id}">
+                                        <t t-esc="ticket.number"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a t-attf-href="/my/ticket/#{ticket.id}">
+                                        <t t-esc="ticket.name"/>
+                                    </a>
+                                </td>
+                                <td>
+                                    <span t-field="ticket.create_date"/>
+                                </td>
+                                <td>
+                                    <span t-field="ticket.last_stage_update"/>
+                                </td>
+                                <td>
+                                    <span t-field="ticket.closed_date" />
+                                </td>
+                                <td t-if="groupby != 'stage'" class="text-center">
+                                    <span class="badge badge-pill badge-info" t-field="ticket.stage_id.name"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
                 </t>
             </t>
-      </t>
+        </t>
     </template>
 
     <template id="portal_helpdesk_ticket_page" name="Ticket Portal Template">

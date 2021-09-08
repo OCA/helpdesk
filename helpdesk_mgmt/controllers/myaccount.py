@@ -1,9 +1,12 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 
+from operator import itemgetter
+
 from odoo import http, _
 from odoo.http import request
 from odoo.addons.portal.controllers.portal import CustomerPortal
 from odoo.addons.portal.controllers.portal import pager as portal_pager
+from odoo.tools import groupby as groupbyelem
 from odoo.exceptions import AccessError
 
 from odoo.osv.expression import OR
@@ -52,6 +55,7 @@ class CustomerPortal(CustomerPortal):
             sortby=None,
             filterby=None,
             search=None,
+            groupby='none',
             search_in='all',
             **kw):
         values = self._prepare_portal_layout_values()
@@ -119,6 +123,12 @@ class CustomerPortal(CustomerPortal):
             'closed': {'label': _('Closed'), 'domain': [('closed_date', '!=', False)]},
         }
 
+        # search group by
+        searchbar_groupby = {
+            'none': {'input': 'none', 'label': _('None')},
+            'stage': {'input': 'stage_id', 'label': _('Stage')},
+        }
+
         # default sort by order
         if not sortby:
             sortby = 'date'
@@ -146,16 +156,23 @@ class CustomerPortal(CustomerPortal):
             limit=self._items_per_page,
             offset=pager['offset']
         )
+        if groupby == 'stage':
+            grouped_tickets = [request.env['helpdesk.ticket'].concat(*g) for k, g in groupbyelem(tickets, itemgetter('stage_id'))]
+        else:
+            grouped_tickets = [tickets]
         values.update({
             'date': date_begin,
             'tickets': tickets,
+            'grouped_tickets': grouped_tickets,
             'page_name': 'ticket',
             'pager': pager,
             'default_url': '/my/tickets',
             'searchbar_sortings': searchbar_sortings,
             'searchbar_inputs': searchbar_inputs,
+            'searchbar_groupby': searchbar_groupby,
             'search_in': search_in,
             'sortby': sortby,
+            'groupby': groupby,
             'searchbar_filters': searchbar_filters,
             'filterby': filterby,
         })
