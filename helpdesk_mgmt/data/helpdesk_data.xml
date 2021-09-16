@@ -225,7 +225,7 @@
         </record>
         <!--default alias for leads-->
         <record id="mail_alias_lead_info_helpdesk" model="mail.alias">
-            <field name="alias_name">helpdesk</field>
+            <field name="alias_name">help</field>
             <field name="alias_model_id" ref="model_helpdesk_ticket" />
             <field name="alias_user_id" ref="base.user_admin" />
             <field name="alias_parent_model_id" ref="model_helpdesk_ticket_team" />
