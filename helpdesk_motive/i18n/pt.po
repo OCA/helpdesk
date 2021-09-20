@@ -1,0 +1,101 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_motive
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__display_name
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_team__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_motive
+msgid "Helpdesk Motive"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__team_id
+msgid "Helpdesk Team"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.actions.act_window,name:helpdesk_motive.action_helpdesk_ticket_motive_tree
+msgid "Helpdesk Ticket Motive"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__id
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_team__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket____last_update
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive____last_update
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_team____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__motive_id
+#: model:ir.model.fields,help:helpdesk_motive.field_helpdesk_ticket__motive_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_form
+msgid "Motive"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_team__motive_ids
+#: model:ir.ui.menu,name:helpdesk_motive.helpdesk_motive
+#: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_motive.view_helpdesk_team_form
+msgid "Motives"
+msgstr ""
+
+#. module: helpdesk_motive
+#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__name
+msgid "Name"
+msgstr ""
