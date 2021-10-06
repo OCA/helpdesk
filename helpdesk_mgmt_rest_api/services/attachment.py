@@ -11,13 +11,14 @@ from odoo import _
 from odoo.exceptions import UserError
 from odoo.http import request
 
+from odoo.addons.base_rest import restapi
 from odoo.addons.base_rest.components.service import to_int
 from odoo.addons.component.core import Component
 
 
 class AttachmentService(Component):
-    _inherit = "base.rest.service"
     _name = "attachment.service"
+    _inherit = "base.helpdesk.rest.service"
     _usage = "attachment"
     _expose_model = "ir.attachment"
 
@@ -31,6 +32,10 @@ class AttachmentService(Component):
         record.write(vals)
         return self._to_json(record)
 
+    @restapi.method(
+        routes=[(["/create"], "POST")],
+        input_param=restapi.CerberusValidator("_validator_create"),
+    )
     # pylint: disable=W8106
     def create(self):
         req = request.httprequest
@@ -70,9 +75,15 @@ class AttachmentService(Component):
         if req:
             file_ext = req.content_type.split("/")[1]
             params["name"] = "client_upload.{}".format(file_ext)
+            partner = self.env["res.partner"].browse(
+                self.env.context.get("authenticated_partner_id")
+            )
+            partner_email = "anonymous"
+            if partner:
+                partner_email = partner.email
             params["description"] = (
                 "Created by {} on {}".format(
-                    self.partner_user.email or "anonymous",
+                    partner_email,
                     format_datetime(datetime.datetime.now()),
                 ),
             )
