@@ -2,14 +2,12 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import datetime
+import json
 
-from babel.dates import format_datetime
 from werkzeug.exceptions import NotFound
 
 from odoo import _
 from odoo.exceptions import UserError
-from odoo.http import request
 
 from odoo.addons.base_rest import restapi
 from odoo.addons.base_rest.components.service import to_int
@@ -26,6 +24,10 @@ class AttachmentService(Component):
         record = self._get(_id)
         return self._to_json(record)
 
+    @restapi.method(
+        routes=[(["/update"], "POST")],
+        input_param=restapi.CerberusValidator(schema="_validator_update"),
+    )
     def update(self, _id, **params):
         record = self._get(_id)
         vals = self._prepare_params(None, params)
@@ -34,18 +36,21 @@ class AttachmentService(Component):
 
     @restapi.method(
         routes=[(["/create"], "POST")],
-        input_param=restapi.CerberusValidator("_validator_create"),
+        input_param=restapi.MultipartFormData(
+            [
+                restapi.BinaryFormDataPart("file"),
+                restapi.JsonFormDataPart(name="params", schema="_validator_create"),
+            ]
+        ),
     )
     # pylint: disable=W8106
-    def create(self):
-        req = request.httprequest
-        vals = self._prepare_params(req, {})
+    def create(self, **params):
+        vals = self._prepare_params(params)
         record = self.env[self._expose_model].create(vals)
         return self._to_json(record)
 
     def _validator_create(self):
         validator_json = self._validator_update()
-        validator_json["raw"] = {"type": "string", "format": "binary"}
         return validator_json
 
     def _validator_update(self):
@@ -58,7 +63,10 @@ class AttachmentService(Component):
             "res_model": {"type": "string", "nullable": True},
         }
 
-    def _prepare_params(self, req, params):
+    def _prepare_params(self, params):
+        # Extract params from multipart form part
+        if "params" in params:
+            params.update(json.loads(params.pop("params")))
         if params.get("res_id") and params.get("res_model"):
             record = self.env[params["res_model"]].browse(params["res_id"])
             if len(record) != 1:
@@ -71,23 +79,11 @@ class AttachmentService(Component):
             pass
         else:
             raise UserError(_("You must provide both res_model and res_id"))
-
-        if req:
-            file_ext = req.content_type.split("/")[1]
-            params["name"] = "client_upload.{}".format(file_ext)
-            partner = self.env["res.partner"].browse(
-                self.env.context.get("authenticated_partner_id")
-            )
-            partner_email = "anonymous"
-            if partner:
-                partner_email = partner.email
-            params["description"] = (
-                "Created by {} on {}".format(
-                    partner_email,
-                    format_datetime(datetime.datetime.now()),
-                ),
-            )
-            params["raw"] = req.get_data()
+        if "file" in params:
+            uploaded_file = params.pop("file")
+            params["raw"] = uploaded_file.read()
+            if "name" not in params:
+                params["name"] = uploaded_file.filename
         return params
 
     def _validator_get(self):

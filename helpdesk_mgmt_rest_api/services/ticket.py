@@ -36,7 +36,7 @@ class TicketService(Component):
 
     @restapi.method(
         routes=[(["/create"], "POST")],
-        input_param=restapi.CerberusValidator("_validator_create"),
+        input_param=restapi.CerberusValidator(schema="_validator_create"),
     )
     # pylint: disable=W8106
     def create(self, **params):
