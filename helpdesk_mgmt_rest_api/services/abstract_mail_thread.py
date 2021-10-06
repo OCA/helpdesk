@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 
+from odoo.addons.base_rest import restapi
 from odoo.addons.component.core import AbstractComponent
 
 from .abstract_attachment import AbstractAttachmentService
@@ -12,6 +13,10 @@ class AbstractMailThreadService(AbstractComponent):
     _inherit = "base.rest.service"
     _name = "mail.thread.abstract.service"
 
+    @restapi.method(
+        routes=[(["/create"], "POST")],
+        input_param=restapi.CerberusValidator("_validator_send_message"),
+    )
     def send_message(self, _id, **params):
         record = self._get(_id)
         vals = self._prepare_message_params(record, params)
@@ -29,7 +34,7 @@ class AbstractMailThreadService(AbstractComponent):
 
     def _prepare_message_params(self, record, params):
         params["model"] = self._expose_model
-        params["author_id"] = self.partner_user.id
+        params["author_id"] = self.env.context["authenticated_partner_id"]
         if params.get("attachments"):
             attachments = params.pop("attachments")
             params["attachment_ids"] = [(6, 0, [item["id"] for item in attachments])]

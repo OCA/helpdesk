@@ -6,6 +6,7 @@
 from odoo import _
 from odoo.exceptions import AccessError, UserError
 
+from odoo.addons.base_rest import restapi
 from odoo.addons.base_rest.components.service import to_int
 from odoo.addons.component.core import Component
 
@@ -15,6 +16,7 @@ class TicketService(Component):
 
     _name = "helpdesk.ticket.service"
     _inherit = [
+        "base.helpdesk.rest.service",
         "mail.thread.abstract.service",
         "abstract.attachment.service",
     ]
@@ -32,6 +34,10 @@ class TicketService(Component):
     def search(self, **params):
         return self._paginate_search(**params)
 
+    @restapi.method(
+        routes=[(["/create"], "POST")],
+        input_param=restapi.CerberusValidator("_validator_create"),
+    )
     # pylint: disable=W8106
     def create(self, **params):
         return super().create(**params)
@@ -95,8 +101,8 @@ class TicketService(Component):
 
     def _prepare_params(self, params, mode="create"):
         if mode == "create":
-            if self.partner_user:
-                params["partner_id"] = self.partner_user.id
+            if self.env.context.get("authenticated_partner_id"):
+                params["partner_id"] = self.env.context.get("authenticated_partner_id")
             elif params.get("partner"):
                 partner = params.pop("partner")
                 params["partner_name"] = partner.pop("name")
@@ -139,8 +145,8 @@ class TicketService(Component):
         return data
 
     def _get_base_search_domain(self):
-        if not self.partner_user:
+        if not self.env.context("authenticated_partner_id"):
             raise AccessError(
                 _("You should be connected to search for Helpdesk Tickets")
             )
-        return [("partner_id", "=", self.partner_user.id)]
+        return [("partner_id", "=", self.env.context.get("authenticated_partner_id"))]

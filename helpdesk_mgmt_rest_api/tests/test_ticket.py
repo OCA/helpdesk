@@ -4,19 +4,35 @@
 
 import mock
 
-from odoo.addons.base_rest.tests.common import BaseRestCase
+from odoo.http import request
+
+from odoo.addons.base_rest.controllers.main import _PseudoCollection
+from odoo.addons.component.core import WorkContext
+from odoo.addons.component.tests.common import TransactionComponentCase
 
 from ..services import attachment
 
 
-class HelpdeskTicketCase(BaseRestCase):
+class HelpdeskTicketCase(TransactionComponentCase):
     def setUp(self):
         super().setUp()
-        with self.work_on_services(
-            partner=None,
-        ) as work:
-            self.service = work.component(usage="helpdesk.ticket")
-            self.attachment_service = work.component(usage="attachment")
+        collection = _PseudoCollection("helpdesk.rest.services", self.env)
+        self.services_env = WorkContext(
+            model_name="rest.service.registration",
+            collection=collection,
+            request=request,
+        )
+        provider = self.services_env.component(usage="component_context_provider")
+        params = provider._get_component_context()
+        env = collection.env
+        collection.env = env(
+            context=dict(
+                env.context,
+                authenticated_partner_id=params.get("authenticated_partner_id"),
+            )
+        )
+        self.service = self.services_env.component(usage="helpdesk_ticket")
+        self.attachment_service = self.services_env.component(usage="attachment")
 
     def create_attachment(self):
         attrs = {"get_data.return_value": b"aaa", "content_type": "image/png"}
@@ -77,32 +93,52 @@ class HelpdeskTicketCase(BaseRestCase):
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
 
     def test_create_ticket_account_attachment(self):
-        self.partner = self.env.ref("base.res_partner_1")
-        with self.work_on_services(
-            partner=self.partner,
-        ) as work:
-            self.service = work.component(usage="helpdesk.ticket")
-            self.attachment_service = work.component(usage="attachment")
+        env = self.services_env.collection.env
+        self.services_env.collection.env = env(
+            context=dict(
+                env.context,
+                authenticated_partner_id=self.env.ref("base.res_partner_1").id,
+            )
+        )
+        self.service = self.services_env.component(usage="helpdesk_ticket")
+        self.attachment_service = self.services_env.component(usage="attachment")
 
         data = self.generate_ticket_data()
         self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search(
-            [("partner_id", "=", self.partner.id)]
+            [
+                (
+                    "partner_id",
+                    "=",
+                    self.services_env.collection.env.context[
+                        "authenticated_partner_id"
+                    ],
+                )
+            ]
         )
         self.assert_ticket_ok(ticket)
 
     def test_ticket_message(self):
-        self.partner = self.env.ref("base.res_partner_1")
-        with self.work_on_services(
-            partner=self.partner,
-        ) as work:
-            self.service = work.component(usage="helpdesk.ticket")
-            self.attachment_service = work.component(usage="attachment")
+        env = self.services_env.collection.env
+        self.services_env.collection.env = env(
+            context=dict(
+                env.context,
+                authenticated_partner_id=self.env.ref("base.res_partner_1").id,
+            )
+        )
 
         data = self.generate_ticket_data(with_attachment=False)
         self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search(
-            [("partner_id", "=", self.partner.id)]
+            [
+                (
+                    "partner_id",
+                    "=",
+                    self.services_env.collection.env.context[
+                        "authenticated_partner_id"
+                    ],
+                )
+            ]
         )
         self.assert_ticket_ok(ticket, with_attachment=False)
         message_data = {"body": "Also here is a picture"}
