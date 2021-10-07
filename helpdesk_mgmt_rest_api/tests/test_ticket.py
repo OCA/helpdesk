@@ -2,15 +2,16 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import mock
+import json
+import pathlib
+
+from werkzeug.datastructures import FileStorage
 
 from odoo.http import request
 
 from odoo.addons.base_rest.controllers.main import _PseudoCollection
 from odoo.addons.component.core import WorkContext
 from odoo.addons.component.tests.common import TransactionComponentCase
-
-from ..services import attachment
 
 
 class HelpdeskTicketCase(TransactionComponentCase):
@@ -34,25 +35,23 @@ class HelpdeskTicketCase(TransactionComponentCase):
         self.service = self.services_env.component(usage="helpdesk_ticket")
         self.attachment_service = self.services_env.component(usage="attachment")
 
-    def create_attachment(self):
-        attrs = {"get_data.return_value": b"aaa", "content_type": "image/png"}
-        httprequest = mock.Mock(**attrs)
-        request = mock.MagicMock()
-        request.attach_mock(httprequest, "httprequest")
-        attachment.request = request
-        res = self.attachment_service.create()
-        return res
+    def create_attachment(self, params=None):
+        attrs = {}
+        if params:
+            attrs["params"] = json.dumps(params)
+        with open(pathlib.Path(__file__).resolve()) as fp:
+            attrs["file"] = FileStorage(fp)
+            self.attachment_res = self.attachment_service.dispatch(
+                "create", params=attrs
+            )
+        return self.attachment_res
 
-    def generate_ticket_data(self, partner=None, with_attachment=True):
-        if with_attachment:
-            self.attachments = self.create_attachment()
+    def generate_ticket_data(self, partner=None):
         data = {
             "description": "My order is late",
             "name": "order num 4",
             "category": {"id": 3},
         }
-        if with_attachment:
-            data["attachments"] = [{"id": self.attachments[0].get("id")}]
         if partner:
             data["partner"] = partner
         return data
@@ -61,15 +60,14 @@ class HelpdeskTicketCase(TransactionComponentCase):
         self.assertEqual(len(ticket), 1)
         self.assertEqual(ticket.category_id.name, "Odoo")
         if with_attachment:
-            self.assertEqual(ticket.attachment_ids.id, self.attachments[0].get("id"))
+            self.assertEqual(ticket.attachment_ids.id, self.attachment_res[0]["id"])
 
     def test_create_ticket_noaccount(self):
         data = self.generate_ticket_data(
             partner={
                 "email": "customer@example.org",
                 "name": "Customer",
-            },
-            with_attachment=False,
+            }
         )
         self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search(
@@ -85,11 +83,15 @@ class HelpdeskTicketCase(TransactionComponentCase):
                 "name": "Customer",
             }
         )
-        self.service.dispatch("create", params=data)
+        res = self.service.dispatch("create", params=data)
+        self.assertEqual(len(res["data"][0]["attachments"]), 0)
+        self.create_attachment(
+            params={"res_model": "helpdesk.ticket", "res_id": res["data"][0]["id"]}
+        )
         ticket = self.env["helpdesk.ticket"].search(
             [("partner_email", "=", "customer@example.org")]
         )
-        self.assert_ticket_ok(ticket)
+        self.assert_ticket_ok(ticket, with_attachment=True)
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
 
     def test_create_ticket_account_attachment(self):
@@ -104,7 +106,10 @@ class HelpdeskTicketCase(TransactionComponentCase):
         self.attachment_service = self.services_env.component(usage="attachment")
 
         data = self.generate_ticket_data()
-        self.service.dispatch("create", params=data)
+        res = self.service.dispatch("create", params=data)
+        self.create_attachment(
+            params={"res_model": "helpdesk.ticket", "res_id": res["data"][0]["id"]}
+        )
         ticket = self.env["helpdesk.ticket"].search(
             [
                 (
@@ -116,7 +121,7 @@ class HelpdeskTicketCase(TransactionComponentCase):
                 )
             ]
         )
-        self.assert_ticket_ok(ticket)
+        self.assert_ticket_ok(ticket, with_attachment=True)
 
     def test_ticket_message(self):
         env = self.services_env.collection.env
@@ -127,7 +132,7 @@ class HelpdeskTicketCase(TransactionComponentCase):
             )
         )
 
-        data = self.generate_ticket_data(with_attachment=False)
+        data = self.generate_ticket_data()
         self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search(
             [

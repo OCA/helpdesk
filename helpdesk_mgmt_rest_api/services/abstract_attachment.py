@@ -47,10 +47,11 @@ class AbstractAttachmentService(AbstractComponent):
             },
         }
 
-    def _json_parser(self):
-        return [
+    def _json_parser_attachments(self):
+        res = [
             ("attachment_ids:attachments", ["id", "name"]),
         ]
+        return res
 
     def _prepare_params(self, params, mode="create"):
         return NotImplementedError

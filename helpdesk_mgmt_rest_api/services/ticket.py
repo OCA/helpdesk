@@ -126,18 +126,17 @@ class TicketService(Component):
         return params
 
     def _json_parser(self):
-        res = super()._json_parser()
-        res.extend(
-            [
-                "id",
-                "name",
-                "description",
-                "create_date",
-                "last_stage_update",
-                ("category_id:category", ["id", "name"]),
-                ("stage_id:stage", ["id", "name"]),
-            ]
-        )
+        res = [
+            "id",
+            "name",
+            "description",
+            "create_date",
+            "last_stage_update",
+            ("category_id:category", ["id", "name"]),
+            ("stage_id:stage", ["id", "name"]),
+        ]
+        res += self._json_parser_messages()
+        res += self._json_parser_attachments()
         return res
 
     def _to_json(self, ticket, **kw):

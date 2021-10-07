@@ -40,7 +40,7 @@ class AbstractMailThreadService(AbstractComponent):
             params["attachment_ids"] = [(6, 0, [item["id"] for item in attachments])]
         return params
 
-    def _json_parser(self):
+    def _json_parser_messages(self):
         res = [("message_ids:messages", self._json_parser_message())]
         return res
 
