@@ -12,9 +12,10 @@ from odoo.http import request
 from odoo.addons.base_rest.controllers.main import _PseudoCollection
 from odoo.addons.component.core import WorkContext
 from odoo.addons.component.tests.common import TransactionComponentCase
+from odoo.addons.datamodel.tests.common import TransactionDatamodelCase
 
 
-class HelpdeskTicketCase(TransactionComponentCase):
+class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
     def setUp(self):
         super().setUp()
         collection = _PseudoCollection("helpdesk.rest.services", self.env)
@@ -60,7 +61,7 @@ class HelpdeskTicketCase(TransactionComponentCase):
         self.assertEqual(len(ticket), 1)
         self.assertEqual(ticket.category_id.name, "Odoo")
         if with_attachment:
-            self.assertEqual(ticket.attachment_ids.id, self.attachment_res[0]["id"])
+            self.assertEqual(ticket.attachment_ids.id, self.attachment_res["id"])
 
     def test_create_ticket_noaccount(self):
         data = self.generate_ticket_data(
@@ -84,9 +85,9 @@ class HelpdeskTicketCase(TransactionComponentCase):
             }
         )
         res = self.service.dispatch("create", params=data)
-        self.assertEqual(len(res["data"][0]["attachments"]), 0)
+        self.assertEqual(len(res["attachments"]), 0)
         self.create_attachment(
-            params={"res_model": "helpdesk.ticket", "res_id": res["data"][0]["id"]}
+            params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
         )
         ticket = self.env["helpdesk.ticket"].search(
             [("partner_email", "=", "customer@example.org")]
@@ -108,7 +109,7 @@ class HelpdeskTicketCase(TransactionComponentCase):
         data = self.generate_ticket_data()
         res = self.service.dispatch("create", params=data)
         self.create_attachment(
-            params={"res_model": "helpdesk.ticket", "res_id": res["data"][0]["id"]}
+            params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
         )
         ticket = self.env["helpdesk.ticket"].search(
             [
@@ -151,10 +152,10 @@ class HelpdeskTicketCase(TransactionComponentCase):
         self.assertEqual(len(ticket.message_ids), 2)  # There is a technical message
         last_message = ticket.message_ids.sorted(key=lambda m: m.create_date)[0]
         self.assertEqual(len(last_message.attachment_ids), 0)
-        attachments = self.create_attachment()
+        attachment = self.create_attachment()
         message_data = {
             "body": "Forgot the attachment !",
-            "attachments": [{"id": attachments[0].get("id")}],
+            "attachments": [{"id": attachment.get("id")}],
         }
         self.service.dispatch("send_message", ticket.id, params=message_data)
         self.assertEqual(len(ticket.message_ids), 3)  # There is a technical message

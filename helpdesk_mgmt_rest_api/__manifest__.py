@@ -11,6 +11,7 @@
         "helpdesk_mgmt",
         "base_rest",
         "base_jsonify",
+        "base_rest_datamodel",
     ],
     "data": [],
     "demo": [],

@@ -10,8 +10,30 @@ from odoo import _
 from odoo.exceptions import UserError
 
 from odoo.addons.base_rest import restapi
-from odoo.addons.base_rest.components.service import to_int
 from odoo.addons.component.core import Component
+from odoo.addons.datamodel import fields
+from odoo.addons.datamodel.core import Datamodel
+
+
+class AttachmentBase(Datamodel):
+    _name = "ir.attachment.base"
+
+    name = fields.String(required=True, allow_none=False)
+    res_id = fields.Integer(required=False, allow_none=False)
+    res_model = fields.String(required=False, allow_none=False)
+
+
+class AttachmentInput(Datamodel):
+    _name = "ir.attachment.input"
+    _inherit = "ir.attachment.base"
+
+
+class AttachmentOutput(Datamodel):
+    _name = "ir.attachment.output"
+    _inherit = "ir.attachment.base"
+
+    id = fields.Integer(required=True, allow_none=False)
+    res_name = fields.String(required=False, allow_none=False)
 
 
 class AttachmentService(Component):
@@ -20,48 +42,37 @@ class AttachmentService(Component):
     _usage = "attachment"
     _expose_model = "ir.attachment"
 
-    def get(self, _id):
-        record = self._get(_id)
-        return self._to_json(record)
-
-    @restapi.method(
-        routes=[(["/update"], "POST")],
-        input_param=restapi.CerberusValidator(schema="_validator_update"),
-    )
-    def update(self, _id, **params):
-        record = self._get(_id)
-        vals = self._prepare_params(None, params)
-        record.write(vals)
-        return self._to_json(record)
+    #    @restapi.method(
+    #            routes=[(["/<int:id>"], "GET")],
+    #            output_param=restapi.Datamodel("ir.attachment.output"),
+    #    )
+    #    def get(self, _id):
+    #        raise AccessError()
+    #
+    #    @restapi.method(
+    #        routes=[(["/update"], "POST")],
+    #        input_param=restapi.Datamodel("ir.attachment.input"),
+    #    )
+    #    def update(self, _id, attachment):
+    #        raise AccessError
 
     @restapi.method(
         routes=[(["/create"], "POST")],
         input_param=restapi.MultipartFormData(
             [
                 restapi.BinaryFormDataPart("file"),
-                restapi.JsonFormDataPart(name="params", schema="_validator_create"),
+                restapi.JsonFormDataPart(
+                    "params", restapi.Datamodel("ir.attachment.input")
+                ),
             ]
         ),
+        output_param=restapi.Datamodel("ir.attachment.output"),
     )
     # pylint: disable=W8106
     def create(self, **params):
         vals = self._prepare_params(params)
         record = self.env[self._expose_model].create(vals)
         return self._to_json(record)
-
-    def _validator_create(self):
-        validator_json = self._validator_update()
-        return validator_json
-
-    def _validator_update(self):
-        return {
-            "name": {
-                "type": "string",
-                "nullable": True,
-            },
-            "res_id": {"type": "integer", "coerce": to_int, "nullable": True},
-            "res_model": {"type": "string", "nullable": True},
-        }
 
     def _prepare_params(self, params):
         # Extract params from multipart form part
@@ -86,13 +97,6 @@ class AttachmentService(Component):
                 params["name"] = uploaded_file.filename
         return params
 
-    def _validator_get(self):
-        return {}
-
     def _json_parser(self):
         res = ["id", "name", "res_id", "res_model", "res_name"]
         return res
-
-    def _to_json(self, attachment, **kw):
-        data = attachment.jsonify(self._json_parser())
-        return data
