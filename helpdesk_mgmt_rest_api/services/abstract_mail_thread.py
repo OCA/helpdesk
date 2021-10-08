@@ -5,8 +5,41 @@
 
 from odoo.addons.base_rest import restapi
 from odoo.addons.component.core import AbstractComponent
+from odoo.addons.datamodel import fields
+from odoo.addons.datamodel.core import Datamodel
 
-from .abstract_attachment import AbstractAttachmentService
+
+class MailPartnerOutput(Datamodel):
+    _name = "mail.partner.output"
+
+    id = fields.Integer(required=False, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
+
+
+class MailMessageBase(Datamodel):
+    _name = "mail.message.base"
+
+    body = fields.String(required=True, allow_none=False)
+
+
+class MailMessageInput(Datamodel):
+    _name = "mail.message.input"
+    _inherit = ["mail.message.base", "attachable.input"]
+
+
+class MailMessageOutput(Datamodel):
+    _name = "mail.message.output"
+    _inherit = "mail.message.base"
+
+    id = fields.Integer(required=False, allow_none=False)
+    date = fields.DateTime(required=False, allow_none=False)
+    author = fields.NestedModel("mail.partner.output", required=True, allow_none=False)
+
+
+class MailThreadOutput(Datamodel):
+    _name = "mail.thread.output"
+
+    messages = fields.NestedModel("mail.message.output", required=True, many=True)
 
 
 class AbstractMailThreadService(AbstractComponent):
@@ -14,23 +47,19 @@ class AbstractMailThreadService(AbstractComponent):
     _name = "mail.thread.abstract.service"
 
     @restapi.method(
-        routes=[(["/create"], "POST")],
-        input_param=restapi.CerberusValidator("_validator_send_message"),
+        routes=[(["/<int:id>/send_message"], "POST")],
+        input_param=restapi.Datamodel("mail.message.input"),
+        # output_param=restapi.Datamodel("{}.output".format(_expose_model)),
     )
-    def send_message(self, _id, **params):
+    def send_message(self, _id, message):
         record = self._get(_id)
-        vals = self._prepare_message_params(record, params)
+        vals = self._prepare_message_params(record, message.dump())
         record.write({"message_ids": [(0, 0, vals)]})
-        return self._to_json(record)
+        return self._return_record(record).dump()
 
-    def _validator_send_message(self):
-        res = AbstractAttachmentService._validator_attachment(self)
-        res.update(
-            {
-                "body": {"type": "string", "required": True},
-            }
-        )
-        return res
+    def _get_base_search_domain(self):
+        # TODO: make it work
+        return [("is_internal", "=", False)]
 
     def _prepare_message_params(self, record, params):
         params["model"] = self._expose_model

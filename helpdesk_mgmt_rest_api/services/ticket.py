@@ -2,23 +2,95 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+import logging
 
 from odoo import _
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import UserError
 
 from odoo.addons.base_rest import restapi
-from odoo.addons.base_rest.components.service import to_int
 from odoo.addons.component.core import Component
+from odoo.addons.datamodel import fields
+from odoo.addons.datamodel.core import Datamodel
+
+_logger = logging.getLogger(__name__)
+
+
+class HelpdeskPartnerInput(Datamodel):
+    _name = "helpdesk.partner.input"
+
+    email = fields.Email(required=False, allow_none=False)
+    name = fields.String(required=False, allow_none=False)
+
+
+class HelpdeskCategoryInput(Datamodel):
+    _name = "helpdesk.category.input"
+
+    id = fields.Integer(required=False, allow_none=False)
+
+
+class HelpdeskCategoryOutput(Datamodel):
+    _name = "helpdesk.category.output"
+
+    id = fields.Integer(required=True, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
+
+
+class HelpdeskStageOutput(Datamodel):
+    _name = "helpdesk.stage.output"
+
+    id = fields.Integer(required=True, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
+
+
+class HelpdeskTicketBase(Datamodel):
+    _name = "helpdesk.ticket.base"
+
+    id = fields.Integer(required=False, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
+    description = fields.String(required=True, allow_none=False)
+
+
+class HelpdeskTicketInput(Datamodel):
+    _name = "helpdesk.ticket.input"
+    _inherit = ["helpdesk.ticket.base"]
+
+    partner = fields.NestedModel(
+        "helpdesk.partner.input", required=False, allow_none=False
+    )
+    category = fields.NestedModel(
+        "helpdesk.category.input", required=False, allow_none=False
+    )
+
+
+class HelpdeskTicketOutput(Datamodel):
+    _name = "helpdesk.ticket.output"
+    _inherit = ["helpdesk.ticket.base", "mail.thread.output", "attachable.output"]
+
+    create_date = fields.DateTime(required=True, allow_none=False)
+    last_stage_update = fields.DateTime(required=True, allow_none=True)
+    category = fields.NestedModel(
+        "helpdesk.category.output", required=False, allow_none=True
+    )
+    stage = fields.NestedModel("helpdesk.stage.output", required=True, allow_none=False)
+
+
+class HelpdeskTicketSearchOutput(Datamodel):
+    _name = "helpdesk.ticket.search.output"
+
+    size = fields.Integer(required=True, allow_none=False)
+    data = fields.NestedModel(
+        "helpdesk.ticket.output", required=False, allow_none=True, many=True
+    )
 
 
 class TicketService(Component):
-    """Shopinvader service to manage helpdesk tickets."""
+    """Service to manage helpdesk tickets."""
 
     _name = "helpdesk.ticket.service"
     _inherit = [
         "base.helpdesk.rest.service",
         "mail.thread.abstract.service",
-        "abstract.attachment.service",
+        "abstract.attachable.service",
     ]
     _usage = "helpdesk_ticket"
     _expose_model = "helpdesk.ticket"
@@ -27,77 +99,43 @@ class TicketService(Component):
     # The following method are 'public' and can be called from the controller.
     # All params are untrusted so please check it !
 
+    @restapi.method(
+        routes=[(["/<int:id>"], "GET")],
+        output_param=restapi.Datamodel("helpdesk.ticket.output"),
+    )
     def get(self, _id):
         record = self._get(_id)
-        return self._to_json(record)
+        return self._return_record(record)
 
-    def search(self, **params):
-        return self._paginate_search(**params)
+    @restapi.method(
+        routes=[(["/"], "GET")],
+        output_param=restapi.Datamodel("helpdesk.ticket.output"),
+    )
+    def search(self):
+        domain = self._get_base_search_domain()
+        records = self.env[self._expose_model].search(domain)
+        result = {"size": len(records), "data": self._to_json(records, many=True)}
+        return self.env.datamodels["helpdesk.ticket.search.output"].load(result)
 
     @restapi.method(
         routes=[(["/create"], "POST")],
-        input_param=restapi.CerberusValidator(schema="_validator_create"),
+        input_param=restapi.Datamodel("helpdesk.ticket.input"),
+        output_param=restapi.Datamodel("helpdesk.ticket.output"),
     )
     # pylint: disable=W8106
-    def create(self, **params):
-        return super().create(**params)
+    def create(self, ticket):
+        record = self._create(ticket.dump())
+        return self._return_record(record)
 
-    def update(self, _id, **params):
-        record = self._get(_id)
-        record.write(self._prepare_params(params.copy(), mode="update"))
-        return self.search()
-
+    @restapi.method(
+        routes=[(["/<int:id>"], "DELETE")],
+        output_param=restapi.Datamodel("empty.output"),
+    )
     def cancel(self, _id):
-        self._get(_id).unlink()  # TODO: cancel instead of delete
-        return self.search()
-
-    def _validator_get(self):
-        return {}
-
-    def _validator_search(self):
-        return {
-            "id": {"coerce": to_int, "type": "integer"},
-            "per_page": {
-                "coerce": to_int,
-                "nullable": True,
-                "type": "integer",
-            },
-            "page": {"coerce": to_int, "nullable": True, "type": "integer"},
-            "scope": {"type": "dict", "nullable": True},
-        }
-
-    def _validator_create(self):
-        res = super()._validator_create()
-        res.update(
-            {
-                "name": {"type": "string", "required": True, "empty": False},
-                "description": {"type": "string", "required": True, "empty": False},
-                "partner": {
-                    "type": "dict",
-                    "schema": {
-                        "email": {
-                            "type": "string",
-                            "nullable": True,
-                        },
-                        "name": {
-                            "type": "string",
-                            "nullable": True,
-                        },
-                    },
-                },
-                "category": {
-                    "type": "dict",
-                    "schema": {
-                        "id": {
-                            "coerce": to_int,
-                            "nullable": True,
-                            "type": "integer",
-                        },
-                    },
-                },
-            }
-        )
-        return res
+        stage_cancelled = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_cancelled")
+        record = self._get(_id)
+        record.stage_id = stage_cancelled
+        return self.env.datamodels["empty.output"].load({})
 
     def _prepare_params(self, params, mode="create"):
         if mode == "create":
@@ -139,13 +177,7 @@ class TicketService(Component):
         res += self._json_parser_attachments()
         return res
 
-    def _to_json(self, ticket, **kw):
-        data = ticket.jsonify(self._json_parser())
-        return data
-
     def _get_base_search_domain(self):
-        if not self.env.context("authenticated_partner_id"):
-            raise AccessError(
-                _("You should be connected to search for Helpdesk Tickets")
-            )
-        return [("partner_id", "=", self.env.context.get("authenticated_partner_id"))]
+        res = super()._get_base_search_domain()
+        res += [("partner_id", "=", self.env.context.get("authenticated_partner_id"))]
+        return res
