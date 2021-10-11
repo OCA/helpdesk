@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_ticket_rest_api,helpdesk.ticket.rest_api,helpdesk_mgmt.model_helpdesk_ticket,group_helpdesk_rest_api,1,1,1,0
+access_helpdesk_ticket_stage_rest_api,helpdesk.ticket.stage.rest_api,helpdesk_mgmt.model_helpdesk_ticket_stage,group_helpdesk_rest_api,1,0,0,0
+access_helpdesk_ticket_tag_rest_api,helpdesk.ticket.tag.rest_api,helpdesk_mgmt.model_helpdesk_ticket_tag,group_helpdesk_rest_api,1,0,0,0
+access_helpdesk_ticket_channel_rest_api,helpdesk.ticket.channel.rest_api,helpdesk_mgmt.model_helpdesk_ticket_channel,group_helpdesk_rest_api,1,0,0,0
+access_helpdesk_ticket_category_rest_api,helpdesk.ticket.category.rest_api,helpdesk_mgmt.model_helpdesk_ticket_category,group_helpdesk_rest_api,1,0,0,0

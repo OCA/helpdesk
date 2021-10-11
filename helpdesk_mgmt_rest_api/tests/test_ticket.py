@@ -37,7 +37,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.attachment_service = self.services_env.component(usage="attachment")
 
     def create_attachment(self, params=None):
-        attrs = {}
+        attrs = {"params": "{}"}
         if params:
             attrs["params"] = json.dumps(params)
         with open(pathlib.Path(__file__).resolve()) as fp:
@@ -66,13 +66,13 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
     def test_create_ticket_noaccount(self):
         data = self.generate_ticket_data(
             partner={
-                "email": "customer@example.org",
+                "email": "customer+testststs@example.org",
                 "name": "Customer",
             }
         )
         self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search(
-            [("partner_email", "=", "customer@example.org")]
+            [("partner_email", "=", "customer+testststs@example.org")]
         )
         self.assert_ticket_ok(ticket, with_attachment=False)
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
@@ -80,7 +80,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
     def test_create_ticket_noaccount_attachment(self):
         data = self.generate_ticket_data(
             partner={
-                "email": "customer@example.org",
+                "email": "customer+testststs@example.org",
                 "name": "Customer",
             }
         )
@@ -90,7 +90,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
             params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
         )
         ticket = self.env["helpdesk.ticket"].search(
-            [("partner_email", "=", "customer@example.org")]
+            [("partner_email", "=", "customer+testststs@example.org")]
         )
         self.assert_ticket_ok(ticket, with_attachment=True)
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
@@ -111,17 +111,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.create_attachment(
             params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
         )
-        ticket = self.env["helpdesk.ticket"].search(
-            [
-                (
-                    "partner_id",
-                    "=",
-                    self.services_env.collection.env.context[
-                        "authenticated_partner_id"
-                    ],
-                )
-            ]
-        )
+        ticket = self.env["helpdesk.ticket"].search([("id", "=", res["id"])])
         self.assert_ticket_ok(ticket, with_attachment=True)
 
     def test_ticket_message(self):
@@ -134,21 +124,11 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         )
 
         data = self.generate_ticket_data()
-        self.service.dispatch("create", params=data)
-        ticket = self.env["helpdesk.ticket"].search(
-            [
-                (
-                    "partner_id",
-                    "=",
-                    self.services_env.collection.env.context[
-                        "authenticated_partner_id"
-                    ],
-                )
-            ]
-        )
+        res = self.service.dispatch("create", params=data)
+        ticket = self.env["helpdesk.ticket"].search([("id", "=", res["id"])])
         self.assert_ticket_ok(ticket, with_attachment=False)
         message_data = {"body": "Also here is a picture"}
-        self.service.dispatch("send_message", ticket.id, params=message_data)
+        self.service.dispatch("message_post", ticket.id, params=message_data)
         self.assertEqual(len(ticket.message_ids), 2)  # There is a technical message
         last_message = ticket.message_ids.sorted(key=lambda m: m.create_date)[0]
         self.assertEqual(len(last_message.attachment_ids), 0)
@@ -157,7 +137,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
             "body": "Forgot the attachment !",
             "attachments": [{"id": attachment.get("id")}],
         }
-        self.service.dispatch("send_message", ticket.id, params=message_data)
+        self.service.dispatch("message_post", ticket.id, params=message_data)
         self.assertEqual(len(ticket.message_ids), 3)  # There is a technical message
         last_message = ticket.message_ids.sorted(key=lambda m: m.create_date)[0]
         self.assertEqual(len(last_message.attachment_ids), 1)

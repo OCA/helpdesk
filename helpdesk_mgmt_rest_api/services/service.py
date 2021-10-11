@@ -22,7 +22,7 @@ class BaseHelpdeskService(AbstractComponent):
     _expose_model = None
 
     def _prepare_params(self, params, mode="create"):
-        return NotImplementedError
+        return params
 
     def _to_json(self, record, many=False):
         result = record.jsonify(self._json_parser())
