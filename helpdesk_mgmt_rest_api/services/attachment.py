@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 import json
+import os.path
 
 from werkzeug.exceptions import NotFound
 
@@ -20,7 +21,7 @@ class AttachmentBase(Datamodel):
 
     name = fields.String(required=True, allow_none=False)
     res_id = fields.Integer(required=False, allow_none=False)
-    res_model = fields.String(required=False, allow_none=False)
+    res_model = fields.String(required=False, allow_none=True)
 
 
 class AttachmentInput(Datamodel):
@@ -33,7 +34,7 @@ class AttachmentOutput(Datamodel):
     _inherit = "ir.attachment.base"
 
     id = fields.Integer(required=True, allow_none=False)
-    res_name = fields.String(required=False, allow_none=False)
+    res_name = fields.String(required=False, allow_none=True)
 
 
 class AttachmentService(Component):
@@ -69,15 +70,15 @@ class AttachmentService(Component):
         output_param=restapi.Datamodel("ir.attachment.output"),
     )
     # pylint: disable=W8106
-    def create(self, **params):
-        vals = self._prepare_params(params)
+    def create(self, file, params):
+        vals = self._prepare_params(file, params)
         record = self.env[self._expose_model].create(vals)
-        return self._to_json(record)
+        return self._return_record(record)
 
-    def _prepare_params(self, params):
+    def _prepare_params(self, uploaded_file, params):
         # Extract params from multipart form part
-        if "params" in params:
-            params.update(json.loads(params.pop("params")))
+        if params:
+            params = json.loads(params)
         if params.get("res_id") and params.get("res_model"):
             record = self.env[params["res_model"]].browse(params["res_id"])
             if len(record) != 1:
@@ -87,14 +88,14 @@ class AttachmentService(Component):
                     )
                 )
         elif not params.get("res_id") and not params.get("res_model"):
-            pass
+            params.pop("res_id", None)
+            params.pop("res_model", None)
         else:
             raise UserError(_("You must provide both res_model and res_id"))
-        if "file" in params:
-            uploaded_file = params.pop("file")
+        if uploaded_file:
             params["raw"] = uploaded_file.read()
             if "name" not in params:
-                params["name"] = uploaded_file.filename
+                params["name"] = os.path.basename(uploaded_file.filename)
         return params
 
     def _json_parser(self):

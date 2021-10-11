@@ -13,7 +13,8 @@
         "base_jsonify",
         "base_rest_datamodel",
     ],
-    "data": [],
-    "demo": [],
-    "qweb": [],
+    "data": [
+        "security/helpdesk_security.xml",
+        "security/ir.model.access.csv",
+    ],
 }

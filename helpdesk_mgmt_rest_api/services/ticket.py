@@ -18,14 +18,27 @@ _logger = logging.getLogger(__name__)
 class HelpdeskPartnerInput(Datamodel):
     _name = "helpdesk.partner.input"
 
-    email = fields.Email(required=False, allow_none=False)
-    name = fields.String(required=False, allow_none=False)
+    email = fields.Email(required=True, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
+
+
+class HelpdeskTeamInput(Datamodel):
+    _name = "helpdesk.team.input"
+
+    id = fields.Integer(required=True, allow_none=False)
+
+
+class HelpdeskTeamOutput(Datamodel):
+    _name = "helpdesk.team.output"
+
+    id = fields.Integer(required=True, allow_none=False)
+    name = fields.String(required=True, allow_none=False)
 
 
 class HelpdeskCategoryInput(Datamodel):
     _name = "helpdesk.category.input"
 
-    id = fields.Integer(required=False, allow_none=False)
+    id = fields.Integer(required=True, allow_none=False)
 
 
 class HelpdeskCategoryOutput(Datamodel):
@@ -60,6 +73,7 @@ class HelpdeskTicketInput(Datamodel):
     category = fields.NestedModel(
         "helpdesk.category.input", required=False, allow_none=False
     )
+    team = fields.NestedModel("helpdesk.team.input", required=False, allow_none=False)
 
 
 class HelpdeskTicketOutput(Datamodel):
@@ -71,6 +85,7 @@ class HelpdeskTicketOutput(Datamodel):
     category = fields.NestedModel(
         "helpdesk.category.output", required=False, allow_none=True
     )
+    team = fields.NestedModel("helpdesk.team.output", required=False, allow_none=True)
     stage = fields.NestedModel("helpdesk.stage.output", required=True, allow_none=False)
 
 
@@ -124,7 +139,8 @@ class TicketService(Component):
     )
     # pylint: disable=W8106
     def create(self, ticket):
-        record = self._create(ticket.dump())
+        vals = self._prepare_params(ticket.dump(), mode="create")
+        record = self.env[self._expose_model].create(vals)
         return self._return_record(record)
 
     @restapi.method(
@@ -138,9 +154,11 @@ class TicketService(Component):
         return self.env.datamodels["empty.output"].load({})
 
     def _prepare_params(self, params, mode="create"):
+        params = super()._prepare_params(params, mode=mode)
         if mode == "create":
             if self.env.context.get("authenticated_partner_id"):
                 params["partner_id"] = self.env.context.get("authenticated_partner_id")
+                params.pop("partner", None)
             elif params.get("partner"):
                 partner = params.pop("partner")
                 params["partner_name"] = partner.pop("name")
@@ -156,7 +174,7 @@ class TicketService(Component):
                         raise UserError(_("The email is not valid"))
                 else:
                     raise UserError(_("The partner is mandatory"))
-        for key in ["category"]:
+        for key in ["category", "team"]:
             if key in params:
                 val = params.pop(key)
                 if val.get("id"):
@@ -171,6 +189,7 @@ class TicketService(Component):
             "create_date",
             "last_stage_update",
             ("category_id:category", ["id", "name"]),
+            ("team_id:team", ["id", "name"]),
             ("stage_id:stage", ["id", "name"]),
         ]
         res += self._json_parser_messages()

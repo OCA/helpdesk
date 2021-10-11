@@ -33,17 +33,14 @@ class AbstractAttachableService(AbstractComponent):
     _inherit = "base.rest.service"
     _description = __doc__
 
-    def _create(self, params):
-        attachments = params.pop("attachments", [])
-        vals = self._prepare_params(params.copy(), mode="create")
-        record = self.env[self._expose_model].create(vals)
-        self._post_create_link_attachment(record, [item["id"] for item in attachments])
-        return record
-
-    def _post_create_link_attachment(self, record, attachment_ids):
-        if len(attachment_ids) > 0:
-            attachments = self.env["ir.attachment"].browse(attachment_ids)
-            attachments.write({"res_model": record._name, "res_id": record.id})
+    def _prepare_params(self, params, mode="create"):
+        if "attachments" in params:
+            attachments = params.pop("attachments", None)
+            if attachments:
+                params["attachment_ids"] = [
+                    (6, 0, [item["id"] for item in attachments])
+                ]
+        return params
 
     def _json_parser_attachments(self):
         res = [

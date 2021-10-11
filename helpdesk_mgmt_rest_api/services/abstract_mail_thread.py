@@ -47,26 +47,29 @@ class AbstractMailThreadService(AbstractComponent):
     _name = "mail.thread.abstract.service"
 
     @restapi.method(
-        routes=[(["/<int:id>/send_message"], "POST")],
+        routes=[(["/<int:id>/message_post"], "POST")],
         input_param=restapi.Datamodel("mail.message.input"),
-        # output_param=restapi.Datamodel("{}.output".format(_expose_model)),
+        output_param=restapi.Datamodel("mail.message.output"),
     )
-    def send_message(self, _id, message):
+    def message_post(self, _id, message):
         record = self._get(_id)
-        vals = self._prepare_message_params(record, message.dump())
-        record.write({"message_ids": [(0, 0, vals)]})
-        return self._return_record(record).dump()
+        kwargs = self._prepare_message_post_params(message.dump())
+        message = record.message_post(**kwargs)
+        # record.write({"message_ids": [(0, 0, vals)]})
+        # return self._return_record(record).dump()
+        return self.env.datamodels["mail.message.output"].load(
+            message.jsonify(self._json_parser_message())[0]
+        )
 
-    def _get_base_search_domain(self):
-        # TODO: make it work
-        return [("is_internal", "=", False)]
-
-    def _prepare_message_params(self, record, params):
-        params["model"] = self._expose_model
+    def _prepare_message_post_params(self, params):
         params["author_id"] = self.env.context["authenticated_partner_id"]
+        params["message_type"] = "comment"
+        params["subtype_id"] = self.env["ir.model.data"].xmlid_to_res_id(
+            "mail.mt_comment"
+        )
         if params.get("attachments"):
             attachments = params.pop("attachments")
-            params["attachment_ids"] = [(6, 0, [item["id"] for item in attachments])]
+            params["attachment_ids"] = [item["id"] for item in attachments]
         return params
 
     def _json_parser_messages(self):
