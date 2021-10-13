@@ -5,10 +5,9 @@
 import json
 import os.path
 
-from werkzeug.exceptions import NotFound
-
 from odoo import _
-from odoo.exceptions import UserError
+from odoo.exceptions import MissingError, UserError
+from odoo.http import content_disposition, request
 
 from odoo.addons.base_rest import restapi
 from odoo.addons.component.core import Component
@@ -43,19 +42,24 @@ class AttachmentService(Component):
     _usage = "attachment"
     _expose_model = "ir.attachment"
 
-    #    @restapi.method(
-    #            routes=[(["/<int:id>"], "GET")],
-    #            output_param=restapi.Datamodel("ir.attachment.output"),
-    #    )
-    #    def get(self, _id):
-    #        raise AccessError()
-    #
-    #    @restapi.method(
-    #        routes=[(["/update"], "POST")],
-    #        input_param=restapi.Datamodel("ir.attachment.input"),
-    #    )
-    #    def update(self, _id, attachment):
-    #        raise AccessError
+    @restapi.method(
+        routes=[(["/<int:_id>/download"], "GET")],
+        output_param=restapi.BinaryData(required=True),
+    )
+    def download(self, _id):
+        attachment = self._get(_id)
+        if not attachment:
+            raise MissingError()
+        content = attachment.raw
+        headers = [
+            ("Content-Type", attachment.mimetype),
+            ("X-Content-Type-Options", "nosniff"),
+            ("Content-Disposition", content_disposition(attachment.name)),
+            ("Content-Length", len(content)),
+        ]
+        response = request.make_response(content, headers)
+        response.status_code = 200
+        return response
 
     @restapi.method(
         routes=[(["/create"], "POST")],
@@ -82,9 +86,11 @@ class AttachmentService(Component):
         if params.get("res_id") and params.get("res_model"):
             record = self.env[params["res_model"]].browse(params["res_id"])
             if len(record) != 1:
-                raise NotFound(
-                    "The targeted record does not exist: {}({})".format(
-                        params["res_model"], params["res_id"]
+                raise MissingError(
+                    _(
+                        "The targeted record does not exist: {}({})".format(
+                            params["res_model"], params["res_id"]
+                        )
                     )
                 )
         elif not params.get("res_id") and not params.get("res_model"):
