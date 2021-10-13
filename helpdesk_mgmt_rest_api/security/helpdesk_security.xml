@@ -16,6 +16,18 @@
             >[('partner_id','child_of',[authenticated_partner_id])]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_rest_api'))]" />
         </record>
+        <record id="helpesk_category_rest_api" model="ir.rule">
+            <field name="name">REST API Categories</field>
+            <field ref="helpdesk_mgmt.model_helpdesk_ticket_category" name="model_id" />
+            <field name="domain_force">[('is_available_rest_api','=',True)]</field>
+            <field name="groups" eval="[(4, ref('group_helpdesk_rest_api'))]" />
+        </record>
+        <record id="helpesk_team_rest_api" model="ir.rule">
+            <field name="name">REST API Team</field>
+            <field ref="helpdesk_mgmt.model_helpdesk_ticket_team" name="model_id" />
+            <field name="domain_force">[('is_available_rest_api','=',True)]</field>
+            <field name="groups" eval="[(4, ref('group_helpdesk_rest_api'))]" />
+        </record>
         <record id="mail_message_rest_api" model="ir.rule">
             <field name="name">REST API Mail Messages</field>
             <field ref="mail.model_mail_message" name="model_id" />
