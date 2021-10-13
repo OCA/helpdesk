@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<record id="view_helpdesk_category_form" model="ir.ui.view">
+    <field name="model">helpdesk.ticket.category</field>
+    <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+    <field name="arch" type="xml">
+        <field name="company_id" position="before">
+            <field name="is_available_rest_api" />
+        </field>
+    </field>
+</record>
+
+<record id="view_helpdesk_team_form" model="ir.ui.view">
+    <field name="model">helpdesk.ticket.team</field>
+    <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+    <field name="arch" type="xml">
+        <field name="alias_user_id" position="after">
+            <field name="is_available_rest_api" />
+        </field>
+    </field>
+</record>
+
+</odoo>
