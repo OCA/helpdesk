@@ -20,3 +20,7 @@ class HelpdeskCategory(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
+    default_team_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.team",
+        string="Default team",
+    )
