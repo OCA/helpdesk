@@ -73,3 +73,33 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
             2,
             "Helpdesk Ticket: Helpdesk ticket team should have two ticket to do.",
         )
+
+    def test_helpdesk_ticket_team_from_category(self):
+        self.assertEqual(
+            self.team_a.todo_ticket_count,
+            3,
+        )
+        category = self.env.ref("helpdesk_mgmt.helpdesk_category_1")
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket 1",
+                "description": "Description",
+                "category_id": category.id,
+            }
+        )
+        self.assertEqual(
+            self.team_a.todo_ticket_count,
+            3,
+        )
+        category.default_team_id = self.team_a
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket 1",
+                "description": "Description",
+                "category_id": category.id,
+            }
+        )
+        self.assertEqual(
+            self.team_a.todo_ticket_count,
+            4,
+        )
