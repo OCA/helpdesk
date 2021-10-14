@@ -44,6 +44,7 @@
                         </h1>
                     </div>
                     <group name="main">
+                        <field name="default_team_id" />
                         <field name="company_id" groups="base.group_multi_company" />
                     </group>
                 </sheet>

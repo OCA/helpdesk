@@ -129,6 +129,8 @@ class HelpdeskTicket(models.Model):
     def create(self, vals):
         if vals.get("number", "/") == "/":
             vals["number"] = self._prepare_ticket_number(vals)
+        if not vals.get("team_id") and vals.get("category_id"):
+            vals["team_id"] = self._prepare_team_id(vals)
         return super().create(vals)
 
     def copy(self, default=None):
@@ -166,6 +168,11 @@ class HelpdeskTicket(models.Model):
         super()._compute_access_url()
         for item in self:
             item.access_url = "/my/ticket/%s" % (item.id)
+
+    def _prepare_team_id(self, values):
+        category = self.env["helpdesk.ticket.category"].browse(values["category_id"])
+        if category.default_team_id:
+            return category.default_team_id.id
 
     # ---------------------------------------------------
     # Mail gateway
