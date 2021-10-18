@@ -1,0 +1,261 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_rating
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-08-10 17:59+0000\n"
+"Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: helpdesk_mgmt_rating
+#: model:mail.template,body_html:helpdesk_mgmt_rating.rating_ticket_email_template
+msgid ""
+"\n"
+"        % set access_token = object.rating_get_access_token()\n"
+"        <div style=\"background:#F0F0F0;color:#515166;padding:10px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"        <table style=\"width:600px;margin:5px auto;\">\n"
+"            <tbody>\n"
+"                <tr><td>\n"
+"                    <a href=\"/\"><img src=\"/web/binary/company_logo\" style=\"vertical-align:baseline;max-width:100px;\" /></a>\n"
+"                </td><td style=\"text-align:right;vertical-align:middle;\">\n"
+"                        Satisfaction Survey\n"
+"                </td></tr>\n"
+"            </tbody>\n"
+"        </table>\n"
+"        <table style=\"width:600px;margin:0px auto;background:white;border:1px solid #e1e1e1;\">\n"
+"          <tbody>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">\n"
+"                  <p>Hello,</p>\n"
+"                  <p>Please take a moment to rate our services related to the ticket \"<strong>${object.number} - ${object.name}</strong>\"\n"
+"                     assigned to <strong>${object.rating_get_rated_partner_id().name}</strong>.</p>\n"
+"                  <p>We appreciate your feedback. It helps us to improve continuously.</p>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:10px 20px\">\n"
+"                  <table summary=\"o_mail_notification\" style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                      <tr>\n"
+"                          <td style=\"text-align:center;\">\n"
+"                              <h2 style=\"font-weight:300;font-size:18px;\">\n"
+"                                  Tell us how you feel about our service:\n"
+"                              </h2>\n"
+"                              <div style=\"text-color: #888888\">(click on one of these smileys)</div>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                          <td style=\"padding:10px 10px;\">\n"
+"                              <table style=\"width:100%;text-align:center;\">\n"
+"                                  <tr>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/5\">\n"
+"                                              <img alt=\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Satisfied\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/3\">\n"
+"                                              <img alt=\"Not satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Not satisfied\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/1\">\n"
+"                                              <img alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title=\"Highly Dissatisfied\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                  </tr>\n"
+"                              </table>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                  </table>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">${(object.user_id.signature or '')| safe}</td></tr>\n"
+"          </tbody>\n"
+"      </table>\n"
+"      <table style=\"width:600px;margin:auto;text-align:center;font-size:12px;\">\n"
+"        <tbody>\n"
+"          <tr><td style=\"padding-top:10px;color:#afafaf;\">\n"
+"              % if object.rating_status == 'stage_change':\n"
+"                  <p>This customer survey has been sent because your ticket has been moved to the stage <b>${object.stage_id.name}</b></p>\n"
+"              % endif\n"
+"          </td></tr>\n"
+"        </tbody>\n"
+"      </table>\n"
+"    </div>\n"
+"    "
+msgstr ""
+"\n"
+"        % set access_token = object.rating_get_access_token()\n"
+"        <div style=\"background:#F0F0F0;color:#515166;padding:10px 0px;font-"
+"family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"        <table style=\"width:600px;margin:5px auto;\">\n"
+"            <tbody>\n"
+"                <tr><td>\n"
+"                    <a href=\"/\"><img src=\"/web/binary/company_logo\" style"
+"=\"vertical-align:baseline;max-width:100px;\" /></a>\n"
+"                </td><td style=\"text-align:right;vertical-align:middle;\">\n"
+"                        Encuesta de Satisfacción\n"
+"                </td></tr>\n"
+"            </tbody>\n"
+"        </table>\n"
+"        <table style=\"width:600px;margin:0px auto;background:white;border:"
+"1px solid #e1e1e1;\">\n"
+"          <tbody>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">\n"
+"                  <p>Hola,</p>\n"
+"                  <p>Tómese un momento para calificar nuestros servicios "
+"relacionados con  el ticket "
+"<strong>${object.rating_get_rated_partner_id().name}</strong>\n"
+"                     asignado a "
+"<strong>${object.rating_get_rated_partner_id().name}</strong>.</p>\n"
+"                  <p>Agradecemos sus comentarios. Nos ayuda a mejorar "
+"continuamente.</p>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:10px 20px\">\n"
+"                  <table summary=\"o_mail_notification\" style=\"width:100"
+"%;border-top:1px solid #e1e1e1;\">\n"
+"                      <tr>\n"
+"                          <td style=\"text-align:center;\">\n"
+"                              <h2 style=\"font-weight:300;font-size:18px;\">"
+"\n"
+"                                  Tell us how you feel about our service:\n"
+"                              </h2>\n"
+"                              <div style=\"text-color: #888888\">(clic en "
+"uno de estos emojis)</div>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                          <td style=\"padding:10px 10px;\">\n"
+"                              <table style=\"width:100%;text-align:center;\">"
+"\n"
+"                                  <tr>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/"
+"10\">\n"
+"                                              <img alt=\"Satisfecho\" src=\"/"
+"rating/static/src/img/rating_5.png\" title=\"Satisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/"
+"5\">\n"
+"                                              <img alt=\"No satisfecho\" src="
+"\"/rating/static/src/img/rating_3.png\" title=\"No satisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/{access_token}/"
+"1\">\n"
+"                                              <img alt=\"Altamente "
+"Insatisfecho\" src=\"/rating/static/src/img/rating_1.png\" title=\"Altamente "
+"Insatisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                  </tr>\n"
+"                              </table>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                  </table>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">${("
+"object.user_id.signature or '')| safe}</td></tr>\n"
+"          </tbody>\n"
+"      </table>\n"
+"      <table style=\"width:600px;margin:auto;text-align:center;font-"
+"size:12px;\">\n"
+"        <tbody>\n"
+"          <tr><td style=\"padding-top:10px;color:#afafaf;\">\n"
+"              % if object.rating_status == 'stage_change':\n"
+"                  <p>Esta encuesta de cliente se envió porque su ticket se "
+"movió a la etapa <b>${object.stage_id.name}</b></p>\n"
+"              % endif\n"
+"          </td></tr>\n"
+"        </tbody>\n"
+"      </table>\n"
+"    </div>\n"
+"    "
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.actions.act_window,name:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_status
+#: model:ir.ui.menu,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_menu
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
+msgid "Customer Rating"
+msgstr "Puntuación del Cliente"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket_stage
+msgid "Helpdesk Ticket Stage"
+msgstr "Estado del Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
+msgid ""
+"If set, an email will be sent to the customer  with a rating survey when the"
+" ticket reaches this stage."
+msgstr ""
+"Si está configurado, se enviará un correo electrónico al cliente con una "
+"encuesta de calificación cuando el ticket llegue a esta etapa."
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
+msgid "No rating"
+msgstr "Sin puntuación"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__positive_rate_percentage
+msgid "Positive Rates Percentage"
+msgstr "Porcentaje de Puntuaciones Positivas"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.actions.act_window,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
+msgid "Rating"
+msgstr "Puntuaciones"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
+msgid "Rating Email Template"
+msgstr "Plantilla de Correo Electrónico de Puntuaciones"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__stage_change
+msgid "Rating when changing stage"
+msgstr "Puntuación al cambiar de etapa"
+
+#. module: helpdesk_mgmt_rating
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.ticket_view_form_inherit
+#: model:mail.message.subtype,description:helpdesk_mgmt_rating.mt_ticket_rating
+msgid "Ratings"
+msgstr "Puntuaciones"
+
+#. module: helpdesk_mgmt_rating
+#: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
+msgid "Satisfaction Survey of the ticket ${object.number} - ${object.name}"
+msgstr "Encuesta de satisfacción del ticket ${object.number} - ${object.name}"
+
+#. module: helpdesk_mgmt_rating
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
+msgid "There are no rated tickets at this moment."
+msgstr "No hay tickets calificados en este momento."
+
+#. module: helpdesk_mgmt_rating
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
+msgid "There are no ratings for this ticket at the moment."
+msgstr "No hay calificaciones para este ticket en este momento."
+
+#. module: helpdesk_mgmt_rating
+#: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
+#: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
+#, python-format
+msgid "Ticket Rating"
+msgstr "Puntuación del Ticket"

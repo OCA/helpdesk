@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="all_helpdesk_ticket_rating_action" model="ir.actions.act_window">
+        <field name="name">Customer Rating</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rating.rating</field>
+        <field name="view_mode">kanban,form</field>
+        <field
+            name="domain"
+        >[('res_model', '=', 'helpdesk.ticket'), ('consumed', '=', True)]</field>
+        <field name="help" type="html">
+            <p>
+                There are no rated tickets at this moment.
+            </p>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_rating_action" model="ir.actions.act_window">
+        <field name="name" />
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rating.rating</field>
+        <field name="view_mode">kanban,form</field>
+        <field
+            name="domain"
+        >[('consumed','=',True), ('res_model','=','helpdesk.ticket'), ('res_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p>
+                There are no ratings for this ticket at the moment.
+            </p>
+        </field>
+    </record>
+    <menuitem
+        id="helpdesk_ticket_rating_menu"
+        name="Customer Rating"
+        parent="helpdesk_mgmt.helpdesk_ticket_reporting_menu"
+        action="all_helpdesk_ticket_rating_action"
+        sequence="50"
+    />
+</odoo>
