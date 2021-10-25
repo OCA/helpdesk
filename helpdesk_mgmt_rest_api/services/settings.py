@@ -42,7 +42,9 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def categories(self):
-        return self.env.datamodels["helpdesk.category.output"].load(self._get_categories(), many=True)
+        return self.env.datamodels["helpdesk.category.output"].load(
+            self._get_categories(), many=True
+        )
 
     def _get_categories(self):
         return (
@@ -57,10 +59,16 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def teams(self):
-        return self.env.datamodels["helpdesk.team.output"].load(self._get_teams(), many=True)
+        return self.env.datamodels["helpdesk.team.output"].load(
+            self._get_teams(), many=True
+        )
 
     def _get_teams(self):
-        return self.env["helpdesk.ticket.team"].search([]).jsonify(self._jsonify_id_and_name())
+        return (
+            self.env["helpdesk.ticket.team"]
+            .search([])
+            .jsonify(self._jsonify_id_and_name())
+        )
 
     def _jsonify_id_and_name(self):
         return ["id", "name"]
