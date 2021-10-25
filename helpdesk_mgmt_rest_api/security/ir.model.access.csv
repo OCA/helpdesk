@@ -4,3 +4,4 @@ access_helpdesk_ticket_stage_rest_api,helpdesk.ticket.stage.rest_api,helpdesk_mg
 access_helpdesk_ticket_tag_rest_api,helpdesk.ticket.tag.rest_api,helpdesk_mgmt.model_helpdesk_ticket_tag,group_helpdesk_rest_api,1,0,0,0
 access_helpdesk_ticket_channel_rest_api,helpdesk.ticket.channel.rest_api,helpdesk_mgmt.model_helpdesk_ticket_channel,group_helpdesk_rest_api,1,0,0,0
 access_helpdesk_ticket_category_rest_api,helpdesk.ticket.category.rest_api,helpdesk_mgmt.model_helpdesk_ticket_category,group_helpdesk_rest_api,1,0,0,0
+access_helpdesk_ticket_team_rest_api,helpdesk.ticket.team.rest_api,helpdesk_mgmt.model_helpdesk_ticket_team,group_helpdesk_rest_api,1,0,0,0

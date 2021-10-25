@@ -28,11 +28,12 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def get_all(self):
-        return self._get_all()
+        return self.env.datamodels["helpdesk.all.settings.output"].load(self._get_all())
 
     def _get_all(self):
         return {
             "categories": self._get_categories(),
+            "teams": self._get_teams(),
         }
 
     @restapi.method(
@@ -41,11 +42,11 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def categories(self):
-        return self._get_categories()
+        return self.env.datamodels["helpdesk.category.output"].load(self._get_categories(), many=True)
 
     def _get_categories(self):
         return (
-            self.env["helpdesk.category"]
+            self.env["helpdesk.ticket.category"]
             .search([])
             .jsonify(self._jsonify_id_and_name())
         )
@@ -56,10 +57,10 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def teams(self):
-        return self._get_teams()
+        return self.env.datamodels["helpdesk.team.output"].load(self._get_teams(), many=True)
 
     def _get_teams(self):
-        return self.env["helpdesk.team"].search([]).jsonify(self._jsonify_id_and_name())
+        return self.env["helpdesk.ticket.team"].search([]).jsonify(self._jsonify_id_and_name())
 
     def _jsonify_id_and_name(self):
         return ["id", "name"]
