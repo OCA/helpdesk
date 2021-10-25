@@ -124,7 +124,7 @@ class TicketService(Component):
 
     @restapi.method(
         routes=[(["/"], "GET")],
-        output_param=restapi.Datamodel("helpdesk.ticket.output"),
+        output_param=restapi.Datamodel("helpdesk.ticket.search.output"),
     )
     def search(self):
         domain = self._get_base_search_domain()
