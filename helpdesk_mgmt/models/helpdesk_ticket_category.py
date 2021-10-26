@@ -13,6 +13,7 @@ class HelpdeskCategory(models.Model):
     name = fields.Char(
         string="Name",
         required=True,
+        translate=True,
     )
     company_id = fields.Many2one(
         comodel_name="res.company",
