@@ -65,7 +65,7 @@ class HelpdeskTicketBase(Datamodel):
 
 class HelpdeskTicketInput(Datamodel):
     _name = "helpdesk.ticket.input"
-    _inherit = ["helpdesk.ticket.base"]
+    _inherit = ["helpdesk.ticket.base", "attachable.input"]
 
     partner = fields.NestedModel(
         "helpdesk.partner.input", required=False, allow_none=False
@@ -141,6 +141,7 @@ class TicketService(Component):
     def create(self, ticket):
         vals = self._prepare_params(ticket.dump(), mode="create")
         record = self.env[self._expose_model].create(vals)
+        self._link_attachments(record, vals)
         return self._return_record(record)
 
     @restapi.method(
@@ -180,6 +181,9 @@ class TicketService(Component):
                 if val.get("id"):
                     params["%s_id" % key] = val["id"]
         return params
+
+    def _link_attachments(self, record, vals):
+        return super()._link_attachments(record, vals)
 
     def _json_parser(self):
         res = [

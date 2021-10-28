@@ -42,6 +42,12 @@ class AbstractAttachableService(AbstractComponent):
                 ]
         return params
 
+    def _link_attachments(self, record, vals):
+        record.ensure_one()
+        if "attachment_ids" in vals:
+            attachments = self.env["ir.attachment"].browse(vals["attachment_ids"][0][2])
+            return attachments.write({"res_model": record._name, "res_id": record.id})
+
     def _json_parser_attachments(self):
         res = [
             ("attachment_ids:attachments", ["id", "name"]),
