@@ -4,7 +4,7 @@
 
 {
     "name": "Helpdesk Ticket Type",
-    "version": "11.0.1.0.0",
+    "version": "11.0.1.0.1",
     "license": "AGPL-3",
     "summary": "Add a type to your tickets",
     "author": "Konos, "
