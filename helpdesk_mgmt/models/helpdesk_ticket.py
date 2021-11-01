@@ -18,10 +18,18 @@ class HelpdeskTicket(models.Model):
         stage_ids = self.env["helpdesk.ticket.stage"].search([])
         return stage_ids
 
+    def _get_user_domain(self):
+        res = "[]"
+        if not self.team_id:
+            return res
+        return "[('id', 'in', self.user_ids)]"
+
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
-    user_id = fields.Many2one(comodel_name="res.users", string="Assigned user")
+    user_id = fields.Many2one(
+        comodel_name="res.users", string="Assigned user", domain=_get_user_domain
+    )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
     )
@@ -110,11 +118,6 @@ class HelpdeskTicket(models.Model):
     def _onchange_dominion_user_id(self):
         if self.user_id and self.user_ids and self.user_id not in self.team_id.user_ids:
             self.update({"user_id": False})
-            return {"domain": {"user_id": []}}
-        if self.team_id:
-            return {"domain": {"user_id": [("id", "in", self.user_ids.ids)]}}
-        else:
-            return {"domain": {"user_id": []}}
 
     # ---------------------------------------------------
     # CRUD
