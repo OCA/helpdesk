@@ -73,3 +73,42 @@ class TestHelpdeskTicket(common.SavepointCase):
             "Helpdesk Ticket: A new ticket can not "
             "have the same number than the origin ticket.",
         )
+
+    def test_helpdesk_ticket_message_new(self):
+        Partner = self.env["res.partner"]
+        Ticket = self.env["helpdesk.ticket"]
+
+        newPartner = Partner.create(
+            {
+                "name": "Jill",
+                "email": "jill@example.com",
+            }
+        )
+        title = "Test Helpdesk ticket message new"
+        msg_id = "0000000000007c50e905cf5b1f2a@example.com"
+        msg_dict = {
+            "message_id": msg_id,
+            "subject": title,
+            "email_from": "Bob <bob@example.com>",
+            "to": "jill@example.com",
+            "cc": "sally@example.com",
+            "recipients": "jill@example.com+sally@example.com",
+            "partner_ids": [newPartner.id],
+            "body": "This the body",
+            "date": "2021-10-10",
+        }
+        try:
+            t = Ticket.message_new(msg_dict)
+        except Exception as error:
+            self.fail("%s: %s" % (type(error), error))
+        self.assertEqual(t.name, title, "The ticket should have the correct title.")
+
+        title = "New title"
+        update_vals = {"name": title}
+        try:
+            t.message_update(msg_dict, update_vals)
+        except Exception as error:
+            self.fail("%s: %s" % (type(error), error))
+        self.assertEqual(
+            t.name, title, "The ticket should have the correct (new) title."
+        )
