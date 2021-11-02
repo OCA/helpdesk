@@ -8,7 +8,7 @@ class HelpdeskTicket(models.Model):
     _rec_name = "number"
     _order = "number desc"
     _mail_post_access = "read"
-    _inherit = ["mail.thread.cc", "mail.activity.mixin"]
+    _inherit = ["portal.mixin", "mail.thread.cc", "mail.activity.mixin"]
 
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
@@ -95,7 +95,10 @@ class HelpdeskTicket(models.Model):
     active = fields.Boolean(default=True)
 
     def send_user_mail(self):
-        self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
+        self.send_message(
+            self.env.ref("helpdesk_mgmt.assignment_email_template"),
+            notif_layout="mail.mail_notification_paynow",
+        )
 
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
@@ -115,6 +118,53 @@ class HelpdeskTicket(models.Model):
             return {"domain": {"user_id": [("id", "in", self.user_ids.ids)]}}
         else:
             return {"domain": {"user_id": []}}
+
+    def _compute_access_url(self):
+        super(HelpdeskTicket, self)._compute_access_url()
+        for ticket in self:
+            ticket.access_url = "/my/ticket/%s" % ticket.id
+
+    def send_message(
+        self,
+        template,
+        lang=False,
+        subtype_id=False,
+        force_send=True,
+        composition_mode="comment",
+        notif_layout=None,
+        system_author=False,
+    ):
+        """This method sends ticket communication by email, using a template given
+        as a parameter.
+
+         :param template: a mail.template record used to compute the message body;
+         :param lang: optional lang; it can also be specified directly on the
+         templateitself in the lang field;
+         :param subtype_id: optional subtype to use when creating the message; it
+         is a note by default to avoid spamming followers;
+         :param force_send: whether to send the request directly or use the mail
+         queue cron (preferred option);
+         :param composition_mode: comment (message_post) or mass_mail (template.send_mail);
+         :param notif_layout: layout used to encapsulate the content when sending email;
+         :param system_author: send the message as if from the system root user
+        """
+        if lang:
+            template = template.with_context(lang=lang)
+        if subtype_id is False:
+            subtype_id = self.env["ir.model.data"].xmlid_to_res_id("mail.mt_note")
+        if force_send:
+            self = self.with_context(mail_notify_force_send=True)
+        for record in self:
+            if system_author:
+                record = record.with_user(self.env.ref("base.user_root")).sudo()
+            record.message_post_with_template(
+                template.id,
+                composition_mode=composition_mode,
+                email_layout_xmlid=notif_layout
+                if notif_layout is not None
+                else "mail.mail_notification_light",
+                subtype_id=subtype_id,
+            )
 
     # ---------------------------------------------------
     # CRUD
@@ -184,7 +234,7 @@ class HelpdeskTicket(models.Model):
                     "subtype_id": self.env["ir.model.data"].xmlid_to_res_id(
                         "mail.mt_note"
                     ),
-                    "email_layout_xmlid": "mail.mail_notification_light",
+                    "email_layout_xmlid": "mail.mail_notification_paynow",
                 },
             )
         return res
@@ -201,11 +251,28 @@ class HelpdeskTicket(models.Model):
             "description": msg.get("body"),
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
+            "channel_id": self.env.ref(
+                "helpdesk_mgmt.helpdesk_ticket_channel_email"
+            ).id,
         }
         defaults.update(custom_values)
 
         # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
+
+        if ticket.partner_id:
+            # If we have a partner trigger the partner onchange function
+            ticket._onchange_partner_id()
+
+            # Send acknowledgement email only if we have a partner. We don't
+            # want to send a response to just any address that sends us an
+            # email. Send the message as the system user because Odoo won't
+            # send an email to the author of a message.
+            ticket.send_message(
+                self.env.ref("helpdesk_mgmt.new_ticket_template"),
+                notif_layout="mail.mail_notification_paynow",
+                system_author=True,
+            )
 
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(

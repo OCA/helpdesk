@@ -10,22 +10,70 @@
     <data noupdate="1">
         <!--Email template -->
         <record id="assignment_email_template" model="mail.template">
-            <field name="name">Ticket Assignment</field>
+            <field name="name">Helpdesk Ticket Assignment</field>
             <field name="model_id" ref="model_helpdesk_ticket" />
+            <field name="email_from">${object.company_id.partner_id.email}</field>
+            <field
+                name="subject"
+            >${object.company_id.name} Ticket Assignment (${object.number or 'n/a' })</field>
+            <field name="partner_to">${object.user_id.partner_id.id}</field>
+            <field name="auto_delete" eval="False" />
+            <field name="lang">${object.user_id.partner_id.lang}</field>
+            <field name="body_html" type="xml">
+<div>
+                <p>Hello ${object.user_id.name},</p>
+                <p>The ticket ${object.number} has been assigned to you.</p>
+                <p />
+                <table
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-top: 10px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                    >
+                    <tr>
+                        <td colspan="2">
+                            <table border="0" cellpadding="0">
+                                <tr>
+                                    <td
+                                            style="padding-right: 10px;text-align:right;font-weight: bold;"
+                                        >Partner:</td>
+                                    <td>${object.partner_id.name}</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                            style="padding-right: 10px;text-align:right;font-weight: bold;"
+                                        >Priority:</td>
+                                    <td>${object.priority}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr><td colspan="2"><h3>${object.name}</h3></td></tr>
+                    <tr><td colspan="2">${object.description|safe}</td></tr>
+                </table>
+</div>
+             </field>
+        </record>
+        <record id="new_ticket_template" model="mail.template">
+            <field name="name">Helpdesk New Ticket Notification Email</field>
+            <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="email_from">${object.company_id.partner_id.email}</field>
             <field
                 name="email_cc"
             >${not object.partner_id and object.partner_email or ''|safe},</field>
-            <field
-                name="subject"
-            >${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })</field>
+            <field name="subject">Ticket ${object.number}: ${object.name}</field>
             <field name="partner_to">${object.partner_id.id}</field>
             <field name="auto_delete" eval="False" />
             <field name="lang">${object.partner_id.lang}</field>
             <field name="body_html" type="xml">
-                <p>Hello ${object.user_id.name},</p>
-                <p>The ticket ${object.number} has been assigned to you.</p>
-            </field>
+<div>
+                <p>Hello ${object.partner_id.name},</p>
+                <p>Thank you for reaching out to us. We are working on your request
+                    and will get back to you soon. Your request has been assigned
+                    ticket number ${object.number}. You can use it to track your
+                    request and as a reference in future communications.</p>
+</div>
+                </field>
         </record>
         <record id="closed_ticket_template" model="mail.template">
             <field name="name">Helpdesk Closed Ticket Notification Email</field>
@@ -34,132 +82,64 @@
             <field
                 name="email_cc"
             >${not object.partner_id and object.partner_email or ''|safe},</field>
-            <field name="subject">The ticket ${object.number} has been closed.</field>
+            <field name="subject">Ticket ${object.number} has been closed.</field>
             <field name="partner_to">${object.partner_id.id}</field>
             <field name="auto_delete" eval="False" />
             <field name="lang">${object.partner_id.lang}</field>
-            <field
-                name="body_html"
-            ><![CDATA[<html>
-                <head></head>
-                <body style="margin: 0; padding: 0;">
-                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;">
-                    <tbody>
-                      <!-- HEADER -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
-                            <tr>
-                              <td valign="middle" align="right">
-                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}">
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                      <!-- CONTENT -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;">
-                            <tbody>
-                              <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
-                                <p>Hello ${object.user_id.name},</p>
-                                <p>The ticket ${object.number} has been closed.</p>
-                              </td>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <!-- FOOTER -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
-                            <tr>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.phone}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.email}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.website}
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
-                </table>
-                </body>
-                </html>
-            ]]></field>
+            <field name="body_html" type="xml">
+<div>
+                <p>Hello ${object.partner_id.name},</p>
+                <p>Your request (${object.number}) has been resolved. We are closing
+                    the ticket now. If you believe this is in error or if your
+                    request has not been resolved please reply to this email. If
+                    there is anything else we can help you with please open a new
+                    ticket.</p>
+                <br />
+                <p>Thank you for reaching out to us.</p>
+</div>
+            </field>
         </record>
         <record id="changed_stage_template" model="mail.template">
             <field name="name">Helpdesk Changed Stage notification Email</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="email_from">${object.company_id.partner_id.email}</field>
             <field
-                name="email_cc"
-            >${not object.partner_id and object.partner_email or ''|safe},</field>
-            <field name="subject">The ticket ${object.number} stage has changed.</field>
-            <field name="partner_to">${object.partner_id.id}</field>
+                name="subject"
+            >Ticket ${object.number}: stage change notification</field>
+            <field name="partner_to">${object.user_id.partner_id.id}</field>
             <field name="auto_delete" eval="False" />
-            <field name="lang">${object.partner_id.lang}</field>
-            <field
-                name="body_html"
-            ><![CDATA[<html>
-                <head></head>
-                <body style="margin: 0; padding: 0;">
-                <table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed; border-collapse:separate;">
-                    <tbody>
-                      <!-- HEADER -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
+            <field name="lang">${object.user_id.partner_id.lang}</field>
+            <field name="body_html" type="xml">
+<div>
+                <p>Hello ${object.user_id.name},</p>
+                <p>There has been a change to ticket ${object.number}.</p>
+                <p />
+                <h3>${object.name}</h3>
+                <table
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-top: 10px;background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
+                    >
+                    <td colspan="2">
+                        <table border="0" cellpadding="0">
                             <tr>
-                              <td valign="middle" align="right">
-                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;">
-                              </td>
+                                <td
+                                        style="padding-right: 10px;text-align:right;font-weight: bold;"
+                                    >Partner:</td>
+                                <td>${object.partner_id.name}</td>
                             </tr>
-                          </table>
-                        </td>
-                      </tr>
-                      <!-- CONTENT -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;">
-                            <tbody>
-                              <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
-                                <p>Hello ${object.user_id.name},</p>
-                                <p>The ticket ${object.number} stage has changed to ${object.stage_id.name}.</p>
-                              </td>
-                            </tbody>
-                          </table>
-                        </td>
-                      </tr>
-                      <!-- FOOTER -->
-                      <tr>
-                        <td align="center" style="min-width: 590px;">
-                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.phone}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.email}
-                              </td>
-                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
-                                ${object.company_id.website}
-                              </td>
+                                <td
+                                        style="padding-right: 10px;text-align:right;font-weight: bold;"
+                                    >Priority:</td>
+                                <td>${object.priority}</td>
                             </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </tbody>
+                        </table>
+                    </td>
+                <tr><td colspan="2">New stage: ${object.stage_id.name}</td></tr>
                 </table>
-                </body>
-                </html>
-            ]]>
+</div>
             </field>
         </record>
         <!-- Sequence -->

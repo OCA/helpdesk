@@ -1,3 +1,4 @@
+import re
 import time
 
 from odoo.tests import common
@@ -73,3 +74,65 @@ class TestHelpdeskTicket(common.SavepointCase):
             "Helpdesk Ticket: A new ticket can not "
             "have the same number than the origin ticket.",
         )
+
+    def test_helpdesk_assign_msg(self):
+
+        count = len(self.ticket.message_ids)
+        self.ticket.user_id = self.env.user
+
+        self.assertEqual(
+            len(self.ticket.message_ids),
+            count + 1,
+            "Number of msgs in chatter should increase",
+        )
+        assignRegex = "The ticket HT[0-9]+ has been assigned to you."
+        self.assertNotEqual(
+            re.search(assignRegex, self.ticket.message_ids.sorted("id")[-1].body),
+            None,
+            "The content should match a line of the assignment email.",
+        )
+
+    def test_helpdesk_new_from_email(self):
+
+        # The only part of new email reception we want to test is message_new()
+        msg = {
+            "message_id": "431858539581299-openerp-400-helpdesk.ticket@example.org",
+            "subject": "subject",
+            "email_from": "from@example.org",
+            "to": "to@example.org",
+            "recipients": "to@example.org",
+            "author_id": self.env.ref("base.res_partner_1").id,
+            "body": "unified_body",
+            "is_internal": False,
+            "date": "2021-11-01 00:00:00",
+        }
+        tkt = self.env["helpdesk.ticket"].message_new(msg)
+
+        self.assertEqual(
+            tkt.partner_id,
+            self.env.ref("base.res_partner_1"),
+            "The ticket has a partner",
+        )
+        self.assertEqual(
+            tkt.partner_name,
+            self.env.ref("base.res_partner_1").name,
+            "The ticket has a Partner Name",
+        )
+        self.assertEqual(
+            tkt.partner_email,
+            self.env.ref("base.res_partner_1").email,
+            "The ticket has a Partner Email",
+        )
+        self.assertEqual(
+            tkt.channel_id,
+            self.env.ref("helpdesk_mgmt.helpdesk_ticket_channel_email"),
+            "The ticket 'Channel' should be 'Email'",
+        )
+        found = False
+        newRegex = "Thank you for reaching out to us"
+        for msg in tkt.message_ids:
+            res = re.search(newRegex, msg.body)
+            if res is not None:
+                found = True
+        if not found:
+            self.fail("The content should match part of the acknowledgement email.")
