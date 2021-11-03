@@ -15,7 +15,7 @@ from odoo.addons.component.tests.common import TransactionComponentCase
 from odoo.addons.datamodel.tests.common import TransactionDatamodelCase
 
 
-class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
+class HelpdeskTicketCommonCase(TransactionComponentCase, TransactionDatamodelCase):
     def setUp(self):
         super().setUp()
         collection = _PseudoCollection("helpdesk.rest.services", self.env)
@@ -24,17 +24,6 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
             collection=collection,
             request=request,
         )
-        provider = self.services_env.component(usage="component_context_provider")
-        params = provider._get_component_context()
-        env = collection.env
-        collection.env = env(
-            context=dict(
-                env.context,
-                authenticated_partner_id=params.get("authenticated_partner_id"),
-            )
-        )
-        self.service = self.services_env.component(usage="helpdesk_ticket")
-        self.attachment_service = self.services_env.component(usage="attachment")
 
     def create_attachment(self, params=None):
         attrs = {"params": "{}"}
@@ -62,6 +51,22 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.assertEqual(ticket.category_id.name, "Odoo")
         if with_attachment:
             self.assertEqual(ticket.attachment_ids.id, self.attachment_res["id"])
+
+
+class HelpdeskTicketNoaccountCase(HelpdeskTicketCommonCase):
+    def setUp(self):
+        super().setUp()
+        provider = self.services_env.component(usage="component_context_provider")
+        params = provider._get_component_context()
+        env = self.services_env.collection.env
+        self.services_env.collection.env = env(
+            context=dict(
+                env.context,
+                authenticated_partner_id=params.get("authenticated_partner_id"),
+            )
+        )
+        self.service = self.services_env.component(usage="helpdesk_ticket")
+        self.attachment_service = self.services_env.component(usage="attachment")
 
     def test_create_ticket_noaccount(self):
         data = self.generate_ticket_data(
@@ -95,7 +100,10 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.assert_ticket_ok(ticket, with_attachment=True)
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
 
-    def test_create_ticket_account_attachment(self):
+
+class HelpdeskTicketAuthenticatedCase(HelpdeskTicketCommonCase):
+    def setUp(self):
+        super().setUp()
         env = self.services_env.collection.env
         self.services_env.collection.env = env(
             context=dict(
@@ -106,6 +114,7 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.service = self.services_env.component(usage="helpdesk_ticket")
         self.attachment_service = self.services_env.component(usage="attachment")
 
+    def test_create_ticket_account_attachment(self):
         data = self.generate_ticket_data()
         res = self.service.dispatch("create", params=data)
         self.create_attachment(
@@ -115,14 +124,6 @@ class HelpdeskTicketCase(TransactionComponentCase, TransactionDatamodelCase):
         self.assert_ticket_ok(ticket, with_attachment=True)
 
     def test_ticket_message(self):
-        env = self.services_env.collection.env
-        self.services_env.collection.env = env(
-            context=dict(
-                env.context,
-                authenticated_partner_id=self.env.ref("base.res_partner_1").id,
-            )
-        )
-
         data = self.generate_ticket_data()
         res = self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search([("id", "=", res["id"])])
