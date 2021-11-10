@@ -2,7 +2,7 @@
 # Copyright 2021 elego Software Solutions GmbH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.tools import safe_eval
+from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTicket(models.Model):

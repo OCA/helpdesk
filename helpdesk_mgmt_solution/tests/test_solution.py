@@ -27,7 +27,7 @@ class TestDefaults(TransactionCase):
         self.assertEqual(self.ticket_1.solution_ids, self.ticket_solution_1)
 
     def test_add_solution_to_ticket(self):
-        """ Add new solution to helpdesk ticket"""
+        """Add new solution to helpdesk ticket"""
         self.assertEqual(self.ticket_1.solution_count, 1)
         add_solution_wiz = (
             self.env["helpdesk.solution.wizard"]
@@ -41,7 +41,7 @@ class TestDefaults(TransactionCase):
         self.assertEqual(self.ticket_1.solution_count, 2)
 
     def test_remove_solution_from_ticket(self):
-        """ Remove solution from a helpdesk ticket"""
+        """Remove solution from a helpdesk ticket"""
         self.assertEqual(self.ticket_2.solution_count, 1)
         self.ticket_2.solution_ids = [(4, self.ticket_solution_1.id)]
         self.assertEqual(self.ticket_2.solution_count, 2)
@@ -58,13 +58,12 @@ class TestDefaults(TransactionCase):
         self.assertEqual(self.ticket_2.solution_count, 1)
 
     def test_search_solution_by_tags(self):
-        """ Check search solution by tags"""
+        """Check search solution by tags"""
+
         search_solution_wiz = (
             self.env["helpdesk.solution.wizard"]
             .with_context(
-                search_solution=True, search_default_tag_ids=[
-                    (6, 0, self.tag_1.ids)
-                ]
+                search_solution=True, search_default_tag_ids=[(6, 0, self.tag_1.ids)]
             )
             .create(
                 {
@@ -80,7 +79,7 @@ class TestDefaults(TransactionCase):
         self.assertEqual(search_tags, self.tag_1.ids)
 
     def test_search_solution_by_title(self):
-        """ Check search solution by title"""
+        """Check search solution by title"""
         search_by_title_wiz = (
             self.env["helpdesk.solution.wizard"]
             .with_context(search_solution=True)
@@ -93,12 +92,11 @@ class TestDefaults(TransactionCase):
         )
         res_action = search_by_title_wiz.search_solution()
         self.assertEqual(
-            res_action["context"]["search_default_title"],
-            self.ticket_solution_1.title
+            res_action["context"]["search_default_title"], self.ticket_solution_1.title
         )
 
     def test_search_solution_by_description(self):
-        """ Check search solution by description"""
+        """Check search solution by description"""
         search_by_title_wiz = (
             self.env["helpdesk.solution.wizard"]
             .with_context(search_solution=True)
@@ -111,11 +109,6 @@ class TestDefaults(TransactionCase):
         )
         res_action = search_by_title_wiz.search_solution()
         search_ticket_id = res_action["context"]["helpdesk_ticket_id"]
-        search_description = res_action["context"][
-            "search_default_description"
-        ]
+        search_description = res_action["context"]["search_default_description"]
         self.assertEqual(search_ticket_id, self.ticket_solution_2.id)
-        self.assertEqual(
-            search_description,
-            self.ticket_solution_2.description
-        )
+        self.assertEqual(search_description, self.ticket_solution_2.description)

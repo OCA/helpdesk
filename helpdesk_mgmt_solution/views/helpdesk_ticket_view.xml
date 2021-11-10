@@ -1,31 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
         <record id="view_helpdesk_ticket_form_inherit_solution" model="ir.ui.view">
             <field name="name">view.helpdesk.ticket.form.inherit.solution</field>
             <field name="model">helpdesk.ticket</field>
-            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form"/>
+            <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
             <field name="arch" type="xml">
                 <button name="assign_to_me" position="after">
-                    <button string="Create Solution"
-                            name="button_create_solution"
-                            type="object"
+                    <button
+                        string="Create Solution"
+                        name="button_create_solution"
+                        type="object"
                     />
-                    <button string="Search Solution"
-                            name="button_search_solution"
-                            type="object"
+                    <button
+                        string="Search Solution"
+                        name="button_search_solution"
+                        type="object"
                     />
                 </button>
-                <div class="oe_title" position="before">
-                    <div class="oe_button_box" name="button_box">
-                        <button type="object"
-                                class="oe_stat_button"
-                                name="button_solutions"
-                                icon="fa-book">
-                            <field name="solution_count" widget="statinfo"
-                                   string="Solutions"/>
-                        </button>
-                    </div>
+                <div name="button_box" position="inside">
+                    <button
+                        type="object"
+                        class="oe_stat_button"
+                        name="button_solutions"
+                        icon="fa-book"
+                    >
+                        <field
+                            name="solution_count"
+                            widget="statinfo"
+                            string="Solutions"
+                        />
+                    </button>
                 </div>
             </field>
         </record>

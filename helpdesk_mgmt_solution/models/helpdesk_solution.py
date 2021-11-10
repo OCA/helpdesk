@@ -6,6 +6,7 @@ from odoo import fields, models
 
 class HelpdeskSolution(models.Model):
     _name = "helpdesk.solution"
+    _description = "Helpdesk Solution"
 
     title = fields.Char()
     description = fields.Text()
