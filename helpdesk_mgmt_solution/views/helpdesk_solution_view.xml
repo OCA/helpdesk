@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_helpdesk_solution_search" model="ir.ui.view">
+            <field name="name">view.helpdesk.solution.search</field>
+            <field name="model">helpdesk.solution</field>
+            <field name="type">search</field>
+            <field name="priority" eval="100" />
+            <field name="arch" type="xml">
+                <search>
+                    <field name="title" />
+                    <field name="description" />
+                    <field name="tag_ids" widget="many2many_tags" />
+                </search>
+            </field>
+        </record>
+
+        <record id="view_helpdesk_solution_form" model="ir.ui.view">
+            <field name="name">view.helpdesk.solution.form</field>
+            <field name="model">helpdesk.solution</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="oe_title">
+                                <field name="title" />
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="description" />
+                            <field name="tag_ids" widget="many2many_tags" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_helpdesk_solution_tree" model="ir.ui.view">
+            <field name="name">helpdesk.solution.tree</field>
+            <field name="model">helpdesk.solution</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Helpdesk Solutions">
+                    <field name="title" />
+                    <field name="description" invisible="1" />
+                    <field name="tag_ids" widget="many2many_tags" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_helpdesk_solution_tree_no_create" model="ir.ui.view">
+            <field name="name">helpdesk.solution.tree.no.create</field>
+            <field name="model">helpdesk.solution</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Helpdesk Solutions" create="0">
+                    <field name="title" />
+                    <field name="description" invisible="1" />
+                    <field name="tag_ids" widget="many2many_tags" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_helpdesk_solution_view">
+            <field name="name">Solutions</field>
+            <field name="res_model">helpdesk.solution</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--
+         Solutions for ticket
+         -->
+        <record model="ir.actions.act_window" id="act_show_helpdesk_ticket_solutions">
+            <field name="name">Solutions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">helpdesk.solution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_helpdesk_solution_search" />
+            <field name="view_id" ref="view_helpdesk_solution_form" />
+            <field name="context">{
+                'display_actions': [['helpdesk_mgmt_solution.action_remove_solution_act', 'Remove Solution']]
+                }
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_remove_solution_act">
+            <field name="name">Remove Solution</field>
+            <field name="res_model">helpdesk.solution.wizard</field>
+            <field
+                name="binding_model_id"
+                ref="helpdesk_mgmt_solution.model_helpdesk_solution"
+            />
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field
+                name="context"
+            >{'default_solution_ids': active_ids, 'remove_solution': True, 'default_ticket_id': context.get('helpdesk_ticket_id')}</field>
+            <field name="binding_view_types">form</field>
+        </record>
+        <record
+            model="ir.actions.act_window.view"
+            id="act_helpdesk_ticket_solutions_tree"
+        >
+            <field name="act_window_id" ref="act_show_helpdesk_ticket_solutions" />
+            <field name="sequence" eval="200" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_helpdesk_solution_tree_no_create" />
+        </record>
+        <!-- Search Solution -->
+
+        <record model="ir.actions.act_window" id="act_search_helpdesk_solution">
+            <field name="name">Search Solution</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">helpdesk.solution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_helpdesk_solution_search" />
+            <field name="view_id" ref="view_helpdesk_solution_form" />
+            <field name="context">{
+                'display_actions': [['helpdesk_mgmt_solution.action_add_solution_act', 'Add Solution']]
+                }
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_add_solution_act">
+            <field name="name">Add Solution</field>
+            <field name="res_model">helpdesk.solution.wizard</field>
+            <field
+                name="binding_model_id"
+                ref="helpdesk_mgmt_solution.model_helpdesk_solution"
+            />
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{
+                'default_solution_ids': active_ids,
+                'add_solution': True,
+                'default_ticket_id': context.get('helpdesk_ticket_id')
+            }
+            </field>
+            <field name="binding_view_types">form</field>
+        </record>
+        <record
+            model="ir.actions.act_window.view"
+            id="act_helpdesk_solution_search_tree"
+        >
+            <field name="act_window_id" ref="act_search_helpdesk_solution" />
+            <field name="sequence" eval="200" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_helpdesk_solution_tree_no_create" />
+        </record>
+    </data>
+</odoo>

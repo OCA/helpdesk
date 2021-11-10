@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_helpdesk_solution_wizard_form" model="ir.ui.view">
+            <field name="name">view.create.helpdesk.solution.form</field>
+            <field name="model">helpdesk.solution.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Solution">
+                    <separator
+                        colspan="4"
+                        string="Do you really want to add the solution(s)?"
+                        invisible="not context.get('add_solution', False)"
+                    />
+                    <separator
+                        colspan="4"
+                        string="Do you really want to remove the solution(s)?"
+                        invisible="not context.get('remove_solution', False)"
+                    />
+                    <group>
+                        <field
+                            name="ticket_id"
+                            invisible="context.get('default_ticket_id', False)"
+                        />
+                        <field
+                            name="title"
+                            invisible="context.get('remove_solution', False) or context.get('add_solution', False)"
+                            required="context.get('create_solution', False)"
+                        />
+                        <field
+                            name="description"
+                            invisible="context.get('remove_solution', False) or context.get('add_solution', False)"
+                            required="context.get('create_solution', False)"
+                        />
+                        <field
+                            name="tag_ids"
+                            invisible="context.get('remove_solution', False) or context.get('add_solution', False)"
+                            required="context.get('create_solution', False)"
+                            widget="many2many_tags"
+                        />
+                        <field
+                            name="hide_solutions"
+                            invisible="not context.get('search_solution', False)"
+                        />
+                    </group>
+                    <footer>
+                        <button
+                            name="create_solution"
+                            string="Create Solution"
+                            type="object"
+                            invisible="not context.get('create_solution', False)"
+                            class="oe_highlight"
+                        />
+                        <button
+                            name="search_solution"
+                            string="Search Solution"
+                            type="object"
+                            invisible="not context.get('search_solution', False)"
+                            class="oe_highlight"
+                        />
+                        <button
+                            name="add_solution_to_ticket"
+                            string="OK"
+                            type="object"
+                            class="oe_highlight"
+                            invisible="not context.get('add_solution', False)"
+                        />
+                        <button
+                            name="remove_solution_from_ticket"
+                            string="OK"
+                            type="object"
+                            class="oe_highlight"
+                            invisible="not context.get('remove_solution', False)"
+                        />
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

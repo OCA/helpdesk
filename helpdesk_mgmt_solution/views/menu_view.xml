@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Menus -->
+        <menuitem
+            id="menu_helpdesk_ticket_solutions"
+            name="Solutions"
+            parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+            action="act_helpdesk_solution_view"
+            sequence="50"
+        />
+    </data>
+</odoo>
