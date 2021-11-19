@@ -7,7 +7,7 @@
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "PuntSistemes S.L.U., " "Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/helpdesk",
+    "website": "https://github.com/trevi-software/helpdesk",
     "depends": ["helpdesk_mgmt", "project"],
     "data": [
         "views/helpdesk_ticket_view.xml",

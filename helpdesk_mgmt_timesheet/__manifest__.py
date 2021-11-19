@@ -12,7 +12,7 @@
     "SDi Soluciones Digitales, "
     "Solvos, "
     "Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/helpdesk",
+    "website": "https://github.com/trevi-software/helpdesk",
     "license": "AGPL-3",
     "category": "After-Sales",
     "version": "14.0.1.0.0",

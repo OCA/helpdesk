@@ -13,7 +13,7 @@
     "Factor Libre, "
     "SDi Soluciones, "
     "Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/helpdesk",
+    "website": "https://github.com/trevi-software/helpdesk",
     "depends": ["mail", "portal"],
     "data": [
         "data/helpdesk_data.xml",

@@ -7,7 +7,7 @@
     "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "Domatix, " "Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/helpdesk",
+    "website": "https://github.com/trevi-software/helpdesk",
     "category": "After-Sales",
     "depends": ["helpdesk_mgmt", "rating"],
     "data": [
