@@ -985,6 +985,11 @@ msgid "Number of unread messages"
 msgstr "Olvasatlan üzenetek száma"
 
 #. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
+msgid "Odoo"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
 msgstr "Nyitott"
@@ -1126,6 +1131,11 @@ msgid "Show all records which has next action date is before today"
 msgstr ""
 "Az összes olyan rekdord mutatása, amelyhez a mai nap előtt lejáró "
 "tevékenység kapcsolódik"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
+msgid "Software"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1420,3 +1430,8 @@ msgstr "Weboldal üzenetek"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
 msgstr "Weboldal kommunikációs előzmények"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
+msgid "Wifi"
+msgstr ""

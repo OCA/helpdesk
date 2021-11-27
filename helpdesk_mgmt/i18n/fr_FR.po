@@ -1132,6 +1132,11 @@ msgid "Number of unread messages"
 msgstr "Nombre de messages non lus"
 
 #. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
+msgid "Odoo"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
 msgstr "Ouvert"
@@ -1272,6 +1277,11 @@ msgid "Show all records which has next action date is before today"
 msgstr ""
 "Afficher tous les enregistrements dont la prochaine date d'action est "
 "antérieure à aujourd'hui"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
+msgid "Software"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1567,6 +1577,11 @@ msgstr "Messages du sites web"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
 msgstr "Historique de la communication du site web"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
+msgid "Wifi"
+msgstr ""
 
 #~ msgid "Todo tickets"
 #~ msgstr "Tickets à faire"
