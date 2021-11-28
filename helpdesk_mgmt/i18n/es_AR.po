@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-09-11 19:33+0000\n"
+"PO-Revision-Date: 2021-11-29 01:36+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -1132,7 +1132,7 @@ msgstr "Número de mensajes sin leer"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
 msgid "Odoo"
-msgstr ""
+msgstr "Odoo"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1279,7 +1279,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
 msgid "Software"
-msgstr ""
+msgstr "Software"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1581,7 +1581,7 @@ msgstr "Historial de la comunicación por sitio web"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
 msgid "Wifi"
-msgstr ""
+msgstr "Wifi"
 
 #~ msgid "Todo tickets"
 #~ msgstr "Tickets por hacer"
