@@ -1,1 +1,2 @@
 project
+base_search_mail_content
