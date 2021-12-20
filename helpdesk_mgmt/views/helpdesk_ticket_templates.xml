@@ -42,7 +42,7 @@
             <div class="table-responsive"><table class="table table-hover o_portal_my_doc_table">
                 <thead>
                   <tr class="active">
-                      <th>Number</th>
+                    <th>#</th>
                     <th>By</th>
                     <th>Name</th>
                     <th>Category</th>
@@ -57,6 +57,11 @@
                       <td>
                           <t t-esc="ticket.number"/>
                       </td>
+                    <td>
+                      <a t-attf-href="/my/ticket/#{ticket.id}">
+                        <t t-esc="ticket.number"/>
+                      </a>
+                    </td>
                     <td>
                       <t t-esc="ticket.partner_id.name"/>
                     </td>
@@ -98,7 +103,7 @@
                           <div class="col-md-6">
                               <h4>
                                   <t t-call='portal.record_pager'/>
-                                  <span t-field="ticket.name"/>
+                                  <strong><span t-field="ticket.number"/></strong>&amp;nbsp;<span t-field="ticket.name"/>
                               </h4>
                           </div>
                           <t t-foreach="closed_stages" t-as="stage">

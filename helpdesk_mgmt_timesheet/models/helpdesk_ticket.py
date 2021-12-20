@@ -60,8 +60,9 @@ class HelpdeskTicket(models.Model):
 
     @api.onchange('team_id')
     def _onchange_team_id(self):
-        for record in self:
-            record.project_id = record.team_id.default_project_id
+        for record in self.filtered('team_id'):
+            if record.team_id.allow_timesheet:
+                record.project_id = record.team_id.default_project_id
 
     @api.depends('planned_hours', 'total_hours')
     def _compute_progress_hours(self):
