@@ -53,17 +53,17 @@
     <template id="portal_my_tickets" name="My tickets">
         <t t-call="portal.portal_layout">
             <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Tickets</t>
+            </t>
             <form method="POST" t-attf-action="/new/ticket">
-                <h3>Tickets
-            <t t-call="portal.portal_searchbar" />
-            <button
-                        name="create_new_ticket"
-                        type="action"
-                        class="btn btn-primary"
-                        groups="base.group_portal"
-                        style="float: right; margin-right: 5px;"
-                    >New Ticket</button>
-          </h3>
+                <button
+                    name="create_new_ticket"
+                    type="action"
+                    class="btn btn-primary"
+                    groups="base.group_portal"
+                    style="float: right; margin-right: 5px;"
+                >New Ticket</button>
                 <input
                     type="hidden"
                     name="csrf_token"

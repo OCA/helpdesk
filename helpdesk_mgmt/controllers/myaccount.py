@@ -3,6 +3,7 @@
 from odoo import _, http
 from odoo.exceptions import AccessError
 from odoo.http import request
+from odoo.osv.expression import OR
 
 from odoo.addons.portal.controllers.portal import CustomerPortal, pager as portal_pager
 
@@ -30,20 +31,8 @@ class CustomerPortalHelpdesk(CustomerPortal):
             raise
         return ticket_sudo
 
-    @http.route(
-        ["/my/tickets", "/my/tickets/page/<int:page>"],
-        type="http",
-        auth="user",
-        website=True,
-    )
-    def portal_my_tickets(
-        self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw
-    ):
-        values = self._prepare_portal_layout_values()
-        HelpdesTicket = request.env["helpdesk.ticket"]
-        domain = []
-
-        searchbar_sortings = {
+    def _get_portal_searchbar_sorting(self):
+        return {
             "date": {"label": _("Newest"), "order": "create_date desc"},
             "name": {"label": _("Name"), "order": "name"},
             "stage": {"label": _("Stage"), "order": "stage_id"},
@@ -52,6 +41,19 @@ class CustomerPortalHelpdesk(CustomerPortal):
                 "order": "last_stage_update desc",
             },
         }
+
+    def _get_portal_searchbar_inputs(self):
+        return {
+            "name": {"input": "name", "label": _("Search in Names")},
+            "description": {
+                "input": "description",
+                "label": _("Search in Descriptions"),
+            },
+            "user_id": {"input": "user", "label": _("Search in Assigned users")},
+            "category_id": {"input": "category", "label": _("Search in Categories")},
+        }
+
+    def _get_portal_searchbar_filters(self):
         searchbar_filters = {"all": {"label": _("All"), "domain": []}}
         for stage in request.env["helpdesk.ticket.stage"].search([]):
             searchbar_filters.update(
@@ -62,6 +64,67 @@ class CustomerPortalHelpdesk(CustomerPortal):
                     }
                 }
             )
+        return searchbar_filters
+
+    def _get_portal_searchbar_meta_inputs(self):
+        return {
+            "content": {"input": "content", "label": _("Search in Content")},
+            "all": {"input": "all", "label": _("Search in All")},
+        }
+
+    def _get_search_in_content_domain(self, search):
+        return [
+            "|",
+            ("name", "ilike", search),
+            ("description", "ilike", search),
+        ]
+
+    @http.route(
+        ["/my/tickets", "/my/tickets/page/<int:page>"],
+        type="http",
+        auth="user",
+        website=True,
+    )
+    def portal_my_tickets(
+        self,
+        page=1,
+        date_begin=None,
+        date_end=None,
+        sortby=None,
+        filterby=None,
+        search=None,
+        search_in="all",
+        **kw
+    ):
+        values = self._prepare_portal_layout_values()
+        HelpdesTicket = request.env["helpdesk.ticket"]
+        domain = []
+
+        searchbar_sortings = self._get_portal_searchbar_sorting()
+
+        # search input (text)
+        searchbar_inputs = self._get_portal_searchbar_inputs()
+
+        searchbar_meta_inputs = self._get_portal_searchbar_meta_inputs()
+
+        if search and search_in:
+            search_domain = []
+            if search_in == "content":
+                search_domain = self._get_search_in_content_domain(search)
+            else:
+                for search_property in [
+                    k
+                    for (k, v) in searchbar_inputs.items()
+                    if search_in in (v["input"], "all")
+                ]:
+                    search_domain = OR(
+                        [search_domain, [(search_property, "ilike", search)]]
+                    )
+            domain += search_domain
+        searchbar_inputs.update(searchbar_meta_inputs)
+
+        # search filters (by stage)
+        searchbar_filters = self._get_portal_searchbar_filters()
 
         # default sort by order
         if not sortby:
@@ -95,6 +158,8 @@ class CustomerPortalHelpdesk(CustomerPortal):
                 "pager": pager,
                 "default_url": "/my/tickets",
                 "searchbar_sortings": searchbar_sortings,
+                "searchbar_inputs": searchbar_inputs,
+                "search_in": search_in,
                 "sortby": sortby,
                 "searchbar_filters": searchbar_filters,
                 "filterby": filterby,
