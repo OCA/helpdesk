@@ -17,27 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid ""
-"${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
-msgstr ""
-"${object.company_id.name} Ticket Asignado (Ref ${object.name or 'n/a' })"
-
-#. module: helpdesk_mgmt
-#: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-msgid ""
-"<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.user_id.name},</p>\n"
-"                <p>The ticket ${object.number} has been assigned to you.</"
-"p>\n"
-"            </data>"
-msgstr ""
-"<?xml version=\"1.0\"?>\n"
-"<data><p>Hola ${object.user_id.name},</p>\n"
-"        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
-"      </data>"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid ""
 "<br/>\n"
@@ -1544,6 +1523,24 @@ msgstr "Mensajes del Sitio Web"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
 msgstr "Historial de la comunicación por sitio web"
+
+#~ msgid ""
+#~ "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/"
+#~ "a' })"
+#~ msgstr ""
+#~ "${object.company_id.name} Ticket Asignado (Ref ${object.name or 'n/a' })"
+
+#~ msgid ""
+#~ "<?xml version=\"1.0\"?>\n"
+#~ "<data><p>Hello ${object.user_id.name},</p>\n"
+#~ "                <p>The ticket ${object.number} has been assigned to you.</"
+#~ "p>\n"
+#~ "            </data>"
+#~ msgstr ""
+#~ "<?xml version=\"1.0\"?>\n"
+#~ "<data><p>Hola ${object.user_id.name},</p>\n"
+#~ "        <p>Te ha sido asignado el ticket ${object.number}.</p>\n"
+#~ "      </data>"
 
 #~ msgid "Todo tickets"
 #~ msgstr "Tickets por hacer"

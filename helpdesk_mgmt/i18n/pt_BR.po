@@ -17,28 +17,6 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid ""
-"${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
-msgstr ""
-"${object.company_id.name} Chamado Atribuído (Ref ${object.number or 'n/a' })"
-
-#. module: helpdesk_mgmt
-#: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-#, fuzzy
-msgid ""
-"<?xml version=\"1.0\"?>\n"
-"<data><p>Hello ${object.user_id.name},</p>\n"
-"                <p>The ticket ${object.number} has been assigned to you.</"
-"p>\n"
-"            </data>"
-msgstr ""
-"<?xml version=\"1.0\"?>\n"
-"<data><p>Olá  ${object.user_id.name},</p>\n"
-"        <p>O chamado ${object.number} foi atribuído a você.</p>\n"
-"      </data>"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #, fuzzy
 msgid ""
@@ -1384,6 +1362,26 @@ msgstr "Mensagens do Website"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__website_message_ids
 msgid "Website communication history"
 msgstr "Histórico de comunicações do Website"
+
+#~ msgid ""
+#~ "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/"
+#~ "a' })"
+#~ msgstr ""
+#~ "${object.company_id.name} Chamado Atribuído (Ref ${object.number or 'n/"
+#~ "a' })"
+
+#, fuzzy
+#~ msgid ""
+#~ "<?xml version=\"1.0\"?>\n"
+#~ "<data><p>Hello ${object.user_id.name},</p>\n"
+#~ "                <p>The ticket ${object.number} has been assigned to you.</"
+#~ "p>\n"
+#~ "            </data>"
+#~ msgstr ""
+#~ "<?xml version=\"1.0\"?>\n"
+#~ "<data><p>Olá  ${object.user_id.name},</p>\n"
+#~ "        <p>O chamado ${object.number} foi atribuído a você.</p>\n"
+#~ "      </data>"
 
 #~ msgid "Todo tickets"
 #~ msgstr "Chamados para Atender"
