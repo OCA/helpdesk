@@ -21,7 +21,9 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
-    user_id = fields.Many2one(comodel_name="res.users", string="Assigned user")
+    user_id = fields.Many2one(
+        comodel_name="res.users", string="Assigned user", tracking=True, index=True
+    )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
     )
@@ -94,9 +96,6 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
-    def send_user_mail(self):
-        self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
-
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
 
@@ -124,12 +123,7 @@ class HelpdeskTicket(models.Model):
     def create(self, vals):
         if vals.get("number", "/") == "/":
             vals["number"] = self._prepare_ticket_number(vals)
-        res = super().create(vals)
-
-        # Check if mail to the user has to be sent
-        if vals.get("user_id") and res:
-            res.send_user_mail()
-        return res
+        return super().create(vals)
 
     def copy(self, default=None):
         self.ensure_one()
@@ -150,14 +144,7 @@ class HelpdeskTicket(models.Model):
                     vals["closed_date"] = now
             if vals.get("user_id"):
                 vals["assigned_date"] = now
-
-        res = super().write(vals)
-
-        # Check if mail to the user has to be sent
-        for ticket in self:
-            if vals.get("user_id"):
-                ticket.send_user_mail()
-        return res
+        return super().write(vals)
 
     def action_duplicate_tickets(self):
         for ticket in self.browse(self.env.context["active_ids"]):
