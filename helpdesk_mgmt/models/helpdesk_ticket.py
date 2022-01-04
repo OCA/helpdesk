@@ -21,7 +21,10 @@ class HelpdeskTicket(models.Model):
     description = fields.Html(required=True, sanitize_style=True)
     user_id = fields.Many2one(
         'res.users',
-        string='Assigned user',)
+        string='Assigned user',
+        track_visibility="onchange",
+        index=True
+    )
 
     user_ids = fields.Many2many(
         comodel_name='res.users',
@@ -82,10 +85,6 @@ class HelpdeskTicket(models.Model):
     sequence = fields.Integer(
         string='Sequence', index=True, default=10,
         help="Gives the sequence order when displaying a list of tickets.")
-
-    def send_user_mail(self):
-        self.env.ref('helpdesk_mgmt.assignment_email_template'). \
-            send_mail(self.id, force_send=True)
 
     def send_partner_mail(self):
         self.env.ref('helpdesk_mgmt.created_ticket_template'). \
@@ -170,9 +169,6 @@ class HelpdeskTicket(models.Model):
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
-        if vals.get('user_id') and res:
-            res.send_user_mail()
-            res.message_subscribe(partner_ids=res.user_id.partner_id.ids)
         if (vals.get('partner_id') or vals.get('partner_email')) and res:
             res.send_partner_mail()
             if res.partner_id:
@@ -202,14 +198,7 @@ class HelpdeskTicket(models.Model):
             if vals.get('user_id'):
                 vals['assigned_date'] = now
 
-        res = super(HelpdeskTicket, self).write(vals)
-
-        # Check if mail to the user has to be sent
-        for ticket in self:
-            if vals.get('user_id'):
-                ticket.send_user_mail()
-                ticket.message_subscribe(partner_ids=ticket.user_id.partner_id.ids)
-        return res
+        return super(HelpdeskTicket, self).write(vals)
 
     def _prepare_ticket_number(self, values):
         seq = self.env["ir.sequence"]
