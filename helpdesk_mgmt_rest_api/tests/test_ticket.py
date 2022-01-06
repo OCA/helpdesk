@@ -40,7 +40,7 @@ class HelpdeskTicketCommonCase(TransactionComponentCase, TransactionDatamodelCas
         data = {
             "description": "My order is late",
             "name": "order num 4",
-            "category": {"id": 3},
+            "category": {"id": self.ref("helpdesk_mgmt.helpdesk_category_3")},
         }
         if partner:
             data["partner"] = partner
