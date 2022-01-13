@@ -2,39 +2,16 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import json
-import pathlib
 
-from werkzeug.datastructures import FileStorage
-
-from odoo.http import request
-
-from odoo.addons.base_rest.controllers.main import _PseudoCollection
-from odoo.addons.component.core import WorkContext
-from odoo.addons.component.tests.common import TransactionComponentCase
-from odoo.addons.datamodel.tests.common import TransactionDatamodelCase
+from odoo.addons.base_rest_abstract_attachment.tests.test_attachment import (
+    AttachmentCommonCase,
+)
 
 
-class HelpdeskTicketCommonCase(TransactionComponentCase, TransactionDatamodelCase):
+class HelpdeskTicketCommonCase(AttachmentCommonCase):
     def setUp(self):
-        super().setUp()
-        collection = _PseudoCollection("helpdesk.rest.services", self.env)
-        self.services_env = WorkContext(
-            model_name="rest.service.registration",
-            collection=collection,
-            request=request,
-        )
-
-    def create_attachment(self, params=None):
-        attrs = {"params": "{}"}
-        if params:
-            attrs["params"] = json.dumps(params)
-        with open(pathlib.Path(__file__).resolve()) as fp:
-            attrs["file"] = FileStorage(fp)
-            self.attachment_res = self.attachment_service.dispatch(
-                "create", params=attrs
-            )
-        return self.attachment_res
+        super().setUp(collection_name="helpdesk.rest.services")
+        self.service = self.services_env.component(usage="helpdesk_ticket")
 
     def generate_ticket_data(self, partner=None):
         data = {
@@ -54,20 +31,6 @@ class HelpdeskTicketCommonCase(TransactionComponentCase, TransactionDatamodelCas
 
 
 class HelpdeskTicketNoaccountCase(HelpdeskTicketCommonCase):
-    def setUp(self):
-        super().setUp()
-        provider = self.services_env.component(usage="component_context_provider")
-        params = provider._get_component_context()
-        env = self.services_env.collection.env
-        self.services_env.collection.env = env(
-            context=dict(
-                env.context,
-                authenticated_partner_id=params.get("authenticated_partner_id"),
-            )
-        )
-        self.service = self.services_env.component(usage="helpdesk_ticket")
-        self.attachment_service = self.services_env.component(usage="attachment")
-
     def test_create_ticket_noaccount(self):
         data = self.generate_ticket_data(
             partner={

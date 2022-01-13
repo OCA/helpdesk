@@ -16,6 +16,12 @@ class MailPartnerOutput(Datamodel):
     name = fields.String(required=True, allow_none=False)
 
 
+class MailAttachmentInput(Datamodel):
+    _name = "mail.attachment.input"
+
+    id = fields.Integer(required=True)
+
+
 class MailMessageBase(Datamodel):
     _name = "mail.message.base"
 
@@ -24,7 +30,9 @@ class MailMessageBase(Datamodel):
 
 class MailMessageInput(Datamodel):
     _name = "mail.message.input"
-    _inherit = ["mail.message.base", "attachable.input"]
+    _inherit = "mail.message.base"
+
+    attachments = fields.NestedModel("mail.attachment.input", required=False, many=True)
 
 
 class MailMessageOutput(Datamodel):
@@ -55,8 +63,6 @@ class AbstractMailThreadService(AbstractComponent):
         record = self._get(_id)
         kwargs = self._prepare_message_post_params(message.dump())
         message = record.message_post(**kwargs)
-        # record.write({"message_ids": [(0, 0, vals)]})
-        # return self._return_record(record).dump()
         return self.env.datamodels["mail.message.output"].load(
             message.jsonify(self._json_parser_message())[0]
         )
@@ -67,8 +73,8 @@ class AbstractMailThreadService(AbstractComponent):
         params["subtype_id"] = self.env["ir.model.data"].xmlid_to_res_id(
             "mail.mt_comment"
         )
-        if params.get("attachments"):
-            attachments = params.pop("attachments")
+        attachments = params.pop("attachments", False)
+        if attachments:
             params["attachment_ids"] = [item["id"] for item in attachments]
         return params
 

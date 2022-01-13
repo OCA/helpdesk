@@ -16,9 +16,7 @@ class HelpdeskSettingsService(Component):
     """Service to manage helpdesk tickets."""
 
     _name = "helpdesk.settings.service"
-    _inherit = [
-        "base.helpdesk.rest.service",
-    ]
+    _inherit = "base.helpdesk.rest.service"
     _usage = "helpdesk_settings"
     _description = __doc__
 
