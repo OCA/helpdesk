@@ -12,6 +12,7 @@
         "base_rest",
         "base_jsonify",
         "base_rest_datamodel",
+        "base_rest_abstract_attachment",
     ],
     "data": [
         "security/helpdesk_security.xml",
