@@ -41,11 +41,9 @@ class HelpdeskTicket(models.Model):
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
 
-    last_stage_update = fields.Datetime(
-        string="Last Stage Update", default=fields.Datetime.now
-    )
-    assigned_date = fields.Datetime(string="Assigned Date")
-    closed_date = fields.Datetime(string="Closed Date")
+    last_stage_update = fields.Datetime(default=fields.Datetime.now)
+    assigned_date = fields.Datetime()
+    closed_date = fields.Datetime()
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended", store=True)
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
@@ -76,7 +74,6 @@ class HelpdeskTicket(models.Model):
             ("2", "High"),
             ("3", "Very High"),
         ],
-        string="Priority",
         default="1",
     )
     attachment_ids = fields.One2many(
@@ -92,7 +89,6 @@ class HelpdeskTicket(models.Model):
             ("done", "Ready for next stage"),
             ("blocked", "Blocked"),
         ],
-        string="Kanban State",
     )
     active = fields.Boolean(default=True)
 
@@ -210,7 +206,7 @@ class HelpdeskTicket(models.Model):
         return ticket
 
     def message_update(self, msg, update_vals=None):
-        """ Override message_update to subscribe partners """
+        """Override message_update to subscribe partners"""
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
@@ -241,5 +237,5 @@ class HelpdeskTicket(models.Model):
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this
             # imply modifying followers
-            pass
+            return recipients
         return recipients

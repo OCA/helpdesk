@@ -10,8 +10,8 @@ class HelpdeskTicketStage(models.Model):
     description = fields.Html(translate=True, sanitize_style=True)
     sequence = fields.Integer(default=1)
     active = fields.Boolean(default=True)
-    unattended = fields.Boolean(string="Unattended")
-    closed = fields.Boolean(string="Closed")
+    unattended = fields.Boolean()
+    closed = fields.Boolean()
     mail_template_id = fields.Many2one(
         comodel_name="mail.template",
         string="Email Template",
