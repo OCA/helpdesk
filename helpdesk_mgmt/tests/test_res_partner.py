@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestPartner(SavepointCase):
+class TestPartner(TransactionCase):
     def setUp(self):
         super(TestPartner, self).setUp()
         self.partner_obj = self.env["res.partner"]
