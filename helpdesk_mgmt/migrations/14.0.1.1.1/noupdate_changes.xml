@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8' ?>
-<odoo>
-  <record id="mail_alias_lead_info_helpdesk" model="mail.alias">
-    <field name="alias_name">help</field>
-  </record>
-</odoo>

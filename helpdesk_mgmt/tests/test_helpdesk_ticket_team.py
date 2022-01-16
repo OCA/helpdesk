@@ -1,7 +1,7 @@
 from odoo.tests import common
 
 
-class TestHelpdeskTicketTeam(common.SavepointCase):
+class TestHelpdeskTicketTeam(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestHelpdeskTicketTeam, cls).setUpClass()
