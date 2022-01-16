@@ -3,7 +3,7 @@ import time
 from odoo.tests import common
 
 
-class TestHelpdeskTicket(common.SavepointCase):
+class TestHelpdeskTicket(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super(TestHelpdeskTicket, cls).setUpClass()
