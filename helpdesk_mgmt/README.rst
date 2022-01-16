@@ -14,13 +14,13 @@ Helpdesk Management
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/14.0/helpdesk_mgmt
+    :target: https://github.com/OCA/helpdesk/tree/15.0/helpdesk_mgmt
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-14-0/helpdesk-14-0-helpdesk_mgmt
+    :target: https://translation.odoo-community.org/projects/helpdesk-15-0/helpdesk-15-0-helpdesk_mgmt
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/282/14.0
+    :target: https://runbot.odoo-community.org/runbot/282/15.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -51,7 +51,7 @@ Channels
 #. Set the name for the channel.
 #. You can also Activate or Deactivate channels.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Channels.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Channels.PNG
    :alt: Channels
    :width: 600 px
 
@@ -63,7 +63,7 @@ Categories
 #. Set the name for the category.
 #. You can also Activate or Deactivate categories.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Categories.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Categories.PNG
    :alt: Categories
    :width: 600 px
 
@@ -80,7 +80,7 @@ Stages
 #. You can add a description for the stage.
 #. You can also Activate or Deactivate stages.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Stages.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Stages.PNG
    :alt: Stages
    :width: 600 px
 
@@ -95,7 +95,7 @@ Teams
 #. Add the teams members.
 #. You can also Activate or Deactivate teams.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Teams.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Teams.PNG
    :alt: Teams
    :width: 600 px
 
@@ -108,7 +108,7 @@ Tags
 #. Set the color index for the tag.
 #. You can also Activate or Deactivate tags.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Tags.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Tags.PNG
    :alt: Ticket Tags
    :width: 600 px
 
@@ -118,7 +118,7 @@ Usage
 #. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets dashboard
 #. In the Kanban view, click in the kanban card of a team to see their tickets and create new ones.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
    :alt: Kanban view
    :width: 600 px
 
@@ -134,7 +134,7 @@ To create a new ticket from the kanban view:
 #. Add a description.
 #. You can also attach files to the ticket.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/14.0/helpdesk_mgmt/static/description/Tickets01.PNG
+.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/15.0/helpdesk_mgmt/static/description/Tickets01.PNG
    :alt: Create a new ticket
    :width: 600 px
 
@@ -144,7 +144,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -218,6 +218,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/14.0/helpdesk_mgmt>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/15.0/helpdesk_mgmt>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
