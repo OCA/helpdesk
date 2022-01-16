@@ -8,7 +8,7 @@ class HelpdeskTeam(models.Model):
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")
     active = fields.Boolean(default=True)
     category_ids = fields.Many2many(
@@ -74,15 +74,15 @@ class HelpdeskTeam(models.Model):
             for data in fetch_data
         ]
         for team in self:
-            team.todo_ticket_count = sum([r[4] for r in result if r[0] == team.id])
+            team.todo_ticket_count = sum(r[4] for r in result if r[0] == team.id)
             team.todo_ticket_count_unassigned = sum(
-                [r[4] for r in result if r[0] == team.id and not r[1]]
+                r[4] for r in result if r[0] == team.id and not r[1]
             )
             team.todo_ticket_count_unattended = sum(
-                [r[4] for r in result if r[0] == team.id and r[2]]
+                r[4] for r in result if r[0] == team.id and r[2]
             )
             team.todo_ticket_count_high_priority = sum(
-                [r[4] for r in result if r[0] == team.id and r[3] == "3"]
+                r[4] for r in result if r[0] == team.id and r[3] == "3"
             )
 
     def _alias_get_creation_values(self):

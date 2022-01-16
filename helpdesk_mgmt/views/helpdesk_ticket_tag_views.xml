@@ -54,7 +54,7 @@
         <field name="name">helpdesk.ticket.tag.tree</field>
         <field name="model">helpdesk.ticket.tag</field>
         <field name="arch" type="xml">
-            <tree string="Ticket Tags">
+            <tree>
                 <field name="name" />
             </tree>
         </field>
