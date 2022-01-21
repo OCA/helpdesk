@@ -2,15 +2,28 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from odoo.http import request
 
+from odoo.addons.base_rest.controllers.main import _PseudoCollection
 from odoo.addons.base_rest_abstract_attachment.tests.test_attachment import (
     AttachmentCommonCase,
 )
+from odoo.addons.component.core import WorkContext
+from odoo.addons.component.tests.common import TransactionComponentCase
+from odoo.addons.datamodel.tests.common import TransactionDatamodelCase
 
 
-class HelpdeskTicketCommonCase(AttachmentCommonCase):
+class HelpdeskTicketCommonCase(
+    AttachmentCommonCase, TransactionDatamodelCase, TransactionComponentCase
+):
     def setUp(self):
-        super().setUp(collection_name="helpdesk.rest.services")
+        super().setUp()
+        collection = _PseudoCollection("helpdesk.rest.services", self.env)
+        self.services_env = WorkContext(
+            model_name="rest.service.registration",
+            collection=collection,
+            request=request,
+        )
         self.service = self.services_env.component(usage="helpdesk_ticket")
 
     def generate_ticket_data(self, partner=None):
@@ -23,11 +36,9 @@ class HelpdeskTicketCommonCase(AttachmentCommonCase):
             data["partner"] = partner
         return data
 
-    def assert_ticket_ok(self, ticket, with_attachment=True):
+    def assert_ticket_ok(self, ticket):
         self.assertEqual(len(ticket), 1)
         self.assertEqual(ticket.category_id.name, "Odoo")
-        if with_attachment:
-            self.assertEqual(ticket.attachment_ids.id, self.attachment_res["id"])
 
 
 class HelpdeskTicketNoaccountCase(HelpdeskTicketCommonCase):
@@ -42,7 +53,7 @@ class HelpdeskTicketNoaccountCase(HelpdeskTicketCommonCase):
         ticket = self.env["helpdesk.ticket"].search(
             [("partner_email", "=", "customer+testststs@example.org")]
         )
-        self.assert_ticket_ok(ticket, with_attachment=False)
+        self.assert_ticket_ok(ticket)
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
 
     def test_create_ticket_noaccount_attachment(self):
@@ -54,13 +65,12 @@ class HelpdeskTicketNoaccountCase(HelpdeskTicketCommonCase):
         )
         res = self.service.dispatch("create", params=data)
         self.assertEqual(len(res["attachments"]), 0)
-        self.create_attachment(
-            params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
-        )
+        attachment_res = self.create_attachment(res["id"])
         ticket = self.env["helpdesk.ticket"].search(
             [("partner_email", "=", "customer+testststs@example.org")]
         )
-        self.assert_ticket_ok(ticket, with_attachment=True)
+        self.assert_ticket_ok(ticket)
+        self.assertEqual(ticket.attachment_ids.id, attachment_res["id"])
         self.assertEqual(ticket.partner_id.email, ticket.partner_email)
 
 
@@ -75,33 +85,20 @@ class HelpdeskTicketAuthenticatedCase(HelpdeskTicketCommonCase):
             )
         )
         self.service = self.services_env.component(usage="helpdesk_ticket")
-        self.attachment_service = self.services_env.component(usage="attachment")
 
     def test_create_ticket_account_attachment(self):
         data = self.generate_ticket_data()
         res = self.service.dispatch("create", params=data)
-        self.create_attachment(
-            params={"res_model": "helpdesk.ticket", "res_id": res["id"]}
-        )
+        attachment_res = self.create_attachment(res["id"])
         ticket = self.env["helpdesk.ticket"].search([("id", "=", res["id"])])
-        self.assert_ticket_ok(ticket, with_attachment=True)
+        self.assert_ticket_ok(ticket)
+        self.assertEqual(ticket.attachment_ids.id, attachment_res["id"])
 
     def test_ticket_message(self):
         data = self.generate_ticket_data()
         res = self.service.dispatch("create", params=data)
         ticket = self.env["helpdesk.ticket"].search([("id", "=", res["id"])])
-        self.assert_ticket_ok(ticket, with_attachment=False)
+        self.assert_ticket_ok(ticket)
         message_data = {"body": "Also here is a picture"}
         self.service.dispatch("message_post", ticket.id, params=message_data)
         self.assertEqual(len(ticket.message_ids), 2)  # There is a technical message
-        last_message = ticket.message_ids.sorted(key=lambda m: m.create_date)[0]
-        self.assertEqual(len(last_message.attachment_ids), 0)
-        attachment = self.create_attachment()
-        message_data = {
-            "body": "Forgot the attachment !",
-            "attachments": [{"id": attachment.get("id")}],
-        }
-        self.service.dispatch("message_post", ticket.id, params=message_data)
-        self.assertEqual(len(ticket.message_ids), 3)  # There is a technical message
-        last_message = ticket.message_ids.sorted(key=lambda m: m.create_date)[0]
-        self.assertEqual(len(last_message.attachment_ids), 1)
