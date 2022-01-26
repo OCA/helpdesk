@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="nonconformity_id" />
+            </field>
+        </field>
+    </record>
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    icon="fa-tasks"
+                    type="object"
+                    name="action_open_nonconformity"
+                    string="Nonconformity"
+                    attrs="{'invisible' : [('nonconformity_id', '=', False)]}"
+                />
+            </xpath>
+            <field name="channel_id" position="after">
+                <field name="nonconformity_id" />
+            </field>
+        </field>
+    </record>
+    <record
+        id="model_helpdesk_ticket_action_nonconformity_create"
+        model="ir.actions.server"
+    >
+        <field name="name">Create Nonconformity</field>
+        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="binding_model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">action = records.action_nonconformity_create()</field>
+    </record>
+</odoo>
