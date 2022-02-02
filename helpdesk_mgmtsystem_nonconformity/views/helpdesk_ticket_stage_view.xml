@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_helpdesk_ticket_stage_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.stage.form</field>
+        <field name="model">helpdesk.ticket.stage</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mail_template_id']" position="after">
+                <field name="nonconformity_stage_id" />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_helpdesk_ticket_stage_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.stage.tree</field>
+        <field name="model">helpdesk.ticket.stage</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_tree" />
+        <field name="arch" type="xml">
+            <field name="mail_template_id" position="after">
+                <field name="nonconformity_stage_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
