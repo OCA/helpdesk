@@ -33,7 +33,7 @@ class HelpdeskTicket(models.Model):
             )
             res = return_wizard._create_returns()
             self.return_picking_ids |= self.env["stock.picking"].browse(res[0])
-        self.stage_id = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_in_progress")
+        self.stage_id = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_awaiting")
 
     def _prepare_return_picking_lines(self, picking):
         params = []
