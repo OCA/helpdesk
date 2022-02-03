@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.1.0.0 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.1.1.0 |  | Helpdesk
 
 [//]: # (end addons)
 
