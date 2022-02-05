@@ -103,9 +103,3 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(self.ticket.access_url, '/my/ticket/%s' % self.ticket.id)
         self.ticket.partner_id = self.user_portal.partner_id.id
         self.assertTrue(self.ticket.partner_can_access())
-        self.ticket.user_id = self.user_demo.id
-        self.assertTrue(
-            'The ticket %s has been assigned to you' % self.ticket.number in
-            self.ticket.message_ids[0].body)
-        self.assertTrue(
-            'res_id=%s' % self.ticket.id in self.ticket.message_ids[0].body)
