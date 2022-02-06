@@ -87,6 +87,21 @@ class TestHelpdeskTicket(common.SavepointCase):
         self.assertEqual(auto_named.partner_name, partner.name)
         self.assertEqual(auto_named.partner_email, partner.email)
 
+        res = self.env["helpdesk.ticket"]._name_search(
+            auto_named.number,
+            args=None,
+            operator="=",
+            limit=1,
+        )
+        self.assertEqual(res[0][0], auto_named.id)
+        res2 = self.env["helpdesk.ticket"]._name_search(
+            auto_named.number,
+            args=None,
+            operator="!=",
+            limit=None,
+        )
+        self.assertFalse(auto_named.id in [el[0] for el in res2])
+
         manual_named = self.env["helpdesk.ticket"].create(
             {
                 "name": "Some name",
