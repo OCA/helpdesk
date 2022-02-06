@@ -685,6 +685,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:77
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:78
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "High"
@@ -805,6 +806,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:75
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:76
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Low"
@@ -818,6 +820,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:76
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:77
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
@@ -901,6 +904,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:232
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:260
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -1003,6 +1007,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:273
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:301
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
@@ -1010,6 +1015,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:275
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:303
 #, python-format
 msgid "Partner Id"
 msgstr ""
@@ -1400,6 +1406,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:78
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:79
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Very High"
