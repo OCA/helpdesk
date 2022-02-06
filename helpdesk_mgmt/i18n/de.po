@@ -767,7 +767,6 @@ msgid "Helps you handle your helpdesk security."
 msgstr "Hilft Ihnen beim Umgang mit Ihrer Helpdesk-Sicherheit."
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:77
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:78
 #: selection:helpdesk.ticket,priority:0
 #, python-format
@@ -896,7 +895,6 @@ msgid "Late Activities"
 msgstr "Späte Aktivitäten"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:75
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:76
 #: selection:helpdesk.ticket,priority:0
 #, python-format
@@ -910,7 +908,6 @@ msgid "Main Attachment"
 msgstr "Hauptanhang"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:76
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:77
 #: selection:helpdesk.ticket,priority:0
 #, python-format
@@ -994,7 +991,6 @@ msgid "Next Activity Type"
 msgstr "Nächste Aktivitätsart"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:232
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:260
 #, python-format
 msgid "No Subject"
@@ -1103,7 +1099,6 @@ msgid "Partner"
 msgstr "Kunde"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:273
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:301
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
@@ -1111,7 +1106,6 @@ msgid "Partner Email"
 msgstr "E-mail"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:275
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:303
 #, python-format
 msgid "Partner Id"
@@ -1522,7 +1516,6 @@ msgid "Users"
 msgstr "Benutzer"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:78
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:79
 #: selection:helpdesk.ticket,priority:0
 #, python-format
