@@ -9,6 +9,7 @@ class HelpdeskTicket(models.Model):
     _description = 'Helpdesk Ticket'
     _rec_name = 'number'
     _order = 'priority desc, sequence, number desc'
+    _mail_post_access = "read"
     _inherit = ['mail.thread', 'mail.activity.mixin', 'portal.mixin']
 
     def _get_default_stage_id(self):
@@ -21,7 +22,10 @@ class HelpdeskTicket(models.Model):
     description = fields.Html(required=True, sanitize_style=True)
     user_id = fields.Many2one(
         'res.users',
-        string='Assigned user',)
+        string='Assigned user',
+        track_visibility="onchange",
+        index=True
+    )
 
     user_ids = fields.Many2many(
         comodel_name='res.users',
@@ -193,9 +197,6 @@ class HelpdeskTicket(models.Model):
         res = super().create(vals)
 
         # Check if mail to the user has to be sent
-        if vals.get('user_id') and res:
-            res.send_user_mail()
-            res.message_subscribe(partner_ids=res.user_id.partner_id.ids)
         if (vals.get('partner_id') or vals.get('partner_email')) and res:
             res.send_partner_mail()
             if res.partner_id:
@@ -225,14 +226,7 @@ class HelpdeskTicket(models.Model):
             if vals.get('user_id'):
                 vals['assigned_date'] = now
 
-        res = super(HelpdeskTicket, self).write(vals)
-
-        # Check if mail to the user has to be sent
-        for ticket in self:
-            if vals.get('user_id'):
-                ticket.send_user_mail()
-                ticket.message_subscribe(partner_ids=ticket.user_id.partner_id.ids)
-        return res
+        return super(HelpdeskTicket, self).write(vals)
 
     def _prepare_ticket_number(self, values):
         seq = self.env["ir.sequence"]

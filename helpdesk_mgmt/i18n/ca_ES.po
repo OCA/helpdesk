@@ -15,9 +15,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid ""
-"${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "&amp;nbsp;"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -264,105 +263,6 @@ msgid ""
 "                                </a>\n"
 "                            </div>\n"
 "                        % endif\n"
-"                        Thank you,<br/><br/>\n"
-"                        ${user.signature | safe}<br/>\n"
-"                    </div>\n"
-"                </td></tr>\n"
-"                <tr><td style=\"text-align:center;\">\n"
-"                  <hr width=\"100%\" style=\"background-color:"
-"rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
-"                </td></tr>\n"
-"            </table>\n"
-"        </td>\n"
-"    </tr>\n"
-"    <!-- FOOTER -->\n"
-"    <tr>\n"
-"        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width="
-"\"590\" style=\"min-width: 590px; background-color: white; font-size: 11px; "
-"padding: 0px 8px 0px 8px; border-collapse:separate;\">\n"
-"                <tr><td valign=\"middle\" align=\"left\">\n"
-"                    ${object.company_id.name}\n"
-"                </td></tr>\n"
-"                <tr><td valign=\"middle\" align=\"left\" style=\"opacity: "
-"0.7;\">\n"
-"                    ${object.company_id.phone}\n"
-"                    % if object.company_id.email\n"
-"                        | <a href=\"'mailto:%s' % ${object.company_id."
-"email}\" style=\"text-decoration:none; color: #454748;\">${object.company_id."
-"email}</a>\n"
-"                    % endif\n"
-"                    % if object.company_id.website\n"
-"                        | <a href=\"'%s' % ${object.company_id.website}\" "
-"style=\"text-decoration:none; color: #454748;\">\n"
-"                        ${object.company_id.website}\n"
-"                    </a>\n"
-"                    % endif\n"
-"                </td></tr>\n"
-"            </table>\n"
-"        </td>\n"
-"    </tr>\n"
-"</tbody>\n"
-"</table>\n"
-"</td></tr>\n"
-"</table>\n"
-"      "
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-msgid ""
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: "
-"16px; padding-bottom:16px; background-color: #F1F1F1; font-family:Verdana, "
-"Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"
-"\"><tr><td align=\"center\">\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style="
-"\"padding: 16px; background-color: white; color: #454748; border-collapse:"
-"separate;\">\n"
-"<tbody>\n"
-"    <!-- HEADER -->\n"
-"    <tr>\n"
-"        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width="
-"\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
-"                <tr><td valign=\"middle\">\n"
-"                    <span style=\"font-size: 10px;\">Ticket</span><br/>\n"
-"                    <span style=\"font-size: 20px; font-weight: bold;\">\n"
-"                        ${object.number or 'n/a'}\n"
-"                    </span>\n"
-"                </td><td valign=\"middle\" align=\"right\">\n"
-"                    <img src=\"/logo.png?company=${object.company_id.id}\" "
-"style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt="
-"\"${object.company_id.name}\"/>\n"
-"                </td></tr>\n"
-"                <tr><td colspan=\"2\" style=\"text-align:center;\">\n"
-"                  <hr width=\"100%\" style=\"background-color:"
-"rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;"
-"min-height:1px;line-height:0; margin: 16px 0px 16px 0px;\"/>\n"
-"                </td></tr>\n"
-"            </table>\n"
-"        </td>\n"
-"    </tr>\n"
-"    <!-- CONTENT -->\n"
-"    <tr>\n"
-"        <td align=\"center\" style=\"min-width: 590px;\">\n"
-"            <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width="
-"\"590\" style=\"min-width: 590px; background-color: white; padding: 0px 8px "
-"0px 8px; border-collapse:separate;\">\n"
-"                <tr><td valign=\"top\" style=\"font-size: 13px;\">\n"
-"                    <div>\n"
-"                        <p>Hello ${object.user_id.name},</p>\n"
-"                        <p>The ticket ${object.number or 'n/a'} has been "
-"assigned to you.</p>\n"
-"                        <div style=\"margin: 16px 0px 16px 0px;\">\n"
-"                            <a href=\"${object.get_access_link()}\" style="
-"\"background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: "
-"none; color: #fff; border-radius: 5px; font-size:13px;\">\n"
-"                                View Ticket\n"
-"                            </a>\n"
-"                        </div>\n"
 "                        Thank you,<br/><br/>\n"
 "                        ${user.signature | safe}<br/>\n"
 "                    </div>\n"
@@ -843,7 +743,7 @@ msgid "Helps you handle your helpdesk security."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:73
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:77
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "High"
@@ -967,7 +867,7 @@ msgid "Late Activities"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:71
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:75
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Low"
@@ -980,7 +880,7 @@ msgid "Main Attachment"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:72
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:76
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Medium"
@@ -1063,7 +963,7 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:242
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:232
 #, python-format
 msgid "No Subject"
 msgstr ""
@@ -1171,14 +1071,14 @@ msgid "Partner"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:283
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:273
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #, python-format
 msgid "Partner Email"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:285
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:275
 #, python-format
 msgid "Partner Id"
 msgstr ""
@@ -1581,7 +1481,7 @@ msgid "Users"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:74
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:78
 #: selection:helpdesk.ticket,priority:0
 #, python-format
 msgid "Very High"
