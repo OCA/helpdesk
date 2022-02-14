@@ -110,14 +110,6 @@ class HelpdeskTicket(models.Model):
             access_rights_uid=name_get_uid)
         return self.browse(ticket_ids).name_get()
 
-    def send_user_mail(self):
-        self.env.ref('helpdesk_mgmt.assignment_email_template'). \
-            send_mail(self.id, force_send=True)
-
-    def send_partner_mail(self):
-        self.env.ref('helpdesk_mgmt.created_ticket_template'). \
-            send_mail(self.id, force_send=True)
-
     def assign_to_me(self):
         self.write({'user_id': self.env.user.id})
 
@@ -196,11 +188,8 @@ class HelpdeskTicket(models.Model):
 
         res = super().create(vals)
 
-        # Check if mail to the user has to be sent
-        if (vals.get('partner_id') or vals.get('partner_email')) and res:
-            res.send_partner_mail()
-            if res.partner_id:
-                res.message_subscribe(partner_ids=res.partner_id.ids)
+        if res.partner_id and res.partner_id.email:
+            res.message_subscribe(partner_ids=res.partner_id.ids)
         return res
 
     @api.multi
