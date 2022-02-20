@@ -54,10 +54,7 @@ class HelpdeskTicketController(http.Controller):
             .sudo()
             .search([("name", "=", "Web")])
             .id,
-            "partner_id": request.env["res.partner"]
-            .sudo()
-            .search([("name", "=", kw.get("name")), ("email", "=", kw.get("email"))])
-            .id,
+            "partner_id": request.env.user.partner_id.id,
         }
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
