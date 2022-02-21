@@ -50,7 +50,7 @@ msgid "Helpdesk teams allowed to use this type."
 msgstr ""
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id_2194
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id_2219
 msgid "ID"
 msgstr ""
 
