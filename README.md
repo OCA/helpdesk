@@ -10,7 +10,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.6.0 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.7.0 |  | Helpdesk
 [helpdesk_mgmt_partner_sequence](helpdesk_mgmt_partner_sequence/) | 13.0.1.0.1 |  | Provides different partner sequence in Helpdesk.
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 13.0.1.0.1 |  | Add the option to select project in the tickets.
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 13.0.1.0.0 |  | This module allows customer to rate the assistance received on a ticket.
