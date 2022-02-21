@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_type
+# 	* helpdesk_type
 #
 msgid ""
 msgstr ""
@@ -53,7 +53,7 @@ msgid "Helpdesk teams allowed to use this type."
 msgstr "Els equips del centre d'assistència poden utilitzar aquest tipus."
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id_2194
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type_id_2219
 msgid "ID"
 msgstr "ID"
 
@@ -94,7 +94,9 @@ msgstr "Tipus de tiquet"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team_type_ids
-msgid "Ticket Types the team will use. This team's tickets will only be able to use those types."
+msgid ""
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 "Tipus de tiquet que utilitzarà l'equip. Els tiquets d'aquest equip només "
 "podran utilitzar aquests tipus."
