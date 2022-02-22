@@ -46,7 +46,7 @@
                             <tbody>
                               <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
                                 <p>Hello ${object.user_id.name},</p>
-                                <p>The ticket ${object.number} has been closed.</p>
+                                <p>The ticket "${object.display_name}" has been closed.</p>
                               </td>
                             </tbody>
                           </table>
@@ -113,7 +113,7 @@
                             <tbody>
                               <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
                                 <p>Hello ${object.user_id.name},</p>
-                                <p>The ticket ${object.number} stage has changed to ${object.stage_id.name}.</p>
+                                <p>The ticket "${object.display_name}" stage has changed to ${object.stage_id.name}.</p>
                               </td>
                             </tbody>
                           </table>
