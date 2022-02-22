@@ -92,6 +92,12 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
+    def name_get(self):
+        res = []
+        for rec in self:
+            res.append((rec.id, rec.number + " - " + rec.name))
+        return res
+
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
 
