@@ -68,7 +68,6 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.assertEqual(action["target"], "new")
         self.assertEqual(action["type"], "ir.actions.act_window")
         self.assertEqual(action["view_mode"], "form")
-        self.assertEqual(action["view_type"], "form")
         return (
             active_record.env[action["res_model"]]
             .with_context(
