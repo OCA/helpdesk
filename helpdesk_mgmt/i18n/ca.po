@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-03-23 13:46+0000\n"
+"PO-Revision-Date: 2022-03-09 11:17+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -18,8 +18,9 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+#, fuzzy
 msgid "&amp;nbsp;"
-msgstr ""
+msgstr "&amp;nbsp;"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
