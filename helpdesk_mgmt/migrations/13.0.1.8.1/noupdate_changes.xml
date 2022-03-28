@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="helpdesk_ticket_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="helpdesk_ticket_category_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="helpdesk_ticket_channel_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="helpdesk_ticket_stage_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="helpdesk_ticket_tag_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="helpdesk_ticket_team_comp_rule" model="ir.rule">
+        <field
+            name="domain_force"
+        >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
