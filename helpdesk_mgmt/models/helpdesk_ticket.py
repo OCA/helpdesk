@@ -216,7 +216,7 @@ class HelpdeskTicket(models.Model):
         return ticket
 
     def message_update(self, msg, update_vals=None):
-        """ Override message_update to subscribe partners """
+        """Override message_update to subscribe partners"""
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
         )
