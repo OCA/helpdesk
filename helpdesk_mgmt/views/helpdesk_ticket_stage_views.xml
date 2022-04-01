@@ -53,6 +53,7 @@
                             />
                         </group>
                         <group name="main_right">
+                            <field name="fold" />
                             <field name="closed" />
                             <field name="unattended" />
                         </group>
