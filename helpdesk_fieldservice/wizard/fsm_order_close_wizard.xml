@@ -1,0 +1,47 @@
+<!-- Copyright (C) 2021 Pavlov Media
+     Copyright (C) 2021 - TODAY, Open Source Integrators
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="fsm_order_close_wizard_view_form" model="ir.ui.view">
+        <field name="name">fsm.order.close.wizard.form</field>
+        <field name="model">fsm.order.close.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div
+                >There is an open Ticket, would you like to update the related ticket?
+              </div>
+                <group>
+                    <field invisible="1" name="team_id" />
+                    <field invisible="1" name="ticket_id" />
+                    <field
+                        domain="[('team_ids', '=', team_id)]"
+                        name="stage_id"
+                        options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"
+                        required="1"
+                        string="Ticket Stage"
+                    />
+                </group>
+                <group>
+                    <field
+                        name="resolution"
+                        required="1"
+                        string="Ticket Resolution"
+                    />
+                </group>
+                <footer>
+                    <button
+                        class="oe_highlight"
+                        name="action_close_ticket"
+                        string="Close Ticket"
+                        type="object"
+                    />
+                    <button
+                        class="btn-default"
+                        special="cancel"
+                        string="Cancel"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
