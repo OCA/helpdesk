@@ -6,9 +6,9 @@
     "summary": "Create service requests from a ticket",
     "version": "14.0.1.0.0",
     "license": "LGPL-3",
-    "author": "Open Source Integrators, Pavlov Media",
+    "author": "Odoo Community Association (OCA), Open Source Integrators, Pavlov Media",
     "category": "Helpdesk",
-    "website": "https://github.com/ursais/osi-addons",
+    "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt", "fieldservice"],
     "data": [
         "security/ir.model.access.csv",

@@ -23,10 +23,7 @@
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
             <page name="description" position="after">
-                <page
-                    name="helpdesk_service_order_page"
-                    string="Service Orders"
-                >
+                <page name="helpdesk_service_order_page" string="Service Orders">
                     <button
                         name="action_create_order"
                         string="Create FSM Order"
@@ -35,28 +32,16 @@
                     />
                     <field name="fsm_order_ids">
                         <tree create="false">
-                            <field
-                                name="name"
-                                style="pointer-events:none;"
-                            />
-                            <field
-                                name="location_id"
-                                style="pointer-events:none;"
-                            />
+                            <field name="name" style="pointer-events:none;" />
+                            <field name="location_id" style="pointer-events:none;" />
                             <button
                                 name="action_view_order"
                                 string="View FSM Order"
                                 type="field"
                                 class="helpdesk_column"
                             />
-                            <field
-                                name="stage_id"
-                                style="pointer-events:none;"
-                            />
-                            <field
-                                name="person_id"
-                                style="pointer-events:none;"
-                            />
+                            <field name="stage_id" style="pointer-events:none;" />
+                            <field name="person_id" style="pointer-events:none;" />
                             <field
                                 name="scheduled_date_start"
                                 style="pointer-events:none;"

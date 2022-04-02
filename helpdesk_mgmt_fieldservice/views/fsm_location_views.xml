@@ -27,11 +27,7 @@
                     class="oe_stat_button"
                     icon="fa-edit"
                 >
-                    <field
-                        name="ticket_count"
-                        widget="statinfo"
-                        string="Tickets"
-                    />
+                    <field name="ticket_count" widget="statinfo" string="Tickets" />
                 </button>
             </div>
         </field>

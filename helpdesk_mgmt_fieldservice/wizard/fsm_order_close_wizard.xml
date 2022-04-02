@@ -21,11 +21,7 @@
                     />
                 </group>
                 <group>
-                    <field
-                        name="resolution"
-                        required="1"
-                        string="Ticket Resolution"
-                    />
+                    <field name="resolution" required="1" string="Ticket Resolution" />
                 </group>
                 <footer>
                     <button
@@ -34,11 +30,7 @@
                         string="Close Ticket"
                         type="object"
                     />
-                    <button
-                        class="btn-default"
-                        special="cancel"
-                        string="Cancel"
-                    />
+                    <button class="btn-default" special="cancel" string="Cancel" />
                 </footer>
             </form>
         </field>
