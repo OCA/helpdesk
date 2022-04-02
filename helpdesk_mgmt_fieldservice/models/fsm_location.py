@@ -21,7 +21,7 @@ class FSMLocation(models.Model):
                 [("fsm_location_id", "=", location.id)]
             )
             action = self.env.ref(
-                "helpdesk_fieldservice.action_fsm_location_ticket"
+                "helpdesk_mgmt_fieldservice.action_fsm_location_ticket"
             ).read()[0]
             action["context"] = {}
             if len(ticket_ids) == 1:

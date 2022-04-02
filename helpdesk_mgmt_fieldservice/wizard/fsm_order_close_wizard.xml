@@ -14,7 +14,6 @@
                     <field invisible="1" name="team_id" />
                     <field invisible="1" name="ticket_id" />
                     <field
-                        domain="[('team_ids', '=', team_id)]"
                         name="stage_id"
                         options="{'no_create': True, 'no_open': True, 'no_create_edit': True}"
                         required="1"

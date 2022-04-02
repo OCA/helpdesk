@@ -9,7 +9,7 @@
     "author": "Open Source Integrators, Pavlov Media",
     "category": "Helpdesk",
     "website": "https://github.com/ursais/osi-addons",
-    "depends": ["helpdesk", "fieldservice"],
+    "depends": ["helpdesk_mgmt", "fieldservice"],
     "data": [
         "security/ir.model.access.csv",
         "views/helpdesk_ticket_views.xml",
@@ -18,6 +18,6 @@
         "views/res_partner.xml",
         "wizard/fsm_order_close_wizard.xml",
     ],
-    "maintainers": ["max3903", "osi-scampbell"],
+    "maintainers": [],
     "installable": True,
 }

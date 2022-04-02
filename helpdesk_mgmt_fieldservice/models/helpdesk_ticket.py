@@ -27,8 +27,8 @@ class HelpdeskTicket(models.Model):
 
     def write(self, vals):
         if "stage_id" in vals:
-            ticket_stage = self.env["helpdesk.stage"].browse(vals.get("stage_id"))
-            if ticket_stage.is_close:
+            ticket_stage = self.env["helpdesk.ticket.stage"].browse(vals.get("stage_id"))
+            if ticket_stage.closed:
                 for ticket in self:
                     if ticket.fsm_order_ids:
                         open_orders = ticket.fsm_order_ids.filtered(

@@ -11,7 +11,7 @@
             <link
                 rel="stylesheet"
                 type="text/scss"
-                href="/helpdesk_fieldservice/static/src/scss/helpdesk_column.scss"
+                href="/helpdesk_mgmt_fieldservice/static/src/scss/helpdesk_column.scss"
             />
         </xpath>
     </template>
@@ -20,61 +20,59 @@
     <record id="helpdesk_ticket_view_service_request_form" model="ir.ui.view">
         <field name="name">helpdesk.ticket.service.request.form</field>
         <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
-            <field name="description" position="after">
-                <notebook name="helpdesk_fieldservice_book">
-                    <page
-                        name="helpdesk_service_order_page"
-                        string="Service Orders"
-                    >
-                        <button
-                            name="action_create_order"
-                            string="Create FSM Order"
-                            type="object"
-                            class="oe_highlight"
-                        />
-                        <field name="fsm_order_ids">
-                            <tree create="false">
-                                <field
-                                    name="name"
-                                    style="pointer-events:none;"
-                                />
-                                <field
-                                    name="location_id"
-                                    style="pointer-events:none;"
-                                />
-                                <button
-                                    name="action_view_order"
-                                    string="View FSM Order"
-                                    type="object"
-                                    class="helpdesk_column"
-                                />
-                                <field
-                                    name="stage_id"
-                                    style="pointer-events:none;"
-                                />
-                                <field
-                                    name="person_id"
-                                    style="pointer-events:none;"
-                                />
-                                <field
-                                    name="scheduled_date_start"
-                                    style="pointer-events:none;"
-                                />
-                                <field
-                                    name="scheduled_date_end"
-                                    style="pointer-events:none;"
-                                />
-                                <field
-                                    name="scheduled_duration"
-                                    style="pointer-events:none;"
-                                />
-                            </tree>
-                        </field>
-                    </page>
-                </notebook>
-            </field>
+            <page name="description" position="after">
+                <page
+                    name="helpdesk_service_order_page"
+                    string="Service Orders"
+                >
+                    <button
+                        name="action_create_order"
+                        string="Create FSM Order"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <field name="fsm_order_ids">
+                        <tree create="false">
+                            <field
+                                name="name"
+                                style="pointer-events:none;"
+                            />
+                            <field
+                                name="location_id"
+                                style="pointer-events:none;"
+                            />
+                            <button
+                                name="action_view_order"
+                                string="View FSM Order"
+                                type="field"
+                                class="helpdesk_column"
+                            />
+                            <field
+                                name="stage_id"
+                                style="pointer-events:none;"
+                            />
+                            <field
+                                name="person_id"
+                                style="pointer-events:none;"
+                            />
+                            <field
+                                name="scheduled_date_start"
+                                style="pointer-events:none;"
+                            />
+                            <field
+                                name="scheduled_date_end"
+                                style="pointer-events:none;"
+                            />
+                            <field
+                                name="scheduled_duration"
+                                style="pointer-events:none;"
+                            />
+                        </tree>
+                    </field>
+                </page>
+            </page>
             <field name="partner_id" position="before">
                 <field name="fsm_location_id" />
                 <field name="all_orders_closed" invisible="1" />
@@ -85,41 +83,24 @@
     <record id="helpdesk_ticket_search_closed_orders" model="ir.ui.view">
         <field name="name">helpdesk.ticket.service.form.logic</field>
         <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search" />
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
         <field name="arch" type="xml">
-            <filter name="is_close" position="after">
+            <filter name="open" position="after">
                 <filter
                     string="Closed FSM Orders"
-                    domain="[('stage_id.is_close', '=', False), ('all_orders_closed', '=', True)]"
+                    domain="[('stage_id.closed', '=', False), ('all_orders_closed', '=', True)]"
                     name="closed_fsm_order"
                 />
             </filter>
         </field>
     </record>
 
-    <record id="helpdesk_ticket_view_form_logic" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.service.form.logic</field>
-        <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form" />
-        <field name="arch" type="xml">
-            <field name="partner_name" position="attributes">
-                <attribute name="invisible">True</attribute>
-            </field>
-            <field name="partner_email" position="replace">
-                <field
-                    name="partner_email"
-                    attrs="{'invisible': [('partner_id','=',False)]}"
-                />
-            </field>
-        </field>
-    </record>
-
     <record id="helpdesk_ticket_tree_view_location" model="ir.ui.view">
         <field name="name">helpdesk.ticket.tree.location</field>
         <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree" />
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
         <field name="arch" type="xml">
-            <field name="partner_id" position="after">
+            <field name="partner_name" position="after">
                 <field name="fsm_location_id" />
             </field>
         </field>
@@ -128,7 +109,7 @@
     <record id="helpdesk_ticket_search_view_location" model="ir.ui.view">
         <field name="name">helpdesk.ticket.search.location</field>
         <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search" />
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field name="fsm_location_id" />
@@ -137,24 +118,11 @@
     </record>
 
     <menuitem
-        id="menu_helpdesk_op"
-        name="Operations"
-        parent="helpdesk.menu_helpdesk_root"
-        sequence="10"
-    />
-
-    <menuitem
         id="menu_helpdesk_fsm_order"
         name="Service Orders"
         action="fieldservice.action_fsm_dash_order"
-        parent="menu_helpdesk_op"
-        sequence="20"
-    />
-
-    <menuitem
-        id="helpdesk.helpdesk_ticket_menu_main"
-        name="All Tickets"
-        parent="menu_helpdesk_op"
+        parent="helpdesk_mgmt.helpdesk_ticket_main_menu"
+        sequence="15"
     />
 
 </odoo>

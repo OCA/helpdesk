@@ -5,10 +5,10 @@
         <field name="model">res.partner</field>
         <field
             name="inherit_id"
-            ref="helpdesk.view_partner_form_inherit_helpdesk"
+            ref="helpdesk_mgmt.view_partner_form"
         />
         <field name="arch" type="xml">
-            <button name="action_open_helpdesk_ticket" position="attributes">
+            <button name="action_view_helpdesk_tickets" position="attributes">
                 <attribute
                     name="context"
                 >{'default_partner_id': id, 'default_fsm_location_id': service_location_id}</attribute>
