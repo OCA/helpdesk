@@ -17,7 +17,6 @@ class FSMOrderCloseWizard(models.TransientModel):
     def action_close_ticket(self):
         for record in self:
             if not record.ticket_id.stage_id.closed:
-                record.ticket_id.write(
-                    {"resolution": record.resolution, "stage_id": record.stage_id.id}
-                )
+                record.ticket_id.message_post(body=record.resolution)
+                record.ticket_id.write({"stage_id": record.stage_id.id})
         return {"type": "ir.actions.client", "tag": "reload"}

@@ -19,9 +19,11 @@ class HelpdeskTicket(models.Model):
         for ticket in self:
             ticket.all_orders_closed = True
             if ticket.fsm_order_ids:
-                for order in ticket.fsm_order_ids:
-                    if order.stage_id.name not in ["Closed", "Cancelled"]:
-                        ticket.all_orders_closed = False
+                open_orders = ticket.fsm_order_ids.filtered(
+                    lambda o: o.stage_id.is_closed is False
+                )
+                if open_orders:
+                    ticket.all_orders_closed = False
             else:
                 ticket.all_orders_closed = False
 
@@ -36,9 +38,7 @@ class HelpdeskTicket(models.Model):
                         open_orders = ticket.fsm_order_ids.filtered(
                             lambda x: x.stage_id.is_closed
                         )
-                        if open_orders and len(open_orders.ids) != len(
-                            ticket.fsm_order_ids
-                        ):
+                        if len(open_orders.ids) != len(ticket.fsm_order_ids):
                             raise ValidationError(
                                 _(
                                     "Please complete all service orders "

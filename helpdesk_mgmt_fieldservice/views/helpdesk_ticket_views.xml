@@ -37,7 +37,7 @@
                             <button
                                 name="action_view_order"
                                 string="View FSM Order"
-                                type="field"
+                                type="object"
                                 class="helpdesk_column"
                             />
                             <field name="stage_id" style="pointer-events:none;" />
