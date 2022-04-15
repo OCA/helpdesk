@@ -10,7 +10,7 @@
                     type="action"
                     icon="fa-file"
                     name="%(ticket_action_from_project)d"
-                    context="{'search_default_task_id': id, 'default_task_id': id}"
+                    context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
                 </button>
@@ -25,7 +25,7 @@
                 <filter
                     string="Open Tickets"
                     name="open_tickets"
-                    domain="[('todo_ticket_count', '&lt;', 0)]"
+                    domain="[('todo_ticket_count', '&gt;', 0)]"
                 />
             </xpath>
         </field>
