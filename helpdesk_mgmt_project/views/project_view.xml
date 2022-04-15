@@ -50,7 +50,7 @@
                 <filter
                     string="Open Tickets"
                     name="open_tickets"
-                    domain="[('todo_ticket_count', '&lt;', 0)]"
+                    domain="[('todo_ticket_count', '&gt;', 0)]"
                 />
             </xpath>
         </field>
