@@ -17,4 +17,5 @@ class HelpdeskTicket(models.Model):
     @api.depends("project_id")
     def _compute_task_id(self):
         for record in self:
-            record.task_id = False
+            if record.task_id.project_id != record.project_id:
+                record.task_id = False

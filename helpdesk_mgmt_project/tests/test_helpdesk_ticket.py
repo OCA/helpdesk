@@ -37,46 +37,46 @@ class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
         self.assertEqual(
             self.project1.ticket_count,
             2,
-            "Helpdesk Ticket: Project should " "have two related tickets.",
+            "Helpdesk Ticket: Project should have two related tickets.",
         )
         self.assertEqual(
             self.project1.todo_ticket_count,
             2,
-            "Helpdesk Ticket: Project should " "have two related todo tickets.",
+            "Helpdesk Ticket: Project should have two related todo tickets.",
         )
         self.assertEqual(
             self.task_project1.ticket_count,
             2,
-            "Helpdesk Ticket: Task " "have two realted tickets.",
+            "Helpdesk Ticket: Task have two realted tickets.",
         )
         self.assertEqual(
             self.task_project1.todo_ticket_count,
             2,
-            "Helpdesk Ticket: Task " "have two realted tickets.",
+            "Helpdesk Ticket: Task have two realted tickets.",
         )
         self.assertEqual(
             self.project2.ticket_count,
             0,
-            "Helpdesk Ticket: Project should " "have two related tickets.",
+            "Helpdesk Ticket: Project should have two related tickets.",
         )
         self.assertEqual(
             self.task_project2.ticket_count,
             0,
-            "Helpdesk Ticket: Task " "have two realted tickets.",
+            "Helpdesk Ticket: Task have two realted tickets.",
         )
         self.ticket.write({"stage_id": self.stage_closed.id})
         self.assertEqual(
             self.project1.ticket_count,
             2,
-            "Helpdesk Ticket: Project should " "have two related tickets.",
+            "Helpdesk Ticket: Project should have two related tickets.",
         )
         self.assertEqual(
             self.project1.todo_ticket_count,
             1,
-            "Helpdesk Ticket: Project should " "have one related todo tickets.",
+            "Helpdesk Ticket: Project should have one related todo tickets.",
         )
         self.assertEqual(
             self.task_project1.todo_ticket_count,
             1,
-            "Helpdesk Ticket: Task " "have one realted tickets.",
+            "Helpdesk Ticket: Task have one realted tickets.",
         )
