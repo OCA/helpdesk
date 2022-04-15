@@ -7,9 +7,7 @@ class ProjectTask(models.Model):
     ticket_ids = fields.One2many(
         comodel_name="helpdesk.ticket", inverse_name="task_id", string="Tickets"
     )
-    ticket_count = fields.Integer(
-        compute="_compute_ticket_count", string="Ticket Count", store=True
-    )
+    ticket_count = fields.Integer(compute="_compute_ticket_count", store=True)
     label_tickets = fields.Char(
         string="Use Tickets as",
         default=lambda s: _("Tickets"),
