@@ -10,7 +10,7 @@ class HelpdeskType(models.Model):
     _description = "Helpdesk Ticket Type"
     _order = "name asc"
 
-    name = fields.Char("Name", required=True)
+    name = fields.Char(required=True)
     team_ids = fields.Many2many(
         "helpdesk.ticket.team",
         string="Teams",

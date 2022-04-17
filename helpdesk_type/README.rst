@@ -35,7 +35,7 @@ This module adds a type field on the helpdesk ticket.
 Configuration
 =============
 
-* Go to Helpdesk > Configuration > Types
+* Go to Helpdesk > Configuration > Ticket Types
 * Create your list of types
 
 Usage
