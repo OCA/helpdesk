@@ -1284,6 +1284,11 @@ msgid ""
 msgstr "Cette étape est repliée dans la vue kanban."
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.assignment_email_template
 msgid "Ticket Assignment"
 msgstr ""
