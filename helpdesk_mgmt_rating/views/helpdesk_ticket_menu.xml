@@ -4,7 +4,7 @@
         <field name="name">Customer Rating</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">rating.rating</field>
-        <field name="view_mode">kanban,form</field>
+        <field name="view_mode">kanban,tree,pivot,graph,form</field>
         <field
             name="domain"
         >[('res_model', '=', 'helpdesk.ticket'), ('consumed', '=', True)]</field>
@@ -18,7 +18,7 @@
         <field name="name" />
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">rating.rating</field>
-        <field name="view_mode">kanban,form</field>
+        <field name="view_mode">kanban,tree,pivot,graph,form</field>
         <field
             name="domain"
         >[('consumed','=',True), ('res_model','=','helpdesk.ticket'), ('res_id', '=', active_id)]</field>
