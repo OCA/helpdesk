@@ -219,6 +219,11 @@ msgid "Accept Emails From"
 msgstr "Accepter des Courriels de"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction
 msgid "Action Needed"
@@ -473,6 +478,11 @@ msgstr "Client"
 #, python-format
 msgid "Customer Email"
 msgstr "Courriel du client"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
+msgid "Customer Portal URL"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
@@ -1046,6 +1056,11 @@ msgstr ""
 "suivantes\n"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
 msgid "Priority"
 msgstr "Priorité"
@@ -1087,6 +1102,11 @@ msgstr "Utilisateur responsable"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "SMS Delivery error"
 msgstr "Erreur d'envoi SMS"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
+msgid "Security Token"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
