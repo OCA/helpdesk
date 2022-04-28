@@ -8,7 +8,7 @@
     "license": "AGPL-3",
     "summary": "Keep the motive ",
     "author": "Konos, " "Open Source Integrators, " "Odoo Community Association (OCA)",
-    "website": "https://githut.com/OCA/helpdesk",
+    "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
         "security/ir.model.access.csv",

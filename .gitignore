@@ -1,9 +1,8 @@
-# Project specific
-oca.cfg
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+/.venv
+/.pytest_cache
 
 # C extensions
 *.so
@@ -40,7 +39,6 @@ coverage.xml
 
 # Translations
 *.mo
-*.pot
 
 # Pycharm
 .idea
