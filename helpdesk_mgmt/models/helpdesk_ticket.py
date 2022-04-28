@@ -8,7 +8,7 @@ class HelpdeskTicket(models.Model):
     _rec_name = "number"
     _order = "number desc"
     _mail_post_access = "read"
-    _inherit = ["mail.thread.cc", "mail.activity.mixin"]
+    _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
 
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
@@ -157,6 +157,12 @@ class HelpdeskTicket(models.Model):
         if "company_id" in values:
             seq = seq.with_company(values["company_id"])
         return seq.next_by_code("helpdesk.ticket.sequence") or "/"
+
+    def _compute_access_url(self):
+        res = super()._compute_access_url()
+        for item in self:
+            item.access_url = "/my/ticket/%s" % (item.id)
+        return res
 
     # ---------------------------------------------------
     # Mail gateway
