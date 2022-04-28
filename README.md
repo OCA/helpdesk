@@ -17,7 +17,20 @@ None
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.8.1 |  | Helpdesk
+[helpdesk_mgmt_partner_sequence](helpdesk_mgmt_partner_sequence/) | 13.0.1.0.1 |  | Provides different partner sequence in Helpdesk.
+[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 13.0.1.0.1 |  | Add the option to select project in the tickets.
+[helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 13.0.1.0.0 |  | This module allows customer to rate the assistance received on a ticket.
+[helpdesk_mgmt_sla](helpdesk_mgmt_sla/) | 13.0.1.1.0 |  | Add SLA to the tickets for Helpdesk Management.
+[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 13.0.1.1.0 |  | Add HR Timesheet to the tickets for Helpdesk Management.
+[helpdesk_mgmt_timesheet_time_control](helpdesk_mgmt_timesheet_time_control/) | 13.0.1.1.0 |  | Helpdesk Management Timesheet Time Control
+[helpdesk_mgmtsystem_nonconformity](helpdesk_mgmtsystem_nonconformity/) | 13.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with nonconformities
+[helpdesk_motive](helpdesk_motive/) | 13.0.1.0.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Keep the motive
+[helpdesk_type](helpdesk_type/) | 13.0.1.1.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
 
 [//]: # (end addons)
 
