@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* helpdesk_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-12-12 15:36+0000\n"
+"Last-Translator: Fernando <fernandolachica@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket Helpdesk"
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Equipo de ticket Helpdesk"
+
+#. module: helpdesk_type
+#: model:ir.actions.act_window,name:helpdesk_type.action_helpdesk_ticket_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_type
+msgid "Helpdesk Ticket Type"
+msgstr "Tipo de tickets del Helpdesk"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
+msgid "Helpdesk teams allowed to use this type."
+msgstr "Los equipos de soporte t??cnico pueden usar este tipo."
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type____last_update
+msgid "Last Modified on"
+msgstr "??ltima modificaci??n el"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_uid
+msgid "Last Updated by"
+msgstr "??ltima actualizaci??n por"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_date
+msgid "Last Updated on"
+msgstr "??ltima actualizaci??n el"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__team_ids
+msgid "Teams"
+msgstr "Equipos"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__type_ids
+msgid "Ticket Type"
+msgstr "Tipo de Ticket"
+
+#. module: helpdesk_type
+#: model:ir.ui.menu,name:helpdesk_type.helpdesk_ticket_type
+msgid "Ticket Types"
+msgstr "Tipos de Ticket"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
+msgid "Ticket Types the team will use. This team's tickets will only be able to use those types."
+msgstr ""
+"Tipos de Tickets que usar?? el equipo. Los tickets de este equipo solo podr??n "
+"usar esos tipos."
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Type"
+msgstr "Tipo"
+
+#. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
+msgid "Types"
+msgstr "Tipos"
