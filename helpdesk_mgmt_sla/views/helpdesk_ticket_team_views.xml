@@ -5,9 +5,11 @@
         <field name="model">helpdesk.ticket.team</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='right']" position="inside">
-                <field name="use_sla" />
-                <field name="resource_calendar_id" />
+            <xpath expr="//group[@name='left']" position="after">
+                <group name="right">
+                    <field name="use_sla" />
+                    <field name="resource_calendar_id" />
+                </group>
             </xpath>
         </field>
     </record>

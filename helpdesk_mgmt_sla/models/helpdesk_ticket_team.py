@@ -11,6 +11,8 @@ class HelpdeskTicketTeam(models.Model):
     resource_calendar_id = fields.Many2one(
         "resource.calendar",
         "Working Hours",
-        default=lambda self: self.env.company.resource_calendar_id,
+        default=lambda self: self.env["res.company"]
+        ._company_default_get()
+        .resource_calendar_id,
         domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
     )
