@@ -21,7 +21,7 @@
                             />
                             <separator colspan="2" string="Target" class="mt32" />
                             <field name="stage_id" string="Reach Stage" />
-                            <label for="time_days" string="Reach In" />
+                            <label for="days" string="Reach In" />
                             <div class="o_row">
                                 <field name="days" /> days<br />
                                 <field name="hours" /> hours<br />
