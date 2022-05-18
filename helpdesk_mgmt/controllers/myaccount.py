@@ -77,7 +77,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         values.update(
             {
                 "date": date_begin,
-                "tickets": tickets,
+                "tickets": tickets.sudo(),
                 "page_name": "ticket",
                 "pager": pager,
                 "default_url": "/my/tickets",
