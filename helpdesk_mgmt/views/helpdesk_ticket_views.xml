@@ -119,6 +119,12 @@
             <form string="Helpdesk Ticket">
                 <header>
                     <button
+                        name="action_send_email"
+                        string="Send an Email"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button
                         string="Assign to me"
                         name="assign_to_me"
                         type="object"
@@ -163,9 +169,18 @@
                             <field name="channel_id" />
                         </group>
                         <group>
-                            <field name="partner_id" />
+                            <field
+                                name="partner_id"
+                                widget="res_partner_many2one"
+                                context="{
+                                'default_name': partner_name,
+                                'default_email': partner_email,
+                                'default_lang': partner_lang
+                                }"
+                            />
                             <field name="partner_name" />
                             <field name="partner_email" />
+                            <field name="partner_lang" />
                             <field name="category_id" />
                             <field
                                 name="tag_ids"
