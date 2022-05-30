@@ -18,3 +18,4 @@ access_helpdesk_ticket_category_manager,helpdesk.ticket.category.manager,model_h
 access_helpdesk_ticket_category_user,helpdesk.ticket.category.user,model_helpdesk_ticket_category,base.group_user,1,0,0,0
 access_helpdesk_ticket_category_portal,helpdesk.ticket.category.portal,model_helpdesk_ticket_category,base.group_portal,1,0,0,0
 access_helpdesk_ticket_category_public,helpdesk.ticket.category.public,model_helpdesk_ticket_category,base.group_public,1,0,0,0
+access_helpdesk_ticket_partner,helpdesk.ticket.partner,model_helpdesk_ticket_partner,group_helpdesk_user,1,1,1,1

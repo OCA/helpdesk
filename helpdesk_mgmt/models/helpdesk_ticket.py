@@ -10,6 +10,10 @@ class HelpdeskTicket(models.Model):
     _mail_post_access = "read"
     _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
 
+    @api.model
+    def _lang_get(self):
+        return self.env["res.lang"].get_installed()
+
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
 
@@ -44,6 +48,7 @@ class HelpdeskTicket(models.Model):
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
+    partner_lang = fields.Selection(_lang_get, "Language")
 
     last_stage_update = fields.Datetime(default=fields.Datetime.now)
     assigned_date = fields.Datetime()
@@ -110,6 +115,7 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
+            self.partner_lang = self.partner_id.lang
 
     # ---------------------------------------------------
     # CRUD
@@ -240,12 +246,6 @@ class HelpdeskTicket(models.Model):
                     ticket._message_add_suggested_recipient(
                         recipients, partner=ticket.partner_id, reason=_("Customer")
                     )
-                elif ticket.partner_email:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        email=ticket.partner_email,
-                        reason=_("Customer Email"),
-                    )
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this
             # imply modifying followers
@@ -262,3 +262,33 @@ class HelpdeskTicket(models.Model):
                 super(HelpdeskTicket, leftover)._notify_get_reply_to(default=default)
             )
         return res
+
+    def action_send_email(self):
+        """before sending the email, create/select the partner if not already done"""
+        if not self.partner_id:
+            return self.env["ir.actions.actions"]._for_xml_id(
+                "helpdesk_mgmt.action_create_select_partner"
+            )
+        else:
+            return self.action_do_send_email()
+
+    def action_do_send_email(self):
+        """Opens a wizard to compose an email"""
+        self.ensure_one()
+        self.partner_lang or self.env.context.get("lang")
+        ctx = {
+            "default_model": "helpdesk.ticket",
+            "default_res_id": self.ids[0],
+            "default_composition_mode": "comment",
+            "default_partner_ids": [self.partner_id.id],
+            "force_email": True,
+        }
+        return {
+            "type": "ir.actions.act_window",
+            "view_mode": "form",
+            "res_model": "mail.compose.message",
+            "views": [(False, "form")],
+            "view_id": False,
+            "target": "new",
+            "context": ctx,
+        }
