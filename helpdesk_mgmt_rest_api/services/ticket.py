@@ -84,6 +84,8 @@ class TicketService(Component):
                 partner = params.pop("partner")
                 params["partner_name"] = partner.pop("name")
                 params["partner_email"] = partner.pop("email")
+                if "lang" in partner:
+                    params["partner_lang"] = partner.pop("lang")
 
             elif self.env.context.get("authenticated_partner_id"):
                 params["partner_id"] = self.env.context.get("authenticated_partner_id")

@@ -15,7 +15,7 @@ from ..pydantic_models.mail_message import MailThreadInfo
 class HelpdeskPartnerRequest(BaseModel):
     email: EmailStr
     name: str
-    # lang: str = None
+    lang: str = None
 
 
 class HelpdeskTicketInfo(AttachableInfo, MailThreadInfo):
