@@ -8,7 +8,7 @@ class HelpdeskTicket(models.Model):
     _rec_name = "number"
     _order = "number desc"
     _mail_post_access = "read"
-    _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
+    _inherit = ["portal.mixin", "mail.thread.cc", "mail.activity.mixin"]
 
     def _get_default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
