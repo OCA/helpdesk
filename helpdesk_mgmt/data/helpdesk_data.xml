@@ -33,7 +33,7 @@
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
                               <td valign="middle" align="right">
-                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}">
+                                <img src="/logo.png?company=${object.company_id.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${object.company_id.name}">
                               </td>
                             </tr>
                           </table>
@@ -100,7 +100,7 @@
                           <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;">
                             <tr>
                               <td valign="middle" align="right">
-                                <img src="/logo.png?company=${object.company_id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;">
+                                <img src="/logo.png?company=${object.company_id.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;">
                               </td>
                             </tr>
                           </table>
