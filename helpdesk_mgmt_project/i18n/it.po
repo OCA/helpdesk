@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-03-24 19:17+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
+#: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
+msgid "Gives label to tickets on project's kanban view."
+msgstr "Aggiunge un'etichetta ai ticket sulla vista kanban del progetto."
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket Helpdesk"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__todo_ticket_count
+msgid "Number of tickets"
+msgstr "Numero di ticket"
+
+#. module: helpdesk_mgmt_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search
+msgid "Open Tickets"
+msgstr "Ticket aperti"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_project_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+msgid "Project"
+msgstr "Progetto"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_project_task
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__task_id
+msgid "Task"
+msgstr "Lavoro"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_count
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_count
+msgid "Ticket Count"
+msgstr "Conteggio ticket"
+
+#. module: helpdesk_mgmt_project
+#: code:addons/helpdesk_mgmt_project/models/project.py:0
+#: code:addons/helpdesk_mgmt_project/models/project_task.py:0
+#: model:ir.actions.act_window,name:helpdesk_mgmt_project.ticket_action_from_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_ids
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.edit_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_form2
+#, python-format
+msgid "Tickets"
+msgstr "Ticket"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__label_tickets
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
+msgid "Use Tickets as"
+msgstr "Usa i ticket come"
