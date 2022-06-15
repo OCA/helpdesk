@@ -1,0 +1,169 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_sla
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Apply on"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__days
+msgid "Days"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Description of the policy..."
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
+#: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
+#: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
+msgid "Generate Helpdesk SLA alerts from cron"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla
+msgid "Helpdesk SLA"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__hours
+msgid "Hours"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__name
+msgid "Name"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__note
+msgid "Note"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Reach In"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Reach Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_sla_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "SLA"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_deadline
+msgid "SLA deadline"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_expired
+msgid "SLA expired"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Target"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__team_sla
+msgid "Team SLA"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__team_ids
+msgid "Teams"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
+msgid "Use SLA"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__resource_calendar_id
+msgid "Working Hours"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "days<br/>"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "hours<br/>"
+msgstr ""

@@ -1,0 +1,61 @@
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_sla_form">
+        <field name="name">helpdesk.sla.form</field>
+        <field name="model">helpdesk.sla</field>
+        <field name="arch" type="xml">
+            <form string="SLA">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <separator colspan="2" string="Apply on" />
+                            <field
+                                name="team_ids"
+                                domain="[('use_sla', '=', True)]"
+                                widget="many2many_tags"
+                            />
+                            <separator colspan="2" string="Target" class="mt32" />
+                            <field name="stage_id" string="Reach Stage" />
+                            <label for="time_days" string="Reach In" />
+                            <div class="o_row">
+                                <field name="days" /> days<br />
+                                <field name="hours" /> hours<br />
+                            </div>
+                        </group>
+                    </group>
+                    <field name="note" placeholder="Description of the policy..." />
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_sla_tree">
+        <field name="name">helpdesk.sla.tree</field>
+        <field name="model">helpdesk.sla</field>
+        <field name="arch" type="xml">
+            <tree string="SLA">
+                <field name="name" />
+                <field name="stage_id" />
+                <field name="days" />
+                <field name="hours" />
+                <field name="note" />
+            </tree>
+        </field>
+    </record>
+    <record id="action_helpdesk_sla_tree" model="ir.actions.act_window">
+        <field name="name">Helpdesk SLA</field>
+        <field name="res_model">helpdesk.sla</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="helpdesk_sla"
+        name="SLA"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+        action="action_helpdesk_sla_tree"
+        sequence="9"
+    />
+</odoo>
