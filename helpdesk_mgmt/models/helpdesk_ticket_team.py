@@ -7,6 +7,7 @@ class HelpdeskTeam(models.Model):
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
+    _order = "name, id"
 
     name = fields.Char(string="Name", required=True)
     user_ids = fields.Many2many(comodel_name="res.users", string="Members")

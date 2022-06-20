@@ -22,6 +22,10 @@ class Partner(models.Model):
         compute="_compute_helpdesk_ticket_count", string="Tickets"
     )
 
+    default_helpdesk_team_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.team", string="Default Helpdesk Team",
+    )
+
     def _compute_helpdesk_ticket_count(self):
         for record in self:
             ticket_ids = self.env["helpdesk.ticket"].search(

@@ -19,6 +19,13 @@
                     <field name="helpdesk_ticket_count_string" widget="statinfo" />
                 </button>
             </div>
+            <notebook position="inside">
+                <page name="helpdesk" string="Helpdesk">
+                    <group>
+                        <field name="default_helpdesk_team_id" />
+                    </group>
+                </page>
+            </notebook>
         </field>
     </record>
 </odoo>
