@@ -1,7 +1,11 @@
 # Copyright 2020 Graeme Gellatly
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
+
 from odoo import api, models
+
+_logger = logging.getLogger(__name__)
 
 
 class HrTimesheetSwitch(models.TransientModel):
@@ -23,5 +27,5 @@ class HrTimesheetSwitch(models.TransientModel):
                 )
         except KeyError:
             # If I don't know where's the user, I don't know what to suggest
-            pass
+            _logger.info("No user found")
         return result

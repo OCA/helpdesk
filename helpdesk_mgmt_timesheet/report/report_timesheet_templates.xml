@@ -8,6 +8,8 @@
                 groups="helpdesk_mgmt.group_helpdesk_user"
             />
         </xpath>
+    </template>
+    <template id="timesheet_table" inherit_id="hr_timesheet.timesheet_table">
         <xpath expr="//table[hasclass('table-sm')]/thead/tr/th[3]" position="after">
             <th
                 t-if="show_ticket"
