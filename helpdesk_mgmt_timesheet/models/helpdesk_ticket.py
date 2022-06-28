@@ -16,18 +16,16 @@ class HelpdeskTicket(models.Model):
         string="Allow Timesheet",
         related="team_id.allow_timesheet",
     )
-    planned_hours = fields.Float(string="Planned Hours", tracking=True)
+    planned_hours = fields.Float(tracking=True)
     progress = fields.Float(
         compute="_compute_progress_hours",
         group_operator="avg",
         store=True,
-        string="Progress",
     )
     remaining_hours = fields.Float(
         compute="_compute_progress_hours",
         readonly=True,
         store=True,
-        string="Remaining Hours",
     )
     timesheet_ids = fields.One2many(
         comodel_name="account.analytic.line",
@@ -35,7 +33,9 @@ class HelpdeskTicket(models.Model):
         string="Timesheet",
     )
     total_hours = fields.Float(
-        compute="_compute_total_hours", readonly=True, store=True, string="Total Hours"
+        compute="_compute_total_hours",
+        readonly=True,
+        store=True,
     )
     last_timesheet_activity = fields.Date(
         compute="_compute_last_timesheet_activity",
