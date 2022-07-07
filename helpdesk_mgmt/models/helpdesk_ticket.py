@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from odoo import _, api, fields, models, tools
 from odoo.exceptions import AccessError
 
@@ -251,3 +253,81 @@ class HelpdeskTicket(models.Model):
             # imply modifying followers
             return recipients
         return recipients
+
+    @api.model
+    def _cron_close_idle_tickets(self):
+        company = self.env.user.company_id
+        if not company.enable_ticket_idle:
+            return True
+        idle_days = company.ticket_idle_period or 30
+        idle_date = datetime.now() - timedelta(days=idle_days)
+        avaiting_stage = company.ticket_stage_id
+        domain = [
+            ("stage_id.closed", "!=", True),
+            ("last_stage_update", "<", idle_date),
+            ("stage_id", "=", avaiting_stage.id),
+        ]
+        idle_tickets = self.search(domain)
+        if idle_tickets:
+            stage = self.env["helpdesk.ticket.stage"].search(
+                [("closed", "=", True)], limit=1
+            )
+            if stage:
+                idle_tickets.write({"stage_id": stage.id})
+
+        return True
+
+    def get_ticket_from_email(self):
+        self.ensure_one()
+        if (
+            self.team_id
+            and self.team_id.alias_id
+            and self.team_id.alias_name
+            and self.team_id.alias_domain
+        ):
+            return self.team_id.alias_name + "@" + self.team_id.alias_domain
+        return self.company_id.partner_id.email
+
+    def action_ticket_send(self):
+        """
+        This function opens a window to compose an email
+        """
+        self.ensure_one()
+        ir_model_data = self.env["ir.model.data"]
+        try:
+            template_id = ir_model_data.check_object_reference(
+                "nitrokey_helpdesk_mgmt", "nitrokey_default_ticket_template"
+            )[1]
+        except ValueError:
+            template_id = False
+        try:
+            compose_form_id = ir_model_data.check_object_reference(
+                "mail", "email_compose_message_wizard_form"
+            )[1]
+        except ValueError:
+            compose_form_id = False
+
+        ctx = {
+            "default_model": self._name,
+            "default_res_id": self.ids[0],
+            "default_use_template": False,
+            "default_template_id": template_id,
+            "default_composition_mode": "comment",
+            "force_email": True,
+        }
+        if self.partner_id:
+            ctx.update(
+                {
+                    "default_partner_ids": [self.partner_id.id],
+                }
+            )
+        return {
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "mail.compose.message",
+            "views": [(compose_form_id, "form")],
+            "view_id": compose_form_id,
+            "target": "new",
+            "context": ctx,
+        }

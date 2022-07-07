@@ -312,4 +312,50 @@
             <field name="alias_parent_model_id" ref="model_helpdesk_ticket_team" />
         </record>
     </data>
+    <data>
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value
+                    eval="[('name', 'in', ['created_ticket_template']), ('model', '=', 'mail.template'), ('module', '=', 'helpdesk_mgmt')]"
+                />
+          </function>
+          <value eval="{'noupdate': False}" />
+        </function>
+        <record id="created_ticket_template" model="mail.template">
+            <field name="email_from">${object.get_ticket_from_email()}</field>
+            <field
+                name="subject"
+            >[${object.number}] Ticket created: ${object.name}</field>
+        </record>
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value
+                    eval="[('name', 'in', ['created_ticket_template']), ('model', '=', 'mail.template'), ('module', '=', 'helpdesk_mgmt')]"
+                />
+          </function>
+          <value eval="{'noupdate': True}" />
+        </function>
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value
+                    eval="[('name', 'in', ['closed_ticket_template']), ('model', '=', 'mail.template'), ('module', '=', 'helpdesk_mgmt')]"
+                />
+          </function>
+          <value eval="{'noupdate': False}" />
+        </function>
+        <record id="closed_ticket_template" model="mail.template">
+            <field name="email_from">${object.get_ticket_from_email()}</field>
+            <field
+                name="subject"
+            >[${object.number}] Ticket closed: ${object.name}</field>
+        </record>
+        <function name="write" model="ir.model.data">
+          <function name="search" model="ir.model.data">
+            <value
+                    eval="[('name', 'in', ['closed_ticket_template']), ('model', '=', 'mail.template'), ('module', '=', 'helpdesk_mgmt')]"
+                />
+          </function>
+          <value eval="{'noupdate': True}" />
+        </function>
+    </data>
 </odoo>

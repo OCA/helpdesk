@@ -124,6 +124,12 @@
                         type="object"
                         attrs="{'invisible' : [('user_id', '!=', False)]}"
                     />
+                    <button
+                        name="action_ticket_send"
+                        string="Send Email"
+                        type="object"
+                        class="btn-primary"
+                    />
                     <field
                         name="stage_id"
                         widget="statusbar"
@@ -216,6 +222,7 @@
                 <field name="user_id" />
                 <field name="stage_id" />
                 <field name="priority" widget="priority" />
+                <field name="message_needaction_counter" string="Unread Messages" />
                 <field name="create_date" readonly="1" />
                 <field name="last_stage_update" />
             </tree>
@@ -234,6 +241,7 @@
                 <field name="user_id" />
                 <field name="color" />
                 <field name="stage_id" />
+                <field name="message_needaction_counter" />
                 <field name="priority" widget="priority" />
                 <field name="assigned_date" />
                 <progressbar
@@ -301,6 +309,21 @@
                                         widget="kanban_activity"
                                         related="activity_state"
                                     />
+                                    <t
+                                        t-if="record.message_needaction_counter.raw_value"
+                                    >
+                                        <span
+                                            role="alert"
+                                            class="oe_kanban_mail_new"
+                                            title="Unread Messages"
+                                        ><i
+                                                class="fa fa-comments"
+                                                aria-label="Unread messages"
+                                                role="img"
+                                            /><t
+                                                t-raw="record.message_needaction_counter.raw_value"
+                                            /></span>
+                                    </t>
                                 </div>
                                 <div class="oe_kanban_bottom_right">
                                     <field

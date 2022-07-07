@@ -78,6 +78,7 @@
                                 string="Accept Emails From"
                             />
                             <field name="alias_user_id" string="Assign to" />
+                            <field name="auto_send_mail" />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"

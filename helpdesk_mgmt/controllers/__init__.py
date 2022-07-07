@@ -1,2 +1,1 @@
-from . import main
-from . import myaccount
+from . import discuss, main, myaccount

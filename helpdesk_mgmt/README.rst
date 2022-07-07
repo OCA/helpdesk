@@ -169,6 +169,7 @@ Contributors
   * Catalin Airimitoaie
   * Álvaro López
   * Samuel Calvo
+  * isufi kapasi
 
 * `Adaptive City <https://www.adaptivecity.com>`_:
 

@@ -95,4 +95,21 @@
             <field name="groups" eval="[(4, ref('base.group_portal'))]" />
         </record>
     </data>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value
+                eval="[('name', 'in', ['helpesk_ticket_personal_rule']), ('model', '=', 'helpdesk.ticket')]"
+            />
+         </function>
+         <value eval="{'noupdate': False}" />
+    </function>
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value
+                eval="[('name', 'in', ['helpesk_ticket_personal_rule']),('model', '=', 'helpdesk.ticket')]"
+            />
+        </function>
+        <value eval="{'noupdate': True}" />
+    </function>
 </odoo>

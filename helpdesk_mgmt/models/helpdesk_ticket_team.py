@@ -53,6 +53,10 @@ class HelpdeskTeam(models.Model):
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority", compute="_compute_todo_tickets"
     )
+    auto_send_mail = fields.Boolean(
+        help="If ticked, System will send automatic send mail when ticket created, \
+        ticket closed, etc.",
+    )
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):

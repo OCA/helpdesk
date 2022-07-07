@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="view_email_template_helpdesk_ticket">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>[Nitrokey] Helpdesk Ticket</title>
+      </head>
+      <body
+            style="font-size: 10pt; font-family: Verdana,Geneva,sans-serif"
+            bgcolor="#FFFFFF"
+            text="#000000"
+        >
+        <t t-set="object" t-value="object.with_context(lang=object.partner_id.lang)" />
+        <t t-set="access_url" t-value="object._get_share_url()" />
+        <t t-set="blank_space" t-value=" ' '.replace(' ',u'\xa0').encode('utf-8') " />
+        <t t-set="language" t-value="object.partner_id.lang" />
+
+        <table
+                style="font-family: Verdana,sans-serif; font-size: 11px; width: 620px; margin-left: 15px;"
+            >
+            <tbody>
+                <tr>
+                    <td align="left"><img
+                                alt="Nitrokey"
+                                src="/nitrokey_reports/static/src/img/logo.png"
+                                height="53"
+                                width="185"
+                            /><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><t t-esc="blank_space" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 590px;">
+                            <span
+                                    style="font-family: Arial;font-size: 30px;font-weight: bold;letter-spacing: 0;line-height: 34px;"
+                                >Helpdesk Ticket</span>
+                            <hr style="border-top: 1px solid black;" />
+                            <p
+                                    style="text-align: right;color: #000000;font-family: Arial;font-size: 15px;font-weight: bold;letter-spacing: 0;line-height: 19px;"
+                                >
+                                <strong>Ticket number: <t
+                                            t-esc="object.number"
+                                        /> | Ticket date: <t
+                                            t-esc="object.company_id.with_context({'lang':object.partner_id.lang}).format_tz_report(object.create_date.date(), tz=object.env.user.tz)"
+                                        /></strong>
+                            </p><br />
+                            <P
+                                    style="font-family: Arial;font-size: 15px;letter-spacing: 0;line-height: 21px;"
+                                >
+                                <span>Hello <t
+                                            t-esc="object.partner_id.name"
+                                        />,</span><br /><br />
+                                <span
+                                    >we have received your inquiry and will answer it personally as soon as possible.</span><br
+                                    /><br />
+                                <span><a
+                                            href="https://www.nitrokey.com/documentation/frequently-asked-questions-faq"
+                                        >Frequently asked questions</a> are already answered on our website. For technical matters, we provide a lot of information in our <a
+                                            href="https://docs.nitrokey.com/"
+                                        >documentation</a>. You can also get more help and answers in our <a
+                                            href="https://support.nitrokey.com/"
+                                        >forum</a>.</span><br /><br />
+                                <span
+                                    >You can reply to this email to add information to the ticket.</span><br
+                                    /><br />
+                                <span>Best regards</span><br />
+                                <span>Your Nitrokey Team</span><br />
+                            </P>
+                            <br /><br />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="width: 620px; background-color: #14212D;">
+            <table style="width: 550px; margin-left: 15px;">
+                <tr>
+                    <td
+                            class="text"
+                            colspan="2"
+                            style="color: #FFFFFF;font-family: Arial;font-size: 13px;letter-spacing: 0;line-height: 17px;"
+                        >
+                        <br />
+                        <strong><t t-esc="object.company_id.name or ''" /></strong><br
+                            />
+                        <t t-if="object.company_id.street">
+                            <t t-esc="object.company_id.street" />,
+                        </t>
+                        <t t-if="object.company_id.street2">
+                            <t t-esc="object.company_id.street2" />,
+                        </t>
+                        <t t-if="object.company_id.city or object.company_id.zip">
+                            <t t-esc="object.company_id.zip" /> <t
+                                    t-esc="object.company_id.city"
+                                />,
+                        </t>
+                        <t t-if="object.company_id.country_id">
+                            <t
+                                    t-esc="object.company_id.state_id and object.company_id.state_id.name or ''"
+                                /> <t t-esc="object.company_id.country_id.name or ''" />
+                        </t>
+                        <br /><br />
+                        <strong>CEO: </strong><t
+                                t-esc="object.company_id.ceo or ''"
+                            /><br />
+                        <strong>Company register: </strong><t
+                                t-esc="object.company_id.company_registry or ''"
+                            /><br />
+                        <strong>VAT ID: </strong><t
+                                t-esc="object.company_id.vat or ''"
+                            /><br /><br />
+                    </td>
+                </tr>
+            </table>
+        </div><br /><br />
+        </body>
+    </template>
+
+    <record id="nitrokey_created_ticket_template" model="mail.template">
+        <field name="name">[Nitrokey] Helpdesk Created Ticket Notification Email</field>
+        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="email_from">{{ object.company_id.partner_id.email }}</field>
+        <field
+            name="email_to"
+        >{{ not object.partner_id and object.partner_email or '' }}</field>
+        <field
+            name="subject"
+        >{{ object.number }} Request received: {{ object.name }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="auto_delete" eval="False" />
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="body_html" type="html">
+            <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>[Nitrokey] Helpdesk Ticket</title>
+      </head>
+      <body
+                style="font-size: 10pt; font-family: Verdana,Geneva,sans-serif"
+                bgcolor="#FFFFFF"
+                text="#000000"
+            >
+        <t t-set="object" t-value="object.with_context(lang=object.partner_id.lang)" />
+        <t t-set="access_url" t-value="object._get_share_url()" />
+        <t t-set="language" t-value="object.partner_id.lang" />
+
+        <table
+                    style="font-family: Verdana,sans-serif; font-size: 11px; width: 620px; margin-left: 15px;"
+                >
+            <tbody>
+                <tr>
+                    <td align="left"><img
+                                    alt="Nitrokey"
+                                    src="/nitrokey_reports/static/src/img/logo.png"
+                                    height="53"
+                                    width="185"
+                                /><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td><t t-esc="blank_space" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="width: 590px;">
+                            <span
+                                        style="font-family: Arial;font-size: 30px;font-weight: bold;letter-spacing: 0;line-height: 34px;"
+                                    >Helpdesk Ticket</span>
+                            <hr style="border-top: 1px solid black;" />
+                            <p
+                                        style="text-align: right;color: #000000;font-family: Arial;font-size: 15px;font-weight: bold;letter-spacing: 0;line-height: 19px;"
+                                    >
+                                <strong>Ticket number: <t
+                                                t-esc="object.number"
+                                            /> | Ticket date: <t
+                                                t-esc="object.company_id.with_context({'lang':object.partner_id.lang}).format_tz_report(object.create_date.date(), tz=object.env.user.tz)"
+                                            /></strong>
+                            </p><br />
+                            <P
+                                        style="font-family: Arial;font-size: 15px;letter-spacing: 0;line-height: 21px;"
+                                    >
+                                <span>Hello <t
+                                                t-esc="object.partner_id.name"
+                                            />,</span><br /><br />
+                                <span
+                                        >we have received your inquiry and will answer it personally as soon as possible.</span><br
+                                        /><br />
+                                <span><a
+                                                href="https://www.nitrokey.com/documentation/frequently-asked-questions-faq"
+                                            >Frequently asked questions</a> are already answered on our website. For technical matters, we provide a lot of information in our <a
+                                                href="https://docs.nitrokey.com/"
+                                            >documentation</a>. You can also get more help and answers in our <a
+                                                href="https://support.nitrokey.com/"
+                                            >forum</a>.</span><br /><br />
+                                <span
+                                        >You can reply to this email to add information to the ticket.</span><br
+                                        /><br />
+                                <span>Best regards</span><br />
+                                <span>Your Nitrokey Team</span><br />
+                            </P>
+                            <br /><br />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="width: 620px; background-color: #14212D;">
+            <table style="width: 550px; margin-left: 15px;">
+                <tr>
+                    <td
+                                class="text"
+                                colspan="2"
+                                style="color: #FFFFFF;font-family: Arial;font-size: 13px;letter-spacing: 0;line-height: 17px;"
+                            >
+                        <br />
+                        <strong><t t-esc="object.company_id.name or ''" /></strong><br
+                                />
+                        <t t-if="object.company_id.street">
+                            <t t-esc="object.company_id.street" />,
+                        </t>
+                        <t t-if="object.company_id.street2">
+                            <t t-esc="object.company_id.street2" />,
+                        </t>
+                        <t t-if="object.company_id.city or object.company_id.zip">
+                            <t t-esc="object.company_id.zip" /> <t
+                                        t-esc="object.company_id.city"
+                                    />,
+                        </t>
+                        <t t-if="object.company_id.country_id">
+                            <t
+                                        t-esc="object.company_id.state_id and object.company_id.state_id.name or ''"
+                                    /> <t
+                                        t-esc="object.company_id.country_id.name or ''"
+                                    />
+                        </t>
+                        <br /><br />
+                        <strong>CEO: </strong><t
+                                    t-esc="object.company_id.ceo or ''"
+                                /><br />
+                        <strong>Company register: </strong><t
+                                    t-esc="object.company_id.company_registry or ''"
+                                /><br />
+                        <strong>VAT ID: </strong><t
+                                    t-esc="object.company_id.vat or ''"
+                                /><br /><br />
+                    </td>
+                </tr>
+            </table>
+        </div><br /><br />
+        </body>
+        </field>
+    </record>
+
+    <template id="view_email_default_template_helpdesk_ticket">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>[Nitrokey] Helpdesk Ticket</title>
+      </head>
+      <body
+            style="font-size: 10pt; font-family: Verdana,Geneva,sans-serif"
+            bgcolor="#FFFFFF"
+            text="#000000"
+        >
+        <t t-set="object" t-value="object.with_context(lang=object.partner_id.lang)" />
+        <t t-set="language" t-value="object.partner_id.lang" />
+
+        <p>Hi <t
+                    t-esc="(object.partner_name or object.partner_id.name or '')+ (',' if language=='de_DE' else '!')"
+                /></p>
+        <!-- <p><t t-esc="blank_space"/></p> -->
+        <p>Best regards,</p>
+        </body>
+    </template>
+    <record id="nitrokey_default_ticket_template" model="mail.template">
+        <field name="name">[Nitrokey] Helpdesk Ticket Default Email Template</field>
+        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="email_from">{{ object.team_id.alias_name }}</field>
+        <field
+            name="email_to"
+        >{{ not object.partner_id and object.partner_email or '' }}</field>
+        <field name="subject">Re: {{ object.number }} {{ object.name }}</field>
+        <field name="partner_to">{{ object.partner_id.id }}</field>
+        <field name="auto_delete" eval="False" />
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="body_html" type="html">
+            <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <title>[Nitrokey] Helpdesk Ticket</title>
+            </head>
+            <body
+                style="font-size: 10pt; font-family: Verdana,Geneva,sans-serif"
+                bgcolor="#FFFFFF"
+                text="#000000"
+            >
+                <t
+                    t-set="object"
+                    t-value="object.with_context(lang=object.partner_id.lang)"
+                />
+                <t t-set="language" t-value="object.partner_id.lang" />
+
+                <p>Hi <t
+                        t-esc="(object.partner_name or object.partner_id.name or '')+ (',' if language=='de_DE' else '!')"
+                    /></p>
+                <p>Best regards,</p>
+            </body>
+        </field>
+    </record>
+</odoo>

@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "15.0.1.5.0",
+    "version": "15.0.1.6.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -17,6 +17,8 @@
     "depends": ["mail", "portal"],
     "data": [
         "data/helpdesk_data.xml",
+        "data/helpdesk_ticket_mail.xml",
+        "data/ir_cron.xml",
         "security/helpdesk_security.xml",
         "security/ir.model.access.csv",
         "views/res_partner_views.xml",
@@ -29,9 +31,15 @@
         "views/helpdesk_ticket_tag_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
+        "views/res_config_settings_view.xml",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "development_status": "Beta",
+    "assets": {
+        "web.assets_backend": [
+            "helpdesk_mgmt/static/src/models/composer_view/composer_view.js",
+        ],
+    },
     "application": True,
     "installable": True,
 }
