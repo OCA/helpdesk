@@ -7,7 +7,6 @@ class ResCompany(models.Model):
     helpdek_from_email = fields.Char(
         "From email",
         help="From Email used when sending helpdesk email from Odoo",
-        default="Nitrokey <reply@nitrokey.com>",
     )
     ticket_idle_period = fields.Integer(
         "Tickets idle for X days",
