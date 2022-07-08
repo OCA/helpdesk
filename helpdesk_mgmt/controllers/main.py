@@ -44,7 +44,8 @@ class HelpdeskTicketController(http.Controller):
     def submit_ticket(self, **kw):
 
         category = http.request.env["helpdesk.ticket.category"].browse(
-            int(kw.get("category")))
+            int(kw.get("category"))
+        )
         team = (
             request.env.user.partner_id.default_helpdesk_team_id
             or request.env.user.commercial_partner_id.default_helpdesk_team_id

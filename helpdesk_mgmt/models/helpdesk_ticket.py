@@ -190,6 +190,10 @@ class HelpdeskTicket(models.Model):
         """
         if custom_values is None:
             custom_values = {}
+        team = self.env["helpdesk.ticket.team"].browse(custom_values.get("team_id"))
+        if team:
+            if "user_id" not in custom_values:
+                custom_values["user_id"] = team.alias_user_id.id or team.user_id.id
         defaults = {
             "name": msg.get("subject") or _("No Subject"),
             "description": msg.get("body"),
