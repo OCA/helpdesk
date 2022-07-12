@@ -78,3 +78,33 @@ class TestHelpdeskTicketTeam(common.SavepointCase):
             1,
             "Helpdesk Ticket: Helpdesk ticket team should " "have one ticket to do.",
         )
+
+    def test_helpdesk_ticket_team_from_category(self):
+        self.assertEqual(
+            self.team_id.todo_ticket_count,
+            2,
+        )
+        category = self.env.ref("helpdesk_mgmt.helpdesk_category_1")
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket 1",
+                "description": "Description",
+                "category_id": category.id,
+            }
+        )
+        self.assertEqual(
+            self.team_id.todo_ticket_count,
+            2,
+        )
+        category.default_team_id = self.team_id
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket 1",
+                "description": "Description",
+                "category_id": category.id,
+            }
+        )
+        self.assertEqual(
+            self.team_id.todo_ticket_count,
+            3,
+        )
