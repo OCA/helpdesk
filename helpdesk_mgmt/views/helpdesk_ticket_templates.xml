@@ -55,15 +55,15 @@
             <t t-set="breadcrumbs_searchbar" t-value="True" />
             <form method="POST" t-attf-action="/new/ticket">
                 <h3>Tickets
-            <t t-call="portal.portal_searchbar" />
-            <button
+                    <t t-call="portal.portal_searchbar" />
+                    <button
                         name="create_new_ticket"
                         type="action"
                         class="btn btn-primary"
                         groups="base.group_portal"
                         style="float: right; margin-right: 5px;"
                     >New Ticket</button>
-          </h3>
+                </h3>
                 <input
                     type="hidden"
                     name="csrf_token"
@@ -83,6 +83,7 @@
                                 <th>Name</th>
                                 <th>Category</th>
                                 <th>Stage</th>
+                                <th>Priority</th>
                                 <th>Create Date</th>
                                 <th>Last Stage Update</th>
                                 <th>Close Date</th>
@@ -106,6 +107,39 @@
                                 </td>
                                 <td>
                                     <t t-esc="ticket.stage_id.name" />
+                                </td>
+                                <td>
+                                    <div
+                                        role="radiogroup"
+                                        class="o_priority o_field_widget"
+                                        name="priority"
+                                        aria-label="Priority"
+                                    >
+                                        <span
+                                            role="radio"
+                                            title="Medium"
+                                            aria-label="Medium"
+                                            tabindex="0"
+                                            data-index="1"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority in ['1','2','3'] and ' fa-star' or ' fa-star-o')"
+                                        />
+                                        <span
+                                            role="radio"
+                                            title="High"
+                                            aria-label="High"
+                                            tabindex="-1"
+                                            data-index="2"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority in ['2','3'] and ' fa-star' or ' fa-star-o')"
+                                        />
+                                        <span
+                                            role="radio"
+                                            title="Very High"
+                                            aria-label="Very High"
+                                            tabindex="-1"
+                                            data-index="3"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority == '3' and ' fa-star' or ' fa-star-o')"
+                                        />
+                                    </div>
                                 </td>
                                 <td>
                                     <span t-field="ticket.create_date" />
@@ -185,6 +219,40 @@
                                 <div class="pull-right">
                                     <strong>Last Stage Update:</strong>
                                     <span t-field="ticket.last_stage_update" />
+                                    <br />
+                                    <strong>Priority:</strong>
+                                    <div
+                                        role="radiogroup"
+                                        class="o_priority o_field_widget"
+                                        name="priority"
+                                        aria-label="Priority"
+                                        style="display: inline;"
+                                    >
+                                        <span
+                                            role="radio"
+                                            title="Medium"
+                                            aria-label="Medium"
+                                            tabindex="0"
+                                            data-index="1"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority in ['1','2','3'] and ' fa-star' or ' fa-star-o')"
+                                        />
+                                        <span
+                                            role="radio"
+                                            title="High"
+                                            aria-label="High"
+                                            tabindex="-1"
+                                            data-index="2"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority in ['2','3'] and ' fa-star' or ' fa-star-o')"
+                                        />
+                                        <span
+                                            role="radio"
+                                            title="Very High"
+                                            aria-label="Very High"
+                                            tabindex="-1"
+                                            data-index="3"
+                                            t-att-class="'o_priority_star fa' + (ticket.priority == '3' and ' fa-star' or ' fa-star-o')"
+                                        />
+                                    </div>
                                     <br />
                                 </div>
                             </div>
