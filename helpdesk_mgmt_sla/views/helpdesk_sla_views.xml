@@ -26,6 +26,11 @@
                                 <field name="days" /> days<br />
                                 <field name="hours" /> hours<br />
                             </div>
+                            <field
+                                name="freeze_stage_ids"
+                                widget="many2many_tags"
+                                domain="[('id', '!=', stage_id)]"
+                            />
                         </group>
                     </group>
                     <field name="note" placeholder="Description of the policy..." />

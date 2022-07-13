@@ -14,6 +14,10 @@
                 name="stage_id"
                 ref="helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
             />
+            <field
+                name="freeze_stage_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_ticket_stage_awaiting')])]"
+            />
             <field name="hours">2</field>
         </record>
     </data>
