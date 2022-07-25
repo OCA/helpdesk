@@ -25,9 +25,6 @@ class HelpdeskTicket(models.Model):
             "manager_user_id": self.team_id.user_id.id or self.user_id.id,
             "responsible_user_id": self.team_id.user_id.id or self.user_id.id,
             "description": self.description,
-            "origin_ids": [
-                (6, 0, self.env.ref("mgmtsystem_nonconformity.demo_origin").ids)
-            ],
         }
         if stage.state == "open":
             vals.update({"action_comments": self.description})
