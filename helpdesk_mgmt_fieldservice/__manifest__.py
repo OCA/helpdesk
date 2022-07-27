@@ -4,7 +4,7 @@
 {
     "name": "Helpdesk Mgmt Fieldservice",
     "summary": """
-        Create service requests from a ticket""",
+        Create service orders from a ticket""",
     "version": "14.0.1.1.0",
     "license": "LGPL-3",
     "author": "Open Source Integrators, "

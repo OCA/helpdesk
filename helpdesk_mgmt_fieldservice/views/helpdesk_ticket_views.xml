@@ -62,8 +62,15 @@
                     </page>
             </page>
             <field name="partner_id" position="before">
+                <field name="partner_domain" invisible="1" />
+                <field name="all_partners" invisible="1" />
                 <field name="fsm_location_id" />
                 <field name="all_orders_closed" invisible="1" />
+            </field>
+            <field name="partner_id" position="attributes">
+                <attribute
+                    name="domain"
+                >['|', ('service_location_id', '=', partner_domain), (all_partners, '=', True)]</attribute>
             </field>
         </field>
     </record>
@@ -96,6 +103,14 @@
                     name="partner_email"
                     attrs="{'invisible': [('partner_id','=',False)]}"
                 />
+            </field>
+            <field name="description" position="replace">
+                <group string="Description" name="description_grp">
+                    <field name="description" widget="html" />
+                </group>
+                <group string="Resolution" name="resolution_grp">
+                    <field name="resolution" widget="html" />
+                </group>
             </field>
         </field>
     </record>
