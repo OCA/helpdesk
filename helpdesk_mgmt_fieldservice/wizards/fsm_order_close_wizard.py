@@ -10,17 +10,18 @@ class FSMOrderCloseWizard(models.TransientModel):
     _description = "FSM Close - Option to Close Ticket"
 
     resolution = fields.Text(string="Resolution")
-    team_id = fields.Many2one('helpdesk.ticket.team', string="Helpdesk Team")
-    stage_id = fields.Many2one('helpdesk.ticket.stage', string="Stage")
-    ticket_id = fields.Many2one('helpdesk.ticket', string="Ticket")
+    team_id = fields.Many2one("helpdesk.ticket.team", string="Helpdesk Team")
+    stage_id = fields.Many2one("helpdesk.ticket.stage", string="Stage")
+    ticket_id = fields.Many2one("helpdesk.ticket", string="Ticket")
 
     @api.multi
     def action_close_ticket(self):
         for record in self:
             if not record.ticket_id.stage_id.closed:
-                record.ticket_id.write({'resolution': record.resolution,
-                                        'stage_id': record.stage_id.id})
+                record.ticket_id.write(
+                    {"resolution": record.resolution, "stage_id": record.stage_id.id}
+                )
         return {
-            'type': 'ir.actions.client',
-            'tag': 'reload',
+            "type": "ir.actions.client",
+            "tag": "reload",
         }
