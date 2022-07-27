@@ -12,6 +12,10 @@ class HelpdeskTicket(models.Model):
     fsm_order_ids = fields.One2many("fsm.order", "ticket_id", string="Service Orders")
     fsm_location_id = fields.Many2one("fsm.location", string="FSM Location")
     all_orders_closed = fields.Boolean(compute="_compute_all_closed", store=True)
+    resolution = fields.Text(string="Resolution")
+    # these fields are needed to obtain depreciation of onchange in v14
+    partner_domain = fields.Integer(compute="_compute_partner_domain")
+    all_partners = fields.Boolean(compute="_compute_partner_domain")
 
     @api.constrains("stage_id")
     def _validate_stage_fields(self):
@@ -43,44 +47,40 @@ class HelpdeskTicket(models.Model):
                 if not self.fsm_location_id:
                     self.fsm_location_id = self.partner_id.service_location_id
 
-    @api.onchange("fsm_location_id")
-    def _onchange_fsm_location_id_partner(self):
-        if self.fsm_location_id:
-            self._location_contact_fill(True)
-            if self.fsm_location_id and not self.partner_id:
-                return {
-                    "domain": {
-                        "partner_id": [
-                            ("service_location_id", "=", self.fsm_location_id.name)
-                        ]
-                    }
-                }
-        else:
-            return {"domain": {"partner_id": [("id", "!=", None)]}}
+    # Updating domain via onchange is deprecated in odoo v14
+    @api.depends("fsm_location_id")
+    def _compute_partner_domain(self):
+        for rec in self:
+            rec.partner_domain = False
+            rec.all_partners = True
+            if rec.fsm_location_id:
+                rec._location_contact_fill(True)
+                if rec.fsm_location_id and not rec.partner_id:
+                    rec.partner_domain = rec.fsm_location_id.id
+                    rec.all_partners = False
 
     @api.onchange("partner_id")
     def _onchange_partner_id_location(self):
         if self.partner_id:
             self._location_contact_fill(False)
 
-    @api.multi
     def action_create_order(self):
         """
         This function returns an action that displays a full FSM Order
         form when creating an FSM Order from a ticket.
         """
-        action = self.env.ref("fieldservice.action_fsm_operation_order")
-        result = action.read()[0]
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "fieldservice.action_fsm_operation_order"
+        )
         # override the context to get rid of the default filtering
-        result["context"] = {
+        action["context"] = {
             "default_ticket_id": self.id,
             "default_priority": self.priority,
             "default_location_id": self.fsm_location_id.id,
-            "default_origin": self.name,
         }
         res = self.env.ref("fieldservice.fsm_order_form", False)
-        result["views"] = [(res and res.id or False, "form")]
-        return result
+        action["views"] = [(res and res.id or False, "form")]
+        return action
 
     @api.depends("fsm_order_ids", "stage_id", "fsm_order_ids.stage_id")
     def _compute_all_closed(self):

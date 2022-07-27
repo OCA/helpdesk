@@ -2,7 +2,7 @@
 # Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class FSMOrderCloseWizard(models.TransientModel):
@@ -14,7 +14,6 @@ class FSMOrderCloseWizard(models.TransientModel):
     stage_id = fields.Many2one("helpdesk.ticket.stage", string="Stage")
     ticket_id = fields.Many2one("helpdesk.ticket", string="Ticket")
 
-    @api.multi
     def action_close_ticket(self):
         for record in self:
             if not record.ticket_id.stage_id.closed:
