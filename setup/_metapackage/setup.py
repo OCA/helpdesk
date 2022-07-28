@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo14-addon-helpdesk_mgmt',
         'odoo14-addon-helpdesk_mgmt_project',
         'odoo14-addon-helpdesk_mgmt_rating',
+        'odoo14-addon-helpdesk_mgmt_sla',
         'odoo14-addon-helpdesk_mgmt_timesheet',
         'odoo14-addon-helpdesk_motive',
         'odoo14-addon-helpdesk_type',
