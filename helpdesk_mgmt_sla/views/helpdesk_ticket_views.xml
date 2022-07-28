@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="inherit_view_helpdesk_ticket_kanban">
+        <field name="name">inherit_view_helpdesk_ticket_kanban</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban" position="inside">
+                <field name="sla_expired" />
+                <field name="sla_deadline" />
+            </xpath>
+            <xpath expr="//field[@name='activity_ids']" position="after">
+                <div t-if="record.sla_expired.raw_value">
+                    <span style="color: red; font-weight: bold;">
+                        <field name="sla_deadline" />
+                    </span>
+                </div>
+                <div t-if="record.sla_expired.raw_value == false">
+                    <span style="color: green; font-weight: bold;">
+                        <field name="sla_deadline" />
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="inherit_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="name">inherit.helpdesk.ticket.form.view</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='channel_id']" position="after">
+                <field name="team_sla" invisible="1" />
+                <field
+                    name="sla_deadline"
+                    attrs="{'invisible': [('team_sla', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
