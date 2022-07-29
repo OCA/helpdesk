@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo14-addon-helpdesk_mgmt',
+        'odoo14-addon-helpdesk_mgmt_fieldservice',
         'odoo14-addon-helpdesk_mgmt_project',
         'odoo14-addon-helpdesk_mgmt_rating',
         'odoo14-addon-helpdesk_mgmt_sla',
