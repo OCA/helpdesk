@@ -34,18 +34,18 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_title')]" position="before">
                 <field name="positive_rate_percentage" invisible="1" />
-                <div class="oe_button_box" name="button_box">
-                    <button
-                        name="action_view_ticket_rating"
-                        type="object"
-                        class="oe_stat_button"
-                        icon="fa fa-smile-o"
-                        attrs="{'invisible': [('positive_rate_percentage', '=', -1)]}"
-                    >
-                        <field name="rating_count" widget="statinfo" string="Ratings" />
-                    </button>
-                </div>
             </xpath>
+            <div name="button_box" position="inside">
+                <button
+                    name="action_view_ticket_rating"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-smile-o"
+                    attrs="{'invisible': [('positive_rate_percentage', '=', -1)]}"
+                >
+                    <field name="rating_count" widget="statinfo" string="Ratings" />
+                </button>
+            </div>
             <xpath expr="//group[@name='main']/group[2]" position="after">
                 <group>
                     <field name="rating_status" widget="radio" />
