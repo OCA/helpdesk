@@ -4,7 +4,7 @@
         This module allows customer to rate the assistance received
         on a ticket.
         """,
-    "version": "13.0.1.1.0",
+    "version": "13.0.1.2.0",
     "license": "AGPL-3",
     "author": "Domatix, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
