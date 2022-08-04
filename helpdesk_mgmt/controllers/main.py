@@ -42,9 +42,12 @@ class HelpdeskTicketController(http.Controller):
 
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
     def submit_ticket(self, **kw):
+        category = http.request.env["helpdesk.ticket.category"].browse(
+            int(kw.get("category"))
+        )
         vals = {
-            "company_id": http.request.env.user.company_id.id,
-            "category_id": kw.get("category"),
+            "company_id": category.company_id.id or http.request.env.user.company_id.id,
+            "category_id": category.id,
             "description": kw.get("description"),
             "name": kw.get("subject"),
             "attachment_ids": False,
@@ -68,4 +71,4 @@ class HelpdeskTicketController(http.Controller):
                             "res_id": new_ticket.id,
                         }
                     )
-        return werkzeug.utils.redirect("/my/tickets")
+        return werkzeug.utils.redirect("/my/ticket/%s" % new_ticket.id)
