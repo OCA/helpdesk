@@ -73,4 +73,4 @@ class HelpdeskTicketController(http.Controller):
                             "res_id": new_ticket.id,
                         }
                     )
-        return werkzeug.utils.redirect("/my/tickets")
+        return werkzeug.utils.redirect("/my/ticket/%s" % new_ticket.id)
