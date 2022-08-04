@@ -191,6 +191,7 @@ Contributors
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * Pedro M. Baeza
+  * Víctor Martínez
 
 * `ID42 Sistemas <https://www.id42.com.br>`_:
 
