@@ -10,10 +10,7 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager as porta
 class CustomerPortalHelpdesk(CustomerPortal):
     def _prepare_portal_layout_values(self):
         values = super()._prepare_portal_layout_values()
-        partner = request.env.user.partner_id
-        ticket_count = request.env["helpdesk.ticket"].search_count(
-            [("partner_id", "child_of", partner.id)]
-        )
+        ticket_count = request.env["helpdesk.ticket"].search_count([])
         values["ticket_count"] = ticket_count
         return values
 
