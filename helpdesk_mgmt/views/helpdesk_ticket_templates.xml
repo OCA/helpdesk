@@ -29,10 +29,10 @@
         priority="40"
     >
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
-            <t t-if="ticket_count" t-call="portal.portal_docs_entry">
+            <t t-call="portal.portal_docs_entry">
                 <t t-set="title">Tickets</t>
                 <t t-set="url" t-value="'/my/tickets'" />
-                <t t-set="count" t-value="ticket_count" />
+                <t t-set="placeholder_count" t-value="'ticket_count'" />
             </t>
             <form method="POST" t-attf-action="/new/ticket">
                 <input
