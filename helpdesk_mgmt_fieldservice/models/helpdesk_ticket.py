@@ -1,6 +1,6 @@
 # Copyright (C) 2019 - TODAY, Open Source Integrators
 # Copyright (C) 2020 - TODAY, Marcel Savegnago - Escodoo
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
