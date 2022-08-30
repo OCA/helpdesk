@@ -8,9 +8,14 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager as porta
 
 
 class CustomerPortalHelpdesk(CustomerPortal):
-    def _prepare_portal_layout_values(self):
-        values = super()._prepare_portal_layout_values()
-        ticket_count = request.env["helpdesk.ticket"].search_count([])
+    def _prepare_home_portal_values(self):
+        values = super()._prepare_home_portal_values()
+        helpdesk_model = request.env["helpdesk.ticket"]
+        ticket_count = (
+            helpdesk_model.search_count([])
+            if helpdesk_model.check_access_rights("read", raise_exception=False)
+            else 0
+        )
         values["ticket_count"] = ticket_count
         return values
 
@@ -25,6 +30,10 @@ class CustomerPortalHelpdesk(CustomerPortal):
     ):
         values = self._prepare_portal_layout_values()
         HelpdesTicket = request.env["helpdesk.ticket"]
+        # Avoid error if the user does not have access.
+        if not HelpdesTicket.check_access_rights("read", raise_exception=False):
+            return request.redirect("/my")
+
         domain = []
 
         searchbar_sortings = {
