@@ -8,8 +8,8 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager as porta
 
 
 class CustomerPortalHelpdesk(CustomerPortal):
-    def _prepare_portal_layout_values(self):
-        values = super()._prepare_portal_layout_values()
+    def _prepare_home_portal_values(self):
+        values = super()._prepare_home_portal_values()
         helpdesk_model = request.env["helpdesk.ticket"]
         ticket_count = (
             helpdesk_model.search_count([])
