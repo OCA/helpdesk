@@ -1,0 +1,60 @@
+<odoo>
+
+    <record id="view_sla_rule_tree" model="ir.ui.view">
+        <field name="name">sla.rule.tree</field>
+        <field name="model">sla.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="team_id" />
+                <field name="stage_id" />
+                <field name="category_id" />
+                <field name="match_categ" />
+                <field name="tag_ids" widget="many2many_tags" />
+                <field name="match_tags" />
+                <field name="type_id" />
+                <field name="match_type" />
+                <field name="sla_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sla_rule_form" model="ir.ui.view">
+        <field name="name">sla.rule.form</field>
+        <field name="model">sla.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="team_id" />
+                        <field name="stage_id" />
+                        <field name="category_id" />
+                        <field name="match_categ" />
+                        <field name="tag_ids" widget="many2many_tags" />
+                        <field name="match_tags" />
+                        <field name="type_id" />
+                        <field name="match_type" />
+                        <field name="sla_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sla_rule_action" model="ir.actions.act_window">
+        <field name="name">SLA Rules</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sla.rule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_sla_rule"
+        name="SLA Rules"
+        action="sla_rule_action"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+    />
+
+</odoo>
