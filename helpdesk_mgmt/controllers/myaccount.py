@@ -8,10 +8,16 @@ from odoo.addons.portal.controllers.portal import CustomerPortal, pager as porta
 
 
 class CustomerPortalHelpdesk(CustomerPortal):
-    def _prepare_portal_layout_values(self):
-        values = super()._prepare_portal_layout_values()
-        ticket_count = request.env["helpdesk.ticket"].search_count([])
-        values["ticket_count"] = ticket_count
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        if "ticket_count" in counters:
+            helpdesk_model = request.env["helpdesk.ticket"]
+            ticket_count = (
+                helpdesk_model.search_count([])
+                if helpdesk_model.check_access_rights("read", raise_exception=False)
+                else 0
+            )
+            values["ticket_count"] = ticket_count
         return values
 
     @http.route(
@@ -24,7 +30,11 @@ class CustomerPortalHelpdesk(CustomerPortal):
         self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw
     ):
         values = self._prepare_portal_layout_values()
-        HelpdesTicket = request.env["helpdesk.ticket"]
+        HelpdeskTicket = request.env["helpdesk.ticket"]
+        # Avoid error if the user does not have access.
+        if not HelpdeskTicket.check_access_rights("read", raise_exception=False):
+            return request.redirect("/my")
+
         domain = []
 
         searchbar_sortings = {
@@ -58,7 +68,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         domain += searchbar_filters[filterby]["domain"]
 
         # count for pager
-        ticket_count = HelpdesTicket.search_count(domain)
+        ticket_count = HelpdeskTicket.search_count(domain)
         # pager
         pager = portal_pager(
             url="/my/tickets",
@@ -68,7 +78,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
             step=self._items_per_page,
         )
         # content according to pager and archive selected
-        tickets = HelpdesTicket.search(
+        tickets = HelpdeskTicket.search(
             domain, order=order, limit=self._items_per_page, offset=pager["offset"]
         )
         values.update(
