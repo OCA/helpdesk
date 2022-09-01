@@ -8,11 +8,6 @@ from odoo.exceptions import AccessError, MissingError
 from odoo.osv import expression
 
 from odoo.addons.component.core import AbstractComponent
-from odoo.addons.datamodel.core import Datamodel
-
-
-class EmptyOutput(Datamodel):
-    _name = "empty.output"
 
 
 class BaseHelpdeskService(AbstractComponent):
@@ -20,13 +15,6 @@ class BaseHelpdeskService(AbstractComponent):
     _name = "base.helpdesk.rest.service"
     _collection = "helpdesk.rest.services"
     _expose_model = None
-
-    def _to_json(self, record, many=False):
-        result = record.jsonify(self._json_parser())
-        if many:
-            return result
-        else:
-            return result[0]
 
     def _get(self, _id):
         domain = expression.normalize_domain(self._get_base_search_domain())
@@ -45,8 +33,3 @@ class BaseHelpdeskService(AbstractComponent):
                 _("You should be connected to search for Helpdesk Tickets")
             )
         return []
-
-    def _return_record(self, record):
-        return self.env.datamodels["{}.output".format(self._expose_model)].load(
-            self._to_json(record)
-        )

@@ -4,50 +4,10 @@
 
 
 from odoo.addons.base_rest import restapi
+from odoo.addons.base_rest_pydantic.restapi import PydanticModel
 from odoo.addons.component.core import AbstractComponent
-from odoo.addons.datamodel import fields
-from odoo.addons.datamodel.core import Datamodel
 
-
-class MailPartnerOutput(Datamodel):
-    _name = "mail.partner.output"
-
-    id = fields.Integer(required=False, allow_none=False)
-    name = fields.String(required=True, allow_none=False)
-
-
-class MailAttachmentInput(Datamodel):
-    _name = "mail.attachment.input"
-
-    id = fields.Integer(required=True)
-
-
-class MailMessageBase(Datamodel):
-    _name = "mail.message.base"
-
-    body = fields.String(required=True, allow_none=False)
-
-
-class MailMessageInput(Datamodel):
-    _name = "mail.message.input"
-    _inherit = "mail.message.base"
-
-    attachments = fields.NestedModel("mail.attachment.input", required=False, many=True)
-
-
-class MailMessageOutput(Datamodel):
-    _name = "mail.message.output"
-    _inherit = "mail.message.base"
-
-    id = fields.Integer(required=False, allow_none=False)
-    date = fields.DateTime(required=False, allow_none=False)
-    author = fields.NestedModel("mail.partner.output", required=True, allow_none=False)
-
-
-class MailThreadOutput(Datamodel):
-    _name = "mail.thread.output"
-
-    messages = fields.NestedModel("mail.message.output", required=True, many=True)
+from ..pydantic_models.mail_message import MailMessageInfo, MailMessageRequest
 
 
 class AbstractMailThreadService(AbstractComponent):
@@ -56,16 +16,14 @@ class AbstractMailThreadService(AbstractComponent):
 
     @restapi.method(
         routes=[(["/<int:id>/message_post"], "POST")],
-        input_param=restapi.Datamodel("mail.message.input"),
-        output_param=restapi.Datamodel("mail.message.output"),
+        input_param=PydanticModel(MailMessageRequest),
+        output_param=PydanticModel(MailMessageInfo),
     )
     def message_post(self, _id, message):
         record = self._get(_id)
-        kwargs = self._prepare_message_post_params(message.dump())
+        kwargs = self._prepare_message_post_params(message.dict())
         message = record.message_post(**kwargs)
-        return self.env.datamodels["mail.message.output"].load(
-            message.jsonify(self._json_parser_message())[0]
-        )
+        return MailMessageInfo.from_orm(message)
 
     def _prepare_message_post_params(self, params):
         params["author_id"] = self.env.context["authenticated_partner_id"]
@@ -77,15 +35,3 @@ class AbstractMailThreadService(AbstractComponent):
         if attachments:
             params["attachment_ids"] = [item["id"] for item in attachments]
         return params
-
-    def _json_parser_messages(self):
-        res = [("message_ids:messages", self._json_parser_message())]
-        return res
-
-    def _json_parser_message(self):
-        return [
-            "id",
-            "body",
-            "date",
-            ("author_id:author", ["id", "name"]),
-        ]

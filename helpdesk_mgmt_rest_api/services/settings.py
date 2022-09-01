@@ -5,9 +5,11 @@
 import logging
 
 from odoo.addons.base_rest import restapi
+from odoo.addons.base_rest_pydantic.pydantic_models.base import IdAndNameInfo
+from odoo.addons.base_rest_pydantic.restapi import PydanticModel, PydanticModelList
 from odoo.addons.component.core import Component
-from odoo.addons.datamodel import fields
-from odoo.addons.datamodel.core import Datamodel
+
+from ..pydantic_models.settings import HelpdeskAllSettingsInfo
 
 _logger = logging.getLogger(__name__)
 
@@ -22,62 +24,40 @@ class HelpdeskSettingsService(Component):
 
     @restapi.method(
         [(["/", "/all"], "GET")],
-        output_param=restapi.Datamodel("helpdesk.all.settings.output"),
+        output_param=PydanticModel(HelpdeskAllSettingsInfo),
         auth="public_or_default",
     )
     def get_all(self):
-        return self.env.datamodels["helpdesk.all.settings.output"].load(self._get_all())
+        return HelpdeskAllSettingsInfo.parse_obj(self._get_all())
 
     def _get_all(self):
         return {
-            "categories": self._get_categories(),
-            "teams": self._get_teams(),
+            "categories": [categ.dict() for categ in self._get_categories()],
+            "teams": [team.dict() for team in self._get_teams()],
         }
 
     @restapi.method(
         [(["/categories"], "GET")],
-        output_param=restapi.Datamodel("helpdesk.category.output", is_list=True),
+        output_param=PydanticModelList(IdAndNameInfo),
         auth="public_or_default",
     )
     def categories(self):
-        return self.env.datamodels["helpdesk.category.output"].load(
-            self._get_categories(), many=True
-        )
+        return self._get_categories()
 
     def _get_categories(self):
-        return (
-            self.env["helpdesk.ticket.category"]
-            .search([])
-            .jsonify(self._jsonify_id_and_name())
-        )
+        categories = self.env["helpdesk.ticket.category"].search([])
+        result = [IdAndNameInfo.from_orm(categ) for categ in categories]
+        return result
 
     @restapi.method(
         [(["/teams"], "GET")],
-        output_param=restapi.Datamodel("helpdesk.team.output", is_list=True),
+        output_param=PydanticModelList(IdAndNameInfo),
         auth="public_or_default",
     )
     def teams(self):
-        return self.env.datamodels["helpdesk.team.output"].load(
-            self._get_teams(), many=True
-        )
+        return [IdAndNameInfo.from_orm(team) for team in self._get_teams()]
 
     def _get_teams(self):
-        return (
-            self.env["helpdesk.ticket.team"]
-            .search([])
-            .jsonify(self._jsonify_id_and_name())
-        )
-
-    def _jsonify_id_and_name(self):
-        return ["id", "name"]
-
-
-class HelpdeskAllSettingsOutput(Datamodel):
-    _name = "helpdesk.all.settings.output"
-
-    categories = fields.NestedModel(
-        "helpdesk.category.output", required=False, allow_none=True, many=True
-    )
-    teams = fields.NestedModel(
-        "helpdesk.team.output", required=False, allow_none=True, many=True
-    )
+        teams = self.env["helpdesk.ticket.team"].search([])
+        result = [IdAndNameInfo.from_orm(team) for team in teams]
+        return result

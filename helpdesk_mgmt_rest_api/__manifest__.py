@@ -10,10 +10,15 @@
     "depends": [
         "helpdesk_mgmt",
         "base_rest",
-        "base_jsonify",
-        "base_rest_datamodel",
         "base_rest_abstract_attachment",
     ],
+    "external_dependencies": {
+        "python": [
+            "pydantic",
+            "pydantic[email]",
+            "extendable_pydantic",
+        ]
+    },
     "data": [
         "security/helpdesk_security.xml",
         "security/ir.model.access.csv",
