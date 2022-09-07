@@ -1,10 +1,45 @@
 <odoo>
+    <record id="view_helpdesk_sla_search" model="ir.ui.view">
+        <field name="name">helpdesk.sla.form.search</field>
+        <field name="model">helpdesk.sla</field>
+        <field name="arch" type="xml">
+            <search string="Helpdesk SLA Search">
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active','=',False)]"
+                />
+                <separator />
+                <field name="name" filter_domain="[('name', 'ilike', self)]" />
+            </search>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="helpdesk_ticket_sla_form">
         <field name="name">helpdesk.sla.form</field>
         <field name="model">helpdesk.sla</field>
         <field name="arch" type="xml">
             <form string="SLA">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            string="Archive"
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                            attrs="{'invisible': [('active', '=', False)]}"
+                        />
+                        <button
+                            string="Restore"
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-archive"
+                            attrs="{'invisible': [('active', '=', True)]}"
+                        />
+                        <field name="active" invisible="1" />
+                    </div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
@@ -14,22 +49,41 @@
                     <group>
                         <group>
                             <separator colspan="2" string="Apply on" />
+                            <field name="team_ids" widget="many2many_tags" />
+                            <field name="category_ids" widget="many2many_tags" />
+                            <field name="tag_ids" widget="many2many_tags" />
+                            <field name="stage_ids" widget="many2many_tags" />
                             <field
-                                name="team_ids"
-                                domain="[('use_sla', '=', True)]"
-                                widget="many2many_tags"
+                                name="domain"
+                                widget="domain"
+                                options="{'model': 'helpdesk.ticket', 'in_dialog': True}"
                             />
-                            <separator colspan="2" string="Target" class="mt32" />
-                            <field name="stage_id" string="Reach Stage" />
+                        </group>
+                        <group string="Target">
                             <label for="days" string="Reach In" />
                             <div class="o_row">
-                                <field name="days" /> days<br />
-                                <field name="hours" /> hours<br />
+                                <field name="days" />
+                                days
+                                <br />
+                                <field name="hours" />
+                                hours
+                                <br />
                             </div>
                         </group>
                     </group>
-                    <field name="note" placeholder="Description of the policy..." />
+                    <group string="Description">
+                        <field
+                            name="note"
+                            placeholder="Description of the policy..."
+                            nolabel="1"
+                        />
+                    </group>
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user" />
+                    <field name="message_ids" />
+                    <field name="activity_ids" widget="mail_activity" />
+                </div>
             </form>
         </field>
     </record>
@@ -39,7 +93,6 @@
         <field name="arch" type="xml">
             <tree string="SLA">
                 <field name="name" />
-                <field name="stage_id" />
                 <field name="days" />
                 <field name="hours" />
                 <field name="note" />
