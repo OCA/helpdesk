@@ -1,41 +1,59 @@
 # Copyright (C) 2020 GARCO Consulting <www.garcoconsulting.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import logging
+from datetime import timedelta
 
-from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
+from freezegun import freeze_time
 
-_log = logging.getLogger(__name__)
+from odoo import fields
+
+from odoo.addons.helpdesk_mgmt_sla.tests.common import CommonHelpdeskMgmtSla
 
 
-class TestHelpdeskMgmtSla(test_helpdesk_ticket.TestHelpdeskTicket):
-    @classmethod
-    def setUpClass(cls):
-        super(TestHelpdeskMgmtSla, cls).setUpClass()
-        cls.team_id = cls.env["helpdesk.ticket.team"].create(
-            {"name": "Team SLA", "use_sla": True}
-        )
-        cls.stage_id = cls.env["helpdesk.ticket.stage"].create({"name": "Reach stage"})
-        cls.sla_id = cls.env["helpdesk.sla"].create(
-            {
-                "name": "Generic SLA",
-                "team_ids": [(6, 0, [cls.team_id.id])],
-                "stage_id": cls.stage_id.id,
-                "hours": 2,
-            }
-        )
-        cls.ticket = cls.env["helpdesk.ticket"].create(
-            {
-                "name": "Test Ticket 1",
-                "description": "Ticket test",
-                "team_id": cls.team_id.id,
-            }
-        )
-
-    def test_helpdesk_mgmt_sla(self):
-        self.ticket._compute_team_sla()
-        self.assertEqual(self.ticket.sla_expired, False)
-
-    def test_helpdesk_sla(self):
+class TestHelpdeskMgmtSla(CommonHelpdeskMgmtSla):
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_global(self):
         self.env["helpdesk.sla"].check_sla()
-        self.assertEqual(self.ticket.sla_expired, False)
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertTrue(self.ticket2.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_team(self):
+        self.sla.team_ids = [(6, 0, [self.team1.id])]
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertFalse(self.ticket2.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_stage(self):
+        self.sla.stage_ids = [(6, 0, [self.stage1.id])]
+        self.ticket1.stage_id = self.stage1
+        self.ticket2.stage_id = self.stage2
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertFalse(self.ticket2.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_category(self):
+        self.sla.category_ids = [(6, 0, [self.category1.id])]
+        self.ticket1.category_id = self.category1
+        self.ticket2.category_id = self.category2
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertFalse(self.ticket2.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_tag(self):
+        self.sla.tag_ids = [(6, 0, [self.tag1.id])]
+        self.ticket1.tag_ids = self.tag1
+        self.ticket2.tag_ids = self.tag2
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertFalse(self.ticket2.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla_rule_domain(self):
+        self.sla.domain = f"[('id', '=', {self.ticket1.id})]"
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket1.sla_expired)
+        self.assertFalse(self.ticket2.sla_expired)
