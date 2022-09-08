@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_mgmt_fieldservice_fsm_location_portal,access.helpdesk.mgmt.fieldservice.fsm.location.portal,model_fsm_location,base.group_portal,1,0,0,0
+access_helpdesk_mgmt_fieldservice_fsm_equipment_portal,access.helpdesk.mgmt.fieldservice.fsm.equipment.portal,fieldservice.model_fsm_equipment,base.group_portal,1,0,0,0
+access_helpdesk_mgmt_fieldservice_maintenance_equipment_portal,access.helpdesk.mgmt.fieldservice.maintenance.equipment.portal,maintenance_equipment_image.model_maintenance_equipment,base.group_portal,1,0,0,0

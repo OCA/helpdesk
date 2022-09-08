@@ -1,0 +1,18 @@
+<!-- Copyright 2019 Open Source Integrators
+     Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<!-- pylint:disable=dangerous-view-replace-wo-priority -->
+<odoo>
+    <!-- Helpdesk Ticket Form View -->
+    <record id="helpdesk_ticket_view_service_request_form_inherited" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.service.request.form.inherited</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form" />
+        <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='fsm_location_id']" position="after">
+            <field name="fsm_equipment_id"/>
+        </xpath>
+        </field>
+    </record>
+</odoo>
