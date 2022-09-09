@@ -16,7 +16,10 @@
         "mail",
         "portal",
         "helpdesk_mgmt",
-        "fieldservice"
+        "fieldservice",
+        "website",
+        "base_maintenance"
+        
     ],
     "data": [
         "security/ir.model.access.csv",
