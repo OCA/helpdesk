@@ -24,10 +24,9 @@ class HelpdeskTicket(models.Model):
 
     def button_solutions(self):
         self.ensure_one()
-        action = self.env.ref(
+        res_action = self.env["ir.actions.act_window"]._for_xml_id(
             "helpdesk_mgmt_solution.act_show_helpdesk_ticket_solutions"
         )
-        res_action = action.read()[0]
         ctx = {
             "helpdesk_ticket_id": self.id,
         }

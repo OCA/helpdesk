@@ -10,7 +10,11 @@
                 <search>
                     <field name="title" />
                     <field name="description" />
-                    <field name="tag_ids" widget="many2many_tags" />
+                    <field
+                        name="tag_ids"
+                        string="Tag"
+                        filter_domain="[('tag_ids', 'ilike', self)]"
+                    />
                 </search>
             </field>
         </record>
@@ -21,16 +25,49 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button
+                                type="object"
+                                class="oe_stat_button"
+                                name="button_tickets"
+                                icon="fa-book"
+                            >
+                                <field
+                                    name="ticket_count"
+                                    widget="statinfo"
+                                    string="Tickets"
+                                />
+                            </button>
+                        </div>
                         <div class="oe_title">
-                            <h1 class="oe_title">
+                            <div class="oe_edit_only">
+                                <label for="title" />
+                            </div>
+                            <h1>
                                 <field name="title" />
                             </h1>
                         </div>
                         <group>
-                            <field name="description" />
-                            <field name="tag_ids" widget="many2many_tags" />
+                            <group>
+                                <field
+                                    name="tag_ids"
+                                    widget="many2many_tags"
+                                    options="{'color_field': 'color'}"
+                                />
+                            </group>
                         </group>
+                        <separator string="Description" />
+                        <field
+                            name="description"
+                            nolabel="1"
+                            placeholder="Give detailed description."
+                        />
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
                 </form>
             </field>
         </record>
@@ -43,7 +80,11 @@
                 <tree string="Helpdesk Solutions">
                     <field name="title" />
                     <field name="description" invisible="1" />
-                    <field name="tag_ids" widget="many2many_tags" />
+                    <field
+                        name="tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
                 </tree>
             </field>
         </record>
@@ -57,7 +98,11 @@
                 <tree string="Helpdesk Solutions" create="0">
                     <field name="title" />
                     <field name="description" invisible="1" />
-                    <field name="tag_ids" widget="many2many_tags" />
+                    <field
+                        name="tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
                 </tree>
             </field>
         </record>
