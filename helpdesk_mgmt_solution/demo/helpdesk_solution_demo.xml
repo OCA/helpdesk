@@ -6,32 +6,32 @@
             <field name="title">Solution Hard</field>
             <field name="description">this is a hardware solution</field>
             <field
-        name="tag_ids"
-        eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_tag_1')])]"
-      />
+                name="tag_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_tag_1')])]"
+            />
         </record>
 
         <record id="helpdesk_solution_2" model="helpdesk.solution">
             <field name="title">Solution Technique</field>
             <field name="description">This is a technical solution</field>
             <field
-        name="tag_ids"
-        eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_tag_2')])]"
-      />
+                name="tag_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt.helpdesk_tag_2')])]"
+            />
         </record>
 
         <record id="helpdesk_mgmt.helpdesk_ticket_1" model="helpdesk.ticket">
             <field
-        name="solution_ids"
-        eval="[(6,0,[ref('helpdesk_mgmt_solution.helpdesk_solution_1')])]"
-      />
+                name="solution_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt_solution.helpdesk_solution_1')])]"
+            />
         </record>
 
         <record id="helpdesk_mgmt.helpdesk_ticket_2" model="helpdesk.ticket">
             <field
-        name="solution_ids"
-        eval="[(6,0,[ref('helpdesk_mgmt_solution.helpdesk_solution_2')])]"
-      />
+                name="solution_ids"
+                eval="[(6,0,[ref('helpdesk_mgmt_solution.helpdesk_solution_2')])]"
+            />
         </record>
 
 

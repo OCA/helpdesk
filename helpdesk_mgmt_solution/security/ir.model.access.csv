@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_helpdesk_solution_user,access_helpdesk_solution_user,model_helpdesk_solution,helpdesk_mgmt.group_helpdesk_user,1,1,1,0
 access_helpdesk_solution_manager,access_helpdesk_solution_manager,model_helpdesk_solution,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_solution_wizard_user_own,access_helpdesk_solution_wizard_user_own,model_helpdesk_solution_wizard,helpdesk_mgmt.group_helpdesk_user_own,1,1,1,0

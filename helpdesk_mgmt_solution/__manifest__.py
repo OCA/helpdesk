@@ -4,14 +4,14 @@
 
 {
     "name": "Helpdesk Solution",
-    "version": "11.0.1.0.0",
+    "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "category": "Helpdesk",
     "application": False,
     "author": "Sirum GmbH, "
-              "Elego Software Solutions GmbH, "
-              "Odoo Community Association (OCA)",
-    'summary': """
+    "Elego Software Solutions GmbH, "
+    "Odoo Community Association (OCA)",
+    "summary": """
 Create solutions for and assign them to Helpdesk Tickets
 """,
     "website": "https://github.com/OCA/helpdesk",

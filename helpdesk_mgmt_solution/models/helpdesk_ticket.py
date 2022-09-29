@@ -2,7 +2,7 @@
 # Copyright 2021 elego Software Solutions GmbH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo import api, fields, models
-from odoo.tools import safe_eval
+from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTicket(models.Model):
@@ -54,7 +54,6 @@ class HelpdeskTicket(models.Model):
             "res_model": "helpdesk.solution.wizard",
             "type": "ir.actions.act_window",
             "view_mode": "form",
-            "view_type": "form",
             "view_id": view_id.id,
             "target": "new",
             "context": ctx,
@@ -74,7 +73,6 @@ class HelpdeskTicket(models.Model):
             "res_model": "helpdesk.solution.wizard",
             "type": "ir.actions.act_window",
             "view_mode": "form",
-            "view_type": "form",
             "view_id": view_id.id,
             "target": "new",
             "context": ctx,

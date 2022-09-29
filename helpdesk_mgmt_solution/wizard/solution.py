@@ -1,8 +1,8 @@
 # Copyright 2021 Sirum GmbH
 # Copyright 2021 elego Software Solutions GmbH
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo import _, fields, models, exceptions
-from odoo.tools import safe_eval
+from odoo import _, exceptions, fields, models
+from odoo.tools.safe_eval import safe_eval
 
 
 class SolutionWizard(models.TransientModel):
@@ -20,9 +20,7 @@ class SolutionWizard(models.TransientModel):
 
     def search_solution(self):
         self.ensure_one()
-        action = self.env.ref(
-            "helpdesk_mgmt_solution.act_search_helpdesk_solution"
-        )
+        action = self.env.ref("helpdesk_mgmt_solution.act_search_helpdesk_solution")
         res_action = action.read()[0]
         ctx = {
             "helpdesk_ticket_id": self.ticket_id.id,
