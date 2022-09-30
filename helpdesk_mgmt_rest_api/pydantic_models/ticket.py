@@ -22,7 +22,7 @@ class HelpdeskTicketInfo(AttachableInfo, MailThreadInfo):
     description: str
     create_date: datetime
     last_stage_update: datetime
-    category: IdAndNameInfo = Field(None, alias="categ_id")
+    category: IdAndNameInfo = Field(None, alias="category_id")
     team: IdAndNameInfo = Field(None, alias="team_id")
     stage: IdAndNameInfo = Field(None, alias="stage_id")
 
