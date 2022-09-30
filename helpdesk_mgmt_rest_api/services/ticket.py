@@ -24,7 +24,7 @@ class TicketService(Component):
     _inherit = [
         "base.helpdesk.rest.service",
         "mail.thread.abstract.service",
-        "abstract.attachable.service",
+        "rest.attachment.service.mixin",
     ]
     _usage = "helpdesk_ticket"
     _expose_model = "helpdesk.ticket"

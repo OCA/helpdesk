@@ -3,9 +3,7 @@ from datetime import datetime
 from extendable_pydantic import ExtendableModelMeta
 from pydantic import BaseModel, EmailStr, Field
 
-from odoo.addons.base_rest_abstract_attachment.pydantic_models.attachment import (
-    AttachableInfo,
-)
+from odoo.addons.base_rest_attachment.pydantic_models.attachment import AttachableInfo
 from odoo.addons.base_rest_pydantic.pydantic_models.base import IdAndNameInfo, IdRequest
 from odoo.addons.pydantic import utils
 

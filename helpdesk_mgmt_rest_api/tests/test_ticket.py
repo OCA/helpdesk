@@ -6,9 +6,7 @@ from odoo.http import request
 
 from odoo.addons.base_rest.controllers.main import _PseudoCollection
 from odoo.addons.base_rest.tests.common import BaseRestCase
-from odoo.addons.base_rest_abstract_attachment.tests.test_attachment import (
-    AttachmentCommonCase,
-)
+from odoo.addons.base_rest_attachment.tests.test_attachment import AttachmentCommonCase
 from odoo.addons.component.core import WorkContext
 from odoo.addons.extendable.tests.common import ExtendableMixin
 

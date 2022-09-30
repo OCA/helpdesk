@@ -10,7 +10,7 @@
     "depends": [
         "helpdesk_mgmt",
         "base_rest",
-        "base_rest_abstract_attachment",
+        "base_rest_attachment",
     ],
     "external_dependencies": {
         "python": [
