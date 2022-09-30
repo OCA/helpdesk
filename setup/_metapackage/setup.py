@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo13-addon-helpdesk_mgmtsystem_nonconformity',
         'odoo13-addon-helpdesk_motive',
         'odoo13-addon-helpdesk_type',
+        'odoo13-addon-website_helpdesk_mgmt',
     ],
     classifiers=[
         'Programming Language :: Python',
