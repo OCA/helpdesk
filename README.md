@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmtsystem_nonconformity](helpdesk_mgmtsystem_nonconformity/) | 13.0.1.0.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with nonconformities
 [helpdesk_motive](helpdesk_motive/) | 13.0.1.0.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Keep the motive
 [helpdesk_type](helpdesk_type/) | 13.0.1.1.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
+[website_helpdesk_mgmt](website_helpdesk_mgmt/) | 13.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Website Helpdesk Mgmt
 
 [//]: # (end addons)
 
