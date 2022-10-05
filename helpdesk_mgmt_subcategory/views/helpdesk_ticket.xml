@@ -14,13 +14,16 @@
       </group>
     </field>
   </record>
-  <!-- 
+  <!-- -->
   <record id="ticket_view_form" model="ir.ui.view">
     <field name="model">helpdesk.ticket</field>
     <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
     <field name="arch" type="xml">
-      
+      <field name="category_id" position="replace">
+        <field name="root_category_id" invisible="1"/>
+        <field name="category_id" options="{'no_create':True, 'no_create_edit': True, 'no_open': True}"
+              domain="[('id','child_of', root_category_id)]" />
+      </field>
     </field>
   </record>
- -->
 </odoo>

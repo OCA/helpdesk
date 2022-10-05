@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2022 Rafa Morant ALBA Software
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="helpdesk_ticket_category_all" model="helpdesk.ticket.category">
+        <field name="name">All</field>
+    </record>
+
+</odoo>
