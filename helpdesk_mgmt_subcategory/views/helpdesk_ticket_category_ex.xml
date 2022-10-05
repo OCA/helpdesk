@@ -19,8 +19,34 @@
             </xpath>
             <xpath expr="//group[@name='main']/field" position="before">
                 <field name="parent_id" />
+                <field name="code" />
             </xpath>
         </field>
     </record>
     
+    <record id="view_helpdesk_category_tree" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="replace">
+                <field name="complete_name" />
+                <field name="code" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_category_search" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_category_search" />
+        <field name="arch" type="xml">
+            <search>
+                <field name="code" />
+                <group expand="1" string="Group By">
+                    <filter string="Parent" name="parent_id" context="{'group_by':'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+
 </odoo>
