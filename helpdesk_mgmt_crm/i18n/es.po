@@ -109,11 +109,11 @@ msgstr "Equipo"
 #: code:addons/helpdesk_mgmt_crm/wizard/helpdesk_ticket_create_lead.py:0
 #, python-format
 msgid ""
-"This ticket has been converted to the opportunity <a href=# data-oe-"
-"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
+"This ticket has been converted to the opportunity <a href=# data-oe-model="
+"%(model)s data-oe-id=%(id)s>%(name)s</a>"
 msgstr ""
-"Este ticket se ha convertido en la oportunidad <a href=# data-oe-"
-"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
+"Este ticket se ha convertido en la oportunidad <a href=# data-oe-model="
+"%(model)s data-oe-id=%(id)s>%(name)s</a>"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__ticket_id
