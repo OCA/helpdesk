@@ -6,8 +6,7 @@
     "version": "14.0.1.0.0",
     "category": "Customize",
     "license": "AGPL-3",
-    "author": "rmorant, "
-    "Odoo Community Association (OCA)",
+    "author": "rmorant, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
