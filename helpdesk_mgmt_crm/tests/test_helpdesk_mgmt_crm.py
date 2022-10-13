@@ -23,10 +23,7 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
         cls.team = cls.env["crm.team"].create(
             {"name": "Test team", "member_ids": [(6, 0, [cls.user2.id])]}
         )
-        cls.team.message_subscribe(
-            partner_ids=[cls.user2.partner_id.id],
-            subtype_ids=[cls.env.ref("crm.mt_lead_create").id],
-        )
+        cls.team.message_subscribe(partner_ids=[cls.user2.partner_id.id],)
         cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test ticket",
@@ -38,6 +35,16 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
 
     @users("sale-user")
     def test_action_lead_create(self):
+        self.ticket.message_subscribe(
+            partner_ids=self.ticket.partner_id.ids,
+            subtype_ids=[self.env.ref("mail.mt_comment").id],
+        )
+        # pylint: disable=translation-required
+        self.ticket.message_post(body="Ejemplo", subtype="mail.mt_comment")
+        self.assertIn(
+            self.ticket.partner_id,
+            self.ticket.mapped("message_follower_ids.partner_id"),
+        )
         old_messages = self.ticket.message_ids
         wizard = (
             self.env["helpdesk.ticket.create.lead"]
@@ -61,6 +68,10 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
         self.assertIn(
             self.user2.partner_id,
             self.ticket.lead_ids.message_follower_ids.mapped("partner_id"),
+        )
+        self.assertIn(
+            self.ticket.partner_id,
+            self.ticket.lead_ids.mapped("message_follower_ids.partner_id"),
         )
         # action_open_lead
         res = self.ticket.action_open_leads()
