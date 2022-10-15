@@ -1,2 +1,2 @@
 
-This module extends Hepdesk, and to allow you to create nested categories.
+This module extends Hepdesk, and allow you to create nested categories.
