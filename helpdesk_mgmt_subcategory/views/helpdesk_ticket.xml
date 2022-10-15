@@ -33,13 +33,12 @@
     <field name="model">helpdesk.ticket</field>
     <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
     <field name="arch" type="xml">
-      <field name="category_id" position="replace">
+      <field name="category_id" position="before">
         <field name="root_category_id" invisible="1" />
-        <field
-                    name="category_id"
-                    options="{'no_create':True, 'no_create_edit': True}"
-                    domain="[('id','child_of', root_category_id)]"
-                />
+      </field>
+      <field name="category_id" position="attributes">
+        <attribute name="options">{'no_create':True, 'no_create_edit': True}</attribute>
+        <attribute name="domain">[('id','child_of', root_category_id)]</attribute>
       </field>
     </field>
   </record>
