@@ -6,7 +6,7 @@
     "version": "14.0.1.0.0",
     "category": "Customize",
     "license": "AGPL-3",
-    "author": "rmorant, " "Odoo Community Association (OCA)",
+    "author": "ALBA Software, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
@@ -15,5 +15,7 @@
         "views/helpdesk_ticket_team.xml",
         "views/helpdesk_ticket.xml",
     ],
+    "demo": ["demo/helpdesk_category_demo.xml"],
+    "development_status": "Beta",
     "installable": True,
 }

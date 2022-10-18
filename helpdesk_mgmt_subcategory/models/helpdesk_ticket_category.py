@@ -56,7 +56,7 @@ class HelpdeskCategory(models.Model):
                 parent_code = f"{r.parent_id.code}-" if r.parent_id else ""
                 r.code = "{}{}".format(parent_code, slugify(r.name))
             else:
-                r.code = ""
+                r.code = False
 
     def _inverse_code(self):
         for r in self:

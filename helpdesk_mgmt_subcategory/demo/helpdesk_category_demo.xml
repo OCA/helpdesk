@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<odoo noupdate="1">
+
+  <record id="helpdesk_mgmt.helpdesk_category_3" model="helpdesk.ticket.category">
+    <field name="parent_id" ref="helpdesk_mgmt.helpdesk_category_1" />
+  </record>
+
+</odoo>
