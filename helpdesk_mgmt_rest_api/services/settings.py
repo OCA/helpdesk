@@ -6,6 +6,7 @@ import logging
 
 from odoo.addons.base_rest import restapi
 from odoo.addons.base_rest_pydantic.pydantic_models.base import IdAndNameInfo
+from odoo.addons.base_rest_pydantic.pydantic_models.list_metadata import ListMetadata
 from odoo.addons.base_rest_pydantic.restapi import PydanticModel, PydanticModelList
 from odoo.addons.component.core import Component
 
@@ -42,7 +43,9 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def categories(self):
-        return self._get_categories()
+        data = self._get_categories()
+        metadata = ListMetadata(size=len(data))
+        return {"data": data, "metadata": metadata}
 
     def _get_categories(self):
         categories = self.env["helpdesk.ticket.category"].search([])
@@ -55,7 +58,9 @@ class HelpdeskSettingsService(Component):
         auth="public_or_default",
     )
     def teams(self):
-        return [IdAndNameInfo.from_orm(team) for team in self._get_teams()]
+        data = self._get_teams()
+        metadata = ListMetadata(size=len(data))
+        return {"data": data, "metadata": metadata}
 
     def _get_teams(self):
         teams = self.env["helpdesk.ticket.team"].search([])

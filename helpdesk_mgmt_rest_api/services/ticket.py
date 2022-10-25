@@ -9,6 +9,7 @@ from odoo import _
 from odoo.exceptions import UserError
 
 from odoo.addons.base_rest import restapi
+from odoo.addons.base_rest_pydantic.pydantic_models.list_metadata import ListMetadata
 from odoo.addons.base_rest_pydantic.restapi import PydanticModel, PydanticModelList
 from odoo.addons.component.core import Component
 
@@ -49,10 +50,11 @@ class TicketService(Component):
     )
     def search(self):
         domain = self._get_base_search_domain()
-        result: List[HelpdeskTicketInfo] = []
+        data: List[HelpdeskTicketInfo] = []
         for item in self.env[self._expose_model].search(domain):
-            result.append(HelpdeskTicketInfo.from_orm(item))
-        return result
+            data.append(HelpdeskTicketInfo.from_orm(item))
+        metadata = ListMetadata(size=len(data))
+        return {"data": data, "metadata": metadata}
 
     @restapi.method(
         routes=[(["/create"], "POST")],
