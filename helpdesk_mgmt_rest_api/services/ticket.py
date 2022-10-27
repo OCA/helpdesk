@@ -9,7 +9,8 @@ from odoo import _
 from odoo.exceptions import UserError
 
 from odoo.addons.base_rest import restapi
-from odoo.addons.base_rest_pydantic.restapi import PydanticModel, PydanticModelList
+from odoo.addons.base_rest_pydantic.pydantic_models.wrapped import WrappedList
+from odoo.addons.base_rest_pydantic.restapi import PydanticModel
 from odoo.addons.component.core import Component
 
 from ..pydantic_models.ticket import HelpdeskTicketInfo, HelpdeskTicketRequest
@@ -45,14 +46,14 @@ class TicketService(Component):
     @restapi.method(
         routes=[(["/"], "GET")],
         input_param={},
-        output_param=PydanticModelList(HelpdeskTicketInfo),
+        output_param=PydanticModel(WrappedList[HelpdeskTicketInfo]),
     )
     def search(self):
         domain = self._get_base_search_domain()
-        result: List[HelpdeskTicketInfo] = []
+        data: List[HelpdeskTicketInfo] = []
         for item in self.env[self._expose_model].search(domain):
-            result.append(HelpdeskTicketInfo.from_orm(item))
-        return result
+            data.append(HelpdeskTicketInfo.from_orm(item))
+        return WrappedList(data=data)
 
     @restapi.method(
         routes=[(["/create"], "POST")],
