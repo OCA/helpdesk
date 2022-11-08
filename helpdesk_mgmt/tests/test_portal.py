@@ -32,7 +32,9 @@ class TestPortal(HttpCaseWithUserPortal):
         resp = self.url_open(f"/my/ticket/{self.portal_ticket.id}")
         self.assertEqual(resp.status_code, 200)
         self.assertIn("portal-ticket-title", resp.text)
-        self.assertIn('<h4 class="page-header">History</h4>', resp.text)
+        self.assertIn(
+            "<h4><strong>Message and communication history</strong></h4>", resp.text
+        )
 
     def test_submit_ticket(self):
         """Submit a ticket in portal mode."""
