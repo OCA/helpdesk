@@ -138,14 +138,6 @@ To create a new ticket from the kanban view:
    :alt: Create a new ticket
    :width: 600 px
 
-Known issues / Roadmap
-======================
-
-* Add a tour feature similar to what the ``project`` module defines to discover projects / tasks.
-* Update portal tests defined in ``tests/test_portal.py`` to rely on tour specs (in JS)
-  in order to replicate the navigation behavior of portal users.
-* Portal tests: Test close buttons available in portal ticket forms.
-
 Bug Tracker
 ===========
 
