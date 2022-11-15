@@ -39,13 +39,15 @@ class TestPortal(HttpCaseWithUserPortal):
     def test_submit_ticket(self):
         """Submit a ticket in portal mode."""
         new_ticket_title = "portal-new-submitted-ticket-subject"
+        new_ticket_desc_lines = (  # multiline description to check line breaks
+            "portal-new-submitted-ticket-description-line-1",
+            "portal-new-submitted-ticket-description-line-2",
+        )
 
-        def count_new_tickets():
-            return self.env["helpdesk.ticket"].search_count(
-                [("name", "=", new_ticket_title)]
-            )
+        def get_new_tickets():
+            return self.env["helpdesk.ticket"].search([("name", "=", new_ticket_title)])
 
-        self.assertEqual(count_new_tickets(), 0)  # not found so far
+        self.assertEqual(len(get_new_tickets()), 0)  # not found so far
 
         self.authenticate("portal", "portal")
         resp = self.url_open(
@@ -54,11 +56,15 @@ class TestPortal(HttpCaseWithUserPortal):
                 "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
                 "csrf_token": http.WebRequest.csrf_token(self),
                 "subject": new_ticket_title,
-                "description": "portal-new-submitted-ticket-description",
+                "description": "\n".join(new_ticket_desc_lines),
             },
         )
         self.assertEqual(resp.status_code, 200)
-        self.assertEqual(count_new_tickets(), 1)  # new ticket found
+        ticket = get_new_tickets()
+        self.assertEqual(len(ticket), 1)  # new ticket found
+        self.assertEqual(
+            ticket.description, "<p>" + "<br>".join(new_ticket_desc_lines) + "</p>"
+        )
 
     def test_ticket_list_unauthenticated(self):
         """Attempt to list tickets without auth, ensure we get sent back to login."""
