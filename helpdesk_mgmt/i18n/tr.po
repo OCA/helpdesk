@@ -17,31 +17,14 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <b>Category:</b>"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
 msgstr ""
-"<br/>\n"
-"                                    <b>Kategori:</b>"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <b>Stage:</b>"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
 msgstr ""
-"<br/>\n"
-"                                    <b>Aşama:</b>"
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <strong>Date:</strong>"
-msgstr ""
-"<br/>\n"
-"                                    <strong>Tarih:</strong>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -56,9 +39,49 @@ msgstr ""
 "            "
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<small class=\"text-right\">Stage:</small>"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span>View</span>"
 msgstr "<span>Görünüm</span>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong class=\"d-block mb-2\">Attachments</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Assignee</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Category:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Close Date:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Customer</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Date:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Description</strong>"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -67,8 +90,8 @@ msgstr "<strong>Son Aşama Güncellemesi:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<strong>Number:</strong>"
-msgstr "<strong>Numara:</strong>"
+msgid "<strong>Message and communication history</strong>"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -351,7 +374,7 @@ msgid "Blocked"
 msgstr "Engellendi"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "By"
 msgstr ""
 
@@ -367,10 +390,12 @@ msgid "Categories"
 msgstr "Kategoriler"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+#, python-format
 msgid "Category"
 msgstr "Kategori"
 
@@ -395,7 +420,7 @@ msgid "Channels"
 msgstr "Kanallar"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Close Date"
 msgstr "Kapanış Tarihi"
 
@@ -440,11 +465,12 @@ msgstr "Etki alanı adını yapılandırma"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Contact"
 msgstr "Kontak"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Create Date"
 msgstr "Oluşturma Tarihi"
 
@@ -467,6 +493,16 @@ msgstr "Oluşturan"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__create_date
 msgid "Created on"
 msgstr "Oluşturulma"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "Current stage of the ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "Current stage of this ticket"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -515,7 +551,6 @@ msgstr "Sil"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
 msgstr "Açıklama"
@@ -704,11 +739,6 @@ msgid "High Priority"
 msgstr "Yüksek Öncelik"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "History"
-msgstr "Geçmiş"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__id
@@ -796,7 +826,7 @@ msgstr "Son Değiştirilme"
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Last Stage Update"
 msgstr "Son Aşama Güncellemesi"
@@ -895,13 +925,10 @@ msgid "My Tickets"
 msgstr "Biletlerim"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__name
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
-#, python-format
 msgid "Name"
 msgstr "Adı"
 
@@ -945,6 +972,17 @@ msgstr "Konusuz"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+msgid "No tickets found."
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Number"
 msgstr "Numara"
 
@@ -1118,6 +1156,24 @@ msgid "SMS Delivery error"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in Number"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in Title"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr ""
@@ -1151,7 +1207,7 @@ msgstr ""
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__stage_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Stage"
 msgstr "Aşama"
@@ -1261,11 +1317,6 @@ msgid "The ticket {{object.number}} stage has changed."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
-msgid "There are no tickets in your account."
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid ""
 "This stage is folded in the kanban view when there are no records in that "
@@ -1329,7 +1380,10 @@ msgid "Tickets"
 msgstr "Biletler"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__name
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+#, python-format
 msgid "Title"
 msgstr "Başlık"
 
@@ -1435,3 +1489,30 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
+
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                                    <b>Category:</b>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                                    <b>Kategori:</b>"
+
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                                    <b>Stage:</b>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                                    <b>Aşama:</b>"
+
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                                    <strong>Date:</strong>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                                    <strong>Tarih:</strong>"
+
+#~ msgid "<strong>Number:</strong>"
+#~ msgstr "<strong>Numara:</strong>"
+
+#~ msgid "History"
+#~ msgstr "Geçmiş"

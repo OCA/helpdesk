@@ -17,30 +17,13 @@ msgstr ""
 "X-Generator: Weblate 3.8\n"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-#, fuzzy
-msgid ""
-"<br/>\n"
-"                                    <b>Category:</b>"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
 msgstr ""
-"<br/>\n"
-"                          <b>Categoria:</b>"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-#, fuzzy
-msgid ""
-"<br/>\n"
-"                                    <b>Stage:</b>"
-msgstr ""
-"<br/>\n"
-"                          <b>Estágio:</b>"
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid ""
-"<br/>\n"
-"                                    <strong>Date:</strong>"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -53,9 +36,49 @@ msgid ""
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<small class=\"text-right\">Stage:</small>"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span>View</span>"
 msgstr "<span>Ver</span>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong class=\"d-block mb-2\">Attachments</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Assignee</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Category:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Close Date:</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Customer</strong>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Data:</strong>"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "<strong>Description</strong>"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -64,7 +87,7 @@ msgstr "<strong>Última Atualização de Estágio:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "<strong>Number:</strong>"
+msgid "<strong>Message and communication history</strong>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -350,7 +373,7 @@ msgid "Blocked"
 msgstr "Bloqueado"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "By"
 msgstr "Por"
 
@@ -366,10 +389,12 @@ msgid "Categories"
 msgstr "Categorias"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+#, python-format
 msgid "Category"
 msgstr "Categoria"
 
@@ -392,7 +417,7 @@ msgid "Channels"
 msgstr "Canais"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Close Date"
 msgstr "Data Final"
 
@@ -438,11 +463,12 @@ msgstr "Configuração"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Contact"
 msgstr "Contato"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Create Date"
 msgstr "Data de Criação"
 
@@ -465,6 +491,16 @@ msgstr "Criado por"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__create_date
 msgid "Created on"
 msgstr "Criado em"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+msgid "Current stage of the ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
+msgid "Current stage of this ticket"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -514,7 +550,6 @@ msgstr "Apagar"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Description"
 msgstr "Descrição"
@@ -705,11 +740,6 @@ msgid "High Priority"
 msgstr "Alta Prioridade"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
-msgid "History"
-msgstr "Histórico"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__id
@@ -797,7 +827,7 @@ msgstr "Última Modificação em"
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Last Stage Update"
 msgstr "Última Atualização de Estágio"
@@ -896,13 +926,10 @@ msgid "My Tickets"
 msgstr "Meus Chamados"
 
 #. module: helpdesk_mgmt
-#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__name
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
-#, python-format
 msgid "Name"
 msgstr "Nome"
 
@@ -946,6 +973,17 @@ msgstr "Sem Assunto"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+msgid "No tickets found."
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Number"
 msgstr ""
 
@@ -1121,6 +1159,24 @@ msgid "SMS Delivery error"
 msgstr "Erro de entrega de mensagem"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in Number"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+#, python-format
+msgid "Search in Title"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr ""
@@ -1154,7 +1210,7 @@ msgstr ""
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__stage_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Stage"
 msgstr "Estágio"
@@ -1269,11 +1325,6 @@ msgid "The ticket {{object.number}} stage has changed."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
-msgid "There are no tickets in your account."
-msgstr "Não há chamados na sua conta."
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid ""
 "This stage is folded in the kanban view when there are no records in that "
@@ -1339,7 +1390,10 @@ msgid "Tickets"
 msgstr "Chamados"
 
 #. module: helpdesk_mgmt
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__name
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+#, python-format
 msgid "Title"
 msgstr "Título"
 
@@ -1446,6 +1500,28 @@ msgid ""
 "a' }})"
 msgstr ""
 
+#, fuzzy
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                                    <b>Category:</b>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                          <b>Categoria:</b>"
+
+#, fuzzy
+#~ msgid ""
+#~ "<br/>\n"
+#~ "                                    <b>Stage:</b>"
+#~ msgstr ""
+#~ "<br/>\n"
+#~ "                          <b>Estágio:</b>"
+
+#~ msgid "History"
+#~ msgstr "Histórico"
+
+#~ msgid "There are no tickets in your account."
+#~ msgstr "Não há chamados na sua conta."
+
 #~ msgid ""
 #~ "${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/"
 #~ "a' })"
@@ -1465,9 +1541,6 @@ msgstr ""
 #~ "<data><p>Olá  ${object.user_id.name},</p>\n"
 #~ "        <p>O chamado ${object.number} foi atribuído a você.</p>\n"
 #~ "      </data>"
-
-#~ msgid "<strong>Date:</strong>"
-#~ msgstr "<strong>Data:</strong>"
 
 #~ msgid "Followers (Channels)"
 #~ msgstr "Seguidores (Canais)"
