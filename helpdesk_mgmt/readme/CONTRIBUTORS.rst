@@ -40,3 +40,7 @@
 * `Solvos <https://www.solvos.es>`_:
 
   * David Alonso
+
+* `XCG Consulting <https://xcg-consulting.fr>`_:
+
+  * Houzéfa Abbasbhay
