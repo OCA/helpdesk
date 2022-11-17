@@ -44,6 +44,7 @@
             <field name="name" position="after">
                 <field name="complete_name" />
                 <field name="code" />
+                <field name="tickets_count" />
             </field>
         </field>
     </record>

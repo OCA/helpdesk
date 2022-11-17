@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_tag_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.tag</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_tag_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='toggle_active']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='toggle_active']" position="before">
+                <button
+                    type="action"
+                    name="%(helpdesk_mgmt.helpdesk_ticket_action)s"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                    context="{'search_default_tag_ids': [id] }"
+                >
+                    <field name="tickets_count" string="Tickets" widget="statinfo" />
+                </button>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="after">
+                <field name="active" invisible="1" />
+                <widget
+                    name="web_ribbon"
+                    title="Archived"
+                    bg_color="bg-danger"
+                    attrs="{'invisible': [('active', '=', True)]}"
+                />
+            </xpath>            
+        </field>
+    </record>
+
+    <record id="view_helpdesk_tag_tree" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.tag</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_tag_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="tickets_count" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

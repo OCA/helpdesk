@@ -14,6 +14,7 @@
         "views/helpdesk_ticket_category_ex.xml",
         "views/helpdesk_ticket_team.xml",
         "views/helpdesk_ticket.xml",
+        "views/helpdesk_ticket_tag_viex.xml",
     ],
     "demo": ["demo/helpdesk_category_demo.xml"],
     "development_status": "Beta",

@@ -62,7 +62,26 @@ class HelpdeskCategory(models.Model):
         for r in self:
             r.code = slugify(r.code)
 
-    def _compute_tickets_count(self):
+    def no_compute_tickets_count(self):
+        """
+        TODO: speed up
+        Count tickets accumulated in subcategories
+        >>> env['helpdesk.ticket'].search_count([('category_id','child_of', 9)])
+        SELECT count(1) FROM "helpdesk_ticket"
+        WHERE (
+            ("helpdesk_ticket"."active" = true)
+            AND (
+                "helpdesk_ticket"."category_id" in (
+                    SELECT "helpdesk_ticket_category".id FROM "helpdesk_ticket_category"
+                    WHERE (
+                        ("helpdesk_ticket_category"."active" = true)
+                        AND
+                        ("helpdesk_ticket_category"."parent_path"::text like '7/3/8/9/%')
+                    )
+                )
+            )
+        )
+        """
         category_tickets_count = {}
         if self.ids:
             self.env.cr.execute(
@@ -75,3 +94,10 @@ class HelpdeskCategory(models.Model):
             category_tickets_count = dict(self.env.cr.fetchall())
         for r in self:
             r.tickets_count = category_tickets_count.get(r.id, 0)
+
+    def _compute_tickets_count(self):
+        HelpdeskTicket = self.env["helpdesk.ticket"]
+        for r in self:
+            r.tickets_count = (
+                HelpdeskTicket.search_count([("category_id", "child_of", r.id)]) or 0
+            )
