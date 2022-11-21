@@ -8,5 +8,6 @@ class HelpdeskTicketStage(models.Model):
     _inherit = "helpdesk.ticket.stage"
 
     nonconformity_stage_id = fields.Many2one(
-        comodel_name="mgmtsystem.nonconformity.stage", string="Nonconformity Stage",
+        comodel_name="mgmtsystem.nonconformity.stage",
+        string="Nonconformity Stage",
     )
