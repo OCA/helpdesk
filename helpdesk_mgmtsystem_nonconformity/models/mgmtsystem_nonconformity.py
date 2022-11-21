@@ -12,9 +12,7 @@ class MgmtsystemNonconformity(models.Model):
         inverse_name="nonconformity_id",
         string="Tickets",
     )
-    ticket_count = fields.Integer(
-        compute="_compute_ticket_count", string="Ticket Count"
-    )
+    ticket_count = fields.Integer(compute="_compute_ticket_count")
 
     @api.depends("ticket_ids")
     def _compute_ticket_count(self):

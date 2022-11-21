@@ -4,7 +4,7 @@
 from odoo.tests import common
 
 
-class TestMgmtsystemNonconformity(common.SavepointCase):
+class TestMgmtsystemNonconformity(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
