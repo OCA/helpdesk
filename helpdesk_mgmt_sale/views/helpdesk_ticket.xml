@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Akretion
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form (in helpdesk_mgmt_sale)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="action_view_sale_order"
+                    icon="fa-pencil-square-o"
+                >
+                    <field name="sale_count" widget="statinfo" string="Sale Orders" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

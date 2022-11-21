@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Akretion
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record id="view_order_form" model="ir.ui.view">
+      <field name="name">sale.order.form.inherit.sale (in helpdesk_mgmt_sale)</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form" />
+      <field name="arch" type="xml">
+          <!-- Add new buttons -->
+          <xpath expr="//field[@name='show_update_pricelist']" position="after">
+              <field name="helpdesk_ticket_id" string="Ticket" />
+          </xpath>
+      </field>
+  </record>
+
+</odoo>
