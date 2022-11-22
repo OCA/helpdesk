@@ -1,14 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<odoo noupdate="1">
-    <record id="mt_ticket_rating" model="mail.message.subtype">
-        <field name="name">Ticket Rating</field>
-        <field name="res_model">helpdesk.ticket</field>
-        <field name="default" eval="True" />
-        <field name="description">Ratings</field>
-    </record>
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
     <record id="rating_ticket_email_template" model="mail.template">
-        <field name="name">Helpdesk Ticket: Rating Request</field>
-        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
         <field
             name="email_from"
         >{{object.rating_get_rated_partner_id().email_formatted}}</field>
@@ -19,7 +11,6 @@
             name="subject"
         >Satisfaction Survey of the ticket {{object.number}} - {{object.name}}</field>
         <field name="partner_to">{{object.rating_get_partner_id().id}}</field>
-        <field name="auto_delete" eval="True" />
         <field name="body_html" type="html">
             <div>
                 <t t-set="access_token" t-value="object.rating_get_access_token()" />
