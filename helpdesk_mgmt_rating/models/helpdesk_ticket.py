@@ -12,7 +12,6 @@ class HelpdeskTicket(models.Model):
         store=True,
         default=-1,
     )
-
     rating_status = fields.Selection(
         selection=[
             ("stage_change", "Rating when changing stage"),
