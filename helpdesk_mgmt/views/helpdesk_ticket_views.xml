@@ -245,39 +245,6 @@
                         <div
                             t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_content oe_kanban_global_click"
                         >
-                            <div
-                                class="o_dropdown_kanban dropdown"
-                                groups="base.group_user"
-                            >
-                                <a
-                                    class="dropdown-toggle btn"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    href="#"
-                                    title="Toggle dropdown"
-                                >
-                                    <span class="fa fa-ellipsis-v" aria-hidden="true" />
-                                </a>
-                                <ul
-                                    class="dropdown-menu"
-                                    role="menu"
-                                    aria-labelledby="dLabel"
-                                >
-                                    <li t-if="widget.editable">
-                                        <a type="edit">Edit</a>
-                                    </li>
-                                    <li t-if="widget.deletable">
-                                        <a type="delete">Delete</a>
-                                    </li>
-                                    <li class="divider" />
-                                    <li>
-                                        <ul
-                                            class="oe_kanban_colorpicker"
-                                            data-field="color"
-                                        />
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="o_kanban_record_top">
                                 <div class="o_kanban_record_headings">
                                     <field name="name" />
@@ -290,6 +257,45 @@
                                     <small class="o_kanban_record_subtitle text-muted">
                                         <field name="partner_id" />
                                     </small>
+                                </div>
+                                <div
+                                    class="o_dropdown_kanban dropdown"
+                                    t-if="!selection_mode"
+                                    groups="base.group_user"
+                                >
+                                    <a
+                                        role="button"
+                                        class="dropdown-toggle o-no-caret btn"
+                                        data-toggle="dropdown"
+                                        data-display="static"
+                                        href="#"
+                                        aria-label="Dropdown menu"
+                                        title="Dropdown menu"
+                                    >
+                                        <span class="fa fa-ellipsis-v" />
+                                    </a>
+                                    <div class="dropdown-menu" role="menu">
+                                        <a
+                                            t-if="widget.editable"
+                                            role="menuitem"
+                                            type="edit"
+                                            class="dropdown-item"
+                                        >Edit</a>
+                                        <a
+                                            t-if="widget.deletable"
+                                            role="menuitem"
+                                            type="delete"
+                                            class="dropdown-item"
+                                        >Delete</a>
+                                        <div
+                                            role="separator"
+                                            class="dropdown-divider"
+                                        />
+                                        <ul
+                                            class="oe_kanban_colorpicker"
+                                            data-field="color"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div class="o_kanban_record_body" />
