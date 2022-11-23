@@ -2,8 +2,8 @@ from odoo import fields, models
 
 
 class HelpdeskTicketTag(models.Model):
-    _inherit = 'helpdesk.ticket.tag'
-    
+    _inherit = "helpdesk.ticket.tag"
+
     tickets_count = fields.Integer(string="# Tickets", compute="_compute_tickets_count")
 
     def _compute_tickets_count(self):

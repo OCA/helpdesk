@@ -26,7 +26,7 @@
                     bg_color="bg-danger"
                     attrs="{'invisible': [('active', '=', True)]}"
                 />
-            </xpath>            
+            </xpath>
         </field>
     </record>
 

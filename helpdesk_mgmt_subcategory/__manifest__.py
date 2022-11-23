@@ -10,7 +10,6 @@
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
-        "data/model-data.xml",
         "views/helpdesk_ticket_category_ex.xml",
         "views/helpdesk_ticket_team.xml",
         "views/helpdesk_ticket.xml",
