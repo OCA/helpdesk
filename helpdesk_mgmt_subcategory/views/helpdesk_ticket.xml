@@ -43,6 +43,11 @@
         <attribute name="options">{'no_create':True, 'no_create_edit': True}</attribute>
         <attribute name="domain">[('id','child_of', root_category_id)]</attribute>
       </field>
+      <field name="tag_ids" position="attributes">
+        <attribute
+                    name="options"
+                >{'color_field': 'color', 'no_create_edit':True}</attribute>
+      </field>
     </field>
   </record>
 </odoo>

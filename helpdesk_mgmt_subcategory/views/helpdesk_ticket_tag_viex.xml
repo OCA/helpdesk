@@ -27,6 +27,9 @@
                     attrs="{'invisible': [('active', '=', True)]}"
                 />
             </xpath>
+            <field name="color" position="attributes">
+                <attribute name="widget">color_picker</attribute>
+            </field>
         </field>
     </record>
 
