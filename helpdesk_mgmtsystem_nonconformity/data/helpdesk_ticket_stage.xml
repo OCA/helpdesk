@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="helpdesk_mgmt.helpdesk_ticket_stage_new" model="helpdesk.ticket.stage">
+        <field
+            name="nonconformity_stage_id"
+            ref="mgmtsystem_nonconformity.stage_draft"
+        />
+    </record>
+    <record
+        id="helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+        model="helpdesk.ticket.stage"
+    >
+        <field
+            name="nonconformity_stage_id"
+            ref="mgmtsystem_nonconformity.stage_analysis"
+        />
+    </record>
+    <record
+        id="helpdesk_mgmt.helpdesk_ticket_stage_awaiting"
+        model="helpdesk.ticket.stage"
+    >
+        <field
+            name="nonconformity_stage_id"
+            ref="mgmtsystem_nonconformity.stage_pending"
+        />
+    </record>
+    <record id="helpdesk_mgmt.helpdesk_ticket_stage_done" model="helpdesk.ticket.stage">
+        <field
+            name="nonconformity_stage_id"
+            ref="mgmtsystem_nonconformity.stage_done"
+        />
+    </record>
+    <record
+        id="helpdesk_mgmt.helpdesk_ticket_stage_cancelled"
+        model="helpdesk.ticket.stage"
+    >
+        <field
+            name="nonconformity_stage_id"
+            ref="mgmtsystem_nonconformity.stage_cancel"
+        />
+    </record>
+</odoo>
