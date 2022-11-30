@@ -7,7 +7,8 @@ from odoo.tools.safe_eval import safe_eval
 
 class SolutionWizard(models.TransientModel):
     _name = "helpdesk.solution.wizard"
-
+    _description = "Solution Wizard"
+    
     ticket_id = fields.Many2one(comodel_name="helpdesk.ticket")
     title = fields.Char()
     description = fields.Text()

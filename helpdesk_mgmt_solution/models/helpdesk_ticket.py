@@ -27,7 +27,7 @@ class HelpdeskTicket(models.Model):
         action = self.env.ref(
             "helpdesk_mgmt_solution.act_show_helpdesk_ticket_solutions"
         )
-        res_action = action.read()[0]
+        res_action = action.sudo().read()[0]
         ctx = {
             "helpdesk_ticket_id": self.id,
         }
