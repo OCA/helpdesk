@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-08-25 13:07+0000\n"
+"PO-Revision-Date: 2022-12-01 15:45+0000\n"
 "Last-Translator: mtbochaca <mtbochaca@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -684,7 +684,7 @@ msgstr "Fet"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menú desplegable"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.action_duplicate_ticket
@@ -752,7 +752,7 @@ msgstr "Seguidors (Contactes)"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Icona de la font awesome p.e. fa-tasks"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1339,6 +1339,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Estats basats en activitats\n"
+"Retràs: La data límit s'ha sobrepassat\n"
+"Avui: La data de l'activitat és avui\n"
+"Planejada: Futures activitats."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
