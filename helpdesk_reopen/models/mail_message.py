@@ -3,14 +3,14 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import models, api
+from odoo import api, models
 
 
 class MailMessage(models.Model):
     _inherit = "mail.message"
 
     def is_production_env(self):
-        """ Used to determine how we will treat comments.
+        """Used to determine how we will treat comments.
         It is useful because we can't (easily) mock
         incoming emails in testing environnements
         It needs to be implemented"""
@@ -35,8 +35,6 @@ class MailMessage(models.Model):
             )
             if ticket:
                 if ticket.stage_id.is_close:
-                    stage = ticket.team_id.mapped("stage_ids").sorted(
-                        "sequence"
-                    )[0]
+                    stage = ticket.team_id.mapped("stage_ids").sorted("sequence")[0]
                     ticket.stage_id = stage
         return super(MailMessage, self).create(vals)
