@@ -5,11 +5,11 @@
 
 {
     "name": "Helpdesk Reopen",
-    "version": "12.0.0.1.0",
+    "version": "14.0.0.1.0",
     "category": "Helpdesk",
     "summary": "Auto Helpdesk Reopen",
     "license": "AGPL-3",
-    "author": "Odoo Community Association (OCA), OERP, Coop IT Easy SCRLfs",
+    "author": "Odoo Community Association (OCA), OERP, Coop IT Easy SCRLfs, Akretion",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "installable": True,
