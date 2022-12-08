@@ -14,7 +14,7 @@ class MailMessage(models.Model):
         It is useful because we can't (easily) mock
         incoming emails in testing environnements
         It needs to be implemented"""
-        return False
+        return True
 
     @api.model
     def is_reopener_message(self, vals):
@@ -34,7 +34,9 @@ class MailMessage(models.Model):
                 [("id", "=", vals.get("res_id"))]
             )
             if ticket:
-                if ticket.stage_id.is_close:
-                    stage = ticket.team_id.mapped("stage_ids").sorted("sequence")[0]
+                if ticket.stage_id.closed:
+                    stage = self.env["helpdesk.ticket.stage"].search(
+                        [], order="sequence", limit=1
+                    )
                     ticket.stage_id = stage
         return super(MailMessage, self).create(vals)
