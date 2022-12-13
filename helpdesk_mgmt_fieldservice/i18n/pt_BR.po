@@ -28,6 +28,11 @@ msgid "All Orders Closed"
 msgstr "Todas as Ordens Fechadas"
 
 #. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__all_partners
+msgid "All Partners"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Cancel"
 msgstr "Cancelar"
@@ -63,7 +68,14 @@ msgid "Created on"
 msgstr "Criado em"
 
 #. module: helpdesk_mgmt_fieldservice
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_form_logic
+msgid "Description"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__display_name
 msgid "Display Name"
 msgstr "Nome exibido"
 
@@ -103,12 +115,18 @@ msgid "Helpdesk Tickets"
 msgstr "Chamados da Central e Ajuda"
 
 #. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__id
 msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket____last_update
 msgid "Last Modified on"
 msgstr "Última modificação em"
 
@@ -133,7 +151,17 @@ msgid "Operations"
 msgstr "Operações"
 
 #. module: helpdesk_mgmt_fieldservice
-#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:30
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__display_name
+msgid "Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__partner_domain
+msgid "Partner Domain"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice
+#: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:0
 #, python-format
 msgid "Please complete all service orders related to this ticket to close it."
 msgstr ""
@@ -142,6 +170,8 @@ msgstr ""
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__resolution
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__resolution
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_form_logic
 msgid "Resolution"
 msgstr "Resolução"
 
