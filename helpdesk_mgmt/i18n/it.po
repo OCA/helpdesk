@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-12-13 18:44+0000\n"
+"PO-Revision-Date: 2022-12-14 15:45+0000\n"
 "Last-Translator: Alessandro Uffreduzzi <alessandro.uffreduzzi@pytech.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -257,6 +257,75 @@ msgid ""
 "            \n"
 "            "
 msgstr ""
+"<html>\n"
+"                <head></head>\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor="
+"\"#ededed\" style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img src=\"/logo.png?company=${object."
+"company_id.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: "
+"80px;\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Salve ${object.user_id.name},</p>\n"
+"                                <p>Il ticket \"${object.display_name}\" è "
+"passato nello stato ${object.stage_id.name}.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.phone}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.email}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${object.company_id.website}\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            \n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -290,7 +359,7 @@ msgstr "Accetta Email da"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Avviso di accesso"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
@@ -368,7 +437,7 @@ msgstr "Tutto"
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_menu
 msgid "All Tickets"
-msgstr ""
+msgstr "Tutti i ticket"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -557,7 +626,7 @@ msgstr "Email Cliente"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "URL del portale clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
@@ -578,7 +647,7 @@ msgstr "Valori predefiniti"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__default_team_id
 msgid "Default team"
-msgstr ""
+msgstr "Team predefinito"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
@@ -613,7 +682,7 @@ msgstr "Fatto"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Menù a discesa"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.action_duplicate_ticket
@@ -1160,7 +1229,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "URL di accesso al portale"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
@@ -1210,7 +1279,7 @@ msgstr "Errore Consegna SMS"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
-msgstr ""
+msgstr "Token di sicurezza"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
@@ -1388,7 +1457,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Ticket"
-msgstr ""
+msgstr "Ticket"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
@@ -1470,7 +1539,7 @@ msgstr "Attiva menu a tendina"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr "Tipo dell'attività di eccezione registrata."
+msgstr "Tipo di attività eccezione sul record."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
