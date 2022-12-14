@@ -22,7 +22,7 @@ class SolutionWizard(models.TransientModel):
     def search_solution(self):
         self.ensure_one()
         action = self.env.ref("helpdesk_mgmt_solution.act_search_helpdesk_solution")
-        res_action = action.read()[0]
+        res_action = action.sudo().read()[0]
         ctx = {
             "helpdesk_ticket_id": self.ticket_id.id,
         }
