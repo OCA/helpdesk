@@ -93,6 +93,13 @@
         groups="group_helpdesk_manager"
     />
     <menuitem
+        id="helpdesk_config_settings_menu"
+        name="Settings"
+        parent="helpdesk_ticket_config_main_menu"
+        action="action_helpdesk_mgmt_config_settings"
+        sequence="1"
+    />
+    <menuitem
         id="helpdesk_ticket_channel_menu"
         name="Channels"
         parent="helpdesk_ticket_config_main_menu"

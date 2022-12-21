@@ -29,6 +29,15 @@ class HelpdeskTicketController(http.Controller):
 
         return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
 
+    def _get_teams(self):
+        return (
+            http.request.env["helpdesk.ticket.team"]
+            .sudo()
+            .search([("active", "=", True), ("show_in_portal", "=", True)])
+            if http.request.env.user.company_id.helpdesk_mgmt_portal_select_team
+            else False
+        )
+
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
         categories = http.request.env["helpdesk.ticket.category"].search(
@@ -38,7 +47,12 @@ class HelpdeskTicketController(http.Controller):
         name = http.request.env.user.name
         return http.request.render(
             "helpdesk_mgmt.portal_create_ticket",
-            {"categories": categories, "email": email, "name": name},
+            {
+                "categories": categories,
+                "teams": self._get_teams(),
+                "email": email,
+                "name": name,
+            },
         )
 
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
@@ -46,8 +60,9 @@ class HelpdeskTicketController(http.Controller):
         category = http.request.env["helpdesk.ticket.category"].browse(
             int(kw.get("category"))
         )
+        company = category.company_id or http.request.env.user.company_id
         vals = {
-            "company_id": category.company_id.id or http.request.env.user.company_id.id,
+            "company_id": company.id,
             "category_id": category.id,
             "description": plaintext2html(kw.get("description")),
             "name": kw.get("subject"),
@@ -60,6 +75,11 @@ class HelpdeskTicketController(http.Controller):
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
         }
+        if company.helpdesk_mgmt_portal_select_team:
+            team = http.request.env["helpdesk.ticket.team"].search(
+                [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
+            )
+            vals.update({"team_id": team.id})
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
