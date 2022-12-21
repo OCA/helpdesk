@@ -53,6 +53,11 @@ class HelpdeskTeam(models.Model):
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority", compute="_compute_todo_tickets"
     )
+    show_in_portal = fields.Boolean(
+        string="Show in portal form",
+        default=True,
+        help="Allow to select this team when creating a new ticket in the portal.",
+    )
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
