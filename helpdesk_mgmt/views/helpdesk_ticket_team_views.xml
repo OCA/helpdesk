@@ -83,6 +83,7 @@
                                 options="{'no_create': True}"
                                 groups="base.group_multi_company"
                             />
+                            <field name="show_in_portal" />
                         </group>
                         <group name="right">
                         </group>
