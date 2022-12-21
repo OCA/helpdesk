@@ -4,10 +4,12 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "15.0.2.3.0",
+    "version": "15.0.2.4.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
+    "Tecnativa, "
+    "ForgeFlow, "
     "C2i Change 2 Improve, "
     "Domatix, "
     "Factor Libre, "
