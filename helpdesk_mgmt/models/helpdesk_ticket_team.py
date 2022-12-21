@@ -9,7 +9,13 @@ class HelpdeskTeam(models.Model):
     _inherit = ["mail.thread", "mail.alias.mixin"]
 
     name = fields.Char(required=True)
-    user_ids = fields.Many2many(comodel_name="res.users", string="Members")
+    user_ids = fields.Many2many(
+        comodel_name="res.users",
+        string="Members",
+        relation="helpdesk_ticket_team_res_users_rel",
+        column1="helpdesk_ticket_team_id",
+        column2="res_users_id",
+    )
     active = fields.Boolean(default=True)
     category_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.category", string="Category"

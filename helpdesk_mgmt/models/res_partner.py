@@ -1,7 +1,7 @@
 from odoo import fields, models
 
 
-class Partner(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
 
     helpdesk_ticket_ids = fields.One2many(
