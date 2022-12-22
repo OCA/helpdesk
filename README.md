@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.12.0 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 13.0.1.13.0 |  | Helpdesk
 [helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 13.0.1.0.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with leads
 [helpdesk_mgmt_partner_sequence](helpdesk_mgmt_partner_sequence/) | 13.0.1.0.1 |  | Provides different partner sequence in Helpdesk.
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 13.0.1.0.1 |  | Add the option to select project in the tickets.
