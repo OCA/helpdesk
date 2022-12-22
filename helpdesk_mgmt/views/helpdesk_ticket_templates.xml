@@ -396,26 +396,6 @@
                     name="csrf_token"
                     t-att-value="request.csrf_token()"
                 />
-                <div class="form-group">
-                    <label
-                        class="col-md-3 col-sm-4 control-label"
-                        for="category"
-                    >Category</label>
-                    <div class="col-md-7 col-sm-8">
-                        <select
-                            class="form-control"
-                            id="category"
-                            name="category"
-                            required="True"
-                        >
-                            <t t-foreach="categories" t-as="cat">
-                                <option t-attf-value="#{cat.id}">
-                                    <t t-esc="cat.name" />
-                                </option>
-                            </t>
-                        </select>
-                    </div>
-                </div>
                 <div class="form-group" t-if="teams">
                     <label
                         class="col-md-3 col-sm-4 control-label"
@@ -431,6 +411,26 @@
                             <t t-foreach="teams" t-as="team">
                                 <option t-attf-value="#{team.id}">
                                     <t t-esc="team.name" />
+                                </option>
+                            </t>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label
+                        class="col-md-3 col-sm-4 control-label"
+                        for="category"
+                    >Category</label>
+                    <div class="col-md-7 col-sm-8">
+                        <select
+                            class="form-control"
+                            id="category"
+                            name="category"
+                            required="True"
+                        >
+                            <t t-foreach="categories" t-as="cat">
+                                <option t-attf-value="#{cat.id}">
+                                    <t t-esc="cat.name" />
                                 </option>
                             </t>
                         </select>
