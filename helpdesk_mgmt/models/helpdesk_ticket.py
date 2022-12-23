@@ -136,7 +136,7 @@ class HelpdeskTicket(models.Model):
     def copy(self, default=None):
         self.ensure_one()
         if default is None:
-            default = {}
+            default = {''}
         if "number" not in default:
             default["number"] = self._prepare_ticket_number(default)
         res = super().copy(default)
