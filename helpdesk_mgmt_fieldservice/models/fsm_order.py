@@ -13,7 +13,8 @@ class FSMOrder(models.Model):
     def action_complete(self):
         res = super().action_complete()
         if (
-            not self.ticket_id.stage_id.closed
+            self.ticket_id.has_access("write")
+            and not self.ticket_id.stage_id.closed
             and self.ticket_id.fsm_order_ids
             and all(self.ticket_id.mapped("fsm_order_ids.stage_id.is_closed"))
         ):
@@ -24,7 +25,6 @@ class FSMOrder(models.Model):
                 "target": "new",
                 "context": {
                     "default_ticket_id": self.ticket_id.id,
-                    "default_team_id": self.ticket_id.team_id.id,
                     "default_resolution": self.resolution,
                 },
             }
