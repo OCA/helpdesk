@@ -8,18 +8,21 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.helpdesk_ticket = cls.env["helpdesk.ticket"]
-        cls.fsm_order = cls.env["fsm.order"]
+        cls.HelpdeskTicket = cls.env["helpdesk.ticket"]
+        cls.FsmOrder = cls.env["fsm.order"]
+        cls.FsmStage = cls.env["fsm.stage"]
         cls.partner = cls.env["res.partner"].create({"name": "Partner 1"})
         cls.user_demo = cls.env.ref("base.user_demo")
-        cls.helpdesk_ticket_team = cls.env["helpdesk.ticket.team"]
+        cls.HelpdeskTicketTeam = cls.env["helpdesk.ticket.team"]
         cls.fsm_team = cls.env["fsm.team"].create({"name": "FSM Team"})
-        cls.mail_alias = cls.env["mail.alias"]
+        cls.fsm_stage_new = cls.env.ref("fieldservice.fsm_stage_new")
+        cls.fsm_stage_cancelled = cls.env.ref("fieldservice.fsm_stage_cancelled")
+        cls.MailAlias = cls.env["mail.alias"]
         cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         cls.stage_completed = cls.env.ref("fieldservice.fsm_stage_completed")
         cls.test_location = cls.env.ref("fieldservice.test_location")
         cls.partner.service_location_id = cls.test_location
-        cls.mail_alias_id = cls.mail_alias.create(
+        cls.mail_alias_id = cls.MailAlias.create(
             {
                 "alias_name": "Test Mail Alias",
                 "alias_model_id": cls.env["ir.model"]
@@ -27,11 +30,11 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
                 .id,
             }
         )
-        cls.team_id = cls.helpdesk_ticket_team.create(
+        cls.team_id = cls.HelpdeskTicketTeam.create(
             {"name": "Team 1", "alias_id": cls.mail_alias_id.id}
         )
 
-        cls.ticket_1 = cls.helpdesk_ticket.create(
+        cls.ticket_1 = cls.HelpdeskTicket.create(
             {
                 "name": "Test 1",
                 "description": "Ticket test",
@@ -40,7 +43,7 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
                 "fsm_location_id": cls.test_location.id,
             }
         )
-        cls.ticket_2 = cls.helpdesk_ticket.create(
+        cls.ticket_2 = cls.HelpdeskTicket.create(
             {
                 "name": "Test 2",
                 "description": "Ticket test",
@@ -49,11 +52,19 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
                 "fsm_location_id": cls.test_location.id,
             }
         )
-        cls.fsm_order_no_ticket = cls.fsm_order.create(
+        cls.fsm_order_no_ticket = cls.FsmOrder.create(
             {
                 "name": "No ticket order",
                 "location_id": cls.test_location.id,
                 "team_id": cls.fsm_team.id,
+            }
+        )
+        cls.fsm_stage_closed = cls.FsmStage.create(
+            {
+                "name": "Custom Closing Stage",
+                "stage_type": "order",
+                "is_closed": True,
+                "sequence": 200,
             }
         )
 
@@ -68,7 +79,7 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
         """
         # checking action_create_order on fsm.order
         action_create_order = self.ticket_1.action_create_order()
-        fsm_order_obj = self.fsm_order.with_context(**action_create_order["context"])
+        fsm_order_obj = self.FsmOrder.with_context(**action_create_order["context"])
         fsm_orders = [self._create_fsm_orders(fsm_order_obj) for _ in range(5)]
         self.assertRecordValues(
             fsm_orders,
@@ -130,10 +141,42 @@ class TestHelpdeskTicketFSMOrder(SavepointCase):
         f.stage_id = self.stage_closed
         close_wizard_form = f.save()
         close_wizard_form.action_close_ticket()
-        self.assertFalse(self.ticket_1.all_orders_closed)
+        self.assertTrue(self.ticket_1.all_orders_closed)
         self.assertEqual(self.ticket_1.stage_id.name, self.stage_closed.name)
         self.assertEqual(self.ticket_1.resolution, "Just another resolution")
         # check action_complete on fsm.order no ticket
         self.fsm_order_no_ticket.action_complete()
         self.assertEqual(self.fsm_order_no_ticket.stage_id, self.stage_completed)
         self.assertFalse(self.fsm_order_no_ticket.is_button)
+
+    def test_all_orders_closed(self):
+        """
+        One of the things this test is for is avoiding hardcoding the name
+        of the fsm.stage in the compute method of all_orders_closed
+        as was previously done
+        """
+
+        # If no orders, all_orders_closed is False
+        self.assertFalse(self.ticket_1.fsm_order_ids)
+        self.assertFalse(self.ticket_1.all_orders_closed)
+
+        action_create_order = self.ticket_1.action_create_order()
+        fsm_order_obj = self.FsmOrder.with_context(**action_create_order["context"])
+        fsm_orders = [self._create_fsm_orders(fsm_order_obj) for _ in range(3)]
+
+        self.assertFalse(self.ticket_1.all_orders_closed)
+
+        fsm_orders[0].stage_id = self.fsm_stage_closed
+        self.assertFalse(self.ticket_1.all_orders_closed)
+
+        fsm_orders[1].ticket_id = False
+        self.assertFalse(self.ticket_1.all_orders_closed)
+
+        fsm_orders[2].stage_id = self.fsm_stage_cancelled
+        self.assertTrue(self.ticket_1.all_orders_closed)
+
+        fsm_orders[1].ticket_id = self.ticket_1.id
+        self.assertFalse(self.ticket_1.all_orders_closed)
+
+        fsm_orders[1].stage_id.is_closed = True
+        self.assertTrue(self.ticket_1.all_orders_closed)

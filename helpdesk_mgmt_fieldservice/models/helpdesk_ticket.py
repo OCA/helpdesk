@@ -19,21 +19,14 @@ class HelpdeskTicket(models.Model):
 
     @api.constrains("stage_id")
     def _validate_stage_fields(self):
-        for rec in self:
-            stage = rec.stage_id
-            if stage.closed:
-                if rec.fsm_order_ids:
-                    closed_orders = rec.fsm_order_ids.filtered(
-                        lambda x: x.stage_id.is_closed
+        for rec in self.filtered("stage_id.closed"):
+            if rec.fsm_order_ids and not rec.all_orders_closed:
+                raise ValidationError(
+                    _(
+                        "Please complete all service orders "
+                        "related to this ticket to close it."
                     )
-                    if len(closed_orders.ids) != len(rec.fsm_order_ids):
-
-                        raise ValidationError(
-                            _(
-                                "Please complete all service orders "
-                                "related to this ticket to close it."
-                            )
-                        )
+                )
 
     def _location_contact_fill(self, loc):
         """loc is a boolean that lets us know if this is coming from the
@@ -82,13 +75,9 @@ class HelpdeskTicket(models.Model):
         action["views"] = [(res and res.id or False, "form")]
         return action
 
-    @api.depends("fsm_order_ids", "stage_id", "fsm_order_ids.stage_id")
+    @api.depends("fsm_order_ids.stage_id.is_closed")
     def _compute_all_closed(self):
         for ticket in self:
-            ticket.all_orders_closed = True
-            if ticket.fsm_order_ids:
-                for order in ticket.fsm_order_ids:
-                    if order.stage_id.name not in ["Closed", "Cancelled"]:
-                        ticket.all_orders_closed = False
-            else:
-                ticket.all_orders_closed = False
+            ticket.all_orders_closed = ticket.fsm_order_ids and all(
+                x.stage_id.is_closed for x in ticket.fsm_order_ids
+            )
