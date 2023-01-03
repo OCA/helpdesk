@@ -115,6 +115,9 @@ class HelpdeskTicket(models.Model):
     # CRUD
     # ---------------------------------------------------
 
+    def _creation_subtype(self):
+        return self.env.ref("helpdesk_mgmt.hlp_tck_created")
+
     @api.model
     def create(self, vals):
         if vals.get("number", "/") == "/":
