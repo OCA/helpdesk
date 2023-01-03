@@ -122,7 +122,6 @@ There are restrictions to read tickets according to the user's permissions set i
 #. *User: Team tickets*: User is able to see all the tickets that are assigned to the teams to which he/she belongs or the tickets that are not assigned to any team nor user.
 #. *User*: User is able to see all the tickets.
 
-
 Usage
 =====
 
