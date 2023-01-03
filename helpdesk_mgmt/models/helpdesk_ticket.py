@@ -121,11 +121,12 @@ class HelpdeskTicket(models.Model):
     # CRUD
     # ---------------------------------------------------
 
-    @api.model
-    def create(self, vals):
-        if vals.get("number", "/") == "/":
-            vals["number"] = self._prepare_ticket_number(vals)
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("number", "/") == "/":
+                vals["number"] = self._prepare_ticket_number(vals)
+            return super().create(vals)
 
     def copy(self, default=None):
         self.ensure_one()

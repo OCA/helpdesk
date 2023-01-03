@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "15.0.2.3.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -12,6 +12,7 @@
     "Domatix, "
     "Factor Libre, "
     "SDi Soluciones, "
+    "EAJ Global, "
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["mail", "portal"],
