@@ -30,4 +30,29 @@
             </xpath>
         </field>
     </record>
+    <record id="view_task_kanban_helpdesk" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban" />
+        <field name="arch" type="xml">
+             <div class="oe_kanban_bottom_right" position="before">
+                <div attrs="{'invisible':[('ticket_count', '=', 0)]}">
+                    <a
+                        class="o_project_kanban_box"
+                        name="action_view_ticket"
+                        type="object"
+                    >
+                        <span class="o_value">
+                            <b>
+                                <field name="ticket_count" />
+                            </b>
+                        </span>
+                        <span class="o_label">
+                          <field name="label_tickets" />
+                        </span>
+                    </a>
+                    &#160;
+                </div>
+            </div>
+        </field>
+    </record>
 </odoo>
