@@ -122,6 +122,8 @@ class HelpdeskTicket(models.Model):
     def create(self, vals):
         if vals.get("number", "/") == "/":
             vals["number"] = self._prepare_ticket_number(vals)
+        if vals.get("user_id") and not vals.get("assigned_date"):
+            vals["assigned_date"] = fields.Datetime.now()
         return super().create(vals)
 
     def copy(self, default=None):
