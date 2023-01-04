@@ -688,6 +688,7 @@ msgstr "Descrizione"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
@@ -798,6 +799,7 @@ msgid "Helpdesk Manager"
 msgstr "Helpdesk Manager"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Helpdesk Team"
@@ -880,6 +882,7 @@ msgstr "Storico"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
@@ -962,6 +965,7 @@ msgstr "Stato Kanban"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
@@ -1655,6 +1659,12 @@ msgid "User: Personal tickets"
 msgstr "Utente: Ticket Personali"
 
 #. module: helpdesk_mgmt
+#: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
+msgid "User: Team tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
 msgstr "Utenti"

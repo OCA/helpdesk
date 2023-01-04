@@ -553,6 +553,7 @@ msgstr "Description"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__display_name
 msgid "Display Name"
 msgstr "Intitulé"
 
@@ -663,6 +664,7 @@ msgid "Helpdesk Manager"
 msgstr "Responsable Assistance"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Équipe Helpdesk"
@@ -745,6 +747,7 @@ msgstr "Historique"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
@@ -827,6 +830,7 @@ msgstr "État kanban"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
@@ -1520,6 +1524,12 @@ msgid "User: Personal tickets"
 msgstr "Utilisateur : tickets personnels"
 
 #. module: helpdesk_mgmt
+#: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
+msgid "User: Team tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
 msgstr "Utilisateurs"

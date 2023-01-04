@@ -692,6 +692,7 @@ msgstr "Descripción"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
@@ -802,6 +803,7 @@ msgid "Helpdesk Manager"
 msgstr "Manager Helpdesk"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Equipo"
@@ -812,7 +814,6 @@ msgid "Helpdesk Team Search"
 msgstr "Buscar equipo Helpdesk"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team name..."
 msgstr "Nombre del equipo..."
@@ -885,6 +886,7 @@ msgstr "Historial"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__id
 msgid "ID"
 msgstr "ID (identificación)"
 
@@ -967,6 +969,7 @@ msgstr "Estado Kanban"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
