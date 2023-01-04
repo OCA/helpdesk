@@ -25,3 +25,30 @@ class ProjectTask(models.Model):
             record.todo_ticket_count = len(
                 record.ticket_ids.filtered(lambda ticket: not ticket.closed)
             )
+
+    def action_view_ticket(self):
+        result = self.env["ir.actions.act_window"]._for_xml_id(
+            "helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard"
+        )
+        # choose the view_mode accordingly
+        if not self.ticket_ids or len(self.ticket_ids) > 1:
+            result["domain"] = "[('id','in',%s)]" % (self.ticket_ids.ids)
+            res = self.env.ref("helpdesk_mgmt.ticket_view_tree", False)
+            tree_view = [(res and res.id or False, "tree")]
+            if "views" in result:
+                result["views"] = tree_view + [
+                    (state, view) for state, view in result["views"] if view != "tree"
+                ]
+            else:
+                result["views"] = tree_view
+        elif len(self.ticket_ids) == 1:
+            res = self.env.ref("helpdesk_mgmt.ticket_view_form", False)
+            form_view = [(res and res.id or False, "form")]
+            if "views" in result:
+                result["views"] = form_view + [
+                    (state, view) for state, view in result["views"] if view != "form"
+                ]
+            else:
+                result["views"] = form_view
+            result["res_id"] = self.ticket_ids.id
+        return result
