@@ -311,5 +311,21 @@
             <field name="alias_user_id" ref="base.user_admin" />
             <field name="alias_parent_model_id" ref="model_helpdesk_ticket_team" />
         </record>
+        <!-- Helpdesk Ticket-related subtypes for messaging / Chatter -->
+        <record id="hlp_tck_created" model="mail.message.subtype">
+            <field name="name">Ticket Created</field>
+            <field name="res_model">helpdesk.ticket</field>
+            <field name="default" eval="False" />
+            <field name="hidden" eval="False" />
+            <field name="description">Ticket created</field>
+        </record>
+        <!-- Helpdesk Ticket-related subtypes for messaging / Chatter -->
+        <record id="hlp_tck_team_created" model="mail.message.subtype">
+            <field name="name">Helpdesk Ticket Created</field>
+            <field name="res_model">helpdesk.ticket.team</field>
+            <field name="default" eval="True" />
+            <field name="parent_id" ref="hlp_tck_created" />
+            <field name="relation_field">team_id</field>
+        </record>
     </data>
 </odoo>
