@@ -698,6 +698,7 @@ msgid "Helpdesk Manager"
 msgstr "Manager Helpdesk"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Equipo"
@@ -708,7 +709,6 @@ msgid "Helpdesk Team Search"
 msgstr "Buscar equipo Helpdesk"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team name..."
 msgstr "Nombre del equipo..."

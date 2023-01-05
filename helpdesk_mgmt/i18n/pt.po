@@ -696,6 +696,7 @@ msgid "Helpdesk Manager"
 msgstr "Gestor de Helpdesk"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Equipa de Helpdesk"
@@ -1537,6 +1538,12 @@ msgid "User: Personal tickets"
 msgstr "Utilizador: Tickets do Próprio"
 
 #. module: helpdesk_mgmt
+#: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
+msgid "User: Team tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
 msgstr "Utilizadores"
