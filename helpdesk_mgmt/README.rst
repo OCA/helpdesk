@@ -173,6 +173,8 @@ Authors
 ~~~~~~~
 
 * AdaptiveCity
+* Tecnativa
+* ForgeFlow
 * C2i Change 2 Improve
 * Domatix
 * Factor Libre
