@@ -457,7 +457,8 @@ msgstr "Todos"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Allow to select this team when creating a new ticket in the portal."
-msgstr "Permitir seleccionar este equipo al crear un nuevo ticket en el portal."
+msgstr ""
+"Permitir seleccionar este equipo al crear un nuevo ticket en el portal."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -829,6 +830,7 @@ msgid "Helpdesk Manager"
 msgstr "Gerente de la Mesa de Ayuda"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Helpdesk Team"
 msgstr "Equipo de la Mesa de Ayuda"
@@ -1675,6 +1677,12 @@ msgid "User: Personal tickets"
 msgstr "Usuario: Tickets personales"
 
 #. module: helpdesk_mgmt
+#: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
+msgid "User: Team tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
 msgstr "Usuarios"
