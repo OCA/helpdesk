@@ -74,3 +74,13 @@ Tags
 .. figure:: ../static/description/Tags.PNG
    :alt: Ticket Tags
    :width: 600 px
+
+
+Permissions
+~~~~~~~~~~~
+
+There are restrictions to read tickets according to the user's permissions set in Helpdesk.
+
+#. *User: Personal tickets*: User is able to see their tickets (those that are assigned to their user) or those that are no team nor user is assigned.
+#. *User: Team tickets*: User is able to see all the tickets that are assigned to the teams to which he/she belongs or the tickets that are not assigned to any team nor user.
+#. *User*: User is able to see all the tickets.
