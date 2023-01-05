@@ -731,6 +731,11 @@ msgid "Helpdesk Ticket Channel"
 msgstr "Canal de ticket Helpdesk"
 
 #. module: helpdesk_mgmt
+#: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_team_created
+msgid "Helpdesk Ticket Created"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
 msgstr "Estado de ticket Helpdesk"
@@ -1424,6 +1429,11 @@ msgid "Ticket Assignment"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
+msgid "Ticket Created"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
 msgstr "Buscar estado de ticket"
@@ -1450,6 +1460,11 @@ msgstr "Cantidad de tickets activos"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
 msgstr "Cantidad de tickets"
+
+#. module: helpdesk_mgmt
+#: model:mail.message.subtype,description:helpdesk_mgmt.hlp_tck_created
+msgid "Ticket created"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
