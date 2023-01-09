@@ -118,13 +118,14 @@ class HelpdeskTicket(models.Model):
     def _creation_subtype(self):
         return self.env.ref("helpdesk_mgmt.hlp_tck_created")
 
-    @api.model
-    def create(self, vals):
-        if vals.get("number", "/") == "/":
-            vals["number"] = self._prepare_ticket_number(vals)
-        if vals.get("user_id") and not vals.get("assigned_date"):
-            vals["assigned_date"] = fields.Datetime.now()
-        return super().create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get("number", "/") == "/":
+                vals["number"] = self._prepare_ticket_number(vals)
+            if vals.get("user_id") and not vals.get("assigned_date"):
+                vals["assigned_date"] = fields.Datetime.now()
+        return super().create(vals_list)
 
     def copy(self, default=None):
         self.ensure_one()
