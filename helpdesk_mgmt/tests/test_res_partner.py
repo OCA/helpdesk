@@ -3,7 +3,7 @@ from odoo.tests.common import SavepointCase
 
 class TestPartner(SavepointCase):
     def setUp(self):
-        super(TestPartner, self).setUp()
+        super().setUp()
         self.partner_obj = self.env["res.partner"]
         self.ticket_obj = self.env["helpdesk.ticket"]
         self.stage_id_closed = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
@@ -39,5 +39,4 @@ class TestPartner(SavepointCase):
         self.assertEqual(self.parent_id.helpdesk_ticket_active_count, 3)
 
     def test_ticket_string(self):
-
         self.assertEqual(self.parent_id.helpdesk_ticket_count_string, "3 / 4")
