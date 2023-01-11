@@ -32,7 +32,7 @@
             <field ref="model_helpdesk_ticket" name="model_id" />
             <field
                 name="domain_force"
-            >['|',('user_id','=',user.id),('user_id','=',False)]</field>
+            >["|", ('user_id', '=', user.id), '&amp;', ('user_id','=',False), ('team_id', 'in', user.helpdesk_team_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_user_own'))]" />
         </record>
         <record id="helpdesk_ticket_team_rule" model="ir.rule">
