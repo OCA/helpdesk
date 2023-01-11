@@ -77,8 +77,12 @@ class HelpdeskTicketController(http.Controller):
             "partner_email": request.env.user.partner_id.email,
         }
         if company.helpdesk_mgmt_portal_select_team:
-            team = http.request.env["helpdesk.ticket.team"].search(
-                [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
+            team = (
+                http.request.env["helpdesk.ticket.team"]
+                .sudo()
+                .search(
+                    [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
+                )
             )
             vals.update({"team_id": team.id})
         return vals
