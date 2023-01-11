@@ -4,11 +4,10 @@ from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
     @classmethod
     def setUpClass(cls):
-        super(TestHelpdeskTicketProject, cls).setUpClass()
-        env = cls.env(user=cls.user_admin)
-        Ticket = env["helpdesk.ticket"]
-        Project = env["project.project"]
-        Task = env["project.task"]
+        super().setUpClass()
+        Ticket = cls.env["helpdesk.ticket"]
+        Project = cls.env["project.project"]
+        Task = cls.env["project.task"]
         cls.ticket2 = Ticket.create({"name": "Test 2", "description": "Ticket test2"})
         cls.project1 = Project.create({"name": "Test Helpdesk-Project 1"})
         cls.task_project1 = Task.create(
