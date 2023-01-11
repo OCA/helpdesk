@@ -1,80 +1,75 @@
-from odoo.tests import common
+# Copyright 2023 Tecnativa - Víctor Martínez
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+from odoo.tests.common import users
+
+from .common import TestHelpdeskTicketBase
 
 
-class TestHelpdeskTicketTeam(common.TransactionCase):
-    @classmethod
-    def setUpClass(cls):
-        super(TestHelpdeskTicketTeam, cls).setUpClass()
-        helpdesk_ticket = cls.env["helpdesk.ticket"]
-        helpdesk_ticket_team = cls.env["helpdesk.ticket.team"]
-        mail_alias = cls.env["mail.alias"]
-        cls.user_demo = cls.env.ref("base.user_demo")
-        cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
-        cls.mail_alias_id = mail_alias.create(
-            {
-                "alias_name": "Test Mail Alias",
-                "alias_model_id": cls.env["ir.model"]
-                .search([("model", "=", "helpdesk.ticket")])
-                .id,
-            }
-        )
-        cls.team_id = helpdesk_ticket_team.create(
-            {"name": "Team 1", "alias_id": cls.mail_alias_id.id}
-        )
-        cls.helpdesk_ticket_1 = helpdesk_ticket.create(
-            {
-                "name": "Ticket 1",
-                "description": "Description",
-                "team_id": cls.team_id.id,
-                "priority": "3",
-            }
-        )
-        cls.helpdesk_ticket_2 = helpdesk_ticket.create(
-            {
-                "name": "Ticket 2",
-                "description": "Description",
-                "team_id": cls.team_id.id,
-                "user_id": cls.user_demo.id,
-                "priority": "1",
-            }
-        )
+class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
+    @users("helpdesk_mgmt-user_own")
+    def test_helpdesk_ticket_user_own(self):
+        tickets = self.env["helpdesk.ticket"].search([])
+        self.assertIn(self.ticket_a_unassigned, tickets)
+        self.assertIn(self.ticket_a_user_own, tickets)
+        self.assertNotIn(self.ticket_a_user_team, tickets)
+        self.assertNotIn(self.ticket_b_unassigned, tickets)
+        self.assertIn(self.ticket_b_user_own, tickets)
+        self.assertNotIn(self.ticket_b_user_team, tickets)
+
+    @users("helpdesk_mgmt-user_team")
+    def test_helpdesk_ticket_user_team(self):
+        tickets = self.env["helpdesk.ticket"].search([])
+        self.assertNotIn(self.ticket_a_unassigned, tickets)
+        self.assertNotIn(self.ticket_a_user_own, tickets)
+        self.assertIn(self.ticket_a_user_team, tickets)
+        self.assertIn(self.ticket_b_unassigned, tickets)
+        self.assertIn(self.ticket_b_user_own, tickets)
+        self.assertIn(self.ticket_b_user_team, tickets)
+
+    @users("helpdesk_mgmt-user")
+    def test_helpdesk_ticket_user(self):
+        tickets = self.env["helpdesk.ticket"].search([])
+        self.assertIn(self.ticket_a_unassigned, tickets)
+        self.assertIn(self.ticket_a_user_own, tickets)
+        self.assertIn(self.ticket_a_user_team, tickets)
+        self.assertIn(self.ticket_b_unassigned, tickets)
+        self.assertIn(self.ticket_b_user_own, tickets)
+        self.assertIn(self.ticket_b_user_team, tickets)
 
     def test_helpdesk_ticket_todo(self):
         self.assertEqual(
-            self.team_id.todo_ticket_count,
-            2,
-            "Helpdesk Ticket: Helpdesk ticket team should " "have two tickets to do.",
+            self.team_a.todo_ticket_count,
+            3,
+            "Helpdesk Ticket: Helpdesk ticket team should have three tickets to do.",
         )
         self.assertEqual(
-            self.team_id.todo_ticket_count_unassigned,
+            self.team_a.todo_ticket_count_unassigned,
             1,
             "Helpdesk Ticket: Helpdesk ticket team should "
             "have one tickets unassigned.",
         )
         self.assertEqual(
-            self.team_id.todo_ticket_count_high_priority,
+            self.team_a.todo_ticket_count_high_priority,
             1,
             "Helpdesk Ticket: Helpdesk ticket team should "
-            "have two tickets with high priority.",
+            "have one ticket with high priority.",
         )
         self.assertEqual(
-            self.team_id.todo_ticket_count_unattended,
+            self.team_a.todo_ticket_count_unattended,
+            3,
+            "Helpdesk Ticket: Helpdesk ticket team should "
+            "have three tickets unattended.",
+        )
+
+        self.ticket_a_unassigned.write({"stage_id": self.stage_closed.id})
+        self.assertEqual(
+            self.team_a.todo_ticket_count_unattended,
             2,
             "Helpdesk Ticket: Helpdesk ticket team should "
             "have two tickets unattended.",
         )
-
-        self.helpdesk_ticket_1.write({"stage_id": self.stage_closed.id})
-
         self.assertEqual(
-            self.team_id.todo_ticket_count_unattended,
-            1,
-            "Helpdesk Ticket: Helpdesk ticket team should "
-            "have one ticket unattended.",
-        )
-
-        self.assertEqual(
-            self.team_id.todo_ticket_count,
-            1,
-            "Helpdesk Ticket: Helpdesk ticket team should " "have one ticket to do.",
+            self.team_a.todo_ticket_count,
+            2,
+            "Helpdesk Ticket: Helpdesk ticket team should have two ticket to do.",
         )
