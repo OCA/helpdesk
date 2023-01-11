@@ -57,8 +57,7 @@ class HelpdeskTicketController(http.Controller):
             },
         )
 
-    @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
-    def submit_ticket(self, **kw):
+    def _prepare_submit_ticket_vals(self, **kw):
         category = http.request.env["helpdesk.ticket.category"].browse(
             int(kw.get("category"))
         )
@@ -82,6 +81,11 @@ class HelpdeskTicketController(http.Controller):
                 [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
             )
             vals.update({"team_id": team.id})
+        return vals
+
+    @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
+    def submit_ticket(self, **kw):
+        vals = self._prepare_submit_ticket_vals(**kw)
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
