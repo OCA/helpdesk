@@ -4,15 +4,12 @@ from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
     @classmethod
     def setUpClass(cls):
-        super(TestHelpdeskType, cls).setUpClass()
-        env = cls.env(user=cls.user_admin)
-        Ticket = env["helpdesk.ticket"]
-        Team = env["helpdesk.ticket.team"]
-        Type = env["helpdesk.ticket.type"]
+        super().setUpClass()
+        Ticket = cls.env["helpdesk.ticket"]
+        Team = cls.env["helpdesk.ticket.team"]
+        Type = cls.env["helpdesk.ticket.type"]
 
-        cls.ht_team1 = Team.create(
-            {"name": "Team 1", "user_ids": [(4, cls.user_admin.id)]}
-        )
+        cls.ht_team1 = Team.create({"name": "Team 1", "user_ids": [(4, cls.user.id)]})
         cls.ht_type1 = Type.create(
             {"name": "Type 1", "team_ids": [(4, cls.ht_team1.id)]}
         )
@@ -22,9 +19,7 @@ class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
         )
 
     def test_helpdesk_onchange_type_id(self):
-        self.ht_ticket1.write(
-            {"team_id": self.ht_team1.id, "user_id": self.user_admin.id}
-        )
+        self.ht_ticket1.write({"team_id": self.ht_team1.id, "user_id": self.user.id})
 
         self.ht_ticket1.type_id = self.ht_type1
         self.ht_ticket1._onchange_type_id()
@@ -36,7 +31,7 @@ class TestHelpdeskType(test_helpdesk_ticket.TestHelpdeskTicket):
         )
         self.assertEqual(
             self.ht_ticket1.user_id,
-            self.user_admin,
+            self.user,
             "Helpdesk Ticket: when type is changed, ticket user should be unchanged"
             " if user belongs to a that belongs to the new type",
         )
