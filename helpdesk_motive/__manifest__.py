@@ -4,7 +4,7 @@
 
 {
     "name": "Helpdesk Motive",
-    "version": "14.0.1.0.1",
+    "version": "14.0.1.0.2",
     "license": "AGPL-3",
     "summary": "Keep the motive ",
     "author": "Konos, Open Source Integrators, Odoo Community Association (OCA)",
