@@ -25,7 +25,9 @@ class HelpdeskTicketController(http.Controller):
             .sudo()
             .search([("id", "=", values["ticket_id"])])
         )
-        ticket.stage_id = values.get("stage_id")
+        stage = http.request.env["helpdesk.ticket.stage"].browse(values.get("stage_id"))
+        if stage.close_from_portal:  # protect against invalid target stage request
+            ticket.stage_id = values.get("stage_id")
 
         return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
 
