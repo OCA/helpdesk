@@ -111,7 +111,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
 
     def _ticket_get_page_view_values(self, ticket, **kwargs):
         closed_stages = request.env["helpdesk.ticket.stage"].search(
-            [("closed", "=", True)]
+            [("close_from_portal", "=", True)]
         )
         values = {
             "page_name": "ticket",
