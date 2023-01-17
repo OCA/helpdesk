@@ -66,6 +66,27 @@ class TestPortal(HttpCaseWithUserPortal):
             ticket.description, "<p>" + "<br>".join(new_ticket_desc_lines) + "</p>"
         )
 
+    def test_close_ticket(self):
+        """Close a ticket from the portal."""
+        self.assertFalse(self.portal_ticket.closed)
+        self.authenticate("portal", "portal")
+        resp = self.url_open(f"/my/ticket/{self.portal_ticket.id}")
+        self.assertEqual(self._count_close_buttons(resp), 2)  # 2 close stages in data/
+        stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
+        self._call_close_ticket(self.portal_ticket, stage)
+        self.assertTrue(self.portal_ticket.closed)
+        self.assertEqual(self.portal_ticket.stage_id, stage)
+        resp = self.url_open(f"/my/ticket/{self.portal_ticket.id}")
+        self.assertEqual(self._count_close_buttons(resp), 0)  # no close buttons now
+
+    def test_close_ticket_invalid_stage(self):
+        """Attempt to close a ticket from the portal with an invalid target stage."""
+        self.authenticate("portal", "portal")
+        stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_awaiting")
+        self._call_close_ticket(self.portal_ticket, stage)
+        self.assertFalse(self.portal_ticket.closed)
+        self.assertNotEqual(self.portal_ticket.stage_id, stage)
+
     def test_ticket_list_unauthenticated(self):
         """Attempt to list tickets without auth, ensure we get sent back to login."""
         resp = self.url_open("/my/tickets", allow_redirects=False)
@@ -130,6 +151,26 @@ class TestPortal(HttpCaseWithUserPortal):
         resp = self.url_open(f"/my/ticket/{ticket_2.id}")
         self.assertEqual(resp.status_code, 200)
         self.assertIn("ticket-user-2", resp.text)
+
+    def _count_close_buttons(self, resp) -> int:
+        """Count close buttons in a form by counting forms with that target."""
+        return resp.text.count('action="/ticket/close"')
+
+    def _call_close_ticket(self, ticket, stage):
+        """Call /ticket/close with the specified target stage, check redirect."""
+        resp = self.url_open(
+            "/ticket/close",
+            data={
+                "csrf_token": http.WebRequest.csrf_token(self),
+                "stage_id": stage.id,
+                "ticket_id": ticket.id,
+            },
+            allow_redirects=False,
+        )
+        self.assertEqual(resp.status_code, 302)
+        self.assertTrue(resp.is_redirect)  # http://127.0.0.1:8069/my/ticket/<ticket-id>
+        self.assertTrue(resp.headers["Location"].endswith(f"/my/ticket/{ticket.id}"))
+        return resp
 
     def _create_ticket(self, partner, ticket_title):
         """Create a ticket submitted by the specified partner."""

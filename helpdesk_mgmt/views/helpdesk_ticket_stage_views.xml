@@ -54,6 +54,10 @@
                         </group>
                         <group name="main_right">
                             <field name="closed" />
+                            <field
+                                name="close_from_portal"
+                                attrs="{'invisible': [('closed', '=', False)]}"
+                            />
                             <field name="unattended" />
                         </group>
                     </group>
