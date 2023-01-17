@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.3.2.0 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.3.3.0 |  | Helpdesk
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 15.0.1.0.0 |  | Add the option to select project in the tickets.
 [helpdesk_mgmtsystem_nonconformity](helpdesk_mgmtsystem_nonconformity/) | 15.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with nonconformities
 [helpdesk_type](helpdesk_type/) | 15.0.1.0.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
