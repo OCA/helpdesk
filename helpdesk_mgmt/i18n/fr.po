@@ -1256,7 +1256,10 @@ msgid "Send a new ticket"
 msgstr "Envoyer un nouveau ticket"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__sequence
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__sequence
 msgid "Sequence"
 msgstr "Séquence"
 
@@ -1614,8 +1617,8 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
-"{{object.company_id.name}} Affectation ticket (Ref {{object.number or 'n/a' "
-"}})"
+"{{object.company_id.name}} Affectation ticket (Ref {{object.number or 'n/"
+"a' }})"
 
 #~ msgid ""
 #~ "<br/>\n"
