@@ -5,7 +5,9 @@ class HelpdeskCategory(models.Model):
 
     _name = "helpdesk.ticket.category"
     _description = "Helpdesk Ticket Category"
+    _order = "sequence, id"
 
+    sequence = fields.Integer(default=10)
     active = fields.Boolean(
         default=True,
     )
