@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class HelpdeskTicketStage(models.Model):
@@ -12,6 +12,10 @@ class HelpdeskTicketStage(models.Model):
     active = fields.Boolean(default=True)
     unattended = fields.Boolean()
     closed = fields.Boolean()
+    close_from_portal = fields.Boolean(
+        help="Display button in portal ticket form to allow closing ticket "
+        "with this stage as target."
+    )
     mail_template_id = fields.Many2one(
         comodel_name="mail.template",
         string="Email Template",
@@ -31,3 +35,8 @@ class HelpdeskTicketStage(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
+
+    @api.onchange("closed")
+    def _onchange_closed(self):
+        if not self.closed:
+            self.close_from_portal = False

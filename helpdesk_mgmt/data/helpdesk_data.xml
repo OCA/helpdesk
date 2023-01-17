@@ -278,6 +278,7 @@
             <field name="name">Done</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="close_from_portal">True</field>
             <field name="fold">True</field>
             <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
             <field name="company_id" />
@@ -287,6 +288,17 @@
             <field name="name">Cancelled</field>
             <field name="unattended">False</field>
             <field name="closed">True</field>
+            <field name="close_from_portal">True</field>
+            <field name="fold">True</field>
+            <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
+            <field name="company_id" />
+        </record>
+        <record id="helpdesk_ticket_stage_rejected" model="helpdesk.ticket.stage">
+            <field name="sequence">6</field>
+            <field name="name">Rejected</field>
+            <field name="unattended">False</field>
+            <field name="closed">True</field>
+            <field name="close_from_portal">False</field>
             <field name="fold">True</field>
             <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
             <field name="company_id" />

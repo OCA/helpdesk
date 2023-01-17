@@ -183,10 +183,10 @@ class CustomerPortalHelpdesk(CustomerPortal):
 
     def _ticket_get_page_view_values(self, ticket, access_token, **kwargs):
         closed_stages = request.env["helpdesk.ticket.stage"].search(
-            [("closed", "=", True)]
+            [("close_from_portal", "=", True)]
         )
         values = {
-            "closed_stages": closed_stages,
+            "closed_stages": closed_stages,  # used to display close buttons
             "page_name": "ticket",
             "ticket": ticket,
             "user": request.env.user,
