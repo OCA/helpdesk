@@ -72,6 +72,7 @@ Authors
 ~~~~~~~
 
 * Domatix
+* Tecnativa
 
 Contributors
 ~~~~~~~~~~~~
