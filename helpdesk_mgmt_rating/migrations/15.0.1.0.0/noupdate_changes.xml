@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="rating_ticket_email_template" model="mail.template">
+        <field
+            name="email_from"
+        >{{object.rating_get_rated_partner_id().email_formatted}}</field>
+        <field
+            name="email_to"
+        >{{object.rating_get_partner_id().email_formatted}}</field>
+        <field
+            name="subject"
+        >Satisfaction Survey of the ticket {{object.number}} - {{object.name}}</field>
+        <field name="partner_to">{{object.rating_get_partner_id().id}}</field>
+        <field name="body_html" type="html">
+            <div>
+                <t t-set="access_token" t-value="object.rating_get_access_token()" />
+                <table
+                    border="0"
+                    cellpadding="0"
+                    cellspacing="0"
+                    width="590"
+                    style="width:100%; margin:0px auto;"
+                >
+                    <tbody>
+                        <tr>
+                            <td style="padding:15px 20px 10px 20px;">
+                                <p>Hello,</p>
+                                <p
+                                >Please take a moment to rate our services related to the ticket "<strong
+                                    ><t t-out="object.number" /> - <t
+                                            t-out="object.name"
+                                        /></strong>"assigned to <strong><t
+                                            t-out="object.rating_get_rated_partner_id().name"
+                                        /></strong>.</p>
+                                <p
+                                >We appreciate your feedback. It helps us to improve continuously.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 20px">
+                                <table
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="0"
+                                    width="590"
+                                    summary="o_mail_notification"
+                                    style="width:100%; margin: 32px 0px 32px 0px;"
+                                >
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <h2
+                                                style="font-weight:300;font-size:18px;"
+                                            >Tell us how you feel about our service:</h2>
+                                            <div
+                                                style="text-color: #888888"
+                                            >(click on one of these smileys)</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:10px 10px;">
+                                            <table
+                                                style="width:100%;text-align:center;margin-top:2rem;"
+                                            >
+                                                <tr>
+                                                    <td>
+                                                        <a
+                                                            t-attf-href="/rate/{{ access_token }}/5"
+                                                        >
+                                                            <img
+                                                                alt="Satisfied"
+                                                                src="/rating/static/src/img/rating_5.png"
+                                                                title="Satisfied"
+                                                            />
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a
+                                                            t-attf-href="/rate/{{ access_token }}/3"
+                                                        >
+                                                            <img
+                                                                alt="Not satisfied"
+                                                                src="/rating/static/src/img/rating_3.png"
+                                                                title="Not satisfied"
+                                                            />
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <a
+                                                            t-attf-href="/rate/{{ access_token }}/1"
+                                                        >
+                                                            <img
+                                                                alt="Highly Dissatisfied"
+                                                                src="/rating/static/src/img/rating_1.png"
+                                                                title="Highly Dissatisfied"
+                                                            />
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table
+                    style="width:600px;margin:auto;text-align:center;font-size:12px;"
+                >
+                    <tbody>
+                        <tr>
+                            <td style="padding-top:10px;color:#afafaf;">
+                                <t t-if="object.rating_status == 'stage_change'">
+                                    <p
+                                    >This customer survey has been sent because your ticket has been moved to the stage <b
+                                            t-out="object.stage_id.name"
+                                        /></p>
+                                </t>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </field>
+    </record>
+</odoo>

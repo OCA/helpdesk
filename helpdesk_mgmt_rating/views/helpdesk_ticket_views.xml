@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_kanban_inherit" model="ir.ui.view">
+        <field name="name">view.helpdesk.ticket.kanban.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field name="arch" type="xml">
+            <field name="assigned_date" position="after">
+                <field name="positive_rate_percentage" />
+                <field name="rating_status" />
+            </field>
+            <xpath expr="//div[hasclass('oe_kanban_bottom_left')]" position="inside">
+                <div t-if="record.rating_status != 'no_rate'" class="mt8 text-primary">
+                    <b>
+                        <t t-if="record.positive_rate_percentage.value != -1">
+                            <a name="action_view_ticket_rating" type="object">
+                                <i
+                                    class="fa fa-smile-o"
+                                    role="img"
+                                    aria-label="Percentage of satisfaction"
+                                    title="Percentage of satisfaction"
+                                /> <t t-esc="record.positive_rate_percentage.value" />%
+                            </a>
+                        </t>
+                    </b>
+                </div>
+            </xpath>
+            <xpath expr="//div[hasclass('dropdown-menu')]/a[2]" position="after">
+                <a
+                    name="action_view_ticket_rating"
+                    type="object"
+                    class="dropdown-item"
+                >Customer Rating</a>
+            </xpath>
+        </field>
+    </record>
+    <record id="ticket_view_form_inherit" model="ir.ui.view">
+        <field name="name">ticket.view.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_title')]" position="before">
+                <field name="positive_rate_percentage" invisible="1" />
+                <field name="rating_status" invisible="1" />
+            </xpath>
+            <div name="button_box" position="inside">
+                <button
+                    name="action_view_ticket_rating"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-smile-o"
+                    attrs="{'invisible': [('positive_rate_percentage', '=', -1)]}"
+                >
+                    <field name="rating_count" widget="statinfo" string="Ratings" />
+                </button>
+            </div>
+        </field>
+    </record>
+    <record id="ticket_view_form_rating_status" model="ir.ui.view">
+        <field name="name">ticket.view.form: Rating status</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field
+            name="groups_id"
+            eval="[(4, ref('helpdesk_mgmt.group_helpdesk_manager'))]"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']/group[2]" position="after">
+                <group>
+                    <field name="rating_status" widget="radio" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
