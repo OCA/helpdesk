@@ -3,7 +3,7 @@
 
 from datetime import datetime, timedelta
 
-from odoo import exceptions, fields
+from odoo import exceptions
 from odoo.tests import common
 
 
@@ -92,15 +92,14 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.assertEqual(self.ticket.show_time_control, "start")
         start_action = self.ticket.button_start_work()
         wizard = self._create_wizard(start_action, self.ticket_line)
-        self.assertFalse(wizard.amount)
         self.assertLessEqual(wizard.date_time, datetime.now())
-        self.assertLessEqual(wizard.date, fields.Date.context_today(wizard))
-        self.assertFalse(wizard.unit_amount)
-        self.assertEqual(wizard.account_id, self.ticket.project_id.analytic_account_id)
-        self.assertEqual(wizard.employee_id, self.env.user.employee_ids)
+        self.assertEqual(
+            wizard.analytic_line_id.account_id,
+            self.ticket.project_id.analytic_account_id,
+        )
         self.assertEqual(wizard.name, self.ticket_line.name)
         self.assertEqual(wizard.project_id, self.ticket.project_id)
-        self.assertEqual(wizard.ticket_id, self.ticket)
+        self.assertFalse(wizard.task_id)
         new_act = wizard.with_context(show_created_timer=True).action_switch()
         new_line = self.env[new_act["res_model"]].browse(new_act["res_id"])
         self.assertEqual(new_line.employee_id, self.env.user.employee_ids)
