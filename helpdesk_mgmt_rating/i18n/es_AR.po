@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-08-10 17:59+0000\n"
+"PO-Revision-Date: 2023-01-23 03:04+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,body_html:helpdesk_mgmt_rating.rating_ticket_email_template
@@ -109,6 +109,96 @@ msgid ""
 "    </div>\n"
 "    "
 msgstr ""
+"\n"
+"        % set access_token = object.rating_get_access_token()\n"
+"        <div style=\"background:#F0F0F0;color:#515166;padding:10px 0px;font-"
+"family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"        <table style=\"width:600px;margin:5px auto;\">\n"
+"            <tbody>\n"
+"                <tr><td>\n"
+"                    <a href=\"/\"><img src=\"/web/binary/company_logo\" style"
+"=\"vertical-align:baseline;max-width:100px;\" /></a>\n"
+"                </td><td style=\"text-align:right;vertical-align:middle;\">\n"
+"                        Encuesta de Satisfacción\n"
+"                </td></tr>\n"
+"            </tbody>\n"
+"        </table>\n"
+"        <table style=\"width:600px;margin:0px auto;background:white;border:"
+"1px solid #e1e1e1;\">\n"
+"          <tbody>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">\n"
+"                  <p>Hola,</p>\n"
+"                  <p>Tómese un momento para valorar nuestros servicios "
+"relacionados con el ticket \"<strong>${object.number} - ${object."
+"name}</strong>\"\n"
+"                     asignado a <strong>${object."
+"rating_get_rated_partner_id().name}</strong>.</p>\n"
+"                  <p>Apreciamos sus comentarios. Nos ayudan a mejorar "
+"continuamente.</p>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:10px 20px\">\n"
+"                  <table summary=\"o_mail_notification\" style=\"width:100"
+"%;border-top:1px solid #e1e1e1;\">\n"
+"                      <tr>\n"
+"                          <td style=\"text-align:center;\">\n"
+"                              <h2 style=\"font-weight:300;font-size:18px;\">"
+"\n"
+"                                  Cuéntenos como se sintió acerca de nuestro "
+"servicio:\n"
+"                              </h2>\n"
+"                              <div style=\"text-color: #888888\">(click en "
+"uno de estos emojis)</div>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                          <td style=\"padding:10px 10px;\">\n"
+"                              <table style=\"width:100%;text-align:center;\">"
+"\n"
+"                                  <tr>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/${access_token}/5\""
+">\n"
+"                                              <img alt=\"Satisfecho\" src=\"/"
+"rating/static/src/img/rating_5.png\" title=\"Satisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/${access_token}/3\""
+">\n"
+"                                              <img alt=\"No satisfecho\" src="
+"\"/rating/static/src/img/rating_3.png\" title=\"No satisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                      <td>\n"
+"                                          <a href=\"/rate/${access_token}/1\""
+">\n"
+"                                              <img alt=\"Muy Insatisfecho\" "
+"src=\"/rating/static/src/img/rating_1.png\" title=\"Muy Insatisfecho\"/>\n"
+"                                          </a>\n"
+"                                      </td>\n"
+"                                  </tr>\n"
+"                              </table>\n"
+"                          </td>\n"
+"                      </tr>\n"
+"                  </table>\n"
+"              </td></tr>\n"
+"              <tr><td style=\"padding:15px 20px 10px 20px;\">${("
+"object.user_id.signature or '')| safe}</td></tr>\n"
+"          </tbody>\n"
+"      </table>\n"
+"      <table style=\"width:600px;margin:auto;text-align:center;font-"
+"size:12px;\">\n"
+"        <tbody>\n"
+"          <tr><td style=\"padding-top:10px;color:#afafaf;\">\n"
+"              % if object.rating_status == 'stage_change':\n"
+"                  <p>Esta encuesta al consumidor ha sido enviada porque su "
+"ticket se ha movido a la etapa <b>${object.stage_id.name}</b></p>\n"
+"              % endif\n"
+"          </td></tr>\n"
+"        </tbody>\n"
+"      </table>\n"
+"    </div>\n"
+"    "
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
@@ -116,6 +206,8 @@ msgid ""
 "<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentage of "
 "satisfaction\" title=\"Percentage of satisfaction\"/>"
 msgstr ""
+"<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Porcentaje de "
+"satisfacción\" title=\"Porcentaje de satisfacción\"/>"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
@@ -129,7 +221,7 @@ msgstr "Puntuación del Cliente"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket
@@ -145,7 +237,7 @@ msgstr "Estado del Ticket de la Mesa de Ayuda"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -160,7 +252,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
@@ -181,7 +273,7 @@ msgstr "Puntuaciones"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
 msgid "Rating Average"
-msgstr ""
+msgstr "Valoración Media"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -191,22 +283,22 @@ msgstr "Plantilla de Correo Electrónico de Puntuaciones"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr ""
+msgstr "Último Comentario de la Valoración"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_image
 msgid "Rating Last Image"
-msgstr ""
+msgstr "Última Imagen de la Valoración"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_value
 msgid "Rating Last Value"
-msgstr ""
+msgstr "Último Valor de la Valoración"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
 msgid "Rating count"
-msgstr ""
+msgstr "Cuenta de valoración"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__stage_change
@@ -222,7 +314,7 @@ msgstr "Puntuaciones"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
 msgid "Reason of the rating"
-msgstr ""
+msgstr "Razón de la valoración"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
