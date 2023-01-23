@@ -3,6 +3,7 @@ access_helpdesk_ticket_manager,helpdesk.ticket.manager,model_helpdesk_ticket,gro
 access_helpdesk_ticket_user,helpdesk.ticket.user,model_helpdesk_ticket,group_helpdesk_user,1,1,1,0
 access_helpdesk_ticket_user_personal,helpdesk.ticket.user.personal,model_helpdesk_ticket,group_helpdesk_user_own,1,1,1,0
 access_helpdesk_ticket_portal,helpdesk.ticket.portal,model_helpdesk_ticket,base.group_portal,1,0,0,0
+access_helpdesk_ticket_base_user,helpdesk.ticket.portal,model_helpdesk_ticket,base.group_user,1,0,0,0
 access_helpdesk_ticket_stage_manager,helpdesk.ticket.stage.manager,model_helpdesk_ticket_stage,group_helpdesk_manager,1,1,1,1
 access_helpdesk_ticket_stage_user,helpdesk.ticket.stage.user,model_helpdesk_ticket_stage,base.group_user,1,0,0,0
 access_helpdesk_ticket_stage_portal,helpdesk.ticket.stage.portal,model_helpdesk_ticket_stage,base.group_portal,1,0,0,0
