@@ -1,10 +1,13 @@
+# Copyright 2023 Tecnativa - Víctor Martínez
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+# import odoo.tests
 from odoo import http
 from odoo.tests.common import new_test_user
 
 from odoo.addons.base.tests.common import HttpCaseWithUserPortal
 
 
-class TestPortal(HttpCaseWithUserPortal):
+class TestHelpdeskPortal(HttpCaseWithUserPortal):
     """Test controllers defined for portal mode.
     This is mostly for basic coverage; we don't go as far as fully validating
     HTML produced by our routes.
@@ -12,11 +15,62 @@ class TestPortal(HttpCaseWithUserPortal):
 
     def setUp(self):
         super().setUp()
+        ctx = {
+            "mail_create_nolog": True,
+            "mail_create_nosubscribe": True,
+            "mail_notrack": True,
+            "no_reset_password": True,
+        }
+        self.new_ticket_title = "portal-new-submitted-ticket-subject"
+        self.new_ticket_desc_lines = (  # multiline description to check line breaks
+            "portal-new-submitted-ticket-description-line-1",
+            "portal-new-submitted-ticket-description-line-2",
+        )
+        self.company = self.env.ref("base.main_company")
+        self.partner_portal.parent_id = self.company.partner_id
         # Create a basic user with no helpdesk permissions.
-        new_test_user(self.env, login="test-basic-user")
+        self.basic_user = new_test_user(self.env, login="test-basic-user", context=ctx)
+        self.basic_user.parent_id = self.company.partner_id
         # Create a ticket submitted by our portal user.
         self.portal_ticket = self._create_ticket(
             self.partner_portal, "portal-ticket-title"
+        )
+
+    def get_new_tickets(self, user):
+        return self.env["helpdesk.ticket"].with_user(user).search([])
+
+    def _submit_ticket(self):
+        resp = self.url_open(
+            "/submitted/ticket",
+            data={
+                "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
+                "csrf_token": http.WebRequest.csrf_token(self),
+                "subject": self.new_ticket_title,
+                "description": "\n".join(self.new_ticket_desc_lines),
+            },
+        )
+        self.assertEqual(resp.status_code, 200)
+
+    def test_submit_ticket_01(self):
+        self.authenticate("test-basic-user", "test-basic-user")
+        self._submit_ticket()
+        tickets = self.get_new_tickets(self.basic_user)
+        self.assertNotIn(self.portal_ticket, tickets)
+        self.assertIn(self.new_ticket_title, tickets.mapped("name"))
+        self.assertIn(
+            "<p>" + "<br>".join(self.new_ticket_desc_lines) + "</p>",
+            tickets.mapped("description"),
+        )
+
+    def test_submit_ticket_02(self):
+        self.authenticate("portal", "portal")
+        self._submit_ticket()
+        tickets = self.get_new_tickets(self.user_portal)
+        self.assertIn(self.portal_ticket, tickets)
+        self.assertIn(self.new_ticket_title, tickets.mapped("name"))
+        self.assertIn(
+            "<p>" + "<br>".join(self.new_ticket_desc_lines) + "</p>",
+            tickets.mapped("description"),
         )
 
     def test_ticket_list(self):
@@ -34,36 +88,6 @@ class TestPortal(HttpCaseWithUserPortal):
         self.assertIn("portal-ticket-title", resp.text)
         self.assertIn(
             "<h4><strong>Message and communication history</strong></h4>", resp.text
-        )
-
-    def test_submit_ticket(self):
-        """Submit a ticket in portal mode."""
-        new_ticket_title = "portal-new-submitted-ticket-subject"
-        new_ticket_desc_lines = (  # multiline description to check line breaks
-            "portal-new-submitted-ticket-description-line-1",
-            "portal-new-submitted-ticket-description-line-2",
-        )
-
-        def get_new_tickets():
-            return self.env["helpdesk.ticket"].search([("name", "=", new_ticket_title)])
-
-        self.assertEqual(len(get_new_tickets()), 0)  # not found so far
-
-        self.authenticate("portal", "portal")
-        resp = self.url_open(
-            "/submitted/ticket",
-            data={
-                "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
-                "csrf_token": http.WebRequest.csrf_token(self),
-                "subject": new_ticket_title,
-                "description": "\n".join(new_ticket_desc_lines),
-            },
-        )
-        self.assertEqual(resp.status_code, 200)
-        ticket = get_new_tickets()
-        self.assertEqual(len(ticket), 1)  # new ticket found
-        self.assertEqual(
-            ticket.description, "<p>" + "<br>".join(new_ticket_desc_lines) + "</p>"
         )
 
     def test_close_ticket(self):
@@ -95,21 +119,18 @@ class TestPortal(HttpCaseWithUserPortal):
         # http://127.0.0.1:8069/web/login?redirect=http%3A%2F%2F127.0.0.1%3A8069%2Fmy%2Ftickets
         self.assertIn("/web/login", resp.headers["Location"])
 
-    def test_ticket_list_unauthorized(self):
-        """Attempt to list tickets without helpdesk permissions, ensure we get
-        sent back to /my.
-        """
+    def test_ticket_list_authorized(self):
+        """Attempt to list tickets without helpdesk permissions."""
         self.authenticate("test-basic-user", "test-basic-user")
         resp = self.url_open("/my/tickets", allow_redirects=False)
-        self.assertEqual(resp.status_code, 303)
-        self.assertTrue(resp.is_redirect)
-        # http://127.0.0.1:8069/my
-        self.assertTrue(resp.headers["Location"].endswith("/my"))
+        self.assertEqual(resp.status_code, 200)
+        self.assertFalse(resp.is_redirect)
 
     def test_tickets_2_users(self):
         """Check tickets between 2 portal users; ensure they can't access each
         others' tickets.
         """
+        self.partner_portal.parent_id = False
         portal_user_1 = self.user_portal  # created by HttpCaseWithUserPortal
         portal_user_2 = self.user_portal.copy(
             default={"login": "portal2", "password": "portal2"}
