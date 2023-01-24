@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="helpdesk_ticket_rule_internal_user" model="ir.rule">
+        <field name="domain_force">['|',
+            ('partner_id', '=', user.partner_id.id),
+            ('message_partner_ids','=',user.partner_id.id)]</field>
+    </record>
+</odoo>
