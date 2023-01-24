@@ -20,9 +20,11 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
             "mail_notrack": True,
             "no_reset_password": True,
         }
+        self.company = self.env.ref("base.main_company")
         self.basic_user = new_test_user(
             self.env, login="test-user", password="test-user", context=ctx
         )
+        self.basic_user.parent_id = self.company.partner_id
         self.portal_user = new_test_user(
             self.env,
             login="test-portal",
@@ -30,14 +32,32 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
             groups="base.group_portal",
             context=ctx,
         )
+        self.partner_portal = self.portal_user.partner_id
+        self.partner_portal.parent_id = self.company.partner_id
         self.new_ticket_title = "portal-new-submitted-ticket-subject"
         self.new_ticket_desc_lines = (  # multiline description to check line breaks
             "portal-new-submitted-ticket-description-line-1",
             "portal-new-submitted-ticket-description-line-2",
         )
+        # Create a ticket submitted by our portal user.
+        self.portal_ticket = self._create_ticket(
+            self.partner_portal, "portal-ticket-title"
+        )
 
-    def get_new_tickets(self, user, name):
-        return self.env["helpdesk.ticket"].with_user(user).search([("name", "=", name)])
+    def get_new_tickets(self, user):
+        return self.env["helpdesk.ticket"].with_user(user).search([])
+
+    def _create_ticket(self, partner, ticket_title):
+        """Create a ticket submitted by the specified partner."""
+        return self.env["helpdesk.ticket"].create(
+            {
+                "name": ticket_title,
+                "description": "test-description",
+                "partner_id": partner.id,
+                "partner_email": partner.email,
+                "partner_name": partner.name,
+            }
+        )
 
     def _submit_ticket(self):
         resp = self.url_open(
@@ -54,11 +74,13 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
     def test_submit_ticket_01(self):
         self.authenticate("test-user", "test-user")
         self._submit_ticket()
-        tickets = self.get_new_tickets(self.basic_user, self.new_ticket_title)
-        self.assertEqual(len(tickets), 1)
+        tickets = self.get_new_tickets(self.basic_user)
+        self.assertNotIn(self.portal_ticket, tickets)
+        self.assertIn(self.new_ticket_title, tickets.mapped("name"))
 
     def test_submit_ticket_02(self):
         self.authenticate("test-portal", "test-portal")
         self._submit_ticket()
-        tickets = self.get_new_tickets(self.portal_user, self.new_ticket_title)
-        self.assertEqual(len(tickets), 1)
+        tickets = self.get_new_tickets(self.portal_user)
+        self.assertIn(self.portal_ticket, tickets)
+        self.assertIn(self.new_ticket_title, tickets.mapped("name"))
