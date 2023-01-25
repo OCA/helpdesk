@@ -9,7 +9,7 @@
       <field name="inherit_id" ref="sale.view_order_form" />
       <field name="arch" type="xml">
           <!-- Add new buttons -->
-          <xpath expr="//field[@name='show_update_pricelist']" position="after">
+          <xpath expr="//field[@name='validity_date']" position="before">
               <field name="helpdesk_ticket_id" string="Ticket" />
           </xpath>
       </field>
