@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-03-17 13:17+0000\n"
+"PO-Revision-Date: 2023-02-08 18:22+0000\n"
 "Last-Translator: Ediz Duman <neps1192@gmail.com>\n"
 "Language-Team: none\n"
 "Language: tr\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
-msgstr ""
+msgstr "<em class=\"font-weight-normal text-muted\">Kategorideki biletler:</em>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
-msgstr ""
+msgstr "<em class=\"font-weight-normal text-muted\">Aşamadaki biletler:</em>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -41,7 +41,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-right\">Stage:</small>"
-msgstr ""
+msgstr "<small class=\"text-right\">Aşama:</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -51,37 +51,37 @@ msgstr "<span>Görünüm</span>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong class=\"d-block mb-2\">Attachments</strong>"
-msgstr ""
+msgstr "<strong class=\"d-block mb-2\">Ekler</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Assignee</strong>"
-msgstr ""
+msgstr "<strong>Atanan</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Category:</strong>"
-msgstr ""
+msgstr "<strong>Kategori:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Close Date:</strong>"
-msgstr ""
+msgstr "<strong>Kapanış Tarihi:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Customer</strong>"
-msgstr ""
+msgstr "<strong>Müşteri</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Date:</strong>"
-msgstr ""
+msgstr "<strong>Tarih:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Description</strong>"
-msgstr ""
+msgstr "<strong>Açıklama</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -91,7 +91,7 @@ msgstr "<strong>Son Aşama Güncellemesi:</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Message and communication history</strong>"
-msgstr ""
+msgstr "<strong>Mesaj ve iletişim geçmişi</strong>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -161,6 +161,70 @@ msgid ""
 "                </table>\n"
 "            "
 msgstr ""
+"<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\""
+">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img t-att-src=\"'/logo.png?company=%s' % "
+"object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; "
+"width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Sayın <t t-out=\"object.user_id.name\""
+"/>,</p>\n"
+"                                <p>\"<t t-out=\"object.display_name\"/>\" "
+"bileti kapatıldı.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.phone\"/>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.email\"/>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.website\"/>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
@@ -231,6 +295,70 @@ msgid ""
 "                </table>\n"
 "            "
 msgstr ""
+"<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\""
+">\n"
+"                    <tbody>\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                <img t-att-src=\"'/logo.png?company=%s' % "
+"object.company_id.id\" style=\"padding: 0px; margin: 0px; height: auto; "
+"width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, "
+"255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                <p>Sayın <t t-out=\"object.user_id.name\""
+"/>,</p>\n"
+"                                <p>\"<t t-out=\"object.display_name\"/>\" "
+"biletin aşaması <t t-out=\"object.stage_id.name\"/> olarak değişti.</p>\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\""
+" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: "
+"rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.phone\"/>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.email\"/>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"left\" style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                <t t-out=\"object.company_id.website\"/>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_defaults
@@ -238,6 +366,8 @@ msgid ""
 "A Python dictionary that will be evaluated to provide default values when "
 "creating new records for this alias."
 msgstr ""
+"Bu takma ad için yeni kayıtlar oluştururken varsayılan değerleri sağlamak "
+"üzere değerlendirilecek bir Python sözlüğü."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -247,7 +377,7 @@ msgstr "Gelen E-postaları Kabul Et"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_warning
 msgid "Access warning"
-msgstr ""
+msgstr "Erişim uyarısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
@@ -325,7 +455,7 @@ msgstr "Hepsi"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Allow to select this team when creating a new ticket in the portal."
-msgstr ""
+msgstr "Portalda yeni bir bilet oluştururken bu ekibin seçilmesine izin verin."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -366,7 +496,7 @@ msgstr "Ek Sayısı"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Avatar"
-msgstr ""
+msgstr "Avatarı"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_awaiting
@@ -432,7 +562,7 @@ msgstr "Kapanış Tarihi"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__close_from_portal
 msgid "Close From Portal"
-msgstr ""
+msgstr "Portaldan Kapat"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed
@@ -455,7 +585,7 @@ msgstr "Renk İndeksi"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Şirketler"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__company_id
@@ -470,7 +600,7 @@ msgstr "Firma"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Yapılandırma Ayarları"
 
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_config_main_menu
@@ -517,12 +647,12 @@ msgstr "Oluşturulma"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Current stage of the ticket"
-msgstr ""
+msgstr "Biletin mevcut aşaması"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Current stage of this ticket"
-msgstr ""
+msgstr "Biletin mevcut aşaması"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -544,13 +674,13 @@ msgstr "Müşteri E-postası"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "Müşteri Portal URL"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
-msgstr ""
+msgstr "Panel"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__normal
@@ -591,6 +721,8 @@ msgid ""
 "Display button in portal ticket form to allow closing ticket with this stage "
 "as target."
 msgstr ""
+"Biletin bu aşama ile hedef olarak kapatılmasına izin vermek için portal "
+"bileti formundaki görüntüle düğmesi."
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
@@ -600,7 +732,7 @@ msgstr "Biten"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
 msgid "Dropdown menu"
-msgstr ""
+msgstr "Aşağıya doğru açılan menü"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.action_duplicate_ticket
@@ -636,7 +768,7 @@ msgstr "E-posta cc"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
 msgid "Folded in Kanban"
-msgstr ""
+msgstr "Kanbanda Katla"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -662,7 +794,7 @@ msgstr "Takipçiler (İş Ortaklar)"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
-msgstr ""
+msgstr "Yazı tipi harika simgesi ör. fa-görevleri"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -744,7 +876,7 @@ msgstr "Yardım Masası Bilet Kanalı"
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_team_created
 msgid "Helpdesk Ticket Created"
-msgstr ""
+msgstr "Yardım Masası Bileti Oluşturuldu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
@@ -812,7 +944,7 @@ msgstr "Bir istisna etkinliğini gösteren simge."
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "İşaretlerseniz, yeni iletilerle ilgilenmeniz gerekir."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
@@ -820,7 +952,7 @@ msgstr ""
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "İşaretlenirse, bazı iletilerde teslim hatası vardır."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -828,6 +960,7 @@ msgid ""
 "If set an email will be sent to the customer when the ticketreaches this "
 "step."
 msgstr ""
+"Ayarlanırsa, bilet bu adıma ulaştığında müşteriye bir e-posta gönderilir."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -835,6 +968,8 @@ msgid ""
 "If set, this content will automatically be sent out to unauthorized users "
 "instead of the default message."
 msgstr ""
+"Ayarlanırsa, bu içerik yetkisiz kullanıcılara varsayılan mesaj yerine "
+"otomatik olarak gönderilir."
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_in_progress
@@ -903,7 +1038,7 @@ msgstr "Geç Aktiviteler"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__email_cc
 msgid "List of cc from incoming emails."
-msgstr ""
+msgstr "Gelen e-postalardaki cc listesi."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
@@ -914,12 +1049,12 @@ msgstr "Düşük"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_main_attachment_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Ana Ek"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__attachment_ids
 msgid "Media Attachments"
-msgstr ""
+msgstr "Media Ekleri"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__1
@@ -985,7 +1120,7 @@ msgstr "Yeni Bilet"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "New ticket form (portal)"
-msgstr ""
+msgstr "Yeni bilet formu (portal)"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1017,13 +1152,13 @@ msgstr "Konusuz"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "No tickets found."
-msgstr ""
+msgstr "Bilet bulunamadı."
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -1034,30 +1169,30 @@ msgstr "Numara"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Aksiyon Sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Hata sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "İşlem gerektiren mesaj sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "İletim hatası olan mesajlar"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count
 msgid "Number of tickets"
-msgstr ""
+msgstr "Bilet sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_high_priority
@@ -1067,18 +1202,18 @@ msgstr "Yüksek öncelikli bilet sayısı"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unassigned
 msgid "Number of tickets unassigned"
-msgstr ""
+msgstr "Atanmamış bilet sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr ""
+msgstr "Atanmamış bilet sayısı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread_counter
 msgid "Number of unread messages"
-msgstr ""
+msgstr "Okunmamış mesaj sayısı"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
@@ -1088,7 +1223,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
-msgstr ""
+msgstr "Açık"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
@@ -1097,11 +1232,14 @@ msgid ""
 "attached, even if they did not reply to it. If set, this will disable the "
 "creation of new records completely."
 msgstr ""
+"Yanıtlamamış olsalar bile tüm gelen iletilerin ekleneceği ileti dizisinin "
+"(kayıt) isteğe bağlı kimliği. Ayarlanırsa, bu, yeni kayıtların "
+"oluşturulmasını tamamen devre dışı bırakır."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Other Information"
-msgstr ""
+msgstr "Diğer Bilgiler"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
@@ -1111,7 +1249,7 @@ msgstr "Sahibi"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
 msgid "Parent Model"
-msgstr ""
+msgstr "Üst Modeli"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
@@ -1125,6 +1263,9 @@ msgid ""
 "necessarily the model given by alias_model_id (example: project "
 "(parent_model) and task (model))"
 msgstr ""
+"Takma adı tutan üst model. Takma ad referansını tutan model, alias_model_id "
+"tarafından verilen model olmayabilir (örnek: proje (ana_model) ve görev "
+"(model))"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1150,11 +1291,15 @@ msgid ""
 "- followers: only followers of the related document or members of following "
 "channels\n"
 msgstr ""
+"Mail geçidini kullanarak kayıda mesaj gönderme politikası.\n"
+"- everyone: Herkes mesaj gönderebilir\n"
+"- partners: Sadece yetkilendirilmiş iş ortakları\n"
+"- followers: Sadece ilgili belgenin ya da kanalın takipçileri\n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "Poral Erişim URL"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__priority
@@ -1179,13 +1324,13 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_rejected
 msgid "Rejected"
-msgstr ""
+msgstr "Reddedildi"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_ids
 msgid "Related tickets"
-msgstr ""
+msgstr "İlişkili Biletler"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
@@ -1202,36 +1347,36 @@ msgstr "Sorumlu Kullanıcı"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "SMS İletim Hatası"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in All"
-msgstr ""
+msgstr "Tümünde Ara"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in Number"
-msgstr ""
+msgstr "Numarada Ara"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in Title"
-msgstr ""
+msgstr "Başlıkta Ara"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
-msgstr ""
+msgstr "Güvenlik Anahtarı"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_team
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_select_team
 msgid "Select team in Helpdesk portal"
-msgstr ""
+msgstr "Yardım masası portalında ekip seçin"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
@@ -1250,7 +1395,7 @@ msgstr "Sıralama"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_mgmt_config_settings
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_config_settings_menu
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.model_helpdesk_ticket_action_share
@@ -1260,22 +1405,22 @@ msgstr "Paylaş"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Show all records which has next action date is before today"
-msgstr ""
+msgstr "Bir sonraki işlem tarihi bugünden önce olan tüm kayıtları göster"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Show in portal form"
-msgstr ""
+msgstr "Portal formunda göster"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Show teams form"
-msgstr ""
+msgstr "Takım formunu göster"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
 msgid "Software"
-msgstr ""
+msgstr "Yazılım"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1308,6 +1453,10 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Aktivitelere dayalı durum\n"
+"Gecikme: Son tarih zaten geçti\n"
+"Bugün: Etkinlik tarihi bugün\n"
+"Planlanan: Gelecek aktivitelere ."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
@@ -1364,6 +1513,9 @@ msgid ""
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
+"Bu takma adın karşılık geldiği model (Odoo Document Kind). Mevcut bir kayda "
+"yanıt vermeyen herhangi bir gelen e-posta, bu modelin yeni bir kaydının "
+"oluşturulmasına neden olur (örn. bir Proje Görevi)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
@@ -1371,6 +1523,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
+"E-posta takma adının adı, ör. <jobs@example.odoo.com> için e-postaları "
+"yakalamak istiyorsanız 'işler'"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
@@ -1380,16 +1534,20 @@ msgid ""
 "the sender (From) address, or will use the Administrator account if no "
 "system user is found for that address."
 msgstr ""
+"Bu takma adla e-posta alındığında oluşturulan kayıtların sahibi. Bu alan "
+"ayarlanmazsa, sistem gönderici (Kimden) adresine göre hak sahibini bulmaya "
+"çalışır veya o adres için sistem kullanıcısı bulunamazsa Yönetici hesabını "
+"kullanır."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket {{object.number}} has been closed."
-msgstr ""
+msgstr "{{object.number}}  bilet kapatıldı."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket {{object.number}} stage has changed."
-msgstr ""
+msgstr "{{object.number}} biletin aşaması değişti."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
@@ -1397,11 +1555,13 @@ msgid ""
 "This stage is folded in the kanban view when there are no records in that "
 "stage to display."
 msgstr ""
+"Bu aşamada görüntülenecek kayıt olmadığında bu aşama kanban görünümünde "
+"katlanır."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Ticket"
-msgstr ""
+msgstr "Bilet"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.assignment_email_template
@@ -1411,7 +1571,7 @@ msgstr "Bilet Atama"
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
-msgstr ""
+msgstr "Bileti Oluşturuldu"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
@@ -1444,7 +1604,7 @@ msgstr "Bilet Sayısı"
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,description:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket created"
-msgstr ""
+msgstr "Bileti Oluşturuldu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
@@ -1490,7 +1650,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Kayıttaki istisna etkinliğinin türü."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -1543,7 +1703,7 @@ msgstr "Kullanıcı: Kişisel Biletler"
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
 msgid "User: Team tickets"
-msgstr ""
+msgstr "Kullanıcı: Takım biletleri"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
