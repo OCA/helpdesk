@@ -25,6 +25,32 @@ class HelpdeskSla(models.Model):
     domain = fields.Char(string="Filter", default="[]")
     active = fields.Boolean(default=True)
 
+    def _default_sla_computation(self):
+        return self.env.ref("helpdesk_mgmt.field_helpdesk_ticket__create_date").id
+
+    def _default_sla_expiration(self):
+        return self.env.ref("helpdesk_mgmt.field_helpdesk_ticket__closed_date").id
+
+    sla_computation_id = fields.Many2one(
+        "ir.model.fields",
+        domain="[('model', '=', 'helpdesk.ticket'),('ttype', '=', 'datetime')]",
+        default=_default_sla_computation,
+    )
+    sla_expiration_date = fields.Selection(
+        [("current_date", "Current date"), ("fixed_date_field", "Fixed date field")],
+        help="This field can take the following values :\n"
+        "  * Current date: The SLA will expired at the time of evaluation.\n"
+        "  * Fixed date field: You can choose to associate a helpdesk.ticket"
+        + "date field with the expiration date of the SLA.",
+        default="current_date",
+        required=True,
+    )
+    sla_expiration_id = fields.Many2one(
+        "ir.model.fields",
+        domain="[('model', '=', 'helpdesk.ticket'),('ttype', '=', 'datetime')]",
+        default=_default_sla_expiration,
+    )
+
     def _applies_for(self, ticket):
         self.ensure_one()
         if self.team_ids and ticket.team_id not in self.team_ids:
@@ -57,15 +83,18 @@ class HelpdeskSla(models.Model):
                     break
 
     def check_ticket_sla(self, tickets):
+        self.ensure_one()
         for ticket in tickets:
-            deadline = ticket.create_date
+            deadline = ticket[self.sla_computation_id.name]
+            if not deadline:
+                continue
             working_calendar = ticket.team_id.resource_calendar_id
 
             if self.days > 0:
                 deadline = working_calendar.plan_days(
                     self.days + 1, deadline, compute_leaves=True
                 )
-                create_date = ticket.create_date
+                create_date = ticket[self.sla_computation_id.name]
 
                 deadline = deadline.replace(
                     hour=create_date.hour,
@@ -88,7 +117,19 @@ class HelpdeskSla(models.Model):
                 self.hours, deadline, compute_leaves=True
             )
             ticket.sla_deadline = deadline
-            if ticket.sla_deadline < datetime.today().now():
-                ticket.sla_expired = True
-            else:
-                ticket.sla_expired = False
+            if self.sla_expiration_date == "current_date" or (
+                self.sla_expiration_date == "fixed_date_field"
+                and not ticket[self.sla_expiration_id.name]
+            ):
+                if ticket.sla_deadline < datetime.today().now():
+                    ticket.sla_expired = True
+                else:
+                    ticket.sla_expired = False
+            if (
+                self.sla_expiration_date == "fixed_date_field"
+                and ticket[self.sla_expiration_id.name]
+            ):
+                if ticket.sla_deadline < ticket[self.sla_expiration_id.name]:
+                    ticket.sla_expired = True
+                else:
+                    ticket.sla_expired = False

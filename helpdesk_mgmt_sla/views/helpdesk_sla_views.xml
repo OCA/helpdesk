@@ -69,6 +69,12 @@
                                 hours
                                 <br />
                             </div>
+                            <field name="sla_computation_id" />
+                            <field name="sla_expiration_date" />
+                            <field
+                                name="sla_expiration_id"
+                                attrs="{'invisible': [('sla_expiration_date', '!=', 'fixed_date_field')]}"
+                            />
                         </group>
                     </group>
                     <group string="Description">

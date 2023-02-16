@@ -12,10 +12,20 @@ from odoo.addons.helpdesk_mgmt_sla.tests.common import CommonHelpdeskMgmtSla
 
 class TestHelpdeskMgmtSla(CommonHelpdeskMgmtSla):
     @freeze_time(fields.Datetime.now() + timedelta(days=7))
-    def test_sla_rule_global(self):
+    def test_sla1_rule_global(self):
+        self.sla2.active = False
         self.env["helpdesk.sla"].check_sla()
         self.assertTrue(self.ticket1.sla_expired)
         self.assertTrue(self.ticket2.sla_expired)
+        self.assertTrue(self.ticket3.sla_expired)
+        self.assertTrue(self.ticket4.sla_expired)
+
+    @freeze_time(fields.Datetime.now() + timedelta(days=7))
+    def test_sla2_rule_global(self):
+        self.sla.active = False
+        self.env["helpdesk.sla"].check_sla()
+        self.assertTrue(self.ticket3.sla_expired)
+        self.assertTrue(self.ticket4.sla_expired)
 
     @freeze_time(fields.Datetime.now() + timedelta(days=7))
     def test_sla_rule_team(self):
