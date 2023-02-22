@@ -1,1 +1,1 @@
-* Rafa Morant <rmorant@albasoft.com> 
+* Rafa Morant <rmorant@albasoft.com>
