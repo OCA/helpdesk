@@ -50,4 +50,4 @@ class TestHelpdeskTicketSubcategory(test_helpdesk_ticket.TestHelpdeskTicket):
         )
 
     def test_helpdesk_tickets_by_tag(self):
-        self.assertEqual(self.tag1.tickets_count, 2, "Ticket 1 should have 2 tickets")
+        self.assertEqual(self.tag1.tickets_count, 2, "Tag 1 should have 2 tickets")
