@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='other_info']" position="after">
+                <page name="custom_info" string="Custom Information">
+                    <group name="group_custom_info_template">
+                        <group>
+                            <field
+                                name="custom_info_template_id"
+                                options='{"no_quick_create": True}'
+                            />
+                        </group>
+                        <field
+                            name="custom_info_ids"
+                            colspan="4"
+                            nolabel="1"
+                            mode="custom_info"
+                        />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
