@@ -46,8 +46,11 @@
                                                 type="action"
                                                 context="{'search_default_open': 1}"
                                             >
-                                 <t t-esc="record.todo_ticket_count.value" /> To Do
-                             </button>
+                                                <t
+                                                    t-esc="record.todo_ticket_count.value"
+                                                />
+                                                To Do
+                                                </button>
                                         </div>
                                         <div class="col-6 o_kanban_primary_right">
                                             <div class="row">
@@ -57,8 +60,8 @@
                                                         type="action"
                                                         context="{'search_default_unassigned': 1}"
                                                     >
-                                         Unassigned
-                                     </a>
+                                                        Unassigned
+                                                    </a>
                                                 </div>
                                                 <div class="col-3">
                                                     <t
@@ -71,8 +74,8 @@
                                                         type="action"
                                                         context="{'search_default_unattended': 1}"
                                                     >
-                                         Unattended
-                                     </a>
+                                                        Unattended
+                                                    </a>
                                                 </div>
                                                 <div class="col-3">
                                                     <t
@@ -85,8 +88,8 @@
                                                         type="action"
                                                         context="{'search_default_high_priority': 1}"
                                                     >
-                                     High Priority
-                                   </a>
+                                                        High Priority
+                                                    </a>
                                                 </div>
                                                 <div class="col-3">
                                                     <t
@@ -113,8 +116,8 @@
                                                     name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
                                                     type="action"
                                                 >
-                                   All
-                               </a>
+                                                    All
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
