@@ -4,7 +4,6 @@
         <field name="name">view_partner_form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
-        <field name="groups_id" eval="[(4, ref('group_helpdesk_user_own'))]" />
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box">
                 <button
@@ -13,6 +12,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-life-ring"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field invisible="True" name="helpdesk_ticket_active_count" />
                     <field invisible="True" name="helpdesk_ticket_count" />
