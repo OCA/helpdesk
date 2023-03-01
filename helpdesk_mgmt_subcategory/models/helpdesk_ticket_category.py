@@ -10,6 +10,8 @@ class HelpdeskCategory(models.Model):
     _parent_store = True
     _parent_name = "parent_id"
 
+    PARENT_CODE_SEPARATOR = "."
+
     parent_id = fields.Many2one(
         string="Parent",
         comodel_name="helpdesk.ticket.category",
@@ -53,14 +55,17 @@ class HelpdeskCategory(models.Model):
     def _compute_code(self):
         for r in self:
             if r.name and r.name.strip():
-                parent_code = f"{r.parent_id.code}-" if r.parent_id else ""
-                r.code = "{}{}".format(parent_code, slugify(r.name))
+                codepath = [slugify(r.name)]
+                if r.parent_id:
+                    codepath.insert(0, r.parent_id.code)
+                r.code = self.PARENT_CODE_SEPARATOR.join(codepath)
             else:
                 r.code = False
 
     def _inverse_code(self):
         for r in self:
-            r.code = slugify(r.code)
+            # r.code = slugify(r.code)
+            r.code = r.code
 
     def no_compute_tickets_count(self):
         """
@@ -101,3 +106,19 @@ class HelpdeskCategory(models.Model):
             r.tickets_count = (
                 HelpdeskTicket.search_count([("category_id", "child_of", r.id)]) or 0
             )
+
+    #
+    # utils
+    def findsert_by_code(self, code):
+        category = self.search([("code", "=", code)], limit=1)
+        if not category:
+            codepath = []
+            parent_id = False
+            for partcode in code.split(self.PARENT_CODE_SEPARATOR):
+                codepath.append(partcode)
+                subcode = self.PARENT_CODE_SEPARATOR.join(codepath)
+                category = self.search([("code", "=", subcode)], limit=1)
+                if not category:
+                    category = self.create({"name": partcode, "parent_id": parent_id})
+                parent_id = category.id
+        return category
