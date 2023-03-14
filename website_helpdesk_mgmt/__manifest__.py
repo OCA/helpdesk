@@ -10,5 +10,5 @@
     "depends": ["helpdesk_mgmt", "website"],
     "installable": True,
     "data": ["data/ir_model_data.xml"],
-    "maintainers": ["victoralmau"],
+    "maintainers": ["victoralmau", "Metrics"],
 }
