@@ -122,7 +122,9 @@ class HelpdeskTicket(models.Model):
             "helpdesk_mgmt.created_ticket_template", raise_if_not_found=False
         )
         if created_ticket_template:
-            created_ticket_template.send_mail(self.id, force_send=True)
+            created_ticket_template.send_mail(
+                self.id, force_send=True, notif_layout="mail.mail_notification_light"
+            )
 
     def name_get(self):
         res = []
