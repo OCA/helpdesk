@@ -30,6 +30,7 @@
         "views/helpdesk_ticket_tag_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
+        "wizard/create_select_partner.xml",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "development_status": "Beta",

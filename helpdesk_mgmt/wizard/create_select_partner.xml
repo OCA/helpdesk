@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="helpdesk_ticket_partner_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.partner.view.form</field>
+        <field name="model">helpdesk.ticket.partner</field>
+        <field name="arch" type="xml">
+            <form string="Choose Partner">
+                <group>
+                        <field name="action" widget="radio" />
+                        <field name="ticket_id" invisible="1" />
+                </group>
+                <group>
+                    <group>
+                        <field
+                            attrs="{'invisible': [('action','!=','exist')], 'required':[('action', '=','exist')]}"
+                            name="partner_id"
+                            context="{'res_partner_search_mode': 'customer'}"
+                            domain="[('email', '!=', False)]"
+                        />
+                        <field
+                            name="partner_name"
+                            attrs="{'invisible': [('action','!=','create')], 'required':[('action', '=','create')]}"
+                        />
+                        <field
+                            name="partner_email"
+                            attrs="{'readonly': [('action','=','exist')], 'required':[('action', '=','create')]}"
+                        />
+                        <field
+                            name="partner_lang"
+                            attrs="{'readonly': [('action','!=','create')]}"
+                        />
+                    </group>
+                </group>
+                <footer>
+                    <button
+                        name="action_apply"
+                        string="Confirm"
+                        type="object"
+                        class="btn-primary"
+                        data-hotkey="q"
+                    />
+                    <button
+                        string="Cancel"
+                        class="btn-secondary"
+                        special="cancel"
+                        data-hotkey="z"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_select_partner" model="ir.actions.act_window">
+        <field name="name">Choose Partner</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket.partner</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="helpdesk_ticket_partner_view_form" />
+        <field name="target">new</field>
+    </record>
+</odoo>
