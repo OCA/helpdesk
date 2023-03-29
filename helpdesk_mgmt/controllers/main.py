@@ -107,10 +107,12 @@ class HelpdeskTicketController(http.Controller):
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
+            IrAttachment = request.env["ir.attachment"]
+            attachment_ids = IrAttachment
             for c_file in request.httprequest.files.getlist("attachment"):
                 data = c_file.read()
                 if c_file.filename:
-                    request.env["ir.attachment"].sudo().create(
+                    attachment_ids += IrAttachment.sudo().create(
                         {
                             "name": c_file.filename,
                             "datas": base64.b64encode(data),
@@ -118,4 +120,5 @@ class HelpdeskTicketController(http.Controller):
                             "res_id": new_ticket.id,
                         }
                     )
+            attachment_ids.sudo().generate_access_token()
         return werkzeug.utils.redirect("/my/ticket/%s" % new_ticket.id)
