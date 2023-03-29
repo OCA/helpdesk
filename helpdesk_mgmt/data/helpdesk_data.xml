@@ -75,8 +75,8 @@
                 name="body_html"
             ><![CDATA[<html>
                 <div>
-                    <p>Hello ${object.user_id.name},</p>
-                    <p>The ticket "${object.display_name}" stage has changed to ${object.stage_id.name}.</p>
+                    <p>Hello ${object.partner_id.name or ''},</p>
+                    <p>The ticket ${object.number or 'n/a'} stage has changed to: ${object.stage_id.name}.</p>
                 </div>
             ]]>
             </field>
@@ -102,6 +102,7 @@
             <field name="name">In Progress</field>
             <field name="unattended">False</field>
             <field name="closed">False</field>
+            <field name="mail_template_id" ref="helpdesk_mgmt.changed_stage_template" />
             <field name="company_id" />
         </record>
         <record id="helpdesk_ticket_stage_awaiting" model="helpdesk.ticket.stage">
@@ -109,6 +110,7 @@
             <field name="name">Awaiting</field>
             <field name="unattended">False</field>
             <field name="closed">False</field>
+            <field name="mail_template_id" ref="helpdesk_mgmt.changed_stage_template" />
             <field name="company_id" />
         </record>
         <record id="helpdesk_ticket_stage_done" model="helpdesk.ticket.stage">
