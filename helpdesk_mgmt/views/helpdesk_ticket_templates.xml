@@ -300,15 +300,13 @@
                         for="attachment"
                     >Add Attachments</label>
                     <div class="col-md-7 col-sm-8">
-                        <div class="btn btn-default btn-file col-md-12">
                             <input
-                                class="form-control o_website_form_input"
-                                name="attachment"
-                                id="attachment"
-                                type="file"
-                                multiple="multiple"
-                            />
-                        </div>
+                            class="form-control o_website_form_input"
+                            name="attachment"
+                            id="attachment"
+                            type="file"
+                            multiple="multiple"
+                        />
                     </div>
                 </div>
                 <div class="form-group">
