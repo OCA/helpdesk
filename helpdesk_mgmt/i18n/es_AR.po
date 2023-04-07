@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-01-16 03:18+0000\n"
+"PO-Revision-Date: 2023-04-07 18:27+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -478,7 +478,7 @@ msgstr "Usuario asignado"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_partner__ticket_id
 msgid "Associated Lead"
-msgstr ""
+msgstr "Iniciativa Asociada"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -509,7 +509,7 @@ msgstr "Por"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_partner_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_cancelled
@@ -554,7 +554,7 @@ msgstr "Canales"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.action_create_select_partner
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_partner_view_form
 msgid "Choose Partner"
-msgstr ""
+msgstr "Elegir Contacto"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
@@ -612,7 +612,7 @@ msgstr "Configuración"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_partner_view_form
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
@@ -628,12 +628,14 @@ msgstr "Fecha de creación"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_partner__action__create
 msgid "Create a new customer"
-msgstr ""
+msgstr "Crear un nuevo cliente"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_partner
 msgid "Create new or use existing Partner on Helpdesk Ticket"
 msgstr ""
+"Crear un Contacto nuevo o utilizar uno existente en el Ticket de Mesa de "
+"Ayuda"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__create_uid
@@ -993,7 +995,7 @@ msgstr "Estado Kanban"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_lang
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_partner__partner_lang
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket____last_update
@@ -1053,7 +1055,7 @@ msgstr "Actividades Tardías"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_partner__action__exist
 msgid "Link to an existing customer"
-msgstr ""
+msgstr "Vincular a un cliente existente"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__email_cc
@@ -1328,7 +1330,7 @@ msgstr "Tickets prioritarios"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_partner__action
 msgid "Quotation Customer"
-msgstr ""
+msgstr "Presupuesto de Cliente"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
@@ -1384,7 +1386,7 @@ msgstr "Enviar un nuevo ticket"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Send an Email"
-msgstr ""
+msgstr "Enviar un Mail"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__sequence
@@ -1759,7 +1761,7 @@ msgstr "Wifi"
 #: code:addons/helpdesk_mgmt/wizard/create_select_partner.py:0
 #, python-format
 msgid "You can only apply this action from a ticket."
-msgstr ""
+msgstr "Puede aplicar esta acción solamente desde un ticket."
 
 #, python-format
 #~ msgid "Customer Email"
