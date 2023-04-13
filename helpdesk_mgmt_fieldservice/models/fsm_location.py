@@ -13,13 +13,11 @@ class FSMLocation(models.Model):
         string='# Tickets'
     )
 
-    @api.multi
     def _compute_ticket_count(self):
         for location in self:
             location.ticket_count = self.env['helpdesk.ticket'].search_count(
                 [('fsm_location_id', '=', location.id)])
 
-    @api.multi
     def action_view_ticket(self):
         for location in self:
             ticket_ids = self.env['helpdesk.ticket'].search(

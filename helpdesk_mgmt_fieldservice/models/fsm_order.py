@@ -13,7 +13,7 @@ class FSMOrder(models.Model):
     _inherit = 'fsm.order'
 
     ticket_id = fields.Many2one('helpdesk.ticket', string='Ticket',
-                                track_visibility='onchange')
+                                tracking=True)
 
     def action_complete(self):
         res = super().action_complete()
@@ -44,7 +44,6 @@ class FSMOrder(models.Model):
         else:
             return res
 
-    @api.multi
     def action_view_order(self):
         '''
         This function returns an action that displays a full FSM Order

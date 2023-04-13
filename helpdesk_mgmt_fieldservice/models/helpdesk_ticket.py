@@ -59,7 +59,6 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             self._location_contact_fill(False)
 
-    @api.multi
     def action_create_order(self):
         '''
         This function returns an action that displays a full FSM Order
