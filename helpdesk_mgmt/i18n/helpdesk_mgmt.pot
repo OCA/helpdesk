@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -276,6 +276,7 @@ msgid "Aliased Model"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #, python-format
@@ -289,8 +290,11 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
@@ -355,6 +359,7 @@ msgid "Categories"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
@@ -488,12 +493,14 @@ msgid "Custom Bounced Message"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #, python-format
 msgid "Customer"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #, python-format
 msgid "Customer Email"
@@ -762,9 +769,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
 msgid "If checked, new messages require your attention."
 msgstr ""
 
@@ -817,6 +822,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -852,11 +858,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Late Activities"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__email_cc
-msgid "List of cc from incoming emails."
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -942,6 +943,7 @@ msgid "New ticket form (portal)"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Newest"
@@ -963,6 +965,7 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
 #, python-format
 msgid "No Subject"
@@ -974,6 +977,7 @@ msgid "No tickets found."
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "None"
@@ -1026,12 +1030,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread_counter
-msgid "Number of unread messages"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1158,18 +1156,21 @@ msgid "SMS Delivery error"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in All"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in Number"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
 msgid "Search in Title"
@@ -1231,6 +1232,7 @@ msgid "Software"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__stage_id
@@ -1419,6 +1421,7 @@ msgid "Tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__name
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -1471,18 +1474,7 @@ msgid "Unattended tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread
-msgid "Unread Messages"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_unread_counter
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr ""
-
-#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
@@ -1500,7 +1492,6 @@ msgid "User: Team tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
 msgid "Users"
 msgstr ""
