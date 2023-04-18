@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='right']" position="inside">
                 <field name="use_sla" />
-                <field name="resource_calendar_id" />
+                <field name="resource_calendar_id" groups="base.group_multi_company" />
             </xpath>
         </field>
     </record>

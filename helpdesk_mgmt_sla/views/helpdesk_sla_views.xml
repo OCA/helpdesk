@@ -71,13 +71,16 @@
                             </div>
                         </group>
                     </group>
-                    <group string="Description">
-                        <field
-                            name="note"
-                            placeholder="Description of the policy..."
-                            nolabel="1"
-                        />
-                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field
+                                name="note"
+                                placeholder="Description of the policy..."
+                                widget="html"
+                            />
+                        </page>
+                    </notebook>
+
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user" />
@@ -91,7 +94,7 @@
         <field name="name">helpdesk.sla.tree</field>
         <field name="model">helpdesk.sla</field>
         <field name="arch" type="xml">
-            <tree string="SLA">
+            <tree>
                 <field name="name" />
                 <field name="days" />
                 <field name="hours" />
