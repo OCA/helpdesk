@@ -26,7 +26,8 @@ Helpdesk Project
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module adds Project in Helpdesk.
-We add to the project form view a ticket counter that redirects you to the helpdesk
+We add to the project form view a ticket counter that redirects you to the helpdesk.
+The default company is set as the project one in tickets.
 
 **Table of contents**
 
