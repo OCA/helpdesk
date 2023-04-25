@@ -64,7 +64,7 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
             }
         )
 
-    def _submit_ticket(self):
+    def _submit_ticket(self, files=None):
         resp = self.url_open(
             "/submitted/ticket",
             data={
@@ -73,6 +73,7 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
                 "subject": self.new_ticket_title,
                 "description": "\n".join(self.new_ticket_desc_lines),
             },
+            files=files,
         )
         self.assertEqual(resp.status_code, 200)
 
@@ -104,6 +105,37 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
         tickets = self.get_new_tickets(self.portal_user)
         self.assertIn(self.portal_ticket, tickets)
         self.assertIn(self.new_ticket_title, tickets.mapped("name"))
+
+    def test_submit_ticket_with_attachments(self):
+        self.authenticate("test-user", "test-user")
+        self._submit_ticket(
+            files=[
+                (
+                    "attachment",
+                    ("test.txt", b"test", "plain/text"),
+                ),
+                (
+                    "attachment",
+                    ("test.svg", b"<svg></svg>", "image/svg+xml"),
+                ),
+            ]
+        )
+        ticket_id = self.get_new_tickets(self.basic_user)
+        self.assertEqual(len(ticket_id), 1)
+        # check that both files have been linked to the newly created ticket
+        attachment_ids = self.env["ir.attachment"].search(
+            [
+                ("res_model", "=", "helpdesk.ticket"),
+                ("res_id", "=", ticket_id.id),
+            ]
+        )
+        self.assertEqual(len(attachment_ids), 2)
+        # check that both files have kept their names
+        self.assertIn("test.txt", attachment_ids.mapped("name"))
+        self.assertIn("test.svg", attachment_ids.mapped("name"))
+        # check that both files are public (access_token is set)
+        self.assertTrue(attachment_ids[0].access_token)
+        self.assertTrue(attachment_ids[1].access_token)
 
     def test_portal_user_close_ticket_01(self):
         self.authenticate("test-portal", "test-portal")
