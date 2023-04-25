@@ -10,7 +10,9 @@ _logger = logging.getLogger(__name__)
 
 
 class HelpdeskTicketController(http.Controller):
-    @http.route("/ticket/close", type="http", auth="user")
+    """ """
+
+    @http.route("/close/ticket", type="http", auth="user")
     def support_ticket_close(self, **kw):
         """Close the support ticket"""
         values = {}

@@ -119,6 +119,7 @@
             <field name="unattended">False</field>
             <field name="closed">True</field>
             <field name="fold">True</field>
+            <field name="portal_user_can_close">True</field>
             <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
             <field name="company_id" />
         </record>
@@ -128,6 +129,7 @@
             <field name="unattended">False</field>
             <field name="closed">True</field>
             <field name="fold">True</field>
+            <field name="portal_user_can_close">True</field>
             <field name="mail_template_id" ref="helpdesk_mgmt.closed_ticket_template" />
             <field name="company_id" />
         </record>
