@@ -91,7 +91,7 @@
                         <t t-foreach="tickets" t-as="ticket">
                             <tr>
                                 <td>
-                                    <t t-esc="ticket.partner_id.name" />
+                                    <span t-field="ticket.partner_id" />
                                 </td>
                                 <td>
                                     <t t-esc="ticket.number" />
