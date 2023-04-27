@@ -165,8 +165,8 @@
                     </div>
                     <div class="panel-body">
                         <div class="mb8">
-                            <div>
-                                <div class="pull-left">
+                            <div class="row">
+                                <div class="col-md-6">
                                     <strong>Number:</strong>
                                     <span t-field="ticket.number" />
                                     <br />
@@ -180,7 +180,7 @@
                                     <t t-esc="ticket.stage_id.name" />
                                     <br />
                                 </div>
-                                <div class="pull-right">
+                                <div class="col-md-6">
                                     <strong>Last Stage Update:</strong>
                                     <span t-field="ticket.last_stage_update" />
                                     <br />
