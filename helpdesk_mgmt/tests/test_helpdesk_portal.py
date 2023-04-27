@@ -77,6 +77,10 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
         tickets = self.get_new_tickets(self.basic_user)
         self.assertNotIn(self.portal_ticket, tickets)
         self.assertIn(self.new_ticket_title, tickets.mapped("name"))
+        self.assertIn(
+            "<p>" + "<br>".join(self.new_ticket_desc_lines) + "</p>",
+            tickets.mapped("description"),
+        )
 
     def test_submit_ticket_02(self):
         self.authenticate("test-portal", "test-portal")
@@ -84,3 +88,7 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
         tickets = self.get_new_tickets(self.portal_user)
         self.assertIn(self.portal_ticket, tickets)
         self.assertIn(self.new_ticket_title, tickets.mapped("name"))
+        self.assertIn(
+            "<p>" + "<br>".join(self.new_ticket_desc_lines) + "</p>",
+            tickets.mapped("description"),
+        )

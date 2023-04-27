@@ -5,6 +5,7 @@ import werkzeug
 
 import odoo.http as http
 from odoo.http import request
+from odoo.tools import plaintext2html
 
 _logger = logging.getLogger(__name__)
 
@@ -62,7 +63,7 @@ class HelpdeskTicketController(http.Controller):
         vals = {
             "company_id": company.id,
             "category_id": category.id,
-            "description": kw.get("description"),
+            "description": plaintext2html(kw.get("description")),
             "name": kw.get("subject"),
             "attachment_ids": False,
             "channel_id": request.env["helpdesk.ticket.channel"]
