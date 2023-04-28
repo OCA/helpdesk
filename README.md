@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.3.5.1 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 15.0.3.6.0 |  | Helpdesk
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 15.0.1.1.1 |  | Add the option to select project in the tickets.
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 15.0.1.0.0 |  | This module allows customer to rate the assistance received on a ticket.
 [helpdesk_mgmtsystem_nonconformity](helpdesk_mgmtsystem_nonconformity/) | 15.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with nonconformities
