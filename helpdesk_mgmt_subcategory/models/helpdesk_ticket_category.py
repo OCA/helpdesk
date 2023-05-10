@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 from odoo.addons.http_routing.models.ir_http import slugify
 
@@ -39,6 +40,11 @@ class HelpdeskCategory(models.Model):
     )
 
     tickets_count = fields.Integer(string="# Tickets", compute="_compute_tickets_count")
+
+    @api.constrains("parent_id")
+    def check_parent_id(self):
+        if not self._check_recursion():
+            raise ValidationError(_("You cannot create recursive categories."))
 
     #
     # Copute fields
