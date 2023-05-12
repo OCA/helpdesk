@@ -213,19 +213,32 @@
             <tree>
                 <field name="priority" widget="priority" />
                 <field name="sequence" widget="handle" />
-                <field name="number" />
+                <field name="number" decoration-bf="1" />
                 <field name="name" />
-                <field name="partner_name" />
-                <field name="user_id" />
-                <field name="stage_id" />
+                <field name="partner_id" optional="hide" widget="many2one_avatar" />
+                <field name="partner_name" optional="show" />
+                <field name="user_id" optional="show" widget="many2one_avatar_user" />
+                <field name="unattended" invisible="1" />
+                <field name="closed" invisible="1" />
                 <field
                     name="tag_ids"
                     widget="many2many_tags"
                     options="{'color_field': 'color'}"
                     optional="show"
                 />
-                <field name="create_date" readonly="1" />
-                <field name="last_stage_update" />
+                <field
+                    name="last_stage_update"
+                    widget="remaining_days"
+                    optional="show"
+                />
+                <field name="activity_ids" widget="list_activity" optional="hide" />
+                <field
+                    name="stage_id"
+                    widget="badge"
+                    decoration-success="not unattended and not closed"
+                    decoration-info="unattended == True"
+                    decoration-muted="closed == True"
+                />
             </tree>
         </field>
     </record>
