@@ -211,12 +211,13 @@
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="priority" widget="priority" />
+                <field name="sequence" widget="handle" />
                 <field name="number" />
                 <field name="name" />
                 <field name="partner_name" />
                 <field name="user_id" />
                 <field name="stage_id" />
-                <field name="priority" widget="priority" />
                 <field
                     name="tag_ids"
                     widget="many2many_tags"
