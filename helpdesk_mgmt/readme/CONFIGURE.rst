@@ -37,7 +37,7 @@ Stages
 #. Edit or create a new stage.
 #. Set the name for the stage.
 #. Set the sequence order for the stage.
-#. You can select an Email template.
+#. You can select an email template that will be automatically sent when a ticket reaches this stage.
 #. Mark the Unattended checkbox if the stage contains unattended tickets.
 #. Mark the Closed checkbox if the stage contains closed tickets.
 #. You can add a description for the stage.
