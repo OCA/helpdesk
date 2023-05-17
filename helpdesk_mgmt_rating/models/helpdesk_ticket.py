@@ -52,12 +52,11 @@ class HelpdeskTicket(models.Model):
                         force_send=force_send,
                     )
 
-    def rating_apply(self, rate, token=None, feedback=None, subtype_xmlid=None):
+    def rating_apply(self, rate, token=None, feedback=None):
         return super().rating_apply(
             rate,
             token=token,
             feedback=feedback,
-            subtype_xmlid="helpdesk_mgmt_rating.mt_ticket_rating",
         )
 
     def rating_get_partner_id(self):
@@ -73,12 +72,12 @@ class HelpdeskTicket(models.Model):
         return self.id
 
     def action_view_ticket_rating(self):
-        action = self.env["ir.actions.act_window"]._for_xml_id(
-            "helpdesk_mgmt_rating.helpdesk_ticket_rating_action"
-        )
+        action = self.env.ref("helpdesk_mgmt_rating.helpdesk_ticket_rating_action", raise_if_not_found=False)    
+        action = action.read()[0]
         action["name"] = _("Ticket Rating")
         action_context = safe_eval(action["context"]) if action["context"] else {}
         action_context.update(self.env.context)
         action_context.pop("group_by", None)
         action["context"] = action_context
         return action
+

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="view_helpdesk_ticket_kanban_inherit" model="ir.ui.view">
         <field name="name">view.helpdesk.ticket.kanban.inherit</field>
@@ -19,18 +19,21 @@
                                     role="img"
                                     aria-label="Percentage of satisfaction"
                                     title="Percentage of satisfaction"
-                                /> <t t-esc="record.positive_rate_percentage.value" />%
-                            </a>
+                                /> <t
+                                    t-esc="record.positive_rate_percentage.value" />% </a>
                         </t>
                     </b>
                 </div>
             </xpath>
-            <xpath expr="//div[hasclass('dropdown-menu')]/a[2]" position="after">
-                <a
-                    name="action_view_ticket_rating"
-                    type="object"
-                    class="dropdown-item"
-                >Customer Rating</a>
+            <xpath expr="//ul[hasclass('dropdown-menu')]/li[2]" position="after">
+                <li>
+                    <a
+                        name="action_view_ticket_rating"
+                        type="object"
+                        class="dropdown-item">
+                        Customer Rating
+                    </a>
+                </li>
             </xpath>
         </field>
     </record>
