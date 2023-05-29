@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="action"
+                    icon="fa-file"
+                    name="%(ticket_action_from_project)d"
+                    context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_search" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter
+                    string="Open Tickets"
+                    name="open_tickets"
+                    domain="[('todo_ticket_count', '&gt;', 0)]"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_kanban_helpdesk" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban" />
+        <field name="arch" type="xml">
+            <div class="oe_kanban_bottom_right" position="before">
+                <div attrs="{'invisible':[('ticket_count', '=', 0)]}">
+                    <a
+                        class="o_project_kanban_box"
+                        name="action_view_ticket"
+                        type="object"
+                    >
+                        <span class="o_value">
+                            <b>
+                                <field name="ticket_count" />
+                            </b>
+                        </span>
+                        <span class="o_label">
+                            <field name="label_tickets" />
+                        </span>
+                    </a>
+                    &#160;
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
