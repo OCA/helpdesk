@@ -28,6 +28,11 @@ msgid "Helpdesk Ticket"
 msgstr "Ticket de Helpdesk"
 
 #. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__todo_ticket_count
 msgid "Number of tickets"
@@ -42,6 +47,7 @@ msgstr "Tickets Abertos"
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
 msgid "Project"
 msgstr "Projeto"
 
@@ -58,6 +64,7 @@ msgid "Ticket Count"
 msgstr "Nº de Tickets"
 
 #. module: helpdesk_mgmt_project
+#. odoo-python
 #: code:addons/helpdesk_mgmt_project/models/project.py:0
 #: code:addons/helpdesk_mgmt_project/models/project_task.py:0
 #: model:ir.actions.act_window,name:helpdesk_mgmt_project.ticket_action_from_project
