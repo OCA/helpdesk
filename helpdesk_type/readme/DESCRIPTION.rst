@@ -1,1 +1,2 @@
 This module adds a type field on the helpdesk ticket.
+In the ticket type we can indicate which devices are allowed to use this type of ticket. In case the ticket is assigned to a non-authorised team, this team is unassigned from the ticket.
