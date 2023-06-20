@@ -5,8 +5,7 @@ from odoo import http
 from odoo.tests import new_test_user
 
 
-@odoo.tests.tagged("post_install", "-at_install")
-class TestHelpdeskPortal(odoo.tests.HttpCase):
+class TestHelpdeskPortalBase(odoo.tests.HttpCase):
     """Test controllers defined for portal mode.
     This is mostly for basic coverage; we don't go as far as fully validating
     HTML produced by our routes.
@@ -47,30 +46,32 @@ class TestHelpdeskPortal(odoo.tests.HttpCase):
     def get_new_tickets(self, user):
         return self.env["helpdesk.ticket"].with_user(user).search([])
 
-    def _create_ticket(self, partner, ticket_title):
+    def _create_ticket(self, partner, ticket_title, **values):
         """Create a ticket submitted by the specified partner."""
-        return self.env["helpdesk.ticket"].create(
-            {
-                "name": ticket_title,
-                "description": "test-description",
-                "partner_id": partner.id,
-                "partner_email": partner.email,
-                "partner_name": partner.name,
-            }
-        )
+        data = {
+            "name": ticket_title,
+            "description": "test-description",
+            "partner_id": partner.id,
+            "partner_email": partner.email,
+            "partner_name": partner.name,
+        }
+        data.update(**values)
+        return self.env["helpdesk.ticket"].create(data)
 
-    def _submit_ticket(self):
-        resp = self.url_open(
-            "/submitted/ticket",
-            data={
-                "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
-                "csrf_token": http.WebRequest.csrf_token(self),
-                "subject": self.new_ticket_title,
-                "description": "\n".join(self.new_ticket_desc_lines),
-            },
-        )
+    def _submit_ticket(self, **values):
+        data = {
+            "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
+            "csrf_token": http.WebRequest.csrf_token(self),
+            "subject": self.new_ticket_title,
+            "description": "\n".join(self.new_ticket_desc_lines),
+        }
+        data.update(**values)
+        resp = self.url_open("/submitted/ticket", data=data)
         self.assertEqual(resp.status_code, 200)
 
+
+@odoo.tests.tagged("post_install", "-at_install")
+class TestHelpdeskPortal(TestHelpdeskPortalBase):
     def test_submit_ticket_01(self):
         self.authenticate("test-user", "test-user")
         self._submit_ticket()
