@@ -20,8 +20,19 @@ class ProjectProject(models.Model):
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_ticket_count(self):
+        HelpdeskTicket = self.env["helpdesk.ticket"]
+        domain = [("project_id", "in", self.ids)]
+        fields = ["project_id"]
+        groupby = ["project_id"]
+        counts = {
+            pr["project_id"][0]: pr["project_id_count"]
+            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+        }
+        domain.append(("closed", "=", False))
+        counts_todo = {
+            pr["project_id"][0]: pr["project_id_count"]
+            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+        }
         for record in self:
-            record.ticket_count = len(record.ticket_ids)
-            record.todo_ticket_count = len(
-                record.ticket_ids.filtered(lambda ticket: not ticket.closed)
-            )
+            record.ticket_count = counts.get(record.id, 0)
+            record.todo_ticket_count = counts_todo.get(record.id, 0)
