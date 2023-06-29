@@ -108,6 +108,12 @@
                         domain="[]"
                         context="{'group_by':'stage_id'}"
                     />
+                    <filter
+                        string="Tag"
+                        name="group_tag"
+                        domain="[]"
+                        context="{'group_by':'tag_ids'}"
+                    />
                 </group>
             </search>
         </field>
@@ -170,7 +176,7 @@
                             <field
                                 name="tag_ids"
                                 widget="many2many_tags"
-                                options="{'no_create_edit': True}"
+                                options="{'no_create_edit': True, 'color_field': 'color',}"
                             />
                         </group>
                     </group>
@@ -210,6 +216,12 @@
                 <field name="user_id" />
                 <field name="stage_id" />
                 <field name="priority" widget="priority" />
+                <field
+                    name="tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                    optional="show"
+                />
                 <field name="create_date" readonly="1" />
                 <field name="last_stage_update" />
             </tree>
