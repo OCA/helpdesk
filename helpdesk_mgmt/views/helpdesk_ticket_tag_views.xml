@@ -23,19 +23,14 @@
                 <header>
                 </header>
                 <sheet>
+                    <field name="active" invisible="1" />
+                    <widget
+                        name="web_ribbon"
+                        text="Archived"
+                        bg_color="bg-danger"
+                        attrs="{'invisible': [('active', '=', True)]}"
+                    />
                     <div class="oe_button_box" name="button_box">
-                        <button
-                            name="toggle_active"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-check"
-                        >
-                            <field
-                                name="active"
-                                widget="boolean_button"
-                                options="{&quot;terminology&quot;: &quot;active&quot;}"
-                            />
-                        </button>
                     </div>
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
@@ -54,8 +49,9 @@
         <field name="name">helpdesk.ticket.tag.tree</field>
         <field name="model">helpdesk.ticket.tag</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree decoration-muted="not active">
                 <field name="name" />
+                <field name="active" widget="boolean_toggle" />
             </tree>
         </field>
     </record>
