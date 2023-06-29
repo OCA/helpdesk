@@ -25,6 +25,7 @@
         "views/helpdesk_team_view.xml",
         "views/helpdesk_ticket_view.xml",
         "views/hr_timesheet_view.xml",
+        "views/helpdesk_project_task_view.xml",
         "report/report_timesheet_templates.xml",
     ],
     "demo": ["demo/helpdesk_mgmt_timesheet_demo.xml"],
