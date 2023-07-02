@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-29 17:33+0000\n"
+"PO-Revision-Date: 2023-07-02 12:10+0000\n"
 "Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
 "Language-Team: none\n"
 "Language: pt\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -810,7 +810,7 @@ msgstr "Atividades Futuras"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__sequence
 msgid "Gives the sequence order when displaying a list of tickets."
-msgstr ""
+msgstr "Fornece a ordem sequencial da apresentação da lista de tickets."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
