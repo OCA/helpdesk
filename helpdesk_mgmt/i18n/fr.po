@@ -28,15 +28,6 @@ msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
 msgstr "<em class=\"font-weight-normal text-muted\">Tickets à l'étape :</em>"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
-msgid ""
-"<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
-"                <p>The ticket <t t-out=\"object.number\"/> has been assigned "
-"to you.</p>\n"
-"            "
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-right\">Stage:</small>"
 msgstr "<small class=\"text-right\">Étape :</small>"
@@ -1442,11 +1433,6 @@ msgid "Ticket"
 msgstr "Ticket"
 
 #. module: helpdesk_mgmt
-#: model:mail.template,name:helpdesk_mgmt.assignment_email_template
-msgid "Ticket Assignment"
-msgstr "Affectation de ticket"
-
-#. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
 msgstr "Ticket créé"
@@ -1611,14 +1597,15 @@ msgstr "Historique de la communication du site web"
 msgid "Wifi"
 msgstr "Wifi"
 
-#. module: helpdesk_mgmt
-#: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
-msgid ""
-"{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
-"a' }})"
-msgstr ""
-"{{object.company_id.name}} Affectation ticket (Ref {{object.number or 'n/"
-"a' }})"
+#~ msgid "Ticket Assignment"
+#~ msgstr "Affectation de ticket"
+
+#~ msgid ""
+#~ "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
+#~ "a' }})"
+#~ msgstr ""
+#~ "{{object.company_id.name}} Affectation ticket (Ref {{object.number or 'n/"
+#~ "a' }})"
 
 #~ msgid ""
 #~ "<br/>\n"
