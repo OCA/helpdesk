@@ -23,16 +23,20 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
                 "default_project_id": cls.project_id.id,
             }
         )
-
-    def generate_timesheet(self, ticket, hours=1.0, days_ago=0):
-        return self.env["account.analytic.line"].create(
+        cls.user_employee = cls.env["res.users"].create(
             {
-                "amount": 0,
-                "date": fields.Date.today() - timedelta(days=days_ago),
-                "name": "Test Timesheet",
-                "unit_amount": hours,
-                "ticket_id": ticket.id,
-                "project_id": ticket.project_id.id,
+                "name": "User Employee",
+                "login": "user_employee",
+                "email": "useremployee@test.com",
+                "groups_id": [
+                    (6, 0, [cls.env.ref("hr_timesheet.group_hr_timesheet_user").id])
+                ],
+            }
+        )
+        cls.empl_employee = cls.env["hr.employee"].create(
+            {
+                "name": "User Empl Employee",
+                "user_id": cls.user_employee.id,
             }
         )
 
@@ -46,18 +50,37 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
         )
 
     def test_helpdesk_mgmt_timesheet(self):
+        Timesheet = self.env["account.analytic.line"]
         ticket = self.generate_ticket()
         self.assertFalse(ticket.last_timesheet_activity)
         ticket._onchange_team_id()
         self.assertEqual(ticket.project_id.id, self.team_id.default_project_id.id)
         ticket.planned_hours = 5
         days_ago = 1
-        timesheet1 = self.generate_timesheet(ticket, hours=2, days_ago=days_ago)
+        timesheet1 = Timesheet.with_user(self.user_employee).create(
+            {
+                "amount": 0,
+                "date": fields.Date.today() - timedelta(days=days_ago),
+                "name": "Test Timesheet",
+                "unit_amount": 2,
+                "ticket_id": ticket.id,
+                "project_id": ticket.project_id.id,
+            }
+        )
         self.assertEqual(
             ticket.last_timesheet_activity,
             fields.Date.today() - timedelta(days=days_ago),
         )
-        timesheet2 = self.generate_timesheet(ticket, hours=1)
+        timesheet2 = Timesheet.with_user(self.user_employee).create(
+            {
+                "amount": 0,
+                "date": fields.Date.today() - timedelta(days=0),
+                "name": "Test Timesheet",
+                "unit_amount": 1,
+                "ticket_id": ticket.id,
+                "project_id": ticket.project_id.id,
+            }
+        )
         self.assertEqual(ticket.last_timesheet_activity, fields.Date.today())
         self.assertEqual(
             ticket.total_hours, timesheet1.unit_amount + timesheet2.unit_amount
