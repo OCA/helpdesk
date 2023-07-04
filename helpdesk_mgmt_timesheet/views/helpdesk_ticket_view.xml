@@ -34,14 +34,7 @@
         <field name="name">helpdesk.ticket.view.tree</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
-        <field
-            name="groups_id"
-            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
-        />
         <field name="arch" type="xml">
-            <xpath expr="." position="attributes">
-                <attribute name="decoration-danger">remaining_hours &lt; 0</attribute>
-            </xpath>
             <field name="last_stage_update" position="after">
                 <field
                     name="planned_hours"
@@ -56,6 +49,7 @@
                 <field
                     name="remaining_hours"
                     widget="float_time"
+                    decoration-danger="remaining_hours &lt; 0"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </field>
@@ -70,6 +64,7 @@
                     icon="fa-play-circle text-success"
                     attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
                     class="oe_stat_button"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
                 <button
                     name="button_end_work"
@@ -80,6 +75,7 @@
                     icon="fa-stop-circle text-warning"
                     attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
                     class="oe_stat_button"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </tree>
         </field>
@@ -88,10 +84,6 @@
         <field name="name">timesheet.helpdesk.ticket.form.view</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
-        <field
-            name="groups_id"
-            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
-        />
         <field name="priority" eval="20" />
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
@@ -104,6 +96,7 @@
                     icon="fa-play-circle text-success"
                     attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
                     class="oe_stat_button"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
                 <button
                     name="button_end_work"
@@ -113,6 +106,7 @@
                     icon="fa-stop-circle text-warning"
                     attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
                     class="oe_stat_button"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </div>
             <xpath expr="//field[@name='partner_email']" position="after">
@@ -221,10 +215,6 @@
         >helpdesk.ticket.kanban (in helpdesk_mgmt_timesheet_time_control)</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
-        <field
-            name="groups_id"
-            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
-        />
         <field name="arch" type="xml">
             <xpath expr="//*[hasclass('oe_kanban_bottom_left')]" position="inside">
                 <field name="show_time_control" invisible="1" />
@@ -236,6 +226,7 @@
                     string="Start work"
                     tabindex="-1"
                     type="object"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
                 <a
                     name="button_end_work"
@@ -245,6 +236,7 @@
                     string="Stop work"
                     tabindex="-1"
                     type="object"
+                    groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </xpath>
         </field>
