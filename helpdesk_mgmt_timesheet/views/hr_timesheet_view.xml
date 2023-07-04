@@ -3,20 +3,20 @@
     <record id="hr_timesheet_line_search" model="ir.ui.view">
         <field name="model">account.analytic.line</field>
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_search" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('helpdesk_mgmt.group_helpdesk_user'))]"
-        />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="ticket_id" />
-                <field name="ticket_partner_id" />
+                <field name="ticket_id" groups="helpdesk_mgmt.group_helpdesk_user" />
+                <field
+                    name="ticket_partner_id"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
+                />
             </xpath>
             <xpath expr="//filter[@name='month']" position="before">
                 <filter
                     name="ticket"
                     string="With ticket"
                     domain="[('ticket_id', '!=', False)]"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
                 />
                 <separator />
             </xpath>
@@ -26,12 +26,14 @@
                     name="groupby_ticket_partner"
                     domain="[]"
                     context="{'group_by':'ticket_partner_id'}"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
                 />
                 <filter
                     string="Ticket"
                     name="groupby_ticket"
                     domain="[]"
                     context="{'group_by':'ticket_id'}"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
                 />
             </xpath>
         </field>
@@ -41,8 +43,11 @@
         <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="ticket_partner_id" />
-                <field name="ticket_id" />
+                <field
+                    name="ticket_partner_id"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
+                />
+                <field name="ticket_id" groups="helpdesk_mgmt.group_helpdesk_user" />
             </xpath>
         </field>
     </record>
@@ -54,10 +59,12 @@
                 <field
                     name="ticket_id"
                     required="context.get('ticket_required', False)"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
                 />
                 <field
                     name="ticket_partner_id"
                     attrs="{'invisible': [('ticket_id', '=', False)]}"
+                    groups="helpdesk_mgmt.group_helpdesk_user"
                 />
             </field>
         </field>
