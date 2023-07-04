@@ -59,8 +59,8 @@ class HelpdeskTicket(models.Model):
             subtype_xmlid="helpdesk_mgmt_rating.mt_ticket_rating",
         )
 
-    def rating_get_partner_id(self):
-        res = super().rating_get_partner_id()
+    def _rating_get_partner(self):
+        res = super()._rating_get_partner()
         if not res and self.partner_id:
             return self.partner_id
         return res
