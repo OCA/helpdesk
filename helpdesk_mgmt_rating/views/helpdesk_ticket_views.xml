@@ -60,14 +60,14 @@
         <field name="name">ticket.view.form: Rating status</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
-        <field
-            name="groups_id"
-            eval="[(4, ref('helpdesk_mgmt.group_helpdesk_manager'))]"
-        />
         <field name="arch" type="xml">
             <xpath expr="//group[@name='main']/group[2]" position="after">
                 <group>
-                    <field name="rating_status" widget="radio" />
+                    <field
+                        name="rating_status"
+                        widget="radio"
+                        groups="helpdesk_mgmt.group_helpdesk_manager"
+                    />
                 </group>
             </xpath>
         </field>

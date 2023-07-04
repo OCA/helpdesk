@@ -11,18 +11,16 @@
         <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
         <field
             name="email_from"
-        >{{object.rating_get_rated_partner_id().email_formatted}}</field>
-        <field
-            name="email_to"
-        >{{object.rating_get_partner_id().email_formatted}}</field>
+        >{{object._rating_get_operator().email_formatted}}</field>
+        <field name="email_to">{{object._rating_get_partner().email_formatted}}</field>
         <field
             name="subject"
         >Satisfaction Survey of the ticket {{object.number}} - {{object.name}}</field>
-        <field name="partner_to">{{object.rating_get_partner_id().id}}</field>
+        <field name="partner_to">{{object._rating_get_partner().id}}</field>
         <field name="auto_delete" eval="True" />
         <field name="body_html" type="html">
             <div>
-                <t t-set="access_token" t-value="object.rating_get_access_token()" />
+                <t t-set="access_token" t-value="object._rating_get_access_token()" />
                 <table
                     border="0"
                     cellpadding="0"
@@ -39,7 +37,7 @@
                                     ><t t-out="object.number" /> - <t
                                             t-out="object.name"
                                         /></strong>"assigned to <strong><t
-                                            t-out="object.rating_get_rated_partner_id().name"
+                                            t-out="object._rating_get_operator().name"
                                         /></strong>.</p>
                                 <p
                                 >We appreciate your feedback. It helps us to improve continuously.</p>
