@@ -1329,6 +1329,11 @@ msgid "Submit Ticket"
 msgstr "Enviar Chamados"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Tag"
+msgstr "Marcador"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
 msgid "Tags"
@@ -1664,9 +1669,6 @@ msgstr ""
 
 #~ msgid "Planned"
 #~ msgstr "Planejado"
-
-#~ msgid "Tag"
-#~ msgstr "Marcador"
 
 #~ msgid "Today"
 #~ msgstr "Hoje"
