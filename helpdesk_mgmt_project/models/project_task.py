@@ -20,18 +20,30 @@ class ProjectTask(models.Model):
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_ticket_count(self):
+        HelpdeskTicket = self.env["helpdesk.ticket"]
+        invname = "task_id"
+        domain = [(invname, "in", self.ids)]
+        fields = [invname]
+        groupby = [invname]
+        counts = {
+            pr[invname][0]: pr[f"{invname}_count"]
+            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+        }
+        domain.append(("closed", "=", False))
+        counts_todo = {
+            pr[invname][0]: pr[f"{invname}_count"]
+            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+        }
         for record in self:
-            record.ticket_count = len(record.ticket_ids)
-            record.todo_ticket_count = len(
-                record.ticket_ids.filtered(lambda ticket: not ticket.closed)
-            )
+            record.ticket_count = counts.get(record.id, 0)
+            record.todo_ticket_count = counts_todo.get(record.id, 0)
 
     def action_view_ticket(self):
         result = self.env["ir.actions.act_window"]._for_xml_id(
             "helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard"
         )
         # choose the view_mode accordingly
-        if not self.ticket_ids or len(self.ticket_ids) > 1:
+        if not self.ticket_ids or self.ticket_count > 1:
             result["domain"] = "[('id','in',%s)]" % (self.ticket_ids.ids)
             res = self.env.ref("helpdesk_mgmt.ticket_view_tree", False)
             tree_view = [(res and res.id or False, "tree")]
@@ -41,7 +53,7 @@ class ProjectTask(models.Model):
                 ]
             else:
                 result["views"] = tree_view
-        elif len(self.ticket_ids) == 1:
+        elif self.ticket_count == 1:
             res = self.env.ref("helpdesk_mgmt.ticket_view_form", False)
             form_view = [(res and res.id or False, "form")]
             if "views" in result:
