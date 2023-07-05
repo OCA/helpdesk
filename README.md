@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [helpdesk_mgmt](helpdesk_mgmt/) | 16.0.1.0.0 |  | Helpdesk
-[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 16.0.1.0.0 |  | Add the option to select project in the tickets.
+[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 16.0.1.0.1 |  | Add the option to select project in the tickets.
 
 [//]: # (end addons)
 
