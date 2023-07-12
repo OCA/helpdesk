@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-15 09:09+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-07-12 15:12+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -59,7 +59,7 @@ msgstr "Archivia"
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
 msgid "Archived"
-msgstr "Archiviato"
+msgstr "In archivio"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_attachment_count
