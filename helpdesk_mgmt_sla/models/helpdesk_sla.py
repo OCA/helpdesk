@@ -12,17 +12,17 @@ class HelpdeskSla(models.Model):
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Helpdesk SLA"
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(required=True)
     team_ids = fields.Many2many(comodel_name="helpdesk.ticket.team", string="Teams")
     category_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.category", string="Categories"
     )
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     stage_ids = fields.Many2many(comodel_name="helpdesk.ticket.stage", string="Stages")
-    days = fields.Integer(string="Days", default=0, required=True)
+    days = fields.Integer(default=0, required=True)
     hours = fields.Integer(string="Hours", default=0, required=True)
-    note = fields.Html(string="Note")
-    domain = fields.Char(string="Filter", default="[]")
+    note = fields.Html()
+    domain = fields.Char(default="[]")
     active = fields.Boolean(default=True)
 
     def _applies_for(self, ticket):
