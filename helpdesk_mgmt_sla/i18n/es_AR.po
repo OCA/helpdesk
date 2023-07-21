@@ -1,0 +1,423 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_sla
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-09-17 22:07+0000\n"
+"Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
+msgid "Action Needed"
+msgstr "Acción Requerida"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de Excepción de Actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de Tipo de Actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Apply on"
+msgstr "Aplica en"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Archive"
+msgstr "Archivar"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_attachment_count
+msgid "Attachment Count"
+msgstr "Cuenta de Adjuntos"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__category_ids
+msgid "Categories"
+msgstr "Categorías"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__days
+msgid "Days"
+msgstr "Días"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Description"
+msgstr "Descripción"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Description of the policy..."
+msgstr "Descripción de la política..."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__domain
+msgid "Filter"
+msgstr "Filtro"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font awesome ej. fa-task"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
+#: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
+#: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
+msgid "Generate Helpdesk SLA alerts from cron"
+msgstr "Generar alertas SLA del Mesa de Ayuda desde un cron"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla
+msgid "Helpdesk SLA"
+msgstr "Mesa de Ayuda SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
+msgid "Helpdesk SLA Search"
+msgstr "Búsqueda de Mesa de Ayuda SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Equipo del Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__hours
+msgid "Hours"
+msgstr "Horas"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está seleccionado, algunos mensajes tuvieron error de entrega."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto Principal"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Entrega del Mensaje"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha Límite de Mi Actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite próxima actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen próxima actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo próxima actividad"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__note
+msgid "Note"
+msgstr "Nota"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren acción"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con errores"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes sin leer"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Reach In"
+msgstr "Alcanzar"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Restore"
+msgstr "Restaurar"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_sla_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "SLA"
+msgstr "SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_deadline
+msgid "SLA deadline"
+msgstr "Fecha Límite SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_expired
+msgid "SLA expired"
+msgstr "SLA expirado"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega del SMS"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_ids
+msgid "Stages"
+msgstr "Etapas"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estados basados en actividades\n"
+"Atrasado: La ficha límite ya ha sido sobrepasada\n"
+"Hoy: La actividad está programada para hoy\n"
+"Planificado: Actividades futuras."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__tag_ids
+msgid "Tags"
+msgstr "Etiquetas"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Target"
+msgstr "Objetivo"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__team_sla
+msgid "Team SLA"
+msgstr "Equipo SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__team_ids
+msgid "Teams"
+msgstr "Equipos"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes por leer"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador mensajes por leer"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
+msgid "Use SLA"
+msgstr "Usar SLA"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de la comunicación por sitio web"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__resource_calendar_id
+msgid "Working Hours"
+msgstr "Horas Trabajadas"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid ""
+"days\n"
+"                                <br/>"
+msgstr ""
+"días\n"
+"                                <br/>"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid ""
+"hours\n"
+"                                <br/>"
+msgstr ""
+"horas\n"
+"                                <br/>"
+
+#~ msgid "Reach Stage"
+#~ msgstr "Alcanzar Etapa"
+
+#~ msgid "Stage"
+#~ msgstr "Etapa"
+
+#~ msgid "days<br/>"
+#~ msgstr "días<br/>"
+
+#~ msgid "hours<br/>"
+#~ msgstr "horas<br/>"
