@@ -213,12 +213,17 @@ class HelpdeskTicket(models.Model):
         """
         if custom_values is None:
             custom_values = {}
+        partner_name, partner_email = next(
+            iter(tools.email_split_tuples(msg.get("from"))), ("", "")
+        )
         defaults = {
             "name": msg.get("subject") or _("No Subject"),
             "description": msg.get("body"),
-            "partner_email": msg.get("from"),
+            "partner_email": partner_email,
             "partner_id": msg.get("author_id"),
         }
+        if not msg.get("author_id"):
+            defaults["partner_name"] = partner_name
         defaults.update(custom_values)
 
         # Write default values coming from msg
