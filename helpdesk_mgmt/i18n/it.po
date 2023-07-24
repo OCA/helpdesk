@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-07-24 13:11+0000\n"
+"PO-Revision-Date: 2023-07-24 18:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1267,8 +1267,7 @@ msgstr "Condividi"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Show all records which has next action date is before today"
-msgstr ""
-"Mostra tutti i record la cui data prossima attività è precedente ad oggi"
+msgstr "Visualizza tutte le righe con l'azione successiva antecedente ad oggi"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
