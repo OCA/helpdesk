@@ -9,7 +9,7 @@ def migrate(env, version):
     openupgrade.load_data(
         env.cr,
         "helpdesk_mgmt",
-        "14.0.2.11.0/noupdate_changes.xml",
+        "migrations/14.0.2.11.0/noupdate_changes.xml",
     )
     openupgrade.delete_record_translations(
         env.cr, "helpdesk_mgmt", ["closed_ticket_template", "changed_stage_template"]
