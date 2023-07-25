@@ -66,7 +66,9 @@
                                             valign="top"
                                             style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;"
                                         >
-                                <p>Hello <t t-out="object.user_id.name" />,</p>
+                                <p>Hello <t
+                                                    t-out="object.partner_id.name or object.partner_name"
+                                                />,</p>
                                 <p>The ticket "<t
                                                     t-out="object.display_name"
                                                 />" has been closed.</p>
@@ -174,7 +176,9 @@
                                             valign="top"
                                             style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;"
                                         >
-                                <p>Hello <t t-out="object.user_id.name" />,</p>
+                                <p>Hello <t
+                                                    t-out="object.partner_id.name or object.partner_name"
+                                                />,</p>
                                 <p>The ticket "<t
                                                     t-out="object.display_name"
                                                 />" stage has changed to <t
