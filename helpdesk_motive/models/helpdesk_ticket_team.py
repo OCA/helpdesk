@@ -7,5 +7,7 @@ class HelpdeskTicketTeam(models.Model):
     _inherit = "helpdesk.ticket.team"
 
     motive_ids = fields.One2many(
-        comodel_name="helpdesk.ticket.motive", inverse_name="team_id", string="Motives"
+        comodel_name="helpdesk.ticket.motive",
+        inverse_name="team_id",
+        string="Motives",
     )
