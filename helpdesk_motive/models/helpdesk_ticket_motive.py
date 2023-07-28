@@ -8,5 +8,5 @@ class HelpdeskMotive(models.Model):
     _description = "Helpdesk Motive"
     _order = "name asc"
 
-    name = fields.Char("Name", required=True)
+    name = fields.Char(required=True)
     team_id = fields.Many2one("helpdesk.ticket.team", string="Helpdesk Team")
