@@ -9,3 +9,7 @@
 * `Solvos <https://www.solvos.es>`_:
 
   * David Alonso <david.alonso@solvos.es>
+
+* `Binhex <https://binhex.cloud>_`:
+
+  * Adasat Torres <a.torres@binhex.cloud>
