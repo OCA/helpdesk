@@ -1,0 +1,199 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-09-12 17:33+0000\n"
+"Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__allow_timesheet
+msgid "Allow Timesheet"
+msgstr "Permitir Hoja de Horas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea Analítica"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
+msgid "Change the Default Project will not have retroactive effects."
+msgstr "Cambiar el Proyecto Predeterminado no tendrá efectos retroactivos."
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Date"
+msgstr "Fecha"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__default_project_id
+msgid "Default Project"
+msgstr "Proyecto Predeterminado"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Duration (Hour(s))"
+msgstr "Duración (Hora(s))"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "End work"
+msgstr "Finalizar trabajo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Equipo del Ticket de la Mesa de Ayuda"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
+msgid "Indicate which time control button to show, if any."
+msgstr ""
+"Indicar cuál botón de control de tiempo mostrar, si es que hubiese alguno."
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__last_timesheet_activity
+msgid "Last Timesheet Activity"
+msgstr "Última Actividad de la Hoja de Horas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "Late"
+msgstr "Tarde"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__planned_hours
+msgid "Planned Hours"
+msgstr "Horas Planeadas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__progress
+msgid "Progress"
+msgstr "Progreso"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__remaining_hours
+msgid "Remaining Hours"
+msgstr "Horas Restantes"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Resume work"
+msgstr "Continuar trabajo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
+msgid "Show Time Control"
+msgstr "Mostrar Control de Tiempo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Start work"
+msgstr "Iniciar trabajo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Stop work"
+msgstr "Detener trabajo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_hr_timesheet_switch__ticket_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.report_timesheet
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_partner_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_hr_timesheet_switch__ticket_partner_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+msgid "Ticket partner"
+msgstr "Contacto del ticket"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
+#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
+msgid "Tickets"
+msgstr "Tickets"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
+msgid "Timesheet"
+msgstr "Hoja de horas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "Timesheet allowed"
+msgstr "Hoja de horas permitida"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
+#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_menu
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Timesheets"
+msgstr "Hojas de Horas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__total_hours
+msgid "Total Hours"
+msgstr "Total de Horas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "With activity today"
+msgstr "Con actividad hoy"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+msgid "With ticket"
+msgstr "Con ticket"
