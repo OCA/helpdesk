@@ -411,7 +411,7 @@
                         class="col-md-12"
                     >
                                                                         <h1
-                            class="text-center"
+                            class="text-left"
                         >Send a new ticket</h1>
                                                                     </div>
                                                                 </div>
@@ -513,7 +513,7 @@
                         class="col-md-7 col-sm-8"
                     >
                                                                         <div
-                            class="btn btn-default btn-file col-md-12"
+                            class="btn-default btn-file col-md-12"
                         >
                                                                             <input
                                 class="form-control o_website_form_input"
@@ -541,7 +541,10 @@
                         />
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
+                                                                <div
+                    class="form-group"
+                    style="margin-top: 5px;"
+                >
                                                                     <div
                         class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7"
                     >
