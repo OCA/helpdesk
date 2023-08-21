@@ -18,8 +18,8 @@
         </xpath>
         <xpath expr="//table[hasclass('table-sm')]/tbody/tr[1]/td[3]" position="after">
             <td t-if="show_ticket" groups="helpdesk_mgmt.group_helpdesk_user">
-                <span t-field="l.ticket_id.number" /> - <span
-                    t-field="l.ticket_id.name"
+                <span t-field="line.ticket_id.number" /> - <span
+                    t-field="line.ticket_id.name"
                 />
             </td>
         </xpath>
