@@ -1060,8 +1060,8 @@ msgstr "Numero di errori"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Numero di messaggi che richiedono un'azione"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
@@ -1594,6 +1594,9 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Numero di messaggi che richiedono un'azione"
 
 #~ msgid "List of cc from incoming emails."
 #~ msgstr "Lista dei cc dalle email in entrata."
