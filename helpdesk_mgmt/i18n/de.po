@@ -1063,8 +1063,8 @@ msgstr "Anzahl der Fehler"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
@@ -1626,6 +1626,9 @@ msgid ""
 "a' }})"
 msgstr ""
 "{{object.company_id.name}} Ticketzuweisung (Ref {{object.number or 'n/a' }})"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
 
 #~ msgid ""
 #~ "<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
