@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-22 09:13+0000\n"
-"PO-Revision-Date: 2023-08-07 16:10+0000\n"
-"Last-Translator: Marcos Oitabén Fernández <marcosoitaben@gmail.com>\n"
+"PO-Revision-Date: 2023-09-05 21:38+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -1199,7 +1199,7 @@ msgstr "Número de errores"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_needaction_counter
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Número de mensajes que requieren una acción"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error_counter
@@ -1603,7 +1603,7 @@ msgstr "Asignación de tiquet"
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
-msgstr "Tiquet creado"
+msgstr "Tiquet Creado"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
