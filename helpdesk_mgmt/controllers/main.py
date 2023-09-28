@@ -49,6 +49,7 @@ class HelpdeskTicketController(http.Controller):
         )
         email = http.request.env.user.email
         name = http.request.env.user.name
+        company = request.env.company
         return http.request.render(
             "helpdesk_mgmt.portal_create_ticket",
             {
@@ -56,6 +57,12 @@ class HelpdeskTicketController(http.Controller):
                 "teams": self._get_teams(),
                 "email": email,
                 "name": name,
+                "ticket_team_id_required": (
+                    company.helpdesk_mgmt_portal_team_id_required
+                ),
+                "ticket_category_id_required": (
+                    company.helpdesk_mgmt_portal_category_id_required
+                ),
             },
         )
 
