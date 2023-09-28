@@ -75,6 +75,11 @@ class HelpdeskTicketController(http.Controller):
             "partner_id": request.env.user.partner_id.id,
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
+            # Need to set stage_id so that the _track_template() method is called
+            # and the mail is sent automatically if applicable
+            "stage_id": request.env["helpdesk.ticket"].default_get(["stage_id"])[
+                "stage_id"
+            ],
         }
         if company.helpdesk_mgmt_portal_select_team and kw.get("team"):
             team = (
