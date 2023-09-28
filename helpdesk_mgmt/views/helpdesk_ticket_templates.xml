@@ -454,6 +454,7 @@
                             name="team"
                             required="True"
                         >
+                            <option value="" />
                                                                             <t
                                 t-foreach="teams"
                                 t-as="team"
@@ -483,6 +484,9 @@
                             name="category"
                             required="True"
                         >
+                                                                            <option
+                                value=""
+                            />
                                                                             <t
                                 t-foreach="categories"
                                 t-as="cat"
