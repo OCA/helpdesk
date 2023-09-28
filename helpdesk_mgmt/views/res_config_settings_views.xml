@@ -23,6 +23,35 @@
                                 <div class="text-muted">Show teams form</div>
                             </div>
                         </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="helpdesk_mgmt_portal_team_id_required"
+                                    attrs="{'readonly' : [('helpdesk_mgmt_portal_select_team', '=', False)]}"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="helpdesk_mgmt_portal_team_id_required"
+                                    string="Required Team"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field
+                                    name="helpdesk_mgmt_portal_category_id_required"
+                                />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                                    for="helpdesk_mgmt_portal_category_id_required"
+                                    string="Required Category"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </xpath>
