@@ -408,6 +408,7 @@
                             name="team"
                             required="True"
                         >
+                            <option value="" />
                             <t t-foreach="teams" t-as="team">
                                 <option t-attf-value="#{team.id}">
                                     <t t-esc="team.name" />
@@ -428,6 +429,7 @@
                             name="category"
                             required="True"
                         >
+                            <option value="" />
                             <t t-foreach="categories" t-as="cat">
                                 <option t-attf-value="#{cat.id}">
                                     <t t-esc="cat.name" />
