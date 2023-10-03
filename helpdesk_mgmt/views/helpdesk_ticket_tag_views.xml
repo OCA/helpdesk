@@ -39,7 +39,7 @@
                         </h1>
                     </div>
                     <group name="main">
-                        <field name="color" />
+                        <field name="color" widget="color_picker" />
                     </group>
                 </sheet>
             </form>
@@ -51,6 +51,7 @@
         <field name="arch" type="xml">
             <tree decoration-muted="not active">
                 <field name="name" />
+                <field name="color" widget="color_picker" />
                 <field name="active" widget="boolean_toggle" />
             </tree>
         </field>
