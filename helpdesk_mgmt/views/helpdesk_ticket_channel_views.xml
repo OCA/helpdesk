@@ -56,7 +56,7 @@
         <field name="name">view.helpdesk_channel.tree</field>
         <field name="model">helpdesk.ticket.channel</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="bottom">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field
