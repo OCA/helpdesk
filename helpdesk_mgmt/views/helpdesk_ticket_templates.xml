@@ -406,8 +406,9 @@
                             class="form-control"
                             id="team"
                             name="team"
-                            required="True"
+                            t-att-required="ticket_team_id_required"
                         >
+                            <option value="" />
                             <t t-foreach="teams" t-as="team">
                                 <option t-attf-value="#{team.id}">
                                     <t t-esc="team.name" />
@@ -426,8 +427,9 @@
                             class="form-control"
                             id="category"
                             name="category"
-                            required="True"
+                            t-att-required="ticket_category_id_required"
                         >
+                            <option value="" />
                             <t t-foreach="categories" t-as="cat">
                                 <option t-attf-value="#{cat.id}">
                                     <t t-esc="cat.name" />
