@@ -34,7 +34,7 @@ class HelpdeskTicketController(http.Controller):
     def _get_teams(self):
         return (
             http.request.env["helpdesk.ticket.team"]
-            .sudo()
+            .with_company(request.env.company.id)
             .search([("active", "=", True), ("show_in_portal", "=", True)])
             if http.request.env.user.company_id.helpdesk_mgmt_portal_select_team
             else False
@@ -42,11 +42,14 @@ class HelpdeskTicketController(http.Controller):
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
-        categories = http.request.env["helpdesk.ticket.category"].search(
+        company = request.env.company
+        category_model = http.request.env["helpdesk.ticket.category"]
+        categories = category_model.with_company(company.id).search(
             [("active", "=", True)]
         )
         email = http.request.env.user.email
         name = http.request.env.user.name
+        company = request.env.company
         return http.request.render(
             "helpdesk_mgmt.portal_create_ticket",
             {
@@ -54,6 +57,12 @@ class HelpdeskTicketController(http.Controller):
                 "teams": self._get_teams(),
                 "email": email,
                 "name": name,
+                "ticket_team_id_required": (
+                    company.helpdesk_mgmt_portal_team_id_required
+                ),
+                "ticket_category_id_required": (
+                    company.helpdesk_mgmt_portal_category_id_required
+                ),
             },
         )
 
@@ -75,6 +84,11 @@ class HelpdeskTicketController(http.Controller):
             "partner_id": request.env.user.partner_id.id,
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
+            # Need to set stage_id so that the _track_template() method is called
+            # and the mail is sent automatically if applicable
+            "stage_id": request.env["helpdesk.ticket"]
+            .with_company(company.id)
+            .default_get(["stage_id"])["stage_id"],
         }
         if company.helpdesk_mgmt_portal_select_team:
             team = (

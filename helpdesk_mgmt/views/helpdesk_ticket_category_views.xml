@@ -12,6 +12,15 @@
                 />
                 <separator />
                 <field name="name" filter_domain="[('name', 'ilike', self)]" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <group>
+                    <filter
+                        string="Company"
+                        name="company"
+                        context="{'group_by': 'company_id'}"
+                        groups="base.group_multi_company"
+                    />
+                </group>
             </search>
         </field>
     </record>
@@ -48,9 +57,14 @@
         <field name="name">view.helpdesk_category.tree</field>
         <field name="model">helpdesk.ticket.category</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="bottom">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
+                <field
+                    name="company_id"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
             </tree>
         </field>
     </record>
