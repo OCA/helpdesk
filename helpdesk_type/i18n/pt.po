@@ -27,8 +27,6 @@ msgid "Created on"
 msgstr "Criado em"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__display_name
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__display_name
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
 msgid "Display Name"
 msgstr "Nome a Exibir"
@@ -55,15 +53,11 @@ msgid "Helpdesk teams allowed to use this type."
 msgstr "Equipas de Helpdesk autorizadas a utilizar este tipo."
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__id
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__id
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
 msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_type
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket____last_update
-#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team____last_update
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type____last_update
 msgid "Last Modified on"
 msgstr "Última Modificação em"
@@ -101,8 +95,8 @@ msgstr "Tipos de Ticket"
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
 msgid ""
-"Ticket Types the team will use. This team's tickets will only be able to use"
-" those types."
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 "Tipos de Tickets que a equipa utilizará. Os tickets desta equipa só poderão "
 "usar estes tipos."
@@ -114,7 +108,5 @@ msgstr ""
 msgid "Type"
 msgstr "Tipo"
 
-#. module: helpdesk_type
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
-msgid "Types"
-msgstr "Tipos"
+#~ msgid "Types"
+#~ msgstr "Tipos"
