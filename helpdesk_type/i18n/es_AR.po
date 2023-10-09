@@ -27,6 +27,8 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__display_name
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
@@ -53,11 +55,15 @@ msgid "Helpdesk teams allowed to use this type."
 msgstr "Los equipos de la mesa de ayuda pueden utilizar este tipo."
 
 #. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__id
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
 msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket____last_update
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team____last_update
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type____last_update
 msgid "Last Modified on"
 msgstr "Última Modificación el"
@@ -95,8 +101,8 @@ msgstr "Tipos de Ticket"
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
 msgid ""
-"Ticket Types the team will use. This team's tickets will only be able to use"
-" those types."
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 "Tipos de Tickets que utilizar?? el equipo. Los tickets de este equipo solo "
 "podr??n usar esos tipos."
@@ -104,6 +110,7 @@ msgstr ""
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_view_search
 msgid "Type"
 msgstr "Tipo"
 

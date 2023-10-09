@@ -102,8 +102,8 @@ msgstr "Tipus de tiquets"
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
 msgid ""
-"Ticket Types the team will use. This team's tickets will only be able to use"
-" those types."
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 "Els tipus de tiquet que l'equip podrà usar. Aquests equips de tiquets només "
 "podran utilitzar aquests tipus."
