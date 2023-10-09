@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt_timesheet_time_control
+# 	* helpdesk_mgmt_timesheet_time_control
 #
 msgid ""
 msgstr ""
@@ -29,7 +29,8 @@ msgstr "Chamado"
 #. module: helpdesk_mgmt_timesheet_time_control
 #: model:ir.model,name:helpdesk_mgmt_timesheet_time_control.model_hr_timesheet_switch
 msgid "Helper to quickly switch between timesheet lines"
-msgstr "Auxiliar para alternar rapidamente entre linhas de apontamento de horas"
+msgstr ""
+"Auxiliar para alternar rapidamente entre linhas de apontamento de horas"
 
 #. module: helpdesk_mgmt_timesheet_time_control
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet_time_control.helpdesk_ticket_form_view
