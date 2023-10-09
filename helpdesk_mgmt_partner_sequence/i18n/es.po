@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* helpdesk_mgmt_partner_sequence
+# 	* helpdesk_mgmt_partner_sequence
 #
 msgid ""
 msgstr ""
@@ -47,7 +47,8 @@ msgstr "Secuencia de Ticket Helpdesk"
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_number_next
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_number_next
-msgid "The next sequence number will be used for the next ticket of this partner."
+msgid ""
+"The next sequence number will be used for the next ticket of this partner."
 msgstr ""
 "El siguiente número de secuencia se utilizará para el próximo ticket de este "
 "socio."
@@ -57,7 +58,9 @@ msgstr ""
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_fsm_person__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_id
 #: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_id
-msgid "This field contains the information related to the numbering of the tickets of this partner."
+msgid ""
+"This field contains the information related to the numbering of the tickets "
+"of this partner."
 msgstr ""
 "Este campo contiene la información relacionada con la numeración de los "
 "tickets de este socio."
