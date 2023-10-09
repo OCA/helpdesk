@@ -29,7 +29,8 @@ msgstr "Ticket de la Mesa de Ayuda"
 #. module: helpdesk_mgmt_timesheet_time_control
 #: model:ir.model,name:helpdesk_mgmt_timesheet_time_control.model_hr_timesheet_switch
 msgid "Helper to quickly switch between timesheet lines"
-msgstr "Asistente para cambiar rápidamente entre las líneas de la hoja de horas"
+msgstr ""
+"Asistente para cambiar rápidamente entre las líneas de la hoja de horas"
 
 #. module: helpdesk_mgmt_timesheet_time_control
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet_time_control.helpdesk_ticket_form_view
