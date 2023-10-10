@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-02-01 19:45+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-10-10 16:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
@@ -25,7 +25,7 @@ msgstr "Consenti foglio ore"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_account_analytic_line
 msgid "Analytic Line"
-msgstr "Riga Analitica"
+msgstr "Riga analitica"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
@@ -107,7 +107,7 @@ msgstr "Riprendi lavoro"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
 msgid "Show Time Control"
-msgstr "Mostra controllo tempo"
+msgstr "Visualizza controllo orario"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
