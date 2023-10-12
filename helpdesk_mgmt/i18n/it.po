@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-11 11:38+0000\n"
+"PO-Revision-Date: 2023-10-12 09:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -634,7 +634,7 @@ msgstr "Email"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Email Alias"
-msgstr "Alias Email"
+msgstr "Alias email"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -812,7 +812,7 @@ msgid ""
 "creation alias)"
 msgstr ""
 "ID del record padre che contiene l'alias (esempio: progetto che contiene "
-"l'alias di creazione del task)"
+"l'alias di creazione dell'attività)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_icon
@@ -853,7 +853,7 @@ msgid ""
 "If set, this content will automatically be sent out to unauthorized users "
 "instead of the default message."
 msgstr ""
-"Se impostato, questo contenuto sarà inviato automaticamente agli utenti non "
+"Se impostato, questo contenuto verrà inviato automaticamente agli utenti non "
 "autorizzati invece del messaggio predefinito."
 
 #. module: helpdesk_mgmt
@@ -1124,7 +1124,7 @@ msgstr "Proprietario"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
 msgid "Parent Model"
-msgstr "Modello Genitore"
+msgstr "Modello padre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
@@ -1419,8 +1419,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
-"Il nome dell'alias email, ad esempio \"tickets\" se vuoi ricevere le email "
-"di <tickets@esempio.odoo.com>"
+"Il nome dell'alias email, ad es. 'lavori' se vuoi ricevere email per "
+"<lavori@example.odoo.com>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
