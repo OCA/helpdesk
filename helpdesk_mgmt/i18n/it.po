@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-11 11:39+0000\n"
+"PO-Revision-Date: 2023-10-12 09:40+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -618,7 +618,7 @@ msgstr "E-mail"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Email Alias"
-msgstr "Alias Email"
+msgstr "Alias email"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__mail_template_id
@@ -796,7 +796,7 @@ msgid ""
 "creation alias)"
 msgstr ""
 "ID del record padre che contiene l'alias (esempio: progetto che contiene "
-"l'alias di creazione del task)"
+"l'alias di creazione dell'attività)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_icon
@@ -839,7 +839,7 @@ msgid ""
 "If set, this content will automatically be sent out to unauthorized users "
 "instead of the default message."
 msgstr ""
-"Se impostato, questo contenuto sarà inviato automaticamente agli utenti non "
+"Se impostato, questo contenuto verrà inviato automaticamente agli utenti non "
 "autorizzati invece del messaggio predefinito."
 
 #. module: helpdesk_mgmt
@@ -1115,8 +1115,8 @@ msgid ""
 "creation of new records completely."
 msgstr ""
 "ID facoltativo di un thread (record) a cui verranno allegati tutti i "
-"messaggi in arrivo, anche se non hanno risposto. se impostato, til suo "
-"disabiliterà completamente la creazione di nuovi record."
+"messaggi in arrivo, anche se non hanno risposto. Se impostato, disabiliterà "
+"completamente la creazione di nuovi record."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -1131,12 +1131,12 @@ msgstr "Proprietario"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
 msgid "Parent Model"
-msgstr "Modello Genitore"
+msgstr "Modello padre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
 msgid "Parent Record Thread ID"
-msgstr "ID record thread genitore"
+msgstr "ID record thread padre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
@@ -1145,9 +1145,9 @@ msgid ""
 "necessarily the model given by alias_model_id (example: project "
 "(parent_model) and task (model))"
 msgstr ""
-"Modello padre con l'alias. Il modello con il riferimento alias non è "
-"necessariamente il modello dato da alias_model_id (esempio: progetto "
-"(parent_model) e lavoro (model))"
+"Modello padre che detiene l'alias. Il modello che contiene il riferimento "
+"alias non è necessariamente il modello fornito da alias_model_id (esempio: "
+"progetto (parent_model) e task (model))"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1173,11 +1173,10 @@ msgid ""
 "- followers: only followers of the related document or members of following "
 "channels\n"
 msgstr ""
-"Criterio per pubblicare un messaggio sul documento utilizzando il gateway di "
-"posta.\n"
-"- tutti: tutti possono postare\n"
-"- partners: solo partner autenticati\n"
-"- followers: solo follower del relativo documento o membri dei seguenti "
+"Politica per inviare un messaggio sul documento utilizzando il mailgateway.\n"
+"- chiunque: chiunque può inviare\n"
+"- clienti: solo i clienti autenticati\n"
+"- chi segue: solo chi segue il documento collegato o i membri dei seguenti "
 "canali\n"
 
 #. module: helpdesk_mgmt
@@ -1393,9 +1392,9 @@ msgid ""
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Il modello (Odoo Document Kind) a cui corrisponde questo alias. Qualsiasi e-"
-"mail in arrivo che non risponde a un record esistente causerà la creazione "
-"di un nuovo record di questo modello (es. un'attività di progetto)"
+"Il modello (Odoo Document Kind) a cui corrisponde questo alias. Qualsiasi "
+"email in arrivo che non risponde a un record esistente causerà la creazione "
+"di un nuovo record di questo modello (es. una task progetto)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
@@ -1403,8 +1402,8 @@ msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
 msgstr ""
-"Il nome dell'alias email, ad esempio \"tickets\" se vuoi ricevere le email "
-"di <tickets@esempio.odoo.com>"
+"Il nome dell'alias email, ad es. 'lavori' se vuoi ricevere email per "
+"<lavori@example.odoo.com>"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_user_id
@@ -1414,11 +1413,11 @@ msgid ""
 "the sender (From) address, or will use the Administrator account if no "
 "system user is found for that address."
 msgstr ""
-"Il proprietario dei record creati dopo aver ricevuto e-mail con questo "
-"alias. se questo campo non è impostato il sistema tenterà di trovare il "
-"proprietario giusto in base al mittente (Da) indirizzo, o userà l'account "
-"Administrator se non viene trovato nessun utente di sistema per "
-"quell'indirizzo."
+"Il proprietario dei record creati dopo aver ricevuto email con questo alias. "
+"Se questo campo non è impostato il sistema tenterà di trovare il "
+"proprietario corretto in base all'indirizzo del mittente (Da) oppure "
+"utilizzerà l'account amministratore se non viene trovato alcun utente di "
+"sistema per quell'indirizzo."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
