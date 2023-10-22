@@ -45,6 +45,12 @@
                 />
                 <separator />
                 <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active','=',False)]"
+                />
+                <separator />
+                <filter
                     string="My Tickets"
                     name="mytickets"
                     domain="[('user_id','=',uid)]"
