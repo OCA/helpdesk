@@ -289,6 +289,7 @@ msgid "Allow to select this team when creating a new ticket in the portal."
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
