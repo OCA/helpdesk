@@ -90,7 +90,7 @@ class HelpdeskTicketController(http.Controller):
             .with_company(company.id)
             .default_get(["stage_id"])["stage_id"],
         }
-        if company.helpdesk_mgmt_portal_select_team:
+        if company.helpdesk_mgmt_portal_select_team and kw.get("team"):
             team = (
                 http.request.env["helpdesk.ticket.team"]
                 .sudo()

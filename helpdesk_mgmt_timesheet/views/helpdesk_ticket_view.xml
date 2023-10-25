@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <filter name="last_week" position="before">
+                <filter
+                    name="timesheet_allowed"
+                    string="Timesheet allowed"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                    domain="[('project_id', '!=', False)]"
+                />
+                <separator />
+                <filter
+                    name="late"
+                    string="Late"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                    domain="[('remaining_hours', '&lt;', 0)]"
+                />
+                <separator />
+                <filter
+                    name="with_activity_today"
+                    string="With activity today"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                    domain="[('last_timesheet_activity', '=', datetime.datetime.today())]"
+                />
+                <separator />
+            </filter>
+        </field>
+    </record>
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="." position="attributes">
+                <attribute name="decoration-danger">remaining_hours &lt; 0</attribute>
+            </xpath>
+            <field name="last_stage_update" position="after">
+                <field
+                    name="planned_hours"
+                    widget="float_time"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                />
+                <field
+                    name="total_hours"
+                    widget="float_time"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                />
+                <field
+                    name="remaining_hours"
+                    widget="float_time"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                />
+            </field>
+            <tree position="inside">
+                <field name="show_time_control" invisible="1" />
+                <button
+                    name="button_start_work"
+                    title="Start work"
+                    string="Start work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-play-circle text-success"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="oe_stat_button"
+                />
+                <button
+                    name="button_end_work"
+                    title="End work"
+                    string="Stop work"
+                    tabindex="-1"
+                    type="object"
+                    icon="fa-stop-circle text-warning"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="oe_stat_button"
+                />
+            </tree>
+        </field>
+    </record>
+    <record id="timesheet_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.ticket.form.view</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="priority" eval="20" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="show_time_control" invisible="1" />
+                <button
+                    name="button_start_work"
+                    title="Start work"
+                    string="Start work"
+                    type="object"
+                    icon="fa-play-circle text-success"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="oe_stat_button"
+                />
+                <button
+                    name="button_end_work"
+                    title="End work"
+                    string="Stop work"
+                    type="object"
+                    icon="fa-stop-circle text-warning"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="oe_stat_button"
+                />
+            </div>
+            <xpath expr="//field[@name='partner_email']" position="after">
+                <field name="allow_timesheet" invisible="1" />
+            </xpath>
+            <xpath expr="//page[@name='description']" position="after">
+                <page
+                    string="Timesheets"
+                    name="timesheets"
+                    attrs="{'invisible':[('project_id', '=', False)]}"
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                >
+                    <group>
+                        <group>
+                            <field name="planned_hours" widget="float_time" />
+                        </group>
+                        <group>
+                            <field name="progress" widget="progressbar" />
+                        </group>
+                    </group>
+                    <field
+                        name="timesheet_ids"
+                        context="{'default_project_id': project_id, 'default_task_id': task_id}"
+                    >
+                        <tree editable="bottom" delete="true" default_order="date_time">
+                            <field name="company_id" invisible="1" />
+                            <field name="project_id" invisible="1" />
+                            <field name="task_id" invisible="1" />
+                            <field name="date" widget="date" invisible="1" />
+                            <field name="date_time" string="Date" required="1" />
+                            <field name="user_id" required="1" />
+                            <field name="name" />
+                            <field
+                                name="unit_amount"
+                                string="Duration (Hour(s))"
+                                widget="float_time"
+                            />
+                            <field name="show_time_control" invisible="1" />
+                            <button
+                                name="button_resume_work"
+                                string="Resume work"
+                                tabindex="-1"
+                                type="object"
+                                icon="fa-play-circle text-success"
+                                attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                                class="oe_stat_button"
+                            />
+                            <button
+                                name="button_end_work"
+                                title="End work"
+                                string="Stop work"
+                                tabindex="-1"
+                                type="object"
+                                icon="fa-stop-circle text-warning"
+                                attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                                class="oe_stat_button"
+                            />
+                        </tree>
+                        <form>
+                            <div class="oe_button_box" name="button_box">
+                                <field name="show_time_control" invisible="1" />
+                                <button
+                                    name="button_resume_work"
+                                    string="Resume work"
+                                    tabindex="-1"
+                                    type="object"
+                                    icon="fa-play-circle text-success"
+                                    attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                                    class="oe_stat_button"
+                                    context="{'show_created_timer': True}"
+                                />
+                                <button
+                                    name="button_end_work"
+                                    title="End work"
+                                    string="Stop work"
+                                    tabindex="-1"
+                                    type="object"
+                                    icon="fa-stop-circle text-warning"
+                                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                                    class="oe_stat_button"
+                                />
+                            </div>
+                            <group>
+                                <field name="date" />
+                                <field name="user_id" />
+                                <field name="name" />
+                                <field
+                                    name="unit_amount"
+                                    string="Duration (Hour(s))"
+                                    widget="float_time"
+                                />
+                            </group>
+                        </form>
+                    </field>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="total_hours" widget="float_time" />
+                        <field name="remaining_hours" widget="float_time" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="helpdesk_ticket_kanban_view">
+        <field
+            name="name"
+        >helpdesk.ticket.kanban (in helpdesk_mgmt_timesheet_time_control)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field
+            name="groups_id"
+            eval="[(6, 0, [ref('hr_timesheet.group_hr_timesheet_user')])]"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//*[hasclass('oe_kanban_bottom_left')]" position="inside">
+                <field name="show_time_control" invisible="1" />
+                <a
+                    name="button_start_work"
+                    title="Start work"
+                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    class="o_kanban_inline_block fa fa-lg fa-play-circle text-success"
+                    string="Start work"
+                    tabindex="-1"
+                    type="object"
+                />
+                <a
+                    name="button_end_work"
+                    title="End work"
+                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    class="o_kanban_inline_block fa fa-lg fa-stop-circle text-warning"
+                    string="Stop work"
+                    tabindex="-1"
+                    type="object"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="ticket_view_form_project_required" model="ir.ui.view">
+        <field name="name">timesheet.helpdesk.ticket.form.view project required</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_project.ticket_view_form" />
+        <field name="arch" type="xml">
+            <field name="project_id" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': [('allow_timesheet', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+</data>
