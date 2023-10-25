@@ -7,14 +7,16 @@
             name="inherit_id"
             ref="helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form"
         />
-        <field groups="hr_timesheet.group_hr_timesheet_user" />
         <field name="priority" eval="20" />
         <field name="arch" type="xml">
             <xpath
                 expr="//page[@name='timesheets']//tree/field[@name='name']"
                 position="after"
             >
-                <field name="time_type_id" />
+                <field
+                    groups="hr_timesheet.group_hr_timesheet_user"
+                    name="time_type_id"
+                />
             </xpath>
         </field>
     </record>
