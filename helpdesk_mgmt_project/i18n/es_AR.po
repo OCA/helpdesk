@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-08-12 06:59+0000\n"
+"PO-Revision-Date: 2023-10-29 08:31+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -14,14 +14,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre Mostrado"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
@@ -39,14 +39,14 @@ msgstr "Ticket de la Mesa de Ayuda"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project____last_update
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
