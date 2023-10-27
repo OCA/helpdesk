@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-11-30 02:46+0000\n"
+"PO-Revision-Date: 2023-10-29 08:31+0000\n"
 "Last-Translator: Ignacio Buioli <ibuioli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es_AR\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__create_uid
@@ -56,7 +56,7 @@ msgstr "Motivo del Ticket de la Mesa de Ayuda"
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Equipo del Ticket de la Mesa de Ayuda"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__id
