@@ -187,7 +187,6 @@ msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -300,7 +299,6 @@ msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_sla_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "SLA"
 msgstr ""
@@ -314,11 +312,6 @@ msgstr "SLA Fecha límite"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_expired
 msgid "SLA expired"
 msgstr "SLA Expirado"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_ids
