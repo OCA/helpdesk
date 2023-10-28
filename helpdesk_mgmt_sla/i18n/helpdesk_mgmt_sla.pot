@@ -295,7 +295,6 @@ msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_sla_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "SLA"
 msgstr ""
