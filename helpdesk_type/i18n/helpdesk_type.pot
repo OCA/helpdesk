@@ -108,8 +108,3 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_view_search
 msgid "Type"
 msgstr ""
-
-#. module: helpdesk_type
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
-msgid "Types"
-msgstr ""
