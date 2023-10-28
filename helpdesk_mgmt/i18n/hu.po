@@ -326,6 +326,7 @@ msgid "Allow to select this team when creating a new ticket in the portal."
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
@@ -823,9 +824,7 @@ msgstr "Ha be van jelölve, akkor az új üzenetek figyelmet igényelnek."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Ha be van jelölve, akkor néhány üzenetnél kézbesítési hiba lépett fel."
 
@@ -1235,12 +1234,6 @@ msgid "Responsible User"
 msgstr "Felelős felhasználó"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "SMS kézbesítési hiba"
-
-#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
@@ -1634,6 +1627,9 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "SMS kézbesítési hiba"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Műveletet igénylő üzenetek száma"
