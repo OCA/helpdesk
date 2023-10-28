@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<odoo>
-    <data noupdate="1">
+<odoo noupdate="1">
         <record id="project_1" model="project.project">
             <field name="name">Helpdesk general project</field>
         </record>
@@ -34,5 +33,4 @@
             <field name="task_id" ref="project_task_1" />
             <field name="unit_amount" eval="2" />
         </record>
-    </data>
 </odoo>

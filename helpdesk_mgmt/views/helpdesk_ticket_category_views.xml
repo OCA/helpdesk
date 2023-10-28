@@ -55,7 +55,7 @@
         <field name="name">view.helpdesk_category.tree</field>
         <field name="model">helpdesk.ticket.category</field>
         <field name="arch" type="xml">
-            <tree string="Team">
+            <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
             </tree>

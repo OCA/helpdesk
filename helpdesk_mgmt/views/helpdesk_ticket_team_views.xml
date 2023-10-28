@@ -147,7 +147,7 @@
         <field name="name">view.helpdesk_team.tree</field>
         <field name="model">helpdesk.ticket.team</field>
         <field name="arch" type="xml">
-            <tree string="Team">
+            <tree>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="category_ids" widget="many2many_tags" />
