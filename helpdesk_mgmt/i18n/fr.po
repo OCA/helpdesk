@@ -331,6 +331,7 @@ msgstr ""
 "du portail."
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
@@ -834,9 +835,7 @@ msgstr "Si coché de nouveaux messages requièrent votre attention."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si coché, des messages n'ont pas pu être livré."
 
@@ -1245,12 +1244,6 @@ msgid "Responsible User"
 msgstr "Responsable"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Erreur d'envoi de SMS"
-
-#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
@@ -1647,6 +1640,9 @@ msgid ""
 msgstr ""
 "{{object.company_id.name}} Affectation ticket (Ref {{object.number or 'n/"
 "a' }})"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Erreur d'envoi de SMS"
 
 #~ msgid "Number of messages which requires an action"
 #~ msgstr "Nombre de messages qui nécessitent une action"
