@@ -818,9 +818,7 @@ msgstr "Se marcado, há novas mensagens que pedem a sua atenção."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Se selecionado, algumas mensagens têm um erro de entrega."
 
@@ -1229,12 +1227,6 @@ msgid "Responsible User"
 msgstr "Utilizador Responsável"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Erro de Envio de SMS"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr "Token de Segurança"
@@ -1351,9 +1343,6 @@ msgstr "Etiquetas"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__team_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Team"
 msgstr "Equipa"
 
@@ -1458,11 +1447,6 @@ msgid "Ticket Stage Search"
 msgstr "Pesquisar Etapa do Ticket"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_tree
-msgid "Ticket Stages"
-msgstr "Etapas de Tickets"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 msgid "Ticket Tag Search"
 msgstr "Pesquisar Etiqueta do Ticket"
@@ -1470,7 +1454,6 @@ msgstr "Pesquisar Etiqueta do Ticket"
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_tag_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_tag_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_tree
 msgid "Ticket Tags"
 msgstr "Etiquetas de Tickets"
 
@@ -1625,6 +1608,12 @@ msgstr "Wi-Fi"
 #, python-format
 msgid "You can only apply this action from a ticket."
 msgstr "Só pode aplicar esta ação a partir de um ticket."
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Erro de Envio de SMS"
+
+#~ msgid "Ticket Stages"
+#~ msgstr "Etapas de Tickets"
 
 #~ msgid ""
 #~ "<html>\n"
