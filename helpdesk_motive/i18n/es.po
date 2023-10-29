@@ -93,7 +93,6 @@ msgstr "Motivo"
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_team__motive_ids
 #: model:ir.ui.menu,name:helpdesk_motive.helpdesk_motive
-#: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_motive.view_helpdesk_team_form
 msgid "Motives"
 msgstr "Motivos"
