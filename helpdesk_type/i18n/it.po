@@ -114,7 +114,5 @@ msgstr ""
 msgid "Type"
 msgstr "Tipo"
 
-#. module: helpdesk_type
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
-msgid "Types"
-msgstr "Tipi"
+#~ msgid "Types"
+#~ msgstr "Tipi"
