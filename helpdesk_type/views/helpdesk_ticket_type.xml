@@ -17,7 +17,7 @@
         <field name="name">helpdesk.ticket.type.tree</field>
         <field name="model">helpdesk.ticket.type</field>
         <field name="arch" type="xml">
-            <tree string="Types">
+            <tree>
                 <field name="name" />
             </tree>
         </field>
