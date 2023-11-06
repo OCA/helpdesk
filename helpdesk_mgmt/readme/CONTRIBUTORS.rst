@@ -27,6 +27,7 @@
 
   * Pedro M. Baeza
   * Víctor Martínez
+  * Carolina Fernandez
 
 * `ID42 Sistemas <https://www.id42.com.br>`_:
 
