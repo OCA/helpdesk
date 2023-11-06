@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_maintenance_equipment_form" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field
+                    name="allow_ticket"
+                    string="Allow Tickets"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="action_view_tickets_equipment"
+                    icon="fa-life-ring"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                >
+                    <field name="ticket_count" string="Tickets" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_maintenance_equipment_tree" model="ir.ui.view">
+        <field name="name">maintenance.equipment.tree</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field
+                    name="ticket_count"
+                    string="Tickets"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                    optional="show"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_maintenance_equipment_kanban" model="ir.ui.view">
+        <field name="name">maintenance.equipment.kanban</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_kanban" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//t[@t-name='kanban-box']//field[@name='activity_ids']"
+                position="before"
+            >
+                <field
+                    name="ticket_count"
+                    string="Tickets"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

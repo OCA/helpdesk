@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='channel_id']" position="after">
+                <field
+                    name="equipment_ids"
+                    string="Equipments"
+                    widget="many2many_tags"
+                    domain="[('allow_ticket', '=', True)]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='stage_id']" position="before">
+                <field name="equipment_ids" widget="many2many_tags" optional="hide" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <field name="stage_id" position="after">
+                <field name="equipment_ids" string="Equipments" />
+            </field>
+            <filter name="last_week" position="after">
+                <separator />
+                <filter
+                    string="Has Equipments"
+                    name="has_equipments"
+                    domain="[('has_equipments', '=', True )]"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
