@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+
+        <!-- VIEW PRODUCT TEMPLATE-->
+        <record id="product_view_template" model="ir.ui.view">
+            <field name="name">product.template.common.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view" />
+            <field name="arch" type="xml">
+                <field name="product_tooltip" position="before">
+                  <field name="ticket_active" />
+                </field>
+            </field>
+        </record>
+
+</odoo>
