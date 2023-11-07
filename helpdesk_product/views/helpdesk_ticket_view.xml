@@ -40,14 +40,14 @@
                     string="Product Related"
                     name="product_filter"
                     domain="['!', ('product_id', '!=', '' )]"
-                    />
+                />
 
                     <filter
                     string="Product"
                     name="by_product"
                     domain="[]"
                     context="{'group_by':'product_id'}"
-                    />
+                />
                 </search>
             </field>
         </record>
