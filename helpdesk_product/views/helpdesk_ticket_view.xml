@@ -47,6 +47,7 @@
                     name="by_product"
                     domain="[]"
                     context="{'group_by':'product_id'}"
+
                 />
                 </search>
             </field>
