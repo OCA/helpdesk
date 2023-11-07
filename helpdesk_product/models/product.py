@@ -7,3 +7,6 @@ class Product(models.Model):
     ticket_active = fields.Boolean(
         "Available for Helpdesk Tickets", default=True, required=True
     )
+    ticket_active = fields.Boolean(
+        "Available for Helpdesk Tickets", default=True, required=True
+    )
