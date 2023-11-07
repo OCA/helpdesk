@@ -23,14 +23,26 @@ class ResPartner(models.Model):
     )
 
     def _compute_helpdesk_ticket_count(self):
+        ticket_data = self.env["helpdesk.ticket"].read_group(
+            [("partner_id", "child_of", self.ids)], ["partner_id"], ["partner_id"]
+        )
+        active_ticket_data = self.env["helpdesk.ticket"].read_group(
+            [("partner_id", "child_of", self.ids), ("stage_id.closed", "=", False)],
+            ["partner_id"],
+            ["partner_id"],
+        )
+        mapped_data = {x["partner_id"][0]: x["partner_id_count"] for x in ticket_data}
+        active_mapped_data = {
+            x["partner_id"][0]: x["partner_id_count"] for x in active_ticket_data
+        }
         for record in self:
-            ticket_ids = self.env["helpdesk.ticket"].search(
-                [("partner_id", "child_of", record.id)]
-            )
-            record.helpdesk_ticket_count = len(ticket_ids)
-            record.helpdesk_ticket_active_count = len(
-                ticket_ids.filtered(lambda ticket: not ticket.stage_id.closed)
-            )
+            record.helpdesk_ticket_count = mapped_data.get(record.id, 0)
+            record.helpdesk_ticket_active_count = active_mapped_data.get(record.id, 0)
+            for child in record.child_ids:
+                record.helpdesk_ticket_count += mapped_data.get(child.id, 0)
+                record.helpdesk_ticket_active_count += active_mapped_data.get(
+                    child.id, 0
+                )
             count_active = record.helpdesk_ticket_active_count
             count = record.helpdesk_ticket_count
             record.helpdesk_ticket_count_string = "{} / {}".format(count_active, count)
