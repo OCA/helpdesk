@@ -6,8 +6,8 @@
     "license": "AGPL-3",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
-    "depends": ["helpdesk_mgmt", "sale_management"],
-    "data": ["views/helpdesk_ticket_view.xml"],
+    "depends": ["helpdesk_mgmt", "product"],
+    "data": ["views/helpdesk_ticket_view.xml", "views/product_view.xml"],
     "development_status": "Beta",
     "auto_install": True,
 }

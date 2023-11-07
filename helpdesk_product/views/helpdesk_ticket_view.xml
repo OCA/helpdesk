@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='channel_id']" position="after">
-                    <field name="product_id" />
+                    <field name="product_id" domain="[('ticket_active', '=', True)]" />
                 </xpath>
             </field>
         </record>
@@ -34,8 +34,22 @@
                 <field name="user_id" position="after">
                     <field name="product_id" />
                 </field>
+
+                <search>
+                    <filter
+                    string="Product Related"
+                    name="product_filter"
+                    domain="['!', ('product_id', '!=', '' )]"
+                    />
+
+                    <filter
+                    string="Product"
+                    name="by_product"
+                    domain="[]"
+                    context="{'group_by':'product_id'}"
+                    />
+                </search>
             </field>
         </record>
-
 
 </odoo>
