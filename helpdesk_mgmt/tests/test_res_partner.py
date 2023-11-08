@@ -1,7 +1,7 @@
-from odoo.tests.common import TransactionCase
+from odoo.tests import Form, common
 
 
-class TestPartner(TransactionCase):
+class TestPartner(common.TransactionCase):
     def setUp(self):
         super().setUp()
         self.partner_obj = self.env["res.partner"]
@@ -40,3 +40,7 @@ class TestPartner(TransactionCase):
 
     def test_ticket_string(self):
         self.assertEqual(self.parent_id.helpdesk_ticket_count_string, "3 / 4")
+
+    def test_partner_form_helpdesk_ticket_count(self):
+        partner_form = Form(self.env["res.partner"])
+        self.assertEqual(partner_form.helpdesk_ticket_count, 0)
