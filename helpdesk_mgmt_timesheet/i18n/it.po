@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-10 16:37+0000\n"
+"PO-Revision-Date: 2023-12-04 09:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -92,7 +92,7 @@ msgstr "Ore pianificate"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__progress
 msgid "Progress"
-msgstr "Progresso"
+msgstr "Avanzamento"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__remaining_hours
