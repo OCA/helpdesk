@@ -75,6 +75,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "message_id": msg_id,
             "subject": title,
             "email_from": "Bob <bob@example.com>",
+            "from": "Bob <bob@example.com>",
             "to": "jill@example.com",
             "cc": "sally@example.com",
             "recipients": "jill@example.com+sally@example.com",
