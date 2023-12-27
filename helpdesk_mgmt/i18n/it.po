@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-27 13:33+0000\n"
+"PO-Revision-Date: 2023-12-27 16:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1275,12 +1275,12 @@ msgstr "Visualizza tutte le righe con l'azione successiva antecedente ad oggi"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Show in portal form"
-msgstr "Mostra nella scheda del portale"
+msgstr "Mostra nel modulo del portale"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Show teams form"
-msgstr "Mostra scheda squadre"
+msgstr "Mostra modulo squadre"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
@@ -1381,9 +1381,9 @@ msgid ""
 "email that does not reply to an existing record will cause the creation of a "
 "new record of this model (e.g. a Project Task)"
 msgstr ""
-"Il modello (Odoo Document Kind) a cui corrisponde questo alias. Qualsiasi "
-"email in arrivo che non risponde a un record esistente causerà la creazione "
-"di un nuovo record di questo modello (es. una task progetto)"
+"Il modello (tipo documento Odoo) a cui corrisponde questo alias. Qualsiasi e-"
+"mail in arrivo che non risponde a un record esistente causerà la creazione "
+"di un nuovo record di questo modello (es. un task progetto)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
