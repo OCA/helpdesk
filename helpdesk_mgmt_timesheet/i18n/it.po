@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-04 09:36+0000\n"
+"PO-Revision-Date: 2023-12-27 13:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -62,12 +62,12 @@ msgstr "Ticket Helpdesk"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Team Ticket Helpdesk"
+msgstr "Team ticket Helpdesk"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,name:helpdesk_mgmt_timesheet.project_1
 msgid "Helpdesk general project"
-msgstr ""
+msgstr "Progetto generale Helpdesk"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
@@ -145,7 +145,7 @@ msgstr "Ticket contatto"
 #: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
 #: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
 msgid "Tickets"
-msgstr "Tickets"
+msgstr "Ticket"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
