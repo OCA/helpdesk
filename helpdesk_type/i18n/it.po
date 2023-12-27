@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-24 18:34+0000\n"
+"PO-Revision-Date: 2023-12-27 13:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -45,12 +45,12 @@ msgstr "Team Ticket Helpdek"
 #: model:ir.actions.act_window,name:helpdesk_type.action_helpdesk_ticket_type
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_type
 msgid "Helpdesk Ticket Type"
-msgstr "Tipo Ticket Helpdesk"
+msgstr "Tipo ticket Helpdesk"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Helpdesk teams allowed to use this type."
-msgstr "Team helpdesk abilitati all'utilizzo di questo tipo."
+msgstr "I team Helpdesk autorizzati a usare questo tipo."
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
