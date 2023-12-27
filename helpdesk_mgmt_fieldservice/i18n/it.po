@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-30 08:37+0000\n"
+"PO-Revision-Date: 2023-12-27 13:33+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -101,7 +101,7 @@ msgstr "Ordine di assistenza sul campo"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__team_id
 msgid "Helpdesk Team"
-msgstr "Team helpdesk"
+msgstr "Team Helpdesk"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_helpdesk_ticket
@@ -210,4 +210,4 @@ msgstr "Fase Ticket"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.view_fsm_location_ticket_form
 msgid "Tickets"
-msgstr "Tickets"
+msgstr "Ticket"
