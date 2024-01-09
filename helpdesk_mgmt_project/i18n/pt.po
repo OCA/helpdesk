@@ -44,8 +44,8 @@ msgid "Number of tickets"
 msgstr "Número de tickets"
 
 #. module: helpdesk_mgmt_project
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_project_filter
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search_form
 msgid "Open Tickets"
 msgstr "Tickets Abertos"
 
@@ -71,7 +71,7 @@ msgstr "Nº de Tickets"
 #. odoo-python
 #: code:addons/helpdesk_mgmt_project/models/project.py:0
 #: code:addons/helpdesk_mgmt_project/models/project_task.py:0
-#: model:ir.actions.act_window,name:helpdesk_mgmt_project.ticket_action_from_project
+#: model:ir.actions.act_window,name:helpdesk_mgmt_project.helpdesk_ticket_action_from_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.edit_project

@@ -40,12 +40,12 @@ class ProjectTask(models.Model):
 
     def action_view_ticket(self):
         result = self.env["ir.actions.act_window"]._for_xml_id(
-            "helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard"
+            "helpdesk_mgmt.helpdesk_ticket_action_kanban_from_dashboard"
         )
         # choose the view_mode accordingly
         if not self.ticket_ids or self.ticket_count > 1:
             result["domain"] = "[('id','in',%s)]" % (self.ticket_ids.ids)
-            res = self.env.ref("helpdesk_mgmt.ticket_view_tree", False)
+            res = self.env.ref("helpdesk_mgmt.helpdesk_ticket_view_tree", False)
             tree_view = [(res and res.id or False, "tree")]
             if "views" in result:
                 result["views"] = tree_view + [
@@ -54,7 +54,7 @@ class ProjectTask(models.Model):
             else:
                 result["views"] = tree_view
         elif self.ticket_count == 1:
-            res = self.env.ref("helpdesk_mgmt.ticket_view_form", False)
+            res = self.env.ref("helpdesk_mgmt.helpdesk_ticket_view_form", False)
             form_view = [(res and res.id or False, "form")]
             if "views" in result:
                 result["views"] = form_view + [
