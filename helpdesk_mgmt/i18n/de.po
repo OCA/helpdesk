@@ -43,7 +43,7 @@ msgid "<small class=\"text-right\">Stage:</small>"
 msgstr "<small class=\"text-right\">Stufe:</small>"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "<span>View</span>"
 msgstr "<span>Ansicht</span>"
 
@@ -241,7 +241,7 @@ msgstr ""
 "Datensätze für diesen Alias Standardwerte bereitzustellen."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Accept Emails From"
 msgstr "Emails akzeptieren von"
 
@@ -267,7 +267,7 @@ msgid "Active"
 msgstr "Aktiv"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Active tickets"
 msgstr "Aktive Tickets"
 
@@ -319,7 +319,7 @@ msgstr "Verknüpftes Modell"
 #. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #, python-format
 msgid "All"
 msgstr "Alle"
@@ -331,25 +331,25 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Archived"
 msgstr "Archiviert"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Assign to"
 msgstr "Zuordnen zu"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Assign to me"
 msgstr "Mir zuweisen"
 
@@ -370,7 +370,7 @@ msgid "Attachment Count"
 msgstr "Anzahl der Anhänge"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Avatar"
 msgstr "Avatar"
 
@@ -471,10 +471,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__company_id
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Company"
 msgstr "Unternehmen"
 
@@ -489,7 +489,7 @@ msgid "Configuration"
 msgstr "Konfiguration"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Configure domain name"
 msgstr "Domänennamen konfigurieren"
 
@@ -560,7 +560,7 @@ msgid "Customer Portal URL"
 msgstr "URL des Kundenportals"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action_dashboard
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
 msgstr ""
@@ -576,7 +576,7 @@ msgid "Default Values"
 msgstr "Standardwerte"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Delete"
 msgstr "Löschen"
 
@@ -584,7 +584,7 @@ msgstr "Löschen"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -611,7 +611,7 @@ msgid "Done"
 msgstr "Erledigt"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Dropdown menu"
 msgstr "Dropdown-Menü"
 
@@ -621,7 +621,7 @@ msgid "Duplicate"
 msgstr "Duplizieren"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -632,7 +632,7 @@ msgid "Email"
 msgstr "E-mail"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Email Alias"
 msgstr "E-Mail Alias"
 
@@ -652,7 +652,7 @@ msgid "Folded in Kanban"
 msgstr "Eingeklappt in Kanban"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid ""
 "Follow this salesteam to automatically track the events associated to users "
 "of this team."
@@ -706,8 +706,8 @@ msgid "Helpdesk"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
 msgid "Helpdesk Category Search"
 msgstr "Helpdesk Kategoriesuche"
 
@@ -728,24 +728,24 @@ msgstr "Helpdesk-Manager"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team"
 msgstr "Helpdesk-Team"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Helpdesk Team Search"
 msgstr "Helpdesk Teamsuche"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team name..."
 msgstr "Helpdesk Teamname..."
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_kanban_from_dashboard
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Helpdesk Ticket"
 msgstr ""
 
@@ -790,7 +790,7 @@ msgid "High"
 msgstr "Hoch"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "High Priority"
 msgstr "Hohe Priorität"
@@ -1096,7 +1096,7 @@ msgid "Number of tickets unattended"
 msgstr "Anzahl unbeaufsichtigter Tickets"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3_demo
 msgid "Odoo"
 msgstr ""
 
@@ -1117,7 +1117,7 @@ msgstr ""
 "Wenn gesetzt, wird die Erstellung neuer Datensätze vollständig deaktiviert."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Other Information"
 msgstr "Weitere Informationen"
 
@@ -1158,7 +1158,7 @@ msgid "Partner Name"
 msgstr "Partnername"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_pivot
 msgid "Pivot Analysis"
 msgstr "Pivot-Analyse"
 
@@ -1189,7 +1189,7 @@ msgid "Priority"
 msgstr "Priorität"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Priority tickets"
 msgstr "Prioritäten-Tickets"
 
@@ -1215,7 +1215,7 @@ msgid "Related tickets"
 msgstr "Zugehörige Tickets"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_reporting
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
 msgstr "Berichtswesen"
@@ -1294,7 +1294,7 @@ msgid "Sequence"
 msgstr "Sequenz"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_mgmt_config_settings
+#: model:ir.actions.act_window,name:helpdesk_mgmt.res_config_settings_action_helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_config_settings_menu
 msgid "Settings"
 msgstr ""
@@ -1322,7 +1322,7 @@ msgid "Show teams form"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1_demo
 msgid "Software"
 msgstr ""
 
@@ -1344,9 +1344,9 @@ msgstr "Stufenname"
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_stage_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
 msgid "Stages"
 msgstr "Stufen"
 
@@ -1380,7 +1380,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_form
 msgid "Tags"
 msgstr "Stichwörter"
 
@@ -1397,7 +1397,7 @@ msgid "Team Leader"
 msgstr "Teamleiter"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Team Members"
 msgstr "Teammitglieder"
 
@@ -1490,12 +1490,12 @@ msgid "Ticket Created"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
 msgid "Ticket Stage Search"
 msgstr "Suche nach Ticketstufe"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
 msgid "Ticket Tag Search"
 msgstr "Suche nach Ticket-Stichwort"
 
@@ -1550,7 +1550,7 @@ msgid "Title"
 msgstr "Titel"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "To Do"
 msgstr "Zu Erledigen"
 
@@ -1560,7 +1560,7 @@ msgid "Today Activities"
 msgstr "Heute Aktivitäten"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "Toggle dropdown"
 msgstr "Drop-down-Menü umschalten"
 
@@ -1570,26 +1570,26 @@ msgid "Type of the exception activity on record."
 msgstr "Art der Ausnahmeaktivität im Datensatz."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unassigned"
 msgstr "Nicht zugewiesen"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unassigned tickets"
 msgstr "Nicht zugewiesene Tickets"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__unattended
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
 msgstr "Unbeaufsichtigt"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unattended tickets"
 msgstr "Unbeaufsichtigte Tickets"
 
@@ -1597,7 +1597,7 @@ msgstr "Unbeaufsichtigte Tickets"
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "User"
 msgstr "Benutzer"
 
@@ -1634,7 +1634,7 @@ msgid "Website communication history"
 msgstr "Kommunikationshistorie der Website"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2_demo
 msgid "Wifi"
 msgstr "W-LAN"
 

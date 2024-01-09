@@ -42,7 +42,7 @@ msgid "<small class=\"text-right\">Stage:</small>"
 msgstr "<small class=\"text-right\">Aşama:</small>"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "<span>View</span>"
 msgstr "<span>Görünüm</span>"
 
@@ -240,7 +240,7 @@ msgstr ""
 "üzere değerlendirilecek bir Python sözlüğü."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Accept Emails From"
 msgstr "Gelen E-postaları Kabul Et"
 
@@ -266,7 +266,7 @@ msgid "Active"
 msgstr "Aktif"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Active tickets"
 msgstr "Aktif Biletler"
 
@@ -318,7 +318,7 @@ msgstr "Rumuz Model"
 #. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #, python-format
 msgid "All"
 msgstr "Hepsi"
@@ -330,25 +330,25 @@ msgstr "Portalda yeni bir bilet oluştururken bu ekibin seçilmesine izin verin.
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Archived"
 msgstr "Arşivlendi"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Assign to"
 msgstr "Atama"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Assign to me"
 msgstr "Bana Atama"
 
@@ -369,7 +369,7 @@ msgid "Attachment Count"
 msgstr "Ek Sayısı"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Avatar"
 msgstr "Avatarı"
 
@@ -470,10 +470,10 @@ msgstr "Şirketler"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__company_id
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Company"
 msgstr "Firma"
 
@@ -488,7 +488,7 @@ msgid "Configuration"
 msgstr "Yapılandırma"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Configure domain name"
 msgstr "Etki alanı adını yapılandırma"
 
@@ -559,7 +559,7 @@ msgid "Customer Portal URL"
 msgstr "Müşteri Portal URL"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action_dashboard
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
 msgstr "Panel"
@@ -575,7 +575,7 @@ msgid "Default Values"
 msgstr "Varsayılan Değerler"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Delete"
 msgstr "Sil"
 
@@ -583,7 +583,7 @@ msgstr "Sil"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Description"
 msgstr "Açıklama"
 
@@ -612,7 +612,7 @@ msgid "Done"
 msgstr "Biten"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Dropdown menu"
 msgstr "Aşağıya doğru açılan menü"
 
@@ -622,7 +622,7 @@ msgid "Duplicate"
 msgstr "Çoğalt"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -633,7 +633,7 @@ msgid "Email"
 msgstr "E-posta"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Email Alias"
 msgstr "E-posta Takma Adları"
 
@@ -653,7 +653,7 @@ msgid "Folded in Kanban"
 msgstr "Kanbanda Katla"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid ""
 "Follow this salesteam to automatically track the events associated to users "
 "of this team."
@@ -707,8 +707,8 @@ msgid "Helpdesk"
 msgstr "Yardım Masası"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
 msgid "Helpdesk Category Search"
 msgstr "Yardım Masası Kategori Arama"
 
@@ -729,24 +729,24 @@ msgstr "Yardım Masası Yöneticisi"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team"
 msgstr "Yardım Masası Ekibi"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Helpdesk Team Search"
 msgstr "Yardım Masası Ekibi Arama"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team name..."
 msgstr "Yardım Masası Ekip adı..."
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_kanban_from_dashboard
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Helpdesk Ticket"
 msgstr "Yardım Masası Bileti"
 
@@ -791,7 +791,7 @@ msgid "High"
 msgstr "Yüksek"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "High Priority"
 msgstr "Yüksek Öncelik"
@@ -1092,7 +1092,7 @@ msgid "Number of tickets unattended"
 msgstr "Atanmamış bilet sayısı"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3_demo
 msgid "Odoo"
 msgstr ""
 
@@ -1113,7 +1113,7 @@ msgstr ""
 "oluşturulmasını tamamen devre dışı bırakır."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Other Information"
 msgstr "Diğer Bilgiler"
 
@@ -1154,7 +1154,7 @@ msgid "Partner Name"
 msgstr "İş Ortağı Adı"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_pivot
 msgid "Pivot Analysis"
 msgstr "Pivot Analizi"
 
@@ -1183,7 +1183,7 @@ msgid "Priority"
 msgstr "Öncelik"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Priority tickets"
 msgstr "Öncelikli Biletler"
 
@@ -1209,7 +1209,7 @@ msgid "Related tickets"
 msgstr "İlişkili Biletler"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_reporting
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
 msgstr "Raporlama"
@@ -1288,7 +1288,7 @@ msgid "Sequence"
 msgstr "Sıralama"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_mgmt_config_settings
+#: model:ir.actions.act_window,name:helpdesk_mgmt.res_config_settings_action_helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_config_settings_menu
 msgid "Settings"
 msgstr "Ayarlar"
@@ -1314,7 +1314,7 @@ msgid "Show teams form"
 msgstr "Takım formunu göster"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1_demo
 msgid "Software"
 msgstr "Yazılım"
 
@@ -1336,9 +1336,9 @@ msgstr "Aşama Adı"
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_stage_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
 msgid "Stages"
 msgstr "Aşamalar"
 
@@ -1372,7 +1372,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_form
 msgid "Tags"
 msgstr "Etiket"
 
@@ -1389,7 +1389,7 @@ msgid "Team Leader"
 msgstr "Takım Lideri"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Team Members"
 msgstr "Takım Üyeleri"
 
@@ -1476,12 +1476,12 @@ msgid "Ticket Created"
 msgstr "Bileti Oluşturuldu"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
 msgid "Ticket Stage Search"
 msgstr "Bilet Aşama Arama"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
 msgid "Ticket Tag Search"
 msgstr "Bilet Etike Arama"
 
@@ -1536,7 +1536,7 @@ msgid "Title"
 msgstr "Başlık"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "To Do"
 msgstr "Yapılacak"
 
@@ -1546,7 +1546,7 @@ msgid "Today Activities"
 msgstr "Bugünkü Aktiviteler"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "Toggle dropdown"
 msgstr ""
 
@@ -1556,26 +1556,26 @@ msgid "Type of the exception activity on record."
 msgstr "Kayıttaki istisna etkinliğinin türü."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unassigned"
 msgstr "Atanmamış"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unassigned tickets"
 msgstr "Atanmamış Biletler"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__unattended
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
 msgstr "Sahipsiz"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unattended tickets"
 msgstr "Sahipsiz Biletler"
 
@@ -1583,7 +1583,7 @@ msgstr "Sahipsiz Biletler"
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "User"
 msgstr "Kullanıcı"
 
@@ -1620,7 +1620,7 @@ msgid "Website communication history"
 msgstr "Web sitesi iletişim geçmişi"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2_demo
 msgid "Wifi"
 msgstr ""
 

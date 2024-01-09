@@ -41,7 +41,7 @@ msgid "<small class=\"text-right\">Stage:</small>"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "<span>View</span>"
 msgstr "<span>Nézet</span>"
 
@@ -237,7 +237,7 @@ msgid ""
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Accept Emails From"
 msgstr "Emailek fogadása innen"
 
@@ -263,7 +263,7 @@ msgid "Active"
 msgstr "Aktív"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Active tickets"
 msgstr ""
 
@@ -315,7 +315,7 @@ msgstr "Álnév model"
 #. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #, python-format
 msgid "All"
 msgstr "Összes"
@@ -327,25 +327,25 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Archived"
 msgstr "Archivált"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Assign to"
 msgstr "Felelős"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Assign to me"
 msgstr "Hozzám rendel"
 
@@ -366,7 +366,7 @@ msgid "Attachment Count"
 msgstr "Mellékletek száma"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Avatar"
 msgstr "Avatar"
 
@@ -467,10 +467,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__company_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__company_id
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Company"
 msgstr "Vállalat"
 
@@ -485,7 +485,7 @@ msgid "Configuration"
 msgstr "Beállítások"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Configure domain name"
 msgstr "Domain név beállítása"
 
@@ -556,7 +556,7 @@ msgid "Customer Portal URL"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action_dashboard
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
 msgstr "Kezelőpult"
@@ -572,7 +572,7 @@ msgid "Default Values"
 msgstr "Alapértelmezett értékek"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Delete"
 msgstr "Törlés"
 
@@ -580,7 +580,7 @@ msgstr "Törlés"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__description
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__description
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Description"
 msgstr "Leírás"
 
@@ -607,7 +607,7 @@ msgid "Done"
 msgstr "Kész"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Dropdown menu"
 msgstr ""
 
@@ -617,7 +617,7 @@ msgid "Duplicate"
 msgstr "Duplum"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_kanban
 msgid "Edit"
 msgstr "Szerkesztés"
 
@@ -628,7 +628,7 @@ msgid "Email"
 msgstr "Email címe"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Email Alias"
 msgstr "Email álnév"
 
@@ -648,7 +648,7 @@ msgid "Folded in Kanban"
 msgstr "Kanban nézetben behajtott"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid ""
 "Follow this salesteam to automatically track the events associated to users "
 "of this team."
@@ -700,8 +700,8 @@ msgid "Helpdesk"
 msgstr "Ügyfélszolgálat"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_channel_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_search
 msgid "Helpdesk Category Search"
 msgstr "Kategória keresés"
 
@@ -722,24 +722,24 @@ msgstr "Menedzser"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_team_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team"
 msgstr "Csapat"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "Helpdesk Team Search"
 msgstr "Csapat keresés"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Helpdesk Team name..."
 msgstr "Csapat neve..."
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_kanban_from_dashboard
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Helpdesk Ticket"
 msgstr "Eset"
 
@@ -784,7 +784,7 @@ msgid "High"
 msgstr "Magas"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "High Priority"
 msgstr "Magas prioritás"
@@ -1082,7 +1082,7 @@ msgid "Number of tickets unattended"
 msgstr "Ellátatlan esetek száma"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3_demo
 msgid "Odoo"
 msgstr ""
 
@@ -1103,7 +1103,7 @@ msgstr ""
 "Ennek beállítása esetén egyáltalán nem jönnek létre új rekordok."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
 msgid "Other Information"
 msgstr "Egyéb információk"
 
@@ -1144,7 +1144,7 @@ msgid "Partner Name"
 msgstr "Partner neve"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_pivot
 msgid "Pivot Analysis"
 msgstr "Pivot elemzés"
 
@@ -1175,7 +1175,7 @@ msgid "Priority"
 msgstr "Prioritás"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Priority tickets"
 msgstr ""
 
@@ -1201,7 +1201,7 @@ msgid "Related tickets"
 msgstr "Kapcsolódó esetek"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_reporting
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
 msgstr "Kimutatás készítés"
@@ -1280,7 +1280,7 @@ msgid "Sequence"
 msgstr "Sorrend"
 
 #. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_mgmt_config_settings
+#: model:ir.actions.act_window,name:helpdesk_mgmt.res_config_settings_action_helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_config_settings_menu
 msgid "Settings"
 msgstr ""
@@ -1308,7 +1308,7 @@ msgid "Show teams form"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1_demo
 msgid "Software"
 msgstr ""
 
@@ -1330,9 +1330,9 @@ msgstr "Állapot neve"
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_stage_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_category_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_category_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_channel_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_form
 msgid "Stages"
 msgstr "Állapotok"
 
@@ -1366,7 +1366,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_form
 msgid "Tags"
 msgstr "Címkék"
 
@@ -1383,7 +1383,7 @@ msgid "Team Leader"
 msgstr "Csapat vezetője"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_form
 msgid "Team Members"
 msgstr "Csapattagok"
 
@@ -1473,12 +1473,12 @@ msgid "Ticket Created"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_stage_view_search
 msgid "Ticket Stage Search"
 msgstr "Állapot keresése"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_tag_view_search
 msgid "Ticket Tag Search"
 msgstr "Címkék keresése"
 
@@ -1533,7 +1533,7 @@ msgid "Title"
 msgstr "Cím"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "To Do"
 msgstr "nyitott"
 
@@ -1543,7 +1543,7 @@ msgid "Today Activities"
 msgstr "Mai tevékenységek"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 msgid "Toggle dropdown"
 msgstr ""
 
@@ -1553,26 +1553,26 @@ msgid "Type of the exception activity on record."
 msgstr "A rekordra alkalmazott kivétel tevékenység típusa."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unassigned"
 msgstr "Felelős nélkül"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unassigned tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__unattended
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_kanban
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
 msgstr "Ellátatlan"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_tree
 msgid "Unattended tickets"
 msgstr ""
 
@@ -1580,7 +1580,7 @@ msgstr ""
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_team_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_team_view_search
 msgid "User"
 msgstr "Felhasználó"
 
@@ -1617,7 +1617,7 @@ msgid "Website communication history"
 msgstr "Weboldal kommunikációs előzmények"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
+#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2_demo
 msgid "Wifi"
 msgstr ""
 
