@@ -53,7 +53,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
 
     def _submit_ticket(self, **values):
         data = {
-            "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1").id,
+            "category": self.env.ref("helpdesk_mgmt.helpdesk_category_1_demo").id,
             "csrf_token": http.Request.csrf_token(self),
             "subject": self.new_ticket_title,
             "description": "\n".join(self.new_ticket_desc_lines),

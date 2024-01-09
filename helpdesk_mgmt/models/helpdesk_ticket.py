@@ -10,7 +10,7 @@ class HelpdeskTicket(models.Model):
     _mail_post_access = "read"
     _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
 
-    def _get_default_stage_id(self):
+    def _default_stage_id(self):
         return self.env["helpdesk.ticket.stage"].search([], limit=1).id
 
     @api.model
@@ -35,7 +35,7 @@ class HelpdeskTicket(models.Model):
         comodel_name="helpdesk.ticket.stage",
         string="Stage",
         group_expand="_read_group_stage_ids",
-        default=_get_default_stage_id,
+        default=_default_stage_id,
         tracking=True,
         ondelete="restrict",
         index=True,
@@ -101,11 +101,10 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
-    def name_get(self):
-        res = []
-        for rec in self:
-            res.append((rec.id, rec.number + " - " + rec.name))
-        return res
+    @api.depends("name")
+    def _compute_display_name(self):
+        for ticket in self:
+            ticket.display_name = f"{ticket.number} - {ticket.name}"
 
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
@@ -182,7 +181,7 @@ class HelpdeskTicket(models.Model):
                 {
                     # Need to set mass_mail so that the email will always be sent
                     "composition_mode": "mass_mail",
-                    "auto_delete_message": True,
+                    "auto_delete_keep_log": False,
                     "subtype_id": self.env["ir.model.data"]._xmlid_to_res_id(
                         "mail.mt_note"
                     ),

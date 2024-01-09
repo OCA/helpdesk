@@ -27,7 +27,7 @@
         </record>
     </data>
     <data noupdate="1">
-        <record id="helpdesk_ticket_personal_rule" model="ir.rule">
+        <record id="helpdesk_ticket_rule_personal" model="ir.rule">
             <field name="name">Personal Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
             <field
@@ -35,7 +35,7 @@
             >["|", ('user_id', '=', user.id), '&amp;', ('user_id','=',False), ('team_id', 'in', user.helpdesk_team_ids.ids)]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_user_own'))]" />
         </record>
-        <record id="helpdesk_ticket_team_rule" model="ir.rule">
+        <record id="helpdesk_ticket_rule_team" model="ir.rule">
             <field name="name">Team Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
             <field
@@ -43,14 +43,14 @@
             >['|',('team_id','in',user.helpdesk_team_ids.ids),('team_id','=',False)]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_user_team'))]" />
         </record>
-        <record id="helpdesk_ticket_user_rule" model="ir.rule">
+        <record id="helpdesk_ticket_rule_user" model="ir.rule">
             <field name="name">All Tickets</field>
             <field ref="model_helpdesk_ticket" name="model_id" />
             <field name="domain_force">[(1,'=',1)]</field>
             <field name="groups" eval="[(4, ref('group_helpdesk_user'))]" />
         </record>
         <!-- Company Rules -->
-        <record id="helpdesk_ticket_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Ticket Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket" />
             <field name="global" eval="True" />
@@ -58,7 +58,7 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
-        <record id="helpdesk_ticket_category_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_category_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Category Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket_category" />
             <field name="global" eval="True" />
@@ -66,7 +66,7 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
-        <record id="helpdesk_ticket_channel_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_channel_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Channel Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket_channel" />
             <field name="global" eval="True" />
@@ -74,7 +74,7 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
-        <record id="helpdesk_ticket_stage_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_stage_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Stage Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket_stage" />
             <field name="global" eval="True" />
@@ -82,7 +82,7 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
-        <record id="helpdesk_ticket_tag_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_tag_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Tag Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket_tag" />
             <field name="global" eval="True" />
@@ -90,7 +90,7 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
-        <record id="helpdesk_ticket_team_comp_rule" model="ir.rule">
+        <record id="helpdesk_ticket_team_rule_comp" model="ir.rule">
             <field name="name">Helpdesk Team Company Rule</field>
             <field name="model_id" ref="model_helpdesk_ticket_team" />
             <field name="global" eval="True" />
