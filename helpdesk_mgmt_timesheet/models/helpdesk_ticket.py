@@ -46,16 +46,6 @@ class HelpdeskTicket(models.Model):
         for record in self:
             record.total_hours = sum(record.timesheet_ids.mapped("unit_amount"))
 
-    @api.constrains("project_id")
-    def _constrains_project_timesheets(self):
-        for record in self:
-            record.timesheet_ids.update({"project_id": record.project_id.id})
-
-    @api.onchange("team_id")
-    def _onchange_team_id(self):
-        for record in self.filtered(lambda a: a.team_id and a.team_id.allow_timesheet):
-            record.project_id = record.team_id.default_project_id
-
     @api.depends("planned_hours", "total_hours")
     def _compute_progress_hours(self):
         for ticket in self:
@@ -72,10 +62,9 @@ class HelpdeskTicket(models.Model):
     @api.depends("timesheet_ids.date")
     def _compute_last_timesheet_activity(self):
         for record in self:
-            record.last_timesheet_activity = (
-                record.timesheet_ids
-                and record.timesheet_ids.sorted(key="date", reverse=True)[0].date
-            ) or False
+            record.last_timesheet_activity = (record.timesheet_ids
+                                        and record.timesheet_ids.sorted(key="date", reverse=True)[0].date
+                                             ) or False
 
     @api.depends(
         "team_id.allow_timesheet",
@@ -87,10 +76,20 @@ class HelpdeskTicket(models.Model):
         result = super()._compute_show_time_control()
         for ticket in self:
             if not (
-                ticket.project_id.allow_timesheets and ticket.team_id.allow_timesheet
+                    ticket.project_id.allow_timesheets and ticket.team_id.allow_timesheet
             ):
                 ticket.show_time_control = False
         return result
+
+    @api.constrains("project_id")
+    def _check_constrains_project_timesheets(self):
+        for record in self:
+            record.timesheet_ids.update({"project_id": record.project_id.id})
+
+    @api.onchange("team_id")
+    def _onchange_team_id(self):
+        for record in self.filtered(lambda a: a.team_id and a.team_id.allow_timesheet):
+            record.project_id = record.team_id.default_project_id
 
     def button_start_work(self):
         result = super().button_start_work()

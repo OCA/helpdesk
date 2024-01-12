@@ -11,7 +11,7 @@ class TestHelpdeskPortal(test_helpdesk_portal.TestHelpdeskPortalBase):
         self.env.company.helpdesk_mgmt_portal_select_team = True
 
     def test_submit_ticket_team(self):
-        team_id = self.env.ref("helpdesk_mgmt.helpdesk_team_2")
+        team_id = self.env.ref("helpdesk_mgmt.helpdesk_team_2_demo")
         self.authenticate("portal", "portal")
         self._submit_ticket(team=team_id.id)
         tickets = self.get_new_tickets(self.user_portal)

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="helpdesk_ticket_team_view_form" model="ir.ui.view">
+            <field name="name">timesheet.helpdesk.team.form.view</field>
+            <field name="model">helpdesk.ticket.team</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_team_view_form"/>
+            <field name="priority" eval="20"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='default_project_id']" position="before">
+                    <field name="allow_timesheet" type="checkbox"/>
+                    <!-- 'default_project_id' field is already defined in helpdesk_mgmt_project module. -->
+<!--                    <field-->
+<!--                            name="default_project_id"-->
+<!--                            invisible="not allow_timesheet"-->
+<!--                            help=" Change the Default Project will not have retroactive effects."-->
+<!--                    />-->
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

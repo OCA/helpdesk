@@ -23,7 +23,7 @@ class AccountAnalyticLine(models.Model):
     )
 
     @api.onchange("ticket_id")
-    def onchange_ticket_id(self):
+    def _onchange_ticket_id(self):
         for record in self:
             if not record.ticket_id:
                 continue

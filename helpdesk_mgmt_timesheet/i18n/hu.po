@@ -28,14 +28,14 @@ msgid "Analytic Line"
 msgstr "Analitikus sor"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_team_view_form
 msgid "Change the Default Project will not have retroactive effects."
 msgstr ""
 "Az alapértelmezett projekt megváltoztatása nem módosítja visszamenőleg a "
 "bejegyzéseket."
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Date"
 msgstr ""
 
@@ -45,14 +45,14 @@ msgid "Default Project"
 msgstr "Alapértelmezett projekt"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Duration (Hour(s))"
 msgstr "Hossz (óra)"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "End work"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgid "Helpdesk Ticket Team"
 msgstr "Csapat"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,name:helpdesk_mgmt_timesheet.project_1
+#: model:project.project,name:helpdesk_mgmt_timesheet.project_1_demo
 msgid "Helpdesk general project"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgid "Remaining Hours"
 msgstr "Fennmaradó órák száma"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Resume work"
 msgstr ""
 
@@ -112,21 +112,21 @@ msgid "Show Time Control"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Start work"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Stop work"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1
+#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1_demo
 msgid "Tasks"
 msgstr "Feladatok"
 
@@ -144,8 +144,8 @@ msgid "Ticket partner"
 msgstr "Eset partner"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
-#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
+#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1_demo
+#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1_demo
 msgid "Tickets"
 msgstr "Esetek"
 
@@ -160,9 +160,9 @@ msgid "Timesheet allowed"
 msgstr "Időkimutatás engedélyezve"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
-#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.account_analytic_line_action_helpdesk
+#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.hr_timesheet_menu_helpdesk
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Timesheets"
 msgstr "Időkimutatások"
 

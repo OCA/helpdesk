@@ -28,12 +28,12 @@ msgid "Analytic Line"
 msgstr "Ligne Analytique"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_team_view_form
 msgid "Change the Default Project will not have retroactive effects."
 msgstr "Modifier le Projet par défaut ne sera pas appliqué rétroactivement."
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Date"
 msgstr "Date"
 
@@ -43,14 +43,14 @@ msgid "Default Project"
 msgstr "Projet par Défaut"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Duration (Hour(s))"
 msgstr "Durée (Heure(s))"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "End work"
 msgstr "Terminer"
 
@@ -65,7 +65,7 @@ msgid "Helpdesk Ticket Team"
 msgstr "Équipe d'Assistance"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,name:helpdesk_mgmt_timesheet.project_1
+#: model:project.project,name:helpdesk_mgmt_timesheet.project_1_demo
 msgid "Helpdesk general project"
 msgstr ""
 
@@ -100,7 +100,7 @@ msgid "Remaining Hours"
 msgstr "Heures Restantes"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Resume work"
 msgstr "Reprendre"
 
@@ -110,21 +110,21 @@ msgid "Show Time Control"
 msgstr "Afficher le Contrôle du Temps"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Start work"
 msgstr "Démarrer"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_kanban
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Stop work"
 msgstr "Arrêter"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1
+#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1_demo
 msgid "Tasks"
 msgstr "Tâches"
 
@@ -142,8 +142,8 @@ msgid "Ticket partner"
 msgstr "Contact associé au Ticket"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
-#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
+#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1_demo
+#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1_demo
 msgid "Tickets"
 msgstr "Tickets"
 
@@ -158,9 +158,9 @@ msgid "Timesheet allowed"
 msgstr "Feuille de temps autorisée"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
-#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_menu
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.account_analytic_line_action_helpdesk
+#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.hr_timesheet_menu_helpdesk
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_form
 msgid "Timesheets"
 msgstr "Feuilles de temps"
 
