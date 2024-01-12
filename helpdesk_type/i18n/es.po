@@ -42,7 +42,7 @@ msgid "Helpdesk Ticket Team"
 msgstr "Equipo de ticket Helpdesk"
 
 #. module: helpdesk_type
-#: model:ir.actions.act_window,name:helpdesk_type.action_helpdesk_ticket_type
+#: model:ir.actions.act_window,name:helpdesk_type.helpdesk_ticket_type_action
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_type
 msgid "Helpdesk Ticket Type"
 msgstr "Tipo de tickets del Helpdesk"
@@ -101,11 +101,11 @@ msgstr ""
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_view_form
 msgid "Type"
 msgstr "Tipo"
 
 #. module: helpdesk_type
-#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_view_tree
 msgid "Types"
 msgstr "Tipos"
