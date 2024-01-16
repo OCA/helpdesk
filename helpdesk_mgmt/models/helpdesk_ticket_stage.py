@@ -40,6 +40,7 @@ class HelpdeskTicketStage(models.Model):
         relation="team_stage_rel",
         string="Helpdesk Teams",
         help="Specific team that uses this stage. If it is empty all teams could uses",
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
     )
 
     @api.onchange("closed")

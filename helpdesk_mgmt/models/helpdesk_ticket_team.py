@@ -48,7 +48,6 @@ class HelpdeskTeam(models.Model):
         inverse_name="team_id",
         string="Tickets",
     )
-
     todo_ticket_count = fields.Integer(
         string="Number of tickets", compute="_compute_todo_tickets"
     )
@@ -67,18 +66,20 @@ class HelpdeskTeam(models.Model):
         help="Allow to select this team when creating a new ticket in the portal.",
     )
 
-    def _determine_stages(self):
-        """Get a dict with the stage per team that should be set as first to a created ticket
-        :returns a mapping of team identifier with the stage.
-        :rtype : dict (key=team_id, value=record of helpdesk.ticket.stage)
-        """
-        result = dict.fromkeys(self.ids, self.env["helpdesk.ticket.stage"])
-        for team in self:
-            result[team.id] = self.env["helpdesk.ticket.stage"].search(
-                ["|", ("team_ids", "=", False), ("team_ids", "in", team.id)],
-                order="sequence",
-            )
-        return result
+    def _get_applicable_stages(self):
+        if self:
+            domain = [
+                ("company_id", "in", [False, self.company_id.id]),
+                "|",
+                ("team_ids", "=", False),
+                ("team_ids", "=", self.id),
+            ]
+        else:
+            domain = [
+                ("company_id", "in", [False, self.env.company.id]),
+                ("team_ids", "=", False),
+            ]
+        return self.env["helpdesk.ticket.stage"].search(domain)
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
