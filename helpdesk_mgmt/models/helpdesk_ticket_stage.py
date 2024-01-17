@@ -35,6 +35,13 @@ class HelpdeskTicketStage(models.Model):
         string="Company",
         default=lambda self: self.env.company,
     )
+    team_ids = fields.Many2many(
+        comodel_name="helpdesk.ticket.team",
+        relation="team_stage_rel",
+        string="Helpdesk Teams",
+        help="Specific team that uses this stage. If it is empty all teams could uses",
+        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
+    )
 
     @api.onchange("closed")
     def _onchange_closed(self):
