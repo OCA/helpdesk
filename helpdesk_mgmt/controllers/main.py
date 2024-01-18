@@ -98,7 +98,10 @@ class HelpdeskTicketController(http.Controller):
                     [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
                 )
             )
-            vals.update({"team_id": team.id})
+            stage_id = (
+                request.env["helpdesk.ticket"].sudo()._get_applicable_stages(team)[0]
+            )
+            vals.update({"team_id": team.id, "stage_id": stage_id.id})
         return vals
 
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
