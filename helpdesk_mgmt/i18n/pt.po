@@ -1323,6 +1323,11 @@ msgid "Software"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
+msgid "Specific team that uses this stage. If it is empty all teams could uses"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__stage_id
