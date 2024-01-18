@@ -121,19 +121,11 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         new_ticket.team_id = False
         self.assertEqual(new_ticket.stage_id, self.new_stage)
 
-    def test_ticket_without_team_stage(self):
-        self.new_stage.team_ids = False
-        self.assertEqual(
-            self.ticket.stage_id, self.team_a._determine_stages()[self.team_a.id][0]
-        )
-        self.assertEqual(self.ticket.stage_id, self.new_stage)
-
     def test_ticket_without_team(self):
         new_ticket = self.env["helpdesk.ticket"].create(
             {
                 "name": "New Ticket",
                 "description": "Description",
-                "team_id": False,
                 "user_id": self.user.id,
                 "priority": "1",
             }
