@@ -39,6 +39,7 @@ class TestHelpdeskTicketBase(common.TransactionCase):
         cls.team_b = helpdesk_ticket_team.create(
             {"name": "Team B", "user_ids": [(6, 0, [cls.user_team.id])]}
         )
+        cls.new_stage = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
         cls.ticket_a_unassigned = cls._create_ticket(cls, cls.team_a)
         cls.ticket_a_unassigned.priority = "3"
         cls.ticket_a_user_own = cls._create_ticket(cls, cls.team_a, cls.user_own)
