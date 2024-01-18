@@ -11,13 +11,41 @@ class HelpdeskTicket(models.Model):
     _mail_post_access = "read"
     _inherit = ["mail.thread.cc", "mail.activity.mixin", "portal.mixin"]
 
+    def _get_applicable_stages(self, team):
+        if team:
+            return team._determine_stages()[team.id]
+        else:
+            return self.env["helpdesk.ticket.stage"].search([("team_ids", "=", False)])
+
     def _get_default_stage_id(self):
-        return self.env["helpdesk.ticket.stage"].search([], limit=1).id
+        return self._get_applicable_stages(self.team_id)[:1]
+
+    @api.depends("team_id")
+    def _compute_stage_id(self):
+        for ticket in self:
+            ticket.stage_id = self._get_applicable_stages(ticket.team_id)[:1]
+
+    def _default_team_id(self):
+        team_id = (
+            self.env["helpdesk.ticket.team"]
+            .search([("user_ids", "in", self.env.uid)], limit=1)
+            .id
+        )
+        if not team_id:
+            team_id = self.env["helpdesk.ticket.team"].search([], limit=1).id
+        return team_id
 
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
-        stage_ids = self.env["helpdesk.ticket.stage"].search([])
-        return stage_ids
+        search_domain = [("id", "in", stages.ids)]
+        if self.env.context.get("default_team_id"):
+            search_domain = [
+                "|",
+                "|",
+                ("team_ids", "=", False),
+                ("team_ids", "in", self.env.context["default_team_id"]),
+            ] + search_domain
+        return stages.search(search_domain, order=order)
 
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
@@ -35,12 +63,16 @@ class HelpdeskTicket(models.Model):
     stage_id = fields.Many2one(
         comodel_name="helpdesk.ticket.stage",
         string="Stage",
-        group_expand="_read_group_stage_ids",
+        compute="_compute_stage_id",
         default=_get_default_stage_id,
-        tracking=True,
+        store=True,
+        readonly=False,
         ondelete="restrict",
-        index=True,
+        tracking=True,
+        group_expand="_read_group_stage_ids",
         copy=False,
+        index=True,
+        domain="['|',('team_ids', '=', team_id),('team_ids','=',False)]",
     )
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     partner_name = fields.Char()
@@ -71,6 +103,8 @@ class HelpdeskTicket(models.Model):
     team_id = fields.Many2one(
         comodel_name="helpdesk.ticket.team",
         string="Team",
+        default=_default_team_id,
+        index=True,
     )
     priority = fields.Selection(
         selection=[
@@ -131,6 +165,9 @@ class HelpdeskTicket(models.Model):
                 vals["number"] = self._prepare_ticket_number(vals)
             if vals.get("user_id") and not vals.get("assigned_date"):
                 vals["assigned_date"] = fields.Datetime.now()
+            if vals.get("team_id"):
+                team = self.env["helpdesk.ticket.team"].browse(vals["team_id"])
+                vals["stage_id"] = team._determine_stages()[team.id][0].id
         return super().create(vals_list)
 
     def copy(self, default=None):
