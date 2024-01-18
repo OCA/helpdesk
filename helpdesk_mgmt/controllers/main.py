@@ -70,26 +70,21 @@ class HelpdeskTicketController(http.Controller):
         category = http.request.env["helpdesk.ticket.category"].browse(
             int(kw.get("category"))
         )
-        company = category.company_id or http.request.env.user.company_id
+        company = category.company_id or http.request.env.company
         vals = {
             "company_id": company.id,
             "category_id": category.id,
             "description": plaintext2html(kw.get("description")),
             "name": kw.get("subject"),
             "attachment_ids": False,
-            "channel_id": request.env["helpdesk.ticket.channel"]
-            .sudo()
-            .search([("name", "=", "Web")])
-            .id,
+            "channel_id": request.env.ref(
+                "helpdesk_mgmt.helpdesk_ticket_channel_web", False
+            ).id,
             "partner_id": request.env.user.partner_id.id,
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
-            # Need to set stage_id so that the _track_template() method is called
-            # and the mail is sent automatically if applicable
-            "stage_id": request.env["helpdesk.ticket"]
-            .with_company(company.id)
-            .default_get(["stage_id"])["stage_id"],
         }
+        team = http.request.env["helpdesk.ticket.team"]
         if company.helpdesk_mgmt_portal_select_team and kw.get("team"):
             team = (
                 http.request.env["helpdesk.ticket.team"]
@@ -98,10 +93,10 @@ class HelpdeskTicketController(http.Controller):
                     [("id", "=", int(kw.get("team"))), ("show_in_portal", "=", True)]
                 )
             )
-            stage_id = (
-                request.env["helpdesk.ticket"].sudo()._get_applicable_stages(team)[0]
-            )
-            vals.update({"team_id": team.id, "stage_id": stage_id.id})
+            vals["team_id"] = team.id
+        # Need to set stage_id so that the _track_template() method is called
+        # and the mail is sent automatically if applicable
+        vals["stage_id"] = team._get_applicable_stages()[:1].id
         return vals
 
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
