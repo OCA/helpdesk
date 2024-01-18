@@ -1,13 +1,14 @@
-from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
+from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
 
 
-class TestHelpdeskTicketProject(test_helpdesk_ticket.TestHelpdeskTicket):
+class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         Ticket = cls.env["helpdesk.ticket"]
         Project = cls.env["project.project"]
         Task = cls.env["project.task"]
+        cls.ticket = cls.ticket_a_unassigned
         cls.ticket2 = Ticket.create({"name": "Test 2", "description": "Ticket test2"})
         cls.project1 = Project.create({"name": "Test Helpdesk-Project 1"})
         cls.task_project1 = Task.create(

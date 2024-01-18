@@ -182,8 +182,8 @@ class CustomerPortalHelpdesk(CustomerPortal):
         return request.render("helpdesk_mgmt.portal_helpdesk_ticket_page", values)
 
     def _ticket_get_page_view_values(self, ticket, access_token, **kwargs):
-        closed_stages = request.env["helpdesk.ticket.stage"].search(
-            [("close_from_portal", "=", True)]
+        closed_stages = ticket.team_id._get_applicable_stages().filtered(
+            lambda s: s.close_from_portal
         )
         values = {
             "closed_stages": closed_stages,  # used to display close buttons
