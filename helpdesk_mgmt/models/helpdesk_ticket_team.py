@@ -67,6 +67,19 @@ class HelpdeskTeam(models.Model):
         help="Allow to select this team when creating a new ticket in the portal.",
     )
 
+    def _determine_stages(self):
+        """Get a dict with the stage per team that should be set as first to a created ticket
+        :returns a mapping of team identifier with the stage.
+        :rtype : dict (key=team_id, value=record of helpdesk.ticket.stage)
+        """
+        result = dict.fromkeys(self.ids, self.env["helpdesk.ticket.stage"])
+        for team in self:
+            result[team.id] = self.env["helpdesk.ticket.stage"].search(
+                ["|", ("team_ids", "=", False), ("team_ids", "in", team.id)],
+                order="sequence",
+            )
+        return result
+
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
         ticket_model = self.env["helpdesk.ticket"]
