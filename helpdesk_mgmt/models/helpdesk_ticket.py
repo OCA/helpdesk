@@ -24,7 +24,7 @@ class HelpdeskTicket(models.Model):
             ("id", "in", stages.ids),
             ("team_ids", "=", False),
         ]
-        default_team_id = self.default_get(["team_id"])["team_id"]
+        default_team_id = self.default_get(["team_id"]).get("team_id")
         if default_team_id:
             search_domain = [
                 "|",
