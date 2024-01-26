@@ -38,19 +38,7 @@ class HelpdeskTicketController(http.Controller):
     @http.route('/submitted/ticket',
                 type="http", auth="user", website=True, csrf=True)
     def submit_ticket(self, **kw):
-        vals = {
-            'partner_name': kw.get('name'),
-            'company_id': http.request.env.user.company_id.id,
-            'category_id': kw.get('category'),
-            'partner_email': kw.get('email'),
-            'description': kw.get('description'),
-            'name': kw.get('subject'),
-            'attachment_ids': False,
-            'channel_id':
-                request.env['helpdesk.ticket.channel'].
-                sudo().search([('name', '=', 'Web')]).id,
-            'partner_id': request.env.user.partner_id.id,
-        }
+        vals = self._prepare_values(kw)
         new_ticket = request.env['helpdesk.ticket'].sudo().create(
             vals)
         new_ticket.message_subscribe(
@@ -67,3 +55,19 @@ class HelpdeskTicketController(http.Controller):
                         'res_id': new_ticket.id
                     })
         return werkzeug.utils.redirect("/my/tickets")
+
+    def _prepare_values(self, kw):
+        vals = {
+            'partner_name': kw.get('name'),
+            'company_id': http.request.env.user.company_id.id,
+            'category_id': kw.get('category'),
+            'partner_email': kw.get('email'),
+            'description': kw.get('description'),
+            'name': kw.get('subject'),
+            'attachment_ids': False,
+            'channel_id':
+                request.env['helpdesk.ticket.channel'].
+                sudo().search([('name', '=', 'Web')]).id,
+            'partner_id': request.env.user.partner_id.id,
+        }
+        return vals
