@@ -97,3 +97,37 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         self.assertEqual(
             t.name, title, "The ticket should have the correct (new) title."
         )
+
+    def test_ticket_with_team_stage(self):
+        self.new_stage.team_ids = [(6, 0, [self.team_a.id, self.team_b.id])]
+        in_progress_stage = self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+        )
+        in_progress_stage.team_ids = [(6, 0, [self.team_b.id])]
+        new_ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "New Ticket",
+                "description": "Description",
+                "team_id": self.team_a.id,
+                "user_id": self.user.id,
+                "priority": "1",
+            }
+        )
+        self.assertEqual(new_ticket.stage_id, self.new_stage)
+        self.new_stage.team_ids = [(6, 0, [self.team_a.id])]
+        new_ticket.team_id = self.team_b
+        self.assertEqual(new_ticket.stage_id, in_progress_stage)
+        self.new_stage.team_ids = False
+        new_ticket.team_id = False
+        self.assertEqual(new_ticket.stage_id, self.new_stage)
+
+    def test_ticket_without_team(self):
+        new_ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "New Ticket",
+                "description": "Description",
+                "user_id": self.user.id,
+                "priority": "1",
+            }
+        )
+        self.assertEqual(self.new_stage, new_ticket.stage_id)

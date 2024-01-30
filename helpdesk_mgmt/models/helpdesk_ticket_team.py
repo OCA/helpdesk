@@ -47,7 +47,6 @@ class HelpdeskTeam(models.Model):
         inverse_name="team_id",
         string="Tickets",
     )
-
     todo_ticket_count = fields.Integer(
         string="Number of tickets", compute="_compute_todo_tickets"
     )
@@ -65,6 +64,21 @@ class HelpdeskTeam(models.Model):
         default=True,
         help="Allow to select this team when creating a new ticket in the portal.",
     )
+
+    def _get_applicable_stages(self):
+        if self:
+            domain = [
+                ("company_id", "in", [False, self.company_id.id]),
+                "|",
+                ("team_ids", "=", False),
+                ("team_ids", "=", self.id),
+            ]
+        else:
+            domain = [
+                ("company_id", "in", [False, self.env.company.id]),
+                ("team_ids", "=", False),
+            ]
+        return self.env["helpdesk.ticket.stage"].search(domain)
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):

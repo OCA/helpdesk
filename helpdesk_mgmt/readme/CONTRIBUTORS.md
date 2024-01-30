@@ -16,6 +16,7 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pedro M. Baeza
   - Víctor Martínez
+  - Carolina Fernandez
 - [ID42 Sistemas](https://www.id42.com.br):
   - Marcel Savegnago
   - Eduardo Aparício
