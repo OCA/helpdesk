@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-02-07 13:24+0000\n"
+"PO-Revision-Date: 2024-02-07 20:34+0000\n"
 "Last-Translator: Ronald Portier <ronald@therp.nl>\n"
 "Language-Team: none\n"
 "Language: nl_NL\n"
@@ -461,7 +461,7 @@ msgstr "Datum toegewezen"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
-msgstr "Toegekende gebruiker"
+msgstr "Toegewezen aan"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -771,7 +771,7 @@ msgstr "Volgers"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_partner_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_partner_ids
 msgid "Followers (Partners)"
-msgstr "Volgers (relaties)"
+msgstr "Volgers (contacten)"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_type_icon
@@ -1252,12 +1252,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Partner"
-msgstr "Relatie"
+msgstr "Contact"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_name
 msgid "Partner Name"
-msgstr "Relatienaam"
+msgstr "Contact"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
@@ -1275,7 +1275,7 @@ msgstr ""
 "Beleid voor het aanbieden van berichten bij een document via de email "
 "gateway.\n"
 "- iedereen: iedereen kan versturen\n"
-"- relaties: alleen geautoriseerde relaties\n"
+"- relaties: alleen geautoriseerde contacten\n"
 "- volgers: alleen volgers van het document of leden van volgende kanalen\n"
 
 #. module: helpdesk_mgmt
@@ -1630,7 +1630,7 @@ msgstr "Vraag aangemaakt"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
 msgid "Ticket number"
-msgstr "Vraagnummer"
+msgstr "Nummer"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
