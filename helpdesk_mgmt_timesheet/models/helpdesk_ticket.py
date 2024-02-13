@@ -62,9 +62,10 @@ class HelpdeskTicket(models.Model):
     @api.depends("timesheet_ids.date")
     def _compute_last_timesheet_activity(self):
         for record in self:
-            record.last_timesheet_activity = (record.timesheet_ids
-                                        and record.timesheet_ids.sorted(key="date", reverse=True)[0].date
-                                             ) or False
+            record.last_timesheet_activity = (
+                record.timesheet_ids
+                and record.timesheet_ids.sorted(key="date", reverse=True)[0].date
+            ) or False
 
     @api.depends(
         "team_id.allow_timesheet",
@@ -76,7 +77,7 @@ class HelpdeskTicket(models.Model):
         result = super()._compute_show_time_control()
         for ticket in self:
             if not (
-                    ticket.project_id.allow_timesheets and ticket.team_id.allow_timesheet
+                ticket.project_id.allow_timesheets and ticket.team_id.allow_timesheet
             ):
                 ticket.show_time_control = False
         return result
