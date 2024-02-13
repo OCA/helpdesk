@@ -27,9 +27,9 @@ class HelpdeskTicket(models.Model):
         default_team_id = self.default_get(["team_id"]).get("team_id")
         if default_team_id:
             search_domain = [
-                                "|",
-                                ("team_ids", "=", default_team_id),
-                            ] + search_domain
+                "|",
+                ("team_ids", "=", default_team_id),
+            ] + search_domain
         return stages.search(search_domain, order=order)
 
     number = fields.Char(string="Ticket number", default="/", readonly=True)

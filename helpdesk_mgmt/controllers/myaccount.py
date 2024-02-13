@@ -37,16 +37,16 @@ class CustomerPortalHelpdesk(CustomerPortal):
         website=True,
     )
     def portal_my_tickets(
-            self,
-            page=1,
-            date_begin=None,
-            date_end=None,
-            sortby=None,
-            filterby=None,
-            search=None,
-            search_in=None,
-            groupby=None,
-            **kw,
+        self,
+        page=1,
+        date_begin=None,
+        date_end=None,
+        sortby=None,
+        filterby=None,
+        search=None,
+        search_in=None,
+        groupby=None,
+        **kw,
     ):
         HelpdeskTicket = request.env["helpdesk.ticket"]
         # Avoid error if the user does not have access.
