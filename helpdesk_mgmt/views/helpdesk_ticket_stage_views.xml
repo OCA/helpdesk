@@ -53,8 +53,8 @@
                             <field name="mail_template_id" />
                             <field name="team_ids" widget="many2many_tags" />
                             <field
-                                    name="company_id"
-                                    groups="base.group_multi_company"
+                                name="company_id"
+                                groups="base.group_multi_company"
                             />
                             <field name="company_id" invisible="1" />
                         </group>
