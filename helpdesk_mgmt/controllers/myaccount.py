@@ -259,4 +259,4 @@ class CustomerPortalHelpdesk(CustomerPortal):
         field_name = groupby_mapping.get(groupby, "")
         if not field_name:
             return order
-        return "{}, {}".format(field_name, order)
+        return f"{field_name}, {order}"
