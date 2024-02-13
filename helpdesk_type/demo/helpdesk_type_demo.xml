@@ -2,7 +2,10 @@
 <odoo noupdate="1">
     <record id="helpdesk_type_1_demo" model="helpdesk.ticket.type">
         <field name="name">Document issue</field>
-        <field name="team_ids" eval="[(4, ref('helpdesk_mgmt.helpdesk_team_1_demo'))]" />
+        <field
+            name="team_ids"
+            eval="[(4, ref('helpdesk_mgmt.helpdesk_team_1_demo'))]"
+        />
     </record>
     <record id="helpdesk_mgmt.helpdesk_ticket_3_demo" model="helpdesk.ticket">
         <field name="type_id" ref="helpdesk_type_1_demo" />
