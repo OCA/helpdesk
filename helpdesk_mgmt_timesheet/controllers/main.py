@@ -8,7 +8,7 @@ from odoo.addons.helpdesk_mgmt.controllers.main import HelpdeskTicketController
 
 class CustomHelpdeskTicketController(HelpdeskTicketController):
     def _prepare_submit_ticket_vals(self, **kw):
-        vals = super(CustomHelpdeskTicketController, self)._prepare_submit_ticket_vals(
+        vals = super()._prepare_submit_ticket_vals(
             **kw
         )
         team = (

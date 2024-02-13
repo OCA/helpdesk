@@ -96,7 +96,7 @@
     <menuitem
         id="hr_timesheet_menu_helpdesk"
         name="Timesheets"
-        parent="helpdesk_mgmt.helpdesk_ticket_menu_main"
+        parent="helpdesk_mgmt.helpdesk_ticket_main_menu"
         action="account_analytic_line_action_helpdesk"
         groups="hr_timesheet.group_hr_timesheet_user"
         sequence="15"
