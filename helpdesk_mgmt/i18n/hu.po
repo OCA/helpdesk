@@ -641,6 +641,7 @@ msgid "Edit"
 msgstr "Szerkesztés"
 
 #. module: helpdesk_mgmt
+#: model:helpdesk.ticket.channel,name:helpdesk_mgmt.helpdesk_ticket_channel_email
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_email
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 msgid "Email"
@@ -1139,6 +1140,11 @@ msgstr ""
 "Ennek beállítása esetén egyáltalán nem jönnek létre új rekordok."
 
 #. module: helpdesk_mgmt
+#: model:helpdesk.ticket.channel,name:helpdesk_mgmt.helpdesk_ticket_channel_other
+msgid "Other"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Other Information"
 msgstr "Egyéb információk"
@@ -1178,6 +1184,11 @@ msgstr "Partner"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_name
 msgid "Partner Name"
 msgstr "Partner neve"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.channel,name:helpdesk_mgmt.helpdesk_ticket_channel_phone
+msgid "Phone"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_views_pivot
@@ -1644,6 +1655,11 @@ msgstr "Felhasználók"
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__3
 msgid "Very High"
 msgstr "Nagyon magas"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.channel,name:helpdesk_mgmt.helpdesk_ticket_channel_web
+msgid "Web"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__website_message_ids
