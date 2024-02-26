@@ -8,7 +8,10 @@ class HelpdeskTicketChannel(models.Model):
     _order = "sequence, id"
 
     sequence = fields.Integer(default=10)
-    name = fields.Char(required=True)
+    name = fields.Char(
+        required=True,
+        translate=True,
+    )
     active = fields.Boolean(default=True)
     company_id = fields.Many2one(
         comodel_name="res.company",
