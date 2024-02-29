@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-28 20:06+0000\n"
+"PO-Revision-Date: 2024-02-29 10:33+0000\n"
 "Last-Translator: Vincent Hatakeyama <vincent+github@hatakeyama.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -737,7 +737,7 @@ msgstr "Nom de l'équipe d'assistance ..."
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
 msgid "Helpdesk Teams"
-msgstr ""
+msgstr "Équipes d’assistance"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard
@@ -1174,10 +1174,10 @@ msgid ""
 "channels\n"
 msgstr ""
 "Politique de publication d'un message sur le document via la passerelle de "
-"courriel.\\n\n"
-"- tout le monde : tout le monde peut publier\\n\n"
-"- partenaires : seulement les partenaires authentifiés\\n\n"
-"- abonnés : seulement les abonnés au canaux de suivi\\n\n"
+"courriel.\n"
+"- tout le monde : tout le monde peut publier\n"
+"- partenaires : seulement les partenaires authentifiés\n"
+"- abonnés : seulement les abonnés au canaux de suivi\n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_url
@@ -1328,6 +1328,8 @@ msgstr "Logiciel"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
 msgid "Specific team that uses this stage. If it is empty all teams could uses"
 msgstr ""
+"Équipe spécifique qui utilise cette étape. Si vide, toutes les équipes "
+"peuvent l’utiliser"
 
 #. module: helpdesk_mgmt
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
@@ -1360,9 +1362,9 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
-"Statut basé sur les activités\\n\n"
-"En retard : La date d'échéance est déjà dépassée\\n\n"
-"Aujourd'hui : L'activité est planifiée pour aujourd'hui\\n\n"
+"Statut basé sur les activités\n"
+"En retard : La date d'échéance est déjà dépassée\n"
+"Aujourd'hui : L'activité est planifiée pour aujourd'hui\n"
 "Planifiées : activités futures."
 
 #. module: helpdesk_mgmt
