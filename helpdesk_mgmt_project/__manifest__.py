@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Project",
     "summary": "Add the option to select project in the tickets.",
-    "version": "16.0.2.3.0",
+    "version": "16.0.2.3.1",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "PuntSistemes S.L.U., " "Odoo Community Association (OCA)",

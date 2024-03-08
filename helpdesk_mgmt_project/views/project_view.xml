@@ -10,7 +10,7 @@
                     type="action"
                     icon="fa-file"
                     name="%(ticket_action_from_project)d"
-                    context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                    context="{'search_default_project_id': id, 'default_project_id': id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
@@ -37,7 +37,7 @@
                     class="o_project_kanban_box"
                     name="%(ticket_action_from_project)d"
                     type="action"
-                    context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                    context="{'search_default_project_id': id, 'default_project_id': id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <div>
