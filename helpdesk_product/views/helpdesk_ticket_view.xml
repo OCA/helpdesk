@@ -20,7 +20,7 @@
             <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
             <field name="arch" type="xml">
                 <field name="user_id" position="after">
-                    <field name="product_id" />
+                    <field name="product_id" optional="show" />
                 </field>
             </field>
         </record>
@@ -39,7 +39,7 @@
                     <filter
                     string="Product Related"
                     name="product_filter"
-                    domain="['!', ('product_id', '!=', '' )]"
+                    domain="[('product_id', '!=', False )]"
                 />
 
                     <filter
