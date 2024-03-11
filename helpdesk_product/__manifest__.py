@@ -8,6 +8,7 @@
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt", "product"],
     "data": ["views/helpdesk_ticket_view.xml", "views/product_view.xml"],
+    "demo": ["demo/helpdesk_product_demo.xml"],
     "development_status": "Beta",
     "auto_install": True,
 }
