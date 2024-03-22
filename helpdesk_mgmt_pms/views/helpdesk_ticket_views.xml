@@ -12,6 +12,25 @@
             />
         </xpath>
     </template>
+    <!-- View Ticket kanban -->
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="hotel_id" />
+            </xpath>
+            <xpath expr="//filter[@name='group_stage']" position="after">
+                <filter
+                    string="Hotel"
+                    name="group_hotel"
+                    domain="[]"
+                    context="{'group_by':'hotel_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
     <!-- View Ticket Tree -->
     <record id="ticket_view_tree" model="ir.ui.view">
         <field name="model">helpdesk.ticket</field>
@@ -29,24 +48,12 @@
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='number']" position="after">
-                 <field name="hotel_id" options="{'no_create': True}" />
+                <field name="hotel_id" options="{'no_create': True}" />
                 <field
                     name="room_id"
                     options="{'no_create': True}"
                     attrs="{'invisible': [('hotel_id', '=', False)]}"
                 />
-            </xpath>
-        </field>
-    </record>
-    <!-- View Ticket kanban -->
-    <record id="view_helpdesk_ticket_kanban_inherit" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.kanban.inherit</field>
-        <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="view_helpdesk_ticket_kanban" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="category_id" />
-                <field name="hotel_id" />
             </xpath>
         </field>
     </record>

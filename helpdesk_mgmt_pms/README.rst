@@ -17,7 +17,7 @@ Installation
 
    .. code-block:: bash
 
-      git clone https://github.com/irluidev/14.0-helpdesk_mgmt_pms.git
+      git clone https://github.com/IrluiDev/helpdesk.git
 
 2. Restart your Odoo server.
 
