@@ -19,14 +19,28 @@
         <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='name']" position="after">
-                <field name="hotel_id" />
+                <field name="company_id" />
+                <field name="property_id" />
+                <field name="room_id" />
             </xpath>
-            <xpath expr="//filter[@name='group_stage']" position="after">
+            <xpath expr="//filter[@name='group_partner']" position="after">
                 <filter
-                    string="Hotel"
-                    name="group_hotel"
+                    string="Company"
+                    name="group_company"
                     domain="[]"
-                    context="{'group_by':'hotel_id'}"
+                    context="{'group_by':'company_id'}"
+                />
+                <filter
+                    string="Property"
+                    name="group_property"
+                    domain="[]"
+                    context="{'group_by':'property_id'}"
+                />
+                <filter
+                    string="Room"
+                    name="group_room"
+                    domain="[]"
+                    context="{'group_by':'room_id'}"
                 />
             </xpath>
         </field>
@@ -36,8 +50,9 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="hotel_id" />
+            <xpath expr="//field[@name='number']" position="after">
+                <field name="company_id" />
+                <field name="property_id" />
                 <field name="room_id" />
             </xpath>
         </field>
@@ -47,12 +62,17 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='number']" position="after">
-                <field name="hotel_id" options="{'no_create': True}" />
+            <xpath expr="//field[@name='priority']" position="after">
+                <field
+                    name="company_id"
+                    options="{'no_create': True}"
+                    groups="base.group_multi_company"
+                />
+                <field name="property_id" options="{'no_create': True}" />
                 <field
                     name="room_id"
                     options="{'no_create': True}"
-                    attrs="{'invisible': [('hotel_id', '=', False)]}"
+                    attrs="{'invisible': [('property_id', '=', False)]}"
                 />
             </xpath>
         </field>
