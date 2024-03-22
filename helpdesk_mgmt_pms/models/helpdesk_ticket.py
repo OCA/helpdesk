@@ -1,12 +1,9 @@
-import logging
-
 from odoo import api, fields, models
-
-_logger = logging.getLogger(__name__)
 
 
 class HelpdeskTicket(models.Model):
-    _inherit = "helpdesk_ticket"
+
+    _inherit = "helpdesk.ticket"
 
     hotel_id = fields.Many2one(
         comodel_name="pms.property",

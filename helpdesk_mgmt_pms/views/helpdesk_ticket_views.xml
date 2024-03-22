@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                href="/helpdesk_mgmt_pms/static/src/scss/helpdesk_mgmt_pms.scss"
+            />
+            <script
+                type="text/javascript"
+                src="/helpdesk_mgmt_pms/static/src/js/helpdesk_mgmt_pms.js"
+            />
+        </xpath>
+    </template>
+    <!-- View Ticket Tree -->
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="hotel_id" />
+                <field name="room_id" />
+            </xpath>
+        </field>
+    </record>
+    <!-- View Form Ticket -->
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='number']" position="after">
+                 <field name="hotel_id" options="{'no_create': True}" />
+                <field
+                    name="room_id"
+                    options="{'no_create': True}"
+                    attrs="{'invisible': [('hotel_id', '=', False)]}"
+                />
+            </xpath>
+        </field>
+    </record>
+    <!-- View Ticket kanban -->
+    <record id="view_helpdesk_ticket_kanban_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="view_helpdesk_ticket_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="category_id" />
+                <field name="hotel_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
