@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                href="/helpdesk_mgmt_pms/static/src/scss/helpdesk_mgmt_pms.scss"
+            />
+            <script
+                type="text/javascript"
+                src="/helpdesk_mgmt_pms/static/src/js/helpdesk_mgmt_pms.js"
+            />
+        </xpath>
+    </template>
+
+    <template
+        id="portal_my_tickets"
+        inherit_id="helpdesk_mgmt.portal_my_tickets"
+        name="My tickets"
+    >
+        <xpath expr="//th[.='Stage']" position="after">
+            <th>Property</th>
+            <th>Room</th>
+        </xpath>
+        <xpath expr="//td[t[@t-esc='ticket.stage_id.name']]" position="after">
+            <td>
+                <span t-field="ticket.property_id.name" />
+            </td>
+            <td>
+                <span t-field="ticket.room_id.name" />
+            </td>
+        </xpath>
+    </template>
+
+    <template
+        id="portal_helpdesk_ticket_page"
+        inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page"
+        name="Ticket Portal Template"
+    >
+        <xpath expr="//t[@t-esc='ticket.category_id.name']" position="after">
+            <div><strong>Property:</strong>
+            <span t-field="ticket.sudo().property_id.name" /></div>
+            <div><strong>Room:</strong>
+            <span t-field="ticket.sudo().room_id.name" /></div>
+            <div><strong>Tag:</strong>
+            <span t-field="ticket.sudo().tag_ids" /></div>
+            </xpath>
+    </template>
+
+    <template
+        id="portal_create_ticket_inherit"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+        name="Create Ticket"
+    >
+        <xpath
+            expr="//div[@class='col-md-7 col-sm-8']/select[@id='category']/.."
+            position="after"
+        >
+            <div class="col-md-7 col-sm-8">
+                <select
+                    class="form-control"
+                    id="company_id"
+                    name="company_id"
+                    required="required"
+                >
+                    <option value="" disabled="disabled">Select a company</option>
+                    <t t-foreach="companies" t-as="company">
+                        <option t-att-value="company.id">
+                            <t t-esc="company.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div class="col-md-7 col-sm-8">
+                <label for="property_id">Property:</label>
+                <select
+                    class="form-control"
+                    id="property_id"
+                    name="property_id"
+                    required="required"
+                    t-attf-widget="many2one_tags"
+                    t-attf-domain="[('user_ids', 'in', [user.id])]"
+                >
+                    <option value="">Select a Property</option>
+                    <t t-foreach="propertys" t-as="property">
+                        <option t-attf-value="#{property.id}">
+                            <t t-esc="property.name" />
+                        </option>
+                    </t>
+                </select>
+                <label for="room_id">Select Room:</label>
+                <select
+                    class="form-control"
+                    id="room_id"
+                    name="room_id"
+                    t-attf-widget="many2one_tags"
+                    t-attf-domain="[('pms_property_id', '=', parseInt($('#property_id').val()))]"
+                >
+                    <option value="" />
+                    <t t-foreach="rooms" t-as="room">
+                        <option t-attf-value="#{room.id}">
+                            <t t-esc="room.name" />
+                        </option>
+                    </t>
+                </select>
+                <label class="col-md-3 col-sm-4 control-label" for="tag">Tag</label>
+                <div class="col-md-7 col-sm-8">
+                    <select class="form-control" id="tag_ids" name="tag_ids">
+                        <option value="">Selecciona una opción</option>
+                        <t t-foreach="tags" t-as="tag">
+                            <option t-attf-value="#{tag.id}">
+                                <t t-esc="tag.name" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <!-- Hemos dejado fuera el template list -->
+</odoo>

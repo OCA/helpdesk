@@ -12,7 +12,7 @@ class HelpdeskTicket(models.Model):
         comodel_name="pms.property",
         string="Property",
         domain="[('company_id', '=', company_id)]",
-        help="The hotel associated with this ticket",
+        help="The property associated with this ticket",
     )
     room_id = fields.Many2one(
         comodel_name="pms.room",
@@ -26,24 +26,24 @@ class HelpdeskTicket(models.Model):
     def _onchange_company_id(self):
         if self.company_id:
             # Utilizar sudo para acceder al modelo pms.property y filtrar por usuario actual
-            hotels = (
+            propertys = (
                 self.env["pms.property"]
                 .sudo()
                 .search([("user_ids", "=", self.env.user.id)])
             )
-            hotel_ids = hotels.ids if hotels else []
-            return {"domain": {"property_id": [("id", "in", hotel_ids)]}}
+            property_ids = propertys.ids if propertys else []
+            return {"domain": {"property_id": [("id", "in", property_ids)]}}
         else:
             return {"domain": {"property_id": []}}
 
     @api.onchange("property_id")
-    def _onchange_hotel_id(self):
-        if self.hotel_id:
+    def _onchange_property_id(self):
+        if self.property_id:
             # Utilizar sudo para acceder al modelo pms.room y filtrar por pms_property_id
             rooms = (
                 self.env["pms.room"]
                 .sudo()
-                .search([("pms_property_id", "=", self.hotel_id.id)])
+                .search([("pms_property_id", "=", self.property_id)])
             )
             room_ids = rooms.ids if rooms else []
             return {"domain": {"room_id": [("id", "in", room_ids)]}}

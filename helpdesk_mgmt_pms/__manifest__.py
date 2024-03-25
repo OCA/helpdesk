@@ -11,7 +11,11 @@
     "website": "https://github.com/OCA/helpdesk",
     "category": "After-Sales",
     "depends": ["base", "web", "pms"],
-    "data": ["views/helpdesk_ticket_views.xml", "views/templates.xml"],
+    "data": [
+        "views/helpdesk_ticket_views.xml",
+        "views/helpdesk_ticket_templates.xml",
+        "views/templates.xml",
+    ],
     "qweb": ["static/src/xml/*.xml"],
     "application": True,
     "installable": True,
