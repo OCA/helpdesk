@@ -38,6 +38,16 @@ class HelpdeskTicket(models.Model):
             ] + search_domain
         return stages.search(search_domain, order=order)
 
+    def _default_team_id(self):
+        team_id = (
+            self.env["helpdesk.ticket.team"]
+            .search([("user_ids", "in", self.env.uid)], limit=1)
+            .id
+        )
+        if not team_id:
+            team_id = self.env["helpdesk.ticket.team"].search([], limit=1).id
+        return team_id
+
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
@@ -82,10 +92,7 @@ class HelpdeskTicket(models.Model):
     unattended = fields.Boolean(related="stage_id.unattended", store=True)
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     company_id = fields.Many2one(
-        comodel_name="res.company",
-        string="Company",
-        required=True,
-        default=lambda self: self.env.company,
+        related="team_id.company_id", string="Company", store=True, readonly=True
     )
     channel_id = fields.Many2one(
         comodel_name="helpdesk.ticket.channel",
@@ -101,6 +108,7 @@ class HelpdeskTicket(models.Model):
         comodel_name="helpdesk.ticket.team",
         string="Team",
         index=True,
+        default=_default_team_id,
     )
     priority = fields.Selection(
         selection=[
