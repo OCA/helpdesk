@@ -58,7 +58,7 @@ class CustomHelpdeskTicketController(HelpdeskTicketController):
                 "company_id": company.id,
                 "property_id": request.params.get("property_id"),
                 "room_id": request.params.get("room_id"),
-                "tag_ids": request.params.get("tag_ids"),
+                "tag_ids": [request.params.get("tag_ids")],
             }
         )
         return vals
