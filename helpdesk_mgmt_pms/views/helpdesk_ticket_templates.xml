@@ -57,6 +57,7 @@
             position="after"
         >
             <div class="col-md-7 col-sm-8">
+                <label for="property_id">Company:</label>
                 <select
                     class="form-control"
                     id="company_id"
