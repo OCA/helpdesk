@@ -14,7 +14,6 @@
     "data": [
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_ticket_templates.xml",
-        "views/templates.xml",
     ],
     "qweb": ["static/src/xml/*.xml"],
     "application": True,
