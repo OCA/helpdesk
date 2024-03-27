@@ -1,28 +1,23 @@
 # Copyright 2022 Tecnativa - Víctor Martínez
+# Copyright 2024 Tecnativa - Carolina Fernandez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common, new_test_user
-from odoo.tests.common import users
+from odoo.tests.common import new_test_user, users
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskMgmtRating(common.TransactionCase):
+class TestHelpdeskMgmtRating(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.partner = cls.env["res.partner"].create(
             {"name": "Test partner", "email": "test@email.com"}
         )
-        ctx = {
-            "mail_create_nolog": True,
-            "mail_create_nosubscribe": True,
-            "mail_notrack": True,
-            "no_reset_password": True,
-        }
         new_test_user(
             cls.env,
             login="test-helpdesk-user",
             groups="helpdesk_mgmt.group_helpdesk_user",
-            context=ctx,
         )
         cls.stage_done = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         cls.stage_done.rating_mail_template_id = cls.env.ref(
@@ -46,3 +41,11 @@ class TestHelpdeskMgmtRating(common.TransactionCase):
         rating = ticket.rating_ids.filtered(lambda x: x.partner_id == self.partner)
         rating.write({"rating": 5, "consumed": True})
         self.assertEqual(ticket.positive_rate_percentage, 100)
+        # Check action view ticket rating
+        action = ticket.action_view_ticket_rating()
+        self.assertEqual(action.get("type"), "ir.actions.act_window")
+        self.assertEqual(action.get("name"), "Ticket Rating")
+        self.assertEqual(
+            action.get("id"),
+            self.env.ref("helpdesk_mgmt_rating.helpdesk_ticket_rating_action").id,
+        )
