@@ -51,12 +51,22 @@ class HelpdeskTicket(models.Model):
                         force_send=force_send,
                     )
 
-    def rating_apply(self, rate, token=None, feedback=None, subtype_xmlid=None):
+    def rating_apply(
+        self,
+        rate,
+        token=None,
+        rating=None,
+        feedback=None,
+        subtype_xmlid=None,
+        notify_delay_send=False,
+    ):
         return super().rating_apply(
             rate,
             token=token,
+            rating=rating,
             feedback=feedback,
             subtype_xmlid="helpdesk_mgmt_rating.mt_ticket_rating",
+            notify_delay_send=notify_delay_send,
         )
 
     def _rating_get_partner(self):
