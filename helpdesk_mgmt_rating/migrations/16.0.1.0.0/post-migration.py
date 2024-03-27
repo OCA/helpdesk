@@ -7,7 +7,7 @@ from openupgradelib import openupgrade
 @openupgrade.migrate()
 def migrate(env, version):
     openupgrade.load_data(
-        env.cr, "helpdesk_mgmt_rating", "migrations/15.0.1.0.0/noupdate_changes.xml"
+        env.cr, "helpdesk_mgmt_rating", "migrations/16.0.1.0.0/noupdate_changes.xml"
     )
     openupgrade.delete_record_translations(
         env.cr,
