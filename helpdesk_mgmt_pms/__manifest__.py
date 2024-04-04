@@ -18,6 +18,6 @@
     "qweb": ["static/src/xml/*.xml"],
     "application": True,
     "installable": True,
-    "auto_install": False,
+    "auto_install": True,
     "license": "LGPL-3",
 }

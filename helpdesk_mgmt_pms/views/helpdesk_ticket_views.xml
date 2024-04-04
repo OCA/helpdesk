@@ -50,18 +50,22 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='priority']" position="after">
-                <field
-                    name="company_id"
-                    options="{'no_create': True}"
-                    groups="base.group_multi_company"
-                />
+            <xpath expr="//field[@name='number']" position="before">
+                <div class="custom_icon_group" />
+            </xpath>
+            <xpath expr="//field[@name='company_id']" position="after">
                 <field name="property_id" options="{'no_create': True}" />
                 <field
                     name="room_id"
                     options="{'no_create': True}"
                     attrs="{'invisible': [('property_id', '=', False)]}"
                 />
+            </xpath>
+            <xpath expr="//field[@name='partner_lang']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='sequence']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>

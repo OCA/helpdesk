@@ -22,7 +22,7 @@ class HelpdeskTicket(models.Model):
         widget="many2one_tags",
     )
 
-    @api.onchange("company_id")
+    @api.depends("company_id")
     def _onchange_company_id(self):
         if self.company_id:
             # Utilizar sudo para acceder al modelo pms.property y filtrar por usuario actual
@@ -36,14 +36,14 @@ class HelpdeskTicket(models.Model):
         else:
             return {"domain": {"property_id": []}}
 
-    @api.onchange("property_id")
+    @api.depends("property_id")
     def _onchange_property_id(self):
         if self.property_id:
             # Utilizar sudo para acceder al modelo pms.room y filtrar por pms_property_id
             rooms = (
                 self.env["pms.room"]
                 .sudo()
-                .search([("pms_property_id", "=", self.property_id)])
+                .search([("pms_property_id", "=", self.property_id.id)])
             )
             room_ids = rooms.ids if rooms else []
             return {"domain": {"room_id": [("id", "in", room_ids)]}}

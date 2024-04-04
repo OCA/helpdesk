@@ -18,7 +18,7 @@
         inherit_id="helpdesk_mgmt.portal_my_tickets"
         name="My tickets"
     >
-        <xpath expr="//th[.='Stage']" position="after">
+        <xpath expr="//th[normalize-space(.)='Stage']">
             <th>Property</th>
             <th>Room</th>
         </xpath>
