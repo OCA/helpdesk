@@ -34,4 +34,26 @@
             </xpath>
         </field>
     </record>
+    <record id="ticket_view_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.tree (in helpdesk_type)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="before">
+                <field name="type_id" optional="show" />
+            </field>
+        </field>
+    </record>
+    <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.kanban (in helpdesk_type)</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//templates//field[@name='number']" position="after">
+                <small class="o_kanban_record_subtitle">
+                    <i><field name="type_id" /></i>
+                </small>
+            </xpath>
+        </field>
+    </record>
 </odoo>
