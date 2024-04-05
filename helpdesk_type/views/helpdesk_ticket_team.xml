@@ -6,7 +6,7 @@
         <field name="model">helpdesk.ticket.team</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
         <field name="arch" type="xml">
-            <field name="user_ids" position="after">
+            <field name="show_in_portal" position="after">
                 <field name="type_ids" widget="many2many_tags" />
             </field>
         </field>
