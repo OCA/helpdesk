@@ -2,7 +2,7 @@
     "name": "Helpdesk Product",
     "summary": "Add the option to select product in the tickets.",
     "author": "ForgeFlow, " "Odoo Community Association (OCA)",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "license": "AGPL-3",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
