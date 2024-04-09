@@ -12,17 +12,16 @@
             />
         </xpath>
     </template>
-
     <template
         id="portal_my_tickets"
         inherit_id="helpdesk_mgmt.portal_my_tickets"
         name="My tickets"
     >
-        <xpath expr="//th[normalize-space(.)='Stage']">
+        <xpath expr="//tr[hasclass('active')]/th[position()=3]" position="after">
             <th>Property</th>
             <th>Room</th>
         </xpath>
-        <xpath expr="//td[t[@t-esc='ticket.stage_id.name']]" position="after">
+        <xpath expr="//tr/td[position()=3]" position="after">
             <td>
                 <span t-field="ticket.property_id.name" />
             </td>
@@ -31,20 +30,24 @@
             </td>
         </xpath>
     </template>
-
     <template
         id="portal_helpdesk_ticket_page"
         inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page"
         name="Ticket Portal Template"
     >
-        <xpath expr="//t[@t-esc='ticket.category_id.name']" position="after">
+        <xpath expr="//span[@t-field='ticket.name']" position="before">
+            <i class="fa fa-comments-o" />
+        </xpath>
+        <xpath expr="//span[@t-field='ticket.create_date']" position="after">
             <div><strong>Property:</strong>
             <span t-field="ticket.sudo().property_id.name" /></div>
             <div><strong>Room:</strong>
             <span t-field="ticket.sudo().room_id.name" /></div>
+        </xpath>
+        <xpath expr="//t[@t-esc='ticket.category_id.name']" position="after">
             <div><strong>Tag:</strong>
             <span t-field="ticket.sudo().tag_ids" /></div>
-            </xpath>
+        </xpath>
     </template>
 
     <template
