@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: helpdesk_mgmt_project
-#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr ""
-
-#. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Gives label to tickets on project's kanban view."
@@ -49,6 +44,7 @@ msgstr ""
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
 msgid "Project"
 msgstr ""
 
