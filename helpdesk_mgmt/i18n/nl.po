@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-02-07 20:34+0000\n"
+"PO-Revision-Date: 2024-04-10 14:39+0000\n"
 "Last-Translator: Ronald Portier <ronald@therp.nl>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -1195,7 +1195,7 @@ msgstr "Aantal vragen dat niet is toegewezen"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr "Aantal vragen dat niet is toegewezen"
+msgstr "Aantal niet opgepakte vragen"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
@@ -1691,12 +1691,12 @@ msgstr "Niet toegewezen vragen"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
-msgstr "Niet toegewezen"
+msgstr "Nog niet opgepakt"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unattended tickets"
-msgstr "Niet toegewezen vragen"
+msgstr "Nog niet opgepakte vragen"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
