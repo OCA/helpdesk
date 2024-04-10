@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-27 13:36+0000\n"
+"PO-Revision-Date: 2024-04-29 16:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt_project
-#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr "Progetto predefinito"
-
-#. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Gives label to tickets on project's kanban view."
@@ -30,12 +25,12 @@ msgstr "Aggiunge un'etichetta ai ticket sulla vista kanban del progetto."
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Ticket Helpdesk"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Team ticket Helpdesk"
+msgstr "Team ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
@@ -52,6 +47,7 @@ msgstr "Ticket aperti"
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
 msgid "Project"
 msgstr "Progetto"
 
@@ -85,3 +81,6 @@ msgstr "Ticket"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
 msgstr "Usa i ticket come"
+
+#~ msgid "Default Project"
+#~ msgstr "Progetto predefinito"
