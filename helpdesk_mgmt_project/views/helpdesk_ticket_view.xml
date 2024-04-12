@@ -33,6 +33,11 @@
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_email']" position="after">
+                <field
+                    name="company_id"
+                    invisible="1"
+                    groups="!base.group_multi_company"
+                />
                 <field name="project_id" />
                 <field
                     name="task_id"
