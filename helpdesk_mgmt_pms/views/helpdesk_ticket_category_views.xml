@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_category_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="name">view.helpdesk.category.form</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <field name="company_ids" widget="many2many_tags" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
