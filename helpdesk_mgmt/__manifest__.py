@@ -34,6 +34,11 @@
         "views/helpdesk_dashboard_views.xml",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
+    "assets": {
+        "web.assets_frontend": [
+            "helpdesk_mgmt/static/src/js/new_ticket.js",
+        ],
+    },
     "development_status": "Beta",
     "application": True,
     "installable": True,

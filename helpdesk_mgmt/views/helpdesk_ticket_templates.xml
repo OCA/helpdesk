@@ -476,6 +476,7 @@
                                 id="attachment"
                                 type="file"
                                 multiple="multiple"
+                                t-att-max_upload_size="max_upload_size"
                             />
                         </div>
                     </div>
