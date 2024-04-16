@@ -8,10 +8,14 @@ Helpdesk Management
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 <<<<<<< HEAD
+<<<<<<< HEAD
    !! source digest: sha256:cedeb6d130da8d860c927b8bb9da141d744a51997e0294ea4af2f9a0d1e4185d
 =======
    !! source digest: sha256:48389251dbc371abd48db402ff641664390a343a84368aab69c583f8ca80b6d5
 >>>>>>> 4a4ea152 ([IMP] heldespk_mgmt: Helpdesk stages per teams)
+=======
+   !! source digest: sha256:231704619284f176fc8424913015b6b367d796cf92afcdfb8e51fd53526861ef
+>>>>>>> e02e1d09 ([IMP] helpdesk_mgmt: Show error if file size exceeds limit)
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
