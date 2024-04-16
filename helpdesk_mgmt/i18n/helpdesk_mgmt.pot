@@ -6,12 +6,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-17 06:46+0000\n"
+"PO-Revision-Date: 2024-04-17 06:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: helpdesk_mgmt
+#. openerp-web
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
+#, python-format
+msgid "%s file exceed the maximum file size of %s."
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -603,6 +612,13 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__email_cc
 msgid "Email cc"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. openerp-web
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
+#, python-format
+msgid "File upload"
 msgstr ""
 
 #. module: helpdesk_mgmt
