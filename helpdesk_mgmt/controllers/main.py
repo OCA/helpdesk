@@ -42,6 +42,7 @@ class HelpdeskTicketController(http.Controller):
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
+        session_info = http.request.env["ir.http"].session_info()
         company = request.env.company
         category_model = http.request.env["helpdesk.ticket.category"]
         categories = category_model.with_company(company.id).search(
@@ -63,6 +64,7 @@ class HelpdeskTicketController(http.Controller):
                 "ticket_category_id_required": (
                     company.helpdesk_mgmt_portal_category_id_required
                 ),
+                "max_upload_size": session_info["max_file_upload_size"],
             },
         )
 
