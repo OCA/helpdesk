@@ -21,7 +21,7 @@ msgstr ""
 msgid ""
 "<div>\n"
 "                <t t-set=\"access_token\" t-value=\"object."
-"rating_get_access_token()\"/>\n"
+"_rating_get_access_token()\"></t>\n"
 "                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" "
 "width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
 "                    <tbody>\n"
@@ -29,9 +29,9 @@ msgid ""
 "                            <td style=\"padding:15px 20px 10px 20px;\">\n"
 "                                <p>Hello,</p>\n"
 "                                <p>Please take a moment to rate our services "
-"related to the ticket \"<strong><t t-out=\"object.number\"/> - <t t-out="
-"\"object.name\"/></strong>\"assigned to <strong><t t-out=\"object."
-"rating_get_rated_partner_id().name\"/></strong>.</p>\n"
+"related to the ticket \"<strong><t t-out=\"object.number\"></t> - <t t-out="
+"\"object.name\"></t></strong>\"assigned to <strong><t t-out=\"object."
+"_rating_get_operator().name\"></t></strong>.</p>\n"
 "                                <p>We appreciate your feedback. It helps us "
 "to improve continuously.</p>\n"
 "                            </td>\n"
@@ -59,7 +59,7 @@ msgid ""
 "rate/{{ access_token }}/5\">\n"
 "                                                            <img alt="
 "\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Satisfied"
-"\"/>\n"
+"\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
@@ -67,7 +67,7 @@ msgid ""
 "rate/{{ access_token }}/3\">\n"
 "                                                            <img alt=\"Not "
 "satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Not satisfied"
-"\"/>\n"
+"\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
@@ -75,7 +75,7 @@ msgid ""
 "rate/{{ access_token }}/1\">\n"
 "                                                            <img alt="
 "\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title="
-"\"Highly Dissatisfied\"/>\n"
+"\"Highly Dissatisfied\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                </tr>\n"
@@ -96,7 +96,7 @@ msgid ""
 "'stage_change'\">\n"
 "                                    <p>This customer survey has been sent "
 "because your ticket has been moved to the stage <b t-out=\"object.stage_id."
-"name\"/></p>\n"
+"name\"></b></p>\n"
 "                                </t>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -111,6 +111,11 @@ msgstr ""
 msgid ""
 "<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentage of "
 "satisfaction\" title=\"Percentage of satisfaction\"/>"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
+msgid "Average Rating"
 msgstr ""
 
 #. module: helpdesk_mgmt_rating
@@ -162,9 +167,9 @@ msgid "Rating"
 msgstr "Valutazione"
 
 #. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
-msgid "Rating Average"
-msgstr "Media valutazioni"
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg_text
+msgid "Rating Avg Text"
+msgstr ""
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -187,6 +192,16 @@ msgid "Rating Last Value"
 msgstr "Ultimo valore valutazione"
 
 #. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_percentage_satisfaction
+msgid "Rating Satisfaction"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_text
+msgid "Rating Text"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
 msgid "Rating count"
 msgstr "Conteggio valutazioni"
@@ -201,11 +216,6 @@ msgstr "Valutazione al cambiamento della fase"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.ticket_view_form_inherit
 msgid "Ratings"
 msgstr "Valutazioni"
-
-#. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
-msgid "Reason of the rating"
-msgstr "Motivo della valutazione"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
@@ -223,11 +233,18 @@ msgid "There are no ratings for this ticket at the moment."
 msgstr "Non ci sono valutazioni per questo ticket al momento."
 
 #. module: helpdesk_mgmt_rating
+#. odoo-python
 #: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
 #: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
 #, python-format
 msgid "Ticket Rating"
 msgstr "Valutazione ticket"
+
+#~ msgid "Rating Average"
+#~ msgstr "Media valutazioni"
+
+#~ msgid "Reason of the rating"
+#~ msgstr "Motivo della valutazione"
 
 #~ msgid ""
 #~ "\n"
