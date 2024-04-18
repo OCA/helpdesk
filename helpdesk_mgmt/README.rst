@@ -9,6 +9,7 @@ Helpdesk Management
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    !! source digest: sha256:cedeb6d130da8d860c927b8bb9da141d744a51997e0294ea4af2f9a0d1e4185d
 =======
    !! source digest: sha256:48389251dbc371abd48db402ff641664390a343a84368aab69c583f8ca80b6d5
@@ -16,6 +17,9 @@ Helpdesk Management
 =======
    !! source digest: sha256:231704619284f176fc8424913015b6b367d796cf92afcdfb8e51fd53526861ef
 >>>>>>> e02e1d09 ([IMP] helpdesk_mgmt: Show error if file size exceeds limit)
+=======
+   !! source digest: sha256:60269d3cee97edabd341a1701342396ed3983148af63d5ed464e2b761c016674
+>>>>>>> edd3492a ([FIX] helpdesk_mgmt: Make frontend js files translatables)
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
@@ -230,14 +234,12 @@ Contributors
 
 -  `Tecnativa <https://www.tecnativa.com>`__:
 
-<<<<<<< HEAD
    -  Pedro M. Baeza
    -  Víctor Martínez
-=======
-  * Pedro M. Baeza
-  * Víctor Martínez
-  * Carolina Fernandez
->>>>>>> 4a4ea152 ([IMP] heldespk_mgmt: Helpdesk stages per teams)
+   -  Pedro M. Baeza
+   -  Víctor Martínez
+   -  Carolina Fernandez
+   -  Carlos Roca
 
 -  `ID42 Sistemas <https://www.id42.com.br>`__:
 
