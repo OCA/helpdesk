@@ -314,7 +314,7 @@ class HelpdeskTicket(models.Model):
                     "composition_mode": "mass_mail",
                     "auto_delete_keep_log": False,
                     "subtype_id": self.env["ir.model.data"]._xmlid_to_res_id(
-                        "mail.mt_note"
+                        "mail.mt_comment"
                     ),
                     "email_layout_xmlid": "mail.mail_notification_light",
                 },
