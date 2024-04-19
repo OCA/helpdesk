@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-12-27 13:35+0000\n"
+"PO-Revision-Date: 2024-04-19 09:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -105,6 +105,92 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"                <t t-set=\"access_token\" t-value=\"object."
+"_rating_get_access_token()\"></t>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" "
+"width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 10px 20px;\">\n"
+"                                <p>Salve,</p>\n"
+"                                <p>chiediamo la cortesia di dedicare qualche "
+"momento per valutare il nostro servizio relativo alla richiesta \"<strong><t "
+"t-out=\"object.number\"></t> - <t t-out=\"object.name\"></t></strong>"
+"\"assegnata a <strong><t t-out=\"object._rating_get_operator().name\""
+"></t></strong>.</p>\n"
+"                                <p>Apprezziamo la sua valutazione. Ci aiuta "
+"a migliorare continuamente.</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:10px 20px\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width"
+":100%; margin: 32px 0px 32px 0px;\">\n"
+"                                    <tr>\n"
+"                                        <td style=\"text-align:center;\">\n"
+"                                            <h2 style=\"font-weight:300;font-"
+"size:18px;\">Tell us how you feel about our service:</h2>\n"
+"                                            <div style=\"text-color: #"
+"888888\">(fare clic su una di questi smile)</div>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td style=\"padding:10px 10px;\">\n"
+"                                            <table style=\"width:100%;text-"
+"align:center;margin-top:2rem;\">\n"
+"                                                <tr>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/5\">\n"
+"                                                            <img alt="
+"\"Soddisfatto\" src=\"/rating/static/src/img/rating_5.png\" title="
+"\"Soddisfatto\">\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/3\">\n"
+"                                                            <img alt=\"Non "
+"soddisfatto\" src=\"/rating/static/src/img/rating_3.png\" title=\"Non "
+"soddisfatto\">\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/1\">\n"
+"                                                            <img alt=\"Molto "
+"inoddisfatto\" src=\"/rating/static/src/img/rating_1.png\" title=\"Molto "
+"inoddisfatto\">\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:auto;text-align:center"
+";font-size:12px;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;color:#afafaf;\">\n"
+"                                <t t-if=\"object.rating_status == "
+"'stage_change'\">\n"
+"                                    <p>Questo sondaggio cliente è stato "
+"inviato perché la sua richiesta è passata allo stato <b t-out=\"object."
+"stage_id.name\"></b></p>\n"
+"                                </t>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
@@ -112,11 +198,13 @@ msgid ""
 "<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentage of "
 "satisfaction\" title=\"Percentage of satisfaction\"/>"
 msgstr ""
+"<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentuale di "
+"soddisfazione\" title=\"Percentuale di soddisfazione\"/>"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
 msgid "Average Rating"
-msgstr ""
+msgstr "Valutazione media"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
@@ -139,7 +227,7 @@ msgstr "Fase ticket Helpdesk"
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,name:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Helpdesk Ticket: Rating Request"
-msgstr ""
+msgstr "Richiesta assistenza: richiesta valutazione"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -169,7 +257,7 @@ msgstr "Valutazione"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg_text
 msgid "Rating Avg Text"
-msgstr ""
+msgstr "Testo valutazione media"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -194,12 +282,12 @@ msgstr "Ultimo valore valutazione"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_percentage_satisfaction
 msgid "Rating Satisfaction"
-msgstr ""
+msgstr "Valutazione soddisfazione"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_text
 msgid "Rating Text"
-msgstr ""
+msgstr "Testo valutazione"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
@@ -221,6 +309,7 @@ msgstr "Valutazioni"
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Satisfaction Survey of the ticket {{object.number}} - {{object.name}}"
 msgstr ""
+"Valutazione di gradimento della richiesta ${object.number} - ${object.name}"
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
