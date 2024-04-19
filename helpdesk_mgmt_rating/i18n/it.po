@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-10 08:37+0000\n"
+"PO-Revision-Date: 2024-04-19 09:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -319,7 +319,8 @@ msgstr "Motivo della valutazione"
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Satisfaction Survey of the ticket ${object.number} - ${object.name}"
-msgstr "Valutazione di gradimento del ticket ${object.number} - ${object.name}"
+msgstr ""
+"Valutazione di gradimento della richiesta ${object.number} - ${object.name}"
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
