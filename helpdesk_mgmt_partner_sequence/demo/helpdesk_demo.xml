@@ -27,32 +27,32 @@
     </record>
     <record id="res_partner_address_1_helpdesk_partner_sequence" model="res.partner">
         <field name="name">Fiscal Address</field>
-        <field name="parent_id" eval="ref('res_partner_helpdesk_partner_sequence')"/>
+        <field name="parent_id" eval="ref('res_partner_helpdesk_partner_sequence')" />
     </record>
     <record id="res_partner_address_2_helpdesk_partner_sequence" model="res.partner">
         <field name="name">Social Address</field>
-        <field name="parent_id" eval="ref('res_partner_helpdesk_partner_sequence')"/>
-        <field name="helpdesk_ticket_sequence_id" ref="helpdesk_partner_sequence_address"/>
+        <field name="parent_id" eval="ref('res_partner_helpdesk_partner_sequence')" />
+        <field name="helpdesk_ticket_sequence_id" ref="helpdesk_partner_sequence_address" />
     </record>
     <!-- Demo tickets with custom sequences -->
     <record id="helpdesk_partner_sequence_ticket_1" model="helpdesk.ticket">
-        <field eval="&quot;Goods not received&quot;" name="name"/>
-        <field eval="&quot;Goods not received&quot;" name="description"/>
-        <field eval="&quot;1&quot;" name="priority"/>
-        <field name="user_id" ref="base.user_root"/>
-        <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new"/>
-        <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web"/>
-        <field name="partner_id" ref="res_partner_helpdesk_partner_sequence"/>
-        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2"/>
+        <field eval="&quot;Goods not received&quot;" name="name" />
+        <field eval="&quot;Goods not received&quot;" name="description" />
+        <field eval="&quot;1&quot;" name="priority" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new" />
+        <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web" />
+        <field name="partner_id" ref="res_partner_helpdesk_partner_sequence" />
+        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
     </record>
     <record id="helpdesk_partner_sequence_ticket_2" model="helpdesk.ticket">
-        <field eval="&quot;Problems with website&quot;" name="name"/>
-        <field eval="&quot;Problems with website&quot;" name="description"/>
-        <field eval="&quot;1&quot;" name="priority"/>
-        <field name="user_id" ref="base.user_root"/>
-        <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new"/>
-        <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web"/>
-        <field name="partner_id" ref="res_partner_address_2_helpdesk_partner_sequence"/>
-        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2"/>
+        <field eval="&quot;Problems with website&quot;" name="name" />
+        <field eval="&quot;Problems with website&quot;" name="description" />
+        <field eval="&quot;1&quot;" name="priority" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_new" />
+        <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_web" />
+        <field name="partner_id" ref="res_partner_address_2_helpdesk_partner_sequence" />
+        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
     </record>
 </odoo>
