@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="view_helpdesk_category_form" model="ir.ui.view">
+    <record id="view_helpdesk_category_form_inherid" model="ir.ui.view">
+        <field name="name">view.helpdesk.category.form.inherit</field>
         <field name="model">helpdesk.ticket.category</field>
-        <field name="name">view.helpdesk.category.form</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
         <field name="arch" type="xml">
-            <xpath expr="//form" position="inside">
-                <field name="company_ids" widget="many2many_tags" />
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='main']" position="after">
+                <field name="company_ids" groups="base.group_multi_company" />
             </xpath>
         </field>
     </record>

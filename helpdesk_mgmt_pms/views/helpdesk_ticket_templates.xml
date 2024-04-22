@@ -109,7 +109,12 @@
                 </select>
                 <label class="col-md-3 col-sm-4 control-label" for="tag">Tag</label>
                 <div class="col-md-7 col-sm-8">
-                    <select class="form-control" id="tag_ids" name="tag_ids">
+                    <select
+                        class="form-control"
+                        id="tag_ids"
+                        name="tag_ids"
+                        required="required"
+                    >
                         <option value="">Selecciona una opción</option>
                         <t t-foreach="tags" t-as="tag">
                             <option t-attf-value="#{tag.id}">
