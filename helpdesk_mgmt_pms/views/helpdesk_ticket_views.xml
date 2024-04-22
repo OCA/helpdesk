@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- View Ticket kanban -->
-    <record id="helpdesk_ticket_view_search_inherid" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.view.search_inherid</field>
+    <record id="helpdesk_ticket_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.search</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
         <field name="arch" type="xml">
@@ -17,14 +16,12 @@
                     name="group_company"
                     domain="[]"
                     context="{'group_by':'company_id'}"
-                    options="{'no_create_edit': True}"
                 />
                 <filter
                     string="Property"
                     name="group_property"
                     domain="[]"
                     context="{'group_by':'property_id'}"
-                    options="{'no_create_edit': True}"
                 />
                 <filter
                     string="Room"
