@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-10 08:37+0000\n"
+"PO-Revision-Date: 2024-04-29 16:35+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr "Crea ordini FSM"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
 msgid "Create Helpdesk Tickets"
-msgstr "Crea ticket helpdesk"
+msgstr "Crea ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__create_uid
@@ -106,12 +106,12 @@ msgstr "Team Helpdesk"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Richiesta assistenza"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.actions.act_window,name:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
 msgid "Helpdesk Tickets"
-msgstr "Richiesta assistenza"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__id
