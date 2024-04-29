@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-10 08:34+0000\n"
+"PO-Revision-Date: 2024-04-29 16:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -914,32 +914,32 @@ msgstr "Cerca team Helpdesk"
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Helpdesk Ticket"
-msgstr "Richiesta assistenza"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr "Categoria ticket Helpdesk"
+msgstr "Categoria ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_channel
 msgid "Helpdesk Ticket Channel"
-msgstr "Canale ticket Helpdesk"
+msgstr "Canale ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Fase ticket Helpdesk"
+msgstr "Fase ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
 msgid "Helpdesk Ticket Tag"
-msgstr "Etichetta ticket Helpdesk"
+msgstr "Etichetta ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Team ticket Helpdesk"
+msgstr "Team ticket assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,description:helpdesk_mgmt.module_helpdesk_category
