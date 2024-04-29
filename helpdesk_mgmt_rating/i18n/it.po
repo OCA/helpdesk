@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-10 08:35+0000\n"
+"PO-Revision-Date: 2024-04-29 16:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -124,12 +124,12 @@ msgstr "Valutazione Cliente"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Richiesta assistenza"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Fase ticket Helpdesk"
+msgstr "Fase ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,name:helpdesk_mgmt_rating.rating_ticket_email_template
