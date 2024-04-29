@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-10 08:35+0000\n"
+"PO-Revision-Date: 2024-04-29 16:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -25,7 +25,7 @@ msgstr "Disponibile per assistenza"
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_product__ticket_active
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_template__ticket_active
 msgid "Available for Helpdesk Tickets"
-msgstr "Disponibile per ticket assistenza"
+msgstr "Disponibile per ticket assistenza clienti"
 
 #. module: helpdesk_product
 #: model_terms:ir.actions.act_window,help:helpdesk_product.product_template_action_helpdesk
@@ -35,7 +35,7 @@ msgstr "Crea un nuovo prodotto"
 #. module: helpdesk_product
 #: model:ir.model,name:helpdesk_product.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Richiesta assistenza"
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_product
 #: model:ir.model,name:helpdesk_product.model_product_template
@@ -62,8 +62,8 @@ msgid ""
 "            <br>\n"
 "                A product can be either a physical product or a service that you sell to your customers."
 msgstr ""
-"Attualmente non ci sono prodotti disponibili per le richieste di assistenza."
-"\n"
+"Attualmente non ci sono prodotti disponibili per i ticket di assistenza "
+"clienti.\n"
 "            <br>\n"
 "                Un prodotto può essere sia un prodotto fisico sia un "
 "servizio che si vende ai clienti."
