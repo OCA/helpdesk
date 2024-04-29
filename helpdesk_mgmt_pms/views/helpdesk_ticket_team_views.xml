@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="view_helpdesk_category_form_inherid" model="ir.ui.view">
-        <field name="name">view.helpdesk.category.form.inherit</field>
-        <field name="model">helpdesk.ticket.category</field>
-        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+    <record id="view_helpdesk_team_form_inherid" model="ir.ui.view">
+        <field name="name">view.helpdesk.team.form.inherit</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='company_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
-            <xpath expr="//field[@name='default_team_id']" position="after">
+            <xpath expr="//field[@name='company_id']" position="after">
                 <field name="company_ids" groups="base.group_multi_company" />
             </xpath>
         </field>
