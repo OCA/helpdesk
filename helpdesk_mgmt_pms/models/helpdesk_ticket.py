@@ -25,13 +25,12 @@ class HelpdeskTicket(models.Model):
     @api.depends("company_id")
     def _onchange_company_id(self):
         if self.company_id:
-            # Utilizar sudo para acceder al modelo pms.property y filtrar por usuario actual
-            propertys = (
+            properties = (
                 self.env["pms.property"]
                 .sudo()
                 .search([("user_ids", "=", self.env.user.id)])
             )
-            property_ids = propertys.ids if propertys else []
+            property_ids = properties.ids if properties else []
             return {"domain": {"property_id": [("id", "in", property_ids)]}}
         else:
             return {"domain": {"property_id": []}}
@@ -39,7 +38,6 @@ class HelpdeskTicket(models.Model):
     @api.depends("property_id")
     def _onchange_property_id(self):
         if self.property_id:
-            # Utilizar sudo para acceder al modelo pms.room y filtrar por pms_property_id
             rooms = (
                 self.env["pms.room"]
                 .sudo()
