@@ -5,11 +5,8 @@
         <field name="model">helpdesk.ticket.category</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='company_id']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//field[@name='default_team_id']" position="after">
-                <field name="company_ids" groups="base.group_multi_company" />
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="pms_property_ids" widget="many2many_tags" />
             </xpath>
         </field>
     </record>
