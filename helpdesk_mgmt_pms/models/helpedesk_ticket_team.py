@@ -8,11 +8,15 @@ class HelpdeskTeam(models.Model):
 
     _inherit = "helpdesk.ticket.team"
 
-    # Sobrescribe el campo company_id cambiándolo a Many2many
-    company_ids = fields.Many2many(
-        comodel_name="res.company",
-        relation="helpdesk_ticket_category_team_rel",
-        column1="category_id",
-        column2="company_id",
-        string="Companys",
+    pms_property_ids = fields.Many2many(
+        string="Properties",
+        help="Properties with access to the element"
+        " if not set, all properties can access",
+        comodel_name="pms.property",
+        relation="helpdesk_ticket_team_pms_property_rel",
+        column1="helpdesk_ticket_team_id",
+        column2="pms_property_id",
+        required=False,
+        ondelete="restrict",
+        check_pms_properties=True,
     )
