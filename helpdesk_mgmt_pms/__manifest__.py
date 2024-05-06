@@ -16,7 +16,6 @@
         "views/helpdesk_ticket_templates.xml",
         "views/helpdesk_ticket_category_views.xml",
         "views/helpdesk_ticket_team_views.xml",
-        "views/helpdesk_ticket_zone.xml",
     ],
     "qweb": ["static/src/xml/*.xml"],
     "application": True,
