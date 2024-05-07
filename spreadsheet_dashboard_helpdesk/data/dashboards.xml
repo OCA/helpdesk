@@ -5,7 +5,7 @@
         <field
             name="data"
             type="base64"
-            file="spreadsheet_dashboard_helpdesk/data/files/helpdesk.json"
+            file="spreadsheet_dashboard_helpdesk/data/files/Helpdesk.json"
         />
         <field
             name="dashboard_group_id"
