@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+
     <record id="spreadsheet_dashboard_helpdesk" model="spreadsheet.dashboard">
         <field name="name">Helpdesk</field>
         <field
@@ -17,4 +18,5 @@
         />
         <field name="sequence">100</field>
     </record>
+
 </odoo>
