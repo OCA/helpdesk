@@ -38,11 +38,6 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: helpdesk_mgmt_timesheet
-#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr "Proyecto Predeterminado"
-
-#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Duration (Hour(s))"
 msgstr "Duración (Hora(s))"

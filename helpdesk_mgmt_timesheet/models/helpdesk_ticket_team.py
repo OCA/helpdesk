@@ -8,10 +8,6 @@ class HelpdeskTicketTeam(models.Model):
     _inherit = "helpdesk.ticket.team"
 
     allow_timesheet = fields.Boolean()
-    default_project_id = fields.Many2one(
-        comodel_name="project.project",
-        string="Default Project",
-    )
 
     @api.constrains("allow_timesheet")
     def _constrains_allow_timesheet(self):
