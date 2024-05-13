@@ -28,13 +28,6 @@ msgid "Analytic Line"
 msgstr "Analitikus sor"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
-msgid "Change the Default Project will not have retroactive effects."
-msgstr ""
-"Az alapértelmezett projekt megváltoztatása nem módosítja visszamenőleg a "
-"bejegyzéseket."
-
-#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Date"
 msgstr ""
@@ -175,3 +168,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 msgid "With ticket"
 msgstr ""
+
+#~ msgid "Change the Default Project will not have retroactive effects."
+#~ msgstr ""
+#~ "Az alapértelmezett projekt megváltoztatása nem módosítja visszamenőleg a "
+#~ "bejegyzéseket."
