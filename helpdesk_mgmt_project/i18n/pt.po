@@ -17,11 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: helpdesk_mgmt_project
-#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
-msgid "Default Project"
-msgstr "Projeto Predefinido"
-
-#. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Gives label to tickets on project's kanban view."
@@ -52,6 +47,7 @@ msgstr "Tickets Abertos"
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
 msgid "Project"
 msgstr "Projeto"
 
@@ -85,3 +81,6 @@ msgstr "Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
 msgstr "Usar Tickets como"
+
+#~ msgid "Default Project"
+#~ msgstr "Projeto Predefinido"
