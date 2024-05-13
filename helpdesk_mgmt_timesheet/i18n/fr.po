@@ -28,11 +28,6 @@ msgid "Analytic Line"
 msgstr "Ligne Analytique"
 
 #. module: helpdesk_mgmt_timesheet
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_team_view_form
-msgid "Change the Default Project will not have retroactive effects."
-msgstr "Modifier le Projet par défaut ne sera pas appliqué rétroactivement."
-
-#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Date"
 msgstr "Date"
@@ -173,6 +168,9 @@ msgstr "Avec une activité aujourd'hui"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 msgid "With ticket"
 msgstr "Avec un ticket"
+
+#~ msgid "Change the Default Project will not have retroactive effects."
+#~ msgstr "Modifier le Projet par défaut ne sera pas appliqué rétroactivement."
 
 #~ msgid "Display Name"
 #~ msgstr "Nom Affiché"
