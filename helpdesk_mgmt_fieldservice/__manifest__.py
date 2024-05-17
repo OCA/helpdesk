@@ -12,6 +12,7 @@
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": [
+        "web",
         "helpdesk_mgmt",
         "fieldservice",
     ],
@@ -23,5 +24,8 @@
         "views/res_partner.xml",
         "wizards/fsm_order_close_wizard.xml",
     ],
+    "assets": {
+        "web.assets_backend": ["/helpdesk_mgmt_fieldservice/static/src/scss/helpdesk_column.scss"],
+        },
     "demo": [],
 }
