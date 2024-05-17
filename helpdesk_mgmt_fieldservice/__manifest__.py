@@ -21,7 +21,7 @@
         "views/helpdesk_ticket_views.xml",
         "views/fsm_location_views.xml",
         "views/fsm_order_views.xml",
-        "views/res_partner.xml",
+        # "views/res_partner.xml",
         "wizards/fsm_order_close_wizard.xml",
     ],
     "assets": {
