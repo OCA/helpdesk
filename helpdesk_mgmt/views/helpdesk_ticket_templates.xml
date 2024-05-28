@@ -25,7 +25,7 @@
         id="portal_my_home"
         name="Portal My Home : ticket entries"
         inherit_id="portal.portal_my_home"
-        priority="40"
+        priority="99"
         customize_show="True"
     >
         <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
