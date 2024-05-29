@@ -1,13 +1,15 @@
-# Copyright (C) 2024 Irlui Ramírez <iramirez.spain@gmail.com> and Oso Tranquilo <informatica@aldahotels.com>
+# Copyright (C) 2024 Irlui Ramírez <iramirez.spain@gmail.com>
 # Copyright (C) 2024 Consultores Hoteleros Integrales <www.aldahotels.es>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "Helpdesk Management PMS",
     "version": "14.0.1.0.0",
     "summary": """ Add the option to select property in the tickets. """,
-    "author": "Irlui Ramirez,Jose Luis Algara,Odoo Community Association (OCA)",
+    "author": "Irlui Ramirez, "
+    "Consultores Hoteleros Integrales, "
+    "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
-    "category": "After-Sales/PMS",
+    "category": "After-Sales",
     "depends": ["base", "web", "pms"],
     "data": [
         "views/helpdesk_ticket_views.xml",
@@ -16,6 +18,6 @@
     "qweb": ["static/src/xml/*.xml"],
     "application": True,
     "installable": True,
-    "auto_install": False,
-    "license": "AGPL-3",
+    "auto_install": True,
+    "license": "LGPL-3",
 }
