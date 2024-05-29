@@ -68,4 +68,14 @@
             </xpath>
         </field>
     </record>
+    <!-- View Form Category -->
+    <record id="view_helpdesk_pms_category_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
 </odoo>
