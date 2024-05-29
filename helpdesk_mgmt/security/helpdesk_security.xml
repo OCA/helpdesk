@@ -98,6 +98,13 @@
                 name="domain_force"
             >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
         </record>
+        <record id="helpdesk_ticket_team_portal_rule" model="ir.rule">
+            <field name="name">Helpdesk Team Portal Rule</field>
+            <field name="model_id" ref="model_helpdesk_ticket_team" />
+            <field name="global" eval="True" />
+            <field name="domain_force">[('show_in_portal','=',True)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]" />
+        </record>
         <record id="helpdesk_ticket_rule_internal_user" model="ir.rule">
             <field name="name">Internal Tickets</field>
             <field name="model_id" ref="model_helpdesk_ticket" />
