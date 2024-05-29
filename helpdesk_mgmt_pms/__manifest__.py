@@ -6,6 +6,7 @@
     "version": "14.0.1.0.0",
     "summary": """ Add the option to select property in the tickets. """,
     "author": "Irlui Ramirez, "
+    "José Luis Algara, "
     "Consultores Hoteleros Integrales, "
     "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
@@ -19,5 +20,5 @@
     "application": True,
     "installable": True,
     "auto_install": True,
-    "license": "LGPL-3",
+    "license": "AGPL-3",
 }
