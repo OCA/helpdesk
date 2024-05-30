@@ -23,6 +23,7 @@
                     filter_domain="['|',('number', 'ilike', self),('name', 'ilike', self)]"
                 />
                 <field name="partner_id" />
+                <field name="commercial_partner_id" />
                 <field name="user_id" />
                 <field name="name" />
                 <field name="tag_ids" />
@@ -95,6 +96,12 @@
                         name="group_partner"
                         domain="[]"
                         context="{'group_by':'partner_id'}"
+                    />
+                    <filter
+                        string="Commercial Entity"
+                        name="group_commercial_partner"
+                        domain="[]"
+                        context="{'group_by':'commercial_partner_id'}"
                     />
                     <filter
                         string="Team"
