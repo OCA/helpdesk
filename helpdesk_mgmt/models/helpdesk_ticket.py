@@ -59,6 +59,11 @@ class HelpdeskTicket(models.Model):
         domain="['|',('team_ids', '=', team_id),('team_ids','=',False)]",
     )
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
+    commercial_partner_id = fields.Many2one(
+        string="Commercial Partner",
+        store=True,
+        related="partner_id.commercial_partner_id",
+    )
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
     last_stage_update = fields.Datetime(default=fields.Datetime.now)
