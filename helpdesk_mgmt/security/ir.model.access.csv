@@ -12,6 +12,7 @@ access_helpdesk_ticket_tag_manager,helpdesk.ticket.tag.manager,model_helpdesk_ti
 access_helpdesk_ticket_tag_user,helpdesk.ticket.tag.user,model_helpdesk_ticket_tag,base.group_user,1,0,0,0
 access_helpdesk_ticket_team_manager,helpdesk.ticket.team.manager,model_helpdesk_ticket_team,group_helpdesk_manager,1,1,1,1
 access_helpdesk_ticket_team_user,helpdesk.ticket.team.user,model_helpdesk_ticket_team,base.group_user,1,0,0,0
+access_helpdesk_ticket_team_portal,helpdesk.ticket.team.portal,model_helpdesk_ticket_team,base.group_portal,1,0,0,0
 access_helpdesk_ticket_channel_manager,helpdesk.ticket.channel.manager,model_helpdesk_ticket_channel,group_helpdesk_manager,1,1,1,1
 access_helpdesk_ticket_channel_user,helpdesk.ticket.channel.user,model_helpdesk_ticket_channel,base.group_user,1,0,0,0
 access_helpdesk_ticket_category_manager,helpdesk.ticket.category.manager,model_helpdesk_ticket_category,group_helpdesk_manager,1,1,1,1
