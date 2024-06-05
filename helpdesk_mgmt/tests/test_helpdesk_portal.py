@@ -2,11 +2,12 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 # import odoo.tests
 from odoo import http
-from odoo.tests.common import new_test_user
+from odoo.tests.common import new_test_user, tagged
 
 from odoo.addons.base.tests.common import HttpCaseWithUserPortal
 
 
+@tagged("post_install", "-at_install")
 class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
     """Test controllers defined for portal mode.
     This is mostly for basic coverage; we don't go as far as fully validating
