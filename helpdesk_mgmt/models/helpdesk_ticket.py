@@ -16,6 +16,12 @@ class HelpdeskTicket(models.Model):
         for ticket in self:
             ticket.stage_id = ticket.team_id._get_applicable_stages()[:1]
 
+    @api.depends("team_id")
+    def _compute_user_id(self):
+        for ticket in self:
+            if not ticket.user_id and ticket.team_id:
+                ticket.user_id = ticket.team_id.alias_user_id
+
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         """Show always the stages without team, or stages of the default team."""
@@ -40,6 +46,9 @@ class HelpdeskTicket(models.Model):
         string="Assigned user",
         tracking=True,
         index=True,
+        compute="_compute_user_id",
+        store=True,
+        readonly=False,
         domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950
     )
     user_ids = fields.Many2many(
