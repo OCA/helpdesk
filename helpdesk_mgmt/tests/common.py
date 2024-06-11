@@ -49,7 +49,7 @@ class TestHelpdeskTicketBase(common.TransactionCase):
         cls.ticket_b_user_team = cls._create_ticket(cls, cls.team_b, cls.user_team)
 
     def _create_ticket(self, team, user=False):
-        return self.env["helpdesk.ticket"].create(
+        ticket = self.env["helpdesk.ticket"].create(
             {
                 "name": "Ticket %s (%s)"
                 % (team.name, user.login if user else "unassigned"),
@@ -59,3 +59,8 @@ class TestHelpdeskTicketBase(common.TransactionCase):
                 "priority": "1",
             }
         )
+        # Since compute/depends method is added on user_id field
+        # it's now necessary to write unassigned user for the tests
+        if not user:
+            ticket.user_id = False
+        return ticket
