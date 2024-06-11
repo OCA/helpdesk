@@ -16,7 +16,7 @@ class HrTimesheetSwitch(models.TransientModel):
             and self.env.context["active_model"] == "helpdesk.ticket"
             and self.env.user
         ):
-            return self.env["account.analytic.line"].search(
+            result = self.env["account.analytic.line"].search(
                 [
                     ("user_id", "=", self.env.user.id),
                     ("ticket_id", "=", self.env.context["active_id"]),
