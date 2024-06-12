@@ -60,6 +60,11 @@ msgid "Helpdesk general project"
 msgstr "Projeto geral do Helpdesk"
 
 #. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
+msgid "Helper to quickly switch between timesheet lines"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
 msgid "Indicate which time control button to show, if any."
 msgstr "Indique qual botão de controle de tempo mostrar, ou nenhum."
