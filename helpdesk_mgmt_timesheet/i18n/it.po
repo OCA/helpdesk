@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-29 16:34+0000\n"
+"PO-Revision-Date: 2024-06-12 21:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -62,7 +62,7 @@ msgstr "Progetto generale Helpdesk"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
 msgid "Helper to quickly switch between timesheet lines"
-msgstr ""
+msgstr "Assistente per spostarsi velocemente tra righe del foglio ore"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
