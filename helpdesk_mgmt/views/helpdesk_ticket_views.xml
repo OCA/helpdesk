@@ -241,7 +241,18 @@
                     </group>
                     <notebook>
                         <page string="Description" name="description">
-                            <field name="description" widget="html" />
+                            <field
+                                name="description"
+                                widget="html"
+                                options="{'collaborative': true, 'resizable': false}"
+                            />
+                            <label for="notes" />
+                            <field
+                                name="notes"
+                                nolabel="1"
+                                type="html"
+                                options="{'collaborative': true, 'resizable': false}"
+                            />
                         </page>
                         <page string="Other Information" name="other_info">
                             <group>
