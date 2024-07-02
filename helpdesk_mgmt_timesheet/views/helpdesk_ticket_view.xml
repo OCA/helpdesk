@@ -150,7 +150,7 @@
                                 required="1"
                                 widget="many2one_avatar_user"
                             />
-                            <field name="name" />
+                            <field name="name" required="0" />
                             <field
                                 name="unit_amount"
                                 string="Duration (Hour(s))"
