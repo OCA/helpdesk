@@ -25,6 +25,8 @@ class CommonHelpdeskMgmtSla(test_helpdesk_ticket.TestHelpdeskTicket):
                 "use_sla": True,
             }
         )
+        cls.stage1.team_ids = [(6, 0, [cls.team1.id, cls.team2.id])]
+        cls.stage2.team_ids = [(6, 0, [cls.team1.id, cls.team2.id])]
         cls.category1 = cls.env["helpdesk.ticket.category"].create(
             {"name": "Category One"}
         )
