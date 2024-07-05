@@ -100,7 +100,7 @@ msgstr "<strong>Ultimo aggiornamento della fase:</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Message and communication history</strong>"
-msgstr "<strong>Cronologia messaggio e cominicazioni</strong>"
+msgstr "<strong>Cronologia messaggio e comunicazioni</strong>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
