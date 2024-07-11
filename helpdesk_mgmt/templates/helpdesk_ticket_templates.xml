@@ -35,19 +35,13 @@
                 <t t-set="url" t-value="'/my/tickets'" />
                 <t t-set="placeholder_count" t-value="'ticket_count'" />
             </t>
-            <form method="POST" t-attf-action="/new/ticket">
-                <input
-                    type="hidden"
-                    name="csrf_token"
-                    t-att-value="request.csrf_token()"
-                />
-                <button
-                    name="create_new_ticket"
-                    type="action"
-                    class="btn btn-primary"
-                    style="float: right; margin-right: 0px; margin-bottom: 5px;"
-                >New Ticket</button>
-            </form>
+            <div class="d-flex pt-1">
+                    <a
+                    type="button"
+                    class="btn btn-primary me-1 flex-grow-1"
+                    href="/new/ticket"
+                >New Ticket</a>
+            </div>
         </xpath>
     </template>
     <template id="portal_my_tickets" name="My Tickets">
@@ -56,47 +50,42 @@
             <t t-call="portal.portal_searchbar">
                 <t t-set="title">Tickets</t>
             </t>
-            <form method="POST" t-attf-action="/new/ticket">
-                <button
-                    name="create_new_ticket"
-                    type="action"
-                    class="btn btn-primary"
-                    style="float: right; margin-right: 0px; margin-bottom: 5px;"
-                >New Ticket</button>
-                <input
-                    type="hidden"
-                    name="csrf_token"
-                    t-att-value="request.csrf_token()"
-                />
-            </form>
             <t t-if="not grouped_tickets">
                 <div class="alert alert-warning mt8" role="alert">
                     <p>No tickets found.</p>
                 </div>
             </t>
+            <div class="d-flex pt-1">
+                    <a
+                    type="button"
+                    class="btn btn-primary me-1 flex-grow-1"
+                    href="/new/ticket"
+                >New Ticket</a>
+            </div>
             <t t-call="helpdesk_mgmt.portal_ticket_list" />
         </t>
     </template>
+    <template
+        id="portal_my_ticket_priority_widget_template"
+        name="Priority Widget Template Ticket"
+    >
+        <span
+            t-attf-class="o_priority_star fa fa-star#{'' if task.priority == '1' else '-o'}"
+            t-attf-title="Priority: {{'Important' if task.priority == '1' else 'Normal'}}"
+        />
+    </template>
     <template id="portal_ticket_list" name="Ticket List">
-        <t t-if="grouped_tickets">
+         <t t-if="grouped_tickets">
             <t t-call="portal.portal_table">
                 <t t-foreach="grouped_tickets" t-as="tickets">
                     <thead>
                         <tr
-                            t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}"
+                            t-attf-class="{{'table-light' if not groupby == 'none' else ''}}"
                         >
-                            <th class="text-left">By</th>
+
                             <th class="text-left">Number</th>
+                            <th class="text-left" />
                             <th t-if="groupby == 'none'">Title</th>
-                            <th t-if="groupby == 'category'">
-                                <em
-                                    class="font-weight-normal text-muted"
-                                >Tickets in category:</em>
-                                <span
-                                    class="text-truncate"
-                                    t-field="tickets[0].sudo().category_id.name"
-                                />
-                            </th>
                             <th t-if="groupby == 'stage'">
                                 <em
                                     class="font-weight-normal text-muted"
@@ -106,21 +95,41 @@
                                     t-field="tickets[0].sudo().stage_id.name"
                                 />
                             </th>
+                            <th t-if="groupby == 'category'">
+                                <em
+                                    class="font-weight-normal text-muted"
+                                >Tickets in category:</em>
+                                <span
+                                    class="text-truncate"
+                                    t-field="tickets[0].sudo().category_id.name"
+                                />
+                            </th>
+                            <th>User</th>
                             <th t-if="groupby != 'category'">Category</th>
-                            <th t-if="groupby != 'stage'">Stage</th>
-                            <th>Create Date</th>
                             <th>Last Stage Update</th>
-                            <th>Close Date</th>
+                            <th t-if="groupby != 'stage'">Stage</th>
                         </tr>
                     </thead>
                     <tbody>
                         <t t-foreach="tickets" t-as="ticket">
-                            <tr>
-                                <td class="text-left">
-                                    <span t-esc="ticket.partner_id.name" />
-                                </td>
+                           <t t-set="state" t-value="ticket.closed" />
+                    <tr
+                                t-attf-class="{{ 'bg-light text-black-25' if (state == True) else '' }}"
+                            >
+
                                 <td class="text-left">
                                     <span t-esc="ticket.number" />
+                                </td>
+                                <td class="text-left">
+                                  <t t-foreach="[0, 1, 2, 3]" t-as="p">
+                                    <t
+                                            t-set="active_star"
+                                            t-value="'yes' if int(ticket.priority) &gt;= p else 'no'"
+                                        />
+                                    <span
+                                            t-attf-class="o_priority_star fa fa-star#{'' if active_star == 'yes' else '-o'}"
+                                        />
+                                  </t>
                                 </td>
                                 <td>
                                     <a
@@ -129,24 +138,35 @@
                                         <span t-field="ticket.name" />
                                     </a>
                                 </td>
+                                <td>
+                                    <div
+                                        t-if="ticket.user_id"
+                                        class="row flex-nowrap ps-3"
+                                    >
+                                        <img
+                                            class="rounded-circle o_portal_contact_img me-2 px-0"
+                                            t-att-src="image_data_uri(ticket.user_id.sudo().avatar_128)"
+                                            alt="User"
+                                            style="width: 20px; height: 20px;"
+                                        />
+                                        <span t-out="ticket.user_id.name" />
+                                    </div>
+                                </td>
                                 <td t-if="groupby != 'category'">
                                     <span t-esc="ticket.category_id.name" />
                                 </td>
-                                <td t-if="groupby != 'stage'">
-                                    <span
-                                        class="badge badge-pill badge-info"
-                                        title="Current stage of the ticket"
-                                        t-esc="ticket.stage_id.name"
-                                    />
-                                </td>
-                                <td>
-                                    <span t-field="ticket.create_date" />
-                                </td>
+
                                 <td>
                                     <span t-field="ticket.last_stage_update" />
                                 </td>
-                                <td>
-                                    <span t-field="ticket.closed_date" />
+                                                               <td
+                                    t-if="groupby != 'stage'"
+                                >
+                                    <span
+                                        t-attf-class="badge #{'text-bg-primary' if ticket.stage_id.fold else 'text-bg-light'}"
+                                        title="Current stage of the ticket"
+                                        t-esc="ticket.stage_id.name"
+                                    />
                                 </td>
                             </tr>
                         </t>
