@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+        <record id="helpdesk_ticket_merge_view_form" model="ir.ui.view">
+            <field name='name'>helpdesk.ticket.merge.form</field>
+            <field name='model'>helpdesk.ticket.merge</field>
+            <field name='arch' type='xml'>
+                <form string='Merge Tickets'>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id" />
+                                <field name="ticket_ids" widget="many2many_tags" />
+                            </group>
+                            <group>
+                                <field name="create_new_ticket" />
+                                <field
+                                name="dst_ticket_name"
+                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                            />
+                                <field
+                                name="dst_helpdesk_team_id"
+                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                            />
+                                <field
+                                name="dst_ticket_id"
+                                attrs="{'invisible': [('create_new_ticket', '=', True)], 'required': [('create_new_ticket', '=', False)]}"
+                            />
+                            </group>
+                        </group>
+                        <span
+                        class="text-muted"
+                    >NB: This will archive the selected tickets (Except the destination ticket)</span>
+                    </sheet>
+                    <footer>
+                        <button
+                        name='merge_tickets'
+                        string='Merge Tickets'
+                        class='oe_highlight'
+                        type='object'
+                    />
+                        <button
+                        special="cancel"
+                        string="Cancel"
+                        type="object"
+                        class="btn btn-default oe_inline"
+                    />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    <record id="action_helpdesk_ticket_merge" model="ir.actions.act_window">
+        <field name="name">Merge Helpdesk Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">helpdesk.ticket.merge</field>
+        <field name="view_mode">form</field>
+        <field name="binding_model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="target">new</field>
+    </record>
+
+</odoo>
