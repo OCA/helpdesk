@@ -1,4 +1,3 @@
-
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=17.0)
 [![Pre-commit Status](https://github.com/OCA/helpdesk/actions/workflows/pre-commit.yml/badge.svg?branch=17.0)](https://github.com/OCA/helpdesk/actions/workflows/pre-commit.yml?query=branch%3A17.0)
 [![Build Status](https://github.com/OCA/helpdesk/actions/workflows/test.yml/badge.svg?branch=17.0)](https://github.com/OCA/helpdesk/actions/workflows/test.yml?query=branch%3A17.0)
@@ -35,3 +34,7 @@ that explains its license.
 OCA, or the [Odoo Community Association](http://odoo-community.org/), is a nonprofit
 organization whose mission is to support the collaborative development of Odoo features
 and promote its widespread use.
+
+---
+
+I have successfully run the `helpdesk_mgmt` module within Odoo 17.0 and added Arabic translations for the module.
