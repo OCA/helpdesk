@@ -1,10 +1,10 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests.common import Form, TransactionCase
 
 
-class TestHelpdeskTicketFSMOrder(SavepointCase):
+class TestHelpdeskTicketFSMOrder(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

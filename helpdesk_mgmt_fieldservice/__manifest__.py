@@ -23,5 +23,10 @@
         "views/res_partner.xml",
         "wizards/fsm_order_close_wizard.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "helpdesk_mgmt_fieldservice/static/src/scss/helpdesk_column.scss",
+        ],
+    },
     "demo": [],
 }
