@@ -4,19 +4,6 @@
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
 <!-- pylint:disable=dangerous-view-replace-wo-priority -->
 <odoo>
-    <template
-        id="shrink_tree_column"
-        name="helpdesk assets"
-        inherit_id="web.assets_backend"
-    >
-        <xpath expr="." position="inside">
-            <link
-                rel="stylesheet"
-                href="/helpdesk_mgmt_fieldservice/static/src/scss/helpdesk_column.scss"
-            />
-        </xpath>
-    </template>
-
     <!-- Helpdesk Ticket Form View -->
     <record id="helpdesk_ticket_view_service_request_form" model="ir.ui.view">
         <field name="name">helpdesk.ticket.service.request.form</field>

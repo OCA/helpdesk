@@ -5,7 +5,7 @@
     "name": "Helpdesk Mgmt Fieldservice",
     "summary": """
         Create service orders from a ticket""",
-    "version": "14.0.1.1.2",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "author": "Open Source Integrators, "
     "Escodoo, "
@@ -20,8 +20,12 @@
         "views/helpdesk_ticket_views.xml",
         "views/fsm_location_views.xml",
         "views/fsm_order_views.xml",
-        "views/res_partner.xml",
         "wizards/fsm_order_close_wizard.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "helpdesk_mgmt_fieldservice/static/src/scss/helpdesk_column.scss",
+        ],
+    },
     "demo": [],
 }

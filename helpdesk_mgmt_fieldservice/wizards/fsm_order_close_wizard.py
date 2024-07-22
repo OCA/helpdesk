@@ -9,7 +9,7 @@ class FSMOrderCloseWizard(models.TransientModel):
     _name = "fsm.order.close.wizard"
     _description = "FSM Close - Option to Close Ticket"
 
-    resolution = fields.Text(string="Resolution")
+    resolution = fields.Text()
     team_id = fields.Many2one("helpdesk.ticket.team", string="Helpdesk Team")
     stage_id = fields.Many2one("helpdesk.ticket.stage", string="Stage")
     ticket_id = fields.Many2one("helpdesk.ticket", string="Ticket")
