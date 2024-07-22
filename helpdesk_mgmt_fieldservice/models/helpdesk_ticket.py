@@ -12,7 +12,7 @@ class HelpdeskTicket(models.Model):
     fsm_order_ids = fields.One2many("fsm.order", "ticket_id", string="Service Orders")
     fsm_location_id = fields.Many2one("fsm.location", string="FSM Location")
     all_orders_closed = fields.Boolean(compute="_compute_all_closed", store=True)
-    resolution = fields.Text(string="Resolution")
+    resolution = fields.Text()
     # these fields are needed to obtain depreciation of onchange in v14
     partner_domain = fields.Integer(compute="_compute_partner_domain")
     all_partners = fields.Boolean(compute="_compute_partner_domain")
