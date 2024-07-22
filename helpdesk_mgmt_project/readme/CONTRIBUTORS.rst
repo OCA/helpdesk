@@ -21,3 +21,5 @@
 * `ALBA Software <https://www.albasoft.com>`_:
 
   * Rafa Morant
+
+* XCG Consulting, part of `Orbeet <https://orbeet.io/>`_
