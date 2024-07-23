@@ -70,7 +70,7 @@ class HelpdeskTicketController(http.Controller):
 
     def _prepare_submit_ticket_vals(self, **kw):
         category = http.request.env["helpdesk.ticket.category"].browse(
-            int(kw.get("category"))
+            int(kw.get("category") or 0)
         )
         company = category.company_id or http.request.env.company
         vals = {
