@@ -147,6 +147,7 @@
                             <field name="date_time" string="Date" required="1" />
                             <field
                                 name="user_id"
+                                domain="[('company_id','=',company_id)]"
                                 required="1"
                                 widget="many2one_avatar_user"
                             />
