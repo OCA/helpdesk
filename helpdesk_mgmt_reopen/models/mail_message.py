@@ -9,21 +9,11 @@ from odoo import api, models
 class MailMessage(models.Model):
     _inherit = "mail.message"
 
-    def is_production_env(self):
-        """Used to determine how we will treat comments.
-        It is useful because we can't (easily) mock
-        incoming emails in testing environnements
-        It needs to be implemented"""
-        return True
-
     @api.model
     def is_reopener_message(self, vals):
         if not vals.get("model") == "helpdesk.ticket":
             return False
         if vals.get("message_type") == "notification":
-            return False
-        # We need to use comments in non-prod env for testing purposes
-        if self.is_production_env() and vals.get("message_type") == "comment":
             return False
         return True
 

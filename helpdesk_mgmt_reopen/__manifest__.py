@@ -10,6 +10,7 @@
     "summary": "Auto Helpdesk Reopen",
     "license": "AGPL-3",
     "author": "Odoo Community Association (OCA), OERP, Coop IT Easy SCRLfs, Akretion",
+    "maintainers": ["nayatec"],
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "installable": True,

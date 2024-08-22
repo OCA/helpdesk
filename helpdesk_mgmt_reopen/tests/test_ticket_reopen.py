@@ -2,7 +2,6 @@
 # @author Olivier Nibart <olivier.nibart@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from unittest import mock
 
 from odoo.tests.common import SavepointCase
 
@@ -29,7 +28,7 @@ class TestTicketReopen(SavepointCase):
     def test_is_reopener_message(self):
         vals = {
             "model": "not helpdesk.ticket",
-            "message_type": "not comment or notification",
+            "message_type": "not notification",
         }
         self.assertFalse(self.MailMessage.is_reopener_message(vals))
         vals = {
@@ -39,22 +38,7 @@ class TestTicketReopen(SavepointCase):
         self.assertFalse(self.MailMessage.is_reopener_message(vals))
         vals = {
             "model": "helpdesk.ticket",
-            "message_type": "comment",
-        }
-        # type comment in production is not a reopener
-        self.assertTrue(self.MailMessage.is_production_env())
-        self.assertFalse(self.MailMessage.is_reopener_message(vals))
-        # type comment not in production is a reopener
-        with mock.patch.object(
-            type(self.MailMessage),
-            "is_production_env",
-            return_value=False,
-        ):
-            self.assertFalse(self.MailMessage.is_production_env())
-            self.assertTrue(self.MailMessage.is_reopener_message(vals))
-        vals = {
-            "model": "helpdesk.ticket",
-            "message_type": "not comment or notification",
+            "message_type": "not notification",
         }
         self.assertTrue(self.MailMessage.is_reopener_message(vals))
 
