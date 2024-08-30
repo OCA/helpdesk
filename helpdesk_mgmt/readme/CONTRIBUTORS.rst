@@ -46,3 +46,7 @@
 * `XCG Consulting <https://xcg-consulting.fr>`_:
 
   * Houzéfa Abbasbhay
+
+* `Mind And Go <https://mind-and-go.com>`_:
+
+  * Florent THOMAS

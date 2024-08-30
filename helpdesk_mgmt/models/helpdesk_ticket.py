@@ -22,6 +22,10 @@ class HelpdeskTicket(models.Model):
             if not ticket.user_id and ticket.team_id:
                 ticket.user_id = ticket.team_id.alias_user_id
 
+    @api.depends("stage_id", "team_id")
+    def _compute_kanban_state(self):
+        self.kanban_state = "normal"
+
     @api.model
     def _read_group_stage_ids(self, stages, domain, order):
         """Show always the stages without team, or stages of the default team."""
@@ -41,6 +45,7 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
+    notes = fields.Html(string="Internal notes")
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Assigned user",
@@ -124,6 +129,12 @@ class HelpdeskTicket(models.Model):
             ("done", "Ready for next stage"),
             ("blocked", "Blocked"),
         ],
+        compute="_compute_kanban_state",
+        copy=False,
+        default="normal",
+        required=True,
+        readonly=False,
+        store=True,
     )
     sequence = fields.Integer(
         index=True,

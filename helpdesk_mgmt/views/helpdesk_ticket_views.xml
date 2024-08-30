@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8' ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record
         id="action_helpdesk_ticket_kanban_from_dashboard"
@@ -127,7 +127,42 @@
                         domain="[]"
                         context="{'group_by':'tag_ids'}"
                     />
+                    <filter
+                        string="Kanban State"
+                        name="kanban_state"
+                        context="{'group_by': 'kanban_state'}"
+                    />
                 </group>
+                <searchpanel>
+                    <field
+                        name="team_id"
+                        string="Team"
+                        icon="fa-users"
+                        enable_counters="1"
+                        select="multi"
+                    />
+                    <field
+                        name="category_id"
+                        string="Category"
+                        icon="fa-folder"
+                        enable_counters="1"
+                        select="multi"
+                    />
+                    <field
+                        name="kanban_state"
+                        string="Kanban State"
+                        icon="fa-folder"
+                        enable_counters="1"
+                        select="multi"
+                    />
+                    <field
+                        name="commercial_partner_id"
+                        string="Commercial Entity"
+                        icon="fa-building"
+                        enable_counters="1"
+                        select="multi"
+                    />
+                </searchpanel>
             </search>
         </field>
     </record>
@@ -158,21 +193,31 @@
                     />
                     <div class="oe_button_box" name="button_box">
                     </div>
-                    <div class="oe_title">
-                        <h1 class="oe_title">
-                            <field name="number" />
+                    <field name="priority" widget="priority" class="me-3" />
+                    <div class="oe_title pe-0">
+                        <h1 class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex w-100">
+                                <field name="number" class="oe_inline" />
+                                <span class="oe_inline"> - </span>
+                                <field
+                                    name="name"
+                                    class="o_task_name text-truncate w-100 w-md-75 pe-2"
+                                    placeholder="Ticket Title"
+                                />
+                            </div>
+                            <field
+                                name="kanban_state"
+                                class="oe_inline"
+                                widget="state_selection"
+                            />
                         </h1>
-                        <h2 class="o_row">
-                            <field name="name" />
-                        </h2>
                     </div>
                     <group name="main">
                         <group>
                             <field name="active" invisible="1" />
-                            <field name="team_id" options='{"always_reload": True}' />
+                            <field name="team_id" options="{'always_reload': True}" />
                             <field name="user_ids" invisible="1" readonly="1" />
-                            <field name="user_id" options='{"always_reload": True}' />
-                            <field name="priority" widget="priority" />
+                            <field name="user_id" options="{'always_reload': True}" />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
@@ -180,6 +225,7 @@
                             />
                             <field name="create_date" readonly="1" />
                             <field name="channel_id" />
+                            <field name="kanban_state" widget="state_selection" />
                         </group>
                         <group>
                             <field name="partner_id" />
@@ -191,18 +237,29 @@
                                 widget="many2many_tags"
                                 options="{'no_create_edit': True, 'color_field': 'color',}"
                             />
-                            <field name="sequence" groups="base.group_no_one" />
                         </group>
                     </group>
                     <notebook>
                         <page string="Description" name="description">
-                            <field name="description" widget="html" />
+                            <field
+                                name="description"
+                                widget="html"
+                                options="{'collaborative': true, 'resizable': false}"
+                            />
+                            <label for="notes" />
+                            <field
+                                name="notes"
+                                nolabel="1"
+                                type="html"
+                                options="{'collaborative': true, 'resizable': false}"
+                            />
                         </page>
                         <page string="Other Information" name="other_info">
                             <group>
                                 <field name="last_stage_update" readonly="1" />
                                 <field name="assigned_date" readonly="1" />
                                 <field name="closed_date" readonly="1" />
+                                <field name="sequence" groups="base.group_no_one" />
                             </group>
                         </page>
                     </notebook>
@@ -258,6 +315,7 @@
                     decoration-info="unattended == True"
                     decoration-muted="closed == True"
                 />
+                <field name="kanban_state" widget="state_selection" optional="hide" />
             </tree>
         </field>
     </record>
