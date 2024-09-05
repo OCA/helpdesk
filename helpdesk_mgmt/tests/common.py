@@ -14,6 +14,7 @@ class TestHelpdeskTicketBase(common.TransactionCase):
             "mail_notrack": True,
             "no_reset_password": True,
         }
+        cls.company = cls.env.company
         cls.user_own = new_test_user(
             cls.env,
             login="helpdesk_mgmt-user_own",
