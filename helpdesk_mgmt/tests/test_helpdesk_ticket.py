@@ -9,6 +9,56 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         super().setUpClass()
         cls.ticket = cls.ticket_a_unassigned
 
+    def test_helpdesk_ticket_team_company(self):
+        ticket_a = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test ticket A",
+                "team_id": self.team_a.id,
+                "description": "description",
+            }
+        )
+        self.assertEqual(ticket_a.company_id, self.company)
+        self.team_b.company_id = False
+        ticket_b = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test ticket b",
+                "team_id": self.team_b.id,
+                "description": "description",
+            }
+        )
+        self.assertEqual(ticket_b.company_id, self.company)
+
+    def test_helpdesk_ticket_team_company_extra(self):
+        company = self.env["res.company"].create({"name": "Test company"})
+        team = self.env["helpdesk.ticket.team"].create(
+            {"name": "Test team", "company_id": False}
+        )
+        ticket = (
+            self.env["helpdesk.ticket"]
+            .with_company(company)
+            .create(
+                {
+                    "name": "Test ticket",
+                    "team_id": team.id,
+                    "description": "description",
+                }
+            )
+        )
+        self.assertEqual(ticket.company_id, company)
+        team.company_id = self.company
+        ticket = (
+            self.env["helpdesk.ticket"]
+            .with_company(company)
+            .create(
+                {
+                    "name": "Test ticket",
+                    "team_id": team.id,
+                    "description": "description",
+                }
+            )
+        )
+        self.assertEqual(ticket.company_id, self.company)
+
     def test_helpdesk_ticket_datetimes(self):
         old_stage_update = self.ticket.last_stage_update
         self.assertTrue(
