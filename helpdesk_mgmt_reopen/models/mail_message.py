@@ -29,4 +29,4 @@ class MailMessage(models.Model):
                         [], order="sequence", limit=1
                     )
                     ticket.stage_id = stage
-        return super(MailMessage, self).create(vals)
+        return super().create(vals)
