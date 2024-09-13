@@ -7,7 +7,7 @@
         <field eval="&quot;2&quot;" name="priority" />
         <field name="user_id" ref="base.user_root" />
         <field name="partner_id" ref="base.res_partner_10" />
-        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
+        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2_demo" />
         <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_in_progress" />
         <field name="product_id" ref="product.product_product_10" />
     </record>
@@ -17,7 +17,7 @@
         <field eval="&quot;1&quot;" name="priority" />
         <field name="channel_id" ref="helpdesk_mgmt.helpdesk_ticket_channel_other" />
         <field name="user_id" ref="base.user_root" />
-        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2" />
+        <field name="team_id" ref="helpdesk_mgmt.helpdesk_team_2_demo" />
         <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_awaiting" />
         <field name="product_id" ref="product.product_product_9" />
     </record>
