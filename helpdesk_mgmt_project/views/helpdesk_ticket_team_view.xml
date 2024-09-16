@@ -5,7 +5,7 @@
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='alias_user_id']" position="after">
-                <field name="default_project_id" />
+                <field name="default_project_id" groups="project.group_project_user" />
             </xpath>
         </field>
     </record>
