@@ -11,6 +11,7 @@
                     icon="fa-file"
                     name="%(ticket_action_from_project)d"
                     context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
                 </button>
@@ -22,8 +23,14 @@
         <field name="inherit_id" ref="project.view_project_kanban" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='task_count']" position="after">
-                <field name="ticket_count" />
-                <field name="label_tickets" />
+                <field
+                    name="ticket_count"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
+                <field
+                    name="label_tickets"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
             </xpath>
             <xpath expr="//a[hasclass('o_project_kanban_box')]" position="after">
                 <a
@@ -31,6 +38,7 @@
                     name="%(ticket_action_from_project)d"
                     type="action"
                     context="{'search_default_project_id': active_id, 'default_project_id': active_id}"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <div>
                         <span class="o_value">
@@ -53,6 +61,7 @@
                     string="Open Tickets"
                     name="open_tickets"
                     domain="[('todo_ticket_count', '&gt;', 0)]"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
                 />
             </xpath>
         </field>
