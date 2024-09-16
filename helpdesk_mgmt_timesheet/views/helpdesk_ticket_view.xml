@@ -117,9 +117,6 @@
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </div>
-            <xpath expr="//field[@name='partner_email']" position="after">
-                <field name="allow_timesheet" invisible="1" />
-            </xpath>
             <xpath expr="//page[@name='description']" position="after">
                 <page
                     string="Timesheets"
@@ -262,6 +259,9 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt_project.ticket_view_form" />
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_email']" position="after">
+                <field name="allow_timesheet" invisible="1" />
+            </xpath>
             <field name="project_id" position="attributes">
                 <attribute
                     name="attrs"
