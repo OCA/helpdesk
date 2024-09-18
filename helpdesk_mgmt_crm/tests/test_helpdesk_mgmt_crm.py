@@ -23,7 +23,9 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
         cls.team = cls.env["crm.team"].create(
             {"name": "Test team", "member_ids": [(6, 0, [cls.user2.id])]}
         )
-        cls.team.message_subscribe(partner_ids=[cls.user2.partner_id.id],)
+        cls.team.message_subscribe(
+            partner_ids=[cls.user2.partner_id.id],
+        )
         cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test ticket",

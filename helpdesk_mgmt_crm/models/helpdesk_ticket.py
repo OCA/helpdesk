@@ -8,7 +8,9 @@ class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     lead_ids = fields.One2many(
-        comodel_name="crm.lead", inverse_name="ticket_id", string="Opportunity(ies)",
+        comodel_name="crm.lead",
+        inverse_name="ticket_id",
+        string="Opportunity(ies)",
     )
     lead_count = fields.Integer(
         compute="_compute_lead_count", string="Opportunity Count"
@@ -17,7 +19,9 @@ class HelpdeskTicket(models.Model):
     @api.depends("lead_ids")
     def _compute_lead_count(self):
         lead_data = self.env["crm.lead"].read_group(
-            [("ticket_id", "in", self.ids)], ["ticket_id"], ["ticket_id"],
+            [("ticket_id", "in", self.ids)],
+            ["ticket_id"],
+            ["ticket_id"],
         )
         mapped_data = {t["ticket_id"][0]: t["ticket_id_count"] for t in lead_data}
         for item in self:
