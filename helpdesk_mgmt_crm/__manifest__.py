@@ -3,14 +3,14 @@
 {
     "name": "Link between Helpdesk and CRM",
     "summary": "Links helpdesk tickets with leads",
-    "version": "13.0.1.0.1",
+    "version": "15.0.1.0.1",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["helpdesk_mgmt", "crm"],
-    "external_dependencies": {"python": ["html2text"]},
     "data": [
+        "security/ir.model.access.csv",
         "wizard/helpdesk_ticket_create_lead_views.xml",
         "views/crm_lead_view.xml",
         "views/helpdesk_ticket_view.xml",
