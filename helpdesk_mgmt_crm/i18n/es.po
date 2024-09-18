@@ -57,12 +57,12 @@ msgstr "Fecha a mostrar"
 #: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_crm_lead__ticket_id
 msgid "Helpdesk Ticket"
-msgstr "Ticket Helpdesk"
+msgstr "Solicitud de asistencia"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket_create_lead
 msgid "Helpdesk Ticket Create Lead"
-msgstr "Creación de lead desde ticket"
+msgstr "Crear oportunidad desde solicitud de asistencia"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__id
@@ -109,16 +109,16 @@ msgstr "Equipo"
 #: code:addons/helpdesk_mgmt_crm/wizard/helpdesk_ticket_create_lead.py:0
 #, python-format
 msgid ""
-"This ticket has been converted to the opportunity <a href=# data-oe-model="
-"%(model)s data-oe-id=%(id)s>%(name)s</a>"
+"This ticket has been converted to the opportunity <a href=# data-oe-"
+"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
 msgstr ""
-"Este ticket se ha convertido en la oportunidad <a href=# data-oe-model="
-"%(model)s data-oe-id=%(id)s>%(name)s</a>"
+"Esta solicitud se ha convertido en la oportunidad <a href=# data-oe-"
+"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__ticket_id
 msgid "Ticket"
-msgstr "Ticket"
+msgstr "Solicitud"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__user_id
