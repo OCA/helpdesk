@@ -1,6 +1,5 @@
 # Copyright 2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-import html2text
 
 from odoo import SUPERUSER_ID, _, api, fields, models
 
@@ -33,7 +32,7 @@ class HelpdeskTicketCreateLead(models.TransientModel):
             "partner_id": self.ticket_id.partner_id.id,
             "user_id": self.user_id.id or self.ticket_id.user_id.id,
             "team_id": self.team_id.id,
-            "description": html2text.html2text(self.ticket_id.description),
+            "description": self.ticket_id.description,
             "type": "opportunity",
         }
 
