@@ -1,13 +1,12 @@
 # Copyright 2022 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import html2text
 
 from odoo.tests import common
 from odoo.tests.common import new_test_user, users
 
 
-class TestHelpdeskMgmtCrm(common.SavepointCase):
+class TestHelpdeskMgmtCrm(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -42,7 +41,7 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
             subtype_ids=[self.env.ref("mail.mt_comment").id],
         )
         # pylint: disable=translation-required
-        self.ticket.message_post(body="Ejemplo", subtype="mail.mt_comment")
+        self.ticket.message_post(body="Ejemplo", subtype_xmlid="mail.mt_comment")
         self.assertIn(
             self.ticket.partner_id,
             self.ticket.mapped("message_follower_ids.partner_id"),
@@ -61,10 +60,7 @@ class TestHelpdeskMgmtCrm(common.SavepointCase):
         self.assertEqual(self.ticket.name, self.ticket.lead_ids.name)
         self.assertEqual(self.ticket.partner_id, self.ticket.lead_ids.partner_id)
         self.assertEqual(self.ticket.user_id, self.ticket.lead_ids.user_id)
-        self.assertEqual(
-            html2text.html2text(self.ticket.description),
-            self.ticket.lead_ids.description,
-        )
+        self.assertEqual(self.ticket.description, self.ticket.lead_ids.description)
         self.assertGreater(len(self.ticket.lead_ids.message_ids), len(old_messages))
         self.assertGreater(len(self.ticket.message_ids), len(old_messages))
         self.assertIn(
