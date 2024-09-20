@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-09 06:40+0000\n"
+"PO-Revision-Date: 2022-09-09 08:41+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: helpdesk_mgmt_crm
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: helpdesk_mgmt_crm
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.ticket_view_form
+msgid "Convert to opportunity"
+msgstr "Convertir a oportunidad"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.actions.act_window,name:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_action
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
+msgid "Create Lead"
+msgstr "Crear Oportunidad"
+
+#. module: helpdesk_mgmt_crm
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
+msgid "Create opportunity"
+msgstr "Crear oportunidad"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__display_name
+msgid "Display Name"
+msgstr "Fecha a mostrar"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_crm_lead__ticket_id
+msgid "Helpdesk Ticket"
+msgstr "Solicitud de asistencia"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket_create_lead
+msgid "Helpdesk Ticket Create Lead"
+msgstr "Crear oportunidad desde solicitud de asistencia"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__write_date
+msgid "Last Updated on"
+msgstr "Actualizado el"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model,name:helpdesk_mgmt_crm.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__lead_count
+msgid "Opportunity Count"
+msgstr "Total oportunidades"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__lead_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.ticket_view_form
+msgid "Opportunity(ies)"
+msgstr "Oportunidad(es)"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__team_id
+msgid "Team"
+msgstr "Equipo"
+
+#. module: helpdesk_mgmt_crm
+#: code:addons/helpdesk_mgmt_crm/wizard/helpdesk_ticket_create_lead.py:0
+#, python-format
+msgid ""
+"This ticket has been converted to the opportunity <a href=# data-oe-model="
+"%(model)s data-oe-id=%(id)s>%(name)s</a>"
+msgstr ""
+"Esta solicitud se ha convertido en la oportunidad <a href=# data-oe-model="
+"%(model)s data-oe-id=%(id)s>%(name)s</a>"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__ticket_id
+msgid "Ticket"
+msgstr "Solicitud"
+
+#. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__user_id
+msgid "User"
+msgstr "Usuario"
