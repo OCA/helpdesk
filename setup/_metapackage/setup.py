@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo-addon-helpdesk_mgmt_crm>=15.0dev,<15.1dev',
         'odoo-addon-helpdesk_mgmt_project>=15.0dev,<15.1dev',
         'odoo-addon-helpdesk_mgmt_rating>=15.0dev,<15.1dev',
+        'odoo-addon-helpdesk_mgmt_sale>=15.0dev,<15.1dev',
         'odoo-addon-helpdesk_mgmt_timesheet>=15.0dev,<15.1dev',
         'odoo-addon-helpdesk_mgmtsystem_nonconformity>=15.0dev,<15.1dev',
         'odoo-addon-helpdesk_motive>=15.0dev,<15.1dev',
