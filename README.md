@@ -27,7 +27,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 14.0.1.3.0 |  | This module allows customer to rate the assistance received on a ticket.
 [helpdesk_mgmt_sla](helpdesk_mgmt_sla/) | 14.0.2.0.1 |  | Add SLA to the tickets for Helpdesk Management.
 [helpdesk_mgmt_stage_validation](helpdesk_mgmt_stage_validation/) | 14.0.1.0.0 |  | Validate input data when reaching a Helpdesk Ticket stage
-[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 14.0.1.2.1 |  | Add HR Timesheet to the tickets for Helpdesk Management.
+[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 14.0.1.3.0 |  | Add HR Timesheet to the tickets for Helpdesk Management.
 [helpdesk_motive](helpdesk_motive/) | 14.0.1.0.3 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Keep the motive
 [helpdesk_type](helpdesk_type/) | 14.0.1.0.2 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
 [helpdesk_type_sla](helpdesk_type_sla/) | 14.0.1.0.0 |  | Helpdesk Type SLA
