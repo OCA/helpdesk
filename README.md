@@ -26,7 +26,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 15.0.2.0.0 |  | Add the option to select project in the tickets.
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 15.0.1.0.0 |  | This module allows customer to rate the assistance received on a ticket.
 [helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 15.0.1.0.0 |  | Add the option to select project in the sale orders.
-[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 15.0.1.0.0 |  | Add HR Timesheet to the tickets for Helpdesk Management.
+[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 15.0.1.1.0 |  | Add HR Timesheet to the tickets for Helpdesk Management.
 [helpdesk_mgmtsystem_nonconformity](helpdesk_mgmtsystem_nonconformity/) | 15.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with nonconformities
 [helpdesk_motive](helpdesk_motive/) | 15.0.1.0.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Keep the motive
 [helpdesk_type](helpdesk_type/) | 15.0.1.1.0 | [![nelsonramirezs](https://github.com/nelsonramirezs.png?size=30px)](https://github.com/nelsonramirezs) [![max3903](https://github.com/max3903.png?size=30px)](https://github.com/max3903) | Add a type to your tickets
