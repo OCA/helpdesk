@@ -6,52 +6,54 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-09-26 14:06+0000\n"
+"Last-Translator: jakobkrabbe <jakob@syscare.se>\n"
 "Language-Team: none\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: helpdesk_product
 #: model_terms:ir.ui.view,arch_db:helpdesk_product.product_template_search_view_helpdesk
 msgid "Available for Helpdesk"
-msgstr ""
+msgstr "Tillgänglig för Helpdesk"
 
 #. module: helpdesk_product
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_product__ticket_active
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_template__ticket_active
 msgid "Available for Helpdesk Tickets"
-msgstr ""
+msgstr "Tillgänglig för Helpdesk-ärenden"
 
 #. module: helpdesk_product
 #: model_terms:ir.actions.act_window,help:helpdesk_product.product_template_action_helpdesk
 msgid "Create a new product"
-msgstr ""
+msgstr "Skapa en ny produkt"
 
 #. module: helpdesk_product
 #: model:ir.model,name:helpdesk_product.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Helpdesk-ärende"
 
 #. module: helpdesk_product
 #: model:ir.model,name:helpdesk_product.model_product_template
 #: model:ir.model.fields,field_description:helpdesk_product.field_helpdesk_ticket__product_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_product.helpdesk_ticket_view_search
 msgid "Product"
-msgstr ""
+msgstr "Produkt"
 
 #. module: helpdesk_product
 #: model_terms:ir.ui.view,arch_db:helpdesk_product.helpdesk_ticket_view_search
 msgid "Product Related"
-msgstr ""
+msgstr "Produktrelaterad"
 
 #. module: helpdesk_product
 #: model:ir.actions.act_window,name:helpdesk_product.product_template_action_helpdesk
 #: model:ir.ui.menu,name:helpdesk_product.action_menu_view_products
 msgid "Products"
-msgstr ""
+msgstr "Produkter"
 
 #. module: helpdesk_product
 #: model_terms:ir.actions.act_window,help:helpdesk_product.product_template_action_helpdesk
@@ -60,3 +62,7 @@ msgid ""
 "            <br>\n"
 "                A product can be either a physical product or a service that you sell to your customers."
 msgstr ""
+"Just nu har du inga produkter tillgängliga för Helpdesk-ärenden.\n"
+"            <br>\n"
+"                En produkt kan vara antingen en fysisk produkt eller en "
+"tjänst som du säljer till dina kunder."
