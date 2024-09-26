@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_partner_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model,name:helpdesk_mgmt_partner_sequence.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model,name:helpdesk_mgmt_partner_sequence.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_number_next
+#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_number_next
+msgid "Helpdesk Ticket Next Number"
+msgstr ""
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_id
+msgid "Helpdesk Ticket Sequence"
+msgstr ""
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_number_next
+#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_number_next
+msgid ""
+"The next sequence number will be used for the next ticket of this partner."
+msgstr ""
+
+#. module: helpdesk_mgmt_partner_sequence
+#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_partner__helpdesk_ticket_sequence_id
+#: model:ir.model.fields,help:helpdesk_mgmt_partner_sequence.field_res_users__helpdesk_ticket_sequence_id
+msgid ""
+"This field contains the information related to the numbering of the tickets "
+"of this partner."
+msgstr ""
