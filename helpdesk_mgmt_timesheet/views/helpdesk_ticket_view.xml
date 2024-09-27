@@ -262,11 +262,12 @@
             <xpath expr="//field[@name='partner_email']" position="after">
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
-            <field name="project_id" position="attributes">
+            <!-- It is important to apply the required attrs to the field which has groups !-->
+            <xpath expr="//field[@name='project_id'][2]" position="attributes">
                 <attribute
                     name="attrs"
                 >{'required': [('allow_timesheet', '=', True)]}</attribute>
-            </field>
+            </xpath>
         </field>
     </record>
 </data>
