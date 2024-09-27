@@ -12,7 +12,7 @@
         <field name="arch" type="xml">
             <xpath expr="//group[@name='sale_reporting']" position="after">
                 <group name="heldesk_info" string="Helpdesk">
-                    <field name="ticket_id" />
+                    <field name="ticket_ids" widget="many2many_tags" />
                 </group>
             </xpath>
         </field>

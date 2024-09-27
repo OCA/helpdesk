@@ -20,13 +20,13 @@ class TestHelpdeskTicketSale(TransactionCase):
         cls.sale_order_1 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_id": cls.ticket.id,
+                "ticket_ids": [(6, 0, [cls.ticket.id])],  # Adaptación a Many2many
             }
         )
         cls.sale_order_2 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_id": cls.ticket.id,
+                "ticket_ids": [(6, 0, [cls.ticket.id])],  # Adaptación a Many2many
             }
         )
 
@@ -49,5 +49,7 @@ class TestHelpdeskTicketSale(TransactionCase):
     def test_action_view_sale_orders(self):
         # Verify that the smartbutton action displays the associated orders correctly.
         action = self.ticket.action_view_sale_orders()
-        self.assertEqual(action["domain"], [("ticket_id", "=", self.ticket.id)])
-        self.assertEqual(action["context"]["default_ticket_id"], self.ticket.id)
+        self.assertEqual(action["domain"], [("ticket_ids", "in", [self.ticket.id])])
+        self.assertEqual(
+            action["context"]["default_ticket_ids"], [(4, [self.ticket.id])]
+        )
