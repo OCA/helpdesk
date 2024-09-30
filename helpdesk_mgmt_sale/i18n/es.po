@@ -47,6 +47,6 @@ msgid "Sales Order"
 msgstr "Pedidos"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
 msgid "Ticket"
 msgstr "Solicitud"
