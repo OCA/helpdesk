@@ -20,13 +20,13 @@ class TestHelpdeskTicketSale(TransactionCase):
         cls.sale_order_1 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],  # Adaptación a Many2many
+                "ticket_ids": [(6, 0, [cls.ticket.id])],
             }
         )
         cls.sale_order_2 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],  # Adaptación a Many2many
+                "ticket_ids": [(6, 0, [cls.ticket.id])],
             }
         )
 
