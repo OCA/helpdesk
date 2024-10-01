@@ -15,11 +15,18 @@
                     name="action_view_sale_orders"
                     type="object"
                     class="oe_stat_button"
-                    icon="fa-ticket"
+                    icon="fa-dollar"
                 >
                     <field string="Sale Orders" name="so_count" widget="statinfo" />
                 </button>
             </xpath>
         </field>
+    </record>
+    <record id="action_helpdesk_ticket" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('sale_order_ids', 'in', active_id)]</field>
+        <field name="context">{'default_sale_order_ids': [(4, active_id)]}</field>
     </record>
 </odoo>
