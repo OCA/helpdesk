@@ -15,6 +15,17 @@
                     <field name="ticket_ids" widget="many2many_tags" />
                 </group>
             </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="%(action_helpdesk_ticket)d"
+                    type="action"
+                    class="btn btn-primary"
+                    icon="fa-ticket"
+                    context="{'default_sale_order_ids': [(4, id)]}"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
         </field>
     </record>
 </odoo>
