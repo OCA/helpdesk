@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-10-04 16:20+0000\n"
+"PO-Revision-Date: 2024-10-04 16:27+0000\n"
 "Last-Translator: Tamás Dombos <tdombos@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -33,12 +33,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
 msgstr ""
-"<em class=\"font-weight-normal text-muted\">Esetek ebben az állapotbann:</em>"
+"<em class=\"font-weight-normal text-muted\">Esetek ebben a szakaszban:</em>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-right\">Stage:</small>"
-msgstr "<small class=\"text-right\">Állapot:</small>"
+msgstr "<small class=\"text-right\">Szakasz:</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -83,7 +83,7 @@ msgstr "<strong>Leírás</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Last Stage Update:</strong>"
-msgstr "<strong>Utolsó állapot frissítés:</strong>"
+msgstr "<strong>Utolsó szakasz frissítés:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -330,8 +330,7 @@ msgstr ""
 "                                <p>Kedves <t t-out=\"object.partner_id.name "
 "or object.partner_name\"/>!</p>\n"
 "                                <p>A(z) \"<t t-out=\"object.display_name\"/>"
-"\" eset állapota a következőre változott: <t t-out=\"object.stage_id.name\""
-"/>.</p>\n"
+"\" eset ebbe a szakaszba került: <t t-out=\"object.stage_id.name\"/>.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
 "                          </table>\n"
@@ -663,12 +662,12 @@ msgstr "Létrehozás dátuma"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Current stage of the ticket"
-msgstr "Az eset jelenlegi állapota"
+msgstr "Az eset jelenlegi szakasza"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Current stage of this ticket"
-msgstr "Az eset jelenlegi állapota"
+msgstr "Az eset jelenlegi szakasza"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -738,7 +737,7 @@ msgid ""
 "as target."
 msgstr ""
 "Jelenítsen meg egy gombot a portálon az esetnél, ami lehetővé teszi az eset "
-"lezárását ezzel a célállapottal."
+"lezárását ezzel a célszakasszal."
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
@@ -861,7 +860,7 @@ msgstr "Kategória keresés"
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.changed_stage_template
 msgid "Helpdesk Changed Stage notification Email"
-msgstr "Ügyfélszolgálat megváltozott állapot értesítő email"
+msgstr "Ügyfélszolgálat megváltozott szakasz értesítő email"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.closed_ticket_template
@@ -919,7 +918,7 @@ msgstr "Ügyfélszolgálat eset létrehozva"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Eset állapot"
+msgstr "Eset szakasza"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
@@ -1038,7 +1037,7 @@ msgstr "Utoljára módosítva"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Last Stage Update"
-msgstr "Állapot utoljára módosítva"
+msgstr "Szakasz utoljára módosítva"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__write_uid
@@ -1356,7 +1355,7 @@ msgstr "Elsőbbségi esetek"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
 msgid "Ready for next stage"
-msgstr "Kész a következő állapotra"
+msgstr "Kész a következő szakaszra"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
@@ -1497,12 +1496,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #, python-format
 msgid "Stage"
-msgstr "Állapot"
+msgstr "Szakasz"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__name
 msgid "Stage Name"
-msgstr "Állapot neve"
+msgstr "Szakasz neve"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
@@ -1511,7 +1510,7 @@ msgstr "Állapot neve"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 msgid "Stages"
-msgstr "Állapotok"
+msgstr "Szakaszok"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_state
@@ -1623,7 +1622,7 @@ msgstr "A(z) {{object.number}} számú eset lezárva."
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket {{object.number}} stage has changed."
-msgstr "A(z) {{object.number}} számú eset állapota megváltozott."
+msgstr "A(z) {{object.number}} számú eset szakasza megváltozott."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
@@ -1631,7 +1630,7 @@ msgid ""
 "This stage is folded in the kanban view when there are no records in that "
 "stage to display."
 msgstr ""
-"Ha nincs ehhez az állapothoz kapcsolódó rekord, ez az állapot be lesz hajtva "
+"Ha nincs ehhez a szakaszhoz kapcsolódó rekord, ez a szakasz be lesz hajtva "
 "kanban nézetben."
 
 #. module: helpdesk_mgmt
@@ -1647,7 +1646,7 @@ msgstr "Eset létrehozva"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr "Állapot keresése"
+msgstr "Keresés szakasz alapján"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
