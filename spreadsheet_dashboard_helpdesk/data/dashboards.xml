@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="spreadsheet_dashboard_helpdesk" model="spreadsheet.dashboard">
+        <field name="name">Helpdesk</field>
+        <field
+            name="data"
+            type="base64"
+            file="spreadsheet_dashboard_helpdesk/data/files/Helpdesk.json"
+        />
+        <field
+            name="dashboard_group_id"
+            ref="spreadsheet_dashboard.spreadsheet_dashboard_group_project"
+        />
+        <field
+            name="group_ids"
+            eval="[Command.link(ref('helpdesk_mgmt.group_helpdesk_manager'))]"
+        />
+        <field name="sequence">100</field>
+    </record>
+
+</odoo>

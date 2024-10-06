@@ -1,0 +1,5627 @@
+{
+  "version": 12.5,
+  "sheets": [
+    {
+      "id": "Sheet1",
+      "name": "Sheet1",
+      "colNumber": 17,
+      "rowNumber": 81,
+      "rows": {},
+      "cols": {
+        "0": {
+          "size": 65
+        },
+        "1": {
+          "size": 72
+        },
+        "2": {
+          "size": 82
+        },
+        "3": {
+          "size": 186
+        },
+        "4": {
+          "size": 65
+        },
+        "5": {
+          "size": 57
+        },
+        "6": {
+          "size": 93
+        },
+        "7": {
+          "size": 77
+        }
+      },
+      "merges": [
+        "D42:G42",
+        "G57:H57",
+        "G56:H56",
+        "G58:H58",
+        "G59:H59",
+        "G60:H60",
+        "G61:H61",
+        "G62:H62",
+        "G63:H63",
+        "G64:H64",
+        "G65:H65",
+        "E57:F57",
+        "E58:F58",
+        "E59:F59",
+        "E56:F56",
+        "E60:F60",
+        "E61:F61",
+        "E65:F65",
+        "E66:F66",
+        "G66:H66",
+        "E64:F64",
+        "E63:F63",
+        "E62:F62",
+        "D43:G43",
+        "D44:G44",
+        "D45:G45",
+        "D46:G46",
+        "D47:G47",
+        "D48:G48",
+        "D49:G49",
+        "D50:G50",
+        "D51:G51",
+        "D52:G52",
+        "J52:M52",
+        "J51:M51",
+        "J50:M50",
+        "J43:M43",
+        "J44:M44",
+        "J45:M45",
+        "J46:M46",
+        "J47:M47",
+        "J49:M49",
+        "J48:M48",
+        "J42:M42",
+        "J56:M56",
+        "J57:M57",
+        "J58:M58",
+        "J59:M59",
+        "J60:M60",
+        "J61:M61",
+        "J62:M62",
+        "J63:M63",
+        "J64:M64",
+        "J65:M65",
+        "J66:M66",
+        "J69:N69",
+        "J71:M71",
+        "J72:M72",
+        "J73:M73",
+        "J74:M74",
+        "J75:M75",
+        "J76:M76",
+        "J77:M77",
+        "J78:M78",
+        "J79:M79",
+        "J80:M80",
+        "J81:M81",
+        "D71:G71",
+        "D72:G72",
+        "D73:G73",
+        "D74:G74",
+        "D75:G75",
+        "D76:G76",
+        "D78:G78",
+        "D77:G77",
+        "D79:G79",
+        "D80:G80",
+        "D81:G81"
+      ],
+      "cells": {
+        "A1": {
+          "style": 1
+        },
+        "A2": {
+          "style": 1
+        },
+        "A3": {
+          "style": 1
+        },
+        "A55": {
+          "style": 1
+        },
+        "A56": {
+          "style": 1
+        },
+        "A57": {
+          "style": 1
+        },
+        "A58": {
+          "style": 1
+        },
+        "A59": {
+          "style": 1
+        },
+        "A60": {
+          "style": 1
+        },
+        "A61": {
+          "style": 1
+        },
+        "A62": {
+          "style": 1
+        },
+        "A63": {
+          "style": 1
+        },
+        "A64": {
+          "style": 1
+        },
+        "A65": {
+          "style": 1
+        },
+        "A66": {
+          "style": 1
+        },
+        "A67": {
+          "style": 1
+        },
+        "A68": {
+          "style": 2
+        },
+        "A69": {
+          "style": 1
+        },
+        "A70": {
+          "style": 1
+        },
+        "A71": {
+          "style": 2
+        },
+        "A72": {
+          "style": 1
+        },
+        "A73": {
+          "style": 1
+        },
+        "A74": {
+          "style": 1
+        },
+        "A75": {
+          "style": 1
+        },
+        "A76": {
+          "style": 1
+        },
+        "A77": {
+          "style": 1
+        },
+        "A78": {
+          "style": 1
+        },
+        "A79": {
+          "style": 1
+        },
+        "A80": {
+          "style": 1
+        },
+        "A81": {
+          "style": 1
+        },
+        "B1": {
+          "style": 1
+        },
+        "B2": {
+          "style": 1
+        },
+        "B3": {
+          "style": 1
+        },
+        "B55": {
+          "style": 1
+        },
+        "B56": {
+          "style": 1
+        },
+        "B57": {
+          "style": 1
+        },
+        "B58": {
+          "style": 1
+        },
+        "B59": {
+          "style": 1
+        },
+        "B60": {
+          "style": 1
+        },
+        "B61": {
+          "style": 1
+        },
+        "B62": {
+          "style": 1
+        },
+        "B63": {
+          "style": 1
+        },
+        "B64": {
+          "style": 1
+        },
+        "B65": {
+          "style": 1
+        },
+        "B66": {
+          "style": 1
+        },
+        "B67": {
+          "style": 1
+        },
+        "B68": {
+          "style": 2
+        },
+        "B69": {
+          "style": 1
+        },
+        "B70": {
+          "style": 1
+        },
+        "B71": {
+          "style": 2
+        },
+        "B72": {
+          "style": 1
+        },
+        "B73": {
+          "style": 1
+        },
+        "B74": {
+          "style": 1
+        },
+        "B75": {
+          "style": 1
+        },
+        "B76": {
+          "style": 1
+        },
+        "B77": {
+          "style": 1
+        },
+        "B78": {
+          "style": 1
+        },
+        "B79": {
+          "style": 1
+        },
+        "B80": {
+          "style": 1
+        },
+        "B81": {
+          "style": 1
+        },
+        "C1": {
+          "style": 1
+        },
+        "C2": {
+          "style": 1
+        },
+        "C3": {
+          "style": 1
+        },
+        "C55": {
+          "style": 1
+        },
+        "C56": {
+          "style": 1
+        },
+        "C57": {
+          "style": 1
+        },
+        "C58": {
+          "style": 1
+        },
+        "C59": {
+          "style": 1
+        },
+        "C60": {
+          "style": 1
+        },
+        "C61": {
+          "style": 1
+        },
+        "C62": {
+          "style": 1
+        },
+        "C63": {
+          "style": 1
+        },
+        "C64": {
+          "style": 1
+        },
+        "C65": {
+          "style": 1
+        },
+        "C66": {
+          "style": 1
+        },
+        "C67": {
+          "style": 1
+        },
+        "C68": {
+          "style": 1
+        },
+        "C69": {
+          "style": 1
+        },
+        "C70": {
+          "style": 1
+        },
+        "C71": {
+          "style": 1
+        },
+        "C72": {
+          "style": 1
+        },
+        "C73": {
+          "style": 1
+        },
+        "C74": {
+          "style": 1
+        },
+        "C75": {
+          "style": 1
+        },
+        "C76": {
+          "style": 1
+        },
+        "C77": {
+          "style": 1
+        },
+        "C78": {
+          "style": 1
+        },
+        "C79": {
+          "style": 1
+        },
+        "C80": {
+          "style": 1
+        },
+        "C81": {
+          "style": 1
+        },
+        "D9": {
+          "style": 3,
+          "content": "Estado del tiquet",
+          "border": 1
+        },
+        "D25": {
+          "style": 3,
+          "content": "Prioridad por Etiqueta del Tiquet",
+          "border": 1
+        },
+        "D40": {
+          "style": 3,
+          "content": "=_t(\"Top Equipos\")",
+          "border": 1
+        },
+        "D42": {
+          "style": 4,
+          "content": "=_t(\"Equipo\")"
+        },
+        "D43": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",1)"
+        },
+        "D44": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",2)"
+        },
+        "D45": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",3)"
+        },
+        "D46": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",4)"
+        },
+        "D47": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",5)"
+        },
+        "D48": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",6)"
+        },
+        "D49": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",7)"
+        },
+        "D50": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",8)"
+        },
+        "D51": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",9)"
+        },
+        "D52": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(2,\"#team_id\",10)"
+        },
+        "D54": {
+          "style": 3,
+          "content": "=_t(\"Top Tickets por Prioridad\")",
+          "border": 1
+        },
+        "D56": {
+          "style": 4,
+          "content": "=_t(\"N\u00famero de Ticket\")"
+        },
+        "D57": {
+          "style": 7,
+          "content": "=ODOO.LIST(2,1,\"number\")"
+        },
+        "D58": {
+          "style": 8,
+          "content": "=ODOO.LIST(2,2,\"number\")"
+        },
+        "D59": {
+          "style": 7,
+          "content": "=ODOO.LIST(2,3,\"number\")"
+        },
+        "D60": {
+          "style": 8,
+          "content": "=ODOO.LIST(2,4,\"number\")"
+        },
+        "D61": {
+          "style": 7,
+          "content": "=ODOO.LIST(2,5,\"number\")"
+        },
+        "D62": {
+          "style": 9,
+          "content": "=ODOO.LIST(2,6,\"number\")"
+        },
+        "D63": {
+          "style": 7,
+          "content": "=ODOO.LIST(2,7,\"number\")"
+        },
+        "D64": {
+          "style": 9,
+          "content": "=ODOO.LIST(2,8,\"number\")"
+        },
+        "D65": {
+          "style": 7,
+          "content": "=ODOO.LIST(2,9,\"number\")"
+        },
+        "D66": {
+          "style": 9,
+          "content": "=ODOO.LIST(2,10,\"number\")"
+        },
+        "D67": {
+          "style": 1
+        },
+        "D68": {
+          "style": 1
+        },
+        "D69": {
+          "style": 10,
+          "content": "=_t(\"Top Canales\")",
+          "border": 1
+        },
+        "D70": {
+          "style": 1,
+          "border": 2
+        },
+        "D71": {
+          "style": 1,
+          "content": "=_t(\"Canales\")"
+        },
+        "D72": {
+          "style": 7,
+          "content": "=ODOO.PIVOT.HEADER(5,\"channel_id\",1)"
+        },
+        "D73": {
+          "style": 9,
+          "content": "=ODOO.PIVOT.HEADER(5,\"channel_id\",2)"
+        },
+        "D74": {
+          "style": 7,
+          "content": "=ODOO.PIVOT.HEADER(5,\"channel_id\",3)"
+        },
+        "D75": {
+          "style": 9,
+          "content": "=ODOO.PIVOT.HEADER(5,\"channel_id\",4)"
+        },
+        "D76": {
+          "style": 7
+        },
+        "D77": {
+          "style": 11
+        },
+        "D78": {
+          "style": 12
+        },
+        "D79": {
+          "style": 11
+        },
+        "D80": {
+          "style": 12
+        },
+        "D81": {
+          "style": 11
+        },
+        "E40": {
+          "style": 3,
+          "border": 1
+        },
+        "E42": {
+          "style": 4
+        },
+        "E43": {
+          "style": 5
+        },
+        "E44": {
+          "style": 6
+        },
+        "E45": {
+          "style": 5
+        },
+        "E46": {
+          "style": 6
+        },
+        "E47": {
+          "style": 5
+        },
+        "E48": {
+          "style": 6
+        },
+        "E49": {
+          "style": 5
+        },
+        "E50": {
+          "style": 6
+        },
+        "E51": {
+          "style": 5
+        },
+        "E52": {
+          "style": 6
+        },
+        "E56": {
+          "style": 13,
+          "content": "=_t(\"Prioridad\")"
+        },
+        "E57": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,1,\"priority\")"
+        },
+        "E58": {
+          "style": 15,
+          "content": "=ODOO.LIST(2,2,\"priority\")"
+        },
+        "E59": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,3,\"priority\")"
+        },
+        "E60": {
+          "style": 15,
+          "content": "=ODOO.LIST(2,4,\"priority\")"
+        },
+        "E61": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,5,\"priority\")"
+        },
+        "E62": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,6,\"priority\")"
+        },
+        "E63": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,7,\"priority\")"
+        },
+        "E64": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,8,\"priority\")"
+        },
+        "E65": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,9,\"priority\")"
+        },
+        "E66": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,10,\"priority\")"
+        },
+        "E67": {
+          "style": 1
+        },
+        "E68": {
+          "style": 1
+        },
+        "E69": {
+          "style": 1,
+          "border": 1
+        },
+        "E70": {
+          "style": 1,
+          "border": 2
+        },
+        "E71": {
+          "style": 1
+        },
+        "E72": {
+          "style": 7
+        },
+        "E73": {
+          "style": 9
+        },
+        "E74": {
+          "style": 7
+        },
+        "E75": {
+          "style": 9
+        },
+        "E76": {
+          "style": 7
+        },
+        "E77": {
+          "style": 11
+        },
+        "E78": {
+          "style": 12
+        },
+        "E79": {
+          "style": 11
+        },
+        "E80": {
+          "style": 12
+        },
+        "E81": {
+          "style": 11
+        },
+        "F40": {
+          "style": 3,
+          "border": 1
+        },
+        "F42": {
+          "style": 4
+        },
+        "F43": {
+          "style": 5
+        },
+        "F44": {
+          "style": 6
+        },
+        "F45": {
+          "style": 5
+        },
+        "F46": {
+          "style": 6
+        },
+        "F47": {
+          "style": 5
+        },
+        "F48": {
+          "style": 6
+        },
+        "F49": {
+          "style": 5
+        },
+        "F50": {
+          "style": 6
+        },
+        "F51": {
+          "style": 5
+        },
+        "F52": {
+          "style": 6
+        },
+        "F56": {
+          "style": 13
+        },
+        "F57": {
+          "style": 14
+        },
+        "F58": {
+          "style": 15
+        },
+        "F59": {
+          "style": 14
+        },
+        "F60": {
+          "style": 15
+        },
+        "F61": {
+          "style": 14
+        },
+        "F62": {
+          "style": 16
+        },
+        "F63": {
+          "style": 14
+        },
+        "F64": {
+          "style": 16
+        },
+        "F65": {
+          "style": 14
+        },
+        "F66": {
+          "style": 16
+        },
+        "F67": {
+          "style": 1
+        },
+        "F68": {
+          "style": 1
+        },
+        "F69": {
+          "style": 1,
+          "border": 1
+        },
+        "F70": {
+          "style": 1,
+          "border": 2
+        },
+        "F71": {
+          "style": 1
+        },
+        "F72": {
+          "style": 7
+        },
+        "F73": {
+          "style": 9
+        },
+        "F74": {
+          "style": 7
+        },
+        "F75": {
+          "style": 9
+        },
+        "F76": {
+          "style": 7
+        },
+        "F77": {
+          "style": 11
+        },
+        "F78": {
+          "style": 12
+        },
+        "F79": {
+          "style": 11
+        },
+        "F80": {
+          "style": 12
+        },
+        "F81": {
+          "style": 11
+        },
+        "G40": {
+          "style": 3,
+          "border": 1
+        },
+        "G42": {
+          "style": 4
+        },
+        "G43": {
+          "style": 5
+        },
+        "G44": {
+          "style": 6
+        },
+        "G45": {
+          "style": 5
+        },
+        "G46": {
+          "style": 6
+        },
+        "G47": {
+          "style": 5
+        },
+        "G48": {
+          "style": 6
+        },
+        "G49": {
+          "style": 5
+        },
+        "G50": {
+          "style": 6
+        },
+        "G51": {
+          "style": 5
+        },
+        "G52": {
+          "style": 6
+        },
+        "G56": {
+          "style": 13,
+          "content": "=_t(\"Fecha Creaci\u00f3n\")"
+        },
+        "G57": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,1,\"create_date\")"
+        },
+        "G58": {
+          "style": 15,
+          "content": "=ODOO.LIST(2,2,\"create_date\")"
+        },
+        "G59": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,3,\"create_date\")"
+        },
+        "G60": {
+          "style": 15,
+          "content": "=ODOO.LIST(2,4,\"create_date\")"
+        },
+        "G61": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,5,\"create_date\")"
+        },
+        "G62": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,6,\"create_date\")"
+        },
+        "G63": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,7,\"create_date\")"
+        },
+        "G64": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,8,\"create_date\")"
+        },
+        "G65": {
+          "style": 14,
+          "content": "=ODOO.LIST(2,9,\"create_date\")"
+        },
+        "G66": {
+          "style": 16,
+          "content": "=ODOO.LIST(2,10,\"create_date\")"
+        },
+        "G67": {
+          "style": 1
+        },
+        "G68": {
+          "style": 1
+        },
+        "G69": {
+          "style": 1,
+          "border": 1
+        },
+        "G70": {
+          "style": 1,
+          "border": 2
+        },
+        "G71": {
+          "style": 1
+        },
+        "G72": {
+          "style": 7
+        },
+        "G73": {
+          "style": 9
+        },
+        "G74": {
+          "style": 7
+        },
+        "G75": {
+          "style": 9
+        },
+        "G76": {
+          "style": 7
+        },
+        "G77": {
+          "style": 11
+        },
+        "G78": {
+          "style": 12
+        },
+        "G79": {
+          "style": 11
+        },
+        "G80": {
+          "style": 12
+        },
+        "G81": {
+          "style": 11
+        },
+        "H40": {
+          "style": 3,
+          "border": 1
+        },
+        "H42": {
+          "style": 13,
+          "content": "=_t(\"Tickets\")"
+        },
+        "H43": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",1)"
+        },
+        "H44": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",2)"
+        },
+        "H45": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",3)"
+        },
+        "H46": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",4)"
+        },
+        "H47": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",5)"
+        },
+        "H48": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",6)"
+        },
+        "H49": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",7)"
+        },
+        "H50": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",8)"
+        },
+        "H51": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",9)"
+        },
+        "H52": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(2,\"__count\",\"team_id\",10)"
+        },
+        "H56": {
+          "style": 13
+        },
+        "H57": {
+          "style": 14
+        },
+        "H58": {
+          "style": 15
+        },
+        "H59": {
+          "style": 14
+        },
+        "H60": {
+          "style": 15
+        },
+        "H61": {
+          "style": 14
+        },
+        "H62": {
+          "style": 16
+        },
+        "H63": {
+          "style": 14
+        },
+        "H64": {
+          "style": 16
+        },
+        "H65": {
+          "style": 14
+        },
+        "H66": {
+          "style": 16
+        },
+        "H67": {
+          "style": 1
+        },
+        "H68": {
+          "style": 1
+        },
+        "H69": {
+          "style": 1,
+          "border": 1
+        },
+        "H70": {
+          "style": 1,
+          "border": 2
+        },
+        "H71": {
+          "style": 19,
+          "content": "=_t(\"Tickets\")"
+        },
+        "H72": {
+          "style": 14,
+          "content": "=ODOO.PIVOT(24,\"__count\",\"channel_id\",1)"
+        },
+        "H73": {
+          "style": 16,
+          "content": "=ODOO.PIVOT(24,\"__count\",\"channel_id\",2)"
+        },
+        "H74": {
+          "style": 14,
+          "content": "=ODOO.PIVOT(24,\"__count\",\"channel_id\",3)"
+        },
+        "H75": {
+          "style": 16,
+          "content": "=ODOO.PIVOT(24,\"__count\",\"channel_id\",\"false\")"
+        },
+        "H76": {
+          "style": 20
+        },
+        "H77": {
+          "style": 11
+        },
+        "H78": {
+          "style": 12
+        },
+        "H79": {
+          "style": 11
+        },
+        "H80": {
+          "style": 12
+        },
+        "H81": {
+          "style": 11
+        },
+        "I66": {
+          "style": 1
+        },
+        "I67": {
+          "style": 1
+        },
+        "I68": {
+          "style": 1
+        },
+        "I69": {
+          "style": 1
+        },
+        "I70": {
+          "style": 1
+        },
+        "I71": {
+          "style": 1
+        },
+        "I72": {
+          "style": 1
+        },
+        "I73": {
+          "style": 1
+        },
+        "I74": {
+          "style": 1
+        },
+        "I75": {
+          "style": 1
+        },
+        "I76": {
+          "style": 1
+        },
+        "I77": {
+          "style": 1
+        },
+        "I78": {
+          "style": 1
+        },
+        "I79": {
+          "style": 1
+        },
+        "I80": {
+          "style": 1
+        },
+        "I81": {
+          "style": 1
+        },
+        "J9": {
+          "style": 3,
+          "content": "Tipo de tiquets",
+          "border": 1
+        },
+        "J40": {
+          "style": 3,
+          "content": "=_t(\"Top Agentes\")",
+          "border": 1
+        },
+        "J42": {
+          "style": 4,
+          "content": "=_t(\"Agentes\")"
+        },
+        "J43": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",1)"
+        },
+        "J44": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",2)"
+        },
+        "J45": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",3)"
+        },
+        "J46": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",4)"
+        },
+        "J47": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",5)"
+        },
+        "J48": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",6)"
+        },
+        "J49": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",7)"
+        },
+        "J50": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",8)"
+        },
+        "J51": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",9)"
+        },
+        "J52": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(25,\"user_id\",10)"
+        },
+        "J54": {
+          "style": 3,
+          "content": "=_t(\"Top Tipos de ticket\")",
+          "border": 1
+        },
+        "J56": {
+          "style": 4,
+          "content": "=_t(\"Clientes\")"
+        },
+        "J57": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",1)"
+        },
+        "J58": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",2)"
+        },
+        "J59": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",3)"
+        },
+        "J60": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",4)"
+        },
+        "J61": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",5)"
+        },
+        "J62": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",6)"
+        },
+        "J63": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",7)"
+        },
+        "J64": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",8)"
+        },
+        "J65": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",9)"
+        },
+        "J66": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(21,\"#tag_ids\",10)"
+        },
+        "J69": {
+          "style": 3,
+          "content": "=_t(\"Top Clientes\")",
+          "border": 1
+        },
+        "J71": {
+          "style": 4,
+          "content": "=_t(\"Clientes\")"
+        },
+        "J72": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",1)"
+        },
+        "J73": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",2)"
+        },
+        "J74": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",3)"
+        },
+        "J75": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",4)"
+        },
+        "J76": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",5)"
+        },
+        "J77": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",6)"
+        },
+        "J78": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",7)"
+        },
+        "J79": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",8)"
+        },
+        "J80": {
+          "style": 5,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",9)"
+        },
+        "J81": {
+          "style": 6,
+          "content": "=ODOO.PIVOT.HEADER(4,\"#partner_id\",10)"
+        },
+        "K40": {
+          "style": 4,
+          "border": 1
+        },
+        "K42": {
+          "style": 4
+        },
+        "K43": {
+          "style": 5
+        },
+        "K44": {
+          "style": 6
+        },
+        "K45": {
+          "style": 5
+        },
+        "K46": {
+          "style": 6
+        },
+        "K47": {
+          "style": 5
+        },
+        "K48": {
+          "style": 6
+        },
+        "K49": {
+          "style": 5
+        },
+        "K50": {
+          "style": 6
+        },
+        "K51": {
+          "style": 5
+        },
+        "K52": {
+          "style": 6
+        },
+        "K56": {
+          "style": 4
+        },
+        "K57": {
+          "style": 5
+        },
+        "K58": {
+          "style": 6
+        },
+        "K59": {
+          "style": 5
+        },
+        "K60": {
+          "style": 6
+        },
+        "K61": {
+          "style": 5
+        },
+        "K62": {
+          "style": 6
+        },
+        "K63": {
+          "style": 5
+        },
+        "K64": {
+          "style": 6
+        },
+        "K65": {
+          "style": 5
+        },
+        "K66": {
+          "style": 6
+        },
+        "K69": {
+          "style": 3,
+          "border": 1
+        },
+        "K71": {
+          "style": 4
+        },
+        "K72": {
+          "style": 5
+        },
+        "K73": {
+          "style": 6
+        },
+        "K74": {
+          "style": 5
+        },
+        "K75": {
+          "style": 6
+        },
+        "K76": {
+          "style": 5
+        },
+        "K77": {
+          "style": 6
+        },
+        "K78": {
+          "style": 5
+        },
+        "K79": {
+          "style": 6
+        },
+        "K80": {
+          "style": 5
+        },
+        "K81": {
+          "style": 6
+        },
+        "L40": {
+          "style": 4,
+          "border": 1
+        },
+        "L42": {
+          "style": 4
+        },
+        "L43": {
+          "style": 5
+        },
+        "L44": {
+          "style": 6
+        },
+        "L45": {
+          "style": 5
+        },
+        "L46": {
+          "style": 6
+        },
+        "L47": {
+          "style": 5
+        },
+        "L48": {
+          "style": 6
+        },
+        "L49": {
+          "style": 5
+        },
+        "L50": {
+          "style": 6
+        },
+        "L51": {
+          "style": 5
+        },
+        "L52": {
+          "style": 6
+        },
+        "L56": {
+          "style": 4
+        },
+        "L57": {
+          "style": 5
+        },
+        "L58": {
+          "style": 6
+        },
+        "L59": {
+          "style": 5
+        },
+        "L60": {
+          "style": 6
+        },
+        "L61": {
+          "style": 5
+        },
+        "L62": {
+          "style": 6
+        },
+        "L63": {
+          "style": 5
+        },
+        "L64": {
+          "style": 6
+        },
+        "L65": {
+          "style": 5
+        },
+        "L66": {
+          "style": 6
+        },
+        "L69": {
+          "style": 3,
+          "border": 1
+        },
+        "L71": {
+          "style": 4
+        },
+        "L72": {
+          "style": 5
+        },
+        "L73": {
+          "style": 6
+        },
+        "L74": {
+          "style": 5
+        },
+        "L75": {
+          "style": 6
+        },
+        "L76": {
+          "style": 5
+        },
+        "L77": {
+          "style": 6
+        },
+        "L78": {
+          "style": 5
+        },
+        "L79": {
+          "style": 6
+        },
+        "L80": {
+          "style": 5
+        },
+        "L81": {
+          "style": 6
+        },
+        "M40": {
+          "style": 4,
+          "border": 1
+        },
+        "M42": {
+          "style": 4
+        },
+        "M43": {
+          "style": 5
+        },
+        "M44": {
+          "style": 6
+        },
+        "M45": {
+          "style": 5
+        },
+        "M46": {
+          "style": 6
+        },
+        "M47": {
+          "style": 5
+        },
+        "M48": {
+          "style": 6
+        },
+        "M49": {
+          "style": 5
+        },
+        "M50": {
+          "style": 6
+        },
+        "M51": {
+          "style": 5
+        },
+        "M52": {
+          "style": 6
+        },
+        "M56": {
+          "style": 4
+        },
+        "M57": {
+          "style": 5
+        },
+        "M58": {
+          "style": 6
+        },
+        "M59": {
+          "style": 5
+        },
+        "M60": {
+          "style": 6
+        },
+        "M61": {
+          "style": 5
+        },
+        "M62": {
+          "style": 6
+        },
+        "M63": {
+          "style": 5
+        },
+        "M64": {
+          "style": 6
+        },
+        "M65": {
+          "style": 5
+        },
+        "M66": {
+          "style": 6
+        },
+        "M69": {
+          "style": 3,
+          "border": 1
+        },
+        "M71": {
+          "style": 4
+        },
+        "M72": {
+          "style": 5
+        },
+        "M73": {
+          "style": 6
+        },
+        "M74": {
+          "style": 5
+        },
+        "M75": {
+          "style": 6
+        },
+        "M76": {
+          "style": 5
+        },
+        "M77": {
+          "style": 6
+        },
+        "M78": {
+          "style": 5
+        },
+        "M79": {
+          "style": 6
+        },
+        "M80": {
+          "style": 5
+        },
+        "M81": {
+          "style": 6
+        },
+        "N40": {
+          "style": 4,
+          "border": 1
+        },
+        "N42": {
+          "style": 13,
+          "content": "=_t(\"Tickets\")"
+        },
+        "N43": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",1)"
+        },
+        "N44": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",2)"
+        },
+        "N45": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",3)"
+        },
+        "N46": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",4)"
+        },
+        "N47": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",5)"
+        },
+        "N48": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",6)"
+        },
+        "N49": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",7)"
+        },
+        "N50": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",8)"
+        },
+        "N51": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",9)"
+        },
+        "N52": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(25,\"__count\",\"user_id\",10)"
+        },
+        "N56": {
+          "style": 13,
+          "content": "=_t(\"Tickets\")"
+        },
+        "N57": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",1)"
+        },
+        "N58": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",2)"
+        },
+        "N59": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",3)"
+        },
+        "N60": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",4)"
+        },
+        "N61": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",5)"
+        },
+        "N62": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",6)"
+        },
+        "N63": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",7)"
+        },
+        "N64": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",8)"
+        },
+        "N65": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",9)"
+        },
+        "N66": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(21,\"__count\",\"tag_ids\",10)"
+        },
+        "N69": {
+          "style": 3,
+          "border": 1
+        },
+        "N71": {
+          "style": 13,
+          "content": "=_t(\"Tickets\")"
+        },
+        "N72": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",1)"
+        },
+        "N73": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",2)"
+        },
+        "N74": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",3)"
+        },
+        "N75": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",4)"
+        },
+        "N76": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",5)"
+        },
+        "N77": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",6)"
+        },
+        "N78": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",7)"
+        },
+        "N79": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",8)"
+        },
+        "N80": {
+          "style": 17,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",9)"
+        },
+        "N81": {
+          "style": 18,
+          "content": "=ODOO.PIVOT(4,\"__count\",\"#partner_id\",10)"
+        },
+        "P10": {
+          "style": 21
+        },
+        "D10": {
+          "border": 2
+        },
+        "D26": {
+          "border": 2
+        },
+        "D41": {
+          "border": 2
+        },
+        "D55": {
+          "border": 2
+        },
+        "E9": {
+          "border": 1
+        },
+        "E10": {
+          "border": 2
+        },
+        "E25": {
+          "border": 1
+        },
+        "E26": {
+          "border": 2
+        },
+        "E41": {
+          "border": 2
+        },
+        "E54": {
+          "border": 1
+        },
+        "E55": {
+          "border": 2
+        },
+        "F9": {
+          "border": 1
+        },
+        "F10": {
+          "border": 2
+        },
+        "F25": {
+          "border": 1
+        },
+        "F26": {
+          "border": 2
+        },
+        "F41": {
+          "border": 2
+        },
+        "F54": {
+          "border": 1
+        },
+        "F55": {
+          "border": 2
+        },
+        "G9": {
+          "border": 1
+        },
+        "G10": {
+          "border": 2
+        },
+        "G25": {
+          "border": 1
+        },
+        "G26": {
+          "border": 2
+        },
+        "G41": {
+          "border": 2
+        },
+        "G54": {
+          "border": 1
+        },
+        "G55": {
+          "border": 2
+        },
+        "H9": {
+          "border": 1
+        },
+        "H10": {
+          "border": 2
+        },
+        "H25": {
+          "border": 1
+        },
+        "H26": {
+          "border": 2
+        },
+        "H41": {
+          "border": 2
+        },
+        "H54": {
+          "border": 1
+        },
+        "H55": {
+          "border": 2
+        },
+        "I25": {
+          "border": 1
+        },
+        "I26": {
+          "border": 2
+        },
+        "J10": {
+          "border": 2
+        },
+        "J25": {
+          "border": 1
+        },
+        "J26": {
+          "border": 2
+        },
+        "J41": {
+          "border": 2
+        },
+        "J55": {
+          "border": 2
+        },
+        "J70": {
+          "border": 2
+        },
+        "K9": {
+          "border": 1
+        },
+        "K10": {
+          "border": 2
+        },
+        "K25": {
+          "border": 1
+        },
+        "K26": {
+          "border": 2
+        },
+        "K41": {
+          "border": 2
+        },
+        "K54": {
+          "border": 1
+        },
+        "K55": {
+          "border": 2
+        },
+        "K70": {
+          "border": 2
+        },
+        "L9": {
+          "border": 1
+        },
+        "L10": {
+          "border": 2
+        },
+        "L25": {
+          "border": 1
+        },
+        "L26": {
+          "border": 2
+        },
+        "L41": {
+          "border": 2
+        },
+        "L54": {
+          "border": 1
+        },
+        "L55": {
+          "border": 2
+        },
+        "L70": {
+          "border": 2
+        },
+        "M9": {
+          "border": 1
+        },
+        "M10": {
+          "border": 2
+        },
+        "M25": {
+          "border": 1
+        },
+        "M26": {
+          "border": 2
+        },
+        "M41": {
+          "border": 2
+        },
+        "M54": {
+          "border": 1
+        },
+        "M55": {
+          "border": 2
+        },
+        "M70": {
+          "border": 2
+        },
+        "N9": {
+          "border": 1
+        },
+        "N10": {
+          "border": 2
+        },
+        "N25": {
+          "border": 1
+        },
+        "N26": {
+          "border": 2
+        },
+        "N41": {
+          "border": 2
+        },
+        "N54": {
+          "border": 1
+        },
+        "N55": {
+          "border": 2
+        },
+        "N70": {
+          "border": 2
+        }
+      },
+      "conditionalFormats": [],
+      "figures": [
+        {
+          "id": "085496a5-f50d-472a-b563-100900ea29e4",
+          "x": 643,
+          "y": 0,
+          "width": 200,
+          "height": 142,
+          "tag": "chart",
+          "data": {
+            "baselineColorDown": "#DC6965",
+            "baselineColorUp": "#00A04A",
+            "baselineMode": "percentage",
+            "title": "Tiquets Totales",
+            "type": "scorecard",
+            "background": "#EFEFEF",
+            "baseline": "Data!E2",
+            "baselineDescr": "Desde el anterior periodo",
+            "keyValue": "Data!B2"
+          }
+        },
+        {
+          "id": "e407a9eb-f50d-40e9-a44d-82c0e849a114",
+          "x": 216,
+          "y": 214,
+          "width": 483,
+          "height": 297,
+          "tag": "chart",
+          "data": {
+            "title": "",
+            "background": "#FFFFFF",
+            "legendPosition": "none",
+            "metaData": {
+              "disableLinking": false,
+              "fieldAttrs": {},
+              "fields": {
+                "access_url": {
+                  "change_default": false,
+                  "help": "URL Portal Cliente",
+                  "name": "access_url",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "URL Acceso Portal",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_token": {
+                  "change_default": false,
+                  "name": "access_token",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Token de Seguridad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_warning": {
+                  "change_default": false,
+                  "name": "access_warning",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Advertencia de acceso",
+                  "translate": false,
+                  "type": "text"
+                },
+                "activity_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_ids",
+                  "readonly": false,
+                  "relation": "mail.activity",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Actividades",
+                  "type": "one2many"
+                },
+                "activity_state": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "help": "Estados basados en actividades\nAtrasado: La ficha l\u00edmite ya ha sido sobrepasada\nHoy: La actividad est\u00e1 programada para hoy\nPlanificado: Actividades futuras.",
+                  "name": "activity_state",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["overdue", "Overdue"],
+                    ["today", "Today"],
+                    ["planned", "Planned"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Estado de actividad",
+                  "type": "selection"
+                },
+                "activity_user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_user_id",
+                  "readonly": false,
+                  "related": "activity_ids.user_id",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuario Responsable",
+                  "type": "many2one"
+                },
+                "activity_type_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|', ('res_model', '=', False), ('res_model', '=', res_model)]",
+                  "groups": "base.group_user",
+                  "name": "activity_type_id",
+                  "readonly": false,
+                  "related": "activity_ids.activity_type_id",
+                  "relation": "mail.activity.type",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tipo pr\u00f3xima actividad",
+                  "type": "many2one"
+                },
+                "activity_type_icon": {
+                  "change_default": false,
+                  "help": "Icono de fuente awesome p.e. fa-tasks",
+                  "name": "activity_type_icon",
+                  "readonly": true,
+                  "related": "activity_ids.icon",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono de tipo de actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha l\u00edmite pr\u00f3xima actividad",
+                  "type": "date"
+                },
+                "my_activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "my_activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha limite de mi actividad",
+                  "type": "date"
+                },
+                "activity_summary": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_summary",
+                  "readonly": false,
+                  "related": "activity_ids.summary",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Resumen pr\u00f3xima actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_exception_decoration": {
+                  "change_default": false,
+                  "help": "Tipo de la actividad de excepci\u00f3n registrada.",
+                  "name": "activity_exception_decoration",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["warning", "Alert"],
+                    ["danger", "Error"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Decoraci\u00f3n de Excepci\u00f3n de Actividad",
+                  "type": "selection"
+                },
+                "activity_exception_icon": {
+                  "change_default": false,
+                  "help": "Icono para indicar una excepci\u00f3n en la actividad.",
+                  "name": "activity_exception_icon",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_calendar_event_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_calendar_event_id",
+                  "readonly": true,
+                  "relation": "calendar.event",
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Next Activity Calendar Event",
+                  "type": "many2one"
+                },
+                "message_is_follower": {
+                  "change_default": false,
+                  "name": "message_is_follower",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Es Seguidor",
+                  "type": "boolean"
+                },
+                "message_follower_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_follower_ids",
+                  "readonly": false,
+                  "relation": "mail.followers",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Seguidores",
+                  "type": "one2many"
+                },
+                "message_partner_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_partner_ids",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Seguidores (Socios)",
+                  "type": "many2many"
+                },
+                "message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["message_type", "!=", "user_notification"]],
+                  "name": "message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes",
+                  "type": "one2many"
+                },
+                "has_message": {
+                  "change_default": false,
+                  "name": "has_message",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tiene mensaje",
+                  "type": "boolean"
+                },
+                "message_needaction": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado nuevos mensajes necesitan tu atenci\u00f3n.",
+                  "name": "message_needaction",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Acci\u00f3n necesaria",
+                  "type": "boolean"
+                },
+                "message_needaction_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes que requieren una acci\u00f3n",
+                  "name": "message_needaction_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de acciones",
+                  "type": "integer"
+                },
+                "message_has_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Mensaje de error de entrega",
+                  "type": "boolean"
+                },
+                "message_has_error_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes con errores",
+                  "name": "message_has_error_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de errores",
+                  "type": "integer"
+                },
+                "message_attachment_count": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "groups": "base.group_user",
+                  "name": "message_attachment_count",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre d'adjunts",
+                  "type": "integer"
+                },
+                "message_main_attachment_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "message_main_attachment_id",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Adjunto principal",
+                  "type": "many2one"
+                },
+                "website_message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [
+                    ["model", "=", "helpdesk.ticket"],
+                    "|",
+                    ["message_type", "=", "comment"],
+                    ["message_type", "=", "email"]
+                  ],
+                  "help": "Historial de la comunicaci\u00f3n por sitio web",
+                  "name": "website_message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes de la Web",
+                  "type": "one2many"
+                },
+                "message_has_sms_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_sms_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Error de entrega del SMS",
+                  "type": "boolean"
+                },
+                "email_cc": {
+                  "change_default": false,
+                  "name": "email_cc",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email cc",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "number": {
+                  "change_default": false,
+                  "name": "number",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "N\u00famero de ticket",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "name": {
+                  "change_default": false,
+                  "name": "name",
+                  "readonly": false,
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "T\u00edtulo",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "description": {
+                  "change_default": false,
+                  "name": "description",
+                  "readonly": false,
+                  "required": true,
+                  "sanitize": true,
+                  "sanitize_tags": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Descripci\u00f3n",
+                  "translate": false,
+                  "type": "html"
+                },
+                "user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",
+                  "name": "user_id",
+                  "readonly": false,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Usuario asignado",
+                  "type": "many2one"
+                },
+                "user_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "user_ids",
+                  "readonly": true,
+                  "related": "team_id.user_ids",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuarios",
+                  "type": "many2many"
+                },
+                "stage_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|',('team_ids', '=', team_id),('team_ids','=',False)]",
+                  "name": "stage_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.stage",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Etapa",
+                  "type": "many2one"
+                },
+                "partner_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "partner_id",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Contacto",
+                  "type": "many2one"
+                },
+                "partner_name": {
+                  "change_default": false,
+                  "name": "partner_name",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Nombre de la empresa",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "partner_email": {
+                  "change_default": false,
+                  "name": "partner_email",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "last_stage_update": {
+                  "change_default": false,
+                  "name": "last_stage_update",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de la etapa",
+                  "type": "datetime"
+                },
+                "assigned_date": {
+                  "change_default": false,
+                  "name": "assigned_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de asignaci\u00f3n",
+                  "type": "datetime"
+                },
+                "closed_date": {
+                  "change_default": false,
+                  "name": "closed_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de cierre",
+                  "type": "datetime"
+                },
+                "closed": {
+                  "change_default": false,
+                  "name": "closed",
+                  "readonly": true,
+                  "related": "stage_id.closed",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Cerrado",
+                  "type": "boolean"
+                },
+                "unattended": {
+                  "change_default": false,
+                  "name": "unattended",
+                  "readonly": true,
+                  "related": "stage_id.unattended",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Sin atender",
+                  "type": "boolean"
+                },
+                "tag_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "tag_ids",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.tag",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Etiquetas",
+                  "type": "many2many"
+                },
+                "company_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "company_id",
+                  "readonly": false,
+                  "relation": "res.company",
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Compa\u00f1\u00eda",
+                  "type": "many2one"
+                },
+                "channel_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "help": "El Canal indica el origen del que procede un ticket (podr\u00eda ser una llamada telef\u00f3nica, un email...)",
+                  "name": "channel_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.channel",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Canal",
+                  "type": "many2one"
+                },
+                "category_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "category_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.category",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Categor\u00eda",
+                  "type": "many2one"
+                },
+                "team_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "team_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.team",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Equipo",
+                  "type": "many2one"
+                },
+                "priority": {
+                  "change_default": false,
+                  "name": "priority",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["0", "Baja"],
+                    ["1", "Media"],
+                    ["2", "Alta"],
+                    ["3", "Muy alta"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Prioridad",
+                  "type": "selection"
+                },
+                "attachment_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["res_model", "=", "helpdesk.ticket"]],
+                  "name": "attachment_ids",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Archivos adjuntos",
+                  "type": "one2many"
+                },
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "kanban_state": {
+                  "change_default": false,
+                  "name": "kanban_state",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["normal", "Por defecto"],
+                    ["done", "Listo para la siguiente etapa"],
+                    ["blocked", "Bloqueado"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Estado Kanban",
+                  "type": "selection"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "active": {
+                  "change_default": false,
+                  "name": "active",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Activo",
+                  "type": "boolean"
+                },
+                "id": {
+                  "change_default": false,
+                  "name": "id",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "ID (identificaci\u00f3n)",
+                  "type": "integer"
+                },
+                "__last_update": {
+                  "change_default": false,
+                  "name": "__last_update",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "\u00daltima modificaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "display_name": {
+                  "change_default": false,
+                  "name": "display_name",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre mostrado",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "create_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "create_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado por",
+                  "type": "many2one"
+                },
+                "create_date": {
+                  "change_default": false,
+                  "name": "create_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado en",
+                  "type": "datetime"
+                },
+                "write_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "write_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de",
+                  "type": "many2one"
+                },
+                "write_date": {
+                  "change_default": false,
+                  "name": "write_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "project_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "project_id",
+                  "readonly": false,
+                  "relation": "project.project",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Proyecto",
+                  "type": "many2one"
+                },
+                "task_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "task_id",
+                  "readonly": false,
+                  "relation": "project.task",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Tarea",
+                  "type": "many2one"
+                }
+              },
+              "groupBy": ["stage_id"],
+              "measure": "__count",
+              "viewMeasures": [],
+              "mode": "bar",
+              "order": null,
+              "resModel": "helpdesk.ticket",
+              "stacked": false,
+              "cumulated": false,
+              "title": "Helpdesk Ticket",
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domains": [
+                {
+                  "arrayRepr": [],
+                  "description": null
+                }
+              ],
+              "measures": {
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "__count": {
+                  "name": "__count",
+                  "string": "Cuenta",
+                  "type": "integer"
+                }
+              },
+              "allIntegers": false
+            },
+            "searchParams": {
+              "comparison": null,
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domain": [],
+              "groupBy": ["stage_id"],
+              "orderBy": []
+            },
+            "type": "odoo_bar",
+            "verticalAxisPosition": "left",
+            "stacked": false,
+            "fieldMatching": {}
+          }
+        },
+        {
+          "id": "b7632631-c904-456c-9c87-724b8a54ee13",
+          "x": 790,
+          "y": 214,
+          "width": 483,
+          "height": 297,
+          "tag": "chart",
+          "data": {
+            "title": "",
+            "background": "#FFFFFF",
+            "legendPosition": "top",
+            "metaData": {
+              "disableLinking": false,
+              "fieldAttrs": {},
+              "fields": {
+                "access_url": {
+                  "change_default": false,
+                  "help": "URL Portal Cliente",
+                  "name": "access_url",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "URL Acceso Portal",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_token": {
+                  "change_default": false,
+                  "name": "access_token",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Token de Seguridad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_warning": {
+                  "change_default": false,
+                  "name": "access_warning",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Advertencia de acceso",
+                  "translate": false,
+                  "type": "text"
+                },
+                "activity_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_ids",
+                  "readonly": false,
+                  "relation": "mail.activity",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Actividades",
+                  "type": "one2many"
+                },
+                "activity_state": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "help": "Estados basados en actividades\nAtrasado: La ficha l\u00edmite ya ha sido sobrepasada\nHoy: La actividad est\u00e1 programada para hoy\nPlanificado: Actividades futuras.",
+                  "name": "activity_state",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["overdue", "Overdue"],
+                    ["today", "Today"],
+                    ["planned", "Planned"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Estado de actividad",
+                  "type": "selection"
+                },
+                "activity_user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_user_id",
+                  "readonly": false,
+                  "related": "activity_ids.user_id",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuario Responsable",
+                  "type": "many2one"
+                },
+                "activity_type_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|', ('res_model', '=', False), ('res_model', '=', res_model)]",
+                  "groups": "base.group_user",
+                  "name": "activity_type_id",
+                  "readonly": false,
+                  "related": "activity_ids.activity_type_id",
+                  "relation": "mail.activity.type",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tipo pr\u00f3xima actividad",
+                  "type": "many2one"
+                },
+                "activity_type_icon": {
+                  "change_default": false,
+                  "help": "Icono de fuente awesome p.e. fa-tasks",
+                  "name": "activity_type_icon",
+                  "readonly": true,
+                  "related": "activity_ids.icon",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono de tipo de actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha l\u00edmite pr\u00f3xima actividad",
+                  "type": "date"
+                },
+                "my_activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "my_activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha limite de mi actividad",
+                  "type": "date"
+                },
+                "activity_summary": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_summary",
+                  "readonly": false,
+                  "related": "activity_ids.summary",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Resumen pr\u00f3xima actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_exception_decoration": {
+                  "change_default": false,
+                  "help": "Tipo de la actividad de excepci\u00f3n registrada.",
+                  "name": "activity_exception_decoration",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["warning", "Alert"],
+                    ["danger", "Error"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Decoraci\u00f3n de Excepci\u00f3n de Actividad",
+                  "type": "selection"
+                },
+                "activity_exception_icon": {
+                  "change_default": false,
+                  "help": "Icono para indicar una excepci\u00f3n en la actividad.",
+                  "name": "activity_exception_icon",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_calendar_event_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_calendar_event_id",
+                  "readonly": true,
+                  "relation": "calendar.event",
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Next Activity Calendar Event",
+                  "type": "many2one"
+                },
+                "message_is_follower": {
+                  "change_default": false,
+                  "name": "message_is_follower",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Es Seguidor",
+                  "type": "boolean"
+                },
+                "message_follower_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_follower_ids",
+                  "readonly": false,
+                  "relation": "mail.followers",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Seguidores",
+                  "type": "one2many"
+                },
+                "message_partner_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_partner_ids",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Seguidores (Socios)",
+                  "type": "many2many"
+                },
+                "message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["message_type", "!=", "user_notification"]],
+                  "name": "message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes",
+                  "type": "one2many"
+                },
+                "has_message": {
+                  "change_default": false,
+                  "name": "has_message",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tiene mensaje",
+                  "type": "boolean"
+                },
+                "message_needaction": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado nuevos mensajes necesitan tu atenci\u00f3n.",
+                  "name": "message_needaction",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Acci\u00f3n necesaria",
+                  "type": "boolean"
+                },
+                "message_needaction_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes que requieren una acci\u00f3n",
+                  "name": "message_needaction_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de acciones",
+                  "type": "integer"
+                },
+                "message_has_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Mensaje de error de entrega",
+                  "type": "boolean"
+                },
+                "message_has_error_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes con errores",
+                  "name": "message_has_error_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de errores",
+                  "type": "integer"
+                },
+                "message_attachment_count": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "groups": "base.group_user",
+                  "name": "message_attachment_count",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre d'adjunts",
+                  "type": "integer"
+                },
+                "message_main_attachment_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "message_main_attachment_id",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Adjunto principal",
+                  "type": "many2one"
+                },
+                "website_message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [
+                    ["model", "=", "helpdesk.ticket"],
+                    "|",
+                    ["message_type", "=", "comment"],
+                    ["message_type", "=", "email"]
+                  ],
+                  "help": "Historial de la comunicaci\u00f3n por sitio web",
+                  "name": "website_message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes de la Web",
+                  "type": "one2many"
+                },
+                "message_has_sms_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_sms_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Error de entrega del SMS",
+                  "type": "boolean"
+                },
+                "email_cc": {
+                  "change_default": false,
+                  "name": "email_cc",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email cc",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "number": {
+                  "change_default": false,
+                  "name": "number",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "N\u00famero de ticket",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "name": {
+                  "change_default": false,
+                  "name": "name",
+                  "readonly": false,
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "T\u00edtulo",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "description": {
+                  "change_default": false,
+                  "name": "description",
+                  "readonly": false,
+                  "required": true,
+                  "sanitize": true,
+                  "sanitize_tags": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Descripci\u00f3n",
+                  "translate": false,
+                  "type": "html"
+                },
+                "user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",
+                  "name": "user_id",
+                  "readonly": false,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Usuario asignado",
+                  "type": "many2one"
+                },
+                "user_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "user_ids",
+                  "readonly": true,
+                  "related": "team_id.user_ids",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuarios",
+                  "type": "many2many"
+                },
+                "stage_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|',('team_ids', '=', team_id),('team_ids','=',False)]",
+                  "name": "stage_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.stage",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Etapa",
+                  "type": "many2one"
+                },
+                "partner_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "partner_id",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Contacto",
+                  "type": "many2one"
+                },
+                "partner_name": {
+                  "change_default": false,
+                  "name": "partner_name",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Nombre de la empresa",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "partner_email": {
+                  "change_default": false,
+                  "name": "partner_email",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "last_stage_update": {
+                  "change_default": false,
+                  "name": "last_stage_update",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de la etapa",
+                  "type": "datetime"
+                },
+                "assigned_date": {
+                  "change_default": false,
+                  "name": "assigned_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de asignaci\u00f3n",
+                  "type": "datetime"
+                },
+                "closed_date": {
+                  "change_default": false,
+                  "name": "closed_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de cierre",
+                  "type": "datetime"
+                },
+                "closed": {
+                  "change_default": false,
+                  "name": "closed",
+                  "readonly": true,
+                  "related": "stage_id.closed",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Cerrado",
+                  "type": "boolean"
+                },
+                "unattended": {
+                  "change_default": false,
+                  "name": "unattended",
+                  "readonly": true,
+                  "related": "stage_id.unattended",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Sin atender",
+                  "type": "boolean"
+                },
+                "tag_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "tag_ids",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.tag",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Etiquetas",
+                  "type": "many2many"
+                },
+                "company_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "company_id",
+                  "readonly": false,
+                  "relation": "res.company",
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Compa\u00f1\u00eda",
+                  "type": "many2one"
+                },
+                "channel_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "help": "El Canal indica el origen del que procede un ticket (podr\u00eda ser una llamada telef\u00f3nica, un email...)",
+                  "name": "channel_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.channel",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Canal",
+                  "type": "many2one"
+                },
+                "category_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "category_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.category",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Categor\u00eda",
+                  "type": "many2one"
+                },
+                "team_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "team_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.team",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Equipo",
+                  "type": "many2one"
+                },
+                "priority": {
+                  "change_default": false,
+                  "name": "priority",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["0", "Baja"],
+                    ["1", "Media"],
+                    ["2", "Alta"],
+                    ["3", "Muy alta"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Prioridad",
+                  "type": "selection"
+                },
+                "attachment_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["res_model", "=", "helpdesk.ticket"]],
+                  "name": "attachment_ids",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Archivos adjuntos",
+                  "type": "one2many"
+                },
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "kanban_state": {
+                  "change_default": false,
+                  "name": "kanban_state",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["normal", "Por defecto"],
+                    ["done", "Listo para la siguiente etapa"],
+                    ["blocked", "Bloqueado"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Estado Kanban",
+                  "type": "selection"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "active": {
+                  "change_default": false,
+                  "name": "active",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Activo",
+                  "type": "boolean"
+                },
+                "id": {
+                  "change_default": false,
+                  "name": "id",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "ID (identificaci\u00f3n)",
+                  "type": "integer"
+                },
+                "__last_update": {
+                  "change_default": false,
+                  "name": "__last_update",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "\u00daltima modificaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "display_name": {
+                  "change_default": false,
+                  "name": "display_name",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre mostrado",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "create_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "create_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado por",
+                  "type": "many2one"
+                },
+                "create_date": {
+                  "change_default": false,
+                  "name": "create_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado en",
+                  "type": "datetime"
+                },
+                "write_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "write_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de",
+                  "type": "many2one"
+                },
+                "write_date": {
+                  "change_default": false,
+                  "name": "write_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "project_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "project_id",
+                  "readonly": false,
+                  "relation": "project.project",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Proyecto",
+                  "type": "many2one"
+                },
+                "task_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "task_id",
+                  "readonly": false,
+                  "relation": "project.task",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Tarea",
+                  "type": "many2one"
+                }
+              },
+              "groupBy": ["team_id"],
+              "measure": "__count",
+              "viewMeasures": [],
+              "mode": "pie",
+              "order": null,
+              "resModel": "helpdesk.ticket",
+              "stacked": true,
+              "cumulated": false,
+              "title": "Helpdesk Ticket",
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domains": [
+                {
+                  "arrayRepr": [],
+                  "description": null
+                }
+              ],
+              "measures": {
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "__count": {
+                  "name": "__count",
+                  "string": "Cuenta",
+                  "type": "integer"
+                }
+              }
+            },
+            "searchParams": {
+              "comparison": null,
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domain": [],
+              "groupBy": ["team_id"],
+              "orderBy": []
+            },
+            "type": "odoo_pie",
+            "fieldMatching": {}
+          }
+        },
+        {
+          "id": "7373e86a-3d3c-4b0e-91ae-27560a14d2c5",
+          "x": 218,
+          "y": 585,
+          "width": 1057,
+          "height": 298,
+          "tag": "chart",
+          "data": {
+            "title": "",
+            "background": "#FFFFFF",
+            "legendPosition": "top",
+            "metaData": {
+              "disableLinking": false,
+              "fieldAttrs": {},
+              "fields": {
+                "access_url": {
+                  "change_default": false,
+                  "help": "URL Portal Cliente",
+                  "name": "access_url",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "URL Acceso Portal",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_token": {
+                  "change_default": false,
+                  "name": "access_token",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Token de Seguridad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "access_warning": {
+                  "change_default": false,
+                  "name": "access_warning",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Advertencia de acceso",
+                  "translate": false,
+                  "type": "text"
+                },
+                "activity_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_ids",
+                  "readonly": false,
+                  "relation": "mail.activity",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Actividades",
+                  "type": "one2many"
+                },
+                "activity_state": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "help": "Estados basados en actividades\nAtrasado: La ficha l\u00edmite ya ha sido sobrepasada\nHoy: La actividad est\u00e1 programada para hoy\nPlanificado: Actividades futuras.",
+                  "name": "activity_state",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["overdue", "Overdue"],
+                    ["today", "Today"],
+                    ["planned", "Planned"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Estado de actividad",
+                  "type": "selection"
+                },
+                "activity_user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_user_id",
+                  "readonly": false,
+                  "related": "activity_ids.user_id",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuario Responsable",
+                  "type": "many2one"
+                },
+                "activity_type_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|', ('res_model', '=', False), ('res_model', '=', res_model)]",
+                  "groups": "base.group_user",
+                  "name": "activity_type_id",
+                  "readonly": false,
+                  "related": "activity_ids.activity_type_id",
+                  "relation": "mail.activity.type",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tipo pr\u00f3xima actividad",
+                  "type": "many2one"
+                },
+                "activity_type_icon": {
+                  "change_default": false,
+                  "help": "Icono de fuente awesome p.e. fa-tasks",
+                  "name": "activity_type_icon",
+                  "readonly": true,
+                  "related": "activity_ids.icon",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono de tipo de actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha l\u00edmite pr\u00f3xima actividad",
+                  "type": "date"
+                },
+                "my_activity_date_deadline": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "my_activity_date_deadline",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Fecha limite de mi actividad",
+                  "type": "date"
+                },
+                "activity_summary": {
+                  "change_default": false,
+                  "groups": "base.group_user",
+                  "name": "activity_summary",
+                  "readonly": false,
+                  "related": "activity_ids.summary",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Resumen pr\u00f3xima actividad",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_exception_decoration": {
+                  "change_default": false,
+                  "help": "Tipo de la actividad de excepci\u00f3n registrada.",
+                  "name": "activity_exception_decoration",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["warning", "Alert"],
+                    ["danger", "Error"]
+                  ],
+                  "sortable": false,
+                  "store": false,
+                  "string": "Decoraci\u00f3n de Excepci\u00f3n de Actividad",
+                  "type": "selection"
+                },
+                "activity_exception_icon": {
+                  "change_default": false,
+                  "help": "Icono para indicar una excepci\u00f3n en la actividad.",
+                  "name": "activity_exception_icon",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Icono",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "activity_calendar_event_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "activity_calendar_event_id",
+                  "readonly": true,
+                  "relation": "calendar.event",
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Next Activity Calendar Event",
+                  "type": "many2one"
+                },
+                "message_is_follower": {
+                  "change_default": false,
+                  "name": "message_is_follower",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Es Seguidor",
+                  "type": "boolean"
+                },
+                "message_follower_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_follower_ids",
+                  "readonly": false,
+                  "relation": "mail.followers",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Seguidores",
+                  "type": "one2many"
+                },
+                "message_partner_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "groups": "base.group_user",
+                  "name": "message_partner_ids",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Seguidores (Socios)",
+                  "type": "many2many"
+                },
+                "message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["message_type", "!=", "user_notification"]],
+                  "name": "message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes",
+                  "type": "one2many"
+                },
+                "has_message": {
+                  "change_default": false,
+                  "name": "has_message",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Tiene mensaje",
+                  "type": "boolean"
+                },
+                "message_needaction": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado nuevos mensajes necesitan tu atenci\u00f3n.",
+                  "name": "message_needaction",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Acci\u00f3n necesaria",
+                  "type": "boolean"
+                },
+                "message_needaction_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes que requieren una acci\u00f3n",
+                  "name": "message_needaction_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de acciones",
+                  "type": "integer"
+                },
+                "message_has_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Mensaje de error de entrega",
+                  "type": "boolean"
+                },
+                "message_has_error_counter": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "N\u00famero de mensajes con errores",
+                  "name": "message_has_error_counter",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "N\u00famero de errores",
+                  "type": "integer"
+                },
+                "message_attachment_count": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "groups": "base.group_user",
+                  "name": "message_attachment_count",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre d'adjunts",
+                  "type": "integer"
+                },
+                "message_main_attachment_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "message_main_attachment_id",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Adjunto principal",
+                  "type": "many2one"
+                },
+                "website_message_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [
+                    ["model", "=", "helpdesk.ticket"],
+                    "|",
+                    ["message_type", "=", "comment"],
+                    ["message_type", "=", "email"]
+                  ],
+                  "help": "Historial de la comunicaci\u00f3n por sitio web",
+                  "name": "website_message_ids",
+                  "readonly": false,
+                  "relation": "mail.message",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Mensajes de la Web",
+                  "type": "one2many"
+                },
+                "message_has_sms_error": {
+                  "change_default": false,
+                  "help": "Si est\u00e1 seleccionado, algunos mensajes tuvieron error de entrega.",
+                  "name": "message_has_sms_error",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Error de entrega del SMS",
+                  "type": "boolean"
+                },
+                "email_cc": {
+                  "change_default": false,
+                  "name": "email_cc",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email cc",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "number": {
+                  "change_default": false,
+                  "name": "number",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "N\u00famero de ticket",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "name": {
+                  "change_default": false,
+                  "name": "name",
+                  "readonly": false,
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "T\u00edtulo",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "description": {
+                  "change_default": false,
+                  "name": "description",
+                  "readonly": false,
+                  "required": true,
+                  "sanitize": true,
+                  "sanitize_tags": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Descripci\u00f3n",
+                  "translate": false,
+                  "type": "html"
+                },
+                "user_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",
+                  "name": "user_id",
+                  "readonly": false,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Usuario asignado",
+                  "type": "many2one"
+                },
+                "user_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "user_ids",
+                  "readonly": true,
+                  "related": "team_id.user_ids",
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Usuarios",
+                  "type": "many2many"
+                },
+                "stage_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": "['|',('team_ids', '=', team_id),('team_ids','=',False)]",
+                  "name": "stage_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.stage",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Etapa",
+                  "type": "many2one"
+                },
+                "partner_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "partner_id",
+                  "readonly": false,
+                  "relation": "res.partner",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Contacto",
+                  "type": "many2one"
+                },
+                "partner_name": {
+                  "change_default": false,
+                  "name": "partner_name",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Nombre de la empresa",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "partner_email": {
+                  "change_default": false,
+                  "name": "partner_email",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Email",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "last_stage_update": {
+                  "change_default": false,
+                  "name": "last_stage_update",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de la etapa",
+                  "type": "datetime"
+                },
+                "assigned_date": {
+                  "change_default": false,
+                  "name": "assigned_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de asignaci\u00f3n",
+                  "type": "datetime"
+                },
+                "closed_date": {
+                  "change_default": false,
+                  "name": "closed_date",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Fecha de cierre",
+                  "type": "datetime"
+                },
+                "closed": {
+                  "change_default": false,
+                  "name": "closed",
+                  "readonly": true,
+                  "related": "stage_id.closed",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Cerrado",
+                  "type": "boolean"
+                },
+                "unattended": {
+                  "change_default": false,
+                  "name": "unattended",
+                  "readonly": true,
+                  "related": "stage_id.unattended",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Sin atender",
+                  "type": "boolean"
+                },
+                "tag_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "tag_ids",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.tag",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Etiquetas",
+                  "type": "many2many"
+                },
+                "company_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "company_id",
+                  "readonly": false,
+                  "relation": "res.company",
+                  "required": true,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Compa\u00f1\u00eda",
+                  "type": "many2one"
+                },
+                "channel_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "help": "El Canal indica el origen del que procede un ticket (podr\u00eda ser una llamada telef\u00f3nica, un email...)",
+                  "name": "channel_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.channel",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Canal",
+                  "type": "many2one"
+                },
+                "category_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "category_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.category",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Categor\u00eda",
+                  "type": "many2one"
+                },
+                "team_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "team_id",
+                  "readonly": false,
+                  "relation": "helpdesk.ticket.team",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Equipo",
+                  "type": "many2one"
+                },
+                "priority": {
+                  "change_default": false,
+                  "name": "priority",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["0", "Baja"],
+                    ["1", "Media"],
+                    ["2", "Alta"],
+                    ["3", "Muy alta"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Prioridad",
+                  "type": "selection"
+                },
+                "attachment_ids": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [["res_model", "=", "helpdesk.ticket"]],
+                  "name": "attachment_ids",
+                  "readonly": false,
+                  "relation": "ir.attachment",
+                  "relation_field": "res_id",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": false,
+                  "store": true,
+                  "string": "Archivos adjuntos",
+                  "type": "one2many"
+                },
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "kanban_state": {
+                  "change_default": false,
+                  "name": "kanban_state",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "selection": [
+                    ["normal", "Por defecto"],
+                    ["done", "Listo para la siguiente etapa"],
+                    ["blocked", "Bloqueado"]
+                  ],
+                  "sortable": true,
+                  "store": true,
+                  "string": "Estado Kanban",
+                  "type": "selection"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "active": {
+                  "change_default": false,
+                  "name": "active",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Activo",
+                  "type": "boolean"
+                },
+                "id": {
+                  "change_default": false,
+                  "name": "id",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "ID (identificaci\u00f3n)",
+                  "type": "integer"
+                },
+                "__last_update": {
+                  "change_default": false,
+                  "name": "__last_update",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "\u00daltima modificaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "display_name": {
+                  "change_default": false,
+                  "name": "display_name",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": false,
+                  "sortable": false,
+                  "store": false,
+                  "string": "Nombre mostrado",
+                  "translate": false,
+                  "trim": true,
+                  "type": "char"
+                },
+                "create_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "create_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado por",
+                  "type": "many2one"
+                },
+                "create_date": {
+                  "change_default": false,
+                  "name": "create_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Creado en",
+                  "type": "datetime"
+                },
+                "write_uid": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "write_uid",
+                  "readonly": true,
+                  "relation": "res.users",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n de",
+                  "type": "many2one"
+                },
+                "write_date": {
+                  "change_default": false,
+                  "name": "write_date",
+                  "readonly": true,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00daltima actualizaci\u00f3n en",
+                  "type": "datetime"
+                },
+                "project_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "project_id",
+                  "readonly": false,
+                  "relation": "project.project",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Proyecto",
+                  "type": "many2one"
+                },
+                "task_id": {
+                  "change_default": false,
+                  "context": {},
+                  "domain": [],
+                  "name": "task_id",
+                  "readonly": false,
+                  "relation": "project.task",
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Tarea",
+                  "type": "many2one"
+                }
+              },
+              "groupBy": ["priority", "tag_ids"],
+              "measure": "__count",
+              "viewMeasures": [],
+              "mode": "bar",
+              "order": null,
+              "resModel": "helpdesk.ticket",
+              "stacked": true,
+              "cumulated": false,
+              "title": "Helpdesk Ticket",
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domains": [
+                {
+                  "arrayRepr": [],
+                  "description": null
+                }
+              ],
+              "measures": {
+                "color": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "name": "color",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "\u00cdndice de color",
+                  "type": "integer"
+                },
+                "sequence": {
+                  "change_default": false,
+                  "group_operator": "sum",
+                  "help": "Determina el orden al mostrar una lista de tickets.",
+                  "name": "sequence",
+                  "readonly": false,
+                  "required": false,
+                  "searchable": true,
+                  "sortable": true,
+                  "store": true,
+                  "string": "Secuencia",
+                  "type": "integer"
+                },
+                "__count": {
+                  "name": "__count",
+                  "string": "Cuenta",
+                  "type": "integer"
+                }
+              }
+            },
+            "searchParams": {
+              "comparison": null,
+              "context": {
+                "lang": "es_ES",
+                "tz": "Europe/Madrid",
+                "uid": 2,
+                "allowed_company_ids": [1]
+              },
+              "domain": [],
+              "groupBy": ["priority", "tag_ids"],
+              "orderBy": []
+            },
+            "type": "odoo_bar",
+            "verticalAxisPosition": "left",
+            "stacked": true,
+            "fieldMatching": {}
+          }
+        }
+      ],
+      "filterTables": [],
+      "areGridLinesVisible": true,
+      "isVisible": true
+    },
+    {
+      "id": "128ccf85-d987-460c-b8df-0dd8553fc70f",
+      "name": "Data",
+      "colNumber": 26,
+      "rowNumber": 100,
+      "rows": {},
+      "cols": {},
+      "merges": [],
+      "cells": {
+        "A1": {
+          "style": 4,
+          "content": "=_t(\"KPI\")"
+        },
+        "A2": {
+          "content": "=_t(\"Tiquets\")"
+        },
+        "B1": {
+          "style": 4,
+          "content": "=_t(\"Actual\")"
+        },
+        "B2": {
+          "content": "=ODOO.PIVOT(8,\"__count\")"
+        },
+        "C1": {
+          "style": 4,
+          "content": "=_t(\"Anterior\")"
+        },
+        "D1": {
+          "style": 4,
+          "content": "=_t(\"Actual\")"
+        },
+        "D2": {
+          "content": "=FORMAT.LARGE.NUMBER(B2)"
+        },
+        "E1": {
+          "style": 4,
+          "content": "=_t(\"Anterior\")"
+        },
+        "E2": {
+          "content": "=FORMAT.LARGE.NUMBER(C2)"
+        }
+      },
+      "conditionalFormats": [],
+      "figures": [],
+      "filterTables": [],
+      "areGridLinesVisible": true,
+      "isVisible": true
+    }
+  ],
+  "entities": {},
+  "styles": {
+    "1": {
+      "bold": true,
+      "fillColor": "#FFFFFF"
+    },
+    "2": {
+      "bold": true,
+      "fillColor": "#FFFFFF",
+      "textColor": "#756f6f"
+    },
+    "3": {
+      "bold": true,
+      "fontSize": 16,
+      "textColor": "#134F5C"
+    },
+    "4": {
+      "bold": true
+    },
+    "5": {
+      "textColor": "#134F5C",
+      "fillColor": "#EFEFEF"
+    },
+    "6": {
+      "textColor": "#134F5C"
+    },
+    "7": {
+      "fillColor": "#EFEFEF",
+      "bold": false,
+      "textColor": "#134F5C"
+    },
+    "8": {
+      "bold": false,
+      "textColor": "#134F5C"
+    },
+    "9": {
+      "fillColor": "#FFFFFF",
+      "bold": false,
+      "textColor": "#134F5C"
+    },
+    "10": {
+      "bold": true,
+      "fillColor": "#FFFFFF",
+      "fontSize": 16,
+      "textColor": "#134F5C"
+    },
+    "11": {
+      "bold": true,
+      "fillColor": "#FFFFFF",
+      "textColor": "#134F5C"
+    },
+    "12": {
+      "bold": true,
+      "fillColor": "#EFEFEF",
+      "textColor": "#134F5C"
+    },
+    "13": {
+      "bold": true,
+      "align": "center"
+    },
+    "14": {
+      "fillColor": "#EFEFEF",
+      "bold": false,
+      "align": "center"
+    },
+    "15": {
+      "bold": false,
+      "align": "center"
+    },
+    "16": {
+      "fillColor": "#FFFFFF",
+      "bold": false,
+      "align": "center"
+    },
+    "17": {
+      "align": "center",
+      "fillColor": "#EFEFEF"
+    },
+    "18": {
+      "align": "center"
+    },
+    "19": {
+      "bold": true,
+      "fillColor": "#FFFFFF",
+      "align": "center"
+    },
+    "20": {
+      "bold": true,
+      "fillColor": "#EFEFEF",
+      "align": "center"
+    },
+    "21": {
+      "fontSize": 10
+    }
+  },
+  "formats": {},
+  "borders": {
+    "1": {
+      "bottom": ["thin", "#000"]
+    },
+    "2": {
+      "top": ["thin", "#000"]
+    }
+  },
+  "revisionId": "e3e0e787-1060-4e5b-b75f-f26143c74653",
+  "uniqueFigureIds": true,
+  "odooVersion": 5,
+  "globalFilters": [],
+  "pivots": {
+    "1": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "1",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket.team",
+      "rowGroupBys": [],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "2": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "2",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["team_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "3": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "3",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "4": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "4",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "5": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "5",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "6": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "6",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "7": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "7",
+      "measures": [
+        {
+          "field": "sequence"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "8": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "8",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": [],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "9": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 504,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "9",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_name"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "10": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "10",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["tag_ids"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "11": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "11",
+      "measures": [
+        {
+          "field": "__count"
+        },
+        {
+          "field": "sequence"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["tag_ids"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "12": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "12",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["tag_ids"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "13": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "13",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["channel_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "14": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "14",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "15": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "15",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "16": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 504,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "16",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["partner_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "17": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "17",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["user_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "18": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "18",
+      "measures": [
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": [],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "19": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "19",
+      "measures": [
+        {
+          "field": "sequence"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": [],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "20": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "20",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["user_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "21": {
+      "colGroupBys": [],
+      "context": {
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "21",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["tag_ids"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "22": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "22",
+      "measures": [
+        {
+          "field": "sequence"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": [],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "23": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "23",
+      "measures": [
+        {
+          "field": "sequence"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["user_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "24": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "24",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["channel_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "25": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "25",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["user_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    },
+    "26": {
+      "colGroupBys": [],
+      "context": {
+        "params": {
+          "action": 503,
+          "model": "helpdesk.ticket",
+          "view_type": "pivot",
+          "cids": 1,
+          "menu_id": 381
+        },
+        "lang": "es_ES",
+        "tz": "Europe/Madrid",
+        "uid": 2,
+        "allowed_company_ids": [1]
+      },
+      "domain": [],
+      "id": "26",
+      "measures": [
+        {
+          "field": "sequence"
+        },
+        {
+          "field": "__count"
+        }
+      ],
+      "model": "helpdesk.ticket",
+      "rowGroupBys": ["user_id"],
+      "sortedColumn": null,
+      "fieldMatching": {}
+    }
+  },
+  "pivotNextId": 27,
+  "lists": {
+    "1": {
+      "columns": [
+        "priority",
+        "sequence",
+        "number",
+        "name",
+        "project_id",
+        "create_date",
+        "stage_id"
+      ],
+      "domain": [],
+      "model": "helpdesk.ticket",
+      "context": {},
+      "orderBy": [
+        {
+          "name": "priority",
+          "asc": false
+        },
+        {
+          "name": "create_date",
+          "asc": true
+        },
+        {
+          "name": "sequence",
+          "asc": true
+        }
+      ],
+      "id": "1",
+      "name": "Tiquets",
+      "fieldMatching": {}
+    },
+    "2": {
+      "columns": [
+        "priority",
+        "sequence",
+        "number",
+        "name",
+        "project_id",
+        "create_date",
+        "stage_id"
+      ],
+      "domain": [],
+      "model": "helpdesk.ticket",
+      "context": {},
+      "orderBy": [
+        {
+          "name": "priority",
+          "asc": false
+        },
+        {
+          "name": "sequence",
+          "asc": true
+        }
+      ],
+      "id": "2",
+      "name": "Tiquets",
+      "fieldMatching": {}
+    }
+  },
+  "listNextId": 3,
+  "chartOdooMenusReferences": {
+    "7373e86a-3d3c-4b0e-91ae-27560a14d2c5": "helpdesk_mgmt.helpdesk_ticket_main_menu",
+    "b7632631-c904-456c-9c87-724b8a54ee13": "helpdesk_mgmt.helpdesk_ticket_main_menu",
+    "e407a9eb-f50d-40e9-a44d-82c0e849a114": "helpdesk_mgmt.helpdesk_ticket_main_menu"
+  }
+}
