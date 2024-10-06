@@ -12,6 +12,7 @@ class HelpdeskTicket(models.Model):
     def _relation_with_timesheet_line(self):
         return "ticket_id"
 
+    project_id = fields.Many2one(domain=[("is_internal_project", "=", False)])
     allow_timesheet = fields.Boolean(
         string="Allow Timesheet",
         related="team_id.allow_timesheet",

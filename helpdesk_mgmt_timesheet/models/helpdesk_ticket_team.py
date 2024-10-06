@@ -7,6 +7,7 @@ from odoo import api, fields, models
 class HelpdeskTicketTeam(models.Model):
     _inherit = "helpdesk.ticket.team"
 
+    default_project_id = fields.Many2one(domain=[("is_internal_project", "=", False)])
     allow_timesheet = fields.Boolean()
 
     @api.constrains("allow_timesheet")
