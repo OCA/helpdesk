@@ -14,6 +14,24 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-success\"/>\n"
+"                            Start work\n"
+"                        </span>"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-warning\"/>\n"
+"                            Stop work\n"
+"                        </span>"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__allow_timesheet
 msgid "Allow Timesheet"
