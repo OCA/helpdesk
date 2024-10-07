@@ -120,6 +120,11 @@
                         domain="[]"
                         context="{'group_by':'tag_ids'}"
                     />
+                    <filter
+                        string="Kanban State"
+                        name="kanban_state"
+                        context="{'group_by': 'kanban_state'}"
+                    />
                 </group>
             </search>
         </field>
@@ -173,6 +178,7 @@
                             />
                             <field name="create_date" readonly="1" />
                             <field name="channel_id" />
+                            <field name="kanban_state" widget="state_selection" />
                         </group>
                         <group>
                             <field name="partner_id" />
@@ -253,6 +259,7 @@
                     decoration-info="unattended == True"
                     decoration-muted="closed == True"
                 />
+                <field name="kanban_state" widget="selection" optional="hide" />
             </tree>
         </field>
     </record>
