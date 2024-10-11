@@ -12,6 +12,28 @@
                 <field name="todo_ticket_count_unattended" />
                 <field name="todo_ticket_count_high_priority" />
                 <templates>
+                    <t t-name="kanban-menu">
+                        <div class="o_kanban_card_manage_section">
+                            <div role="menuitem" class="o_kanban_manage_reports">
+                                <div class="o_kanban_card_manage_title ps-4 pb-1">
+                                    <span class="fw-bolder">View</span>
+                                </div>
+                                <a
+                                    role="menuitem"
+                                    class="dropdown-item"
+                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                                    type="action"
+                                > All
+                                </a>
+                                <div role="separator" class="dropdown-divider" />
+                                <ul
+                                    t-if="widget.editable"
+                                    class="oe_kanban_colorpicker"
+                                    data-field="color"
+                                />
+                            </div>
+                        </div>
+                    </t>
                     <t t-name="kanban-box">
                         <div t-attf-class="#{kanban_color(record.color.raw_value)}">
                             <div t-attf-class="o_kanban_card_header">
@@ -24,15 +46,6 @@
                                             <field name="name" />
                                         </a>
                                     </div>
-                                </div>
-                                <div class="o_kanban_manage_button_section">
-                                    <a
-                                        class="o_kanban_manage_toggle_button"
-                                        href="#"
-                                        title="Toggle dropdown"
-                                    >
-                                        <i class="fa fa-ellipsis-v" />
-                                    </a>
                                 </div>
                                 <div class="container o_kanban_card_content">
                                     <div class="row">
@@ -50,7 +63,7 @@
                                                     t-esc="record.todo_ticket_count.value"
                                                 />
                                                 To Do
-                                                </button>
+                                            </button>
                                         </div>
                                         <div class="col-6 o_kanban_primary_right">
                                             <div class="row">
@@ -97,39 +110,6 @@
                                                     />
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="container o_kanban_card_manage_pane dropdown-menu"
-                                    role="menu"
-                                >
-                                    <div class="row">
-                                        <div
-                                            class="col-6 o_kanban_card_manage_section o_kanban_manage_view"
-                                        >
-                                            <div class="o_kanban_card_manage_title">
-                                                <span>View</span>
-                                            </div>
-                                            <div>
-                                                <a
-                                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                                    type="action"
-                                                >
-                                                    All
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        t-if="widget.editable"
-                                        class="o_kanban_card_manage_settings row"
-                                    >
-                                        <div class="col-8">
-                                            <ul
-                                                class="oe_kanban_colorpicker"
-                                                data-field="color"
-                                            />
                                         </div>
                                     </div>
                                 </div>

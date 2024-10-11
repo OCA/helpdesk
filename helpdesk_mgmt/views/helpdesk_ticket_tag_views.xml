@@ -30,7 +30,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
@@ -52,7 +52,7 @@
             <tree decoration-muted="not active" editable="bottom">
                 <field name="name" />
                 <field name="color" widget="color_picker" />
-                <field name="active" invisible="1" />
+                <field name="active" column_invisible="1" />
             </tree>
         </field>
     </record>

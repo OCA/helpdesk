@@ -139,7 +139,7 @@ Usage
 2. In the Kanban view, click in the kanban card of a team to see their
    tickets and create new ones.
 
-|image1|
+|Tickets_Kanban|
 
 To create a new ticket from the kanban view:
 
@@ -154,10 +154,10 @@ To create a new ticket from the kanban view:
 8. Add a description.
 9. You can also attach files to the ticket.
 
-|image2|
+|Tickets01|
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
-.. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets01.PNG
+.. |Tickets_Kanban| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
+.. |Tickets01| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets01.PNG
 
 Known issues / Roadmap
 ======================

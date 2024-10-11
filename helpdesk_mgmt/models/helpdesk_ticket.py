@@ -30,11 +30,11 @@ class HelpdeskTicket(models.Model):
             ("id", "in", stages.ids),
             ("team_ids", "=", False),
         ]
-        default_team_id = self.default_get(["team_id"]).get("team_id")
+        default_team_id = self.default_get(["team_id"])
         if default_team_id:
             search_domain = [
                 "|",
-                ("team_ids", "=", default_team_id),
+                ("team_ids", "=", default_team_id["team_id"]),
             ] + search_domain
         return stages.search(search_domain, order=order)
 
@@ -46,10 +46,7 @@ class HelpdeskTicket(models.Model):
         string="Assigned user",
         tracking=True,
         index=True,
-        compute="_compute_user_id",
-        store=True,
-        readonly=False,
-        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950
+        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950,E501
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -132,11 +129,10 @@ class HelpdeskTicket(models.Model):
     )
     active = fields.Boolean(default=True)
 
-    def name_get(self):
-        res = []
-        for rec in self:
-            res.append((rec.id, rec.number + " - " + rec.name))
-        return res
+    @api.depends("name")
+    def _compute_display_name(self):
+        for ticket in self:
+            ticket.display_name = f"{ticket.number} - {ticket.name}"
 
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
@@ -217,7 +213,7 @@ class HelpdeskTicket(models.Model):
                 {
                     # Need to set mass_mail so that the email will always be sent
                     "composition_mode": "mass_mail",
-                    "auto_delete_message": True,
+                    "auto_delete_keep_log": False,
                     "subtype_id": self.env["ir.model.data"]._xmlid_to_res_id(
                         "mail.mt_note"
                     ),
