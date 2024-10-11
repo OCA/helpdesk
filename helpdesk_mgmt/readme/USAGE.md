@@ -3,7 +3,7 @@
 2.  In the Kanban view, click in the kanban card of a team to see their
     tickets and create new ones.
 
-![](../static/description/Tickets_Kanban.PNG)
+![Tickets_Kanban](../static/description/Tickets_Kanban.PNG)
 
 To create a new ticket from the kanban view:
 
@@ -18,4 +18,4 @@ To create a new ticket from the kanban view:
 8.  Add a description.
 9.  You can also attach files to the ticket.
 
-![](../static/description/Tickets01.PNG)
+![Tickets01](../static/description/Tickets01.PNG)

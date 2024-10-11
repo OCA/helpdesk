@@ -24,11 +24,11 @@ class HelpdeskTicket(models.Model):
             ("id", "in", stages.ids),
             ("team_ids", "=", False),
         ]
-        default_team_id = self.default_get(["team_id"])["team_id"]
+        default_team_id = self.default_get(["team_id"])
         if default_team_id:
             search_domain = [
                 "|",
-                ("team_ids", "=", default_team_id),
+                ("team_ids", "=", default_team_id["team_id"]),
             ] + search_domain
         return stages.search(search_domain, order=order)
 
@@ -40,7 +40,7 @@ class HelpdeskTicket(models.Model):
         string="Assigned user",
         tracking=True,
         index=True,
-        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950
+        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950,E501
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"

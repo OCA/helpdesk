@@ -87,7 +87,6 @@
                                 class="oe_inline"
                                 string="Accept Emails From"
                             />
-<!--                            <field name="alias_user_id" string="Assign to" />-->
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
