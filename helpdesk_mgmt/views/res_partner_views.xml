@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <div class="oe_button_box" name="button_box">
                 <button
-                    context="{'search_default_open': True, 'default_partner_id': active_id}"
+                    context="{'search_default_open': True, 'default_partner_id': id}"
                     name="action_view_helpdesk_tickets"
                     type="object"
                     class="oe_stat_button"
