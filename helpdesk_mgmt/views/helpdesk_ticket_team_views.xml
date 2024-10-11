@@ -40,7 +40,7 @@
                         name="web_ribbon"
                         title="Archived"
                         bg_color="bg-danger"
-                        attrs="{'invisible': [('active', '=', True)]}"
+                        invisible="active"
                     />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" string="Helpdesk Team" />
@@ -78,7 +78,7 @@
                                         name="%(base_setup.action_general_configuration)d"
                                         string="Configure domain name"
                                         class="btn-link"
-                                        attrs="{'invisible': [('alias_domain', '!=', False)]}"
+                                        invisible="alias_domain"
                                     />
                                 </div>
                             </div>
@@ -87,7 +87,6 @@
                                 class="oe_inline"
                                 string="Accept Emails From"
                             />
-                            <field name="alias_user_id" string="Assign to" />
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
