@@ -76,6 +76,7 @@
                             name="note"
                             placeholder="Description of the policy..."
                             nolabel="1"
+                            colspan="2"
                         />
                     </group>
                 </sheet>

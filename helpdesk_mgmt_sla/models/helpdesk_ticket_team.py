@@ -12,5 +12,4 @@ class HelpdeskTicketTeam(models.Model):
         "resource.calendar",
         "Working Hours",
         default=lambda self: self.env.company.resource_calendar_id,
-        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
     )
