@@ -12,6 +12,7 @@
     "data": [
         "views/res_config_settings_views.xml",
         "views/helpdesk_ticket_view.xml",
+        "views/mail_activity_views.xml",
         "views/helpdesk_ticket_team_views.xml",
     ],
     "application": False,
