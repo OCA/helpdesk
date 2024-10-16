@@ -12,6 +12,7 @@
     "data": [
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_ticket_category_views.xml",
+        "views/helpdesk_ticket_team_views.xml",
     ],
     "application": False,
 }
