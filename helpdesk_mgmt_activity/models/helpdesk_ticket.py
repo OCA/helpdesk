@@ -20,7 +20,7 @@ class HelpdeskTicket(models.Model):
         string="Source Record",
     )
     source_activity_type_id = fields.Many2one(comodel_name="mail.activity.type")
-    date_deadline = fields.Date(string="Due Date", default=fields.Date.context_today)
+    date_deadline = fields.Date(string="Due Date", default=fields.Date.today)
     next_stage_id = fields.Many2one(
         comodel_name="helpdesk.ticket.stage",
         compute="_compute_next_stage_id",
