@@ -19,6 +19,12 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "helpdesk_mgmt_activity.helpdesk_available_model_ids", cls.partner_model.ids
         )
 
+        # Stages
+        cls.progress_stage = cls.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+        )
+        cls.awaiting_stage = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_awaiting")
+
     def create_ticket_and_activity(self):
         """Create ticket and activity for record"""
         ticket = self._create_ticket(self.team_a, self.user)
@@ -38,6 +44,47 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             date_deadline=ticket.date_deadline,
         )
         return ticket, activity
+
+    def test_ticket_next_stage(self):
+        """Test flow check stage for ticket"""
+        # Set team config
+        self.team_a.write(
+            {
+                "allow_set_activity": True,
+                "activity_stage_id": self.stage_closed.id,
+            }
+        )
+        # Create ticket
+        ticket = self._create_ticket(self.team_a, self.user)
+
+        self.assertEqual(ticket.stage_id, self.new_stage)
+        self.assertEqual(ticket.next_stage_id, self.progress_stage)
+
+        # Set activity configuration for ticket
+        ticket.write(
+            {
+                "record_ref": f"res.partner,{self.test_partner.id}",
+                "source_activity_type_id": self.activity_type_meeting.id,
+                "date_deadline": Date.today(),
+            }
+        )
+
+        # Create activity for source record
+        action = ticket.perform_action()
+        activity = ticket.record_ref.with_context(
+            **action.get("context", {})
+        ).activity_schedule(
+            summary=ticket.name,
+            note=ticket.description,
+            date_deadline=ticket.date_deadline,
+        )
+
+        self.assertEqual(ticket.stage_id, self.progress_stage)
+
+        # Activity set done
+        activity.action_done()
+
+        self.assertEqual(ticket.stage_id, self.stage_closed)
 
     def test_ticket_available_model_ids(self):
         """Test flow when available model for ticket is updated"""
@@ -78,7 +125,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             ticket.perform_action()
         self.assertEqual(error.exception.args[0], "You cannot create activity!")
 
-        ticket.team_id.is_set_activity = True
+        ticket.team_id.allow_set_activity = True
 
         with self.assertRaises(UserError) as error:
             ticket.perform_action()
@@ -114,7 +161,6 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
                     "default_res_id": ticket.res_id,
                     "default_activity_type_id": ticket.source_activity_type_id.id,
                     "default_date_deadline": ticket.date_deadline,
-                    "default_note": ticket.description,
                     "default_ticket_id": ticket.id,
                     "default_summary": ticket.name,
                     "default_user_id": ticket.user_id.id,
@@ -130,7 +176,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         """
         self.team_a.write(
             {
-                "is_set_activity": True,
+                "allow_set_activity": True,
                 "activity_stage_id": self.stage_closed.id,
             }
         )
@@ -154,7 +200,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         Test flow when create activity from helpdesk ticket
         and done it without activity_stage_id field value from ticket team
         """
-        self.team_a.is_set_activity = True
+        self.team_a.allow_set_activity = True
         ticket, activity = self.create_ticket_and_activity()
         ticket_stage_id = ticket.stage_id.id
         self.assertEqual(

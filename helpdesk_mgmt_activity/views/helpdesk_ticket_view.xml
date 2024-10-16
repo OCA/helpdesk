@@ -10,13 +10,14 @@
                 <field name="can_create_activity" invisible="1" />
                 <button
                     string="Perform Action"
+                    class="btn btn-primary"
                     name="perform_action"
                     type="object"
                     attrs="{'invisible': [('can_create_activity', '=', False)]}"
                 />
             </header>
             <group name="main" position="inside">
-                <group string="Assign Activity">
+                <group string="Activity Config">
                     <field name="res_id" invisible="1" />
                     <field name="res_model" invisible="1" />
                     <field name="record_ref" />

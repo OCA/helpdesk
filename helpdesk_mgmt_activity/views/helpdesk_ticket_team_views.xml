@@ -7,10 +7,11 @@
         <field name="priority">99</field>
         <field name="arch" type="xml">
             <group name="right" position="inside">
-                <field name="is_set_activity" />
+                <field name="allow_set_activity" />
                 <field
                     name="activity_stage_id"
                     domain="['|', ('team_ids', '=', False), ('team_ids', 'in', [id])]"
+                    attrs="{'invisible': [('allow_set_activity', '=', False)]}"
                 />
             </group>
         </field>

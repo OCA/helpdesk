@@ -9,21 +9,27 @@ from odoo import _, api, fields, models
 class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
-    can_create_activity = fields.Boolean(related="team_id.is_set_activity")
+    can_create_activity = fields.Boolean(related="team_id.allow_set_activity")
     res_model = fields.Char(string="Source Document Model", index=True)
     res_id = fields.Integer(string="Source Document", index=True)
 
     record_ref = fields.Reference(
-        selection="_referenceable_models",
+        selection="_selection_record_ref",
         compute="_compute_record_ref",
         inverse="_inverse_record_ref",
         string="Source Record",
     )
     source_activity_type_id = fields.Many2one(comodel_name="mail.activity.type")
     date_deadline = fields.Date(string="Due Date", default=fields.Date.context_today)
+    next_stage_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.stage",
+        compute="_compute_next_stage_id",
+        store=True,
+        index=True,
+    )
 
     @api.model
-    def _referenceable_models(self):
+    def _selection_record_ref(self):
         """Select target model for source document"""
         model_ids_str = (
             self.env["ir.config_parameter"]
@@ -43,31 +49,62 @@ class HelpdeskTicket(models.Model):
             if IrModelAccess.check(model.get("model"), "read", False)
         ]
 
+    @api.model
+    def _get_team_stages(self, teams):
+        """
+        Get grouping stages by team id
+
+        :param teams: helpdesk.ticket.team record set
+        :return: dict {team_id: team stages recordset}
+        """
+        return {team.id: team._get_applicable_stages() for team in teams}
+
+    @api.depends("stage_id")
+    def _compute_next_stage_id(self):
+        """Compute next stage for ticket"""
+        team_stages = self._get_team_stages(self.team_id)
+        for record in self:
+            current_stage = record.stage_id
+            stages = team_stages.get(
+                record.team_id.id, self.env["helpdesk.ticket.stage"]
+            )
+            next_stage = (
+                stages.filtered(
+                    lambda stage, _cur_stage=current_stage: stage.sequence
+                    > current_stage.sequence
+                )[:1]
+                or current_stage
+            )
+            record.next_stage_id = next_stage
+
     @api.depends("res_model", "res_id")
     def _compute_record_ref(self):
         """Compute Source Document Reference"""
         for rec in self:
-            if rec.res_model and rec.res_id:
-                try:
-                    self.env[rec.res_model].browse(rec.res_id).check_access_rule("read")
-                    rec.record_ref = "%s,%s" % (
-                        rec.res_model,
-                        rec.res_id,
-                    )
-                except Exception:
-                    rec.record_ref = None
-            else:
+            if not rec.res_model or not rec.res_id:
+                rec.record_ref = None
+                continue
+            try:
+                self.env[rec.res_model].browse(rec.res_id).check_access_rule("read")
+                rec.record_ref = "%s,%s" % (rec.res_model, rec.res_id)
+            except Exception:
                 rec.record_ref = None
 
     def _inverse_record_ref(self):
         """Set Source Document Reference"""
         for record in self:
-            if record.record_ref:
-                res_id = record.record_ref.id
-                res_model = record.record_ref._name
-            else:
-                res_id, res_model = False, False
-            record.write({"res_id": res_id, "res_model": res_model})
+            record_ref = record.record_ref
+            record.write(
+                {
+                    "res_id": record_ref and record_ref.id or False,
+                    "res_model": record_ref and record_ref._name or False,
+                }
+            )
+
+    def set_next_stage(self):
+        """Set next ticket stage"""
+        for record in self:
+            record.stage_id = record.next_stage_id
 
     def _check_activity_values(self):
         """Check activity values for helpdesk ticket"""
@@ -94,7 +131,6 @@ class HelpdeskTicket(models.Model):
                 "default_res_id": self.res_id,
                 "default_activity_type_id": self.source_activity_type_id.id,
                 "default_date_deadline": self.date_deadline,
-                "default_note": self.description,
                 "default_ticket_id": self.id,
                 "default_summary": self.name,
                 "default_user_id": self.user_id.id,

@@ -4,7 +4,7 @@ from odoo import fields, models
 class HelpdeskTicketTeam(models.Model):
     _inherit = "helpdesk.ticket.team"
 
-    is_set_activity = fields.Boolean(
+    allow_set_activity = fields.Boolean(
         string="Set Activities",
         help="Available to set activity on source record from ticket",
     )
