@@ -1,0 +1,1 @@
+This module allows getting a ticket back to its initial state when a message is received about it, except if it is a notification.
