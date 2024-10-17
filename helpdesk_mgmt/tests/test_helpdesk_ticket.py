@@ -1,5 +1,7 @@
 import time
 
+from odoo.addons.test_mail.tests.test_mail_gateway import MAIL_TEMPLATE
+
 from .common import TestHelpdeskTicketBase
 
 
@@ -181,3 +183,73 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             }
         )
         self.assertEqual(self.new_stage, new_ticket.stage_id)
+
+    def test_create_ticket_with_mail_template(self):
+        new_stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
+        new_stage.team_ids = [(6, 0, [self.team_a.id])]
+        new_stage.mail_template_id = self.env.ref(
+            "helpdesk_mgmt.closed_ticket_template"
+        )
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "I'm a robot, hello",
+                "team_id": self.team_a.id,
+                "stage_id": new_stage.id,
+                "description": "Description",
+            }
+        )
+        ticket_good_reception = ticket.message_ids.filtered(
+            lambda m: m.message_type == "email"
+        )
+        self.assertIn("closed", ticket_good_reception.subject)
+
+    def test_create_ticket_from_alias_mail(self):
+        server = self.env["fetchmail.server"].create(
+            {
+                "name": "Demo server",
+                "server_type": "pop",
+                "server": "pop3.example.com",
+            }
+        )
+        self.env["mail.alias"].create(
+            {
+                "alias_name": "team_a_alias",
+                "alias_model_id": self.env.ref(
+                    "helpdesk_mgmt.model_helpdesk_ticket"
+                ).id,
+                "alias_contact": "everyone",
+                "alias_defaults": {"team_id": self.team_a.id},
+                "alias_parent_model_id": self.env.ref(
+                    "helpdesk_mgmt.model_helpdesk_ticket_team"
+                ).id,
+            }
+        )
+        new_stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
+        new_stage.team_ids = [(6, 0, [self.team_a.id])]
+        new_stage.mail_template_id = self.env.ref(
+            "helpdesk_mgmt.closed_ticket_template"
+        )
+        email = "from@me.com"
+
+        self.env["mail.thread"].with_context(
+            default_fetchmail_server_id=server.id
+        ).message_process(
+            server.object_id.model,
+            MAIL_TEMPLATE.format(
+                return_path=email,
+                email_from=email,
+                to="team_a_alias@example.com",
+                cc="team_aa_alias@example.com",
+                subject="Hello Ticket",
+                extra="",
+                msg_id="<test@example.com>",
+            ),
+        )
+
+        ticket = self.env["helpdesk.ticket"].search([("name", "=", "Hello Ticket")])
+        self.assertEqual(len(ticket.message_ids), 2)
+        ticket_good_reception = ticket.message_ids.filtered(
+            lambda m: m.message_type == "email" and m.email_from != email
+        )
+        self.assertEqual(len(ticket_good_reception), 1)
+        self.assertIn("closed", ticket_good_reception.subject)
