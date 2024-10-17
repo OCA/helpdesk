@@ -27,6 +27,7 @@ class HelpdeskTicket(models.Model):
         store=True,
         index=True,
     )
+    is_new_stage = fields.Boolean(compute="_compute_is_new_stage")
 
     @api.model
     def _selection_record_ref(self):
@@ -58,6 +59,11 @@ class HelpdeskTicket(models.Model):
         :return: dict {team_id: team stages recordset}
         """
         return {team.id: team._get_applicable_stages() for team in teams}
+
+    def _compute_is_new_stage(self):
+        for ticket in self:
+            new_stage = ticket.team_id._get_applicable_stages()[:1]
+            ticket.is_new_stage = ticket.stage_id == new_stage
 
     @api.depends("stage_id")
     def _compute_next_stage_id(self):
