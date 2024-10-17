@@ -7,13 +7,14 @@
         <field name="priority">99</field>
         <field name="arch" type="xml">
             <header position="inside">
+                <field name="is_new_stage" invisible="1" />
                 <field name="can_create_activity" invisible="1" />
                 <button
                     string="Perform Action"
                     class="btn btn-primary"
                     name="perform_action"
                     type="object"
-                    attrs="{'invisible': [('can_create_activity', '=', False)]}"
+                    attrs="{'invisible': [('can_create_activity', '=', False), ('is_new_stage', '=', True)]}"
                 />
             </header>
             <group name="main" position="inside">
