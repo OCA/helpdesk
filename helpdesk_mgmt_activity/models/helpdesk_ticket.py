@@ -124,22 +124,28 @@ class HelpdeskTicket(models.Model):
             raise models.UserError(_("Date Deadline is not set!"))
 
     def perform_action(self):
-        self._check_activity_values()
+        """Perform action for ticket"""
         self.ensure_one()
+        # Check values for create activity
+        self._check_activity_values()
+        try:
+            # Create activity for source record
+            self.record_ref.activity_schedule(
+                summary=self.name,
+                note=self.description,
+                date_deadline=self.date_deadline,
+                activity_type_id=self.source_activity_type_id.id,
+                ticket_id=self.id,
+                user_id=self.user_id.id,
+            )
+            self.set_next_stage()
+        except Exception as e:
+            raise models.UserError from e
         return {
-            "type": "ir.actions.act_window",
-            "name": "Helpdesk Ticket Action",
-            "view_mode": "form",
-            "res_model": "mail.activity",
-            "view_type": "form",
-            "context": {
-                "default_res_model_id": self.env["ir.model"]._get_id(self.res_model),
-                "default_res_id": self.res_id,
-                "default_activity_type_id": self.source_activity_type_id.id,
-                "default_date_deadline": self.date_deadline,
-                "default_ticket_id": self.id,
-                "default_summary": self.name,
-                "default_user_id": self.user_id.id,
+            "type": "ir.actions.client",
+            "tag": "display_notification",
+            "params": {
+                "type": "success",
+                "message": _("Activity has been created!"),
             },
-            "target": "new",
         }

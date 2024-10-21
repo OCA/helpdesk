@@ -35,14 +35,8 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
                 "date_deadline": Date.today(),
             }
         )
-        action = ticket.perform_action()
-        activity = ticket.record_ref.with_context(
-            **action.get("context", {})
-        ).activity_schedule(
-            summary=ticket.name,
-            note=ticket.description,
-            date_deadline=ticket.date_deadline,
-        )
+        ticket.perform_action()
+        activity = ticket.record_ref.activity_ids
         return ticket, activity
 
     def test_ticket_next_stage(self):
@@ -57,8 +51,10 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         # Create ticket
         ticket = self._create_ticket(self.team_a, self.user)
 
-        self.assertEqual(ticket.stage_id, self.new_stage)
-        self.assertEqual(ticket.next_stage_id, self.progress_stage)
+        self.assertEqual(ticket.stage_id, self.new_stage, "Stage must be new")
+        self.assertEqual(
+            ticket.next_stage_id, self.progress_stage, "Next stage must be progress"
+        )
 
         # Set activity configuration for ticket
         ticket.write(
@@ -70,21 +66,19 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
 
         # Create activity for source record
-        action = ticket.perform_action()
-        activity = ticket.record_ref.with_context(
-            **action.get("context", {})
-        ).activity_schedule(
-            summary=ticket.name,
-            note=ticket.description,
-            date_deadline=ticket.date_deadline,
-        )
+        ticket.perform_action()
+        activity = ticket.record_ref.activity_ids
 
-        self.assertEqual(ticket.stage_id, self.progress_stage)
+        self.assertEqual(
+            ticket.stage_id, self.progress_stage, "Ticket stage must be progress"
+        )
 
         # Activity set done
         activity.action_done()
 
-        self.assertEqual(ticket.stage_id, self.stage_closed)
+        self.assertEqual(
+            ticket.stage_id, self.stage_closed, "Ticket stage must be closed"
+        )
 
     def test_ticket_available_model_ids(self):
         """Test flow when available model for ticket is updated"""
@@ -99,23 +93,35 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "helpdesk_mgmt_activity.helpdesk_available_model_ids", False
         )
         values = settings.get_values()
-        self.assertFalse(values.get("helpdesk_available_model_ids"))
+        self.assertFalse(
+            values.get("helpdesk_available_model_ids"), "Available models must be False"
+        )
 
     def test_ticket_record_ref(self):
         """Test flow when change source record"""
         ticket = self._create_ticket(self.team_a, self.user)
-        self.assertFalse(ticket.record_ref)
-        self.assertFalse(ticket.res_model)
-        self.assertFalse(ticket.res_id)
+        self.assertFalse(ticket.record_ref, "Reference record must be False")
+        self.assertFalse(ticket.res_model, "Res Model must be False")
+        self.assertFalse(ticket.res_id, "Res ID must be False")
 
         ticket.record_ref = f"res.partner,{self.test_partner.id}"
-        self.assertEqual(ticket.record_ref, self.test_partner)
-        self.assertEqual(ticket.res_id, self.test_partner.id)
-        self.assertEqual(ticket.res_model, "res.partner")
+        self.assertEqual(
+            ticket.record_ref,
+            self.test_partner,
+            f"Reference record must be equal to {self.test_partner}",
+        )
+        self.assertEqual(
+            ticket.res_id,
+            self.test_partner.id,
+            f"Res ID must be equal to {self.test_partner.id}",
+        )
+        self.assertEqual(
+            ticket.res_model, "res.partner", "Res Model must be equal to 'res.partner'"
+        )
 
         ticket.record_ref = False
-        self.assertFalse(ticket.res_id)
-        self.assertFalse(ticket.res_model)
+        self.assertFalse(ticket.res_id, "Res ID must be False")
+        self.assertFalse(ticket.res_model, "Res Model must be False")
 
     def test_perform_action(self):
         """Test flow when create action in record reference"""
@@ -123,26 +129,42 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
 
         with self.assertRaises(UserError) as error:
             ticket.perform_action()
-        self.assertEqual(error.exception.args[0], "You cannot create activity!")
+        self.assertEqual(
+            error.exception.args[0],
+            "You cannot create activity!",
+            "Errors must be the same",
+        )
 
         ticket.team_id.allow_set_activity = True
 
         with self.assertRaises(UserError) as error:
             ticket.perform_action()
-        self.assertEqual(error.exception.args[0], "Source Record is not set!")
+        self.assertEqual(
+            error.exception.args[0],
+            "Source Record is not set!",
+            "Errors must be the same",
+        )
 
         ticket.record_ref = f"res.partner,{self.test_partner.id}"
 
         with self.assertRaises(UserError) as error:
             ticket.perform_action()
-        self.assertEqual(error.exception.args[0], "Activity Type is not set!")
+        self.assertEqual(
+            error.exception.args[0],
+            "Activity Type is not set!",
+            "Errors must be the same",
+        )
 
         ticket.source_activity_type_id = self.activity_type_meeting
         ticket.date_deadline = False
 
         with self.assertRaises(UserError) as error:
             ticket.perform_action()
-        self.assertEqual(error.exception.args[0], "Date Deadline is not set!")
+        self.assertEqual(
+            error.exception.args[0],
+            "Date Deadline is not set!",
+            "Errors must be the same",
+        )
 
         ticket.date_deadline = Date.today()
 
@@ -151,22 +173,29 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         self.assertDictEqual(
             action,
             {
-                "type": "ir.actions.act_window",
-                "name": "Helpdesk Ticket Action",
-                "view_mode": "form",
-                "res_model": "mail.activity",
-                "view_type": "form",
-                "context": {
-                    "default_res_model_id": self.partner_model.id,
-                    "default_res_id": ticket.res_id,
-                    "default_activity_type_id": ticket.source_activity_type_id.id,
-                    "default_date_deadline": ticket.date_deadline,
-                    "default_ticket_id": ticket.id,
-                    "default_summary": ticket.name,
-                    "default_user_id": ticket.user_id.id,
+                "type": "ir.actions.client",
+                "tag": "display_notification",
+                "params": {
+                    "type": "success",
+                    "message": "Activity has been created!",
                 },
-                "target": "new",
             },
+        )
+
+        activity = self.test_partner.activity_ids
+        self.assertEqual(len(activity), 1, "Activity count must be equal to 1")
+        self.assertRecordValues(
+            activity,
+            [
+                {
+                    "summary": ticket.name,
+                    "note": ticket.description,
+                    "date_deadline": ticket.date_deadline,
+                    "activity_type_id": ticket.source_activity_type_id.id,
+                    "ticket_id": ticket.id,
+                    "user_id": ticket.user_id.id,
+                }
+            ],
         )
 
     def test_helpdesk_activity_with_team_stage(self):
