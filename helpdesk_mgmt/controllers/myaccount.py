@@ -185,11 +185,22 @@ class CustomerPortalHelpdesk(CustomerPortal):
         closed_stages = ticket.team_id._get_applicable_stages().filtered(
             lambda s: s.close_from_portal
         )
+        files = (
+            request.env["ir.attachment"]
+            .sudo()
+            .search(
+                [
+                    ("res_model", "=", "helpdesk.ticket"),
+                    ("res_id", "=", ticket.id),
+                ]
+            )
+        )
         values = {
             "closed_stages": closed_stages,  # used to display close buttons
             "page_name": "ticket",
             "ticket": ticket,
             "user": request.env.user,
+            "files": files,
         }
         return self._get_page_view_values(
             ticket, access_token, values, "my_tickets_history", False, **kwargs
