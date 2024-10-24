@@ -4,3 +4,5 @@
   - Nelson Sanchez \<<nramirez@konos.cl>\>
 - [Solvos](https://www.solvos.es):
   - David Alonso \<<david.alonso@solvos.es>\>
+- [Camptocamp](https://www.camptocamp.com):
+  - Italo Lopes \<<italo.lopes@camptocamp.com>\>

@@ -81,6 +81,10 @@ Contributors
 
    -  David Alonso <david.alonso@solvos.es>
 
+-  `Camptocamp <https://www.camptocamp.com>`__:
+
+   -  Italo Lopes <italo.lopes@camptocamp.com>
+
 Maintainers
 -----------
 
