@@ -21,8 +21,8 @@ class TestPartner(TransactionCase):
             self.tickets.append(
                 self.ticket_obj.create(
                     {
-                        "name": "Nice ticket {}".format(i),
-                        "description": "Nice ticket {} description".format(i),
+                        "name": f"Nice ticket {i}",
+                        "description": f"Nice ticket {i} description",
                     }
                 )
             )
