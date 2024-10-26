@@ -17,13 +17,13 @@ Helpdesk Management
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt
+    :target: https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-16-0/helpdesk-16-0-helpdesk_mgmt
+    :target: https://translation.odoo-community.org/projects/helpdesk-17-0/helpdesk-17-0-helpdesk_mgmt
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -40,123 +40,133 @@ Configuration
 
 To configure this module, you need to:
 
-#. Edit or create new channels.
-#. Edit or create new categories.
-#. Edit or create new stages.
-#. Edit or create new teams.
-#. Edit or create new tags.
+1. Edit or create new channels.
+2. Edit or create new categories.
+3. Edit or create new stages.
+4. Edit or create new teams.
+5. Edit or create new tags.
 
 Channels
-~~~~~~~~
+--------
 
-#. Go to *Helpdesk > Configuration > Channels* to edit or create new channels.
-#. Edit or create a channel.
-#. Set the name for the channel.
-#. You can also Activate or Deactivate channels.
+1. Go to *Helpdesk > Configuration > Channels* to edit or create new
+   channels.
+2. Edit or create a channel.
+3. Set the name for the channel.
+4. You can also Activate or Deactivate channels.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Channels.PNG
-   :alt: Channels
-   :width: 600 px
+|image1|
 
 Categories
-~~~~~~~~~~
+----------
 
-#. Go to *Helpdesk > Configuration > Categories* to edit or create new categories.
-#. Edit or create a new category.
-#. Set the name for the category.
-#. You can also Activate or Deactivate categories.
+1. Go to *Helpdesk > Configuration > Categories* to edit or create new
+   categories.
+2. Edit or create a new category.
+3. Set the name for the category.
+4. You can also Activate or Deactivate categories.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Categories.PNG
-   :alt: Categories
-   :width: 600 px
+|image2|
 
 Stages
-~~~~~~
+------
 
-#. Go to *Helpdesk > Configuration > Stages* to edit or create new stages.
-#. Edit or create a new stage.
-#. Set the name for the stage.
-#. Set the sequence order for the stage.
-#. You can select an Email template.
-#. Mark the Unattended checkbox if the stage contains unattended tickets.
-#. Mark the Closed checkbox if the stage contains closed tickets.
-#. You can add a description for the stage.
-#. You can also Activate or Deactivate stages.
+1. Go to *Helpdesk > Configuration > Stages* to edit or create new
+   stages.
+2. Edit or create a new stage.
+3. Set the name for the stage.
+4. Set the sequence order for the stage.
+5. You can select an Email template.
+6. Mark the Unattended checkbox if the stage contains unattended
+   tickets.
+7. Mark the Closed checkbox if the stage contains closed tickets.
+8. You can add a description for the stage.
+9. You can also Activate or Deactivate stages.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Stages.PNG
-   :alt: Stages
-   :width: 600 px
+|image3|
 
-You can also sort the stage sequence if you move up or down the stages in the list view.
+You can also sort the stage sequence if you move up or down the stages
+in the list view.
 
 Teams
-~~~~~
+-----
 
-#. Go to *Helpdesk > Configuration > Teams* to edit or create new teams.
-#. Edit or create a new team.
-#. Set the name for the team.
-#. Add the teams members.
-#. You can also Activate or Deactivate teams.
+1. Go to *Helpdesk > Configuration > Teams* to edit or create new teams.
+2. Edit or create a new team.
+3. Set the name for the team.
+4. Add the teams members.
+5. You can also Activate or Deactivate teams.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Teams.PNG
-   :alt: Teams
-   :width: 600 px
+|image4|
 
 Tags
-~~~~
+----
 
-#. Go to *Helpdesk > Configuration > Ticket Tags* to edit or create new tags.
-#. Edit or create a new tag.
-#. Set the name for the tag.
-#. Set the color index for the tag.
-#. You can also Activate or Deactivate tags.
+1. Go to *Helpdesk > Configuration > Ticket Tags* to edit or create new
+   tags.
+2. Edit or create a new tag.
+3. Set the name for the tag.
+4. Set the color index for the tag.
+5. You can also Activate or Deactivate tags.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Tags.PNG
-   :alt: Ticket Tags
-   :width: 600 px
-
+|image5|
 
 Permissions
-~~~~~~~~~~~
+-----------
 
-There are restrictions to read tickets according to the user's permissions set in Helpdesk.
+There are restrictions to read tickets according to the user's
+permissions set in Helpdesk.
 
-#. *User: Personal tickets*: User is able to see their tickets (those that are assigned to their user) or those that are no team nor user is assigned.
-#. *User: Team tickets*: User is able to see all the tickets that are assigned to the teams to which he/she belongs or the tickets that are not assigned to any team nor user.
-#. *User*: User is able to see all the tickets.
+1. *User: Personal tickets*: User is able to see their tickets (those
+   that are assigned to their user) or those that are no team nor user
+   is assigned.
+2. *User: Team tickets*: User is able to see all the tickets that are
+   assigned to the teams to which he/she belongs or the tickets that are
+   not assigned to any team nor user.
+3. *User*: User is able to see all the tickets.
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Channels.PNG
+.. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Categories.PNG
+.. |image3| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Stages.PNG
+.. |image4| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Teams.PNG
+.. |image5| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tags.PNG
 
 Usage
 =====
 
-#. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets dashboard
-#. In the Kanban view, click in the kanban card of a team to see their tickets and create new ones.
+1. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets
+   dashboard
+2. In the Kanban view, click in the kanban card of a team to see their
+   tickets and create new ones.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
-   :alt: Kanban view
-   :width: 600 px
+|image1|
 
 To create a new ticket from the kanban view:
 
-#. Press *Create* button or click on the plus icon at the top of the column of a stage.
-#. Set the name or subject for the ticket.
-#. Select the team that will manage the ticket.
-#. You can select a user to assign the ticket.
-#. Set the priority of the ticket.
-#. Select the partner, and you can also set the partner name and email.
-#. You can select a category and set tags for the ticket.
-#. Add a description.
-#. You can also attach files to the ticket.
+1. Press *Create* button or click on the plus icon at the top of the
+   column of a stage.
+2. Set the name or subject for the ticket.
+3. Select the team that will manage the ticket.
+4. You can select a user to assign the ticket.
+5. Set the priority of the ticket.
+6. Select the partner, and you can also set the partner name and email.
+7. You can select a category and set tags for the ticket.
+8. Add a description.
+9. You can also attach files to the ticket.
 
-.. figure:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt/static/description/Tickets01.PNG
-   :alt: Create a new ticket
-   :width: 600 px
+|image2|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
+.. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets01.PNG
 
 Known issues / Roadmap
 ======================
 
-* Add a tour feature similar to what the ``project`` module defines to discover projects / tasks.
-* Update portal tests defined in ``tests/test_portal.py`` to rely on tour specs (in JS)
-  in order to replicate the navigation behavior of portal users.
+-  Add a tour feature similar to what the ``project`` module defines to
+   discover projects / tasks.
+-  Update portal tests defined in ``tests/test_portal.py`` to rely on
+   tour specs (in JS) in order to replicate the navigation behavior of
+   portal users.
 
 Bug Tracker
 ===========
@@ -164,7 +174,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -172,7 +182,7 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * AdaptiveCity
 * Tecnativa
@@ -183,59 +193,59 @@ Authors
 * SDi Soluciones
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Domatix <https://www.domatix.com>`_:
+-  `Domatix <https://www.domatix.com>`__:
 
-  * Carlos Martínez
-  * Catalin Airimitoaie
-  * Álvaro López
-  * Samuel Calvo
+   -  Carlos Martínez
+   -  Catalin Airimitoaie
+   -  Álvaro López
+   -  Samuel Calvo
 
-* `Adaptive City <https://www.adaptivecity.com>`_:
+-  `Adaptive City <https://www.adaptivecity.com>`__:
 
-  * Aitor Bouzas
+   -  Aitor Bouzas
 
-* `SDi Soluciones, S.L. <https://www.sdi.es>`_:
+-  `SDi Soluciones, S.L. <https://www.sdi.es>`__:
 
-  * Oscar Soto
-  * Jorge Luis Quinteros
+   -  Oscar Soto
+   -  Jorge Luis Quinteros
 
-* `C2i Change 2 improve <http://www.c2i.es>`_:
+-  `C2i Change 2 improve <http://www.c2i.es>`__:
 
-  * Eduardo Magdalena <emagdalena@c2i.es>
+   -  Eduardo Magdalena <emagdalena@c2i.es>
 
-* `Factor Libre <https://factorlibre.com>`_:
+-  `Factor Libre <https://factorlibre.com>`__:
 
-  * María Alhambra
-  * Daniel Cano
+   -  María Alhambra
+   -  Daniel Cano
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Pedro M. Baeza
-  * Víctor Martínez
-  * Carolina Fernandez
-  * Carlos Roca
+   -  Pedro M. Baeza
+   -  Víctor Martínez
+   -  Carolina Fernandez
+   -  Carlos Roca
 
-* `ID42 Sistemas <https://www.id42.com.br>`_:
+-  `ID42 Sistemas <https://www.id42.com.br>`__:
 
-  * Marcel Savegnago
-  * Eduardo Aparício
+   -  Marcel Savegnago
+   -  Eduardo Aparício
 
-* `Obertix <https://www.obertix.net>`_:
+-  `Obertix <https://www.obertix.net>`__:
 
-  * Vicent Cubells
+   -  Vicent Cubells
 
-* `Solvos <https://www.solvos.es>`_:
+-  `Solvos <https://www.solvos.es>`__:
 
-  * David Alonso
+   -  David Alonso
 
-* `XCG Consulting <https://xcg-consulting.fr>`_:
+-  `XCG Consulting <https://xcg-consulting.fr>`__:
 
-  * Houzéfa Abbasbhay
+   -  Houzéfa Abbasbhay
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -247,6 +257,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

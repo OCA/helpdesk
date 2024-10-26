@@ -2,7 +2,6 @@ from odoo import fields, models
 
 
 class HelpdeskCategory(models.Model):
-
     _name = "helpdesk.ticket.category"
     _description = "Helpdesk Ticket Category"
     _order = "sequence, id"
