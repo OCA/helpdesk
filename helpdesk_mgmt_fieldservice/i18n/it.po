@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-29 16:35+0000\n"
+"PO-Revision-Date: 2025-05-16 09:23+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_count
@@ -49,7 +49,7 @@ msgstr "Chiudi ordini FSM"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
 msgid "Create FSM Order"
-msgstr "Crea ordini FSM"
+msgstr "Crea ordine FSM"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
@@ -91,17 +91,17 @@ msgstr "Località FSM"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_location
 msgid "Field Service Location"
-msgstr "Località di assistenza sul campo"
+msgstr "Località assistenza sul campo"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_order
 msgid "Field Service Order"
-msgstr "Ordine di assistenza sul campo"
+msgstr "Ordine assistenza sul campo"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__team_id
 msgid "Helpdesk Team"
-msgstr "Team Helpdesk"
+msgstr "Team assistenza clienti"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_helpdesk_ticket
@@ -205,7 +205,7 @@ msgstr "Risoluzione ticket"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Ticket Stage"
-msgstr "Fase Ticket"
+msgstr "Fase ticket"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.view_fsm_location_ticket_form
