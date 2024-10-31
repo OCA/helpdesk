@@ -1,0 +1,1 @@
+Adds an option to configure a cron job that automatically closes inactive helpdesk tickets after a specified number of days, set in the helpdesk team settings. Sends notification emails to the customer (partner) and assigned team members, providing a warning after an initial period of inactivity and a final closure notification when the maximum inactivity period is reached.

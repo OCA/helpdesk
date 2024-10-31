@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="ir_cron_close_inactive_tickets" model="ir.cron">
+        <field name="name">Close Inactive Tickets</field>
+        <field name="active" eval="True" />
+        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket_team" />
+        <field name="state">code</field>
+        <field name="code">
+model.close_team_inactive_tickets()
+        </field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field
+            name="nextcall"
+            eval="(DateTime.now() + timedelta(minutes=1)).strftime('%Y-%m-%d %H:%M:%S')"
+        />
+        <field name="doall">0</field>
+    </record>
+    <record id="warning_inactive_ticket_template" model="mail.template">
+        <field name="name">Helpdesk Inactivity Warning Ticket Notification Email</field>
+        <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+        <field name="email_from">{{object.company_id.partner_id.email}}</field>
+        <field
+            name="email_cc"
+        >{{not object.partner_id and object.partner_email or ''}},</field>
+        <field name="subject">The ticket {{object.number}} will be closed.</field>
+        <field name="partner_to">{{object.partner_id.id}}</field>
+        <field name="auto_delete" eval="False" />
+        <field name="lang">{{object.partner_id.lang}}</field>
+        <field name="body_html" type="html">
+            <table
+                border="0"
+                width="100%"
+                cellpadding="0"
+                bgcolor="#ededed"
+                style="padding: 20px; background-color: #ededed; border-collapse:separate;"
+            >
+                <tbody>
+                    <!-- HEADER -->
+                    <tr>
+                    <td align="center" style="min-width: 590px;">
+                        <table
+                                width="590"
+                                border="0"
+                                cellpadding="0"
+                                bgcolor="#875A7B"
+                                style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;"
+                            >
+                        <tr>
+                            <td valign="middle" align="right">
+                            <img
+                                            t-att-src="'/logo.png?company=%s' % object.company_id.id"
+                                            style="padding: 0px; margin: 0px; height: auto; width: 80px;"
+                                            t-att-alt="'%s' % object.company_id.name"
+                                        />
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                    <!-- CONTENT -->
+                    <tr>
+                    <td align="center" style="min-width: 590px;">
+                        <table
+                                width="590"
+                                border="0"
+                                cellpadding="0"
+                                bgcolor="#ffffff"
+                                style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;"
+                            >
+                        <tbody>
+                            <td
+                                        valign="top"
+                                        style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;"
+                                    >
+                            <p>Ticket with subject "<t
+                                                t-out="object.display_name"
+                                            />" will be closed in <t
+                                                t-out="ctx.get('remaining_days')"
+                                            /> days if it is not updated .</p>
+                            </td>
+                        </tbody>
+                        </table>
+                    </td>
+                    </tr>
+                    <!-- FOOTER -->
+                    <tr>
+                    <td align="center" style="min-width: 590px;">
+                        <table
+                                width="590"
+                                border="0"
+                                cellpadding="0"
+                                bgcolor="#875A7B"
+                                style="min-width: 590px; background-color: rgb(135,90,123); padding: 20px; border-collapse:separate;"
+                            >
+                        <tr>
+                            <td
+                                        valign="middle"
+                                        align="left"
+                                        style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;"
+                                    >
+                            <t t-out="object.company_id.phone" />
+                            </td>
+                            <td
+                                        valign="middle"
+                                        align="left"
+                                        style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;"
+                                    >
+                            <t t-out="object.company_id.email" />
+                            </td>
+                            <td
+                                        valign="middle"
+                                        align="left"
+                                        style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;"
+                                    >
+                            <t t-out="object.company_id.website" />
+                            </td>
+                        </tr>
+                        </table>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </field>
+    </record>
+</odoo>

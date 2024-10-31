@@ -1,0 +1,60 @@
+<odoo>
+    <!-- Add 'redmine_status_id' on helpdesk stage -->
+    <record model="ir.ui.view" id="inherit_view_project">
+        <field name="name">helpdesk.ticket.team.form.inherit</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="arch" type="xml">
+            <field name="show_in_portal" position="after">
+                <field name="close_inactive_tickets" />
+            </field>
+            <xpath expr="//page[@name='members']" position="after">
+                <page
+                    name="ticket_autoclosing"
+                    string="Automatic closure of inactive tickets"
+                    attrs="{'invisible': [('close_inactive_tickets', '=', False)]}"
+                >
+                    <group name="container_row_2">
+                        <group
+                            string="Inactivity Warning Notification"
+                            name="warning"
+                            priority="1"
+                        >
+                            <field name="inactive_tickets_day_limit_warning" />
+                            <field
+                                name="warning_inactive_mail_template_id"
+                                domain="[('model', '=', 'helpdesk.ticket')]"
+                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                            />
+                        </group>
+                        <group string="Ticket Closing" name="purchase" priority="2">
+                            <field name="inactive_tickets_day_limit_closing" />
+                            <field
+                                name="close_inactive_mail_template_id"
+                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                            />
+                            <field
+                                name="closing_ticket_stage"
+                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                            />
+                        </group>
+                        <group name="stages" string="Ticket Stage Filter">
+                            <field
+                                name="ticket_stage_ids"
+                                widget="many2many_tags"
+                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                            />
+                        </group>
+                        <group name="categories" string="Ticket Category Filter">
+                            <field
+                                name="ticket_category_ids"
+                                widget="many2many_tags"
+                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                            />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
