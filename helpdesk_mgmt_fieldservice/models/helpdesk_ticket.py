@@ -27,7 +27,6 @@ class HelpdeskTicket(models.Model):
                         lambda x: x.stage_id.is_closed
                     )
                     if len(closed_orders.ids) != len(rec.fsm_order_ids):
-
                         raise ValidationError(
                             _(
                                 "Please complete all service orders "
