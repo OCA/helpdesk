@@ -85,11 +85,8 @@
             <field name="partner_name" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
-            <field name="partner_email" position="replace">
-                <field
-                    name="partner_email"
-                    attrs="{'invisible': [('partner_id','=',False)]}"
-                />
+            <field name="partner_email" position="attributes">
+                <attribute name="invisible">not partner_id</attribute>
             </field>
             <field name="description" position="replace">
                 <group string="Description" name="description_grp">
