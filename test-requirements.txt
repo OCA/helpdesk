@@ -1,0 +1,1 @@
+odoo-addon-helpdesk_mgmt @ git+https://github.com/OCA/helpdesk.git@refs/pull/638/head#subdirectory=helpdesk_mgmt
