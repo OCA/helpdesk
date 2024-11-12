@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Ticket Stage Validation",
     "summary": "Validate input data when reaching a Helpdesk Ticket stage",
-    "version": "14.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "After-Sales",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",

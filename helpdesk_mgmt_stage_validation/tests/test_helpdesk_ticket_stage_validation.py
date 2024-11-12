@@ -1,16 +1,18 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields
+from odoo import fields
 from odoo.exceptions import ValidationError
-from odoo.tests import SavepointCase
+from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
 
-class TestHelpdeskStageValidation(SavepointCase):
+class TestHelpdeskStageValidation(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.env = cls.env["base"].with_context(**DISABLED_MAIL_CONTEXT).env
         cls.stage = cls.env["helpdesk.ticket.stage"]
         cls.helpdesk_ticket = cls.env["helpdesk.ticket"]
         cls.ir_model_fields = cls.env["ir.model.fields"]
@@ -47,10 +49,10 @@ class TestHelpdeskStageValidation(SavepointCase):
         ]
         fields = ", ".join(fields)
         if fields:
-            validate_message = _(
-                "Ticket %s can't be moved to the stage %s until "
-                "the following fields are set: %s."
-            ) % (ticket.name, stage.name, fields)
+            validate_message = (
+                f"Ticket {ticket.name} can't be moved to the stage "
+                f"{stage.name} until the following fields are set: {fields}."
+            )
         return validate_message
 
     def test_helpdesk_ticket_stage_validation(self):

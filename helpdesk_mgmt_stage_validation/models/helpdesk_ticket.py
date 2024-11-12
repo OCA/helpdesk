@@ -20,9 +20,12 @@ class HelpdeskTicket(models.Model):
         fields = ", ".join(fields)
         if fields:
             error_message = _(
-                "Ticket %s can't be moved to the stage %s until "
-                "the following fields are set: %s."
-            ) % (self.name, self.stage_id.name, fields)
+                "Ticket %(ticket)s can't be moved to the stage %(stage)s until "
+                "the following fields are set: %(fields)s.",
+                ticket=self.name,
+                stage=self.stage_id.name,
+                fields=fields,
+            )
         return error_message
 
     def _validate_stage_fields_error_message(self):

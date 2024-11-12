@@ -11,5 +11,5 @@ class HelpdeskTicketStage(models.Model):
         "ir.model.fields",
         string="Fields to Validate",
         help="Select fields which must be set on the document in this stage",
-        domain='[("model", "=", "helpdesk.ticket")]',
+        domain=[("model", "=", "helpdesk.ticket")],
     )

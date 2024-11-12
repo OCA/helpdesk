@@ -60,8 +60,8 @@ msgstr ""
 #: code:addons/helpdesk_mgmt_stage_validation/tests/test_helpdesk_ticket_stage_validation.py:0
 #, python-format
 msgid ""
-"Ticket %s can't be moved to the stage %s until the following fields are set:"
-" %s."
+"Ticket %(ticket)s can't be moved to the stage %(stage)s until the following "
+"fields are set: %(fields)s."
 msgstr ""
-"Il ticket %s non può essere spostato alla fase %s finché i sequenti campi "
-"non sono impostati: %s."
+"Il ticket %(ticket)s non può essere spostato alla fase %(stage)s finché i "
+"seguenti campi non sono impostati: %(fields)s."
