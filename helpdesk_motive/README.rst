@@ -88,6 +88,10 @@ Contributors
 
    -  Adasat Torres <a.torres@binhex.cloud>
 
+-  \`Camptocamp <https://camptocamp.com>\_\`:
+
+   -  Italo Lopes <italo.lopes@camptocamp.com>
+
 Maintainers
 -----------
 
