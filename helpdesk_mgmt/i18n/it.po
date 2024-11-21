@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-08-30 10:06+0000\n"
+"PO-Revision-Date: 2024-11-21 11:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -55,7 +55,7 @@ msgstr "<small class=\"text-right\">Fase:</small>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span class=\"fw-bolder\">View</span>"
-msgstr ""
+msgstr "<span class=\"fw-bolder\">Vista</span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -455,17 +455,17 @@ msgstr "Alias contatto sicurezza"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain_id
 msgid "Alias Domain"
-msgstr ""
+msgstr "Dominio alias"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Alias Domain Name"
-msgstr ""
+msgstr "Nome dominio alias"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_full_name
 msgid "Alias Email"
-msgstr ""
+msgstr "E-mail alias"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_name
@@ -475,12 +475,12 @@ msgstr "Nome alias"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_status
 msgid "Alias Status"
-msgstr ""
+msgstr "Stato alias"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_status
 msgid "Alias status assessed on the last message received."
-msgstr ""
+msgstr "Stato alias valutato sull'ultimo messaggio ricevuto."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
@@ -826,7 +826,7 @@ msgstr "cc Email"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Email domain e.g. 'example.com' in 'odoo@example.com'"
-msgstr ""
+msgstr "Dominio e-mail es 'example.com' in 'odoo@example.com'"
 
 #. module: helpdesk_mgmt
 #. odoo-javascript
@@ -1111,7 +1111,7 @@ msgstr "Attività in ritardo"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_incoming_local
 msgid "Local-part based incoming detection"
-msgstr ""
+msgstr "Rilevamento arrivo in base a parte-locale"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
