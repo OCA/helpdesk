@@ -6,7 +6,7 @@
     >
         <field name="name">Helpdesk Ticket</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="context">
             {'default_team_id': active_id}
         </field>
@@ -206,23 +206,15 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="activity_ids" widget="mail_activity" />
-                    <field
-                        name="message_ids"
-                        widget="mail_thread"
-                        options="{'post_refresh': 'recipients', 'open_attachments': True}"
-                    />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
     <record id="ticket_view_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.view.tree</field>
+        <field name="name">helpdesk.ticket.view.list</field>
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="priority" widget="priority" />
                 <field name="sequence" widget="handle" />
                 <field name="number" decoration-bf="1" />
@@ -257,7 +249,7 @@
                     decoration-info="unattended == True"
                     decoration-muted="closed == True"
                 />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="view_helpdesk_ticket_kanban" model="ir.ui.view">
@@ -281,77 +273,52 @@
                     colors="{&quot;planned&quot;: &quot;success&quot;, &quot;today&quot;: &quot;warning&quot;, &quot;overdue&quot;: &quot;danger&quot;}"
                 />
                 <templates>
-                    <t
-                        t-name="kanban-menu"
-                        t-if="!selection_mode"
-                        groups="base.group_user"
-                    >
-                        <div class="o_kanban_card_manage_section">
-                            <div role="menuitem" class="o_kanban_manage_reports">
-                                <a
-                                    t-if="widget.editable"
-                                    role="menuitem"
-                                    type="edit"
-                                    class="dropdown-item"
-                                >Edit
-                                </a>
-                                <a
-                                    t-if="widget.deletable"
-                                    role="menuitem"
-                                    type="delete"
-                                    class="dropdown-item"
-                                >Delete
-                                </a>
-                                <div role="separator" class="dropdown-divider" />
-                                <ul class="oe_kanban_colorpicker" data-field="color" />
-                            </div>
-                        </div>
+                    <t t-name="menu">
+                        <t t-if="widget.editable">
+                            <a
+                                role="menuitem"
+                                type="open"
+                                class="dropdown-item"
+                            >Edit</a>
+                        </t>
+                        <t t-if="widget.deletable">
+                            <a
+                                role="menuitem"
+                                type="delete"
+                                class="dropdown-item"
+                            >Delete</a>
+                        </t>
+                        <field name="color" widget="kanban_color_picker" />
                     </t>
-                    <t t-name="kanban-box">
-                        <div
-                            t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_content oe_kanban_global_click"
-                        >
-                            <div class="o_kanban_record_top">
-                                <div class="o_kanban_record_headings">
-                                    <field name="name" />
-                                    <field
-                                        name="tag_ids"
-                                        widget="many2many_tags"
-                                        options="{'color_field': 'color'}"
-                                    />
-                                    <field name="number" />
-                                    <small class="o_kanban_record_subtitle text-muted">
-                                        <field name="partner_id" />
-                                    </small>
-                                </div>
+                    <t t-name="card">
+                        <field class="fw-bold fs-5" name="name" />
+                        <field name="number" class="text-truncate" />
+                        <small class="o_kanban_record_subtitle text-muted">
+                            <field name="partner_id" />
+                        </small>
+                        <field
+                            name="tag_ids"
+                            widget="many2many_tags"
+                            options="{'color_field': 'color'}"
+                        />
+
+                        <footer class="pt-1">
+                            <div class="d-flex mt-auto align-items-center">
+                                <field
+                                    name="priority"
+                                    widget="priority"
+                                    groups="base.group_user"
+                                    class="me-2"
+                                />
+                                <field name="activity_ids" widget="kanban_activity" />
                             </div>
-                            <div class="o_kanban_record_body" />
-                            <div class="o_kanban_record_bottom">
-                                <div class="oe_kanban_bottom_left">
-                                    <field name="priority" widget="priority" />
-                                    <field
-                                        name="activity_ids"
-                                        widget="kanban_activity"
-                                        related="activity_state"
-                                    />
-                                </div>
-                                <div class="oe_kanban_bottom_right">
-                                    <field
-                                        name="kanban_state"
-                                        widget="state_selection"
-                                    />
-                                    <field name="activity_state" invisible="1" />
-                                    <img
-                                        t-att-src="kanban_image('res.users', 'image_128', record.user_id.raw_value)"
-                                        t-att-title="record.user_id.value"
-                                        width="24"
-                                        height="24"
-                                        class="oe_kanban_avatar o_image_24_cover float-right"
-                                        t-att-alt="record.user_id.value"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                            <field
+                                name="user_id"
+                                widget="many2one_avatar_user"
+                                domain="[('share', '=', False)]"
+                                class="ms-auto"
+                            />
+                        </footer>
                     </t>
                 </templates>
             </kanban>

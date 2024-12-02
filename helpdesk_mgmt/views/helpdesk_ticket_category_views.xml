@@ -53,10 +53,10 @@
         </field>
     </record>
     <record id="view_helpdesk_category_tree" model="ir.ui.view">
-        <field name="name">view.helpdesk_category.tree</field>
+        <field name="name">view.helpdesk_category.list</field>
         <field name="model">helpdesk.ticket.category</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field
@@ -64,7 +64,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

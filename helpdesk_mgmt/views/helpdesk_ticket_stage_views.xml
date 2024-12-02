@@ -69,10 +69,10 @@
         </field>
     </record>
     <record id="view_helpdesk_ticket_stage_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.stage.tree</field>
+        <field name="name">helpdesk.ticket.stage.list</field>
         <field name="model">helpdesk.ticket.stage</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="mail_template_id" />
@@ -82,7 +82,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

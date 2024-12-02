@@ -52,10 +52,10 @@
         </field>
     </record>
     <record id="view_helpdesk_channel_tree" model="ir.ui.view">
-        <field name="name">view.helpdesk_channel.tree</field>
+        <field name="name">view.helpdesk_channel.list</field>
         <field name="model">helpdesk.ticket.channel</field>
         <field name="arch" type="xml">
-            <tree editable="bottom">
+            <list editable="bottom">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field
@@ -63,7 +63,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>
