@@ -23,7 +23,7 @@ class HelpdeskTicket(models.Model):
                 ticket.user_id = ticket.team_id.alias_user_id
 
     @api.model
-    def _read_group_stage_ids(self, stages, domain, order):
+    def _read_group_stage_ids(self, stages, domain):
         """Show always the stages without team, or stages of the default team."""
         search_domain = [
             "|",
@@ -36,7 +36,7 @@ class HelpdeskTicket(models.Model):
                 "|",
                 ("team_ids", "=", default_team_id["team_id"]),
             ] + search_domain
-        return stages.search(search_domain, order=order)
+        return stages.search(search_domain)
 
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
@@ -208,7 +208,7 @@ class HelpdeskTicket(models.Model):
     def _compute_access_url(self):
         res = super()._compute_access_url()
         for item in self:
-            item.access_url = "/my/ticket/%s" % (item.id)
+            item.access_url = f"/my/ticket/{item.id}"
         return res
 
     # ---------------------------------------------------

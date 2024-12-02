@@ -24,7 +24,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
             helpdesk_model = request.env["helpdesk.ticket"]
             ticket_count = (
                 helpdesk_model.search_count([])
-                if helpdesk_model.check_access_rights("read", raise_exception=False)
+                if helpdesk_model.has_access("read")
                 else 0
             )
             values["ticket_count"] = ticket_count
@@ -50,7 +50,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
     ):
         HelpdeskTicket = request.env["helpdesk.ticket"]
         # Avoid error if the user does not have access.
-        if not HelpdeskTicket.check_access_rights("read", raise_exception=False):
+        if not HelpdeskTicket.has_access("read"):
             return request.redirect("/my")
 
         values = self._prepare_portal_layout_values()

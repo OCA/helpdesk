@@ -44,14 +44,14 @@
         </field>
     </record>
     <record id="view_helpdesk_ticket_tag_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.tag.tree</field>
+        <field name="name">helpdesk.ticket.tag.list</field>
         <field name="model">helpdesk.ticket.tag</field>
         <field name="arch" type="xml">
-            <tree decoration-muted="not active" editable="bottom">
+            <list decoration-muted="not active" editable="bottom">
                 <field name="name" />
                 <field name="color" widget="color_picker" />
                 <field name="active" column_invisible="1" />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

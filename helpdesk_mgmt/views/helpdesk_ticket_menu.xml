@@ -5,13 +5,13 @@
         <field name="name">Dashboard</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.team</field>
-        <field name="view_mode">kanban,tree,form,pivot</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
     </record>
     <record id="helpdesk_ticket_action" model="ir.actions.act_window">
         <field name="name">Tickets</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
     </record>
     <record id="helpdesk_ticket_reporting_action" model="ir.actions.act_window">
         <field name="name">Reporting</field>
@@ -23,31 +23,31 @@
         <field name="name">Channels</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.channel</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <record id="helpdesk_ticket_category_action" model="ir.actions.act_window">
         <field name="name">Categories</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.category</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <record id="helpdesk_ticket_team_action" model="ir.actions.act_window">
         <field name="name">Teams</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.team</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <record id="helpdesk_ticket_stage_action" model="ir.actions.act_window">
         <field name="name">Stages</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.stage</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <record id="helpdesk_ticket_tag_action" model="ir.actions.act_window">
         <field name="name">Ticket Tags</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.tag</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
     <!-- Menus -->
     <menuitem

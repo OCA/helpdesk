@@ -140,22 +140,15 @@
                         </page>
                     </notebook>
                 </sheet>
-                <div class="oe_chatter">
-                    <field
-                        name="message_follower_ids"
-                        widget="mail_followers"
-                        help="Follow this salesteam to automatically track the events associated to users of this team."
-                    />
-                    <field name="message_ids" widget="mail_thread" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
     <record id="view_helpdesk_team_tree" model="ir.ui.view">
-        <field name="name">view.helpdesk_team.tree</field>
+        <field name="name">view.helpdesk_team.list</field>
         <field name="model">helpdesk.ticket.team</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="category_ids" widget="many2many_tags" />
@@ -177,7 +170,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>

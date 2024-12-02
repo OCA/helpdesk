@@ -17,13 +17,13 @@ Helpdesk Management
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt
+    :target: https://github.com/OCA/helpdesk/tree/18.0/helpdesk_mgmt
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-17-0/helpdesk-17-0-helpdesk_mgmt
+    :target: https://translation.odoo-community.org/projects/helpdesk-18-0/helpdesk-18-0-helpdesk_mgmt
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=17.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -125,11 +125,11 @@ permissions set in Helpdesk.
    not assigned to any team nor user.
 3. *User*: User is able to see all the tickets.
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Channels.PNG
-.. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Categories.PNG
-.. |image3| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Stages.PNG
-.. |image4| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Teams.PNG
-.. |image5| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tags.PNG
+.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Channels.PNG
+.. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Categories.PNG
+.. |image3| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Stages.PNG
+.. |image4| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Teams.PNG
+.. |image5| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tags.PNG
 
 Usage
 =====
@@ -156,17 +156,17 @@ To create a new ticket from the kanban view:
 
 |Tickets01|
 
-.. |Tickets_Kanban| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
-.. |Tickets01| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tickets01.PNG
+.. |Tickets_Kanban| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
+.. |Tickets01| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tickets01.PNG
 
 Known issues / Roadmap
 ======================
 
-- Add a tour feature similar to what the ``project`` module defines to
-  discover projects / tasks.
-- Update portal tests defined in ``tests/test_portal.py`` to rely on
-  tour specs (in JS) in order to replicate the navigation behavior of
-  portal users.
+-  Add a tour feature similar to what the ``project`` module defines to
+   discover projects / tasks.
+-  Update portal tests defined in ``tests/test_portal.py`` to rely on
+   tour specs (in JS) in order to replicate the navigation behavior of
+   portal users.
 
 Bug Tracker
 ===========
@@ -174,7 +174,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -195,54 +195,54 @@ Authors
 Contributors
 ------------
 
-- `Domatix <https://www.domatix.com>`__:
+-  `Domatix <https://www.domatix.com>`__:
 
-  - Carlos Martínez
-  - Catalin Airimitoaie
-  - Álvaro López
-  - Samuel Calvo
+   -  Carlos Martínez
+   -  Catalin Airimitoaie
+   -  Álvaro López
+   -  Samuel Calvo
 
-- `Adaptive City <https://www.adaptivecity.com>`__:
+-  `Adaptive City <https://www.adaptivecity.com>`__:
 
-  - Aitor Bouzas
+   -  Aitor Bouzas
 
-- `SDi Soluciones, S.L. <https://www.sdi.es>`__:
+-  `SDi Soluciones, S.L. <https://www.sdi.es>`__:
 
-  - Oscar Soto
-  - Jorge Luis Quinteros
+   -  Oscar Soto
+   -  Jorge Luis Quinteros
 
-- `C2i Change 2 improve <http://www.c2i.es>`__:
+-  `C2i Change 2 improve <http://www.c2i.es>`__:
 
-  - Eduardo Magdalena <emagdalena@c2i.es>
+   -  Eduardo Magdalena <emagdalena@c2i.es>
 
-- `Factor Libre <https://factorlibre.com>`__:
+-  `Factor Libre <https://factorlibre.com>`__:
 
-  - María Alhambra
-  - Daniel Cano
+   -  María Alhambra
+   -  Daniel Cano
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pedro M. Baeza
-  - Víctor Martínez
-  - Carolina Fernandez
-  - Carlos Roca
+   -  Pedro M. Baeza
+   -  Víctor Martínez
+   -  Carolina Fernandez
+   -  Carlos Roca
 
-- `ID42 Sistemas <https://www.id42.com.br>`__:
+-  `ID42 Sistemas <https://www.id42.com.br>`__:
 
-  - Marcel Savegnago
-  - Eduardo Aparício
+   -  Marcel Savegnago
+   -  Eduardo Aparício
 
-- `Obertix <https://www.obertix.net>`__:
+-  `Obertix <https://www.obertix.net>`__:
 
-  - Vicent Cubells
+   -  Vicent Cubells
 
-- `Solvos <https://www.solvos.es>`__:
+-  `Solvos <https://www.solvos.es>`__:
 
-  - David Alonso
+   -  David Alonso
 
-- `XCG Consulting <https://xcg-consulting.fr>`__:
+-  `XCG Consulting <https://xcg-consulting.fr>`__:
 
-  - Houzéfa Abbasbhay
+   -  Houzéfa Abbasbhay
 
 Maintainers
 -----------
@@ -257,6 +257,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/18.0/helpdesk_mgmt>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
