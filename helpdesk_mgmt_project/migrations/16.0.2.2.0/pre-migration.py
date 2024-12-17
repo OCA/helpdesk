@@ -3,6 +3,8 @@
 
 from openupgradelib import openupgrade
 
+from odoo.tools.sql import column_exists
+
 column_renames = {
     "helpdesk_ticket_team": [("default_project_id", "old_default_project_id")],
 }
@@ -11,4 +13,5 @@ column_renames = {
 @openupgrade.migrate()
 def migrate(env, version):
     """Rename the column to keep the old value."""
-    openupgrade.rename_columns(env.cr, column_renames)
+    if column_exists(env.cr, "helpdesk_ticket_team", "default_project_id"):
+        openupgrade.rename_columns(env.cr, column_renames)
