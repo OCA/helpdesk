@@ -3,10 +3,14 @@
 
 from openupgradelib import openupgrade
 
+from odoo.tools.sql import column_exists
+
 
 @openupgrade.migrate()
 def migrate(env, version):
     """Set the default_project_id value in the project company."""
+    if not column_exists(env.cr, "helpdesk_ticket_team", "old_default_project_id"):
+        return
     env.cr.execute(
         """
         SELECT htt.id, htt.old_default_project_id, pp.company_id
