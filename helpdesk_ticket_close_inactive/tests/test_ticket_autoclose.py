@@ -38,13 +38,13 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
                 "stage_id": self.stage_warning.id,
                 "category_id": self.type_warning.id,
                 "description": "Please help me",
-                "last_stage_update": datetime.today() - timedelta(days=8),
+                "last_stage_update": datetime.today() - timedelta(days=7),
             }
         )
 
     def test_warning_email_sent(self):
         """Test that a warning email is sent after the warning day limit is reached."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=8)})
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
         result = self.team.close_team_inactive_tickets()
         sent_mails = self.env["mail.mail"].search(
             [("id", "in", result["warning_email_ids"])]
@@ -72,7 +72,7 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
 
     def test_remaining_days_in_context(self):
         """Test that the correct remaining days are set in the context for the warning email."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=8)})
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
         result = self.team.close_team_inactive_tickets()
         sent_mail = self.env["mail.mail"].search(
             [("id", "in", result["warning_email_ids"])], limit=1
