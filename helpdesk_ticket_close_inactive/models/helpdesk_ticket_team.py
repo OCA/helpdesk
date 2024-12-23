@@ -1,6 +1,6 @@
 # Copyright 2024 APSL-Nagarro - Miquel Alzanillas
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, time, timedelta
 
 from odoo import fields, models
 
@@ -83,6 +83,8 @@ class HelpdeskTicketTeam(models.Model):
             warning_limit = datetime.today() - timedelta(
                 days=team_id.inactive_tickets_day_limit_warning
             )
+            warning_limit_day_first_hour = datetime.combine(warning_limit, time.min)
+            warning_limit_day_last_hour = datetime.combine(warning_limit, time.max)
             closing_limit = datetime.today() - timedelta(
                 days=team_id.inactive_tickets_day_limit_closing
             )
@@ -96,8 +98,8 @@ class HelpdeskTicketTeam(models.Model):
                     ("team_id", "=", team_id.id),
                     ("stage_id", "in", ticket_stage_ids),
                     ("category_id", "in", ticket_category_ids),
-                    ("last_stage_update", "<=", warning_limit),
-                    ("last_stage_update", ">", closing_limit),
+                    ("last_stage_update", ">=", warning_limit_day_first_hour),
+                    ("last_stage_update", "<=", warning_limit_day_last_hour),
                 ]
             )
             warning_email_ids = []
