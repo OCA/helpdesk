@@ -1,0 +1,1 @@
+This module adds the option from helpdesk team to automate the ticket stage update when a partner posts a message on the same ticket. This is useful when exists an specific stage for the tickets that his last update is answer by the partner.
