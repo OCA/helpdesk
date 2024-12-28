@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-12-28 15:18+0000\n"
+"PO-Revision-Date: 2024-12-28 15:22+0000\n"
 "Last-Translator: SMNDVC <simon.dovicovic@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -1421,7 +1421,7 @@ msgstr "Vyberte tím na portáli Helpdesk"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Send a new ticket"
-msgstr "Poslať nový tiket"
+msgstr "Odoslať nový tiket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__sequence
