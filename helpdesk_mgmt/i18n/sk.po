@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-12-28 14:31+0000\n"
+"PO-Revision-Date: 2024-12-28 15:18+0000\n"
 "Last-Translator: SMNDVC <simon.dovicovic@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -26,12 +26,12 @@ msgstr "%s súbor presahuje maximálnu veľkosť %s."
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
-msgstr "<em class=\"font-weight-normal text-muted\">Lístky v kategórií:</em>"
+msgstr "<em class=\"font-weight-normal text-muted\">Tikety v kategórií:</em>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
-msgstr "<em class=\"font-weight-normal text-muted\">Lístky v štádiu:</em>"
+msgstr "<em class=\"font-weight-normal text-muted\">Tikety v štádiu:</em>"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -42,7 +42,7 @@ msgid ""
 msgstr ""
 "<p>Dobrý deň <t t-out=\"object.user_id.name\"></p>\n"
 "\n"
-"……………<p>Lístok<t t-out=\"object.number\"></t>bol ku Vám pripradený.</p>\n"
+"……………<p>Tiket<t t-out=\"object.number\"></t>bol ku Vám pripradený.</p>\n"
 "\n"
 "…………\n"
 "            "
@@ -186,7 +186,7 @@ msgstr ""
 "                                <p>Dobrý deň <t t-out=\"object.user_id.name\""
 "></p>\n"
 "\n"
-"……………<p>Lístok<t t-out=\"object.number\"></t>bol ku Vám pripradený.</p>\n"
+"……………<p>Tiket<t t-out=\"object.number\"></t>bol ku Vám pripradený.</p>\n"
 "                              </td>\n"
 "                            </tbody>\n"
 "                          </table>\n"
@@ -302,7 +302,7 @@ msgstr ""
 "family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
 "                                <p>Dobrý deň <t t-out=\"object.user_id.name\""
 "></t>,</p>\n"
-"                                <p>Stav lístka \"<t t-out=\"object."
+"                                <p>Stav tiketu \"<t t-out=\"object."
 "display_name\"></t>\" bol zmenený na <t t-out=\"object.stage_id.name\""
 "></t>.</p>\n"
 "                              </td>\n"
@@ -375,7 +375,7 @@ msgstr "Akívny"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Active tickets"
-msgstr "Aktívne lístky"
+msgstr "Aktívne tiket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_ids
@@ -500,7 +500,7 @@ msgstr "Avatar"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_awaiting
 msgid "Awaiting"
-msgstr "Očakávanie"
+msgstr "Čakajúce"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__blocked
@@ -544,7 +544,7 @@ msgstr "Kanál"
 msgid ""
 "Channel indicates where the source of a ticketcomes from (it could be a "
 "phone call, an email...)"
-msgstr "Kanál uvádza, odkiaľ pochádza lístok (môže to byť telefonát, e-mail...)"
+msgstr "Kanál uvádza, odkiaľ pochádza tiket (môže to byť telefonát, e-mail...)"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_channel_action
@@ -659,12 +659,12 @@ msgstr "Vytvorené dňa"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Current stage of the ticket"
-msgstr "Aktuálna fáza lístka"
+msgstr "Aktuálna fáza tiketu"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Current stage of this ticket"
-msgstr "Aktuálna fáza tohto lístka"
+msgstr "Aktuálna fáza tohto tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -735,13 +735,13 @@ msgid ""
 "Display button in portal ticket form to allow closing ticket with this stage"
 " as target."
 msgstr ""
-"Zobrazte tlačidlo vo formulári lístka portálu, aby ste umožnili zatvorenie "
-"lístka s touto fázou ako cieľom."
+"Zobrazte tlačidlo vo formulári tiketu portálu, aby ste umožnili zatvorenie "
+"tiketu s touto fázou ako cieľom."
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_done
 msgid "Done"
-msgstr "Hotovo"
+msgstr "Hotové"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.server,name:helpdesk_mgmt.action_duplicate_ticket
@@ -866,7 +866,7 @@ msgstr "Helpdesk e-mail pre oznámenia o zmene fázy"
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.closed_ticket_template
 msgid "Helpdesk Closed Ticket Notification Email"
-msgstr "Helpdesk e-mail pre oznámenia na uzavreté lístky"
+msgstr "Helpdesk e-mail pre oznámenia na uzavreté tikety"
 
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_manager
@@ -899,37 +899,37 @@ msgstr "Helpdesk tímy"
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Helpdesk Ticket"
-msgstr "Helpdesk lístok"
+msgstr "Helpdesk tiket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr "Helpdesk kategória lístku"
+msgstr "Helpdesk kategória tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_channel
 msgid "Helpdesk Ticket Channel"
-msgstr "Helpdesk kanál lístku"
+msgstr "Helpdesk kanál tiketu"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_team_created
 msgid "Helpdesk Ticket Created"
-msgstr "Helpdesk lístok vytvorený"
+msgstr "Helpdesk tiket vytvorený"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr "Helpdesk fáza lístka"
+msgstr "Helpdesk fáza tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_tag
 msgid "Helpdesk Ticket Tag"
-msgstr "Helpdesk štítok lístka"
+msgstr "Helpdesk štítok tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Helpdesk tím lístka"
+msgstr "Helpdesk tím tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.module.category,description:helpdesk_mgmt.module_helpdesk_category
@@ -994,8 +994,7 @@ msgid ""
 "If set an email will be sent to the customer when the ticketreaches this "
 "step."
 msgstr ""
-"Ak je nastavené, zákazníkovi sa odošle e-mail, keď lístok dosiahne tento "
-"krok."
+"Ak je nastavené, zákazníkovi sa odošle e-mail, keď tiket dosiahne tento krok."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -1009,7 +1008,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_in_progress
 msgid "In Progress"
-msgstr "Prebieha"
+msgstr "Prebiehajúce"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_is_follower
@@ -1129,7 +1128,7 @@ msgstr "Meno"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_new
 msgid "New"
-msgstr "Nový"
+msgstr "Nové"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
@@ -1215,22 +1214,22 @@ msgstr "Počet správ s chybou doručenia"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count
 msgid "Number of tickets"
-msgstr "Počet lístkov"
+msgstr "Počet tiketov"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_high_priority
 msgid "Number of tickets in high priority"
-msgstr "Počet lístkov s vysokou prioritou"
+msgstr "Počet tiketov s vysokou prioritou"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unassigned
 msgid "Number of tickets unassigned"
-msgstr "Počet nepriradených lístkov"
+msgstr "Počet nepriradených tiketov"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
-msgstr "Počet lístkov bez dozoru"
+msgstr "Počet nezačatých tiketov"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
@@ -1352,13 +1351,13 @@ msgstr "Odmietnuté"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_ids
 msgid "Related tickets"
-msgstr "Súvisiace lístky"
+msgstr "Súvisiace tikety"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_reporting_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_menu
 msgid "Reporting"
-msgstr "Nahlasovanie"
+msgstr "Reporting"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
@@ -1422,7 +1421,7 @@ msgstr "Vyberte tím na portáli Helpdesk"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Send a new ticket"
-msgstr "Poslať nový lístok"
+msgstr "Poslať nový tiket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__sequence
@@ -1518,7 +1517,7 @@ msgstr "Predmet"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Submit Ticket"
-msgstr "Odoslať lístok"
+msgstr "Odoslať tiket"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1589,12 +1588,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket {{object.number}} has been closed."
-msgstr "Nový lístok {{object.number}} bol uzavretý."
+msgstr "Nový tiket {{object.number}} bol uzavretý."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.changed_stage_template
 msgid "The ticket {{object.number}} stage has changed."
-msgstr "Fáza lístku {{object.number}} sa zmenila."
+msgstr "Fáza tiketu {{object.number}} sa zmenila."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
@@ -1608,55 +1607,55 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Ticket"
-msgstr "Lístok"
+msgstr "Tiket"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.assignment_email_template
 msgid "Ticket Assignment"
-msgstr "Pridelenie lístka"
+msgstr "Pridelenie tiketu"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
-msgstr "Lístok vytvorený"
+msgstr "Tiket vytvorený"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr "Vyhľadávanie fáz lístkov"
+msgstr "Vyhľadávanie fáz tiketov"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
 msgid "Ticket Tag Search"
-msgstr "Vyhľadávanie štítkov lístkov"
+msgstr "Vyhľadávanie štítkov tiketov"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_tag_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_tag_menu
 msgid "Ticket Tags"
-msgstr "Štítky lístkov"
+msgstr "Štítky tiketov"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
-msgstr "Počet aktívnych lístkov"
+msgstr "Počet aktívnych tiketov"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
-msgstr "Počet lístkov"
+msgstr "Počet tiketov"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,description:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket created"
-msgstr "Lístok vytvorený"
+msgstr "Tike vytvorený"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
 msgid "Ticket number"
-msgstr "Číslo lístku"
+msgstr "Číslo tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
@@ -1669,7 +1668,7 @@ msgstr "Číslo lístku"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Tickets"
-msgstr "Lístky"
+msgstr "Tikety"
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -1704,7 +1703,7 @@ msgstr "Nepriradené"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unassigned tickets"
-msgstr "Nepriradené lístky"
+msgstr "Nepriradené tikety"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
@@ -1712,12 +1711,12 @@ msgstr "Nepriradené lístky"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
-msgstr "Bez dozoru"
+msgstr "Nezačaté"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unattended tickets"
-msgstr "Lístky bez dozoru"
+msgstr "Nezačaté tikety"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
@@ -1730,12 +1729,12 @@ msgstr "Používateľ"
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_own
 msgid "User: Personal tickets"
-msgstr "Používateľ: osobné lístky"
+msgstr "Používateľ: osobné tikety"
 
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
 msgid "User: Team tickets"
-msgstr "Používateľ: lístky tímu"
+msgstr "Používateľ: tikety tímu"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
@@ -1775,5 +1774,5 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/a' "
 "}})"
 msgstr ""
-"{{object.company_id.name}} Pridelenie lístkov (Ref {{object.number or 'n/a' "
+"{{object.company_id.name}} Pridelenie tiketov (Ref {{object.number or 'n/a' "
 "}})"
