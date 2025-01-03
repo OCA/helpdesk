@@ -1,0 +1,24 @@
+<!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="view_helpdesk_ticket_form_inherit">
+        <field name="name">helpdesk.ticket.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']" position="after">
+              <page string="Related tickets">
+                <field name="related_ticket_ids" domain="[('id', '!=', id)]">
+                  <tree no_open="1">
+                    <field name="create_date" />
+                    <field name="number" />
+                    <field name="name" />
+                    <field name="partner_id" />
+                    <button name="open_ticket" string="Open" type="object" />
+                  </tree>
+                </field>
+              </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
