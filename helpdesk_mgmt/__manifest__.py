@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -36,7 +36,7 @@
     "demo": ["demo/helpdesk_demo.xml"],
     "assets": {
         "web.assets_frontend": [
-            "helpdesk_mgmt/static/src/js/new_ticket.js",
+            "helpdesk_mgmt/static/src/js/new_ticket.esm.js",
         ],
     },
     "development_status": "Production/Stable",
