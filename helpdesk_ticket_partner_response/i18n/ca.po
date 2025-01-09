@@ -33,6 +33,11 @@ msgid "Autoupdate Source Stages"
 msgstr "Etapes d'origen d'actualització automàtica"
 
 #. module: helpdesk_ticket_partner_response
+#: model:ir.model,name:helpdesk_ticket_partner_response.model_mail_thread
+msgid "Email Thread"
+msgstr ""
+
+#. module: helpdesk_ticket_partner_response
 #: model:ir.model,name:helpdesk_ticket_partner_response.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
 msgstr "Equip del tiquet del centre d'assistència"
