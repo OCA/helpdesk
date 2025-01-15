@@ -4,7 +4,7 @@
         <field name="model">helpdesk.ticket.team</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='alias_user_id']" position="after">
+            <xpath expr="//field[@name='company_id']" position="before">
                 <field name="default_project_id" groups="project.group_project_user" />
             </xpath>
         </field>

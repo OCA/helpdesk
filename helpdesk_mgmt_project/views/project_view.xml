@@ -16,6 +16,9 @@
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
                 </button>
             </xpath>
+            <field name="label_tasks" position="after">
+                <field name="label_tickets" />
+            </field>
         </field>
     </record>
     <record id="view_project_kanban" model="ir.ui.view">
@@ -57,6 +60,7 @@
         <field name="inherit_id" ref="project.view_project_project_filter" />
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='inactive']" position="after">
+                <separator />
                 <filter
                     string="Open Tickets"
                     name="open_tickets"

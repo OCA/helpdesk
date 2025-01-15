@@ -39,7 +39,7 @@
                 <field
                     name="task_id"
                     domain="[('project_id', '=', project_id)]"
-                    attrs="{'invisible':[('project_id', '=', False)]}"
+                    invisible="not project_id"
                     context="{'default_project_id': project_id}"
                     groups="project.group_project_user"
                 />
