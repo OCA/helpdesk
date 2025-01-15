@@ -39,7 +39,7 @@
             "helpdesk_mgmt/static/src/js/new_ticket.js",
         ],
     },
-    "development_status": "Beta",
+    "development_status": "Production/Stable",
     "application": True,
     "installable": True,
 }
