@@ -1,5 +1,7 @@
-# Copyright 2022 Tecnativa - Víctor Martínez
+# Copyright 2022-2025 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+from markupsafe import Markup
 
 from odoo import SUPERUSER_ID, _, api, fields, models
 
@@ -55,9 +57,8 @@ class HelpdeskTicketCreateLead(models.TransientModel):
                 }
             )
         # Chatter reflects new Lead
-        body = _(
-            "This ticket has been converted to the opportunity "
-            "<a href=# data-oe-model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
-        ) % {"id": lead.id, "name": lead.name, "model": lead._name}
+        body = Markup(
+            _("This ticket has been converted to the opportunity %(lead_link)s")
+        ) % {"lead_link": lead._get_html_link(title=lead.name)}
         self.ticket_id.with_user(SUPERUSER_ID).message_post(body=body)
         return lead.get_formview_action()

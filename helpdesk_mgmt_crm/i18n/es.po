@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-09 06:40+0000\n"
-"PO-Revision-Date: 2022-09-09 08:41+0200\n"
+"POT-Creation-Date: 2025-01-15 13:00+0000\n"
+"PO-Revision-Date: 2025-01-15 14:00+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -70,11 +70,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_mgmt_crm
-#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead____last_update
-msgid "Last Modified on"
-msgstr "Última modificación el"
-
-#. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización de"
@@ -106,14 +101,11 @@ msgid "Team"
 msgstr "Equipo"
 
 #. module: helpdesk_mgmt_crm
+#. odoo-python
 #: code:addons/helpdesk_mgmt_crm/wizard/helpdesk_ticket_create_lead.py:0
 #, python-format
-msgid ""
-"This ticket has been converted to the opportunity <a href=# data-oe-"
-"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
-msgstr ""
-"Esta solicitud se ha convertido en la oportunidad <a href=# data-oe-"
-"model=%(model)s data-oe-id=%(id)s>%(name)s</a>"
+msgid "This ticket has been converted to the opportunity %(lead_link)s"
+msgstr "Esta solicitud se ha convertido en la oportunidad %(lead_link)s"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__ticket_id
@@ -124,3 +116,6 @@ msgstr "Solicitud"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__user_id
 msgid "User"
 msgstr "Usuario"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última modificación el"
