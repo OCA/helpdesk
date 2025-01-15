@@ -82,6 +82,3 @@ msgstr "Tiquets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
 msgstr "Usar tickets como"
-
-#~ msgid "Default Project"
-#~ msgstr "Proyecto Predeterminado"

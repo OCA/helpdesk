@@ -4,13 +4,16 @@ from odoo import api, fields, models
 class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
-    project_id = fields.Many2one(string="Project", comodel_name="project.project")
+    project_id = fields.Many2one(
+        string="Project", comodel_name="project.project", tracking=True
+    )
     task_id = fields.Many2one(
         string="Task",
         comodel_name="project.task",
         compute="_compute_task_id",
         readonly=False,
         store=True,
+        tracking=True,
     )
 
     @api.depends("project_id")

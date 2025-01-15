@@ -23,6 +23,7 @@
         <field name="inherit_id" ref="project.view_task_search_form" />
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='inactive']" position="after">
+                <separator />
                 <filter
                     string="Open Tickets"
                     name="open_tickets"
@@ -38,7 +39,7 @@
         <field name="arch" type="xml">
             <div class="oe_kanban_bottom_right" position="before">
                 <div
-                    attrs="{'invisible':[('ticket_count', '=', 0)]}"
+                    invisible="ticket_count==0"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <a
