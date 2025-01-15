@@ -4,7 +4,7 @@
 from odoo import http
 from odoo.tests.common import new_test_user, tagged
 
-from odoo.addons.base.tests.common import HttpCaseWithUserPortal
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT, HttpCaseWithUserPortal
 
 
 @tagged("post_install", "-at_install")
@@ -14,33 +14,30 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
     HTML produced by our routes.
     """
 
-    def setUp(self):
-        super().setUp()
-        ctx = {
-            "mail_create_nolog": True,
-            "mail_create_nosubscribe": True,
-            "mail_notrack": True,
-            "no_reset_password": True,
-        }
-        self.new_ticket_title = "portal-new-submitted-ticket-subject"
-        self.new_ticket_desc_lines = (  # multiline description to check line breaks
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.new_ticket_title = "portal-new-submitted-ticket-subject"
+        cls.new_ticket_desc_lines = (  # multiline description to check line breaks
             "portal-new-submitted-ticket-description-line-1",
             "portal-new-submitted-ticket-description-line-2",
         )
-        self.company = self.env.ref("base.main_company")
-        self.partner_portal.parent_id = self.company.partner_id
+        cls.company = cls.env.ref("base.main_company")
+        cls.partner_portal.parent_id = cls.company.partner_id
         # Create a basic user with no helpdesk permissions.
-        self.basic_user = new_test_user(self.env, login="test-basic-user", context=ctx)
-        self.basic_user.parent_id = self.company.partner_id
+        cls.basic_user = new_test_user(cls.env, login="test-basic-user")
+        cls.basic_user.parent_id = cls.company.partner_id
         # Create a ticket submitted by our portal user.
-        self.portal_ticket = self._create_ticket(
-            self.partner_portal, "portal-ticket-title"
+        cls.portal_ticket = cls._create_ticket(
+            cls.partner_portal, "portal-ticket-title"
         )
 
     def get_new_tickets(self, user):
         return self.env["helpdesk.ticket"].with_user(user).search([])
 
-    def _create_ticket(self, partner, ticket_title, **values):
+    @classmethod
+    def _create_ticket(cls, partner, ticket_title, **values):
         """Create a ticket submitted by the specified partner."""
         data = {
             "name": ticket_title,
@@ -50,7 +47,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
             "partner_name": partner.name,
         }
         data.update(**values)
-        return self.env["helpdesk.ticket"].create(data)
+        return cls.env["helpdesk.ticket"].create(data)
 
     def _submit_ticket(self, **values):
         data = {
