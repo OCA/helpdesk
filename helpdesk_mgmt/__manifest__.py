@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "17.0.1.0.1",
+    "version": "17.0.1.0.2",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -39,7 +39,7 @@
             "helpdesk_mgmt/static/src/js/new_ticket.js",
         ],
     },
-    "development_status": "Beta",
+    "development_status": "Production/Stable",
     "application": True,
     "installable": True,
 }
