@@ -18,13 +18,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "%s file exceed the maximum file size of %s."
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
 msgstr ""
@@ -681,13 +674,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Email domain e.g. 'example.com' in 'odoo@example.com'"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "File upload"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1463,6 +1449,13 @@ msgstr ""
 msgid ""
 "The name of the email alias, e.g. 'jobs' if you want to catch emails for "
 "<jobs@example.odoo.com>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
+#, python-format
+msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
 msgstr ""
 
 #. module: helpdesk_mgmt
