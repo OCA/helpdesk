@@ -166,8 +166,8 @@
                                 <div class="col-9">
                                     <span t-field="ticket.name" class="text-truncate" />
                                     <small class="text-muted d-none d-md-inline"> (<span
-                                            t-field="ticket.number"
-                                        />)</small>
+                                        t-field="ticket.number"
+                                    />)</small>
                                 </div>
                                 <div class="col-3 text-right">
                                     <small class="text-right">Stage:</small>
@@ -208,8 +208,8 @@
                                 />
                             </div>
                             <div t-if="ticket.closed_date">
-                                    <strong>Close Date:</strong>
-                                    <span
+                                <strong>Close Date:</strong>
+                                <span
                                     t-field="ticket.closed_date"
                                     t-options='{"widget": "datetime"}'
                                 />
@@ -384,7 +384,7 @@
                             </t>
                         </div>
                     </div>
-                </div>
+                </t>
                 <div class="row mt-3" t-if="ticket.user_id or ticket.partner_id">
                     <div class="col-12 col-md-6 pb-2" t-if="ticket.user_id">
                         <strong>Assignee</strong>
@@ -518,7 +518,7 @@
                         <t t-set="hash" t-value="hash" />
                     </t>
                 </div>
-            </div>
+            </t>
         </t>
     </template>
 
