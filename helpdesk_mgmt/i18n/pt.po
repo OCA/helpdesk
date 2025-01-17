@@ -17,13 +17,6 @@ msgstr ""
 "X-Generator: Weblate 5.6.2\n"
 
 #. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "%s file exceed the maximum file size of %s."
-msgstr "O arquivo %s excedeu o tamanho máximo de arquivo de %s."
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
 msgstr "<em class=\"font-weight-normal text-muted\">Tickets na categoria:</em>"
@@ -826,13 +819,6 @@ msgstr "Email cc"
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Email domain e.g. 'example.com' in 'odoo@example.com'"
 msgstr ""
-
-#. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "File upload"
-msgstr "Envio de ficheiro"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__fold
@@ -1642,6 +1628,13 @@ msgstr ""
 "<jobs@example.odoo.com>"
 
 #. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
+#, python-format
+msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
 msgid "The ticket {{object.number}} has been closed."
 msgstr "O ticket {{object.number}} foi fechado."
@@ -1832,6 +1825,14 @@ msgid ""
 msgstr ""
 "{{object.company_id.name}} Atribuição de Ticket (Ref {{object.number or 'n/"
 "a' }})"
+
+#, python-format
+#~ msgid "%s file exceed the maximum file size of %s."
+#~ msgstr "O arquivo %s excedeu o tamanho máximo de arquivo de %s."
+
+#, python-format
+#~ msgid "File upload"
+#~ msgstr "Envio de ficheiro"
 
 #~ msgid "<span>View</span>"
 #~ msgstr "<span>Ver</span>"

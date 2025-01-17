@@ -17,13 +17,6 @@ msgstr ""
 "X-Generator: Weblate 5.6.2\n"
 
 #. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "%s file exceed the maximum file size of %s."
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in category:</em>"
 msgstr "<em class=\"font-weight-normal text-muted\">Vragen in categorie</em>"
@@ -825,13 +818,6 @@ msgstr "Email cc"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_domain
 msgid "Email domain e.g. 'example.com' in 'odoo@example.com'"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#. odoo-javascript
-#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.js:0
-#, python-format
-msgid "File upload"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1641,6 +1627,13 @@ msgid ""
 msgstr ""
 "Naam van de email alias, bijvoorbeeld 'banen' als je mails af wil handelen "
 "voor <banen@example.com>"
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
+#, python-format
+msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
