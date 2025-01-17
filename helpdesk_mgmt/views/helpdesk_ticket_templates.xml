@@ -252,7 +252,7 @@
                                     class="col d-flex align-items-center flex-grow-0 pr-3"
                                 >
                                     <img
-                                        class="rounded-circle mt-1 o_portal_contact_img"
+                                        class="o_avatar o_portal_contact_img rounded"
                                         t-att-src="image_data_uri(ticket.user_id.avatar_1024)"
                                         alt="Contact"
                                     />
@@ -290,7 +290,7 @@
                                     class="col d-flex align-items-center flex-grow-0 pr-3"
                                 >
                                     <img
-                                        class="rounded-circle mt-1 o_portal_contact_img"
+                                        class="o_avatar o_portal_contact_img rounded"
                                         t-att-src="image_data_uri(ticket.partner_id.avatar_1024)"
                                         alt="Contact"
                                     />
