@@ -36,7 +36,7 @@
     "demo": ["demo/helpdesk_demo.xml"],
     "assets": {
         "web.assets_frontend": [
-            "helpdesk_mgmt/static/src/js/new_ticket.js",
+            "helpdesk_mgmt/static/src/js/new_ticket.esm.js",
         ],
     },
     "development_status": "Production/Stable",

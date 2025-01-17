@@ -479,6 +479,11 @@
                                 t-att-max_upload_size="max_upload_size"
                             />
                         </div>
+                        <div
+                            id="attachment_information"
+                            style="display: none;"
+                            class="text-danger"
+                        />
                     </div>
                 </div>
                 <div class="form-group">
