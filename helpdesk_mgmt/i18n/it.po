@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-16 15:51+0000\n"
+"PO-Revision-Date: 2025-01-19 15:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1185,7 +1185,7 @@ msgstr "Il più recente"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr ""
+msgstr "Evento calendario attività successiva"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
@@ -1376,7 +1376,7 @@ msgstr "Ticket prioritari"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
 msgid "Ratings"
-msgstr ""
+msgstr "Valutazioni"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
@@ -1634,6 +1634,8 @@ msgstr ""
 #, python-format
 msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
 msgstr ""
+"Il file selezionato (%sB) è superiore alla massima dimensione consentita "
+"(%sB)."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
