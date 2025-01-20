@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-19 12:30+0000\n"
+"PO-Revision-Date: 2025-01-20 17:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -34,12 +34,12 @@ msgstr "Nome visualizzato"
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_motive
 msgid "Helpdesk Motive"
-msgstr "Motivo Helpdesk"
+msgstr "Motivo assistenza clienti"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__team_id
 msgid "Helpdesk Team"
-msgstr "Team Helpdesk"
+msgstr "Team assistenza clienti"
 
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket
@@ -49,7 +49,7 @@ msgstr "Ticket assistenza clienti"
 #. module: helpdesk_motive
 #: model:ir.actions.act_window,name:helpdesk_motive.action_helpdesk_ticket_motive_tree
 msgid "Helpdesk Ticket Motive"
-msgstr "Motivo Ticket Helpdesk"
+msgstr "Motivo ticket assistenza clienti"
 
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_team
