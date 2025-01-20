@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-29 16:35+0000\n"
+"PO-Revision-Date: 2025-01-20 17:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
@@ -133,18 +133,18 @@ msgstr "Icona Font Awesome es. fa-tasks"
 #: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
 #: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
 msgid "Generate Helpdesk SLA alerts from cron"
-msgstr "Genera avvisi SLA Helpdesk da cron"
+msgstr "Genera avvisi SLA assistenza clienti da cron"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla
 msgid "Helpdesk SLA"
-msgstr "SLA Helpdesk"
+msgstr "SLA assistenza clienti"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
 msgid "Helpdesk SLA Search"
-msgstr "Cerca SLA Helpdesk"
+msgstr "Cerca SLA assistenza clienti"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket
