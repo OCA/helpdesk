@@ -12,7 +12,7 @@
                 <field name="todo_ticket_count_unattended" />
                 <field name="todo_ticket_count_high_priority" />
                 <templates>
-                    <t t-name="kanban-menu">
+                    <t t-name="menu">
                         <div class="o_kanban_card_manage_section">
                             <div role="menuitem" class="o_kanban_manage_reports">
                                 <div class="o_kanban_card_manage_title ps-4 pb-1">

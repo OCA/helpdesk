@@ -154,10 +154,11 @@ To create a new ticket from the kanban view:
 8. Add a description.
 9. You can also attach files to the ticket.
 
-|Tickets01|
+|Tickets01| |Tickets02|
 
 .. |Tickets_Kanban| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tickets_Kanban.PNG
 .. |Tickets01| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tickets01.PNG
+.. |Tickets02| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Tickets02.PNG
 
 Known issues / Roadmap
 ======================
@@ -243,6 +244,10 @@ Contributors
 -  `XCG Consulting <https://xcg-consulting.fr>`__:
 
    -  Houzéfa Abbasbhay
+
+-  `Kencove <https://kencove.com>`__:
+
+   -  Mohamed Alkobrosli
 
 Maintainers
 -----------
