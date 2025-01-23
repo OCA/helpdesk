@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models, tools
+from odoo import api, fields, models, tools
 from odoo.exceptions import AccessError
 
 
@@ -241,7 +241,7 @@ class HelpdeskTicket(models.Model):
         if custom_values is None:
             custom_values = {}
         defaults = {
-            "name": msg.get("subject") or _("No Subject"),
+            "name": msg.get("subject") or self.env._("No Subject"),
             "description": msg.get("body"),
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
@@ -287,13 +287,15 @@ class HelpdeskTicket(models.Model):
             for ticket in self:
                 if ticket.partner_id:
                     ticket._message_add_suggested_recipient(
-                        recipients, partner=ticket.partner_id, reason=_("Customer")
+                        recipients,
+                        partner=ticket.partner_id,
+                        reason=self.env._("Customer"),
                     )
                 elif ticket.partner_email:
                     ticket._message_add_suggested_recipient(
                         recipients,
                         email=ticket.partner_email,
-                        reason=_("Customer Email"),
+                        reason=self.env._("Customer Email"),
                     )
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this

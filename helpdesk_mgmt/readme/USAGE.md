@@ -19,3 +19,4 @@ To create a new ticket from the kanban view:
 9.  You can also attach files to the ticket.
 
 ![Tickets01](../static/description/Tickets01.PNG)
+![Tickets02](../static/description/Tickets02.PNG)

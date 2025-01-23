@@ -27,3 +27,5 @@
   - David Alonso
 - [XCG Consulting](https://xcg-consulting.fr):
   - Houzéfa Abbasbhay
+- [Kencove](https://kencove.com):
+  - Mohamed Alkobrosli
