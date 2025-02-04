@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Sale Order",
     "summary": "Add the option to select project in the sale orders.",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "license": "AGPL-3",
     "category": "Sales Management",
     "author": "Tecnativa," "Odoo Community Association (OCA)",
