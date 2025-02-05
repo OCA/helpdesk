@@ -21,10 +21,10 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 17.0.1.0.4 |  | Helpdesk
-[helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 17.0.1.0.0 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with leads
-[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 17.0.1.0.0 |  | Add the option to select project in the tickets.
-[helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 17.0.1.0.0 |  | Add the option to select project in the sale orders.
+[helpdesk_mgmt](helpdesk_mgmt/) | 17.0.1.0.5 |  | Helpdesk
+[helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 17.0.1.0.1 | [![victoralmau](https://github.com/victoralmau.png?size=30px)](https://github.com/victoralmau) | Links helpdesk tickets with leads
+[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 17.0.1.0.1 |  | Add the option to select project in the tickets.
+[helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 17.0.1.0.1 |  | Add the option to select project in the sale orders.
 
 [//]: # (end addons)
 
