@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-04 16:06+0000\n"
+"PO-Revision-Date: 2025-02-10 07:53+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -35,7 +35,7 @@ msgstr "Aggiorna automaticamente fase origine"
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model,name:helpdesk_ticket_partner_response.model_mail_thread
 msgid "Email Thread"
-msgstr ""
+msgstr "Discussione e-mail"
 
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model,name:helpdesk_ticket_partner_response.model_helpdesk_ticket_team
