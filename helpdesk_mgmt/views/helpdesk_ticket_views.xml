@@ -156,8 +156,7 @@
                         bg_color="bg-danger"
                         invisible="active"
                     />
-                    <div class="oe_button_box" name="button_box">
-                    </div>
+                    <div class="oe_button_box" name="button_box" />
                     <div class="oe_title">
                         <h1 class="oe_title">
                             <field name="number" />

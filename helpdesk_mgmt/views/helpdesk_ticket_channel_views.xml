@@ -29,8 +29,7 @@
         <field name="model">helpdesk.ticket.channel</field>
         <field name="arch" type="xml">
             <form string="Stages">
-                <header>
-                </header>
+                <header />
                 <sheet>
                     <widget
                         name="web_ribbon"

@@ -60,8 +60,8 @@
                                                 context="{'search_default_open': 1}"
                                             >
                                                 <t
-                                                    t-esc="record.todo_ticket_count.value"
-                                                />
+                                                t-esc="record.todo_ticket_count.value"
+                                            />
                                                 To Do
                                             </button>
                                         </div>

@@ -30,8 +30,7 @@
         <field name="model">helpdesk.ticket.stage</field>
         <field name="arch" type="xml">
             <form string="Stages">
-                <header>
-                </header>
+                <header />
                 <sheet>
                     <widget
                         name="web_ribbon"
@@ -39,8 +38,7 @@
                         bg_color="bg-danger"
                         invisible="active"
                     />
-                    <div class="oe_button_box" name="button_box">
-                    </div>
+                    <div class="oe_button_box" name="button_box" />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
