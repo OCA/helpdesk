@@ -68,18 +68,18 @@
                                 >
                                     <field name="alias_name" class="oe_inline" />
 @                                    <field
-                                        name="alias_domain"
-                                        class="oe_inline"
-                                        readonly="1"
-                                    />
+                                    name="alias_domain"
+                                    class="oe_inline"
+                                    readonly="1"
+                                />
                                     <button
-                                        icon="fa-arrow-right"
-                                        type="action"
-                                        name="%(base_setup.action_general_configuration)d"
-                                        string="Configure domain name"
-                                        class="btn-link"
-                                        invisible="alias_domain"
-                                    />
+                                    icon="fa-arrow-right"
+                                    type="action"
+                                    name="%(base_setup.action_general_configuration)d"
+                                    string="Configure domain name"
+                                    class="btn-link"
+                                    invisible="alias_domain"
+                                />
                                 </div>
                             </div>
                             <field
@@ -94,8 +94,7 @@
                             />
                             <field name="show_in_portal" />
                         </group>
-                        <group name="right">
-                        </group>
+                        <group name="right" />
                     </group>
                     <notebook>
                         <page name="members" string="Team Members">

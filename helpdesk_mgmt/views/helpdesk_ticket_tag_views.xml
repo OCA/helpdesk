@@ -20,12 +20,10 @@
         <field name="model">helpdesk.ticket.tag</field>
         <field name="arch" type="xml">
             <form string="Tags">
-                <header>
-                </header>
+                <header />
                 <sheet>
                     <field name="active" invisible="1" />
-                    <div class="oe_button_box" name="button_box">
-                    </div>
+                    <div class="oe_button_box" name="button_box" />
                     <widget
                         name="web_ribbon"
                         title="Archived"

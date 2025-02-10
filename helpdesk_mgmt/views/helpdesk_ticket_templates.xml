@@ -165,8 +165,8 @@
                                 <div class="col-9">
                                     <span t-field="ticket.name" class="text-truncate" />
                                     <small class="text-muted d-none d-md-inline"> (<span
-                                            t-field="ticket.number"
-                                        />)</small>
+                                        t-field="ticket.number"
+                                    />)</small>
                                 </div>
                                 <div class="col-3 text-right">
                                     <small class="text-right">Stage:</small>
@@ -207,8 +207,8 @@
                                 />
                             </div>
                             <div t-if="ticket.closed_date">
-                                    <strong>Close Date:</strong>
-                                    <span
+                                <strong>Close Date:</strong>
+                                <span
                                     t-field="ticket.closed_date"
                                     t-options='{"widget": "datetime"}'
                                 />
