@@ -17,13 +17,13 @@ Helpdesk Ticket Timesheet
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt_timesheet
+    :target: https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt_timesheet
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-16-0/helpdesk-16-0-helpdesk_mgmt_timesheet
+    :target: https://translation.odoo-community.org/projects/helpdesk-17-0/helpdesk-17-0-helpdesk_mgmt_timesheet
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -40,23 +40,26 @@ Configuration
 
 To configure this module, you need to:
 
-#. Allow Timesheet for a Helpdesk's Team
-#. Set a Default Project (optional)
+1. Allow Timesheet for a Helpdesk's Team
+2. Set a Default Project (optional)
 
 Allow Timesheet
-~~~~~~~~~~~~~~~
+---------------
 
-#. Go to Helpdesk > Configuration > Teams.
-#. Edit or create a new team.
-#. Check Allow Timesheet option to allow timesheets for that team.
-#. Select a Project for that team (optional).
+1. Go to Helpdesk > Configuration > Teams.
+2. Edit or create a new team.
+3. Check Allow Timesheet option to allow timesheets for that team.
+4. Select a Project for that team (optional).
 
 Usage
 =====
 
-#. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets dashboard.
-#. In the Kanban view, click in the kanban card of a team to see their tickets and create new ones.
-#. If there is not a Default Project you will need select a Project for the Ticket to show the Timesheet Table.
+1. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets
+   dashboard.
+2. In the Kanban view, click in the kanban card of a team to see their
+   tickets and create new ones.
+3. If there is not a Default Project you will need select a Project for
+   the Ticket to show the Timesheet Table.
 
 Bug Tracker
 ===========
@@ -64,7 +67,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_timesheet%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_timesheet%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -72,7 +75,7 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Aresoltec Canarias
 * Punt Sistemes
@@ -80,31 +83,32 @@ Authors
 * Solvos
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Aresoltec Canarias, S.L <https://www.aresoltec.com>`_:
+-  `Aresoltec Canarias, S.L <https://www.aresoltec.com>`__:
 
-  * Inma Sánchez
+   -  Inma Sánchez
 
-* `SDi Soluciones, S.L. <https://www.sdi.es>`_:
+-  `SDi Soluciones, S.L. <https://www.sdi.es>`__:
 
-  * Oscar Soto
-  * Jorge Luis Quinteros
+   -  Oscar Soto
+   -  Jorge Luis Quinteros
 
-* `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`_:
+-  `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`__:
 
-  * Carlos Ramos
+   -  Carlos Ramos
 
-* `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`_:
+-  `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`__:
 
-  * David Alonso
+   -  David Alonso
 
-* `Guadaltech Soluciones Tecnológicas, S.L. <https://www.guadaltech.es/>`_:
+-  `Guadaltech Soluciones Tecnológicas,
+   S.L. <https://www.guadaltech.es/>`__:
 
-  * Fernando La Chica <fernandolachica@gmail.com>
+   -  Fernando La Chica <fernandolachica@gmail.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -116,6 +120,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt_timesheet>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/17.0/helpdesk_mgmt_timesheet>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
