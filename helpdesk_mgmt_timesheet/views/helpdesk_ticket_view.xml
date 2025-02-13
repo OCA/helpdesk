@@ -66,7 +66,7 @@
                     tabindex="-1"
                     type="object"
                     icon="fa-play-circle text-success"
-                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    invisible="show_time_control != 'start'"
                     class="oe_stat_button"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
@@ -77,7 +77,7 @@
                     tabindex="-1"
                     type="object"
                     icon="fa-stop-circle text-warning"
-                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    invisible="show_time_control != 'stop'"
                     class="oe_stat_button"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
@@ -102,7 +102,7 @@
                     string="Start work"
                     type="object"
                     icon="fa-play-circle text-success"
-                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    invisible="show_time_control != 'start'"
                     class="oe_stat_button"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
@@ -112,7 +112,7 @@
                     string="Stop work"
                     type="object"
                     icon="fa-stop-circle text-warning"
-                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    invisible="show_time_control != 'stop'"
                     class="oe_stat_button"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
@@ -121,7 +121,7 @@
                 <page
                     string="Timesheets"
                     name="timesheets"
-                    attrs="{'invisible':[('project_id', '=', False)]}"
+                    invisible="not project_id"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 >
                     <group>
@@ -160,7 +160,7 @@
                                 tabindex="-1"
                                 type="object"
                                 icon="fa-play-circle text-success"
-                                attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                                invisible="show_time_control != 'resume'"
                                 class="oe_stat_button"
                             />
                             <button
@@ -170,7 +170,7 @@
                                 tabindex="-1"
                                 type="object"
                                 icon="fa-stop-circle text-warning"
-                                attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                                invisible="show_time_control != 'stop'"
                                 class="oe_stat_button"
                             />
                         </tree>
@@ -183,7 +183,7 @@
                                     tabindex="-1"
                                     type="object"
                                     icon="fa-play-circle text-success"
-                                    attrs="{'invisible': [('show_time_control', '!=', 'resume')]}"
+                                    invisible="show_time_control != 'resume'"
                                     class="oe_stat_button"
                                     context="{'show_created_timer': True}"
                                 />
@@ -194,7 +194,7 @@
                                     tabindex="-1"
                                     type="object"
                                     icon="fa-stop-circle text-warning"
-                                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                                    invisible="show_time_control != 'stop'"
                                     class="oe_stat_button"
                                 />
                             </div>
@@ -234,7 +234,7 @@
                 <a
                     name="button_start_work"
                     title="Start work"
-                    attrs="{'invisible': [('show_time_control', '!=', 'start')]}"
+                    invisible="show_time_control != 'start'"
                     class="o_kanban_inline_block text-success"
                     string="Start work"
                     tabindex="-1"
@@ -251,7 +251,7 @@
                 <a
                     name="button_end_work"
                     title="End work"
-                    attrs="{'invisible': [('show_time_control', '!=', 'stop')]}"
+                    invisible="show_time_control != 'stop'"
                     class="o_kanban_inline_block text-warning"
                     string="Stop work"
                     tabindex="-1"
@@ -278,9 +278,7 @@
             </xpath>
             <!-- It is important to apply the required attrs to the field which has groups !-->
             <xpath expr="//field[@name='project_id'][2]" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'required': [('allow_timesheet', '=', True)]}</attribute>
+                <attribute name="required">allow_timesheet</attribute>
             </xpath>
         </field>
     </record>
