@@ -63,7 +63,7 @@
                 />
                 <field
                     name="ticket_partner_id"
-                    attrs="{'invisible': [('ticket_id', '=', False)]}"
+                    invisible="not ticket_id"
                     groups="helpdesk_mgmt.group_helpdesk_user"
                 />
             </field>
