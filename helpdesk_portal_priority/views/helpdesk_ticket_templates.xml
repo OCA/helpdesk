@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <template
+        id="portal_create_ticket"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+        priority="40"
+    >
+            <xpath expr="//div[hasclass('form-group')][3]" position="after">
+                <div class="form-group">
+                    <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="priority"
+                >Priority</label>
+                        <div class="col-md-7 col-sm-8">
+                            <select
+                        class="form-control"
+                        id="priority"
+                        name="priority"
+                        required="True"
+                    >
+                                <t t-foreach="priorities" t-as="pri">
+                                    <option t-attf-value="#{pri[0]}">
+                                        <t t-esc="pri[1]" />
+                                    </option>
+                                </t>
+                            </select>
+                        </div>
+                    </div>
+            </xpath>
+        </template>
+</odoo>
