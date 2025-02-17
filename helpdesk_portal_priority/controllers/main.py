@@ -7,7 +7,7 @@ from odoo.addons.helpdesk_mgmt.controllers.main import HelpdeskTicketController
 _logger = logging.getLogger(__name__)
 
 
-class ApslHelpdeskTicketController(HelpdeskTicketController):
+class HelpdeskPriorityController(HelpdeskTicketController):
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
         res = super().create_new_ticket(**kw)
