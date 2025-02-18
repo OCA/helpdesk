@@ -203,10 +203,6 @@ class HelpdeskTicket(models.Model):
                 vals["assigned_date"] = now
         return super().write(vals)
 
-    def action_duplicate_tickets(self):
-        for ticket in self.browse(self.env.context["active_ids"]):
-            ticket.copy()
-
     def _prepare_ticket_number(self, values):
         seq = self.env["ir.sequence"]
         if "company_id" in values:
