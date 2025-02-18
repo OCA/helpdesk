@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
+from odoo.models import Command
 from odoo.tests import common
 from odoo.tests.common import new_test_user, users
 
@@ -20,7 +21,7 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
             cls.env, login="sale-user2", groups="sales_team.group_sale_salesman"
         )
         cls.team = cls.env["crm.team"].create(
-            {"name": "Test team", "member_ids": [(6, 0, [cls.user2.id])]}
+            {"name": "Test team", "member_ids": [Command.set([cls.user2.ids])]}
         )
         cls.team.message_subscribe(
             partner_ids=[cls.user2.partner_id.id],
@@ -75,3 +76,37 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
         res = self.ticket.action_open_leads()
         self.assertEqual(res["res_model"], self.ticket.lead_ids._name)
         self.assertEqual(res["res_id"], self.ticket.lead_ids.id)
+
+    def test_compute_lead_count(self):
+        """Test the computation of lead_count field."""
+        self.assertEqual(self.ticket.lead_count, 0)
+
+        # Create a lead linked to the ticket
+        self.env["crm.lead"].create({"name": "Test Lead", "ticket_id": self.ticket.id})
+        self.ticket._compute_lead_count()
+        self.assertEqual(self.ticket.lead_count, 1)
+
+        # Create another lead and check count updates
+        self.env["crm.lead"].create(
+            {"name": "Test Lead 2", "ticket_id": self.ticket.id}
+        )
+        self.ticket._compute_lead_count()
+        self.assertEqual(self.ticket.lead_count, 2)
+
+    def test_action_open_leads_multiple(self):
+        """Test action_open_leads when multiple leads exist."""
+        lead1 = self.env["crm.lead"].create(
+            {"name": "Lead 1", "ticket_id": self.ticket.id}
+        )
+        lead2 = self.env["crm.lead"].create(
+            {"name": "Lead 2", "ticket_id": self.ticket.id}
+        )
+
+        action_result = self.ticket.action_open_leads()
+        self.assertEqual(action_result["res_model"], "crm.lead")
+        self.assertIn("domain", action_result)
+        domain_value = next((d for d in action_result["domain"] if d[0] == "id"), None)
+        self.assertIsNotNone(domain_value)
+        self.assertEqual(domain_value[0], "id")
+        self.assertEqual(domain_value[1], "in")
+        self.assertCountEqual(domain_value[2], [lead1.id, lead2.id])
