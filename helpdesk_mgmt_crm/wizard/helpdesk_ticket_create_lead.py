@@ -3,7 +3,7 @@
 
 from markupsafe import Markup
 
-from odoo import SUPERUSER_ID, _, api, fields, models
+from odoo import SUPERUSER_ID, api, fields, models
 
 
 class HelpdeskTicketCreateLead(models.TransientModel):
@@ -58,7 +58,9 @@ class HelpdeskTicketCreateLead(models.TransientModel):
             )
         # Chatter reflects new Lead
         body = Markup(
-            _("This ticket has been converted to the opportunity %(lead_link)s")
+            self.env._(
+                "This ticket has been converted to the opportunity %(lead_link)s"
+            )
         ) % {"lead_link": lead._get_html_link(title=lead.name)}
         self.ticket_id.with_user(SUPERUSER_ID).message_post(body=body)
         return lead.get_formview_action()
