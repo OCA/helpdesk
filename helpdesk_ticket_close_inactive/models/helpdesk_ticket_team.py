@@ -32,7 +32,8 @@ class HelpdeskTicketTeam(models.Model):
     ticket_stage_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.stage",
         string="Ticket Stage",
-        help="The cronjob will check for inactivity in tickets that are in these stages.",
+        help="The cronjob will check for inactivity in \
+        tickets that are in these stages.",
     )
     ticket_category_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.category",
@@ -45,7 +46,8 @@ class HelpdeskTicketTeam(models.Model):
         default=7,
         string="Inactive days limit before send a warning",
         required=1,
-        help="Day limit for email notification of upcoming ticket closure due to inactivity.",
+        help="Day limit for email notification of upcoming \
+        ticket closure due to inactivity.",
     )
     warning_inactive_mail_template_id = fields.Many2one(
         "mail.template",
@@ -71,7 +73,6 @@ class HelpdeskTicketTeam(models.Model):
     )
 
     def close_team_inactive_tickets(self):
-
         if len(self) > 0:
             teams = self
         else:

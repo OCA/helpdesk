@@ -6,7 +6,7 @@ from odoo.tests import TransactionCase
 
 class TestHelpdeskTicketAutoclose(TransactionCase):
     def setUp(self):
-        super(TestHelpdeskTicketAutoclose, self).setUp()
+        super().setUp()
         self.team = self.env["helpdesk.ticket.team"].create(
             {
                 "name": "Test Team",
@@ -71,7 +71,8 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
         self.assertTrue(sent_mails, "Closing email should have been sent")
 
     def test_remaining_days_in_context(self):
-        """Test that the correct remaining days are set in the context for the warning email."""
+        """Test that the correct remaining days are
+        set in the context for the warning email."""
         self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
         result = self.team.close_team_inactive_tickets()
         sent_mail = self.env["mail.mail"].search(
@@ -80,5 +81,6 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
         self.assertIn(
             str(self.remaining_days) + " days",
             sent_mail.body_html,
-            "The warning email should contain the remaining days until the ticket is closed.",
+            "The warning email should contain the remaining "
+            "days until the ticket is closed.",
         )
