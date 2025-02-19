@@ -21,7 +21,7 @@
                     type="action"
                     class="btn btn-primary"
                     icon="fa-ticket"
-                    context="{'default_sale_order_ids': [(4, id)]}"
+                    context="{'default_sale_order_ids': [id]}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
