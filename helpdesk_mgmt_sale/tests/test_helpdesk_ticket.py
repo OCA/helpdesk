@@ -1,5 +1,7 @@
 # Copyright (C) 2024 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+from odoo import Command
+
 from odoo.addons.base.tests.common import BaseCommon
 
 
@@ -20,13 +22,13 @@ class TestHelpdeskTicketSale(BaseCommon):
         cls.sale_order_1 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],
+                "ticket_ids": [Command.set([cls.ticket.id])],
             }
         )
         cls.sale_order_2 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],
+                "ticket_ids": [Command.set([cls.ticket.id])],
             }
         )
 
@@ -51,5 +53,5 @@ class TestHelpdeskTicketSale(BaseCommon):
         action = self.ticket.action_view_sale_orders()
         self.assertEqual(action["domain"], [("ticket_ids", "in", [self.ticket.id])])
         self.assertEqual(
-            action["context"]["default_ticket_ids"], [(4, [self.ticket.id])]
+            action["context"]["default_ticket_ids"], [Command.link([self.ticket.id])]
         )
