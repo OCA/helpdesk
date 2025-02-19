@@ -44,7 +44,7 @@ class ProjectTask(models.Model):
         )
         # choose the view_mode accordingly
         if not self.ticket_ids or self.ticket_count > 1:
-            result["domain"] = "[('id','in',%s)]" % (self.ticket_ids.ids)
+            result["domain"] = f"[('id','in',{self.ticket_ids.ids})]"
             res = self.env.ref("helpdesk_mgmt.ticket_view_tree", False)
             tree_view = [(res and res.id or False, "tree")]
             if "views" in result:
