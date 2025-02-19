@@ -1,12 +1,13 @@
 # Copyright 2024 APSL-Nagarro - Miquel Alzanillas
 from datetime import datetime, timedelta
 
-from odoo.tests import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskTicketAutoclose(TransactionCase):
-    def setUp(self):
-        super().setUp()
+class TestHelpdeskTicketAutoclose(BaseCommon):
+    @classmethod
+    def setUpClass(self):
+        super().setUpClass()
         self.team = self.env["helpdesk.ticket.team"].create(
             {
                 "name": "Test Team",

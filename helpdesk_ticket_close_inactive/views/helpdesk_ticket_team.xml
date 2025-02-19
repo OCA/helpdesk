@@ -12,7 +12,7 @@
                 <page
                     name="ticket_autoclosing"
                     string="Automatic closure of inactive tickets"
-                    attrs="{'invisible': [('close_inactive_tickets', '=', False)]}"
+                    invisible="not close_inactive_tickets"
                 >
                     <group name="container_row_2">
                         <group
@@ -24,32 +24,32 @@
                             <field
                                 name="warning_inactive_mail_template_id"
                                 domain="[('model', '=', 'helpdesk.ticket')]"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                                required="close_inactive_tickets"
                             />
                         </group>
                         <group string="Ticket Closing" name="purchase" priority="2">
                             <field name="inactive_tickets_day_limit_closing" />
                             <field
                                 name="close_inactive_mail_template_id"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                                required="close_inactive_tickets"
                             />
                             <field
                                 name="closing_ticket_stage"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                                required="close_inactive_tickets"
                             />
                         </group>
                         <group name="stages" string="Ticket Stage Filter">
                             <field
                                 name="ticket_stage_ids"
                                 widget="many2many_tags"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                                required="close_inactive_tickets"
                             />
                         </group>
                         <group name="categories" string="Ticket Category Filter">
                             <field
                                 name="ticket_category_ids"
                                 widget="many2many_tags"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
+                                required="close_inactive_tickets"
                             />
                         </group>
                     </group>

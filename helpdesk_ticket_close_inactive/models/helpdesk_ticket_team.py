@@ -45,7 +45,7 @@ class HelpdeskTicketTeam(models.Model):
     inactive_tickets_day_limit_warning = fields.Integer(
         default=7,
         string="Inactive days limit before send a warning",
-        required=1,
+        required=True,
         help="Day limit for email notification of upcoming \
         ticket closure due to inactivity.",
     )
@@ -57,7 +57,7 @@ class HelpdeskTicketTeam(models.Model):
     )
     inactive_tickets_day_limit_closing = fields.Integer(
         default=14,
-        required=1,
+        required=True,
         help="Day limit for automatic ticket closing due to inactivity.",
     )
     close_inactive_mail_template_id = fields.Many2one(

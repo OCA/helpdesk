@@ -11,12 +11,10 @@ model.close_team_inactive_tickets()
         <field name="user_id" ref="base.user_root" />
         <field name="interval_number">1</field>
         <field name="interval_type">days</field>
-        <field name="numbercall">-1</field>
         <field
             name="nextcall"
             eval="(DateTime.now() + timedelta(minutes=1)).strftime('%Y-%m-%d %H:%M:%S')"
         />
-        <field name="doall">0</field>
     </record>
     <record id="warning_inactive_ticket_template" model="mail.template">
         <field name="name">Helpdesk Inactivity Warning Ticket Notification Email</field>
