@@ -1,7 +1,7 @@
-from odoo.tests import common
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskTicketMerge(common.TransactionCase):
+class TestHelpdeskTicketMerge(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

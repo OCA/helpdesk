@@ -66,6 +66,9 @@ Contributors
 ------------
 
 - `Onestein <http://www.onestein.eu>`__
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Maintainers
 -----------
