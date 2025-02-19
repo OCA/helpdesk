@@ -95,7 +95,7 @@ class HelpdeskTicketMerge(models.TransientModel):
         )
 
     def default_get(self, fields):
-        result = super(HelpdeskTicketMerge, self).default_get(fields)
+        result = super().default_get(fields)
         selected_tickets = self.env["helpdesk.ticket"].browse(
             self.env.context.get("active_ids", False)
         )
