@@ -88,6 +88,10 @@ Contributors
 
   - Adasat Torres <a.torres@binhex.cloud>
 
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
+
 Maintainers
 -----------
 

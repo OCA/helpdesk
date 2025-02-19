@@ -17,16 +17,17 @@
         <field name="name">helpdesk.ticket.motive.tree</field>
         <field name="model">helpdesk.ticket.motive</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="team_id" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="action_helpdesk_ticket_motive_tree" model="ir.actions.act_window">
         <field name="name">Helpdesk Ticket Motive</field>
         <field name="res_model">helpdesk.ticket.motive</field>
-        <field name="view_mode">tree,form</field>
+        <field name="path">ticket-motives</field>
+        <field name="view_mode">list,form</field>
     </record>
     <menuitem
         id="helpdesk_motive"

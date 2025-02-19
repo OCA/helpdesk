@@ -1,10 +1,11 @@
 # Copyright (C) 2023 Binhex - Adasat Torres
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from odoo.tests import new_test_user
-from odoo.tests.common import TransactionCase
+
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskMotive(TransactionCase):
+class TestHelpdeskMotive(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
