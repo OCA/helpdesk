@@ -1,3 +1,3 @@
 To use this module, you need to:
 
-#. Merge helpdesk ticket
+1.  Merge helpdesk ticket
