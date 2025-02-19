@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class ProjectTask(models.Model):
@@ -10,7 +10,7 @@ class ProjectTask(models.Model):
     ticket_count = fields.Integer(compute="_compute_ticket_count", store=True)
     label_tickets = fields.Char(
         string="Use Tickets as",
-        default=lambda s: _("Tickets"),
+        default=lambda self: self.env._("Tickets"),
         translate=True,
         help="Gives label to tickets on project's kanban view.",
     )

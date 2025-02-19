@@ -25,16 +25,6 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='task_count']" position="after">
-                <field
-                    name="ticket_count"
-                    groups="helpdesk_mgmt.group_helpdesk_user_own"
-                />
-                <field
-                    name="label_tickets"
-                    groups="helpdesk_mgmt.group_helpdesk_user_own"
-                />
-            </xpath>
             <xpath expr="//a[hasclass('o_project_kanban_box')]" position="after">
                 <a
                     class="o_project_kanban_box"
@@ -44,12 +34,8 @@
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <div>
-                        <span class="o_value">
-                            <t t-esc="record.ticket_count.value" />
-                        </span>
-                        <span class="o_label ms-1">
-                            <t t-esc="record.label_tickets.value" />
-                        </span>
+                        <field name="ticket_count" class="o_value" />
+                        <field name="label_tickets" class="ms-1" />
                     </div>
                 </a>
             </xpath>
