@@ -11,7 +11,6 @@ class HelpdeskTicket(models.Model):
     motive_id = fields.Many2one(
         "helpdesk.ticket.motive",
         string="Motive",
-        help="Motive",
         store=True,
         readonly=False,
         compute="_compute_team_user_helpdesk_motive",

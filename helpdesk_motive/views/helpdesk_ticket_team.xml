@@ -8,9 +8,9 @@
             <xpath expr="//page[@name='members']" position="after">
                 <page name="motives" string="Motives">
                     <field name="motive_ids">
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="name" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>

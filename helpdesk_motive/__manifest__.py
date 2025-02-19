@@ -5,10 +5,11 @@
 
 {
     "name": "Helpdesk Motive",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "summary": "Keep the motive ",
-    "author": "Binhex, Konos, Open Source Integrators, Odoo Community Association (OCA)",
+    "author": "Binhex, Konos, Open Source Integrators, "
+    "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt"],
     "data": [
