@@ -10,3 +10,5 @@
   - Manuel Regidor
 - [ALBA Software](https://www.albasoft.com):
   - Rafa Morant
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
