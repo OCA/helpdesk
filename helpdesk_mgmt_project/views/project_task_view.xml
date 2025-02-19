@@ -37,7 +37,7 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_kanban" />
         <field name="arch" type="xml">
-            <div class="oe_kanban_bottom_right" position="before">
+            <xpath expr="//main//footer/div[2]" position="before">
                 <div
                     invisible="ticket_count==0"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
@@ -58,7 +58,7 @@
                     </a>
                     &#160;
                 </div>
-            </div>
+            </xpath>
         </field>
     </record>
 </odoo>

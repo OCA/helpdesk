@@ -3,7 +3,7 @@
     <record id="ticket_action_from_project" model="ir.actions.act_window">
         <field name="name">Tickets</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="search_view_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
     </record>
     <!-- TREE TICKET HELP DESK -->
