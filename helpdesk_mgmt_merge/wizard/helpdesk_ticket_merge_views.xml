@@ -15,21 +15,25 @@
                             <field name="create_new_ticket" />
                             <field
                                 name="dst_ticket_name"
-                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                                invisible="not create_new_ticket"
+                                required="create_new_ticket"
                             />
                             <field
                                 name="dst_helpdesk_team_id"
-                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                                invisible="not create_new_ticket"
+                                required="create_new_ticket"
                             />
                             <field
                                 name="dst_ticket_id"
-                                attrs="{'invisible': [('create_new_ticket', '=', True)], 'required': [('create_new_ticket', '=', False)]}"
+                                invisible="create_new_ticket"
+                                required="not create_new_ticket"
                             />
                         </group>
                     </group>
                     <span
                         class="text-muted"
-                    >NB: This will archive the selected tickets (Except the destination ticket)</span>
+                    >NB: This will archive the selected tickets (Except the destination ticket)
+                    </span>
                 </sheet>
                 <footer>
                     <button
