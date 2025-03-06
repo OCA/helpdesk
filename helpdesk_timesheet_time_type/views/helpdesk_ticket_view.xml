@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="timesheet_helpdesk_ticket_view_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field
+            name="inherit_id"
+            ref="helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//page[@name='timesheets']//field[@name='name']"
+                position="after"
+            >
+                <field name="time_type_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
