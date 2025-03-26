@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-03-26 13:06+0000\n"
+"Last-Translator: QuiJoQuim <quim.rebull@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.2\n"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,body_html:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
@@ -70,23 +72,23 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_tickets
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Automatic closure of inactive tickets"
-msgstr ""
+msgstr "Tancar automàticament els tiquets inactius"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.actions.server,name:helpdesk_ticket_close_inactive.ir_cron_close_inactive_tickets_ir_actions_server
 #: model:ir.cron,cron_name:helpdesk_ticket_close_inactive.ir_cron_close_inactive_tickets
 msgid "Close Inactive Tickets"
-msgstr ""
+msgstr "Tancar tiquets inactius"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
 msgid "Closing Stage"
-msgstr ""
+msgstr "Etapa de tancament"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
 msgid "Closing email template"
-msgstr ""
+msgstr "Plantilla de correu de tancament"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
