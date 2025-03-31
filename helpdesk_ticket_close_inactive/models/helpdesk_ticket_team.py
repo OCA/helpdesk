@@ -93,15 +93,17 @@ class HelpdeskTicketTeam(models.Model):
                 - team_id.inactive_tickets_day_limit_warning
             )
             closing_stage = team_id.closing_ticket_stage
-            warning_ticket_ids = self.env["helpdesk.ticket"].search(
-                [
-                    ("team_id", "=", team_id.id),
-                    ("stage_id", "in", ticket_stage_ids),
-                    ("category_id", "in", ticket_category_ids),
-                    ("last_stage_update", ">=", warning_limit_day_first_hour),
-                    ("last_stage_update", "<=", warning_limit_day_last_hour),
-                ]
-            )
+            search_domain = [
+                ("team_id", "=", team_id.id),
+                ("stage_id", "in", ticket_stage_ids),
+                ("last_stage_update", ">=", warning_limit_day_first_hour),
+                ("last_stage_update", "<=", warning_limit_day_last_hour),
+            ]
+
+            if ticket_category_ids:
+                search_domain.append(("category_id", "in", ticket_category_ids))
+
+            warning_ticket_ids = self.env["helpdesk.ticket"].search(search_domain)
             warning_email_ids = []
             closing_email_ids = []
             if warning_ticket_ids:
@@ -124,14 +126,18 @@ class HelpdeskTicketTeam(models.Model):
                         )
                         warning_email_ids.append(warning_email_id)
 
+            closing_ticket_domain = [
+                ("team_id", "=", team_id.id),
+                ("stage_id", "in", ticket_stage_ids),
+                ("last_stage_update", "<=", closing_limit),
+            ]
+            if ticket_category_ids:
+                closing_ticket_domain.append(("category_id", "in", ticket_category_ids))
+
             closing_ticket_ids = self.env["helpdesk.ticket"].search(
-                [
-                    ("team_id", "=", team_id.id),
-                    ("stage_id", "in", ticket_stage_ids),
-                    ("category_id", "in", ticket_category_ids),
-                    ("last_stage_update", "<=", closing_limit),
-                ]
+                closing_ticket_domain
             )
+
             if closing_ticket_ids:
                 for ticket in closing_ticket_ids:
                     context = {"stage": ticket.stage_id.name, "close": True}

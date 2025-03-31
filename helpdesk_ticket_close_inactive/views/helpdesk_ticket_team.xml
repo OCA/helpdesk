@@ -46,11 +46,7 @@
                             />
                         </group>
                         <group name="categories" string="Ticket Category Filter">
-                            <field
-                                name="ticket_category_ids"
-                                widget="many2many_tags"
-                                attrs="{'required': [('close_inactive_tickets', '=', True)]}"
-                            />
+                            <field name="ticket_category_ids" widget="many2many_tags" />
                         </group>
                     </group>
                 </page>

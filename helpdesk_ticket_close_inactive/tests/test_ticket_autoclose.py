@@ -42,6 +42,31 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
             }
         )
 
+        self.team_without_category = self.env["helpdesk.ticket.team"].create(
+            {
+                "name": "Test Team",
+                "close_inactive_tickets": True,
+                "inactive_tickets_day_limit_warning": 7,
+                "inactive_tickets_day_limit_closing": 14,
+            }
+        )
+        self.team_without_category.ticket_stage_ids = [(4, self.stage_warning.id)]
+        self.team_without_category.closing_ticket_stage = self.stage_closing
+        self.remaining_days = (
+            self.team_without_category.inactive_tickets_day_limit_closing
+            - self.team_without_category.inactive_tickets_day_limit_warning
+        )
+        self.ticket2 = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket  Without Category",
+                "team_id": self.team_without_category.id,
+                "stage_id": self.stage_warning.id,
+                "category_id": self.type_warning.id,
+                "description": "Please help me without category",
+                "last_stage_update": datetime.today() - timedelta(days=7),
+            }
+        )
+
     def test_warning_email_sent(self):
         """Test that a warning email is sent after the warning day limit is reached."""
         self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
@@ -81,4 +106,14 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
             str(self.remaining_days) + " days",
             sent_mail.body_html,
             "The warning email should contain the remaining days until the ticket is closed.",
+        )
+
+    def test_close_tickets_without_category(self):
+        """Test that tickets without category are closed."""
+        self.ticket2.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self.team_without_category.close_team_inactive_tickets()
+        self.assertEqual(
+            self.ticket2.stage_id,
+            self.stage_closing,
+            "Ticket should be moved to the closing stage",
         )
