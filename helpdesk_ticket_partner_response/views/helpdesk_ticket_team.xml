@@ -13,18 +13,18 @@
                 <page
                     name="ticket_partner_change_stage"
                     string="Auto Update Ticket Stage"
-                    attrs="{'invisible': [('autoupdate_ticket_stage', '=', False)]}"
+                    invisible="not autoupdate_ticket_stage"
                 >
                     <group>
 
                     <field
                             name="autopupdate_src_stage_ids"
                             widget="many2many_tags"
-                            attrs="{'required': [('autoupdate_ticket_stage', '=', True)]}"
+                            required="autoupdate_ticket_stage"
                         />
                     <field
                             name="autopupdate_dest_stage_id"
-                            attrs="{'required': [('autoupdate_ticket_stage', '=', True)]}"
+                            required="autoupdate_ticket_stage"
                         />
                     </group>
                 </page>
