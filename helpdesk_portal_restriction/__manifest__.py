@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Helpdesk Portal Restriction",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Helpdesk",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Lansana Barry Sow, APSL-Nagarro, Odoo Community Association (OCA)",
