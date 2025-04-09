@@ -3,7 +3,8 @@
     "summary": "Add ticket followers from website portal",
     "author": (
         "Advanced Programming Solutions S.L. - APSL - Nagarro, "
-        "Bernat Obrador, Patryk Pyczko, Miquel Pascual, Odoo Community Association (OCA)"
+        "Bernat Obrador, Patryk Pyczko, Miquel Pascual, "
+        "Odoo Community Association (OCA)"
     ),
     "license": "AGPL-3",
     "mantainers": ["BernatObrador", "ppyczko", "mpascuall"],
