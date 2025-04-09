@@ -35,7 +35,7 @@ class HelpdeskCustomerResponse(PortalChatter):
         message,
         attachment_ids=None,
         attachment_tokens=None,
-        **kw
+        **kw,
     ):
         if not self._portal_post_has_content(
             res_model,
@@ -43,7 +43,7 @@ class HelpdeskCustomerResponse(PortalChatter):
             message,
             attachment_ids=attachment_ids,
             attachment_tokens=attachment_tokens,
-            **kw
+            **kw,
         ):
             return
 
