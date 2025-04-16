@@ -240,6 +240,7 @@ Contributors
 - `Solvos <https://www.solvos.es>`__:
 
   - David Alonso
+  - Dante Pereyra
 
 - `XCG Consulting <https://xcg-consulting.fr>`__:
 

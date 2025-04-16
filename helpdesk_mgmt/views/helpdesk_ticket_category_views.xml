@@ -12,6 +12,7 @@
                 />
                 <separator />
                 <field name="name" filter_domain="[('name', 'ilike', self)]" />
+                <field name="parent_id" />
                 <field name="company_id" groups="base.group_multi_company" />
                 <group>
                     <filter
@@ -19,6 +20,11 @@
                         name="company"
                         context="{'group_by': 'company_id'}"
                         groups="base.group_multi_company"
+                    />
+                    <filter
+                        string="Parent Category"
+                        name="parent_id"
+                        context="{'group_by': 'parent_id'}"
                     />
                 </group>
             </search>
@@ -45,6 +51,8 @@
                         </h1>
                     </div>
                     <group name="main">
+                        <field name="parent_id" />
+                        <field name="child_id" widget="many2many_tags" readonly="1" />
                         <field name="company_id" groups="base.group_multi_company" />
                         <field name="active" invisible="1" />
                     </group>
@@ -59,6 +67,7 @@
             <list editable="bottom">
                 <field name="sequence" widget="handle" />
                 <field name="name" />
+                <field name="parent_id" />
                 <field
                     name="company_id"
                     optional="hide"
