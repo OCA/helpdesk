@@ -5,9 +5,10 @@ from odoo.tests import TransactionCase
 
 
 class TestHelpdeskTicketAutoclose(TransactionCase):
-    def setUp(self):
-        super().setUp()
-        self.team = self.env["helpdesk.ticket.team"].create(
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.team = cls.env["helpdesk.ticket.team"].create(
             {
                 "name": "Test Team",
                 "close_inactive_tickets": True,
@@ -15,34 +16,34 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
                 "inactive_tickets_day_limit_closing": 14,
             }
         )
-        self.stage_warning = self.env["helpdesk.ticket.stage"].create(
+        cls.stage_warning = cls.env["helpdesk.ticket.stage"].create(
             {"name": "Stage Warning"}
         )
-        self.stage_closing = self.env["helpdesk.ticket.stage"].create(
+        cls.stage_closing = cls.env["helpdesk.ticket.stage"].create(
             {"name": "Stage Closing"}
         )
-        self.type_warning = self.env["helpdesk.ticket.category"].create(
+        cls.type_warning = cls.env["helpdesk.ticket.category"].create(
             {"name": "Category Warning"}
         )
-        self.team.ticket_stage_ids = [(4, self.stage_warning.id)]
-        self.team.ticket_category_ids = [(4, self.type_warning.id)]
-        self.team.closing_ticket_stage = self.stage_closing
-        self.remaining_days = (
-            self.team.inactive_tickets_day_limit_closing
-            - self.team.inactive_tickets_day_limit_warning
+        cls.team.ticket_stage_ids = [(4, cls.stage_warning.id)]
+        cls.team.ticket_category_ids = [(4, cls.type_warning.id)]
+        cls.team.closing_ticket_stage = cls.stage_closing
+        cls.remaining_days = (
+            cls.team.inactive_tickets_day_limit_closing
+            - cls.team.inactive_tickets_day_limit_warning
         )
-        self.ticket = self.env["helpdesk.ticket"].create(
+        cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test Ticket",
-                "team_id": self.team.id,
-                "stage_id": self.stage_warning.id,
-                "category_id": self.type_warning.id,
+                "team_id": cls.team.id,
+                "stage_id": cls.stage_warning.id,
+                "category_id": cls.type_warning.id,
                 "description": "Please help me",
                 "last_stage_update": datetime.today() - timedelta(days=7),
             }
         )
 
-        self.team_without_category = self.env["helpdesk.ticket.team"].create(
+        cls.team_without_category = cls.env["helpdesk.ticket.team"].create(
             {
                 "name": "Test Team",
                 "close_inactive_tickets": True,
@@ -50,18 +51,18 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
                 "inactive_tickets_day_limit_closing": 14,
             }
         )
-        self.team_without_category.ticket_stage_ids = [(4, self.stage_warning.id)]
-        self.team_without_category.closing_ticket_stage = self.stage_closing
-        self.remaining_days = (
-            self.team_without_category.inactive_tickets_day_limit_closing
-            - self.team_without_category.inactive_tickets_day_limit_warning
+        cls.team_without_category.ticket_stage_ids = [(4, cls.stage_warning.id)]
+        cls.team_without_category.closing_ticket_stage = cls.stage_closing
+        cls.remaining_days = (
+            cls.team_without_category.inactive_tickets_day_limit_closing
+            - cls.team_without_category.inactive_tickets_day_limit_warning
         )
-        self.ticket2 = self.env["helpdesk.ticket"].create(
+        cls.ticket2 = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test Ticket  Without Category",
-                "team_id": self.team_without_category.id,
-                "stage_id": self.stage_warning.id,
-                "category_id": self.type_warning.id,
+                "team_id": cls.team_without_category.id,
+                "stage_id": cls.stage_warning.id,
+                "category_id": cls.type_warning.id,
                 "description": "Please help me without category",
                 "last_stage_update": datetime.today() - timedelta(days=7),
             }
@@ -96,7 +97,8 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
         self.assertTrue(sent_mails, "Closing email should have been sent")
 
     def test_remaining_days_in_context(self):
-        """Test that the correct remaining days are set in the context for the warning email."""
+        """Test that the correct remaining days are set in the
+        context for the warning email."""
         self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
         result = self.team.close_team_inactive_tickets()
         sent_mail = self.env["mail.mail"].search(
@@ -105,7 +107,8 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
         self.assertIn(
             str(self.remaining_days) + " days",
             sent_mail.body_html,
-            "The warning email should contain the remaining days until the ticket is closed.",
+            "The warning email should contain the remaining "
+            "days until the ticket is closed.",
         )
 
     def test_close_tickets_without_category(self):
