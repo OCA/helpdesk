@@ -6,7 +6,7 @@ from odoo.tests import TransactionCase
 
 class TestHelpdeskTicketAutoclose(TransactionCase):
     def setUp(self):
-        super(TestHelpdeskTicketAutoclose, self).setUp()
+        super().setUp()
         self.team = self.env["helpdesk.ticket.team"].create(
             {
                 "name": "Test Team",

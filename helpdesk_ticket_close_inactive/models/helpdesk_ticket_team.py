@@ -71,7 +71,6 @@ class HelpdeskTicketTeam(models.Model):
     )
 
     def close_team_inactive_tickets(self):
-
         if len(self) > 0:
             teams = self
         else:
