@@ -29,8 +29,12 @@
         priority="40"
         customize_show="True"
     >
-        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <div id="portal_common_category" position="inside">
             <t t-call="portal.portal_docs_entry">
+                <t
+                    t-set="icon"
+                    t-value="'/helpdesk_mgmt/static/src/img/helpdesk_icon.svg'"
+                />
                 <t t-set="title">Tickets</t>
                 <t t-set="url" t-value="'/my/tickets'" />
                 <t t-set="placeholder_count" t-value="'ticket_count'" />
@@ -48,7 +52,7 @@
                     style="float: right; margin-right: 0px; margin-bottom: 5px;"
                 >New Ticket</button>
             </form>
-        </xpath>
+        </div>
     </template>
     <template id="portal_my_tickets" name="My Tickets">
         <t t-call="portal.portal_layout">
