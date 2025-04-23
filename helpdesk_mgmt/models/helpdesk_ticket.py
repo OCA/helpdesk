@@ -26,7 +26,7 @@ class HelpdeskTicket(models.Model):
     def _compute_user_id(self):
         for ticket in self:
             if not ticket.user_id and ticket.team_id:
-                ticket.user_id = ticket.team_id.alias_user_id
+                ticket.user_id = ticket.team_id.create_uid
 
     @api.model
     def _read_group_stage_ids(self, stages, domain):
