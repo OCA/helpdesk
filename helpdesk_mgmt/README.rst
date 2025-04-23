@@ -227,6 +227,7 @@ Contributors
   - Víctor Martínez
   - Carolina Fernandez
   - Carlos Roca
+  - Juan Carlos Oñate
 
 - `ID42 Sistemas <https://www.id42.com.br>`__:
 

@@ -6,6 +6,33 @@ from .common import TestHelpdeskTicketBase
 
 
 class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.Model = cls.env["helpdesk.ticket.team"]
+        cls.root = cls.Model.create(
+            {
+                "name": "Root",
+            }
+        )
+        cls.child = cls.Model.create(
+            {
+                "name": "Child",
+                "parent_id": cls.root.id,
+            }
+        )
+        cls.grandchild = cls.Model.create(
+            {
+                "name": "Grandchild",
+                "parent_id": cls.child.id,
+            }
+        )
+
+    def test_complete_name_computation(self):
+        self.assertEqual(self.root.complete_name, "Root")
+        self.assertEqual(self.child.complete_name, "Root / Child")
+        self.assertEqual(self.grandchild.complete_name, "Root / Child / Grandchild")
+
     @users("helpdesk_mgmt-user_own")
     def test_helpdesk_ticket_user_own(self):
         tickets = self.env["helpdesk.ticket"].search([])

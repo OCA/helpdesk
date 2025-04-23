@@ -7,6 +7,10 @@ class HelpdeskTeam(models.Model):
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]
     _order = "sequence, id"
+    _parent_name = "parent_id"
+    _parent_store = True
+    _parent_order = "name"
+    _rec_name = "complete_name"
 
     sequence = fields.Integer(default=10)
     name = fields.Char(required=True)
@@ -64,6 +68,23 @@ class HelpdeskTeam(models.Model):
         default=True,
         help="Allow to select this team when creating a new ticket in the portal.",
     )
+    parent_id = fields.Many2one(
+        "helpdesk.ticket.team", string="Parent Team", index=True
+    )
+    complete_name = fields.Char(
+        compute="_compute_complete_name", store=True, recursive=True
+    )
+    parent_path = fields.Char(index=True)
+
+    @api.depends("name", "parent_id.complete_name")
+    def _compute_complete_name(self):
+        for record in self:
+            if record.parent_id:
+                record.complete_name = (
+                    f"{record.parent_id.complete_name} / {record.name}"
+                )
+            else:
+                record.complete_name = record.name
 
     def _get_applicable_stages(self):
         if self:

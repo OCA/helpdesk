@@ -48,6 +48,15 @@
                             <field name="name" placeholder="Helpdesk Team name..." />
                         </h1>
                         <div name="options_active" />
+                        <label
+                            for="parent_id"
+                            class="oe_edit_only"
+                            string="Parent Team"
+                        />
+                        <h4>
+                            <field name="parent_id" placeholder="Parent Team name..." />
+                        </h4>
+                        <div name="options_active" />
                     </div>
                     <group>
                         <group name="left">
@@ -93,6 +102,7 @@
                                 groups="base.group_multi_company"
                             />
                             <field name="show_in_portal" />
+                            <field name="category_ids" widget="many2many_tags" />
                         </group>
                         <group name="right" />
                     </group>
