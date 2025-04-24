@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_ticket_partner_response
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-02 09:19+0000\n"
+"PO-Revision-Date: 2025-01-02 09:19+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autoupdate_ticket_stage
+#: model_terms:ir.ui.view,arch_db:helpdesk_ticket_partner_response.view_helpdesk_team_form_inherit
+msgid "Auto Update Ticket Stage"
+msgstr "Etapa de actualización automática de tickets"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_dest_stage_id
+msgid "Autoupdate Destination Stage"
+msgstr "Etapa de destino de actualización automática"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_src_stage_ids
+msgid "Autoupdate Source Stages"
+msgstr "Etapas de origen de actualización automática"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model,name:helpdesk_ticket_partner_response.model_mail_thread
+msgid "Email Thread"
+msgstr ""
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model,name:helpdesk_ticket_partner_response.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Equipo de ticket Helpdesk"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,help:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_src_stage_ids
+msgid ""
+"If a partner posts a message in a ticket on this stages, the own stage of "
+"the ticket will be update by the one set on Autoupdate Destination Stage "
+msgstr ""
+"Si un socio publica un mensaje en un ticket en esta etapa, la propia etapa "
+"de el ticket se actualizará según el establecido en la etapa de destino de "
+"actualización automática"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,help:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_dest_stage_id
+msgid "Target stage on partner's message post "
+msgstr "Etapa objetivo en la publicación del mensaje del socio"
+
+#. module: helpdesk_ticket_partner_response
+#: model:ir.model.fields,help:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autoupdate_ticket_stage
+msgid "Update ticket stage when a new message is registered by the partner."
+msgstr ""
+"Etapa de actualización del ticket cuando el socio registra un nuevo mensaje."
