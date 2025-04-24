@@ -85,27 +85,31 @@ Authors
 Contributors
 ------------
 
-- `Aresoltec Canarias, S.L <https://www.aresoltec.com>`__:
+-  `Aresoltec Canarias, S.L <https://www.aresoltec.com>`__:
 
-  - Inma Sánchez
+   -  Inma Sánchez
 
-- `SDi Soluciones, S.L. <https://www.sdi.es>`__:
+-  `SDi Soluciones, S.L. <https://www.sdi.es>`__:
 
-  - Oscar Soto
-  - Jorge Luis Quinteros
+   -  Oscar Soto
+   -  Jorge Luis Quinteros
 
-- `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`__:
+-  `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`__:
 
-  - Carlos Ramos
+   -  Carlos Ramos
 
-- `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`__:
+-  `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`__:
 
-  - David Alonso
+   -  David Alonso
 
-- `Guadaltech Soluciones Tecnológicas,
-  S.L. <https://www.guadaltech.es/>`__:
+-  `Guadaltech Soluciones Tecnológicas,
+   S.L. <https://www.guadaltech.es/>`__:
 
-  - Fernando La Chica <fernandolachica@gmail.com>
+   -  Fernando La Chica <fernandolachica@gmail.com>
+
+-  `APSL-Nagarro <https://www.apsl.tech>`__:
+
+   -  Antoni Marroig <amarroig@apsl.net>
 
 Maintainers
 -----------
