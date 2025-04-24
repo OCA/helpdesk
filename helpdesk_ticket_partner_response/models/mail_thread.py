@@ -12,7 +12,7 @@ class MailThread(models.AbstractModel):
     def change_status_ticket_from_portal(self, routes):
         if routes and routes[0][0] == "helpdesk.ticket":
             ticket_id = routes[0][1]
-            ticket = self.env["helpdesk.ticket"].sudo().browse(int(ticket_id))
+            ticket = self.env["helpdesk.ticket"].sudo().browse(ticket_id)
             partner_id = (
                 self.env["res.users"]
                 .search([("id", "=", routes[0][3])], limit=1)

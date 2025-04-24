@@ -1,11 +1,16 @@
 # Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from werkzeug.exceptions import Forbidden
+
 import odoo.http as http
 from odoo.http import request
-from odoo.tools import plaintext2html
+from odoo.osv import expression
 
-from odoo.addons.portal.controllers.mail import PortalChatter, _message_post_helper
+from odoo.addons.mail.tools.discuss import Store
+
+# _message_post_helper deprected in 18.0.
+from odoo.addons.portal.controllers.mail import PortalChatter
 
 
 class HelpdeskCustomerResponse(PortalChatter):
@@ -21,75 +26,54 @@ class HelpdeskCustomerResponse(PortalChatter):
             ):
                 ticket.stage_id = ticket.team_id.autopupdate_dest_stage_id.id
 
-    @http.route(
-        ["/mail/chatter_post"],
-        type="json",
-        methods=["POST"],
-        auth="public",
-        website=True,
-    )
-    def portal_chatter_post(
-        self,
-        res_model,
-        res_id,
-        message,
-        attachment_ids=None,
-        attachment_tokens=None,
-        **kw,
+    # portal_chatter_post method was removed in 18.0.
+    @http.route("/mail/chatter_fetch", type="json", auth="public", website=True)
+    def portal_message_fetch(
+        self, thread_model, thread_id, limit=10, after=None, before=None, **kw
     ):
-        if not self._portal_post_has_content(
-            res_model,
-            res_id,
-            message,
-            attachment_ids=attachment_ids,
-            attachment_tokens=attachment_tokens,
-            **kw,
-        ):
-            return
-
-        res_id = int(res_id)
-
-        self._portal_post_check_attachments(
-            attachment_ids or [], attachment_tokens or []
+        # Only search into website_message_ids, so apply the same domain to perform
+        # only one search extract domain from the 'website_message_ids' field
+        model = request.env[thread_model]
+        field = model._fields["website_message_ids"]
+        domain = expression.AND(
+            [
+                self._setup_portal_message_fetch_extra_domain(kw),
+                field.get_domain_list(model),
+                [
+                    ("res_id", "=", thread_id),
+                    "|",
+                    ("body", "!=", ""),
+                    ("attachment_ids", "!=", False),
+                    ("subtype_id", "=", request.env.ref("mail.mt_comment").id),
+                ],
+            ]
         )
-
-        result = {"default_message": message}
-        # message is received in plaintext and saved in html
-        if message:
-            message = plaintext2html(message)
+        # Check access
+        Message = request.env["mail.message"]
+        if kw.get("token"):
+            access_as_sudo = request.env[thread_model]._get_thread_with_access(
+                thread_id, token=kw.get("token")
+            )
+            if not access_as_sudo:  # if token is not correct, raise Forbidden
+                raise Forbidden()
+            # Non-employee see only messages with not internal subtype
+            # (aka, no internal logs)
+            if not request.env.user._is_internal():
+                domain = expression.AND([Message._get_search_domain_share(), domain])
+            Message = request.env["mail.message"].sudo()
+        res = Message._message_fetch(domain, None, before, after, None, limit)
+        messages = res.pop("messages")
         post_values = {
-            "res_model": res_model,
-            "res_id": res_id,
-            "message": message,
+            "res_model": thread_model,
+            "res_id": thread_id,
+            "message": messages,
             "send_after_commit": False,
             "attachment_ids": False,  # will be added afterward
         }
-        post_values.update(
-            (fname, kw.get(fname)) for fname in self._portal_post_filter_params()
-        )
-        post_values["_hash"] = kw.get("hash")
-        message = _message_post_helper(**post_values)
-        result.update({"default_message_id": message.id})
-
-        if attachment_ids:
-            # sudo write the attachment to bypass the read access
-            # verification in mail message
-            record = request.env[res_model].browse(res_id)
-            message_values = {"res_id": res_id, "model": res_model}
-            attachments = record._message_post_process_attachments(
-                [], attachment_ids, message_values
-            )
-
-            if attachments.get("attachment_ids"):
-                message.sudo().write(attachments)
-
-            result.update(
-                {
-                    "default_attachment_ids": message.attachment_ids.sudo().read(
-                        ["id", "name", "mimetype", "file_size", "access_token"]
-                    )
-                }
-            )
 
         self.change_status_ticket_from_portal(post_values)
-        return result
+        return {
+            **res,
+            "data": {"mail.message": messages.portal_message_format(options=kw)},
+            "messages": Store.many_ids(messages),
+        }

@@ -40,12 +40,12 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
 
     def _create_message_new(self, ticket):
         return self.url_open(
-            url="/mail/chatter_post",
+            url="/mail/chatter_fetch",
             data=json.dumps(
                 {
                     "params": {
-                        "res_model": "helpdesk.ticket",
-                        "res_id": ticket.id,
+                        "thread_model": "helpdesk.ticket",
+                        "thread_id": ticket.id,
                         "message": "Test message",
                         "csrf_token": http.Request.csrf_token(self),
                     },
