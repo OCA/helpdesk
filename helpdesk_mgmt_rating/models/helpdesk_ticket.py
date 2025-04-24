@@ -48,7 +48,7 @@ class HelpdeskTicket(models.Model):
                     ticket.rating_send_request(
                         survey_template,
                         lang=ticket.partner_id.lang,
-                        force_send=force_send,
+                        force_send=True,
                     )
 
     def rating_apply(
