@@ -26,8 +26,8 @@ msgid ""
 "                        </span>"
 msgstr ""
 "<span class=\"o_label\">\n"
-"                            <i class=\"fa fa-lg fa-play-circle text-success\""
-"/>\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-"
+"success\"/>\n"
 "                            Avvia lavoro\n"
 "                        </span>"
 
@@ -41,8 +41,8 @@ msgid ""
 "                        </span>"
 msgstr ""
 "<span class=\"o_label\">\n"
-"                            <i class=\"fa fa-lg fa-stop-circle text-warning\""
-"/>\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-"
+"warning\"/>\n"
 "                            Ferma lavoro\n"
 "                        </span>"
 
@@ -155,10 +155,16 @@ msgstr "Lavori"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_timesheets_analysis_report__ticket_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_table
 msgid "Ticket"
 msgstr "Ticket"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_timesheets_analysis_report__ticket_partner_id
+msgid "Ticket Partner"
+msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_partner_id
@@ -188,6 +194,11 @@ msgstr "Foglio ore consentito"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Timesheets"
 msgstr "Fogli ore"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_timesheets_analysis_report
+msgid "Timesheets Analysis Report"
+msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__total_hours
