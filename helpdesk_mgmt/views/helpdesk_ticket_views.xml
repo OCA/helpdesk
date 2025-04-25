@@ -145,7 +145,7 @@
                     />
                     <field
                         name="stage_id"
-                        widget="statusbar"
+                        widget="statusbar_duration"
                         options="{'clickable': '1', 'fold_field': 'fold'}"
                     />
                 </header>
