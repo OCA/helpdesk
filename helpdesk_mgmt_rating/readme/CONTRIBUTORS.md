@@ -1,0 +1,7 @@
+- [Domatix](https://www.domatix.com):
+  - Samuel Calvo
+- [Obertix](https://obertix.net):
+  - Vicent Cubells \<vicent@vcubells.net\>
+- [Tecnativa](https://www.tecnativa.com):
+  - Víctor Martínez
+  - Carolina Fernandez
