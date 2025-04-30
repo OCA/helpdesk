@@ -42,6 +42,9 @@ class TestHelpdeskMgmtRating(BaseCommon):
         rating = ticket.rating_ids.filtered(lambda x: x.partner_id == self.partner)
         rating.write({"rating": 5, "consumed": True})
         self.assertEqual(ticket.positive_rate_percentage, 100)
+        # Get Ticket Id
+        ticket_id = ticket.rating_get_ticket_id()
+        self.assertEqual(ticket_id,ticket.id)
         # Check action view ticket rating
         action = ticket.action_view_ticket_rating()
         self.assertEqual(action.get("type"), "ir.actions.act_window")
