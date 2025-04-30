@@ -42,9 +42,16 @@ class TestHelpdeskMgmtRating(BaseCommon):
         rating = ticket.rating_ids.filtered(lambda x: x.partner_id == self.partner)
         rating.write({"rating": 5, "consumed": True})
         self.assertEqual(ticket.positive_rate_percentage, 100)
+        # Get Partner
+        partner = ticket._rating_get_partner()
+        self.assertEqual(partner.id, ticket.partner_id.id)
+        # Get Model
+        vals = ticket._name
+        model = ticket.rating_get_parent_model_name(vals)
+        self.assertEqual("helpdesk.ticket", model)
         # Get Ticket Id
         ticket_id = ticket.rating_get_ticket_id()
-        self.assertEqual(ticket_id,ticket.id)
+        self.assertEqual(ticket_id, ticket.id)
         # Check action view ticket rating
         action = ticket.action_view_ticket_rating()
         self.assertEqual(action.get("type"), "ir.actions.act_window")
