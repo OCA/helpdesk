@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-04-28 09:24+0000\n"
+"PO-Revision-Date: 2025-05-03 17:24+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -30,7 +30,7 @@ msgstr "<em class=\"font-weight-normal text-muted\">Ticket nella fase:</em>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_new_button
 msgid "<i class=\"fa fa-plus\"/> New"
-msgstr ""
+msgstr "<i class=\"fa fa-plus\"/> Nuovo"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -853,7 +853,7 @@ msgstr "Minimizzato nel Kanban"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 msgid "Follow and comments your helpdesk tickets"
-msgstr ""
+msgstr "Segui e commenta i tuoi ticket"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_follower_ids
