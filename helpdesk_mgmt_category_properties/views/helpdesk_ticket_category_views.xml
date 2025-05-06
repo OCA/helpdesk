@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="helpdesk_ticket_category_form_inherit_properties" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.category.form.inherit.properties</field>
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="ticket_properties_definition" />
+            </field>
+        </field>
+    </record>
+</odoo>
