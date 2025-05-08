@@ -9,8 +9,11 @@
                 <field name="positive_rate_percentage" />
                 <field name="rating_status" />
             </field>
-            <xpath expr="//div[hasclass('oe_kanban_bottom_left')]" position="inside">
-                <div t-if="record.rating_status != 'no_rate'" class="mt8 text-primary">
+            <xpath expr="//footer" position="inside">
+                <div
+                    t-if="record.rating_status != 'no_rate'"
+                    class="text-primary ms-1 me-1"
+                >
                     <b>
                         <t t-if="record.positive_rate_percentage.value != -1">
                             <a name="action_view_ticket_rating" type="object">
@@ -25,7 +28,7 @@
                     </b>
                 </div>
             </xpath>
-            <xpath expr="//div[hasclass('dropdown-menu')]/a[2]" position="after">
+            <xpath expr="//t[@t-name='menu']//a[1]/.." position="after">
                 <a
                     name="action_view_ticket_rating"
                     type="object"
@@ -49,7 +52,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-smile-o"
-                    attrs="{'invisible': [('positive_rate_percentage', '=', -1)]}"
+                    invisible="positive_rate_percentage == -1"
                 >
                     <field name="rating_count" widget="statinfo" string="Ratings" />
                 </button>

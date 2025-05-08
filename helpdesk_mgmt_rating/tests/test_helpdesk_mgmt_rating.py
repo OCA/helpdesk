@@ -31,6 +31,7 @@ class TestHelpdeskMgmtRating(BaseCommon):
                 "name": "Test 1",
                 "description": "Ticket test",
                 "partner_id": self.partner.id,
+                "user_id": self.env.user.id,
             }
         )
         old_messages = ticket.message_ids

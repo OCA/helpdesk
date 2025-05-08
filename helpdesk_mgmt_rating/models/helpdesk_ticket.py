@@ -82,6 +82,7 @@ class HelpdeskTicket(models.Model):
         return self.id
 
     def action_view_ticket_rating(self):
+        self.ensure_one()
         action = self.env["ir.actions.act_window"]._for_xml_id(
             "helpdesk_mgmt_rating.helpdesk_ticket_rating_action"
         )
@@ -89,5 +90,7 @@ class HelpdeskTicket(models.Model):
         action_context = safe_eval(action["context"]) if action["context"] else {}
         action_context.update(self.env.context)
         action_context.pop("group_by", None)
+        if not action_context.get("id"):
+            action_context["id"] = self.id
         action["context"] = action_context
         return action
