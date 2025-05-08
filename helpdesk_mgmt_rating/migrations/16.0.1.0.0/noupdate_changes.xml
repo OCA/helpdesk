@@ -22,11 +22,11 @@
                                 <p>Hello,</p>
                                 <p
                                 >Please take a moment to rate our services related to the ticket "<strong
-                                    ><t t-out="object.number" /> - <t
-                                            t-out="object.name"
-                                        /></strong>"assigned to <strong><t
-                                            t-out="object._rating_get_operator().name"
-                                        /></strong>.</p>
+                                ><t t-out="object.number" /> - <t
+                                    t-out="object.name"
+                                /></strong>"assigned to <strong>
+                                    <t t-out="object._rating_get_operator().name" />
+                                </strong>.</p>
                                 <p
                                 >We appreciate your feedback. It helps us to improve continuously.</p>
                             </td>
@@ -108,8 +108,8 @@
                                 <t t-if="object.rating_status == 'stage_change'">
                                     <p
                                     >This customer survey has been sent because your ticket has been moved to the stage <b
-                                            t-out="object.stage_id.name"
-                                        /></p>
+                                        t-out="object.stage_id.name"
+                                    /></p>
                                 </t>
                             </td>
                         </tr>

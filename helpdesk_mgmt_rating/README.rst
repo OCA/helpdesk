@@ -17,19 +17,19 @@ Helpdesk Management Rating
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
-    :target: https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt_rating
+    :target: https://github.com/OCA/helpdesk/tree/18.0/helpdesk_mgmt_rating
     :alt: OCA/helpdesk
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/helpdesk-16-0/helpdesk-16-0-helpdesk_mgmt_rating
+    :target: https://translation.odoo-community.org/projects/helpdesk-18-0/helpdesk-18-0-helpdesk_mgmt_rating
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds the possibility to rate the assistance received through helpdesk
-tickets.
+This module adds the possibility to rate the assistance received through
+helpdesk tickets.
 
 **Table of contents**
 
@@ -41,22 +41,25 @@ Configuration
 
 To configure this module, you need to:
 
-#. Edit or create stages.
-#. Edit or create tickets.
+1. Edit or create stages.
+2. Edit or create tickets.
 
 Stages
-~~~~~~
-#. Go to *Helpdesk > Configuration > Stages* to edit or create new stages.
-#. Edit or create a new stage.
-#. Set the name for the stage.
-#. You can select the Email template for rating.
+------
+
+1. Go to *Helpdesk > Configuration > Stages* to edit or create new
+   stages.
+2. Edit or create a new stage.
+3. Set the name for the stage.
+4. You can select the Email template for rating.
 
 Tickets
-~~~~~~~
-#. Go to *Helpdesk > Ticket* to edit or create new tickets.
-#. Edit or create a new ticket.
-#. Set the name for the ticket.
-#. Select if the ticket should be qualified or not.
+-------
+
+1. Go to *Helpdesk > Ticket* to edit or create new tickets.
+2. Edit or create a new ticket.
+3. Set the name for the ticket.
+4. Select if the ticket should be qualified or not.
 
 Bug Tracker
 ===========
@@ -64,7 +67,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/helpdesk/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_rating%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/helpdesk/issues/new?body=module:%20helpdesk_mgmt_rating%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -72,29 +75,29 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Domatix
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Domatix <https://www.domatix.com>`_:
+- `Domatix <https://www.domatix.com>`__:
 
-  * Samuel Calvo
+  - Samuel Calvo
 
-* `Obertix <https://obertix.net>`_:
+- `Obertix <https://obertix.net>`__:
 
-  * Vicent Cubells <vicent@vcubells.net>
+  - Vicent Cubells <vicent@vcubells.net>
 
-* `Tecnativa <https://www.tecnativa.com>`_:
+- `Tecnativa <https://www.tecnativa.com>`__:
 
-  * Víctor Martínez
-  * Carolina Fernandez
+  - Víctor Martínez
+  - Carolina Fernandez
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -106,6 +109,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/16.0/helpdesk_mgmt_rating>`_ project on GitHub.
+This module is part of the `OCA/helpdesk <https://github.com/OCA/helpdesk/tree/18.0/helpdesk_mgmt_rating>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
