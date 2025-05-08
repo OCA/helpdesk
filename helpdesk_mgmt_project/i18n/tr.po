@@ -1,0 +1,82 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-05-08 14:24+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
+#: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
+msgid "Gives label to tickets on project's kanban view."
+msgstr "Projenin kanban görünümünde destek kayıtlarına etiket verir."
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Yardım Masası Destek Kayıtı"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Yardım Masası Destek Kayıtı Ekibi"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__todo_ticket_count
+msgid "Number of tickets"
+msgstr "Destek Kayıtlarının sayısı"
+
+#. module: helpdesk_mgmt_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search
+msgid "Open Tickets"
+msgstr "Açık Destek Kayıtları"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_project_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
+msgid "Project"
+msgstr "Proje"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_project_task
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__task_id
+msgid "Task"
+msgstr "Görev"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_count
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_count
+msgid "Ticket Count"
+msgstr "Destek Kaydı Sayısı"
+
+#. module: helpdesk_mgmt_project
+#. odoo-python
+#: code:addons/helpdesk_mgmt_project/models/project.py:0
+#: code:addons/helpdesk_mgmt_project/models/project_task.py:0
+#: model:ir.actions.act_window,name:helpdesk_mgmt_project.ticket_action_from_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_ids
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.edit_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_form2
+msgid "Tickets"
+msgstr "Destek Kayıtları"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__label_tickets
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
+msgid "Use Tickets as"
+msgstr "Destek Kayıtlarını şunun için kullan"
