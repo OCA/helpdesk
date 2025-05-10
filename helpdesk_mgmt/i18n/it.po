@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-03 17:24+0000\n"
+"PO-Revision-Date: 2025-05-10 07:21+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -621,7 +621,7 @@ msgstr "Canali"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__child_id
 msgid "Child Categories"
-msgstr ""
+msgstr "Categorie figlie"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -683,7 +683,7 @@ msgstr "Azienda"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "Nome completo"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_config_settings
@@ -905,7 +905,7 @@ msgstr "Instradamento HTTP"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_4
 msgid "Hardware"
-msgstr ""
+msgstr "Hardware"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__has_message
@@ -1100,7 +1100,7 @@ msgstr "Stato Kanban"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_5
 msgid "Laptops"
-msgstr ""
+msgstr "Laptop"
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -1337,7 +1337,7 @@ msgstr "Altre informazioni"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__parent_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
 msgid "Parent Category"
-msgstr ""
+msgstr "Categoria padre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
@@ -1347,7 +1347,7 @@ msgstr "Modello padre"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Percorso padre"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
