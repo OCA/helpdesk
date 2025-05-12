@@ -169,15 +169,22 @@
                     <group name="main">
                         <group>
                             <field name="active" invisible="1" />
-                            <field name="company_id" invisible="1" />
                             <field name="team_id" options='{"always_reload": True}' />
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field name="user_id" options='{"always_reload": True}' />
                             <field name="priority" widget="priority" />
+                            <!-- Because company_id is used for check_company
+                                 the field should always be present, even if invisible.
+                            -->
                             <field
                                 name="company_id"
                                 options="{'no_create': True}"
                                 groups="base.group_multi_company"
+                            />
+                            <field
+                                name="company_id"
+                                invisible="1"
+                                groups="!base.group_multi_company"
                             />
                             <field name="create_date" readonly="1" />
                             <field name="channel_id" />
