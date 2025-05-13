@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-13 14:32+0000\n"
+"PO-Revision-Date: 2025-05-13 14:55+0000\n"
 "Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -25,12 +25,12 @@ msgstr "Fornece rótulo aos chamados na visualização kanban do projeto."
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Chamado do Helpdesk"
+msgstr "Chamado"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr "Equipe do Chamado da Central de Ajuda"
+msgstr "Equipe do Chamado"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
