@@ -63,11 +63,6 @@ msgid "ID"
 msgstr "ID"
 
 #. module: helpdesk_motive
-#: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive____last_update
-msgid "Last Modified on"
-msgstr "??ltima Modifica????o em"
-
-#. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__write_uid
 msgid "Last Updated by"
 msgstr "Atualizado recentemente por"
@@ -79,7 +74,6 @@ msgstr "??ltima Atualiza????o em"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket__motive_id
-#: model:ir.model.fields,help:helpdesk_motive.field_helpdesk_ticket__motive_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_motive.helpdesk_ticket_motive_form
 msgid "Motive"
 msgstr "Motivo"
@@ -95,3 +89,6 @@ msgstr "Motivos"
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__name
 msgid "Name"
 msgstr "Nome"
+
+#~ msgid "Last Modified on"
+#~ msgstr "??ltima Modifica????o em"
