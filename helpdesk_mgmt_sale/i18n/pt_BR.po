@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: helpdesk_mgmt_sale
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
+msgid "Helpdesk"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model,name:helpdesk_mgmt_sale.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
+msgid "Sale Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
+msgid "Sale Order Count"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
+msgid "Sale Orders"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model,name:helpdesk_mgmt_sale.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
+msgid "Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_count
+msgid "Tickets Count"
+msgstr ""
