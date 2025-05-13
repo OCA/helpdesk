@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-05-13 14:32+0000\n"
+"Last-Translator: Marcel Savegnago <marcel.savegnago@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: helpdesk_mgmt_merge
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
@@ -20,95 +22,98 @@ msgid ""
 "<span class=\"text-muted\">NB: This will archive the selected tickets (Except the destination ticket)\n"
 "                    </span>"
 msgstr ""
+"<span class=\"text-muted\">OBS: Isso arquivará os chamados selecionados ("
+"exceto o chamado de destino)\n"
+"                    </span>"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__user_id
 msgid "Assigned to"
-msgstr ""
+msgstr "Atribuído a"
 
 #. module: helpdesk_mgmt_merge
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__create_new_ticket
 msgid "Create a new ticket"
-msgstr ""
+msgstr "Criar um novo chamado"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Criado por"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Criado em"
 
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "Description from ticket %(name)s: %(description)s"
-msgstr ""
+msgstr "Descrição do chamado %(name)s: %(description)s"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_helpdesk_team_id
 msgid "Destination Helpdesk Team"
-msgstr ""
+msgstr "Equipe de Helpdesk de Destino"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome Exibido"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model,name:helpdesk_mgmt_merge.model_helpdesk_ticket_merge
 msgid "Helpdesk Ticket Merge"
-msgstr ""
+msgstr "Mesclagem de chamados do Helpdesk"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Última Atualização por"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Última Atualização em"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.actions.act_window,name:helpdesk_mgmt_merge.action_helpdesk_ticket_merge
 msgid "Merge Helpdesk Tickets"
-msgstr ""
+msgstr "Mesclar Chamados do Helpdesk"
 
 #. module: helpdesk_mgmt_merge
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
 msgid "Merge Tickets"
-msgstr ""
+msgstr "Mesclar Chamados"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_ticket_id
 msgid "Merge into an existing ticket"
-msgstr ""
+msgstr "Mesclar em um chamado existente"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_ticket_name
 msgid "New ticket name"
-msgstr ""
+msgstr "Novo nome do chamado"
 
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "No description"
-msgstr ""
+msgstr "Sem descrição"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__ticket_ids
 msgid "Tickets to Merge"
-msgstr ""
+msgstr "Chamados para o Mesclar"
