@@ -59,6 +59,7 @@
                             <field name="active" invisible="1" />
                             <field name="closed" />
                             <field name="close_from_portal" invisible="not closed" />
+                            <field name="fold" />
                             <field name="unattended" />
                         </group>
                     </group>
