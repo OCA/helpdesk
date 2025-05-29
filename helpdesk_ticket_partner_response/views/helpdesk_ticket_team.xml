@@ -16,13 +16,12 @@
                     invisible="not autoupdate_ticket_stage"
                 >
                     <group>
-
-                    <field
+                        <field
                             name="autopupdate_src_stage_ids"
                             widget="many2many_tags"
                             required="autoupdate_ticket_stage"
                         />
-                    <field
+                        <field
                             name="autopupdate_dest_stage_id"
                             required="autoupdate_ticket_stage"
                         />
