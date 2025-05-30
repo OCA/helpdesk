@@ -31,7 +31,7 @@
         </field>
     </record>
     <record id="ticket_view_tree" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.view.tree</field>
+        <field name="name">helpdesk.ticket.view.list</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
         <field name="arch" type="xml">
@@ -53,7 +53,7 @@
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
             </field>
-            <tree position="inside">
+            <list position="inside">
                 <field
                     name="show_time_control"
                     invisible="1"
@@ -81,7 +81,7 @@
                     class="oe_stat_button"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="timesheet_helpdesk_ticket_view_form" model="ir.ui.view">
@@ -136,7 +136,7 @@
                         name="timesheet_ids"
                         context="{'default_project_id': project_id, 'default_task_id': task_id}"
                     >
-                        <tree editable="bottom" delete="true" default_order="date_time">
+                        <list editable="bottom" delete="true" default_order="date_time">
                             <field name="company_id" invisible="1" />
                             <field name="project_id" invisible="1" />
                             <field name="task_id" invisible="1" />
@@ -173,7 +173,7 @@
                                 invisible="show_time_control != 'stop'"
                                 class="oe_stat_button"
                             />
-                        </tree>
+                        </list>
                         <form>
                             <div class="oe_button_box" name="button_box">
                                 <field name="show_time_control" invisible="1" />
@@ -225,7 +225,7 @@
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//*[hasclass('oe_kanban_bottom_left')]" position="inside">
+            <xpath expr="//*[hasclass('align-items-center')]" position="inside">
                 <field
                     name="show_time_control"
                     invisible="1"
