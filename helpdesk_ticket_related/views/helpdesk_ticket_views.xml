@@ -9,13 +9,13 @@
             <xpath expr="//page[@name='other_info']" position="after">
                 <page string="Related tickets">
                     <field name="related_ticket_ids" domain="[('id', '!=', id)]">
-                        <tree no_open="1">
+                        <list no_open="1">
                             <field name="create_date" />
                             <field name="number" />
                             <field name="name" />
                             <field name="partner_id" />
                             <button name="open_ticket" string="Open" type="object" />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </xpath>
