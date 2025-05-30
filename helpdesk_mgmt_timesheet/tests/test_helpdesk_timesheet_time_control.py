@@ -28,7 +28,7 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.project_without_timesheets = self.env["project.project"].create(
             {"name": "Test project", "allow_timesheets": False}
         )
-        self.analytic_account = self.project.analytic_account_id
+        self.analytic_account = self.project.account_id
         self.task = self.env["project.task"].create(
             {"name": "Test task", "project_id": self.project.id}
         )
