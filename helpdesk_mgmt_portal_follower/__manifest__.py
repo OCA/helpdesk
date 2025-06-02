@@ -10,7 +10,7 @@
     "maintainers": ["BernatObrador", "ppyczko", "mpascuall"],
     "website": "https://github.com/OCA/helpdesk",
     "category": "Helpdesk",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "depends": ["helpdesk_mgmt"],
     "data": ["views/helpdesk_templates.xml"],
     "installable": True,

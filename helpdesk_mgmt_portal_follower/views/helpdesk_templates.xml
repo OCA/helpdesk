@@ -5,7 +5,7 @@
         priority="40"
     >
         <xpath
-            expr="//input[@name='attachment']/ancestor::div[@class='form-group']"
+            expr="//input[@name='attachment']/ancestor::div[hasclass('form-group')]"
             position="after"
         >
             <div class="form-group">
