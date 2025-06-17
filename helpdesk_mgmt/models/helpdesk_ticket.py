@@ -298,7 +298,7 @@ class HelpdeskTicket(models.Model):
         recipients = super()._message_get_suggested_recipients()
         try:
             for ticket in self:
-                if ticket.partner_id:
+                if ticket.partner_id and ticket.partner_id.email:
                     ticket._message_add_suggested_recipient(
                         recipients, partner=ticket.partner_id, reason=_("Customer")
                     )
