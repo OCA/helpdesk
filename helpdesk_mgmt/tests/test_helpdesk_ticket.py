@@ -90,6 +90,31 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "Helpdesk Ticket: An assigned ticket " "should contain a assigned_date.",
         )
 
+    def test_ticket_message_recipients(self):
+        # recipents is dict of [tuple
+        # (partner_id, partner_name<partner_email> or partner_name, lang, reason)]
+        partner1 = self.env["res.partner"].create({"name": "Test partner HelpDesk"})
+        email = "test@email.com"
+
+        self.ticket.partner_id = partner1.id
+        recipients = self.ticket._message_get_suggested_recipients()
+        self.assertFalse(recipients[self.ticket.id])
+
+        self.ticket.partner_email = email
+        recipients = self.ticket._message_get_suggested_recipients()
+        self.assertTrue(
+            email in recipients[self.ticket.id][0][1]
+            and not recipients[self.ticket.id][0][0]
+        )
+
+        email2 = "<email@test.com>"
+        partner1.email = email2
+        recipients = self.ticket._message_get_suggested_recipients()
+        self.assertTrue(
+            email2 in recipients[self.ticket.id][0][1]
+            and recipients[self.ticket.id][0][0] == partner1.id
+        )
+
     def test_helpdesk_ticket_number(self):
         self.assertNotEqual(
             self.ticket.number,
@@ -181,28 +206,3 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             }
         )
         self.assertEqual(self.new_stage, new_ticket.stage_id)
-
-    def test_ticket_message_recipients(self):
-        # recipents is dict of [tuple
-        # (partner_id, partner_name<partner_email> or partner_name, lang, reason)]
-        partner1 = self.env["res.partner"].create({"name": "Test partner HelpDesk"})
-        email = "test@email.com"
-
-        self.ticket.partner_id = partner1.id
-        recipients = self.ticket._message_get_suggested_recipients()
-        self.assertFalse(recipients[self.ticket.id])
-
-        self.ticket.partner_email = email
-        recipients = self.ticket._message_get_suggested_recipients()
-        self.assertTrue(
-            email in recipients[self.ticket.id][0][1]
-            and not recipients[self.ticket.id][0][0]
-        )
-
-        email2 = "<email@test.com>"
-        partner1.email = email2
-        recipients = self.ticket._message_get_suggested_recipients()
-        self.assertTrue(
-            email2 in recipients[self.ticket.id][0][1]
-            and recipients[self.ticket.id][0][0] == partner1.id
-        )
