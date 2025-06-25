@@ -170,7 +170,11 @@
                             <field name="active" invisible="1" />
                             <field name="team_id" options='{"always_reload": True}' />
                             <field name="user_ids" invisible="1" readonly="1" />
-                            <field name="user_id" options='{"always_reload": True}' />
+                            <field
+                                name="user_id"
+                                options='{"always_reload": True}'
+                                widget="many2one_avatar_user"
+                            />
                             <field name="priority" widget="priority" />
                             <field
                                 name="company_id"
@@ -263,6 +267,8 @@
                 <field name="name" />
                 <field name="partner_name" />
                 <field name="user_id" />
+                <field name="user_ids" />
+                <field name="team_id" />
                 <field name="sequence" />
                 <field name="color" />
                 <field name="stage_id" />
@@ -292,6 +298,7 @@
                     </t>
                     <t t-name="card">
                         <field class="fw-bold fs-5" name="name" />
+                        <field name="category_id" class="text-muted" />
                         <field name="number" class="text-truncate" />
                         <small class="o_kanban_record_subtitle text-muted">
                             <field name="partner_id" />
@@ -316,7 +323,6 @@
                             <field
                                 name="user_id"
                                 widget="many2one_avatar_user"
-                                domain="[('share', '=', False)]"
                                 class="ms-auto"
                             />
                         </footer>
