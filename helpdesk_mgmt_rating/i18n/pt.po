@@ -18,44 +18,67 @@ msgstr ""
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,body_html:helpdesk_mgmt_rating.rating_ticket_email_template
+#, fuzzy
 msgid ""
 "<div>\n"
-"                <t t-set=\"access_token\" t-value=\"object._rating_get_access_token()\"></t>\n"
-"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                <t t-set=\"access_token\" t-value=\"object."
+"_rating_get_access_token()\"/>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" "
+"width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
 "                    <tbody>\n"
 "                        <tr>\n"
 "                            <td style=\"padding:15px 20px 10px 20px;\">\n"
 "                                <p>Hello,</p>\n"
-"                                <p>Please take a moment to rate our services related to the ticket \"<strong><t t-out=\"object.number\"></t> - <t t-out=\"object.name\"></t></strong>\"assigned to <strong><t t-out=\"object._rating_get_operator().name\"></t></strong>.</p>\n"
-"                                <p>We appreciate your feedback. It helps us to improve continuously.</p>\n"
+"                                <p>Please take a moment to rate our services "
+"related to the ticket \"<strong><t t-out=\"object.number\"/> - <t t-"
+"out=\"object.name\"/></strong>\"assigned to <strong>\n"
+"                                    <t t-out=\"object._rating_get_operator()."
+"name\"/>\n"
+"                                </strong>.</p>\n"
+"                                <p>We appreciate your feedback. It helps us "
+"to improve continuously.</p>\n"
 "                            </td>\n"
 "                        </tr>\n"
 "                        <tr>\n"
 "                            <td style=\"padding:10px 20px\">\n"
-"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" "
+"style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
 "                                    <tr>\n"
 "                                        <td style=\"text-align:center;\">\n"
-"                                            <h2 style=\"font-weight:300;font-size:18px;\">Tell us how you feel about our service:</h2>\n"
-"                                            <div style=\"text-color: #888888\">(click on one of these smileys)</div>\n"
+"                                            <h2 style=\"font-weight:300;font-"
+"size:18px;\">Tell us how you feel about our service:</h2>\n"
+"                                            <div style=\"text-color: "
+"#888888\">(click on one of these smileys)</div>\n"
 "                                        </td>\n"
 "                                    </tr>\n"
 "                                    <tr>\n"
 "                                        <td style=\"padding:10px 10px;\">\n"
-"                                            <table style=\"width:100%;text-align:center;margin-top:2rem;\">\n"
+"                                            <table style=\"width:100%;text-"
+"align:center;margin-top:2rem;\">\n"
 "                                                <tr>\n"
 "                                                    <td>\n"
-"                                                        <a t-attf-href=\"/rate/{{ access_token }}/5\">\n"
-"                                                            <img alt=\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Satisfied\">\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/5\">\n"
+"                                                            <img "
+"alt=\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" "
+"title=\"Satisfied\"/>\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
-"                                                        <a t-attf-href=\"/rate/{{ access_token }}/3\">\n"
-"                                                            <img alt=\"Not satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Not satisfied\">\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/3\">\n"
+"                                                            <img alt=\"Not "
+"satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Not "
+"satisfied\"/>\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
-"                                                        <a t-attf-href=\"/rate/{{ access_token }}/1\">\n"
-"                                                            <img alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title=\"Highly Dissatisfied\">\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/1\">\n"
+"                                                            <img "
+"alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" "
+"title=\"Highly Dissatisfied\"/>\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                </tr>\n"
@@ -67,12 +90,16 @@ msgid ""
 "                        </tr>\n"
 "                    </tbody>\n"
 "                </table>\n"
-"                <table style=\"width:600px;margin:auto;text-align:center;font-size:12px;\">\n"
+"                <table style=\"width:600px;margin:auto;text-align:center;"
+"font-size:12px;\">\n"
 "                    <tbody>\n"
 "                        <tr>\n"
 "                            <td style=\"padding-top:10px;color:#afafaf;\">\n"
-"                                <t t-if=\"object.rating_status == 'stage_change'\">\n"
-"                                    <p>This customer survey has been sent because your ticket has been moved to the stage <b t-out=\"object.stage_id.name\"></b></p>\n"
+"                                <t t-if=\"object.rating_status == "
+"'stage_change'\">\n"
+"                                    <p>This customer survey has been sent "
+"because your ticket has been moved to the stage <b t-out=\"object.stage_id."
+"name\"/></p>\n"
 "                                </t>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -101,14 +128,14 @@ msgstr ""
 "                        <tr>\n"
 "                            <td style=\"padding:10px 20px\">\n"
 "                                <table border=\"0\" cellpadding=\"0\" "
-"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" style=\"width"
-":100%; margin: 32px 0px 32px 0px;\">\n"
+"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" "
+"style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
 "                                    <tr>\n"
 "                                        <td style=\"text-align:center;\">\n"
 "                                            <h2 style=\"font-weight:300;font-"
 "size:18px;\">Diga-nos o que sente quanto ao nosso serviço:</h2>\n"
-"                                            <div style=\"text-color: #"
-"888888\">(clique num destes smileys)</div>\n"
+"                                            <div style=\"text-color: "
+"#888888\">(clique num destes smileys)</div>\n"
 "                                        </td>\n"
 "                                    </tr>\n"
 "                                    <tr>\n"
@@ -119,25 +146,25 @@ msgstr ""
 "                                                    <td>\n"
 "                                                        <a t-attf-href=\"/"
 "rate/{{ access_token }}/5\">\n"
-"                                                            <img alt="
-"\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" title=\"Satisfeito"
-"\">\n"
+"                                                            <img "
+"alt=\"Satisfied\" src=\"/rating/static/src/img/rating_5.png\" "
+"title=\"Satisfeito\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
 "                                                        <a t-attf-href=\"/"
 "rate/{{ access_token }}/3\">\n"
 "                                                            <img alt=\"Not "
-"satisfied\" src=\"/rating/static/src/img/rating_3.png\" title=\"Insatisfeito"
-"\">\n"
+"satisfied\" src=\"/rating/static/src/img/rating_3.png\" "
+"title=\"Insatisfeito\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                    <td>\n"
 "                                                        <a t-attf-href=\"/"
 "rate/{{ access_token }}/1\">\n"
-"                                                            <img alt=\"Highly"
-" Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" title="
-"\"Extremamente Insatisfeito\">\n"
+"                                                            <img "
+"alt=\"Highly Dissatisfied\" src=\"/rating/static/src/img/rating_1.png\" "
+"title=\"Extremamente Insatisfeito\">\n"
 "                                                        </a>\n"
 "                                                    </td>\n"
 "                                                </tr>\n"
@@ -149,8 +176,8 @@ msgstr ""
 "                        </tr>\n"
 "                    </tbody>\n"
 "                </table>\n"
-"                <table style=\"width:600px;margin:auto;text-align:center"
-";font-size:12px;\">\n"
+"                <table style=\"width:600px;margin:auto;text-align:center;"
+"font-size:12px;\">\n"
 "                    <tbody>\n"
 "                        <tr>\n"
 "                            <td style=\"padding-top:10px;color:#afafaf;\">\n"
@@ -177,6 +204,16 @@ msgstr ""
 "satisfaction\" title=\"Percentagem de satisfação\"/>"
 
 #. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
 msgid "Average Rating"
 msgstr "Avaliação Média"
@@ -188,6 +225,21 @@ msgstr "Avaliação Média"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
 msgid "Customer Rating"
 msgstr "Avaliação do Cliente"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket
@@ -205,18 +257,63 @@ msgid "Helpdesk Ticket: Rating Request"
 msgstr "Ticket de Helpdesk: Solicitação de Avaliação"
 
 #. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
 msgid ""
-"If set, an email will be sent to the customer  with a rating survey when the"
-" ticket reaches this stage."
+"If set, an email will be sent to the customer  with a rating survey when the "
+"ticket reaches this stage."
 msgstr ""
 "Se definido, será enviado um e-mail ao cliente com um inquérito de "
 "satisfação quando o ticket chegar a este estado."
 
 #. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
 msgid "No rating"
 msgstr "Sem avaliação"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__positive_rate_percentage
@@ -225,7 +322,6 @@ msgstr "Percentagem de Avaliações Positivas"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_ids
 msgid "Rating"
 msgstr "Avaliação"
 
@@ -275,6 +371,7 @@ msgid "Rating when changing stage"
 msgstr "Avaliação ao mudar de estado"
 
 #. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_ids
 #: model:mail.message.subtype,description:helpdesk_mgmt_rating.mt_ticket_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.ticket_view_form_inherit
 msgid "Ratings"
@@ -299,6 +396,15 @@ msgstr "Não há avaliações para este ticket de momento."
 #. odoo-python
 #: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
 #: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
-#, python-format
 msgid "Ticket Rating"
 msgstr "Avaliação de Ticket"
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: helpdesk_mgmt_rating
+#: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
+msgid "Website communication history"
+msgstr ""
