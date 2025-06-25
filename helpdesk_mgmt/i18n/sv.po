@@ -900,9 +900,7 @@ msgstr "Om den är markerad kräver nya meddelanden din uppmärksamhet."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Om kryssrutan är markerad får vissa meddelanden ett leveransfel."
 
@@ -1322,12 +1320,6 @@ msgstr "Obligatoriskt teamfält i Helpdesk-portalen"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_user_id
 msgid "Responsible User"
 msgstr "Ansvarig användare"
-
-#. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr ""
 
 #. module: helpdesk_mgmt
 #. odoo-python
