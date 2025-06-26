@@ -167,6 +167,12 @@ class HelpdeskTicket(models.Model):
                 team = self.env["helpdesk.ticket.team"].browse([vals["team_id"]])
                 if team.company_id:
                     vals["company_id"] = team.company_id.id
+                if "stage_id" not in vals:
+                    # Ensure that stage_id is set before creating the ticket
+                    # so that the field is tracked correctly
+                    # and notifications can be sent by email
+                    # if a mail template is configured
+                    vals["stage_id"] = team._get_applicable_stages()[:1].id
             # Automatically set default e-mail channel when created from the
             # fetchmail cron task
             if self.env.context.get("fetchmail_cron_running") and not vals.get(
