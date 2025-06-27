@@ -1,5 +1,7 @@
 import time
 
+from odoo.tests import Form
+
 from .common import TestHelpdeskTicketBase
 
 
@@ -181,3 +183,32 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             }
         )
         self.assertEqual(self.new_stage, new_ticket.stage_id)
+
+    def test_ticket_default_user_team(self):
+        """The ticket should take the current user
+        and the first team assigned to that user
+        """
+        new_ticket = (
+            self.env["helpdesk.ticket"]
+            .with_user(self.user_own)
+            .create(
+                {
+                    "name": "New Ticket",
+                    "description": "Description",
+                }
+            )
+        )
+        self.assertEqual(new_ticket.user_id, self.user_own)
+        self.assertEqual(new_ticket.team_id, self.team_a)
+        # Change the user to another one with the same team
+        # the team should remain unchanged
+        new_ticket.user_id = self.user
+        self.assertEqual(new_ticket.team_id, self.team_a)
+        new_team = self.env["helpdesk.ticket.team"].create({"name": "New Team"})
+        # Change the team to another one where the user is not assigned.
+        # The user should be removed from the ticket.
+        # Use sudo to avoid access rights issues,
+        # because the user only belongs to the group `group_helpdesk_user_own`.
+        with Form(new_ticket.sudo()) as new_ticket_form:
+            new_ticket_form.team_id = new_team
+            self.assertFalse(new_ticket_form.user_id)

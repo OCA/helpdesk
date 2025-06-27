@@ -25,8 +25,18 @@ class HelpdeskTicket(models.Model):
     @api.depends("team_id")
     def _compute_user_id(self):
         for ticket in self:
-            if not ticket.user_id and ticket.team_id:
-                ticket.user_id = ticket.team_id.create_uid
+            if not ticket.user_id:
+                ticket.user_id = self.env.user
+            if ticket.team_id and ticket.user_id not in ticket.team_id.user_ids:
+                # If the user is not part of the team, we remove the user
+                ticket.user_id = False
+
+    @api.depends("user_id")
+    def _compute_team_id(self):
+        for ticket in self:
+            if not ticket.team_id and ticket.user_id.helpdesk_team_ids:
+                # If no team is set, we default to the user's first team
+                ticket.team_id = ticket.user_id.helpdesk_team_ids[0]
 
     @api.model
     def _read_group_stage_ids(self, stages, domain):
@@ -52,6 +62,9 @@ class HelpdeskTicket(models.Model):
         string="Assigned user",
         tracking=True,
         index=True,
+        compute="_compute_user_id",
+        store=True,
+        readonly=False,
         domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950,E501
     )
     user_ids = fields.Many2many(
@@ -104,6 +117,9 @@ class HelpdeskTicket(models.Model):
         comodel_name="helpdesk.ticket.team",
         string="Team",
         index=True,
+        compute="_compute_team_id",
+        store=True,
+        readonly=False,
     )
     priority = fields.Selection(
         selection=[
