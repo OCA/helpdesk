@@ -1,0 +1,36 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: helpdesk_mgmt_template
+#: model:ir.model.fields,field_description:helpdesk_mgmt_template.field_helpdesk_ticket__description
+msgid "Description"
+msgstr ""
+
+#. module: helpdesk_mgmt_template
+#: model:ir.model,name:helpdesk_mgmt_template.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_template
+#: model:ir.model,name:helpdesk_mgmt_template.model_helpdesk_ticket_category
+#: model:ir.model.fields,field_description:helpdesk_mgmt_template.field_helpdesk_ticket__helpdesk_ticket_category_ids
+msgid "Helpdesk Ticket Category"
+msgstr ""
+
+#. module: helpdesk_mgmt_template
+#: model:ir.model.fields,field_description:helpdesk_mgmt_template.field_helpdesk_ticket_category__template_description
+msgid "Template Description"
+msgstr ""
