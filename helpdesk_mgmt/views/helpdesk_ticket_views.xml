@@ -38,6 +38,7 @@
                 />
                 <field name="partner_id" />
                 <field name="commercial_partner_id" />
+                <field name="partner_email" />
                 <field name="user_id" />
                 <field name="name" />
                 <field name="category_id" />
