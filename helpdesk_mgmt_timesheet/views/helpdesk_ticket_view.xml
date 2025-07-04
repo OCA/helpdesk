@@ -54,11 +54,6 @@
                 />
             </field>
             <list position="inside">
-                <field
-                    name="show_time_control"
-                    column_invisible="1"
-                    groups="hr_timesheet.group_hr_timesheet_user"
-                />
                 <button
                     name="button_start_work"
                     title="Start work"
@@ -91,11 +86,6 @@
         <field name="priority" eval="20" />
         <field name="arch" type="xml">
             <div name="button_box" position="inside">
-                <field
-                    name="show_time_control"
-                    invisible="1"
-                    groups="hr_timesheet.group_hr_timesheet_user"
-                />
                 <button
                     name="button_start_work"
                     title="Start work"
@@ -153,7 +143,6 @@
                                 string="Duration (Hour(s))"
                                 widget="float_time"
                             />
-                            <field name="show_time_control" invisible="1" />
                             <button
                                 name="button_resume_work"
                                 string="Resume work"
@@ -226,11 +215,6 @@
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
         <field name="arch" type="xml">
             <xpath expr="//*[hasclass('align-items-center')]" position="inside">
-                <field
-                    name="show_time_control"
-                    invisible="1"
-                    groups="hr_timesheet.group_hr_timesheet_user"
-                />
                 <a
                     name="button_start_work"
                     title="Start work"
