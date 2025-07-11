@@ -733,6 +733,11 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Font awesome Symbol z.B. fa-tasks"
 
 #. module: helpdesk_mgmt
+#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_3
+msgid "Functional"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Future Activities"
 msgstr "Zukünftige Aktivitäten"
@@ -750,6 +755,11 @@ msgstr "Gruppieren nach"
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_ir_http
 msgid "HTTP Routing"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_1
+msgid "Hard"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1367,6 +1377,7 @@ msgstr "Senden Sie ein neues Ticket"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__sequence
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_channel__sequence
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__sequence
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__sequence
 msgid "Sequence"
 msgstr "Sequenz"
@@ -1497,6 +1508,11 @@ msgstr "Teammitglieder"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_team_menu
 msgid "Teams"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_2
+msgid "Technical"
 msgstr ""
 
 #. module: helpdesk_mgmt
