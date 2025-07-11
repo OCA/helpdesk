@@ -37,6 +37,7 @@
                         </h1>
                     </div>
                     <group name="main">
+                        <field name="sequence" />
                         <field name="color" widget="color_picker" />
                     </group>
                 </sheet>
@@ -48,6 +49,7 @@
         <field name="model">helpdesk.ticket.tag</field>
         <field name="arch" type="xml">
             <list decoration-muted="not active" editable="bottom">
+                <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="color" widget="color_picker" />
                 <field name="active" column_invisible="1" />
