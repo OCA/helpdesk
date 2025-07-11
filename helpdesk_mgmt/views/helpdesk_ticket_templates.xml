@@ -59,7 +59,7 @@
                 />
                 <t t-set="title">Tickets</t>
                 <t t-set="url" t-value="'/my/tickets'" />
-                <t t-set="text">Follow and comments your helpdesk tickets</t>
+                <t t-set="text">Follow and comment your helpdesk tickets</t>
                 <t t-set="placeholder_count" t-value="'ticket_count'" />
             </t>
         </div>

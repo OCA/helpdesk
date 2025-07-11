@@ -707,7 +707,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
-msgid "Follow and comments your helpdesk tickets"
+msgid "Follow and comment your helpdesk tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
