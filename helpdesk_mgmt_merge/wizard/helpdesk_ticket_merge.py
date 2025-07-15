@@ -66,9 +66,20 @@ class HelpdeskTicketMerge(models.TransientModel):
         merged_tickets = self.ticket_ids - self.dst_ticket_id
         self._merge_followers(merged_tickets)
         for ticket in merged_tickets:
-            self._add_message("to", self.dst_ticket_id.number, ticket)
-        ticket_numbers = ", ".join(merged_tickets.mapped("number"))
+            self._add_message(
+                "to",
+                f'<a href="/web#id={self.dst_ticket_id.id}&model=helpdesk.ticket">{self.dst_ticket_id.number}</a>',  # noqa: B950
+                ticket,
+            )
+        ticket_numbers = ", ".join(
+            f'<a href="/web#id={ticket.id}&model=helpdesk.ticket">{ticket.number}</a>'
+            for ticket in merged_tickets
+        )
         self._add_message("from", ticket_numbers, self.dst_ticket_id)
+        merged_tickets.message_ids.filtered(
+            lambda r: r.message_type != "notification"
+        ).write({"res_id": self.dst_ticket_id.id})
+        merged_tickets.activity_ids.write({"res_id": self.dst_ticket_id.id})
         merged_tickets.write({"active": False})
 
         return {

@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Ticket Merge",
     "summary": "Wizard to merge helpdesk tickets",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "author": "Onestein, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "license": "AGPL-3",
