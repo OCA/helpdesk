@@ -1,3 +1,5 @@
+from markupsafe import Markup
+
 from odoo import Command, api, fields, models
 
 
@@ -69,9 +71,19 @@ class HelpdeskTicketMerge(models.TransientModel):
         merged_tickets = self.ticket_ids - self.dst_ticket_id
         self._merge_followers(merged_tickets)
         for ticket in merged_tickets:
-            self._add_message("to", self.dst_ticket_id.number, ticket)
-        ticket_numbers = ", ".join(merged_tickets.mapped("number"))
-        self._add_message("from", ticket_numbers, self.dst_ticket_id)
+            self._add_message(
+                self.env._("to"),
+                self.dst_ticket_id._get_html_link(self.dst_ticket_id.number),
+                ticket,
+            )
+        ticket_numbers = ", ".join(
+            ticket._get_html_link(ticket.number) for ticket in merged_tickets
+        )
+        self._add_message(self.env._("from"), ticket_numbers, self.dst_ticket_id)
+        merged_tickets.message_ids.filtered(
+            lambda r: r.message_type != "notification"
+        ).write({"res_id": self.dst_ticket_id.id})
+        merged_tickets.activity_ids.write({"res_id": self.dst_ticket_id.id})
         merged_tickets.write({"active": False})
 
         return {
@@ -127,8 +139,9 @@ class HelpdeskTicketMerge(models.TransientModel):
         :param ticket : the ticket where the message will be posted
         """
         subject = "Merge helpdesk ticket"
-        body = self.env._(
-            f"This helpdesk ticket has been merged {way} {ticket_numbers}"
+        body = Markup(
+            self.env._("This helpdesk ticket has been merged %(way)s %(tickets)s")
+            % {"way": way, "tickets": ticket_numbers}
         )
 
         ticket.message_post(
