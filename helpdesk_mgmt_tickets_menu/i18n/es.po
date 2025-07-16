@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_tickets_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-13 11:09+0000\n"
+"PO-Revision-Date: 2025-01-13 11:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_tickets_menu
+#: model:ir.actions.act_window,name:helpdesk_mgmt_tickets_menu.action_all_helpdesk_tickets
+#: model:ir.ui.menu,name:helpdesk_mgmt_tickets_menu.helpdesk_all_ticket_menu
+msgid "All Tickets"
+msgstr "Todas las solicitudes"
+
+#. module: helpdesk_mgmt_tickets_menu
+#: model:ir.actions.act_window,name:helpdesk_mgmt_tickets_menu.action_my_helpdesk_tickets
+#: model:ir.ui.menu,name:helpdesk_mgmt_tickets_menu.helpdesk_own_ticket_menu
+msgid "My Tickets"
+msgstr "Mis Solicitudes"

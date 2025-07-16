@@ -1,0 +1,33 @@
+<odoo>
+
+    <record id="action_my_helpdesk_tickets" model="ir.actions.act_window">
+        <field name="name">My Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,tree,pivot,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+    <menuitem
+        id="helpdesk_mgmt.helpdesk_ticket_menu"
+        name="Tickets"
+        parent="helpdesk_mgmt.helpdesk_ticket_main_menu"
+        sequence="10"
+    />
+
+    <menuitem
+        id="helpdesk_own_ticket_menu"
+        name="My Tickets"
+        action="action_my_helpdesk_tickets"
+        parent="helpdesk_mgmt.helpdesk_ticket_menu"
+        sequence="1"
+    />
+
+    <menuitem
+        id="helpdesk_all_ticket_menu"
+        name="All Tickets"
+        action="helpdesk_mgmt.helpdesk_ticket_action"
+        parent="helpdesk_mgmt.helpdesk_ticket_menu"
+        sequence="2"
+    />
+
+</odoo>
