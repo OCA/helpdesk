@@ -8,6 +8,7 @@
             <xpath expr="//group[@name='right']" position="inside">
                 <field name="use_sla" />
                 <field name="resource_calendar_id" />
+                <field name="company_id" invisible="1" />
             </xpath>
         </field>
     </record>
