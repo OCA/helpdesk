@@ -13,6 +13,12 @@
         <field name="res_model">helpdesk.ticket</field>
         <field name="view_mode">list,kanban,form,pivot</field>
     </record>
+    <record id="helpdesk_my_tickets_action" model="ir.actions.act_window">
+        <field name="name">My Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,pivot,form</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
     <record id="helpdesk_ticket_reporting_action" model="ir.actions.act_window">
         <field name="name">Reporting</field>
         <field name="type">ir.actions.act_window</field>
@@ -68,8 +74,21 @@
         id="helpdesk_ticket_menu"
         name="Tickets"
         parent="helpdesk_ticket_main_menu"
-        action="helpdesk_ticket_action"
         sequence="10"
+    />
+    <menuitem
+        id="helpdesk_own_ticket_menu"
+        name="My Tickets"
+        parent="helpdesk_ticket_menu"
+        action="helpdesk_my_tickets_action"
+        sequence="10"
+    />
+    <menuitem
+        id="helpdesk_all_ticket_menu"
+        name="All Tickets"
+        parent="helpdesk_ticket_menu"
+        action="helpdesk_ticket_action"
+        sequence="20"
     />
     <menuitem
         id="helpdesk_ticket_reporting_menu"
