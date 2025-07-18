@@ -89,6 +89,10 @@ class HelpdeskTicket(models.Model):
         domain="['|',('team_ids', '=', team_id),('team_ids','=',False)]",
     )
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
+    partner_id_domain = fields.Binary(
+        help="This is the computed domain to filter partners.",
+        compute="_compute_partner_id_domain",
+    )
     commercial_partner_id = fields.Many2one(
         string="Commercial Partner",
         store=True,
@@ -169,6 +173,30 @@ class HelpdeskTicket(models.Model):
         if self.partner_id:
             self.partner_name = self.partner_id.name
             self.partner_email = self.partner_id.email
+
+    @api.depends(
+        "team_id",
+        "team_id.default_partner_id",
+        "team_id.allowed_partner_ids",
+        "team_id.is_unique_partner",
+    )
+    def _compute_partner_id_domain(self):
+        for record in self:
+            if record.team_id and record.team_id.default_partner_id:
+                record.partner_id = record.team_id.default_partner_id
+                if record.team_id.is_unique_partner:
+                    record.partner_id_domain = [
+                        ("id", "=", record.team_id.default_partner_id.id)
+                    ]
+                elif record.team_id.allowed_partner_ids:
+                    partners = record.team_id.allowed_partner_ids
+                    if record.team_id.default_partner_id:
+                        partners |= record.team_id.default_partner_id
+                    record.partner_id_domain = [("id", "in", partners.ids)]
+                else:
+                    record.partner_id_domain = []
+            else:
+                record.partner_id_domain = []
 
     # ---------------------------------------------------
     # CRUD

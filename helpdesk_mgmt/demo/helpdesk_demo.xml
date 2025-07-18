@@ -76,6 +76,19 @@
         <field name="company_id" ref="base.main_company" />
         <field name="alias_id" ref="mail_alias_3" />
     </record>
+    <record id="helpdesk_team_4" model="helpdesk.ticket.team">
+        <field eval="&quot;Systems&quot;" name="name" />
+        <field name="user_ids" eval="[(6,0,[ref('base.user_root')])]" />
+        <field eval="&quot;1&quot;" name="active" />
+        <field name="category_ids" eval="[(6,0,[ref('helpdesk_category_2')])]" />
+        <field name="company_id" ref="base.main_company" />
+        <field name="alias_id" ref="mail_alias_3" />
+        <field name="default_partner_id" ref="base.res_partner_1" />
+        <field
+            name="allowed_partner_ids"
+            eval="[(6,0,[ref('base.res_partner_1'), ref('base.res_partner_2')])]"
+        />
+    </record>
     <!-- Tags -->
     <record id="helpdesk_tag_1" model="helpdesk.ticket.tag">
         <field eval="&quot;Hard&quot;" name="name" />
@@ -189,5 +202,15 @@
         <field name="partner_id" ref="base.res_partner_10" />
         <field name="team_id" ref="helpdesk_team_3" />
         <field name="category_id" ref="helpdesk_category_5" />
+    </record>
+    <record id="helpdesk_ticket_9" model="helpdesk.ticket">
+        <field eval="&quot;System needs&quot;" name="name" />
+        <field eval="&quot;System needs&quot;" name="description" />
+        <field eval="&quot;Jamie Mads&quot;" name="partner_name" />
+        <field eval="&quot;2&quot;" name="priority" />
+        <field name="user_id" ref="base.user_demo" />
+        <field name="stage_id" ref="helpdesk_ticket_stage_in_progress" />
+        <field name="team_id" ref="helpdesk_team_4" />
+        <field name="channel_id" ref="helpdesk_ticket_channel_phone" />
     </record>
 </odoo>

@@ -187,7 +187,8 @@
                             <field name="channel_id" />
                         </group>
                         <group>
-                            <field name="partner_id" />
+                            <field name="partner_id_domain" invisible="1" />
+                            <field name="partner_id" domain="partner_id_domain" />
                             <field name="partner_name" />
                             <field name="partner_email" />
                             <field name="category_id" />

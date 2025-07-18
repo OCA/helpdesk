@@ -1,6 +1,6 @@
 import time
 
-from odoo.tests.common import Form
+from odoo.tests import Form
 
 from .common import TestHelpdeskTicketBase
 
@@ -222,3 +222,74 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             new_ticket_form.stage_id = in_progress_stage
             new_ticket_form.user_id = self.user
         self.assertEqual(new_ticket_form.stage_id, in_progress_stage)
+
+    def test_partner_domain_with_unique_partner(self):
+        Partner = self.env["res.partner"]
+        default_partner = Partner.create({"name": "Default", "email": "d@example.com"})
+        self.team_a.write(
+            {
+                "default_partner_id": default_partner.id,
+                "is_unique_partner": True,
+                "allowed_partner_ids": [(5, 0, 0)],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].new({"team_id": self.team_a.id})
+        ticket._compute_partner_id_domain()
+        self.assertEqual(ticket.partner_id, default_partner)
+        ticket._onchange_partner_id()
+        self.assertEqual(ticket.partner_name, default_partner.name)
+        self.assertEqual(ticket.partner_id_domain, [("id", "=", default_partner.id)])
+        self.team_a.default_partner_id = False
+        self.team_a._onchange_default_partner_id()
+        self.assertFalse(self.team_a.is_unique_partner)
+
+    def test_partner_domain_with_default_and_allowed_partners(self):
+        Partner = self.env["res.partner"]
+        default_partner = Partner.create({"name": "Default", "email": "d@example.com"})
+        allowed_partner = Partner.create({"name": "Allowed", "email": "a@example.com"})
+        self.team_a.write(
+            {
+                "default_partner_id": default_partner.id,
+                "is_unique_partner": False,
+                "allowed_partner_ids": [(6, 0, [allowed_partner.id])],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].new({"team_id": self.team_a.id})
+        ticket._compute_partner_id_domain()
+        self.assertEqual(ticket.partner_id, default_partner)
+        domain = ticket.partner_id_domain
+        self.assertEqual(len(domain), 1)
+        field, operator, ids = domain[0]
+        self.assertEqual(field, "id")
+        self.assertEqual(operator, "in")
+        self.assertCountEqual(ids, [default_partner.id, allowed_partner.id])
+
+    def test_partner_domain_with_default_no_allowed_partners(self):
+        Partner = self.env["res.partner"]
+        default_partner = Partner.create({"name": "Default", "email": "d@example.com"})
+        self.team_a.write(
+            {
+                "default_partner_id": default_partner.id,
+                "is_unique_partner": False,
+                "allowed_partner_ids": [(5, 0, 0)],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].new({"team_id": self.team_a.id})
+        ticket._compute_partner_id_domain()
+        self.assertEqual(ticket.partner_id, default_partner)
+        self.assertEqual(ticket.partner_id_domain, [])
+
+    def test_partner_domain_without_default_partner(self):
+        Partner = self.env["res.partner"]
+        allowed_partner = Partner.create({"name": "Allowed", "email": "a@example.com"})
+        self.team_a.write(
+            {
+                "default_partner_id": False,
+                "is_unique_partner": False,
+                "allowed_partner_ids": [(6, 0, [allowed_partner.id])],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].new({"team_id": self.team_a.id})
+        ticket._compute_partner_id_domain()
+        self.assertFalse(ticket.partner_id)
+        self.assertEqual(ticket.partner_id_domain, [])

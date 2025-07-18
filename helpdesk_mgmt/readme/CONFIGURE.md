@@ -53,6 +53,13 @@ in the list view.
 3.  Set the name for the team.
 4.  Add the teams members.
 5.  You can also Activate or Deactivate teams.
+6.  Contact based on Helpdesk Team
+    - You can set a default contact for the team.
+    - You can allow a list of specific contacts.
+    - If "unique contact" is enabled, only the default contact can be used.
+![](../static/description/Team_allowed_partners.PNG)
+![](../static/description/Ticket_allowed_contact.PNG)
+If nothing is configured, all contacts are available.
 
 ![](../static/description/Teams.PNG)
 

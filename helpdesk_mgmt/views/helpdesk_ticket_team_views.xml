@@ -149,6 +149,22 @@
                                 </kanban>
                             </field>
                         </page>
+                        <page name="partners" string="Associated Partners">
+                            <group>
+                                <field name="default_partner_id" />
+                                <field
+                                    name="is_unique_partner"
+                                    readonly="default_partner_id == False"
+                                    force_save="1"
+                                    widget="boolean_toggle"
+                                />
+                                <field
+                                    name="allowed_partner_ids"
+                                    readonly="is_unique_partner == True"
+                                    widget="many2many_tags"
+                                />
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">

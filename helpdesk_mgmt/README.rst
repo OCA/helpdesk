@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Helpdesk Management
 ===================
@@ -17,7 +13,7 @@ Helpdesk Management
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -100,8 +96,15 @@ Teams
 3. Set the name for the team.
 4. Add the teams members.
 5. You can also Activate or Deactivate teams.
+6. Contact based on Helpdesk Team
 
-|image4|
+   - You can set a default contact for the team.
+   - You can allow a list of specific contacts.
+   - If "unique contact" is enabled, only the default contact can be
+     used. |image4| |image5| If nothing is configured, all contacts are
+     available.
+
+|image6|
 
 Tags
 ----
@@ -113,7 +116,7 @@ Tags
 4. Set the color index for the tag.
 5. You can also Activate or Deactivate tags.
 
-|image5|
+|image7|
 
 Permissions
 -----------
@@ -132,8 +135,10 @@ permissions set in Helpdesk.
 .. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Channels.PNG
 .. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Categories.PNG
 .. |image3| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Stages.PNG
-.. |image4| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Teams.PNG
-.. |image5| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tags.PNG
+.. |image4| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Team_allowed_partners.PNG
+.. |image5| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Ticket_allowed_contact.PNG
+.. |image6| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Teams.PNG
+.. |image7| image:: https://raw.githubusercontent.com/OCA/helpdesk/17.0/helpdesk_mgmt/static/description/Tags.PNG
 
 Usage
 =====

@@ -75,6 +75,13 @@ class HelpdeskTeam(models.Model):
         compute="_compute_complete_name", store=True, recursive=True
     )
     parent_path = fields.Char(index=True, unaccent=False)
+    default_partner_id = fields.Many2one(
+        comodel_name="res.partner",
+    )
+    is_unique_partner = fields.Boolean()
+    allowed_partner_ids = fields.Many2many(
+        comodel_name="res.partner",
+    )
 
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):
@@ -85,6 +92,11 @@ class HelpdeskTeam(models.Model):
                 )
             else:
                 record.complete_name = record.name
+
+    @api.onchange("default_partner_id")
+    def _onchange_default_partner_id(self):
+        if not self.default_partner_id:
+            self.is_unique_partner = False
 
     def _get_applicable_stages(self):
         if self:
