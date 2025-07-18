@@ -108,6 +108,24 @@ msgid "No description"
 msgstr ""
 
 #. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "This helpdesk ticket has been merged %(way)s %(tickets)s"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__ticket_ids
 msgid "Tickets to Merge"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "from"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "to"
 msgstr ""
