@@ -19,11 +19,12 @@ msgstr ""
 #. module: helpdesk_mgmt_merge
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
 msgid ""
-"<span class=\"text-muted\">NB: This will archive the selected tickets (Except the destination ticket)\n"
+"<span class=\"text-muted\">NB: This will archive the selected tickets "
+"(Except the destination ticket)\n"
 "                    </span>"
 msgstr ""
-"<span class=\"text-muted\">OBS: Isso arquivará os chamados selecionados ("
-"exceto o chamado de destino)\n"
+"<span class=\"text-muted\">OBS: Isso arquivará os chamados selecionados "
+"(exceto o chamado de destino)\n"
 "                    </span>"
 
 #. module: helpdesk_mgmt_merge
@@ -114,6 +115,24 @@ msgid "No description"
 msgstr "Sem descrição"
 
 #. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "This helpdesk ticket has been merged %(way)s %(tickets)s"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__ticket_ids
 msgid "Tickets to Merge"
 msgstr "Chamados para o Mesclar"
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "from"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "to"
+msgstr ""

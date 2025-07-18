@@ -20,10 +20,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
 msgid ""
 "<span class=\"text-muted\">NB: This will archive the selected tickets "
-"(Except the destination ticket)</span>"
+"(Except the destination ticket)\n"
+"                    </span>"
 msgstr ""
-"<span class=\"text-muted\">NB: questo archivierà i ticket selezionati ("
-"tranne il ticket di destinazione)</span>"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__user_id
@@ -53,7 +52,6 @@ msgstr "Creato il"
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
-#, python-format
 msgid "Description from ticket %(name)s: %(description)s"
 msgstr "Descrizione dal ticket %(name)s: %(description)s"
 
@@ -76,11 +74,6 @@ msgstr "Unione ticket assistenza clienti"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__id
 msgid "ID"
 msgstr "ID"
-
-#. module: helpdesk_mgmt_merge
-#: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__write_uid
@@ -115,11 +108,38 @@ msgstr "Nuovo nome ticket"
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
-#, python-format
 msgid "No description"
 msgstr "Nessuna descrizione"
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "This helpdesk ticket has been merged %(way)s %(tickets)s"
+msgstr ""
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__ticket_ids
 msgid "Tickets to Merge"
 msgstr "Ticket da unire"
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "from"
+msgstr ""
+
+#. module: helpdesk_mgmt_merge
+#. odoo-python
+#: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
+msgid "to"
+msgstr ""
+
+#~ msgid ""
+#~ "<span class=\"text-muted\">NB: This will archive the selected tickets "
+#~ "(Except the destination ticket)</span>"
+#~ msgstr ""
+#~ "<span class=\"text-muted\">NB: questo archivierà i ticket selezionati "
+#~ "(tranne il ticket di destinazione)</span>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
