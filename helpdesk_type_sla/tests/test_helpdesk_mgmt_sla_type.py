@@ -1,11 +1,10 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
 from datetime import timedelta
 
 from freezegun import freeze_time
 
-from odoo import fields
+from odoo import Command, fields
 
 from odoo.addons.helpdesk_mgmt_sla.tests.common import CommonHelpdeskMgmtSla
 
@@ -19,7 +18,7 @@ class TestHelpDeskRule(CommonHelpdeskMgmtSla):
 
     @freeze_time(fields.Datetime.now() + timedelta(days=7))
     def test_sla_rule_stage(self):
-        self.sla.type_ids = [(6, 0, [self.type1.id])]
+        self.sla.type_ids = [Command.set([self.type1.id])]
         self.ticket1.type_id = self.type1
         self.ticket2.type_id = self.type2
         self.env["helpdesk.sla"].check_sla()
