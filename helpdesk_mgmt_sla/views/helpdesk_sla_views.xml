@@ -21,25 +21,12 @@
         <field name="arch" type="xml">
             <form string="SLA">
                 <sheet>
-                    <div class="oe_button_box" name="button_box">
-                        <button
-                            string="Archive"
-                            name="toggle_active"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-archive"
-                            attrs="{'invisible': [('active', '=', False)]}"
-                        />
-                        <button
-                            string="Restore"
-                            name="toggle_active"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-archive"
-                            attrs="{'invisible': [('active', '=', True)]}"
-                        />
-                        <field name="active" invisible="1" />
-                    </div>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="text-bg-danger"
+                        invisible="active"
+                    />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only" />
                         <h1>
@@ -76,14 +63,11 @@
                             name="note"
                             placeholder="Description of the policy..."
                             nolabel="1"
+                            colspan="2"
                         />
                     </group>
                 </sheet>
-                <div class="oe_chatter">
-                    <field name="message_follower_ids" groups="base.group_user" />
-                    <field name="message_ids" />
-                    <field name="activity_ids" widget="mail_activity" />
-                </div>
+                <chatter />
             </form>
         </field>
     </record>
@@ -91,18 +75,19 @@
         <field name="name">helpdesk.sla.tree</field>
         <field name="model">helpdesk.sla</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="days" />
                 <field name="hours" />
                 <field name="note" />
-            </tree>
+            </list>
         </field>
     </record>
     <record id="action_helpdesk_sla_tree" model="ir.actions.act_window">
         <field name="name">Helpdesk SLA</field>
         <field name="res_model">helpdesk.sla</field>
-        <field name="view_mode">tree,form</field>
+        <field name="path">helpdesk-sla</field>
+        <field name="view_mode">list,form</field>
     </record>
     <menuitem
         id="helpdesk_sla"

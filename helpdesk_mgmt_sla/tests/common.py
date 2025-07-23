@@ -1,5 +1,6 @@
 # Copyright (C) 2020 GARCO Consulting <www.garcoconsulting.es>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from odoo import Command
 
 from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 
@@ -25,6 +26,8 @@ class CommonHelpdeskMgmtSla(test_helpdesk_ticket.TestHelpdeskTicket):
                 "use_sla": True,
             }
         )
+        cls.stage1.team_ids = [Command.set([cls.team1.id, cls.team2.id])]
+        cls.stage2.team_ids = [Command.set([cls.team1.id, cls.team2.id])]
         cls.category1 = cls.env["helpdesk.ticket.category"].create(
             {"name": "Category One"}
         )

@@ -11,12 +11,12 @@
             </xpath>
             <xpath expr="//field[@name='activity_ids']" position="after">
                 <div t-if="record.sla_expired.raw_value">
-                    <span style="color: red; font-weight: bold;">
+                    <span class="text-danger fw-bold">
                         <field name="sla_deadline" />
                     </span>
                 </div>
                 <div t-if="record.sla_expired.raw_value == false">
-                    <span style="color: green; font-weight: bold;">
+                    <span class="text-success fw-bold">
                         <field name="sla_deadline" />
                     </span>
                 </div>
@@ -30,11 +30,7 @@
         <field name="priority" eval="20" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='channel_id']" position="after">
-                <field name="team_sla" invisible="1" />
-                <field
-                    name="sla_deadline"
-                    attrs="{'invisible': [('team_sla', '=', False)]}"
-                />
+                <field name="sla_deadline" invisible="not team_sla" />
             </xpath>
         </field>
     </record>
