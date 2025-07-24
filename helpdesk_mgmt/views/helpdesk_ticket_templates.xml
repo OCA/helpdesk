@@ -100,7 +100,7 @@
                                 >Tickets in category:</em>
                                 <span
                                     class="text-truncate"
-                                    t-field="tickets[0].sudo().category_id.name"
+                                    t-field="tickets[0].sudo().category_id.complete_name"
                                 />
                             </th>
                             <th t-if="groupby == 'stage'">
@@ -136,7 +136,7 @@
                                     </a>
                                 </td>
                                 <td t-if="groupby != 'category'">
-                                    <span t-esc="ticket.category_id.name" />
+                                    <span t-esc="ticket.category_id.complete_name" />
                                 </td>
                                 <td t-if="groupby != 'stage'">
                                     <span
@@ -431,7 +431,7 @@
                             <option value="" />
                             <t t-foreach="categories" t-as="cat">
                                 <option t-attf-value="#{cat.id}">
-                                    <t t-esc="cat.name" />
+                                    <t t-esc="cat.complete_name" />
                                 </option>
                             </t>
                         </select>
