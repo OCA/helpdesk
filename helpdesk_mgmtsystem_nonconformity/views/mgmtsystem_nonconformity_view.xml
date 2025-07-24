@@ -13,7 +13,7 @@
                 <button
                     class="oe_stat_button"
                     type="action"
-                    context="{'search_default_nonconformity_id': active_id, 'default_nonconformity_id': active_id}"
+                    context="{'search_default_nonconformity_id': id, 'default_nonconformity_id': id}"
                     name="%(helpdesk_mgmt.helpdesk_ticket_action)d"
                     icon="fa-life-ring"
                 >

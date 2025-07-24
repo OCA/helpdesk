@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -29,6 +29,7 @@ msgid "Helpdesk Ticket Stage"
 msgstr ""
 
 #. module: helpdesk_mgmtsystem_nonconformity
+#. odoo-python
 #: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
 #: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_mgmtsystem_nonconformity
 #: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket__nonconformity_id
@@ -43,6 +44,7 @@ msgid "Nonconformity Stage"
 msgstr ""
 
 #. module: helpdesk_mgmtsystem_nonconformity
+#. odoo-python
 #: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
 #, python-format
 msgid "There are already linked nonconformities."

@@ -23,7 +23,7 @@
                     type="object"
                     name="action_open_nonconformity"
                     string="Nonconformity"
-                    attrs="{'invisible' : [('nonconformity_id', '=', False)]}"
+                    invisible="not nonconformity_id"
                 />
             </xpath>
             <field name="channel_id" position="after">

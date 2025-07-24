@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Management - Nonconformity",
     "summary": "Links helpdesk tickets with nonconformities",
-    "version": "15.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Tecnativa, Odoo Community Association (OCA)",

@@ -1,10 +1,10 @@
 # Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import common
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestMgmtsystemNonconformity(common.TransactionCase):
+class TestMgmtsystemNonconformity(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
