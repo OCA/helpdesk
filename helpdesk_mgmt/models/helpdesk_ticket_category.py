@@ -36,6 +36,7 @@ class HelpdeskCategory(models.Model):
     complete_name = fields.Char(
         compute="_compute_complete_name", store=True, recursive=True
     )
+    show_in_portal = fields.Boolean(default=True)
 
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):

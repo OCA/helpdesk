@@ -11,6 +11,12 @@
                     domain="[('active','=',False)]"
                 />
                 <separator />
+                <filter
+                    string="Displayed in portal"
+                    name="show_in_portal"
+                    domain="[('show_in_portal','=',True)]"
+                />
+                <separator />
                 <field name="name" filter_domain="[('name', 'ilike', self)]" />
                 <field name="parent_id" />
                 <field name="company_id" groups="base.group_multi_company" />
@@ -53,6 +59,7 @@
                     <group name="main">
                         <field name="parent_id" />
                         <field name="child_id" widget="many2many_tags" readonly="1" />
+                        <field name="show_in_portal" widget="boolean_toggle" />
                         <field name="company_id" groups="base.group_multi_company" />
                         <field name="active" invisible="1" />
                     </group>
@@ -68,6 +75,7 @@
                 <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="parent_id" />
+                <field name="show_in_portal" widget="boolean_toggle" />
                 <field
                     name="company_id"
                     optional="hide"

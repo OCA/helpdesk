@@ -46,7 +46,7 @@ class HelpdeskTicketController(http.Controller):
         company = request.env.company
         category_model = http.request.env["helpdesk.ticket.category"]
         categories = category_model.with_company(company.id).search(
-            [("active", "=", True)]
+            [("active", "=", True), ("show_in_portal", "=", True)]
         )
         email = http.request.env.user.email
         name = http.request.env.user.name
