@@ -232,3 +232,105 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         # check that both files are public (access_token is set)
         self.assertTrue(attachment_ids[0].access_token)
         self.assertTrue(attachment_ids[1].access_token)
+
+    def test_portal_ticket_user_assignment_logic(self):
+        """Test the behavior of user
+        assignment when a ticket is created from the portal."""
+
+        portal_user = new_test_user(
+            self.env,
+            login="test_portal_user",
+            groups="base.group_portal",
+        )
+        default_user = self.env["res.users"].create(
+            {
+                "name": "Default User",
+                "login": "default_user",
+                "email": "default@example.com",
+                "groups_id": [
+                    (6, 0, [self.env.ref("helpdesk_mgmt.group_helpdesk_user").id])
+                ],
+            }
+        )
+        category_with_default = self.env["helpdesk.ticket.category"].create(
+            {
+                "name": "Category with Default Partner",
+                "default_partner_id": default_user.id,
+            }
+        )
+        ticket_with_default_user = (
+            self.env["helpdesk.ticket"]
+            .with_user(portal_user)
+            .sudo()
+            .create(
+                {
+                    "name": "Ticket with default user",
+                    "category_id": category_with_default.id,
+                    "description": "",
+                }
+            )
+        )
+        category_without_default = self.env["helpdesk.ticket.category"].create(
+            {
+                "name": "Category without default user",
+            }
+        )
+        ticket_without_default_user = (
+            self.env["helpdesk.ticket"]
+            .with_user(portal_user)
+            .sudo()
+            .create(
+                {
+                    "name": "Ticket without default user",
+                    "category_id": category_without_default.id,
+                    "description": "",
+                }
+            )
+        )
+        self.assertEqual(
+            ticket_with_default_user.user_id,
+            default_user,
+            "Ticket should be assigned to the default user.",
+        )
+
+        self.assertEqual(
+            ticket_without_default_user.user_id,
+            portal_user,
+            "Ticket should be assigned to the portal user.",
+        )
+
+        ticket_by_internal_user = (
+            self.env["helpdesk.ticket"]
+            .with_user(default_user)
+            .create(
+                {
+                    "name": "Ticket by internal user",
+                    "category_id": category_with_default.id,
+                    "description": "",
+                }
+            )
+        )
+        self.assertEqual(
+            ticket_by_internal_user.user_id,
+            default_user,
+            "Ticket should be assigned to the internal user.",
+        )
+
+        self.env.company.helpdesk_mgmt_portal_select_team = True
+        ticket_with_option_enabled = (
+            self.env["helpdesk.ticket"]
+            .with_user(portal_user)
+            .sudo()
+            .create(
+                {
+                    "name": "Ticket with portal team option enabled",
+                    "category_id": category_with_default.id,
+                    "description": "",
+                }
+            )
+        )
+        self.assertEqual(
+            ticket_with_option_enabled.user_id,
+            portal_user,
+            "Ticket should be assigned to the portal user",
+        )

@@ -61,6 +61,10 @@
                         <field name="child_id" widget="many2many_tags" readonly="1" />
                         <field name="show_in_portal" widget="boolean_toggle" />
                         <field name="company_id" groups="base.group_multi_company" />
+                        <field
+                            name="default_partner_id"
+                            widget="many2one_avatar_user"
+                        />
                         <field name="active" invisible="1" />
                     </group>
                 </sheet>
@@ -81,6 +85,7 @@
                     optional="hide"
                     groups="base.group_multi_company"
                 />
+                <field name="default_partner_id" widget="many2one_avatar_user" />
             </tree>
         </field>
     </record>

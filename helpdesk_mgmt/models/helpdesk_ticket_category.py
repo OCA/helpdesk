@@ -37,6 +37,11 @@ class HelpdeskCategory(models.Model):
         compute="_compute_complete_name", store=True, recursive=True
     )
     show_in_portal = fields.Boolean(default=True)
+    default_partner_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Default Assigned Portal User",
+        domain=[("share", "=", False)],
+    )
 
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):

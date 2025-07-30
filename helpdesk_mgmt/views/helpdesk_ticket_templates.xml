@@ -218,8 +218,8 @@
                                 />
                             </div>
                             <div t-if="ticket.closed_date">
-                                    <strong>Close Date:</strong>
-                                    <span
+                                <strong>Close Date:</strong>
+                                <span
                                     t-field="ticket.closed_date"
                                     t-options='{"widget": "datetime"}'
                                 />
@@ -264,7 +264,7 @@
                                         <span class="fa fa-download" />
                                         <span t-esc="f.name" />
                                     </a>
-                                <br />
+                                    <br />
                                 </t>
                             </t>
                         </div>

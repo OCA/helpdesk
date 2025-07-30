@@ -205,6 +205,16 @@ class HelpdeskTicket(models.Model):
                 )
                 if channel_email_id:
                     vals["channel_id"] = channel_email_id.id
+            if self.env.user.share and vals.get("category_id"):
+                category = self.env["helpdesk.ticket.category"].browse(
+                    vals["category_id"]
+                )
+                if (
+                    category.default_partner_id
+                    and not self.env.company.helpdesk_mgmt_portal_select_team
+                ):
+                    vals["user_id"] = category.default_partner_id.id
+
         return super().create(vals_list)
 
     def copy(self, default=None):
