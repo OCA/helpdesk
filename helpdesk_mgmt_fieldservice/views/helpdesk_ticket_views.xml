@@ -16,29 +16,14 @@
                         class="btn btn-primary mb8"
                     />
                     <field name="fsm_order_ids">
-                        <list create="false">
-                            <field name="name" style="pointer-events:none;" />
-                            <field name="location_id" style="pointer-events:none;" />
-                            <field name="stage_id" style="pointer-events:none;" />
-                            <field name="person_id" style="pointer-events:none;" />
-                            <field
-                                name="scheduled_date_start"
-                                style="pointer-events:none;"
-                            />
-                            <field
-                                name="scheduled_date_end"
-                                style="pointer-events:none;"
-                            />
-                            <field
-                                name="scheduled_duration"
-                                style="pointer-events:none;"
-                            />
-                            <button
-                                name="action_view_order"
-                                string="Open"
-                                type="object"
-                                class="helpdesk_column"
-                            />
+                        <list create="false" editable="top" open_form_view="True">
+                            <field name="name" readonly="True" />
+                            <field name="location_id" readonly="True" />
+                            <field name="stage_id" readonly="True" />
+                            <field name="person_id" />
+                            <field name="scheduled_date_start" readonly="True" />
+                            <field name="scheduled_date_end" readonly="True" />
+                            <field name="scheduled_duration" readonly="True" />
                         </list>
                     </field>
                 </page>
