@@ -2,7 +2,7 @@
 # Copyright (C) 2020 - TODAY, Marcel Savegnago - Escodoo
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -22,7 +22,7 @@ class HelpdeskTicket(models.Model):
         for rec in self.filtered("stage_id.closed"):
             if rec.fsm_order_ids and not rec.all_orders_closed:
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Please complete all service orders "
                         "related to this ticket to close it."
                     )

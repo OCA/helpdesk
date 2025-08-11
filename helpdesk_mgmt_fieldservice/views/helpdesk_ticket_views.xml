@@ -2,11 +2,8 @@
 <!-- Copyright 2019 Open Source Integrators
      Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
      License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
-<!-- pylint:disable=dangerous-view-replace-wo-priority -->
 <odoo>
-    <!-- Helpdesk Ticket Form View -->
     <record id="helpdesk_ticket_view_service_request_form" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.service.request.form</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
         <field name="arch" type="xml">
@@ -19,7 +16,7 @@
                         class="btn btn-primary mb8"
                     />
                     <field name="fsm_order_ids">
-                        <tree create="false">
+                        <list create="false">
                             <field name="name" style="pointer-events:none;" />
                             <field name="location_id" style="pointer-events:none;" />
                             <field name="stage_id" style="pointer-events:none;" />
@@ -42,15 +39,12 @@
                                 type="object"
                                 class="helpdesk_column"
                             />
-                        </tree>
+                        </list>
                     </field>
                 </page>
             </page>
             <field name="partner_id" position="before">
-                <field name="partner_domain" invisible="1" />
-                <field name="all_partners" invisible="1" />
                 <field name="fsm_location_id" />
-                <field name="all_orders_closed" invisible="1" />
             </field>
             <field name="partner_id" position="attributes">
                 <attribute
@@ -100,7 +94,7 @@
     </record>
 
     <record id="helpdesk_ticket_tree_view_location" model="ir.ui.view">
-        <field name="name">helpdesk.ticket.tree.location</field>
+        <field name="name">helpdesk.ticket.list.location</field>
         <field name="model">helpdesk.ticket</field>
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
         <field name="arch" type="xml">

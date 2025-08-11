@@ -1,28 +1,26 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests import Form, TransactionCase
+
+from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
 
 class TestHelpdeskTicketFSMOrder(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.HelpdeskTicket = cls.env["helpdesk.ticket"]
-        cls.FsmOrder = cls.env["fsm.order"]
-        cls.FsmStage = cls.env["fsm.stage"]
+        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
         cls.partner = cls.env["res.partner"].create({"name": "Partner 1"})
         cls.user_demo = cls.env.ref("base.user_demo")
-        cls.HelpdeskTicketTeam = cls.env["helpdesk.ticket.team"]
         cls.fsm_team = cls.env["fsm.team"].create({"name": "FSM Team"})
         cls.fsm_stage_new = cls.env.ref("fieldservice.fsm_stage_new")
         cls.fsm_stage_cancelled = cls.env.ref("fieldservice.fsm_stage_cancelled")
-        cls.MailAlias = cls.env["mail.alias"]
         cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         cls.stage_completed = cls.env.ref("fieldservice.fsm_stage_completed")
         cls.test_location = cls.env.ref("fieldservice.test_location")
         cls.partner.service_location_id = cls.test_location
-        cls.mail_alias_id = cls.MailAlias.create(
+        cls.mail_alias_id = cls.env["mail.alias"].create(
             {
                 "alias_name": "Test Mail Alias",
                 "alias_model_id": cls.env["ir.model"]
@@ -30,11 +28,11 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
                 .id,
             }
         )
-        cls.team_id = cls.HelpdeskTicketTeam.create(
+        cls.team_id = cls.env["helpdesk.ticket.team"].create(
             {"name": "Team 1", "alias_id": cls.mail_alias_id.id}
         )
 
-        cls.ticket_1 = cls.HelpdeskTicket.create(
+        cls.ticket_1 = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test 1",
                 "description": "Ticket test",
@@ -43,7 +41,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
                 "fsm_location_id": cls.test_location.id,
             }
         )
-        cls.ticket_2 = cls.HelpdeskTicket.create(
+        cls.ticket_2 = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test 2",
                 "description": "Ticket test",
@@ -52,14 +50,14 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
                 "fsm_location_id": cls.test_location.id,
             }
         )
-        cls.fsm_order_no_ticket = cls.FsmOrder.create(
+        cls.fsm_order_no_ticket = cls.env["fsm.order"].create(
             {
                 "name": "No ticket order",
                 "location_id": cls.test_location.id,
                 "team_id": cls.fsm_team.id,
             }
         )
-        cls.fsm_stage_closed = cls.FsmStage.create(
+        cls.fsm_stage_closed = cls.env["fsm.stage"].create(
             {
                 "name": "Custom Closing Stage",
                 "stage_type": "order",
@@ -68,19 +66,18 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             }
         )
 
-    def _create_fsm_orders(self, fsm_order_obj):
-        f = Form(fsm_order_obj)
-        fsm_order = f.save()
-        return fsm_order
+    @classmethod
+    def _create_ticket_fsm_orders(cls, ticket, number: int = 1):
+        action = ticket.action_create_order()
+        model = cls.env[action["res_model"]].with_context(**action["context"])
+        return model.create([{}] * number)
 
     def test_helpdesk_ticket_fsm_order(self):
         """
         Checks actions related to the ticket and fieldservice
         """
         # checking action_create_order on fsm.order
-        action_create_order = self.ticket_1.action_create_order()
-        fsm_order_obj = self.FsmOrder.with_context(**action_create_order["context"])
-        fsm_orders = [self._create_fsm_orders(fsm_order_obj) for _ in range(5)]
+        fsm_orders = self._create_ticket_fsm_orders(self.ticket_1, 5)
         self.assertRecordValues(
             fsm_orders,
             [
@@ -137,10 +134,9 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         fsm_order_close_wizard = self.env["fsm.order.close.wizard"].with_context(
             **action_complete_last_order["context"]
         )
-        f = Form(fsm_order_close_wizard)
-        f.stage_id = self.stage_closed
-        close_wizard_form = f.save()
-        close_wizard_form.action_close_ticket()
+        with Form(fsm_order_close_wizard) as wizard:
+            wizard.stage_id = self.stage_closed
+        wizard.record.action_close_ticket()
         self.assertTrue(self.ticket_1.all_orders_closed)
         self.assertEqual(self.ticket_1.stage_id.name, self.stage_closed.name)
         self.assertEqual(self.ticket_1.resolution, "Just another resolution")
@@ -163,9 +159,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             "all_orders_closed should be False",
         )
 
-        action_create_order = self.ticket_1.action_create_order()
-        fsm_order_obj = self.FsmOrder.with_context(**action_create_order["context"])
-        fsm_orders = [self._create_fsm_orders(fsm_order_obj) for _ in range(3)]
+        fsm_orders = self._create_ticket_fsm_orders(self.ticket_1, 3)
 
         self.assertFalse(
             any(order.stage_id.is_closed for order in fsm_orders),

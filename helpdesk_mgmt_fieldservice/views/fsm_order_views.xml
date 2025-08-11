@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <!-- FieldService Order Form View -->
     <record id="view_fsm_order_ticket_form" model="ir.ui.view">
-        <field name="name">view.fsm.order.ticket.form</field>
         <field name="model">fsm.order</field>
         <field name="inherit_id" ref="fieldservice.fsm_order_form" />
         <field name="arch" type="xml">

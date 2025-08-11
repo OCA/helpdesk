@@ -3,3 +3,4 @@
 - Serpent Consulting Services Pvt. Ltd. \<<support@serpentcs.com>\>
 - Marcel Savegnago \<<marcel.savegnago@escodoo.com.br>\>
 - Italo Lopes \<<italo.lopes@camptocamp.com>\>
+- Iván Todorovich \<<ivan.todorovich@camptocamp.com>\>
