@@ -112,7 +112,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         # checking action_complete on fsm.order with ticket
         resolution = "High resolution"
         for idx, order in enumerate(fsm_orders[:-1]):
-            order.resolution = resolution + " %s" % str(idx + 1)
+            order.resolution = resolution + f" {str(idx + 1)}"
             order.action_complete()
         self.assertRecordValues(
             fsm_orders[:-1],

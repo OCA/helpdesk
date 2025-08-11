@@ -141,5 +141,4 @@
         name="All Tickets"
         parent="menu_helpdesk_op"
     />
-
 </odoo>
