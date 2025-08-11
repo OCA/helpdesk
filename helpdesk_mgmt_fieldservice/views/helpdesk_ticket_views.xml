@@ -99,25 +99,4 @@
             </field>
         </field>
     </record>
-
-    <menuitem
-        id="menu_helpdesk_op"
-        name="Operations"
-        parent="helpdesk_mgmt.helpdesk_ticket_main_menu"
-        sequence="10"
-    />
-
-    <menuitem
-        id="menu_helpdesk_fsm_order"
-        name="Service Orders"
-        action="fieldservice.action_fsm_dash_order"
-        parent="menu_helpdesk_op"
-        sequence="20"
-    />
-
-    <menuitem
-        id="helpdesk_mgmt.helpdesk_ticket_menu"
-        name="All Tickets"
-        parent="menu_helpdesk_op"
-    />
 </odoo>
