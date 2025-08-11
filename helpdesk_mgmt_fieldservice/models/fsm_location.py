@@ -8,30 +8,40 @@ from odoo import fields, models
 class FSMLocation(models.Model):
     _inherit = "fsm.location"
 
-    ticket_count = fields.Integer(compute="_compute_ticket_count", string="# Tickets")
+    ticket_count = fields.Integer(
+        compute="_compute_ticket_count",
+        string="# Tickets",
+    )
+    ticket_ids = fields.One2many(
+        "helpdesk.ticket",
+        "fsm_location_id",
+        string="Helpdesk Tickets",
+        readonly=True,
+    )
 
     def _compute_ticket_count(self):
-        for location in self:
-            location.ticket_count = self.env["helpdesk.ticket"].search_count(
-                [("fsm_location_id", "=", location.id)]
+        counts = dict(
+            self.env["helpdesk.ticket"]._read_group(
+                domain=[("fsm_location_id", "in", self.ids)],
+                groupby=["fsm_location_id"],
+                aggregates=["__count"],
             )
+        )
+        for rec in self:
+            rec.ticket_count = counts.get(rec, 0)
 
     def action_view_ticket(self):
-        ticket_ids = self.env["helpdesk.ticket"].search(
-            [("fsm_location_id", "=", self.id)]
-        )
         action = self.env["ir.actions.actions"]._for_xml_id(
-            "helpdesk_mgmt_fieldservice.action_fsm_location_ticket"
+            "helpdesk_mgmt.helpdesk_ticket_action"
         )
-        action["context"] = {}
-        if len(ticket_ids) == 1:
-            action["views"] = [
-                (self.env.ref("helpdesk_mgmt.ticket_view_form").id, "form")
-            ]
-            action["res_id"] = ticket_ids.ids[0]
+        action["context"] = {
+            "search_default_open": 1,
+            "default_fsm_location_id": len(self) == 1 and self.id,
+            "default_partner_id": len(self.partner_id) == 1 and self.partner_id.id,
+        }
+        if len(self.ticket_ids) == 1:
+            action["views"] = [(False, "form")]
+            action["res_id"] = self.ticket_ids.id
         else:
-            action["domain"] = [("id", "in", ticket_ids.ids)]
-            action["context"].update(
-                {"search_default_is_open": 1, "default_fsm_location_id": self.id}
-            )
+            action["domain"] = [("fsm_location_id", "in", self.ids)]
         return action

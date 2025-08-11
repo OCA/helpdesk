@@ -95,16 +95,14 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         self.assertEqual(
             action_view_ticket["context"],
             {
-                "search_default_is_open": 1,
+                "search_default_open": 1,
                 "default_fsm_location_id": self.test_location.id,
+                "default_partner_id": self.test_location.partner_id.id,
             },
         )
         self.ticket_2.fsm_location_id = False
         action_view_ticket = self.test_location.action_view_ticket()
-        self.assertEqual(
-            action_view_ticket["views"],
-            [(self.env.ref("helpdesk_mgmt.ticket_view_form").id, "form")],
-        )
+        self.assertEqual(action_view_ticket["views"], [(False, "form")])
         self.assertEqual(action_view_ticket["res_id"], self.ticket_1.id)
         # checking action_complete on fsm.order with ticket
         resolution = "High resolution"
