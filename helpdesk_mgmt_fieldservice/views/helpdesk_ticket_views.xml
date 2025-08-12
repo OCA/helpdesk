@@ -28,14 +28,8 @@
                     </field>
                 </page>
             </page>
-            <field name="partner_id" position="before">
+            <field name="partner_id" position="after">
                 <field name="fsm_location_id" />
-            </field>
-            <field name="partner_id" position="attributes">
-                <attribute
-                    name="domain"
-                >['|', ('service_location_id', '=', partner_domain), (all_partners, '=', True)]
-                </attribute>
             </field>
         </field>
     </record>

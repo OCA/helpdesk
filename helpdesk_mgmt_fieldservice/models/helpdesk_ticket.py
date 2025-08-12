@@ -10,12 +10,15 @@ class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     fsm_order_ids = fields.One2many("fsm.order", "ticket_id", string="Service Orders")
-    fsm_location_id = fields.Many2one("fsm.location", string="FSM Location")
+    fsm_location_id = fields.Many2one(
+        "fsm.location",
+        string="FSM Location",
+        compute="_compute_fsm_location_id",
+        store=True,
+        readonly=False,
+    )
     all_orders_closed = fields.Boolean(compute="_compute_all_closed", store=True)
     resolution = fields.Text()
-    # these fields are needed to obtain depreciation of onchange in v14
-    partner_domain = fields.Integer(compute="_compute_partner_domain")
-    all_partners = fields.Boolean(compute="_compute_partner_domain")
 
     @api.constrains("stage_id")
     def _validate_stage_fields(self):
@@ -28,34 +31,24 @@ class HelpdeskTicket(models.Model):
                     )
                 )
 
-    def _location_contact_fill(self, loc):
-        """loc is a boolean that lets us know if this is coming from the
-        partner onchange or the location onchange"""
-        if loc:
-            if self.fsm_location_id and self.partner_id:
-                if self.partner_id.service_location_id != self.fsm_location_id:
-                    self.partner_id = False
-        else:
-            if self.partner_id:
-                if not self.fsm_location_id:
-                    self.fsm_location_id = self.partner_id.service_location_id
-
-    # Updating domain via onchange is deprecated in odoo v14
-    @api.depends("fsm_location_id")
-    def _compute_partner_domain(self):
+    @api.depends("partner_id")
+    def _compute_fsm_location_id(self):
+        # When changing the partner, the default service location is set
+        # Unless the existing location is valid for the new partner
         for rec in self:
-            rec.partner_domain = False
-            rec.all_partners = True
-            if rec.fsm_location_id:
-                rec._location_contact_fill(True)
-                if rec.fsm_location_id and not rec.partner_id:
-                    rec.partner_domain = rec.fsm_location_id.id
-                    rec.all_partners = False
-
-    @api.onchange("partner_id")
-    def _onchange_partner_id_location(self):
-        if self.partner_id:
-            self._location_contact_fill(False)
+            if not rec.partner_id:
+                continue
+            if (
+                rec.partner_id.commercial_partner_id
+                == rec.fsm_location_id.commercial_partner_id
+            ):
+                continue
+            if rec.partner_id.service_location_id:
+                rec.fsm_location_id = rec.partner_id.service_location_id
+            elif rec.partner_id.commercial_partner_id.service_location_id:
+                rec.fsm_location_id = (
+                    rec.partner_id.commercial_partner_id.service_location_id
+                )
 
     def action_create_order(self):
         """

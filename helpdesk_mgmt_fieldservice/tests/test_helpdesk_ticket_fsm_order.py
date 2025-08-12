@@ -143,6 +143,35 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         self.assertEqual(self.fsm_order_no_ticket.stage_id, self.stage_completed)
         self.assertFalse(self.fsm_order_no_ticket.is_button)
 
+    def test_recompute_location_if_partner_with_default_location_is_set(self):
+        other_location = self.env.ref("fieldservice.location_1")
+        other_partner = other_location.partner_id
+        other_partner.service_location_id = other_location
+        self.ticket_1.partner_id = other_location.partner_id
+        self.assertEqual(self.ticket_1.fsm_location_id, other_location)
+
+    def test_recompute_location_if_commercial_partner_with_default_location_is_set(
+        self,
+    ):
+        other_location = self.env.ref("fieldservice.location_1")
+        other_partner = other_location.partner_id
+        other_partner.service_location_id = other_location
+        other_contact = self.env["res.partner"].create(
+            {
+                "name": "Other Contact",
+                "parent_id": other_partner.id,
+            }
+        )
+        self.ticket_1.partner_id = other_contact
+        self.assertEqual(self.ticket_1.fsm_location_id, other_location)
+
+    def test_keep_location_if_partner_without_default_location_is_set(self):
+        other_location = self.env.ref("fieldservice.location_1")
+        other_partner = other_location.partner_id
+        other_partner.service_location_id = False
+        self.ticket_1.partner_id = other_location.partner_id
+        self.assertEqual(self.ticket_1.fsm_location_id, self.test_location)
+
     def test_all_orders_closed(self):
         """
         One of the things this test is for is avoiding hardcoding the name
