@@ -17,13 +17,16 @@ class HelpdeskTicket(models.Model):
         store=True,
         readonly=False,
     )
-    all_orders_closed = fields.Boolean(compute="_compute_all_closed", store=True)
     resolution = fields.Text()
 
     @api.constrains("stage_id")
     def _validate_stage_fields(self):
-        for rec in self.filtered("stage_id.closed"):
-            if rec.fsm_order_ids and not rec.all_orders_closed:
+        for rec in self:
+            if (
+                self.stage_id.closed
+                and rec.fsm_order_ids
+                and not all(rec.fsm_order_ids.mapped("stage_id.is_closed"))
+            ):
                 raise ValidationError(
                     self.env._(
                         "Please complete all service orders "
@@ -67,13 +70,3 @@ class HelpdeskTicket(models.Model):
         res = self.env.ref("fieldservice.fsm_order_form", False)
         action["views"] = [(res and res.id or False, "form")]
         return action
-
-    @api.depends("fsm_order_ids.stage_id.is_closed")
-    def _compute_all_closed(self):
-        for ticket in self:
-            if ticket.fsm_order_ids:
-                ticket.all_orders_closed = all(
-                    order.stage_id.is_closed for order in ticket.fsm_order_ids
-                )
-            else:
-                ticket.all_orders_closed = False

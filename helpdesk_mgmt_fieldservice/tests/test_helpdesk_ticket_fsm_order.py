@@ -1,6 +1,7 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from odoo.exceptions import ValidationError
 from odoo.tests import Form, TransactionCase
 
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
@@ -122,6 +123,10 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         fsm_orders[-1].resolution = "Just another resolution"
         action_complete_last_order = fsm_orders[-1].action_complete()
         self.assertEqual(
+            action_complete_last_order["res_model"],
+            "fsm.order.close.wizard",
+        )
+        self.assertEqual(
             action_complete_last_order["context"],
             {
                 "default_ticket_id": self.ticket_1.id,
@@ -135,7 +140,6 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         with Form(fsm_order_close_wizard) as wizard:
             wizard.stage_id = self.stage_closed
         wizard.record.action_close_ticket()
-        self.assertTrue(self.ticket_1.all_orders_closed)
         self.assertEqual(self.ticket_1.stage_id.name, self.stage_closed.name)
         self.assertEqual(self.ticket_1.resolution, "Just another resolution")
         # check action_complete on fsm.order no ticket
@@ -172,64 +176,25 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         self.ticket_1.partner_id = other_location.partner_id
         self.assertEqual(self.ticket_1.fsm_location_id, self.test_location)
 
-    def test_all_orders_closed(self):
-        """
-        One of the things this test is for is avoiding hardcoding the name
-        of the fsm.stage in the compute method of all_orders_closed
-        as was previously done
-        """
+    def test_can_close_ticket_if_no_fsm_order(self):
+        self.ticket_1.stage_id = self.stage_closed
 
-        self.assertFalse(self.ticket_1.fsm_order_ids)
-        self.assertFalse(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: with no linked FSM Order, "
-            "all_orders_closed should be False",
-        )
+    def test_can_close_ticket_if_all_fsm_orders_are_closed(self):
+        orders = self._create_ticket_fsm_orders(self.ticket_1, 2)
+        orders.stage_id = self.fsm_stage_closed
+        self.ticket_1.stage_id = self.stage_closed
 
-        fsm_orders = self._create_ticket_fsm_orders(self.ticket_1, 3)
+    def test_can_not_close_ticket_if_none_fsm_order_is_closed(self):
+        self._create_ticket_fsm_orders(self.ticket_1, 2)
+        with self.assertRaisesRegex(
+            ValidationError, "Please complete all service orders"
+        ):
+            self.ticket_1.stage_id = self.stage_closed
 
-        self.assertFalse(
-            any(order.stage_id.is_closed for order in fsm_orders),
-            "FSM Orders should all be open by default",
-        )
-
-        self.assertFalse(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: with multiple orders open, "
-            "all_orders_closed should be False",
-        )
-
-        fsm_orders[0].stage_id = self.fsm_stage_closed
-        self.assertFalse(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: only one order closed, "
-            "all_orders_closed should still be False",
-        )
-
-        fsm_orders[1].ticket_id = False
-        self.assertFalse(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: one order closed, one open, one unlinked, "
-            "all_orders_closed should still be False",
-        )
-
-        fsm_orders[2].stage_id = self.fsm_stage_cancelled
-        self.assertTrue(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: one order closed, one cancelled, one unlinked, "
-            "all_orders_closed should be True",
-        )
-
-        fsm_orders[1].ticket_id = self.ticket_1.id
-        self.assertFalse(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: relinking previous order "
-            "all_orders_closed should be False",
-        )
-
-        fsm_orders[1].stage_id.is_closed = True
-        self.assertTrue(
-            self.ticket_1.all_orders_closed,
-            "Helpdesk Ticket: changed 'is_closed' attribute on order's state"
-            "all_orders_closed should be True",
-        )
+    def test_can_not_close_ticket_if_only_some_fsm_order_are_closed(self):
+        orders = self._create_ticket_fsm_orders(self.ticket_1, 2)
+        orders[0].stage_id = self.fsm_stage_closed
+        with self.assertRaisesRegex(
+            ValidationError, "Please complete all service orders"
+        ):
+            self.ticket_1.stage_id = self.stage_closed

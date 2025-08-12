@@ -42,7 +42,7 @@
             <filter name="open" position="after">
                 <filter
                     string="Closed FSM Orders"
-                    domain="[('stage_id.closed', '=', False), ('all_orders_closed', '=', True)]"
+                    domain="[('stage_id.closed', '=', False), ('fsm_order_ids', 'any', [('stage_id.is_closed', '=', False)])]"
                     name="closed_fsm_order"
                 />
             </filter>
