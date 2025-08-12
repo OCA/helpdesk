@@ -1,5 +1,6 @@
 import time
 
+from odoo.tests import new_test_user
 from odoo.tests.common import Form
 
 from .common import TestHelpdeskTicketBase
@@ -212,3 +213,49 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         with Form(new_ticket.sudo()) as new_ticket_form:
             new_ticket_form.team_id = new_team
             self.assertFalse(new_ticket_form.user_id)
+
+    def test_ticket_test_with_stage_problem(self):
+        new_stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
+        in_progress_stage = self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+        )
+
+        new_user_1 = new_test_user(
+            self.env,
+            login="helpdesk_mgmt-user1",
+            groups="helpdesk_mgmt.group_helpdesk_user",
+        )
+
+        new_user_2 = new_test_user(
+            self.env,
+            login="helpdesk_mgmt-user2",
+            groups="helpdesk_mgmt.group_helpdesk_user",
+        )
+
+        new_team = self.env["helpdesk.ticket.team"].create(
+            {"name": "New Team", "user_ids": [(4, new_user_1.id), (4, new_user_2.id)]}
+        )
+
+        new_ticket = (
+            self.env["helpdesk.ticket"]
+            .with_user(new_user_1)
+            .create(
+                {
+                    "name": "New Ticket",
+                    "description": "Description",
+                    "team_id": new_team.id,
+                    "user_id": new_user_1.id,
+                    "stage_id": new_stage.id,
+                }
+            )
+        )
+        self.assertEqual(new_team.id, new_ticket.team_id.id)
+        self.assertEqual(new_stage.id, new_ticket.stage_id.id)
+
+        with Form(new_ticket.sudo()) as new_ticket_form:
+            new_ticket_form.stage_id = in_progress_stage
+            new_ticket_form.save()
+            self.assertEqual(in_progress_stage.id, new_ticket_form.stage_id.id)
+            new_ticket_form.user_id = new_user_2
+            new_ticket_form.save()
+            self.assertEqual(in_progress_stage.id, new_ticket_form.stage_id.id)
