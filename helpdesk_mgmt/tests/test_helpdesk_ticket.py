@@ -188,16 +188,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         """The ticket should take the current user
         and the first team assigned to that user
         """
-        new_ticket = (
-            self.env["helpdesk.ticket"]
-            .with_user(self.user_own)
-            .create(
-                {
-                    "name": "New Ticket",
-                    "description": "Description",
-                }
-            )
-        )
+        new_ticket = self._create_ticket(self.team_a, user=self.user_own)
         self.assertEqual(new_ticket.user_id, self.user_own)
         self.assertEqual(new_ticket.team_id, self.team_a)
         # Change the user to another one with the same team
@@ -251,3 +242,13 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         wizard_rec.action_confirm()
         self.assertEqual(self.ticket.duplicate_id, self.ticket_b_unassigned)
         self.assertIn(self.ticket_b_unassigned.duplicate_ids, self.ticket)
+
+    def test_ticket_change_user_no_stage_reset(self):
+        in_progress_stage = self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
+        )
+        new_ticket = self._create_ticket(self.team_a, user=self.user_own)
+        with Form(new_ticket.sudo()) as new_ticket_form:
+            new_ticket_form.stage_id = in_progress_stage
+            new_ticket_form.user_id = self.user
+        self.assertEqual(new_ticket_form.stage_id, in_progress_stage)
