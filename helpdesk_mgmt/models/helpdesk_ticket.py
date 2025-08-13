@@ -19,8 +19,13 @@ class HelpdeskTicket(models.Model):
 
     @api.depends("team_id")
     def _compute_stage_id(self):
+        # This compute is executed on user change, even if not changing team, so let's
+        # apply a preventive check for not changing stage if the current one is still
+        # applicable to the current team
         for ticket in self:
-            ticket.stage_id = ticket.team_id._get_applicable_stages()[:1]
+            applicable_stages = ticket.team_id._get_applicable_stages()
+            if ticket.stage_id not in applicable_stages:
+                ticket.stage_id = applicable_stages[:1]
 
     @api.depends("team_id")
     def _compute_user_id(self):
