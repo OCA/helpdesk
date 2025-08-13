@@ -15,12 +15,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 
 #. module: helpdesk_portal_restriction
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_category_ids
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_person__helpdesk_category_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_category_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_users__helpdesk_category_ids
 msgid "Available category"
 msgstr ""
 
 #. module: helpdesk_portal_restriction
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_team_ids
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_person__helpdesk_team_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_team_ids
 msgid "Available teams"
 msgstr ""

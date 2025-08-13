@@ -17,12 +17,16 @@ msgstr ""
 "X-Generator: Weblate 5.6.2\n"
 
 #. module: helpdesk_portal_restriction
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_category_ids
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_person__helpdesk_category_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_category_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_users__helpdesk_category_ids
 msgid "Available category"
 msgstr "Categoria disponibile"
 
 #. module: helpdesk_portal_restriction
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_team_ids
+#: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_person__helpdesk_team_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_team_ids
 msgid "Available teams"
 msgstr "Team disponibili"
