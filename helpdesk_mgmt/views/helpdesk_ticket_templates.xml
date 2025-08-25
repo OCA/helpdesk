@@ -38,6 +38,7 @@
         inherit_id="portal.portal_docs_entry"
         primary="True"
     >
+
         <xpath expr="//span[@t-out='title']" position="after">
             <t t-call="helpdesk_mgmt.portal_ticket_new_button">
                 <t t-set="_btn_classes" t-value="'btn-sm'" />
@@ -61,6 +62,7 @@
                 <t t-set="url" t-value="'/my/tickets'" />
                 <t t-set="text">Follow and comment your helpdesk tickets</t>
                 <t t-set="placeholder_count" t-value="'ticket_count'" />
+                <t t-set="config_card" t-value="True"/>
             </t>
         </div>
     </template>
