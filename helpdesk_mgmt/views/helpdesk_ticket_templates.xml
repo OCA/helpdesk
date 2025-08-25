@@ -38,6 +38,9 @@
         inherit_id="portal.portal_docs_entry"
         primary="True"
     >
+        <xpath expr="//t[@t-set='force_show']" position="attributes">
+            <attribute name="t-value">True</attribute>
+        </xpath>
         <xpath expr="//span[@t-out='title']" position="after">
             <t t-call="helpdesk_mgmt.portal_ticket_new_button">
                 <t t-set="_btn_classes" t-value="'btn-sm'" />
