@@ -11,11 +11,14 @@ class HelpdeskTicket(models.Model):
     def _check_ticket_has_empty_fields(self):
         self.ensure_one()
         error_message = False
-        field_ids = self.stage_id.validate_field_ids
+        field_ids = self.stage_id.sudo().validate_field_ids
         field_names = [x.name for x in field_ids]
         values = self.read(field_names)
+        labels = self.fields_get(field_names, attributes=["string"])
         fields = [
-            field.field_description for field in field_ids if not values[0][field.name]
+            labels[field.name]["string"]
+            for field in field_ids
+            if not values[0][field.name]
         ]
         fields = ", ".join(fields)
         if fields:
