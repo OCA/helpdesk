@@ -15,15 +15,18 @@
                                 <field name="create_new_ticket" />
                                 <field
                                 name="dst_ticket_name"
-                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                                invisible="not create_new_ticket"
+                                required="create_new_ticket"
                             />
                                 <field
                                 name="dst_helpdesk_team_id"
-                                attrs="{'invisible': [('create_new_ticket', '=', False)], 'required': [('create_new_ticket', '=', True)]}"
+                                invisible="not create_new_ticket"
+                                required="create_new_ticket"
                             />
                                 <field
                                 name="dst_ticket_id"
-                                attrs="{'invisible': [('create_new_ticket', '=', True)], 'required': [('create_new_ticket', '=', False)]}"
+                                invisible="not create_new_ticket"
+                                required="create_new_ticket"
                             />
                             </group>
                         </group>

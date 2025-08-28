@@ -4,7 +4,7 @@ from odoo.tests import common
 class TestHelpdeskTicketMerge(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
-        super(TestHelpdeskTicketMerge, cls).setUpClass()
+        super().setUpClass()
         cls.HelpdeskTicketMerge = cls.env["helpdesk.ticket.merge"]
         cls.ticket_1 = cls._create_ticket(cls, "Ticket 1", "Description for Ticket 1")
         cls.ticket_2 = cls._create_ticket(cls, "Ticket 2", "Description for Ticket 2")
