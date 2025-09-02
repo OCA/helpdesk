@@ -45,7 +45,7 @@
         id="portal_helpdesk_ticket_page"
         inherit_id="helpdesk_mgmt.portal_helpdesk_ticket_page"
     >
-        <xpath expr="//span[@t-field='ticket.create_date']/.." position="after">
+        <xpath expr="//span[@t-field='ticket.category_id']/.." position="before">
             <div t-if="ticket.type_id" name="ticket_type_id">
                 <strong>Type:</strong>
                 <span t-esc="ticket.type_id.name" />
