@@ -12,3 +12,5 @@
   - Rafa Morant
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- [Dixmit](https://www.dixmit.com)
+  - Enric Tobella

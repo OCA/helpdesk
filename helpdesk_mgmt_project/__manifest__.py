@@ -14,6 +14,7 @@
         "views/helpdesk_ticket_team_view.xml",
         "views/project_view.xml",
         "views/project_task_view.xml",
+        "views/project_milestone.xml",
     ],
     "development_status": "Production/Stable",
     "auto_install": True,
