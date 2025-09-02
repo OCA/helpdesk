@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="project_milestone_form_view">
+        <field name="model">project.milestone</field>
+        <field name="inherit_id" ref="project.project_milestone_view_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="action_view_helpdesk_ticket"
+                    type="object"
+                    title="View Tickets"
+                    string="View Tickets"
+                    class="oe_stat_button"
+                    icon="fa-ticket"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                    invisible="helpdesk_ticket_count == 0"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <field
+                            name="helpdesk_ticket_count"
+                            widget="statinfo"
+                            string="Tickets"
+                        />
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="project_milestone_tree_view">
+        <field name="model">project.milestone</field>
+        <field name="inherit_id" ref="project.project_milestone_view_tree" />
+        <field name="arch" type="xml">
+            <button name="action_view_tasks" position="after">
+                <button
+                    name="action_view_helpdesk_ticket"
+                    type="object"
+                    title="View Helpdesk Tickets"
+                    string="View Helpdesk Tickets"
+                    class="btn btn-link float-end"
+                    invisible="helpdesk_ticket_count == 0"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
+            </button>
+        </field>
+    </record>
+</odoo>

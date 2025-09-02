@@ -24,13 +24,34 @@ msgstr "Fornece rótulos aos tickets na vista kanban dos projetos."
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_ids
 msgid "Helpdesk Ticket"
 msgstr "Ticket de Helpdesk"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_count
+msgid "Helpdesk Ticket Count"
+msgstr ""
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
 msgstr "Equipa de Ticket de Helpdesk"
+
+#. module: helpdesk_mgmt_project
+#: model:ir.actions.act_window,name:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
+msgid "Helpdesk Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_project
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__milestone_id
+msgid "Milestone"
+msgstr ""
+
+#. module: helpdesk_mgmt_project
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
+msgid "No tickets found. Let's create one!"
+msgstr ""
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
@@ -52,6 +73,11 @@ msgid "Project"
 msgstr "Projeto"
 
 #. module: helpdesk_mgmt_project
+#: model:ir.model,name:helpdesk_mgmt_project.model_project_milestone
+msgid "Project Milestone"
+msgstr ""
+
+#. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_task
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__task_id
 msgid "Task"
@@ -71,8 +97,8 @@ msgstr "Nº de Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.edit_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_form_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_form2
-#, python-format
 msgid "Tickets"
 msgstr "Tickets"
 
@@ -81,3 +107,13 @@ msgstr "Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
 msgstr "Usar Tickets como"
+
+#. module: helpdesk_mgmt_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_tree_view
+msgid "View Helpdesk Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt_project
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_form_view
+msgid "View Tickets"
+msgstr ""

@@ -43,7 +43,31 @@
                     context="{'default_project_id': project_id}"
                     groups="project.group_project_user"
                 />
+                <t groups="project.group_project_milestone">
+                    <field
+                        name="milestone_id"
+                        domain="[('project_id', '=', project_id)]"
+                        groups="project.group_project_user"
+                        context="{'default_project_id': project_id}"
+                    />
+                </t>
             </xpath>
+        </field>
+    </record>
+
+    <record
+        id="action_view_helpdesk_ticket_for_milestone"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Helpdesk Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
+        <field name="context">{'default_milestone_id': active_id}</field>
+        <field name="domain">[('milestone_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No tickets found. Let's create one!
+            </p>
         </field>
     </record>
 </odoo>
