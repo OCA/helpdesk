@@ -73,7 +73,7 @@ msgstr "Duração (Hora(s))"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "End work"
-msgstr "Fim do Travalho"
+msgstr "Fim do Trabalho"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket
