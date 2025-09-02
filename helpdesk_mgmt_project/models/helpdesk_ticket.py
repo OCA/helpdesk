@@ -15,6 +15,19 @@ class HelpdeskTicket(models.Model):
         store=True,
         tracking=True,
     )
+    milestone_id = fields.Many2one(
+        "project.milestone",
+        store=True,
+        tracking=True,
+        readonly=False,
+        compute="_compute_milestone_id",
+    )
+
+    @api.depends("task_id")
+    def _compute_milestone_id(self):
+        for record in self:
+            if record.task_id:
+                record.milestone_id = record.task_id.milestone_id
 
     @api.depends("project_id")
     def _compute_task_id(self):
