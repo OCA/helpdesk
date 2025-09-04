@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="view_helpdesk_team_form_project_domain" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.team.form.project.domain</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="project_domain" string="Project Domain">
+                    <group>
+                        <field
+                            name="project_domain"
+                            widget="domain"
+                            options="{'model': 'project.project', 'in_dialog': True}"
+                            help="Domain to filter projects available for selection in tickets"
+                        />
+
+                        <field
+                            name="project_domain_python"
+                            widget="ace"
+                            options="{'mode': 'python'}"
+                            placeholder="Enter Python code here. This domain will be automatically combined with company and team domains using AND. Available variables: ticket, env, user, company, AND, OR, normalize."
+                            help="Python code to generate dynamic project domain based on ticket data. This domain will be automatically combined with company and team domains using AND. Available variables: ticket, env, user, company, AND, OR, normalize. The code can either assign to 'domain' variable OR return a list directly."
+                        />
+                    </group>
+                </page>
+                <page name="task_domain" string="Task Domain">
+                    <group>
+                        <field
+                            name="task_domain"
+                            widget="domain"
+                            options="{'model': 'project.task', 'in_dialog': True}"
+                            help="Domain to filter tasks available for selection in tickets"
+                        />
+
+                        <field
+                            name="task_domain_python"
+                            widget="ace"
+                            options="{'mode': 'python'}"
+                            placeholder="Enter Python code here. This domain will be automatically combined with company and team domains using AND. Available variables: ticket, env, user, company, AND, OR, normalize."
+                            help="Python code to generate dynamic task domain based on ticket data. This domain will be automatically combined with company and team domains using AND. Available variables: ticket, env, user, company, AND, OR, normalize. The code can either assign to 'domain' variable OR return a list directly."
+                        />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

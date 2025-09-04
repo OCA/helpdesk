@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="res_config_settings_view_form_project_domain" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.helpdesk.project.domain</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40" />
+        <field name="inherit_id" ref="helpdesk_mgmt.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div class="app_settings_block" data-key="helpdesk_mgmt" position="inside">
+                <h2>Project &amp; Task Domain Configuration</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div>
+                            <field
+                                name="helpdesk_mgmt_project_domain"
+                                widget="domain"
+                                options="{'model': 'project.project', 'in_dialog': True}"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="helpdesk_mgmt_project_domain"
+                                string="Project Domain"
+                            />
+                            <div class="text-muted">
+                                Global domain to filter projects available for selection in helpdesk tickets.
+                                This will be applied if no specific domain is set in the team.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div>
+                            <field
+                                name="helpdesk_mgmt_task_domain"
+                                widget="domain"
+                                options="{'model': 'project.task', 'in_dialog': True}"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="helpdesk_mgmt_task_domain"
+                                string="Task Domain"
+                            />
+                            <div class="text-muted">
+                                Global domain to filter tasks available for selection in helpdesk tickets.
+                                This will be applied if no specific domain is set in the team.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</odoo>

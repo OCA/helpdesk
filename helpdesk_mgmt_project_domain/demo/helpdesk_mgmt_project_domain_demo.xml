@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+        <!-- Demo Company Configuration - Update main company -->
+        <record id="base.main_company" model="res.company">
+            <field name="helpdesk_mgmt_project_domain">[('active', '=', True)]</field>
+            <field name="helpdesk_mgmt_task_domain">[('active', '=', True)]</field>
+        </record>
+
+        <!-- Demo Helpdesk Team - Internal Projects (used in project_project_2 and project_project_3) -->
+        <record id="demo_helpdesk_team_internal" model="helpdesk.ticket.team">
+            <field name="name">Internal Projects Team</field>
+            <field
+            name="project_domain"
+            eval="[('tag_ids', 'in', [ref('project.project_tags_04')])]"
+        />
+            <field
+            name="task_domain"
+            eval=" [('tag_ids', 'in', [ref('project.project_tags_01')])]"
+        />
+        </record>
+
+        <!-- Demo Helpdesk Team - External Projects (used in project_project_1) -->
+        <record id="demo_helpdesk_team_external" model="helpdesk.ticket.team">
+            <field name="name">External Projects Team</field>
+            <field
+            name="project_domain"
+            eval="[('tag_ids', 'in', [ref('project.project_tags_05')])]"
+        />
+                    <field
+            name="task_domain_python"
+        ># Filter tasks not assigned to anyone
+domain = [('user_ids', '=', False)]</field>
+
+        </record>
+
+        <!-- Demo Helpdesk Team - Client Projects -->
+        <record id="demo_helpdesk_team_experiment" model="helpdesk.ticket.team">
+            <field name="name">Client Projects Team</field>
+            <field name="project_domain_python"># Filter projects by partner
+if ticket.partner_id:
+   domain = [('commercial_partner_id', '=', ticket.commercial_partner_id.id)]
+else:
+   domain = [('id', '=', 0)]</field>
+        </record>
+
+        <!-- Demo Helpdesk Team - Mixed Tags (Internal or External) -->
+        <record id="demo_helpdesk_team_mixed" model="helpdesk.ticket.team">
+            <field name="name">Mixed Projects Team</field>
+            <field
+            name="project_domain"
+            eval="['|', ('tag_ids', 'in', [ref('project.project_tags_04')]), ('tag_ids', 'in', [ref('project.project_tags_05')])]"
+        />
+            <field
+            name="task_domain"
+            eval="['|', ('tag_ids', 'in', [ref('project.project_tags_01')]), ('tag_ids', 'in', [ref('project.project_tags_02')])]"
+        />
+        </record>
+
+</odoo>

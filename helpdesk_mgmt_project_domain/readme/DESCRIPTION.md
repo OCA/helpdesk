@@ -1,0 +1,1 @@
+This module allows you to configure domains to filter projects and tasks available for selection in helpdesk tickets. It provides both static domain configuration and dynamic Python-based filtering for enhanced flexibility.
