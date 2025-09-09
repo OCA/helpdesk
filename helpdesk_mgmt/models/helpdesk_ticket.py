@@ -14,6 +14,7 @@ class HelpdeskTicket(models.Model):
         "mail.activity.mixin",
         "portal.mixin",
         "mail.tracking.duration.mixin",
+        "mail.thread.main.attachment",
     ]
     _track_duration_field = "stage_id"
 

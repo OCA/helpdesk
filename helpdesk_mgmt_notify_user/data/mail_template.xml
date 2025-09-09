@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Email
+        template -->
+        <record id="mail_template_old_assign" model="mail.template">
+            <field name="name">Helpdesk : Notification à l'ancien assigné</field>
+            <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+            <field name="subject">
+                Changement d'assigné sur le ticket "{{object.name}}"
+            </field>
+            <field name="email_to">{{object.former_user_id.partner_id.email}}</field>
+            <field
+                name="body_html"
+            ><![CDATA[
+                <p>Bonjour <t t-esc="object.former_user_id.name" />,</p>
+                <p>Le ticket <strong>
+                        <t t-esc="object.name" />
+                    </strong> auquel vous étiez
+                    assigné(e) vient d'être attribué à un autre utilisateur.</p>
+                <p>
+                    <ul>
+                        <li>Nouveau responsable : <t t-esc="object.user_id.name" /></li>
+                        <li>Motif : Réaffectation manuelle de la demande</li>
+                    </ul>
+                </p>
+                <p>
+                    <a t-att-href="object.get_portal_url()">Accéder au ticket</a>
+                </p>]]>
+            </field>
+            <field name="auto_delete" eval="True" />
+            <field name="email_from">{{(object.team_id and object.team_id.user_id and
+                object.team_id.user_id.email) or user.email or ''}}</field>
+        </record>
+    </data>
+    <data noupdate="1">
+        <record id="mail_template_new_assign" model="mail.template">
+            <field name="name">Helpdesk : Notification au nouvel assigné</field>
+            <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
+            <field name="subject">
+                Nouveau ticket assigné : {{object.name}}
+            </field>
+
+            <field name="email_to">{{object.user_id.partner_id.email}}</field>
+            <field
+                name="body_html"
+            ><![CDATA[
+                <p>Bonjour <t t-esc="object.user_id.name" /></p>
+                <p>Le ticket <strong>
+                        <t t-esc="object.name" />
+                    </strong> vient de vous être
+                    assigné.</p>
+                <p>
+                    <ul>
+                        <li>Origine : <t t-esc="object.team_id.name" /></li>
+                        <li>Description du ticket : <t
+                                t-esc="object.description or ''"
+                            /></li>
+                    </ul>
+                </p>
+                <p>
+                    <a t-att-href="object.get_portal_url()">Accéder au ticket</a>
+                </p>]]>
+            </field>
+            <field name="auto_delete" eval="True" />
+            <field name="email_from">{{(object.team_id and object.team_id.user_id and
+                object.team_id.user_id.email) or user.email or ''}}</field>
+        </record>
+    </data>
+</odoo>
