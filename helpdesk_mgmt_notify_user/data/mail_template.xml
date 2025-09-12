@@ -6,9 +6,9 @@
         <record id="mail_template_old_assign" model="mail.template">
             <field name="name">Helpdesk : Notification à l'ancien assigné</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
-            <field name="subject">
-                Changement d'assigné sur le ticket "{{object.name}}"
-            </field>
+            <field
+                name="subject"
+            >Changement d'assigné sur le ticket "{{object.name}}"</field>
             <field name="email_to">{{object.former_user_id.partner_id.email}}</field>
             <field
                 name="body_html"
@@ -37,9 +37,7 @@
         <record id="mail_template_new_assign" model="mail.template">
             <field name="name">Helpdesk : Notification au nouvel assigné</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
-            <field name="subject">
-                Nouveau ticket assigné : {{object.name}}
-            </field>
+            <field name="subject">Nouveau ticket assigné : {{object.name}}</field>
 
             <field name="email_to">{{object.user_id.partner_id.email}}</field>
             <field
