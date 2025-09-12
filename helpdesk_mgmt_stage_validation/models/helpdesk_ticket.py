@@ -1,7 +1,7 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import _, api, models
+from odoo import api, models
 from odoo.exceptions import ValidationError
 
 
@@ -19,7 +19,7 @@ class HelpdeskTicket(models.Model):
         ]
         fields = ", ".join(fields)
         if fields:
-            error_message = _(
+            error_message = self.env._(
                 "Ticket %(ticket)s can't be moved to the stage %(stage)s until "
                 "the following fields are set: %(fields)s.",
                 ticket=self.name,
