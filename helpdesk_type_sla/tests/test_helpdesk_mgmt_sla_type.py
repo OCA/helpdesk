@@ -16,11 +16,17 @@ class TestHelpDeskRule(CommonHelpdeskMgmtSla):
         cls.type1 = cls.env["helpdesk.ticket.type"].create({"name": "Type One"})
         cls.type2 = cls.env["helpdesk.ticket.type"].create({"name": "Type Two"})
 
-    @freeze_time(fields.Datetime.now() + timedelta(days=7))
-    def test_sla_rule_stage(self):
+    def test_sla_rule_type(self):
         self.sla.type_ids = [Command.set([self.type1.id])]
-        self.ticket1.type_id = self.type1
-        self.ticket2.type_id = self.type2
-        self.env["helpdesk.sla"].check_sla()
-        self.assertTrue(self.ticket1.sla_expired)
-        self.assertFalse(self.ticket2.sla_expired)
+        ticket1 = self.get_ticket(self.team1, {"type_id": self.type1.id})
+        ticket2 = self.get_ticket(self.team2, {"type_id": self.type2.id})
+        with freeze_time(fields.Datetime.now() + timedelta(days=7)):
+            self.assertTrue(ticket1.sla_expired)
+            self.assertFalse(ticket2.sla_expired)
+
+    def test_sla_rule_no_type(self):
+        ticket1 = self.get_ticket(self.team1, {"type_id": self.type1.id})
+        ticket2 = self.get_ticket(self.team2, {"type_id": self.type2.id})
+        with freeze_time(fields.Datetime.now() + timedelta(days=7)):
+            self.assertTrue(ticket1.sla_expired)
+            self.assertTrue(ticket2.sla_expired)

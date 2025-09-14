@@ -19,6 +19,11 @@ msgid "Helpdesk SLA"
 msgstr ""
 
 #. module: helpdesk_type_sla
+#: model:ir.model,name:helpdesk_type_sla.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_type_sla
 #: model:ir.model.fields,field_description:helpdesk_type_sla.field_helpdesk_sla__type_ids
 msgid "Types"
 msgstr ""
