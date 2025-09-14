@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Helpdesk Ticket SLA
 ===================
@@ -17,7 +13,7 @@ Helpdesk Ticket SLA
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -32,7 +28,13 @@ Helpdesk Ticket SLA
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds SLA funcionality in Helpdesk module.
+This module extends the Helpdesk application by introducing Service Level Agreement (SLA) functionality.
+
+- Define and manage multiple SLAs per ticket.
+- Track deadlines and compliance for each SLA independently.
+- Gain better visibility into support performance and ensure service commitments are met.
+
+With this module, helpdesk teams can enforce response and resolution targets, improving accountability and customer satisfaction.
 
 **Table of contents**
 
@@ -47,12 +49,11 @@ To configure this module, you need to:
 #. Allow SLA for a Helpdesk's Team
 #. Set a resource calendar
 
-Allow SLA
+Configure SLA
 ~~~~~~~~~~~~~~~
 
 #. Go to Helpdesk > Configuration > SLA.
 #. Edit or create a new SLA.
-#. Check Allow SLA option to allow SLA for that team.
 #. Select a days or hours for that SLA.
 
 Usage
@@ -60,6 +61,8 @@ Usage
 
 #. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets dashboard.
 #. In the Kanban view, you can see datetime in two colors: Green and Red. If is green, SLA is ok, if is red, SLA is wrong.
+#. In the form, you will see all affected SLAs that were computed on creation.
+#. If the SLA should change due a change on the ticket, you can recompute it.
 
 Bug Tracker
 ===========
@@ -86,6 +89,9 @@ Contributors
 
   * Héctor Garrido
   * Bojan Anchev <bojan.anchev@camptocamp.com>
+
+* [Dixmit](https://www.dixmit.com)
+  * Enric Tobella
 
 Maintainers
 ~~~~~~~~~~~

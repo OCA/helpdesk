@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_sla_report_pivot_view">
+        <field name="model">helpdesk.sla.report</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="state" type="col" />
+                <field name="date" interval="month" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="helpdesk_sla_report_search_view">
+        <field name="model">helpdesk.sla.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="team_id" />
+                <field name="partner_id" />
+                <separator />
+                <filter name="filter_date" date="date" default_period="month" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="helpdesk_sla_report_act_window">
+        <field name="name">SLA Report</field>
+        <field name="res_model">helpdesk.sla.report</field>
+        <field name="view_mode">pivot</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="helpdesk_sla_report_menu">
+        <field name="name">SLA Report</field>
+        <field name="parent_id" ref="helpdesk_mgmt.helpdesk_ticket_reporting_menu" />
+        <field name="action" ref="helpdesk_sla_report_act_window" />
+        <field name="sequence" eval="20" />
+    </record>
+</odoo>
