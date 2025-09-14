@@ -39,7 +39,8 @@
                             <field name="team_ids" widget="many2many_tags" />
                             <field name="category_ids" widget="many2many_tags" />
                             <field name="tag_ids" widget="many2many_tags" />
-                            <field name="stage_ids" widget="many2many_tags" />
+                            <field name="ignore_stage_ids" widget="many2many_tags" />
+                            <field name="stage_id" />
                             <field
                                 name="domain"
                                 widget="domain"

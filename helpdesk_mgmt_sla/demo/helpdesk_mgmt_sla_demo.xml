@@ -9,6 +9,7 @@
             name="team_ids"
             eval="[Command.set([ref('helpdesk_mgmt.helpdesk_team_2')])]"
         />
+        <field name="stage_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_done" />
         <field name="hours">2</field>
     </record>
 </odoo>

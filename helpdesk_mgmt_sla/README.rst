@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Helpdesk Ticket SLA
 ===================
@@ -17,7 +13,7 @@ Helpdesk Ticket SLA
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -32,7 +28,16 @@ Helpdesk Ticket SLA
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds SLA funcionality in Helpdesk module.
+This module extends the Helpdesk application by introducing Service
+Level Agreement (SLA) functionality.
+
+- Define and manage multiple SLAs per ticket.
+- Track deadlines and compliance for each SLA independently.
+- Gain better visibility into support performance and ensure service
+  commitments are met.
+
+With this module, helpdesk teams can enforce response and resolution
+targets, improving accountability and customer satisfaction.
 
 **Table of contents**
 
@@ -47,13 +52,12 @@ To configure this module, you need to:
 1. Allow SLA for a Helpdesk's Team
 2. Set a resource calendar
 
-Allow SLA
----------
+Configure SLA
+-------------
 
 1. Go to Helpdesk > Configuration > SLA.
 2. Edit or create a new SLA.
-3. Check Allow SLA option to allow SLA for that team.
-4. Select a days or hours for that SLA.
+3. Select a days or hours for that SLA.
 
 Usage
 =====
@@ -62,6 +66,10 @@ Usage
    dashboard.
 2. In the Kanban view, you can see datetime in two colors: Green and
    Red. If is green, SLA is ok, if is red, SLA is wrong.
+3. In the form, you will see all affected SLAs that were computed on
+   creation.
+4. If the SLA should change due a change on the ticket, you can
+   recompute it.
 
 Bug Tracker
 ===========
@@ -92,6 +100,10 @@ Contributors
 - `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
 
   - Bhavesh Heliconia
+
+- `Dixmit <https://www.dixmit.com>`__
+
+  - Enric Tobella
 
 Maintainers
 -----------
