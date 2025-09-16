@@ -80,3 +80,51 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
             1,
             "Helpdesk Ticket: Task have one realted tickets.",
         )
+
+    def test_compute_ticket_count(self):
+        """Test computation of ticket_count and todo_ticket_count on tasks"""
+        self.assertEqual(self.task_project1.ticket_count, 2)
+        self.assertEqual(self.task_project1.todo_ticket_count, 2)
+
+        # Close one ticket and check counts again
+        self.ticket.write({"stage_id": self.stage_closed.id})
+        self.assertEqual(self.task_project1.ticket_count, 2)
+        self.assertEqual(self.task_project1.todo_ticket_count, 1)
+
+    def test_action_view_ticket(self):
+        """Test action_view_ticket for correct domain and view modes"""
+        action = self.task_project1.action_view_ticket()
+        self.assertEqual(
+            action["domain"], f"[('id','in',{self.task_project1.ticket_ids.ids})]"
+        )
+        # If only one ticket, should open in form view
+        single_ticket_task = self.env["project.task"].create(
+            {"name": "Single Ticket Task", "project_id": self.project1.id}
+        )
+        self.ticket.write({"task_id": single_ticket_task.id})
+        action = single_ticket_task.action_view_ticket()
+        self.assertEqual(action["res_id"], self.ticket.id)
+
+    def test_project_update_buttons(self):
+        """Test that the project update button is only visible to users with the
+        'Project / Project Manager' group.
+        """
+        user = self._create_new_internal_user(groups="project.group_project_user")
+
+        buttons = self.project1.with_user(user)._get_stat_buttons()
+        self.assertFalse(
+            any(
+                button["action"] == "action_open_helpdesk_tickets" for button in buttons
+            )
+        )
+        buttons = self.project1._get_stat_buttons()
+        self.assertTrue(
+            any(
+                button["action"] == "action_open_helpdesk_tickets" for button in buttons
+            )
+        )
+        action = self.project1.action_open_helpdesk_tickets()
+        tickets = self.env[action["res_model"]].search(action["domain"])
+        self.assertEqual(len(tickets), 2)
+        self.assertIn(self.ticket, tickets)
+        self.assertIn(self.ticket2, tickets)
