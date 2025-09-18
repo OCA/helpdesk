@@ -28,8 +28,9 @@ class HelpdeskTicket(models.Model):
             item.lead_count = mapped_data.get(item.id, 0)
 
     def action_open_leads(self):
-        action = self.env.ref("crm.crm_lead_action_pipeline")
-        result = action.read()[0]
+        result = self.env["ir.actions.act_window"]._for_xml_id(
+            "crm.crm_lead_action_pipeline"
+        )
         if len(self.lead_ids) == 1:
             res = self.env.ref("crm.crm_lead_view_form", False)
             result["views"] = [(res and res.id or False, "form")]
