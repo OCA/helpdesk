@@ -140,3 +140,32 @@ class HelpdeskTeam(models.Model):
         values["alias_defaults"] = defaults = safe_eval(self.alias_defaults or "{}")
         defaults["team_id"] = self.id
         return values
+
+    @api.model
+    def retrieve_dashboard(self):
+        return sorted(self._retrieve_dashboard(), key=lambda d: d.get("sequence", 99))
+
+    def _retrieve_dashboard(self):
+        no_team_tickets = self.env["helpdesk.ticket"].search_count(
+            [("team_id", "=", False), ("stage_id.closed", "=", False)]
+        )
+        return [
+            {
+                "name": self.env._("Open Tickets without team"),
+                "value": no_team_tickets,
+                "sequence": 1,
+                "icon": "fa-exclamation-circle",
+                "show": no_team_tickets > 0,
+                "action": "helpdesk_mgmt.helpdesk_ticket_action_unassigned",
+            },
+            {
+                "name": self.env._("Open Tickets"),
+                "value": self.env["helpdesk.ticket"].search_count(
+                    [("stage_id.closed", "=", False)]
+                ),
+                "sequence": 2,
+                "icon": "fa-life-ring",
+                "show": True,
+                "action": "helpdesk_mgmt.helpdesk_ticket_action_opened",
+            },
+        ]
