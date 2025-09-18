@@ -12,6 +12,20 @@
         </field>
         <field name="domain">[('team_id', '=', active_id)]</field>
     </record>
+    <record id="helpdesk_ticket_action_unassigned" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field
+            name="domain"
+        >[('team_id', '=', False), ("stage_id.closed", "=", False)]</field>
+    </record>
+    <record id="helpdesk_ticket_action_opened" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[("stage_id.closed", "=", False)]</field>
+    </record>
     <record id="helpdesk_ticket_view_search" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.search</field>
         <field name="model">helpdesk.ticket</field>
