@@ -17,26 +17,25 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: helpdesk_type_sla
-#: model:ir.model.fields,field_description:helpdesk_type_sla.field_helpdesk_sla__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: helpdesk_type_sla
 #: model:ir.model,name:helpdesk_type_sla.model_helpdesk_sla
 msgid "Helpdesk SLA"
 msgstr "Mesa de Ayuda SLA"
 
 #. module: helpdesk_type_sla
-#: model:ir.model.fields,field_description:helpdesk_type_sla.field_helpdesk_sla__id
-msgid "ID"
-msgstr "ID"
-
-#. module: helpdesk_type_sla
-#: model:ir.model.fields,field_description:helpdesk_type_sla.field_helpdesk_sla____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
+#: model:ir.model,name:helpdesk_type_sla.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
 
 #. module: helpdesk_type_sla
 #: model:ir.model.fields,field_description:helpdesk_type_sla.field_helpdesk_sla__type_ids
 msgid "Types"
 msgstr "Tipos"
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
