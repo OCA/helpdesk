@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-09-26 14:06+0000\n"
+"PO-Revision-Date: 2025-09-19 08:11+0000\n"
 "Last-Translator: jakobkrabbe <jakob@syscare.se>\n"
 "Language-Team: none\n"
 "Language: sv\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -29,7 +29,7 @@ msgstr "<em class=\"font-weight-normal text-muted\">Ärenden i skede:</em>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_new_button
 msgid "<i class=\"fa fa-plus\"/> New"
-msgstr ""
+msgstr "<i class=\"fa fa-plus\"/> Ny"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -39,26 +39,30 @@ msgid ""
 "to you.</p>\n"
 "            "
 msgstr ""
+"<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
+"                <p>Biljetten <t t-out=\"object.number\"/> har blivit "
+"tilldelad till dig.</p>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-end\">Stage:</small>"
-msgstr ""
+msgstr "<small class=\"text-end\">Läge:</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-muted\">Assignee</small>"
-msgstr ""
+msgstr "<small class=\"text-muted\">Övergatare</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-muted\">Customer</small>"
-msgstr ""
+msgstr "<small class=\"text-muted\">Kund</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "<span class=\"fw-bolder\">View</span>"
-msgstr ""
+msgstr "<span class=\"fw-bolder\">Vy</span>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -158,6 +162,81 @@ msgid ""
 "                </table>\n"
 "            "
 msgstr ""
+"<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;\""
+">\n"
+"                    <tbody>\n"
+"                        <!-- HEADER -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">"
+"\n"
+"                                <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
+"color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                                    <tr>\n"
+"                                        <td valign=\"middle\" align=\"right\""
+">\n"
+"                                            <img t-att-src="
+"\"'/logo.png?company=%s' % object.company_id.id\" style="
+"\"padding: 0px; margin: 0px; height: auto; width: 80px;\" t-att-alt="
+"\"'%s' % object.company_id.name\"/>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <!-- CONTENT -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">"
+"\n"
+"                                <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-"
+"color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                                    <tbody>\n"
+"                                        <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                            <p>Hej <t t-out="
+"\"object.user_id.name\"/>,</p>\n"
+"                                            <p>Ärendet \"<t t-out=\"object."
+"display_name\"/>\" har avslutats.</p>\n"
+"                                        </td>\n"
+"                                    </tbody>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <!-- FOOTER -->\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"min-width: 590px;\">"
+"\n"
+"                                <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
+"color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                                    <tr>\n"
+"                                        <td valign=\"middle\" align=\"left\" "
+"style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                            <t t-out="
+"\"object.company_id.phone\"/>\n"
+"                                        </td>\n"
+"                                        <td valign=\"middle\" align=\"left\" "
+"style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                            <t t-out="
+"\"object.company_id.email\"/>\n"
+"                                        </td>\n"
+"                                        <td valign=\"middle\" align=\"left\" "
+"style="
+"\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                            <t t-out="
+"\"object.company_id.website\"/>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
@@ -1059,7 +1138,7 @@ msgstr "Min aktivitet Deadline"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "My Followed Tickets"
-msgstr "My Followed Biljetter"
+msgstr "Mina följda ärenden"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_my_tickets_action
@@ -1607,22 +1686,22 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Ticket"
-msgstr "Biljett"
+msgstr "Ärende"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.assignment_email_template
 msgid "Ticket Assignment"
-msgstr "Tilldelning av biljett"
+msgstr "Tilldelning av ärenden"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
-msgstr "Biljett skapad"
+msgstr "Ärende skapad"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr "Biljett skeende Sök"
+msgstr "Ärendehantering Sök"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
@@ -1641,7 +1720,7 @@ msgstr "Ticket Tags"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
-msgstr "Antal aktiva biljetter"
+msgstr "Antal aktiva ärenden"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_count
@@ -1649,17 +1728,17 @@ msgstr "Antal aktiva biljetter"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
-msgstr "Antal biljetter"
+msgstr "Antal ärenden"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,description:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket created"
-msgstr "Biljett skapad"
+msgstr "Ärende skapad"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__number
 msgid "Ticket number"
-msgstr "Biljettnummer"
+msgstr "Ärendenummer"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
@@ -1674,7 +1753,7 @@ msgstr "Biljettnummer"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "Tickets"
-msgstr "Biljetter"
+msgstr "Ärenden"
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -1708,7 +1787,7 @@ msgstr "Ej tilldelad"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unassigned tickets"
-msgstr "Otilldelade biljetter"
+msgstr "Otilldelade ärenden"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
@@ -1721,7 +1800,7 @@ msgstr "Obevakad"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unattended tickets"
-msgstr "Obevakade biljetter"
+msgstr "Obevakade ärenden"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
@@ -1734,12 +1813,12 @@ msgstr "Användare"
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_own
 msgid "User: Personal tickets"
-msgstr "Användare: Personalbiljetter"
+msgstr "Användare: Personalärenden"
 
 #. module: helpdesk_mgmt
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user_team
 msgid "User: Team tickets"
-msgstr "Användare: Team biljetter"
+msgstr "Användare: Lagärenden"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_ids
@@ -1779,7 +1858,7 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
-"{{object.company_id.name}} Tilldelning av biljett (Ref {{object.number or 'n/"
+"{{object.company_id.name}} Tilldelning av ärenden (Ref {{object.number or 'n/"
 "a' }})"
 
 #~ msgid "<strong class=\"d-block mb-2\">Attachments</strong>"
