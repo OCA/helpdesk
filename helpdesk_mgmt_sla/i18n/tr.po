@@ -17,12 +17,26 @@ msgstr ""
 "X-Generator: Weblate 5.10.4\n"
 
 #. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.inherit_helpdesk_ticket_view_form
+msgid ""
+"<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"SLA Deadline\" "
+"title=\"SLA Deadline\"/>"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__accomplished
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__accomplished
+msgid "Accomplished"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
 msgid "Action Needed"
 msgstr "Eylem Gerekli"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__active
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__active
 msgid "Active"
 msgstr "Aktif"
 
@@ -47,16 +61,17 @@ msgid "Activity Type Icon"
 msgstr "Aktivite Simgesi Tipi"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_ids
+msgid "Applicable SLAs"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "Apply on"
 msgstr "Uygula"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
-msgid "Archive"
-msgstr "Arşivle"
-
-#. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
 msgid "Archived"
 msgstr "Arşivlenmiş"
@@ -72,19 +87,46 @@ msgid "Categories"
 msgstr "Kategoriler"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__color
+msgid "Color"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__consumed_time
+msgid "Consumed time"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__create_uid
 msgid "Created by"
 msgstr "Oluşturan"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__create_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__create_date
 msgid "Created on"
 msgstr "Oluşturulma"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__date
+msgid "Date"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__days
 msgid "Days"
 msgstr "Günler"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__deadline
+msgid "Deadline"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -98,10 +140,22 @@ msgstr "İlkenin tanımı..."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__display_name
 msgid "Display Name"
 msgstr "Görünen İsim"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__expected_stage_id
+msgid "Expected Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__expired
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__expired
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__expired
+msgid "Expired"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__domain
@@ -114,11 +168,6 @@ msgid "Followers"
 msgstr "Takipçiler"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Takipçiler (Kanal)"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Takipçiler (Ortaklar)"
@@ -129,17 +178,20 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr ""
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
-#: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
-#: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
-msgid "Generate Helpdesk SLA alerts from cron"
-msgstr "Cron'dan Yardım Masası Hizmet Seviyesi Anlaşması uyarıları oluşturun"
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla
 msgid "Helpdesk SLA"
 msgstr "Yardım Masası Hizmet Seviyesi Anlaşması"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla_report
+msgid "Helpdesk SLA Report"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
@@ -158,13 +210,14 @@ msgstr "Yardım Masası Destek Kayıtı Ekibi"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__hours
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__hours
 msgid "Hours"
 msgstr "Saat"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__id
 msgid "ID"
 msgstr ""
 
@@ -180,7 +233,6 @@ msgstr "İstisnai bir etkinliği belirtmek için kullanılan simge."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "İşaretliyse, yeni mesajlar dikkatinize sunulacak."
 
@@ -190,31 +242,41 @@ msgid "If checked, some messages have a delivery error."
 msgstr "İşaretliyse, bazı mesajlar gönderi hatası içermektedir."
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__ignore_stage_ids
+msgid "Ignore Stages"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__on_hold
+msgid "In Hold"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__in_progress
+msgid "In Progress"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_is_follower
 msgid "Is Follower"
 msgstr "Takipçi"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team____last_update
-msgid "Last Modified on"
-msgstr "Son Güncelleme"
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__last_state_date
+msgid "Last State Date"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__write_uid
 msgid "Last Updated by"
 msgstr "Son Güncelleyen"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__write_date
 msgid "Last Updated on"
 msgstr "Son Güncelleme"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Ana Ek"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
@@ -233,6 +295,8 @@ msgstr "Aktivitelerimin Zaman Sınırı"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__name
 msgid "Name"
 msgstr "Adı"
 
@@ -268,8 +332,8 @@ msgstr "Hata sayısı"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "İşlem gerektiren mesaj sayısı"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
@@ -277,9 +341,20 @@ msgid "Number of messages with delivery error"
 msgstr "Teslimat hatası olan mesaj sayısı"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Okunmamış mesaj sayısı"
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__on_going
+msgid "Ongoing"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#. odoo-python
+#: code:addons/helpdesk_mgmt_sla/models/helpdesk_ticket_sla.py:0
+msgid "Operator is not valid"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__rating_ids
+msgid "Ratings"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -292,15 +367,26 @@ msgid "Responsible User"
 msgstr "Sorumlu Kullanıcı"
 
 #. module: helpdesk_mgmt_sla
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
-msgid "Restore"
-msgstr "Geri yükle"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "SLA"
 msgstr "Hizmet Seviyesi Anlaşması"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_view_search
+msgid "SLA Expired"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_view_search
+msgid "SLA Not Expired"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.actions.act_window,name:helpdesk_mgmt_sla.helpdesk_sla_report_act_window
+#: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla_report_menu
+msgid "SLA Report"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_deadline
@@ -313,9 +399,30 @@ msgid "SLA expired"
 msgstr "Hizmet Seviyesi Anlaşmasının süresi dolmuş"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_ids
-msgid "Stages"
-msgstr "Aşamalar"
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.inherit_helpdesk_ticket_view_form
+msgid "Set SLA"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__sla_id
+msgid "Sla"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_fits
+msgid "Sla Fits"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_id
+msgid "Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__state
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__state
+msgid "State"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_state
@@ -341,6 +448,11 @@ msgid "Target"
 msgstr "Hedef"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__team_id
+msgid "Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__team_sla
 msgid "Team SLA"
 msgstr "Hizmet Seviyesi Anlaşması Ekibi"
@@ -351,19 +463,21 @@ msgid "Teams"
 msgstr "Ekipler"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__ticket_sla_ids
+msgid "Ticket Sla"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_decoration
 msgid "Type of the exception activity on record."
 msgstr "Kayıtta bir istisna etkinliğini gösteren simge."
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
-msgid "Unread Messages"
-msgstr "Okunmamış Mesajlar"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Okunmamış Mesaj Sayacı"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
@@ -402,3 +516,37 @@ msgid ""
 msgstr ""
 "saatler\n"
 "                                <br/>"
+
+#~ msgid "Archive"
+#~ msgstr "Arşivle"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Takipçiler (Kanal)"
+
+#~ msgid "Generate Helpdesk SLA alerts from cron"
+#~ msgstr ""
+#~ "Cron'dan Yardım Masası Hizmet Seviyesi Anlaşması uyarıları oluşturun"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Son Güncelleme"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Ana Ek"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "İşlem gerektiren mesaj sayısı"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Okunmamış mesaj sayısı"
+
+#~ msgid "Restore"
+#~ msgstr "Geri yükle"
+
+#~ msgid "Stages"
+#~ msgstr "Aşamalar"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Okunmamış Mesajlar"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Okunmamış Mesaj Sayacı"
