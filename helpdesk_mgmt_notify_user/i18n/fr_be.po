@@ -1,0 +1,59 @@
+# Translation for helpdesk_mgmt_notify_user in fr_BE
+msgid ""
+msgstr ""
+"Project-Id-Version: helpdesk_mgmt_notify_user\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-21 00:00+0000\n"
+"PO-Revision-Date: 2025-09-21 00:00+0000\n"
+"Language: fr_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Helpdesk: Notification to previous assignee"
+msgstr "Helpdesk : Notification à l'ancien assigné"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Change of assignee on ticket \"{{object.name}}\""
+msgstr "Changement d'assigné sur le ticket \"{{object.name}}\""
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Hello"
+msgstr "Bonjour"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "The ticket <strong>{{object.name}}</strong> you were assigned to has been assigned to another user."
+msgstr "Le ticket <strong>{{object.name}}</strong> auquel vous étiez assigné(e) vient d'être attribué à un autre utilisateur."
+
+#. module: helpdesk_mgmt_notify_user
+msgid "New assignee"
+msgstr "Nouveau responsable"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Reason: Manual reassignment of the request"
+msgstr "Motif : Réaffectation manuelle de la demande"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Access the ticket"
+msgstr "Accéder au ticket"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Helpdesk: Notification to new assignee"
+msgstr "Helpdesk : Notification au nouvel assigné"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "New assigned ticket: {{object.name}}"
+msgstr "Nouveau ticket assigné : {{object.name}}"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "The ticket <strong>{{object.name}}</strong> has just been assigned to you."
+msgstr "Le ticket <strong>{{object.name}}</strong> vient de vous être assigné."
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Source"
+msgstr "Origine"
+
+#. module: helpdesk_mgmt_notify_user
+msgid "Ticket description"
+msgstr "Description du ticket"
