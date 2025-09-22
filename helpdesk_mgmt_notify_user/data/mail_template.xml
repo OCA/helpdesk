@@ -2,10 +2,9 @@
 <odoo>
     <data noupdate="1">
         <!-- Email template -->
-        <record id="mail_template_old_assign_en" model="mail.template">
+        <record id="mail_template_old_assign" model="mail.template">
             <field name="auto_delete" eval="True" />
-            <field name="email_from">{{(object.team_id and object.team_id.user_id and
-                object.team_id.user_id.email) or user.email or ''}}</field>
+            <field name="email_from">{{ user.email_formatted}}</field>
             <field name="name">Helpdesk: Notification to previous assignee</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="subject">Change of assignee on ticket "{{object.name}}"</field>
@@ -30,7 +29,7 @@
         </record>
     </data>
     <data noupdate="1">
-        <record id="mail_template_new_assign_en" model="mail.template">
+        <record id="mail_template_new_assign" model="mail.template">
             <field name="name">Helpdesk: Notification to new assignee</field>
             <field name="model_id" ref="helpdesk_mgmt.model_helpdesk_ticket" />
             <field name="subject">New assigned ticket: {{object.name}}</field>
@@ -55,8 +54,7 @@
                 </p>]]>
             </field>
             <field name="auto_delete" eval="True" />
-            <field name="email_from">{{(object.team_id and object.team_id.user_id and
-                object.team_id.user_id.email) or user.email or ''}}</field>
+            <field name="email_from">{{ user.email_formatted }}</field>
         </record>
     </data>
 </odoo>
