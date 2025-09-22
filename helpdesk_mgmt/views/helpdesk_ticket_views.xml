@@ -40,6 +40,7 @@
                 <field name="commercial_partner_id" />
                 <field name="user_id" />
                 <field name="name" />
+                <field name="category_id" />
                 <field name="tag_ids" />
                 <field name="stage_id" />
                 <filter
@@ -134,6 +135,12 @@
                         name="group_stage"
                         domain="[]"
                         context="{'group_by':'stage_id'}"
+                    />
+                    <filter
+                        string="Category"
+                        name="group_category"
+                        domain="[]"
+                        context="{'group_by':'category_id'}"
                     />
                     <filter
                         string="Tag"
@@ -240,6 +247,7 @@
                 <field name="partner_id" optional="hide" widget="many2one_avatar" />
                 <field name="partner_name" optional="show" />
                 <field name="user_id" optional="show" widget="many2one_avatar_user" />
+                <field name="category_id" optional="hide" />
                 <field name="unattended" column_invisible="1" />
                 <field name="closed" column_invisible="1" />
                 <field
