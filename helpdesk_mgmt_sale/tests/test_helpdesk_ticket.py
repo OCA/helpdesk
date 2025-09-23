@@ -55,3 +55,46 @@ class TestHelpdeskTicketSale(BaseCommon):
         self.assertEqual(
             action["context"]["default_ticket_ids"], [Command.link([self.ticket.id])]
         )
+
+    def test_helpdesk_ticket_link_sale_order_wizard(self):
+        action = self.ticket.action_open_link_sale_order()
+        context = action["context"]
+        self.assertEqual(context["default_ticket_id"], self.ticket.id)
+        self.assertEqual(
+            context["default_commercial_partner_id"],
+            self.partner.commercial_partner_id.id,
+        )
+
+        wizard = (
+            self.env["helpdesk.ticket.link.sale.order.wizard"]
+            .with_context(**context)
+            .create({})
+        )
+
+        # Pre-existing sale orders are already linked to the ticket
+        self.assertEqual(len(wizard.sale_orders_ids), 0)
+
+        # Create a new sale order not linked to any ticket
+        sale_order = self.env["sale.order"].create({"partner_id": self.partner.id})
+
+        # Reopen the wizard to refresh available sale orders
+        action = self.ticket.action_open_link_sale_order()
+        context = action["context"]
+        self.assertEqual(len(context["default_sale_orders_ids"]), 1)
+        self.assertIn(sale_order.id, context["default_sale_orders_ids"])
+        wizard = (
+            self.env["helpdesk.ticket.link.sale.order.wizard"]
+            .with_context(**context)
+            .create({})
+        )
+
+        # Verify the wizard now lists the newly created sale order
+        self.assertEqual(len(wizard.sale_orders_ids), 1)
+        self.assertIn(sale_order, wizard.sale_orders_ids)
+
+        # Confirm linking the selected sale order to the ticket
+        wizard.action_confirm()
+
+        # Check that the ticket's sale_order_ids now includes the new sale order
+        self.assertIn(sale_order, self.ticket.sale_order_ids)
+        self.assertEqual(self.ticket.so_count, 3)
