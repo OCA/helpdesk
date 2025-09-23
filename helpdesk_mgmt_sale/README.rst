@@ -44,8 +44,13 @@ Usage
 To associate orders to Helpdesk tickets:
 
 1. Create or modify a Helpdesk ticket.
-2. In the ticket view, you will find a **Sales Order** Smartbutton which
-   will show the number of orders associated to the ticket.
+2. In the ticket view, you will find
+
+   -  a **Sales Order** Smartbutton which will show the number of orders
+      associated to the ticket.
+   -  a **Link Sale Orders** button to link existing orders to the
+      ticket.
+
 3. Clicking on the Smartbutton will open a view with all the sales
    orders related to the current ticket.
 4. To create an order associated to the ticket click on the **Create**
@@ -72,13 +77,17 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pilar Vargas
+   -  Pilar Vargas
 
-- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+-  `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
 
-  - Bhavesh Heliconia
+   -  Bhavesh Heliconia
+
+-  `Camptocamp <https://www.camptocamp.com>`__:
+
+   -  Vincent Van Rossem
 
 Maintainers
 -----------
