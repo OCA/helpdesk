@@ -4,6 +4,7 @@
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tools import html2plaintext
 
 
 class HelpdeskTicket(models.Model):
@@ -66,6 +67,7 @@ class HelpdeskTicket(models.Model):
             "default_ticket_id": self.id,
             "default_priority": self.priority,
             "default_location_id": self.fsm_location_id.id,
+            "default_description": html2plaintext(self.description).strip(),
         }
         res = self.env.ref("fieldservice.fsm_order_form", False)
         action["views"] = [(res and res.id or False, "form")]

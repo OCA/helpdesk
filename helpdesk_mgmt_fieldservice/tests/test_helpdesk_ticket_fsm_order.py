@@ -3,6 +3,7 @@
 
 from odoo.exceptions import ValidationError
 from odoo.tests import Form, TransactionCase
+from odoo.tools import html2plaintext
 
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
@@ -86,6 +87,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
                     "ticket_id": self.ticket_1.id,
                     "priority": self.ticket_1.priority,
                     "location_id": self.test_location.id,
+                    "description": html2plaintext(self.ticket_1.description).strip(),
                 }
                 for _ in range(5)
             ],
