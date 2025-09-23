@@ -23,3 +23,24 @@ class HelpdeskTicket(models.Model):
             "default_partner_id": self.partner_id.id,
         }
         return action
+
+    def action_open_link_sale_order(self):
+        self.ensure_one()
+        commercial_partner = self.partner_id.commercial_partner_id
+        sale_orders = self.env["sale.order"].search(
+            [
+                ("partner_id.commercial_partner_id", "=", commercial_partner.id),
+                ("ticket_ids", "=", False),
+            ]
+        )
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "helpdesk.ticket.link.sale.order.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_ticket_id": self.id,
+                "default_commercial_partner_id": commercial_partner.id,
+                "default_sale_orders_ids": sale_orders.ids,
+            },
+        }
