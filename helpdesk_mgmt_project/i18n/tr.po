@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-05-08 14:24+0000\n"
+"PO-Revision-Date: 2025-09-24 16:42+0000\n"
 "Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: none\n"
 "Language: tr\n"
@@ -31,7 +31,7 @@ msgstr "Yardım Masası Destek Kayıtı"
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_count
 msgid "Helpdesk Ticket Count"
-msgstr ""
+msgstr "Yardım Masası Destek Kaydı Sayısı"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
@@ -41,17 +41,17 @@ msgstr "Yardım Masası Destek Kayıtı Ekibi"
 #. module: helpdesk_mgmt_project
 #: model:ir.actions.act_window,name:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
 msgid "Helpdesk Tickets"
-msgstr ""
+msgstr "Yardım Masası Talepleri"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__milestone_id
 msgid "Milestone"
-msgstr ""
+msgstr "Dönüm Noktası"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
 msgid "No tickets found. Let's create one!"
-msgstr ""
+msgstr "Bilet bulunamadı. Hadi bir tane oluşturalım!"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
@@ -75,7 +75,7 @@ msgstr "Proje"
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_milestone
 msgid "Project Milestone"
-msgstr ""
+msgstr "Proje Dönüm Noktası"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_task
@@ -111,9 +111,9 @@ msgstr "Destek Kayıtlarını şunun için kullan"
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_tree_view
 msgid "View Helpdesk Tickets"
-msgstr ""
+msgstr "Yardım Masası Destek Kayıtlarını Görüntüle"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_form_view
 msgid "View Tickets"
-msgstr ""
+msgstr "Destek Kayıtlarını Görüntüle"
