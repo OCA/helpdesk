@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-08 10:43+0000\n"
+"PO-Revision-Date: 2025-09-26 18:43+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1340,13 +1340,13 @@ msgstr "Aperto"
 #. odoo-python
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
 msgid "Open Tickets"
-msgstr ""
+msgstr "Ticket aperti"
 
 #. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
 msgid "Open Tickets without team"
-msgstr ""
+msgstr "Apri ticket senza team"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
