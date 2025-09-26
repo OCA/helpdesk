@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-29 16:34+0000\n"
+"PO-Revision-Date: 2025-09-26 18:43+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
@@ -31,7 +31,7 @@ msgstr "Ticket assistenza clienti"
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_count
 msgid "Helpdesk Ticket Count"
-msgstr ""
+msgstr "Conteggio ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
@@ -41,17 +41,17 @@ msgstr "Team ticket assistenza clienti"
 #. module: helpdesk_mgmt_project
 #: model:ir.actions.act_window,name:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
 msgid "Helpdesk Tickets"
-msgstr ""
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__milestone_id
 msgid "Milestone"
-msgstr ""
+msgstr "Milestone"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
 msgid "No tickets found. Let's create one!"
-msgstr ""
+msgstr "Nessun ticket trovato. Creane uno!"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
@@ -75,7 +75,7 @@ msgstr "Progetto"
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_milestone
 msgid "Project Milestone"
-msgstr ""
+msgstr "Milestone progetto"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_task
@@ -111,9 +111,9 @@ msgstr "Usa i ticket come"
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_tree_view
 msgid "View Helpdesk Tickets"
-msgstr ""
+msgstr "Vedi ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_form_view
 msgid "View Tickets"
-msgstr ""
+msgstr "Vedi ticket"
