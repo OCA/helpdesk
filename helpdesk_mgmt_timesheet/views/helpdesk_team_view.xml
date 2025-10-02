@@ -8,6 +8,11 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='company_id']" position="before">
                 <field name="allow_timesheet" type="checkbox" />
+                <field
+                    name="show_timesheet_portal"
+                    type="checkbox"
+                    invisible="not allow_timesheet"
+                />
             </xpath>
         </field>
     </record>
