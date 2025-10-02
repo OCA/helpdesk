@@ -22,6 +22,7 @@
         "project_timesheet_time_control",
     ],
     "data": [
+        "views/helpdesk_ticket_templates.xml",
         "views/helpdesk_team_view.xml",
         "views/helpdesk_ticket_view.xml",
         "views/hr_timesheet_view.xml",

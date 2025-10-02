@@ -8,6 +8,9 @@ class HelpdeskTicketTeam(models.Model):
     _inherit = "helpdesk.ticket.team"
 
     allow_timesheet = fields.Boolean()
+    show_timesheet_portal = fields.Boolean(
+        help="Show spent time of tickets in the portal"
+    )
 
     @api.constrains("allow_timesheet")
     def _constrains_allow_timesheet(self):
