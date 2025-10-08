@@ -94,10 +94,10 @@
                         <tr
                             t-attf-class="{{'thead-light' if not groupby == 'none' else ''}}"
                         >
-                            <th class="text-left">By</th>
-                            <th class="text-left">Number</th>
-                            <th t-if="groupby == 'none'">Title</th>
-                            <th t-if="groupby == 'category'">
+                            <th name="th_partner" class="text-left">By</th>
+                            <th name="th_number" class="text-left">Number</th>
+                            <th name="th_ticket" t-if="groupby == 'none'">Title</th>
+                            <th name="th_groupby_category" t-if="groupby == 'category'">
                                 <em
                                     class="font-weight-normal text-muted"
                                 >Tickets in category:</em>
@@ -106,7 +106,7 @@
                                     t-field="tickets[0].sudo().category_id.complete_name"
                                 />
                             </th>
-                            <th t-if="groupby == 'stage'">
+                            <th name="th_groupby_stage" t-if="groupby == 'stage'">
                                 <em
                                     class="font-weight-normal text-muted"
                                 >Tickets in stage:</em>
@@ -115,11 +115,14 @@
                                     t-field="tickets[0].sudo().stage_id.name"
                                 />
                             </th>
-                            <th t-if="groupby != 'category'">Category</th>
-                            <th t-if="groupby != 'stage'">Stage</th>
-                            <th>Create Date</th>
-                            <th>Last Stage Update</th>
-                            <th>Close Date</th>
+                            <th
+                                name="th_category"
+                                t-if="groupby != 'category'"
+                            >Category</th>
+                            <th name="th_stage" t-if="groupby != 'stage'">Stage</th>
+                            <th name="th_create_date">Create Date</th>
+                            <th name="th_last_stage_update">Last Stage Update</th>
+                            <th name="th_closed_date">Close Date</th>
                         </tr>
                     </thead>
                     <tbody>
