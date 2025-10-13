@@ -1,8 +1,11 @@
 from openupgradelib import openupgrade
 
+from odoo import SUPERUSER_ID, api
 
-@openupgrade.migrate()
-def migrate(env, version):
+
+def migrate(cr, version):
+    env = api.Environment(cr, SUPERUSER_ID, {})
+
     if not openupgrade.column_exists(env.cr, "helpdesk_ticket", "milestone_id"):
         openupgrade.add_fields(
             env,
