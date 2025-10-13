@@ -28,7 +28,7 @@ class TestHelpdeskTicketMerge(BaseCommon):
         self.ticket_merge_2 = self.HelpdeskTicketMerge.with_context(
             active_ids=[self.ticket_1.id, self.ticket_2.id]
         ).create({})
-        self.assertFalse(self.ticket_merge_2.user_id)
+        self.assertEqual(self.ticket_merge_2.user_id, self.env.user)
         self.ticket_2.user_id = self.env.user.id
         self.ticket_merge_2.dst_ticket_id = self.ticket_2.id
         self.ticket_merge_2._onchange_dst_ticket_id()
