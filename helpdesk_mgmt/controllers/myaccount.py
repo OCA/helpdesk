@@ -62,14 +62,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
             )
         )
 
-        searchbar_filters = {
-            "all": {"label": _("All"), "domain": []},
-        }
-        for stage in request.env["helpdesk.ticket.stage"].search([]):
-            searchbar_filters[str(stage.id)] = {
-                "label": stage.name,
-                "domain": [("stage_id", "=", stage.id)],
-            }
+        searchbar_filters = self._ticket_get_searchbar_filters()
 
         searchbar_inputs = self._ticket_get_searchbar_inputs()
         searchbar_groupby = self._ticket_get_searchbar_groupby()
@@ -80,21 +73,12 @@ class CustomerPortalHelpdesk(CustomerPortal):
 
         if not filterby:
             filterby = "all"
-        domain = searchbar_filters.get(filterby, searchbar_filters.get("all"))["domain"]
 
         if not groupby:
             groupby = "none"
 
-        if date_begin and date_end:
-            domain += [
-                ("create_date", ">", date_begin),
-                ("create_date", "<=", date_end),
-            ]
-
-        if not search_in:
-            search_in = "all"
-        if search:
-            domain += self._ticket_get_search_domain(search_in, search)
+        domain = self._ticket_get_domain(
+            filterby, searchbar_filters, date_begin, date_end, search_in, search)
 
         domain = AND(
             [
@@ -102,7 +86,6 @@ class CustomerPortalHelpdesk(CustomerPortal):
                 request.env["ir.rule"]._compute_domain(HelpdeskTicket._name, "read"),
             ]
         )
-
         # count for pager
         ticket_count = HelpdeskTicket.search_count(domain)
         # pager
@@ -270,3 +253,32 @@ class CustomerPortalHelpdesk(CustomerPortal):
         if not field_name:
             return order
         return "%s, %s" % (field_name, order)
+
+    def _ticket_get_searchbar_filters(self):
+
+        filters = {
+            "all": {"label": _("All"), "domain": []},
+        }
+        for stage in request.env["helpdesk.ticket.stage"].search([]):
+            filters[str(stage.id)] = {
+                "label": stage.name,
+                "domain": [("stage_id", "=", stage.id)],
+            }
+        return filters
+
+    def _ticket_get_domain(
+            self, filterby, searchbar_filters, date_begin, date_end, search_in, search
+        ):
+        domain = searchbar_filters.get(filterby, searchbar_filters.get("all"))["domain"]
+
+        if date_begin and date_end:
+            domain += [
+                ("create_date", ">", date_begin),
+                ("create_date", "<=", date_end),
+            ]
+
+        if not search_in:
+            search_in = "all"
+        if search:
+            domain += self._ticket_get_search_domain(search_in, search)
+        return domain
