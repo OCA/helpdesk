@@ -78,7 +78,8 @@ class CustomerPortalHelpdesk(CustomerPortal):
             groupby = "none"
 
         domain = self._ticket_get_domain(
-            filterby, searchbar_filters, date_begin, date_end, search_in, search)
+            filterby, searchbar_filters, date_begin, date_end, search_in, search
+        )
 
         domain = AND(
             [
@@ -267,8 +268,8 @@ class CustomerPortalHelpdesk(CustomerPortal):
         return filters
 
     def _ticket_get_domain(
-            self, filterby, searchbar_filters, date_begin, date_end, search_in, search
-        ):
+        self, filterby, searchbar_filters, date_begin, date_end, search_in, search
+    ):
         domain = searchbar_filters.get(filterby, searchbar_filters.get("all"))["domain"]
 
         if date_begin and date_end:
@@ -282,3 +283,4 @@ class CustomerPortalHelpdesk(CustomerPortal):
         if search:
             domain += self._ticket_get_search_domain(search_in, search)
         return domain
+    
