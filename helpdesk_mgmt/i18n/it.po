@@ -1246,6 +1246,11 @@ msgid "Newest"
 msgstr "Il più recente"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Evento calendario attività successiva"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Scadenza prossima attività"
@@ -2300,9 +2305,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Segui questo team di vendita per seguire automaticamente gli eventi "
 #~ "associati agli utenti in questo team."
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Evento calendario attività successiva"
 
 #, python-format
 #~ msgid "%s file exceed the maximum file size of %s."
