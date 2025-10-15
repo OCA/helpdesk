@@ -22,8 +22,8 @@ msgid ""
 "<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"SLA Deadline\" "
 "title=\"SLA Deadline\"/>"
 msgstr ""
-"<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"SLA Deadline\" title="
-"\"Scadenza SLA\"/>"
+"<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"SLA Deadline\" "
+"title=\"Scadenza SLA\"/>"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__accomplished
@@ -301,6 +301,11 @@ msgstr "Scadenza mia attività"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__name
 msgid "Name"
 msgstr "Nome"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
