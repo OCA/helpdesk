@@ -1,0 +1,27 @@
+<odoo>
+  <record id="helpdesk_category_form_inherit_default_partner" model="ir.ui.view">
+    <field name="name">
+      view.helpdesk_category.form.default.partner in (helpdesk_mgmt_ticket_portal_cat_assignment)
+    </field>
+    <field name="model">helpdesk.ticket.category</field>
+    <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//group/field[@name='company_id']" position="after">
+        <field name="default_partner_id" widget="many2one_avatar_user" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="helpdesk_category_tree_inherit_default_partner" model="ir.ui.view">
+    <field name="name">
+      view.helpdesk_category.tree.default.partner in (helpdesk_mgmt_ticket_portal_cat_assignment)
+    </field>
+    <field name="model">helpdesk.ticket.category</field>
+    <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_tree" />
+    <field name="arch" type="xml">
+      <field name="company_id" position="after">
+        <field name="default_partner_id" widget="many2one_avatar_user" />
+      </field>
+    </field>
+  </record>
+</odoo>
