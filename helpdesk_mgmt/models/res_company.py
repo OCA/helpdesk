@@ -22,3 +22,11 @@ class Company(models.Model):
         string="Auto assign tickets",
         default=True,
     )
+    helpdesk_mgmt_duplicate_tracking = fields.Boolean(
+        string="Enable duplicate ticket tracking.", default=False
+    )
+    helpdesk_mgmt_duplicate_ticket_stage_id = fields.Many2one(
+        comodel_name="helpdesk.ticket.stage",
+        string="Move duplicate tickets to this stage",
+        default=False,
+    )

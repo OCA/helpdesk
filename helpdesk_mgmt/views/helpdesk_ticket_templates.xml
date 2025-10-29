@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template
         id="portal_layout"
@@ -62,7 +62,7 @@
                 <t t-set="url" t-value="'/my/tickets'" />
                 <t t-set="text">Follow and comment your helpdesk tickets</t>
                 <t t-set="placeholder_count" t-value="'ticket_count'" />
-                <t t-set="config_card" t-value="True"/>
+                <t t-set="config_card" t-value="True" />
             </t>
         </div>
     </template>
@@ -328,8 +328,7 @@
                                             <span t-field="ticket.name" />
                                             <small
                                                 class="text-muted d-none d-md-inline"
-                                            >(#<span
-                                                    t-field="ticket.id" />)</small>
+                                            >(#<span t-field="ticket.id" />)</small>
                                         </h3>
                                     </div>
                                 </div>
