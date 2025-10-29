@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_form_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <button name="assign_to_me" position="after">
+                <button
+                    string="Mark as duplicate"
+                    name="action_open_duplicate_wizard"
+                    type="object"
+                    invisible="duplicate_id or duplicate_ids"
+                />
+            </button>
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="object"
+                    name="action_view_duplicates"
+                    icon="fa-clone"
+                    invisible="duplicate_count == 0"
+                >
+                    <field
+                        string="Duplicates"
+                        name="duplicate_count"
+                        widget="statinfo"
+                    />
+                </button>
+            </div>
+            <xpath expr="//page[@name='other_info']/group" position="inside">
+                <field
+                    name="duplicate_id"
+                    readonly="1"
+                    invisible="not duplicate_id or duplicate_ids"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

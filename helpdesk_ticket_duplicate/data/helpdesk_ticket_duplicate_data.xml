@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="helpdesk_ticket_stage_duplicate" model="helpdesk.ticket.stage">
+        <field name="sequence">6</field>
+        <field name="name">Duplicate</field>
+        <field name="unattended">False</field>
+        <field name="closed">True</field>
+        <field name="close_from_portal">False</field>
+        <field name="fold">True</field>
+        <field name="company_id" />
+    </record>
+</odoo>
