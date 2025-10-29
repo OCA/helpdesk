@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "18.0.1.13.1",
+    "version": "18.0.1.14.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -32,6 +32,7 @@
         "views/helpdesk_ticket_tag_views.xml",
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
+        "wizards/helpdesk_ticket_duplicate_wizard_views.xml",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "assets": {

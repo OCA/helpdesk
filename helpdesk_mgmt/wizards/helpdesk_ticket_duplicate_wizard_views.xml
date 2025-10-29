@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_ticket_duplicate_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.duplicate.wizard.form</field>
+        <field name="model">helpdesk.ticket.duplicate.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="ticket_id" invisible="1" />
+                    <field
+                        name="duplicate_of_id"
+                        domain="[('id','!=',ticket_id),('duplicate_id','=',False)]"
+                    />
+                </group>
+                <footer>
+                    <button
+                        string="Mark as duplicate"
+                        name="action_confirm"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -18,3 +18,9 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.helpdesk_mgmt_portal_category_id_required",
         readonly=False,
     )
+    helpdesk_mgmt_duplicate_tracking = fields.Boolean(
+        related="company_id.helpdesk_mgmt_duplicate_tracking", readonly=False
+    )
+    helpdesk_mgmt_duplicate_ticket_stage_id = fields.Many2one(
+        related="company_id.helpdesk_mgmt_duplicate_ticket_stage_id", readonly=False
+    )

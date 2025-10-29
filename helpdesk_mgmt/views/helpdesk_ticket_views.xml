@@ -165,6 +165,12 @@
                         type="object"
                         invisible="user_id"
                     />
+                    <button
+                        string="Mark as duplicate"
+                        name="action_open_duplicate_wizard"
+                        type="object"
+                        invisible="duplicate_id or duplicate_ids or not duplicate_tracking_enabled"
+                    />
                     <field
                         name="stage_id"
                         widget="statusbar_duration"
@@ -178,8 +184,39 @@
                         bg_color="bg-danger"
                         invisible="active"
                     />
-                    <div class="oe_button_box" name="button_box" />
+                    <widget
+                        name="web_ribbon"
+                        title="Duplicate"
+                        bg_color="bg-danger"
+                        invisible="not duplicate_id"
+                    />
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            type="object"
+                            name="action_view_duplicates"
+                            icon="fa-clone"
+                            invisible="duplicate_count == 0"
+                        >
+                            <field
+                                string="Duplicates"
+                                name="duplicate_count"
+                                widget="statinfo"
+                            />
+                        </button>
+                    </div>
                     <div class="oe_title">
+                        <div
+                            class="alert alert-info oe_edit_only"
+                            role="alert"
+                            name="warning_duplicate"
+                            invisible="not duplicate_id"
+                        > This ticket is a
+                            duplicate of <field
+                            name="duplicate_id"
+                            readonly="stage_id.closed"
+                        />
+                        </div>
                         <h1 class="oe_title">
                             <field name="number" />
                         </h1>
@@ -190,6 +227,7 @@
                     <group name="main">
                         <group>
                             <field name="active" invisible="1" />
+                            <field name="duplicate_tracking_enabled" invisible="1" />
                             <field name="team_id" options='{"always_reload": True}' />
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
