@@ -19,6 +19,7 @@
   - Carolina Fernandez
   - Carlos Roca
   - Juan Carlos Oñate
+  - David Bañón Gil
 - [ID42 Sistemas](https://www.id42.com.br):
   - Marcel Savegnago
   - Eduardo Aparício

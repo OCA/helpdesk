@@ -212,3 +212,16 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         with Form(new_ticket.sudo()) as new_ticket_form:
             new_ticket_form.team_id = new_team
             self.assertFalse(new_ticket_form.user_id)
+
+    def test_helpdesk_ticket_duplicates(self):
+        self.env.company.helpdesk_mgmt_duplicate_tracking = True
+        self.env.company.helpdesk_mgmt_duplicate_ticket_stage_id = self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_rejected"
+        )
+        wizard_action = self.ticket.action_open_duplicate_wizard()
+        with Form.from_action(self.env, wizard_action) as wizard:
+            wizard.duplicate_of_id = self.ticket_b_unassigned
+            wizard_rec = wizard.save()
+        wizard_rec.action_confirm()
+        self.assertEqual(self.ticket.duplicate_id, self.ticket_b_unassigned)
+        self.assertIn(self.ticket_b_unassigned.duplicate_ids, self.ticket)

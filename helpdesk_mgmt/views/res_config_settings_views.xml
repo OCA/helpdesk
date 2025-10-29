@@ -68,6 +68,23 @@
                             </div>
                         </setting>
                     </block>
+                    <block title="Duplicate tracking">
+                        <setting>
+                            <field
+                                name="helpdesk_mgmt_duplicate_tracking"
+                                string="Enable duplicate tracking"
+                            />
+                        </setting>
+                        <setting
+                            help="When marked as duplicate, tickets will be moved to this stage"
+                            invisible="not helpdesk_mgmt_duplicate_tracking"
+                        >
+                            <field
+                                name="helpdesk_mgmt_duplicate_ticket_stage_id"
+                                string="Duplicate stage"
+                            />
+                        </setting>
+                    </block>
                 </app>
             </xpath>
         </field>

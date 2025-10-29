@@ -54,6 +54,11 @@ class HelpdeskTicket(models.Model):
             ] + search_domain
         return stages.search(search_domain)
 
+    @api.depends("duplicate_ids")
+    def _compute_duplicate_count(self):
+        for record in self:
+            record.duplicate_count = len(record.duplicate_ids)
+
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
@@ -150,6 +155,43 @@ class HelpdeskTicket(models.Model):
         help="Gives the sequence order when displaying a list of tickets.",
     )
     active = fields.Boolean(default=True)
+
+    duplicate_id = fields.Many2one(
+        "helpdesk.ticket", string="Duplicate of", tracking=True, copy=False
+    )
+    duplicate_ids = fields.One2many(
+        "helpdesk.ticket", "duplicate_id", string="Duplicate tickets"
+    )
+    duplicate_count = fields.Integer(compute="_compute_duplicate_count")
+    duplicate_tracking_enabled = fields.Boolean(
+        related="company_id.helpdesk_mgmt_duplicate_tracking"
+    )
+
+    def action_open_duplicate_wizard(self):
+        self.ensure_one()
+        target_stage = self.env.company.helpdesk_mgmt_duplicate_ticket_stage_id
+        return {
+            "name": "Mark as Duplicate",
+            "type": "ir.actions.act_window",
+            "res_model": "helpdesk.ticket.duplicate.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_ticket_id": self.id,
+                "default_target_stage_id": target_stage.id,
+            },
+        }
+
+    def action_view_duplicates(self):
+        self.ensure_one()
+        return {
+            "name": "Duplicates",
+            "type": "ir.actions.act_window",
+            "res_model": "helpdesk.ticket",
+            "view_mode": "list",
+            "target": "new",
+            "domain": [("duplicate_id", "=", self.id)],
+        }
 
     @api.depends("name")
     def _compute_display_name(self):
