@@ -11,70 +11,59 @@
                     name="helpdesk_mgmt"
                     groups="helpdesk_mgmt.group_helpdesk_manager"
                 >
-                    <block title="Ticket Form Portal">
+                    <block
+                        title="New ticket form (portal)"
+                        name="helpdesk_mgmt_portal_new_ticket_fields"
+                    >
                         <setting
-                            string="Teams"
-                            id="show_teams_form"
-                            help="Controls if the teams are visible on the portal and if they are required."
+                            id="helpdesk_mgmt_portal_new_ticket_fields"
+                            company_dependent="1"
+                            string="Additional fields"
+                            help="Whether to display additional fields in the portal form"
                         >
-                            <div class="mt16">
-                                <div class="content-group">
-                                    <div>
-                                        <field
-                                            name="helpdesk_mgmt_portal_select_team"
-                                            string="Display"
-                                        />
-                                        <label for="helpdesk_mgmt_portal_select_team" />
-                                    </div>
-                                    <div
-                                        invisible="not helpdesk_mgmt_portal_select_team"
-                                    >
-                                        <field
-                                            name="helpdesk_mgmt_portal_team_id_required"
-                                            string="Required"
-                                        />
-                                        <label
-                                            for="helpdesk_mgmt_portal_team_id_required"
-                                        />
-                                    </div>
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_fields"
+                            >
+                                <div class="mt8">
+                                    <field name="helpdesk_mgmt_portal_select_team" />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_team"
+                                        string="Team"
+                                    />
                                 </div>
                             </div>
                         </setting>
                         <setting
-                            string="Categories"
-                            id="show_categories_form"
-                            help="Controls if the categories are required on the portal"
+                            id="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            company_dependent="1"
+                            string="Required fields"
+                            help="Choose which fields are required in the portal form"
                         >
-                            <div class="mt16">
-                                <div class="content-group">
-                                    <div>
-                                        <field
-                                            name="helpdesk_mgmt_portal_category_id_required"
-                                            string="Required"
-                                        />
-                                        <label
-                                            for="helpdesk_mgmt_portal_category_id_required"
-                                        />
-                                    </div>
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            >
+                                <div class="mt8">
+                                    <field
+                                        name="helpdesk_mgmt_portal_category_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_category_id_required"
+                                        string="Category"
+                                    />
                                 </div>
-                            </div>
-                        </setting>
-                    </block>
-                    <block title="Helpdesk">
-                        <setting
-                            string="Tickets"
-                            id="helpdesk_mgmt_ticket_misc"
-                            help="Controls if the tickets created are automatically assigned to the user."
-                        >
-                            <div class="mt16">
-                                <div class="content-group">
-                                    <div>
-                                        <field
-                                            name="helpdesk_mgmt_ticket_auto_assign"
-                                            string="Auto assign User"
-                                        />
-                                        <label for="helpdesk_mgmt_ticket_auto_assign" />
-                                    </div>
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_team"
+                                >
+                                    <field
+                                        name="helpdesk_mgmt_portal_team_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_team_id_required"
+                                        string="Team"
+                                    />
                                 </div>
                             </div>
                         </setting>
