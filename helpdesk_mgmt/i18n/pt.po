@@ -305,6 +305,11 @@ msgid "Add Attachments"
 msgstr "Adicionar Anexos"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
+msgid "Additional fields"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_contact
 msgid "Alias Contact Security"
 msgstr "Segurança do Alias do Contacto"
@@ -442,6 +447,7 @@ msgstr "Categorias"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Category"
 msgstr "Categoria"
 
@@ -468,6 +474,11 @@ msgstr "Canais"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_category__child_id
 msgid "Child Categories"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
+msgid "Choose which fields are required in the portal form"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1350,26 +1361,21 @@ msgid "Reporting"
 msgstr "Relatórios"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
-msgid "Required Category"
-msgstr "Categoria Obrigatória"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_category_id_required
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_category_id_required
 msgid "Required Category field in Helpdesk portal"
 msgstr "Campo Categoria obrigatório no portal do Helpdesk"
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
-msgid "Required Team"
-msgstr "Equipa Obrigatória"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_team_id_required
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_team_id_required
 msgid "Required Team field in Helpdesk portal"
 msgstr "Campo Equipa Obrigatória no portal do Helpdesk"
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
+msgid "Required fields"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_user_id
@@ -1445,11 +1451,6 @@ msgstr "Mostrar todos os registos cuja data de ação é anterior à atual"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Show in portal form"
 msgstr "Mostrar no formulário do portal"
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
-msgid "Show teams form"
-msgstr "Mostrar formulário de equipas"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
@@ -1529,6 +1530,7 @@ msgstr "Etiquetas"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__team_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Team"
 msgstr "Equipa"
 
@@ -1774,6 +1776,11 @@ msgid "Website communication history"
 msgstr "Histórico de Comunicação do Website"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
+msgid "Whether to display additional fields in the portal form"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
 msgid "Wifi"
 msgstr "Wi-Fi"
@@ -1786,6 +1793,15 @@ msgid ""
 msgstr ""
 "{{object.company_id.name}} Atribuição de Ticket (Ref {{object.number or 'n/"
 "a' }})"
+
+#~ msgid "Required Category"
+#~ msgstr "Categoria Obrigatória"
+
+#~ msgid "Required Team"
+#~ msgstr "Equipa Obrigatória"
+
+#~ msgid "Show teams form"
+#~ msgstr "Mostrar formulário de equipas"
 
 #~ msgid "<strong class=\"d-block mb-2\">Attachments</strong>"
 #~ msgstr "<strong class=\"d-block mb-2\">Anexos</strong>"
