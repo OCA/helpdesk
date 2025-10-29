@@ -11,24 +11,61 @@
                     name="helpdesk_mgmt"
                     groups="helpdesk_mgmt.group_helpdesk_manager"
                 >
-                    <block title="New ticket form (portal)">
-                        <setting help="Show teams form">
-                            <field name="helpdesk_mgmt_portal_select_team" />
+                    <block
+                        title="New ticket form (portal)"
+                        name="helpdesk_mgmt_portal_new_ticket_fields"
+                    >
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_fields"
+                            company_dependent="1"
+                            string="Additional fields"
+                            help="Whether to display additional fields in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_fields"
+                            >
+                                <div class="mt8">
+                                    <field name="helpdesk_mgmt_portal_select_team" />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_team"
+                                        string="Team"
+                                    />
+                                </div>
+                            </div>
                         </setting>
-                        <setting>
-                            <field
-                                name="helpdesk_mgmt_portal_team_id_required"
-                                readonly="not helpdesk_mgmt_portal_select_team"
-                                string="Required Team"
-                            />
-                        </setting>
-                    </block>
-                    <block>
-                        <setting>
-                            <field
-                                name="helpdesk_mgmt_portal_category_id_required"
-                                string="Required Category"
-                            />
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            company_dependent="1"
+                            string="Required fields"
+                            help="Choose which fields are required in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            >
+                                <div class="mt8">
+                                    <field
+                                        name="helpdesk_mgmt_portal_category_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_category_id_required"
+                                        string="Category"
+                                    />
+                                </div>
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_team"
+                                >
+                                    <field
+                                        name="helpdesk_mgmt_portal_team_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_team_id_required"
+                                        string="Team"
+                                    />
+                                </div>
+                            </div>
                         </setting>
                     </block>
                 </app>
