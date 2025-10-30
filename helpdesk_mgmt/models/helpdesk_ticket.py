@@ -55,6 +55,7 @@ class HelpdeskTicket(models.Model):
         return stages.search(search_domain)
 
     number = fields.Char(string="Ticket number", default="/", readonly=True)
+    x_number_backup = fields.Char(string="Number Backup")
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
     user_id = fields.Many2one(
@@ -269,6 +270,7 @@ class HelpdeskTicket(models.Model):
         if custom_values is None:
             custom_values = {}
         defaults = {
+            "number": "/",
             "name": msg.get("subject") or self.env._("No Subject"),
             "description": msg.get("body"),
             "partner_email": msg.get("from"),
