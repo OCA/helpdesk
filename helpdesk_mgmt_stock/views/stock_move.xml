@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="view_picking_move_tree_helpdesk" model="ir.ui.view">
+    <field name="name">view_move_picking_tree_helpdesk</field>
+    <field name="model">stock.move</field>
+    <field name="inherit_id" ref="stock.view_picking_move_tree" />
+    <field name="arch" type="xml">
+      <xpath expr="/tree/field[@name='product_uom']" position="after">
+        <field name="helpdesk_tickets_count" invisible="1" />
+        <button
+                    name="create_or_show_helpdesk_ticket"
+                    type="object"
+                    icon="fa-life-ring"
+                    string="Helpdesk"
+                    attrs="{'invisible': [('helpdesk_tickets_count', '>', 0)]}"
+                />
+        <button
+                    name="create_or_show_helpdesk_ticket"
+                    type="object"
+                    icon="fa-life-ring"
+                    string="Helpdesk"
+                    class="btn btn-danger"
+                    attrs="{'invisible': [('helpdesk_tickets_count', '&lt;=', 0)]}"
+                />
+      </xpath>
+    </field>
+  </record>
+</odoo>

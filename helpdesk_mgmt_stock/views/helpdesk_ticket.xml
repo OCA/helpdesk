@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="ticket_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.form</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='partner_id']/parent::group" position="after">
+                <group string="Stock" name="stock">
+                    <field name="stock_move_id_domain" invisible="1" />
+                    <field name="stock_picking_id" />
+                    <field name="stock_move_id" domain="stock_move_id_domain" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+<!--
+    <record model="ir.ui.view" id="helpdesk_ticket_search_view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="TODO othermodule.search_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="helpdesk_ticket_tree_view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
+        <field name="arch" type="xml">
+
+        </field>
+    </record> -->
+
+</odoo>
