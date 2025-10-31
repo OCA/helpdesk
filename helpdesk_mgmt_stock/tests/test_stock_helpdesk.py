@@ -1,5 +1,6 @@
 # Copyright 2025 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+from odoo.exceptions import ValidationError
 from odoo.fields import Command
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -98,6 +99,29 @@ class HelpdeskStockTest(BaseCommon):
 
         self.assertEqual(1, move_p1.helpdesk_tickets_count)
         self.assertEqual(self.product, ticket.product_id)
+
+    def test_helpdesk_creation_not_allowed(self):
+        """
+        Create a reception stock picking
+        Declare an helpdesk ticket on stock move
+        An exception should occur
+        """
+        self._create_picking()
+        move_p1 = self.picking.move_ids.filtered(
+            lambda move: move.product_id == self.product
+        )
+        move_p1.picking_id.picking_type_id.allow_helpdesk_ticket = False
+        wizard = (
+            self.env["stock.helpdesk.ticket.create"]
+            .with_context(active_model="stock.move", active_id=move_p1.id)
+            .create({})
+        )
+        self.assertTrue(wizard)
+        self.assertEqual(wizard.stock_move_id, move_p1)
+        self.assertEqual(wizard.stock_picking_id, move_p1.picking_id)
+        wizard.description = "Test"
+        with self.assertRaises(ValidationError):
+            wizard.create_helpdesk_ticket()
 
     def test_actions(self):
         self._create_picking()

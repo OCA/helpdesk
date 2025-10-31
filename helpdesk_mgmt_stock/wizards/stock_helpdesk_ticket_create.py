@@ -1,7 +1,7 @@
 # Copyright 2025 ACSONE SA/NV
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import ValidationError
 from odoo.osv.expression import TRUE_DOMAIN
 
 
@@ -44,7 +44,18 @@ class StockHelpdeskTicketCreate(models.TransientModel):
         }
         return values
 
+    def _check_ticket_creation_allowed(self):
+        for wizard in self:
+            if not wizard.stock_picking_id.helpdesk_ticket_allowed:
+                raise ValidationError(
+                    _(
+                        "You are not allowed to create an helpdesk ticket"
+                        " for that operation type! Please call your administrator."
+                    )
+                )
+
     def create_helpdesk_ticket(self):
+        self._check_ticket_creation_allowed()
         ticket_values = self._prepare_ticket_values()
         ticket = self.env["helpdesk.ticket"].create(ticket_values)
         action = self.env["ir.actions.actions"]._for_xml_id(
