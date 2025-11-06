@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="account_move_form_view">
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <group name="accounting_info_group" position="after">
+                <group name="heldesk_info" string="Helpdesk">
+                    <field
+                        name="ticket_ids"
+                        widget="many2many_tags"
+                        groups="helpdesk_mgmt.group_helpdesk_user_own"
+                    />
+                </group>
+            </group>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="%(action_helpdesk_ticket)d"
+                    type="action"
+                    class="btn btn-primary"
+                    icon="fa-ticket"
+                    context="{'default_sale_order_ids': [(4, id)]}"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>
