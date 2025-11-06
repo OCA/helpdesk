@@ -13,8 +13,10 @@
         "helpdesk_mgmt",
         "helpdesk_product",
         "stock",
+        "helpdesk_motive",
     ],
     "data": [
+        "views/helpdesk_ticket_motive.xml",
         "security/security.xml",
         "views/stock_move.xml",
         "views/stock_picking.xml",
