@@ -13,6 +13,7 @@
                     <field name="stock_move_id_domain" invisible="1" />
                     <field name="stock_picking_id" />
                     <field name="stock_move_id" domain="stock_move_id_domain" />
+                    <field name="lot_id" />
                 </group>
             </xpath>
         </field>
