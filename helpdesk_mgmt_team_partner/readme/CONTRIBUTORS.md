@@ -1,0 +1,3 @@
+- [Solvos](https://www.solvos.es):
+  - Carlos García \<<carlos.garcia@solvos.es>\>
+  - Dante Pereyra \<<dante.pereyra@solvos.es>\>
