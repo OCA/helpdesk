@@ -22,6 +22,11 @@ class HelpdeskTicket(models.Model):
         ondelete="restrict",
         index="btree_not_null",
     )
+    lot_id = fields.Many2one(
+        comodel_name="stock.lot",
+        related="stock_move_id.move_line_ids.lot_id",
+        readonly=True,
+    )
 
     @api.depends("stock_picking_id")
     def _compute_stock_move_id_domain(self):
