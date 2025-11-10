@@ -11,6 +11,7 @@ class HelpdeskSla(models.Model):
     _description = "Helpdesk SLA"
 
     name = fields.Char(required=True)
+    company_id = fields.Many2one(comodel_name="res.company", string="Company")
     team_ids = fields.Many2many(comodel_name="helpdesk.ticket.team", string="Teams")
     category_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.category", string="Categories"

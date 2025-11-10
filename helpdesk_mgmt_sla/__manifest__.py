@@ -10,6 +10,7 @@
     "version": "18.0.2.0.0",
     "depends": ["base", "helpdesk_mgmt", "resource"],
     "data": [
+        "security/helpdesk_sla_security.xml",
         "views/helpdesk_sla_report.xml",
         "views/helpdesk_ticket_sla.xml",
         "security/ir.model.access.csv",

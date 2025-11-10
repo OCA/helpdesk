@@ -34,9 +34,19 @@
                         </h1>
                     </div>
                     <group>
+                        <field
+                            name="company_id"
+                            placeholder="Leave blank for all companies."
+                            options="{'no_create': True}"
+                            groups="base.group_multi_company"
+                        />
                         <group>
                             <separator colspan="2" string="Apply on" />
-                            <field name="team_ids" widget="many2many_tags" />
+                            <field
+                                name="team_ids"
+                                widget="many2many_tags"
+                                domain="(company_id and [('company_id','in',[company_id,False])]) or []"
+                            />
                             <field name="category_ids" widget="many2many_tags" />
                             <field name="tag_ids" widget="many2many_tags" />
                             <field name="ignore_stage_ids" widget="many2many_tags" />
@@ -81,6 +91,7 @@
                 <field name="days" />
                 <field name="hours" />
                 <field name="note" />
+                <field name="company_id" groups="base.group_multi_company" />
             </list>
         </field>
     </record>
