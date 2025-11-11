@@ -13,7 +13,7 @@ class HelpdeskTeam(models.Model):
     _rec_name = "complete_name"
 
     sequence = fields.Integer(default=10)
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, translate=True)
     user_ids = fields.Many2many(
         comodel_name="res.users",
         string="Members",
@@ -72,11 +72,20 @@ class HelpdeskTeam(models.Model):
         "helpdesk.ticket.team", string="Parent Team", index=True
     )
     complete_name = fields.Char(
-        compute="_compute_complete_name", store=True, recursive=True
+        compute="_compute_complete_name",
+        recursive=True,
+        search="_search_complete_name",
     )
     parent_path = fields.Char(index=True)
 
+    def _search_complete_name(self, operator, value):
+        records = self.search_fetch([], ["complete_name"]).filtered_domain(
+            [("complete_name", operator, value)]
+        )
+        return [("id", "in", records.ids)]
+
     @api.depends("name", "parent_id.complete_name")
+    @api.depends_context("lang")
     def _compute_complete_name(self):
         for record in self:
             if record.parent_id:

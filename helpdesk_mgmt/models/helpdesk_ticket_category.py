@@ -34,11 +34,20 @@ class HelpdeskCategory(models.Model):
     )
     parent_path = fields.Char(index=True)
     complete_name = fields.Char(
-        compute="_compute_complete_name", store=True, recursive=True
+        compute="_compute_complete_name",
+        recursive=True,
+        search="_search_complete_name",
     )
     show_in_portal = fields.Boolean(default=True)
 
+    def _search_complete_name(self, operator, value):
+        records = self.search_fetch([], ["complete_name"]).filtered_domain(
+            [("complete_name", operator, value)]
+        )
+        return [("id", "in", records.ids)]
+
     @api.depends("name", "parent_id.complete_name")
+    @api.depends_context("lang")
     def _compute_complete_name(self):
         for category in self:
             if category.parent_id:
