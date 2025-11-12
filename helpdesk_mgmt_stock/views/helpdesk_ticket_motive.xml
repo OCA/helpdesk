@@ -6,11 +6,11 @@
         <field name="model">helpdesk.ticket.motive</field>
         <field name="inherit_id" ref="helpdesk_motive.helpdesk_ticket_motive_form" />
         <field name="arch" type="xml">
-            <field name="team_id" position="after">
+            <xpath expr="//field[@name='team_id']/.." position="after">
                 <group name="stock" string="Stock">
                     <field name="location_dest_id" />
                 </group>
-            </field>
+            </xpath>
         </field>
     </record>
 
