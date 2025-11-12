@@ -7,7 +7,7 @@
     "website": "https://github.com/OCA/helpdesk",
     "license": "AGPL-3",
     "category": "After-Sales",
-    "version": "18.0.2.0.0",
+    "version": "18.0.2.1.0",
     "depends": ["base", "helpdesk_mgmt", "resource"],
     "data": [
         "security/helpdesk_sla_security.xml",
