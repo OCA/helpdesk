@@ -94,6 +94,11 @@ msgid "Color"
 msgstr "Colore"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__company_id
+msgid "Company"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__consumed_time
 msgid "Consumed time"
 msgstr "Tempo impiegato"
@@ -279,6 +284,11 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
+
+#. module: helpdesk_mgmt_sla
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
+msgid "Leave blank for all companies."
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
