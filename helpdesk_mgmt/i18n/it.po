@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-10-30 11:42+0000\n"
+"PO-Revision-Date: 2025-11-17 08:05+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -726,7 +726,7 @@ msgstr "Configura nome dominio"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_3
 msgid "Consultants"
-msgstr ""
+msgstr "Consulenti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
@@ -1246,7 +1246,7 @@ msgstr "Rilevamento arrivo in base a parte-locale"
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_1
 msgid "Localization team"
-msgstr ""
+msgstr "Team localizzazione"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
