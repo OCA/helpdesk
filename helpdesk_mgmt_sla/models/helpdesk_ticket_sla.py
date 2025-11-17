@@ -78,10 +78,9 @@ class HelpdeskTicketSla(models.Model):
     @api.depends("sla_id")
     def _compute_sla_data(self):
         for record in self:
+            calendar = record._get_resource_calendar()
             record.hours = (
-                record.sla_id.hours
-                + record.ticket_id.team_id.resource_calendar_id.hours_per_day
-                * record.sla_id.days
+                record.sla_id.hours + calendar.hours_per_day * record.sla_id.days
             )
             record.expected_stage_id = record.sla_id.stage_id
             state = "in_progress"
@@ -106,7 +105,8 @@ class HelpdeskTicketSla(models.Model):
                 continue
             else:
                 date = record.last_state_date or record.ticket_id.create_date
-                date = record.ticket_id.team_id.resource_calendar_id.plan_hours(
+                calendar = record._get_resource_calendar()
+                date = calendar.plan_hours(
                     record.hours - record.consumed_time, date, compute_leaves=True
                 )
                 record.deadline = date
@@ -118,7 +118,7 @@ class HelpdeskTicketSla(models.Model):
             return
         deadline = self.deadline
         if self.state == "in_progress":
-            calendar = self.ticket_id.team_id.resource_calendar_id
+            calendar = self._get_resource_calendar()
             self.consumed_time += calendar.get_work_hours_count(
                 self.last_state_date, now, compute_leaves=True
             )
@@ -145,3 +145,12 @@ class HelpdeskTicketSla(models.Model):
     def _check_access(self, operation: str) -> tuple | None:
         result = super()._check_access(operation)
         return result or self.ticket_id._check_access(operation)
+
+    def _get_resource_calendar(self):
+        self.ensure_one()
+        return (
+            self.ticket_id.user_id.resource_calendar_id
+            or self.ticket_id.team_id.resource_calendar_id
+            or self.ticket_id.company_id.resource_calendar_id
+            or self.env.company.resource_calendar_id
+        )
