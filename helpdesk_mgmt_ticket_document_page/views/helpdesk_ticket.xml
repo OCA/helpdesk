@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Marcel Savegnago <https://escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <!-- Form View -->
+    <record id="helpdesk_ticket_form_view" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="action_open_document_page"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-book"
+                    attrs="{'invisible': [('document_page_id', '=', False)]}"
+                >
+                    <span class="o_stat_text">Document</span>
+                </button>
+            </div>
+            <field name="sequence" position="after">
+                <field name="document_page_id" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="helpdesk_ticket_tree_view" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="document_page_id" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="helpdesk_ticket_search_view" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field
+                    name="document_page_id"
+                    groups="document_knowledge.group_document_user"
+                />
+            </field>
+            <filter name="activities_upcoming_all" position="after">
+                <filter
+                    string="With Document"
+                    name="with_document_page"
+                    domain="[('document_page_id', '!=', False)]"
+                    groups="document_knowledge.group_document_user"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
