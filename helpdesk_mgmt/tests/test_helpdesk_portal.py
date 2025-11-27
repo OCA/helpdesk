@@ -75,8 +75,11 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
 
     def test_submit_ticket_02(self):
         self.authenticate("portal", "portal")
+        old_tickets = self.get_new_tickets(self.user_portal)
         self._submit_ticket()
         tickets = self.get_new_tickets(self.user_portal)
+        new_ticket = tickets - old_tickets
+        self.assertFalse(new_ticket.user_id)
         self.assertIn(self.portal_ticket, tickets)
         self.assertIn(self.new_ticket_title, tickets.mapped("name"))
         self.assertIn(

@@ -84,6 +84,7 @@ class HelpdeskTicketController(http.Controller):
             "partner_id": request.env.user.partner_id.id,
             "partner_name": request.env.user.partner_id.name,
             "partner_email": request.env.user.partner_id.email,
+            "user_id": False,
         }
         team = http.request.env["helpdesk.ticket.team"]
         if company.helpdesk_mgmt_portal_select_team and kw.get("team"):
