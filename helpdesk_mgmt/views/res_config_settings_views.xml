@@ -85,6 +85,25 @@
                             />
                         </setting>
                     </block>
+                    <block title="Helpdesk">
+                        <setting
+                            string="Tickets"
+                            id="helpdesk_mgmt_ticket_misc"
+                            help="Controls if the tickets created are automatically assigned to the user."
+                        >
+                            <div class="mt16">
+                                <div class="content-group">
+                                    <div>
+                                        <field
+                                            name="helpdesk_mgmt_ticket_auto_assign"
+                                            string="Auto assign User"
+                                        />
+                                        <label for="helpdesk_mgmt_ticket_auto_assign" />
+                                    </div>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
                 </app>
             </xpath>
         </field>

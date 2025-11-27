@@ -213,6 +213,32 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             new_ticket_form.team_id = new_team
             self.assertFalse(new_ticket_form.user_id)
 
+    def test_ticket_auto_assign(self):
+        self.company.helpdesk_mgmt_ticket_auto_assign = True
+        ticket_a = (
+            self.env["helpdesk.ticket"]
+            .with_user(self.user_own)
+            .create(
+                {
+                    "name": "New Ticket A",
+                    "description": "Description",
+                }
+            )
+        )
+        self.assertEqual(ticket_a.user_id, self.user_own)
+        self.company.helpdesk_mgmt_ticket_auto_assign = False
+        ticket_b = (
+            self.env["helpdesk.ticket"]
+            .with_user(self.user_team)
+            .create(
+                {
+                    "name": "New Ticket B",
+                    "description": "Description",
+                }
+            )
+        )
+        self.assertFalse(ticket_b.user_id)
+
     def test_helpdesk_ticket_duplicates(self):
         self.env.company.helpdesk_mgmt_duplicate_tracking = True
         self.env.company.helpdesk_mgmt_duplicate_ticket_stage_id = self.env.ref(

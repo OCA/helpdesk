@@ -25,8 +25,6 @@ class HelpdeskTicket(models.Model):
     @api.depends("team_id")
     def _compute_user_id(self):
         for ticket in self:
-            if not ticket.user_id:
-                ticket.user_id = self.env.user
             if ticket.team_id and ticket.user_id not in ticket.team_id.user_ids:
                 # If the user is not part of the team, we remove the user
                 ticket.user_id = False
@@ -192,6 +190,26 @@ class HelpdeskTicket(models.Model):
             "target": "new",
             "domain": [("duplicate_id", "=", self.id)],
         }
+
+    @api.model
+    def default_get(self, fields):
+        # The appropriate user is defined only if the "Auto assign User" option is
+        # checked in the company.
+        # If the team is set, the user must belong to that team.
+        defaults = super().default_get(fields)
+        company_id = defaults.get("company_id") or self.env.company.id
+        if "user_id" in fields and not defaults.get("user_id"):
+            company = self.env["res.company"].browse(company_id)
+            if company.helpdesk_mgmt_ticket_auto_assign:
+                if defaults.get("team_id"):
+                    team = self.env["helpdesk.ticket.team"].browse(
+                        defaults.get("team_id")
+                    )
+                    if self.env.user in team.user_ids:
+                        defaults["user_id"] = self.env.user.id
+                else:
+                    defaults["user_id"] = self.env.user.id
+        return defaults
 
     @api.depends("name")
     def _compute_display_name(self):
