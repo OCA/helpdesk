@@ -24,3 +24,7 @@ class ResConfigSettings(models.TransientModel):
     helpdesk_mgmt_duplicate_ticket_stage_id = fields.Many2one(
         related="company_id.helpdesk_mgmt_duplicate_ticket_stage_id", readonly=False
     )
+    helpdesk_mgmt_ticket_auto_assign = fields.Boolean(
+        related="company_id.helpdesk_mgmt_ticket_auto_assign",
+        readonly=False,
+    )

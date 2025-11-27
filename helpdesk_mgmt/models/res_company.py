@@ -26,3 +26,7 @@ class Company(models.Model):
         string="Move duplicate tickets to this stage",
         default=False,
     )
+    helpdesk_mgmt_ticket_auto_assign = fields.Boolean(
+        string="Auto assign tickets",
+        default=True,
+    )
