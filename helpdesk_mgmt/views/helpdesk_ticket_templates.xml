@@ -124,8 +124,8 @@
                     <tbody>
                         <t t-foreach="tickets" t-as="ticket">
                             <tr>
-                                <td class="text-left">
-                                    <span t-field="ticket.partner_id.name" />
+                                <td class="text-left" >
+                                    <span t-field="ticket.partner_name" />
                                 </td>
                                 <td class="text-left">
                                     <span t-esc="ticket.number" />
