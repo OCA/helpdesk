@@ -54,6 +54,8 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
             save_original=False,
             strip_attachments=True,
         )
+        ticket_number = self.env["helpdesk.ticket"].browse(res_id).number
+        self.assertEqual(ticket_number[:2], "HT")
         self.assertGreater(res_id, 0)
 
     def test_message_process(self):
