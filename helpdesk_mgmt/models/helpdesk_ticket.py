@@ -335,6 +335,7 @@ class HelpdeskTicket(models.Model):
             custom_values = {}
         defaults = {
             "name": msg.get("subject") or _("No Subject"),
+            "number": "/",
             "description": msg.get("body"),
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
