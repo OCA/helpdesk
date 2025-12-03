@@ -1,9 +1,10 @@
 # Copyright 2022 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from markupsafe import Markup
+
 from odoo.exceptions import ValidationError
 from odoo.tests import Form, TransactionCase
-from odoo.tools import html2plaintext
 
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
 
@@ -87,7 +88,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
                     "ticket_id": self.ticket_1.id,
                     "priority": self.ticket_1.priority,
                     "location_id": self.test_location.id,
-                    "description": html2plaintext(self.ticket_1.description).strip(),
+                    "description": self.ticket_1.description,
                 }
                 for _ in range(5)
             ],
@@ -117,7 +118,6 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             [
                 {
                     "stage_id": self.stage_completed.id,
-                    "is_button": False,
                 }
                 for _ in range(4)
             ],
@@ -133,7 +133,7 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             {
                 "default_ticket_id": self.ticket_1.id,
                 "default_team_id": self.team_id.id,
-                "default_resolution": "Just another resolution",
+                "default_resolution": Markup("<p>Just another resolution</p>"),
             },
         )
         fsm_order_close_wizard = self.env["fsm.order.close.wizard"].with_context(
@@ -143,11 +143,10 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             wizard.stage_id = self.stage_closed
         wizard.record.action_close_ticket()
         self.assertEqual(self.ticket_1.stage_id.name, self.stage_closed.name)
-        self.assertEqual(self.ticket_1.resolution, "Just another resolution")
+        self.assertEqual(self.ticket_1.resolution, "<p>Just another resolution</p>")
         # check action_complete on fsm.order no ticket
         self.fsm_order_no_ticket.action_complete()
         self.assertEqual(self.fsm_order_no_ticket.stage_id, self.stage_completed)
-        self.assertFalse(self.fsm_order_no_ticket.is_button)
 
     def test_recompute_location_if_partner_with_default_location_is_set(self):
         other_location = self.env.ref("fieldservice.location_1")
