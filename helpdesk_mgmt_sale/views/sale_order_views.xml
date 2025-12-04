@@ -12,6 +12,7 @@
                         name="ticket_ids"
                         widget="many2many_tags"
                         groups="helpdesk_mgmt.group_helpdesk_user_own"
+                        context="{'default_partner_id': partner_id}"
                     />
                 </group>
             </xpath>
@@ -21,7 +22,7 @@
                     type="action"
                     class="btn btn-primary"
                     icon="fa-ticket"
-                    context="{'default_sale_order_ids': [id]}"
+                    context="{'default_sale_order_ids': [id], 'default_partner_id': partner_id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
