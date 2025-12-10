@@ -6,7 +6,6 @@ from odoo.osv.expression import TRUE_DOMAIN
 
 
 class StockHelpdeskTicketCreate(models.TransientModel):
-
     _name = "stock.helpdesk.ticket.create"
     _description = "Wizard to create Heldpesk ticket in stock"
 
@@ -56,7 +55,7 @@ class StockHelpdeskTicketCreate(models.TransientModel):
                     )
                 )
 
-    def create_helpdesk_ticket(self):
+    def action_create_helpdesk_ticket(self) -> dict:
         self._check_ticket_creation_allowed()
         ticket_values = self._prepare_ticket_values()
         ticket = self.env["helpdesk.ticket"].create(ticket_values)
