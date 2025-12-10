@@ -28,6 +28,7 @@ class StockHelpdeskTicketCreate(models.TransientModel):
         precompute=True,
         ondelete="cascade",
     )
+    motive_id = fields.Many2one("helpdesk.ticket.motive")
 
     def _prepare_ticket_values(self) -> dict:
         """
@@ -41,6 +42,7 @@ class StockHelpdeskTicketCreate(models.TransientModel):
             "stock_move_id": self.stock_move_id.id,
             "product_id": self.stock_move_id.product_id.id,
             "team_id": self.stock_picking_id.picking_type_id.default_helpdesk_team_id.id,
+            "motive_id": self.motive_id.id,
         }
         return values
 
