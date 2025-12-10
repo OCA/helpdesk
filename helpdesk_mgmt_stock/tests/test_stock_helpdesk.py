@@ -90,7 +90,7 @@ class HelpdeskStockTest(BaseCommon):
         self.assertEqual(wizard.stock_picking_id, move_p1.picking_id)
         tickets_before = self.env["helpdesk.ticket"].search([])
         wizard.description = "Test"
-        wizard.create_helpdesk_ticket()
+        wizard.action_create_helpdesk_ticket()
         ticket = self.env["helpdesk.ticket"].search([]) - tickets_before
 
         self.assertEqual(1, len(ticket))
@@ -121,7 +121,7 @@ class HelpdeskStockTest(BaseCommon):
         self.assertEqual(wizard.stock_picking_id, move_p1.picking_id)
         wizard.description = "Test"
         with self.assertRaises(ValidationError):
-            wizard.create_helpdesk_ticket()
+            wizard.action_create_helpdesk_ticket()
 
     def test_actions(self):
         self._create_picking()
@@ -144,7 +144,7 @@ class HelpdeskStockTest(BaseCommon):
             .create({})
         )
         wizard.description = "Test"
-        wizard.create_helpdesk_ticket()
+        wizard.action_create_helpdesk_ticket()
         action = self.picking.action_view_helpdesk_tickets()
         self.assertEqual(action["domain"], [("stock_picking_id", "=", self.picking.id)])
         result = self.picking.create_or_show_helpdesk_ticket()
@@ -173,7 +173,7 @@ class HelpdeskStockTest(BaseCommon):
         self.assertEqual(
             wizard.stock_move_id_domain, [("picking_id", "=", move_p1.picking_id.id)]
         )
-        wizard.create_helpdesk_ticket()
+        wizard.action_create_helpdesk_ticket()
         ticket = self.env["helpdesk.ticket"].search(
             [("stock_move_id", "=", move_p1.id)]
         )
