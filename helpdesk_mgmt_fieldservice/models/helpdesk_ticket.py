@@ -18,7 +18,7 @@ class HelpdeskTicket(models.Model):
         store=True,
         readonly=False,
     )
-    resolution = fields.Text()
+    resolution = fields.Html()
 
     @api.constrains("stage_id")
     def _validate_stage_fields(self):

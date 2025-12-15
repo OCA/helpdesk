@@ -143,7 +143,9 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             wizard.stage_id = self.stage_closed
         wizard.record.action_close_ticket()
         self.assertEqual(self.ticket_1.stage_id.name, self.stage_closed.name)
-        self.assertEqual(self.ticket_1.resolution, "<p>Just another resolution</p>")
+        self.assertEqual(
+            self.ticket_1.resolution, Markup("<p>Just another resolution</p>")
+        )
         # check action_complete on fsm.order no ticket
         self.fsm_order_no_ticket.action_complete()
         self.assertEqual(self.fsm_order_no_ticket.stage_id, self.stage_completed)
