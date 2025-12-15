@@ -40,6 +40,11 @@ class HelpdeskTicketController(http.Controller):
             else False
         )
 
+    def _get_categories(self, **kw):
+        company = request.env.company
+        category_model = http.request.env["helpdesk.ticket.category"]
+        return category_model.with_company(company.id).search([("active", "=", True)])
+
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
         values = self._get_create_new_ticket_values(**kw)
@@ -48,15 +53,11 @@ class HelpdeskTicketController(http.Controller):
     def _get_create_new_ticket_values(self, **kw):
         session_info = http.request.env["ir.http"].session_info()
         company = request.env.company
-        category_model = http.request.env["helpdesk.ticket.category"]
-        categories = category_model.with_company(company.id).search(
-            [("active", "=", True), ("show_in_portal", "=", True)]
-        )
         email = http.request.env.user.email
         name = http.request.env.user.name
         company = request.env.company
         return {
-            "categories": categories,
+            "categories": self._get_categories(**kw),
             "teams": self._get_teams(),
             "email": email,
             "name": name,
