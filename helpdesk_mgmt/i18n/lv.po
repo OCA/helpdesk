@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-04 22:42+0000\n"
+"PO-Revision-Date: 2025-12-17 22:14+0000\n"
 "Last-Translator: myacc-pro <ai@myacc.pro>\n"
 "Language-Team: none\n"
 "Language: lv\n"
@@ -49,17 +49,17 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-end\">Stage:</small>"
-msgstr ""
+msgstr "<small class=\"text-end\">Stadija:</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-muted\">Assignee</small>"
-msgstr ""
+msgstr "<small class=\"text-muted\">Atbildīgais</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-muted\">Customer</small>"
-msgstr ""
+msgstr "<small class=\"text-muted\">Klients</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
@@ -74,12 +74,12 @@ msgstr "<strong>Kategorija:</strong>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Closed Date:</strong>"
-msgstr ""
+msgstr "<strong>Slēgšanas datums:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<strong>Create Date:</strong>"
-msgstr ""
+msgstr "<strong>Izveidošanas datums:</strong>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -462,7 +462,7 @@ msgstr "Pievienot pielikumus"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Additional fields"
-msgstr ""
+msgstr "Papildlauki"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_contact
@@ -561,18 +561,18 @@ msgstr "Pielikumu skaits"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Attachments"
-msgstr ""
+msgstr "Pielikumi"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Auto assign User"
-msgstr ""
+msgstr "Automātiski piešķirt lietotāju"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_ticket_auto_assign
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_ticket_auto_assign
 msgid "Auto assign tickets"
-msgstr ""
+msgstr "Automātiski piešķirt biļetes"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
@@ -597,7 +597,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_duplicate_form
 msgid "Cancel"
-msgstr ""
+msgstr "Atcelt"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.stage,name:helpdesk_mgmt.helpdesk_ticket_stage_cancelled
@@ -620,7 +620,7 @@ msgstr "Kategorijas"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Category"
-msgstr ""
+msgstr "Kategorija"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__channel_id
