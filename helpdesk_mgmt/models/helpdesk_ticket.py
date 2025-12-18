@@ -95,12 +95,8 @@ class HelpdeskTicket(models.Model):
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
     last_stage_update = fields.Datetime(default=fields.Datetime.now)
-    assigned_date = fields.Datetime(
-        copy=False,
-    )
-    closed_date = fields.Datetime(
-        copy=False,
-    )
+    assigned_date = fields.Datetime(copy=False)
+    closed_date = fields.Datetime(copy=False)
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended", store=True)
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
