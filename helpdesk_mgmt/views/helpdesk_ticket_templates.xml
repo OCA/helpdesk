@@ -96,6 +96,7 @@
                         >
                             <th name="th_partner" class="text-left">By</th>
                             <th name="th_number" class="text-left">Number</th>
+                            <th name="th_assignee" class="text-center">Assignee</th>
                             <th name="th_ticket" t-if="groupby == 'none'">Title</th>
                             <th name="th_groupby_category" t-if="groupby == 'category'">
                                 <em
@@ -133,6 +134,15 @@
                                 </td>
                                 <td class="text-left">
                                     <span t-esc="ticket.number" />
+                                </td>
+                                <td class="text-center">
+                                    <img
+                                        t-attf-src="data:image/png;base64,#{ticket.sudo().user_id.avatar_128}"
+                                        class="rounded-circle"
+                                        style="width: 24px; height: 24px;"
+                                        t-att-alt="ticket.sudo().user_id.name"
+                                        t-att-title="ticket.sudo().user_id.name"
+                                    />
                                 </td>
                                 <td>
                                     <a
@@ -228,31 +238,31 @@
                                 <t t-call="portal.portal_my_contact">
                                     <t
                                         t-set="_contactAvatar"
-                                        t-value="image_data_uri(ticket.user_id.avatar_128)"
+                                        t-value="image_data_uri(ticket.sudo().user_id.avatar_128)"
                                     />
                                     <t
                                         t-set="_contactName"
-                                        t-value="ticket.user_id.name"
+                                        t-value="ticket.sudo().user_id.name"
                                     />
                                     <t t-set="_contactLink" t-value="True" />
                                     <div class="d-flex row">
                                         <a
-                                            t-attf-href="mailto:{{ticket.user_id.email}}"
-                                            t-if="ticket.user_id.email"
+                                            t-attf-href="mailto:{{ticket.sudo().user_id.email}}"
+                                            t-if="ticket.sudo().user_id.email"
                                             class="col-12"
                                         >
                                             <div
-                                                t-esc="ticket.user_id"
+                                                t-esc="ticket.sudo().user_id"
                                                 t-options='{"widget": "contact", "fields": ["email"]}'
                                             />
                                         </a>
                                         <a
                                             class="col-12"
-                                            t-attf-href="tel:{{ticket.user_id.phone}}"
-                                            t-if="ticket.user_id.phone"
+                                            t-attf-href="tel:{{ticket.sudo().user_id.phone}}"
+                                            t-if="ticket.sudo().user_id.phone"
                                         >
                                             <div
-                                                t-esc="ticket.user_id"
+                                                t-esc="ticket.sudo().user_id"
                                                 t-options='{"widget": "contact", "fields": ["phone"]}'
                                             />
                                         </a>
