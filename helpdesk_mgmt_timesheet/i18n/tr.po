@@ -18,7 +18,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
 msgid ""
 "<span class=\"o_label\">\n"
-"                            <i class=\"fa fa-lg fa-play-circle text-success\"/>\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-"
+"success\"/>\n"
 "                            Start work\n"
 "                        </span>"
 msgstr ""
@@ -27,7 +28,8 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
 msgid ""
 "<span class=\"o_label\">\n"
-"                            <i class=\"fa fa-lg fa-stop-circle text-warning\"/>\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-"
+"warning\"/>\n"
 "                            Stop work\n"
 "                        </span>"
 msgstr ""
@@ -44,13 +46,24 @@ msgid "Analytic Line"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Date"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Description"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Duration (Hour(s))"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Employee"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
@@ -121,6 +134,21 @@ msgid "Show Time Control"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
+msgid "Show Timesheet Portal"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
+msgid "Show spent time of tickets in the portal"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_ticket_list
+msgid "Spent Time"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
@@ -165,6 +193,11 @@ msgid "Tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Time Spent"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
 msgid "Timesheet"
 msgstr ""
@@ -177,6 +210,7 @@ msgstr ""
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
 #: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_menu
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
 msgid "Timesheets"
 msgstr ""
