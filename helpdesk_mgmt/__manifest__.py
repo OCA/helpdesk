@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "18.0.1.16.2",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -48,6 +48,7 @@
         ],
     },
     "development_status": "Production/Stable",
+    "post_init_hook": "post_init_hook",
     "application": True,
     "installable": True,
 }

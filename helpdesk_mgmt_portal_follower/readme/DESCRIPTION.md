@@ -1,1 +1,0 @@
-This module adds the posibilty to add followers to a helpdesk ticket from the helpdesk form at the website portal.

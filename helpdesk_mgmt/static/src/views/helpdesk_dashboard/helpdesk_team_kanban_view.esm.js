@@ -1,4 +1,4 @@
-import {HelpdeskDashboard} from "./helpdesk_dashboard.esm";
+import {HelpdeskDashboard} from "./helpdesk_dashboard.esm.js";
 import {KanbanRenderer} from "@web/views/kanban/kanban_renderer";
 import {kanbanView} from "@web/views/kanban/kanban_view";
 import {registry} from "@web/core/registry";

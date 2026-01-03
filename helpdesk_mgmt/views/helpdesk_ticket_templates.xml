@@ -193,7 +193,7 @@
                         <div class="d-flex flex-column gap-4 mt-3">
                             <div
                                 class="col-12 d-flex flex-column"
-                                t-if="not ticket.closed_date"
+                                t-if="closed_stages and not ticket.closed_date"
                                 name="ticket_close_buttons"
                             >
                                 <t t-foreach="closed_stages" t-as="stage">

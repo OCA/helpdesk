@@ -4,7 +4,12 @@
         <field name="name">helpdesk.ticket.team.kanban</field>
         <field name="model">helpdesk.ticket.team</field>
         <field name="arch" type="xml">
-            <kanban class="o_kanban_mobile" create="0" js_class="helpdesk_kanban">
+            <kanban
+                class="o_kanban_mobile"
+                create="0"
+                js_class="helpdesk_kanban"
+                highlight_color="color"
+            >
                 <field name="name" />
                 <field name="color" />
                 <field name="todo_ticket_count" />
@@ -35,7 +40,7 @@
                         </div>
                     </t>
                     <t t-name="card">
-                        <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                        <div t-attf-class="oe_kanban_color_#{record.color.raw_value}">
                             <div t-attf-class="o_kanban_card_header">
                                 <div class="o_kanban_card_header_title">
                                     <div class="o_primary">

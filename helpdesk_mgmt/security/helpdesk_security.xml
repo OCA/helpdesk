@@ -3,27 +3,19 @@
     <data noupdate="0">
         <record id="group_helpdesk_user_own" model="res.groups">
             <field name="name">User: Personal tickets</field>
-            <field name="category_id" ref="module_helpdesk_category" />
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
         </record>
         <record id="group_helpdesk_user_team" model="res.groups">
             <field name="name">User: Team tickets</field>
-            <field name="category_id" ref="module_helpdesk_category" />
             <field name="implied_ids" eval="[(4, ref('group_helpdesk_user_own'))]" />
         </record>
         <record id="group_helpdesk_user" model="res.groups">
             <field name="name">User</field>
-            <field name="category_id" ref="module_helpdesk_category" />
             <field name="implied_ids" eval="[(4, ref('group_helpdesk_user_team'))]" />
         </record>
         <record id="group_helpdesk_manager" model="res.groups">
             <field name="name">Helpdesk Manager</field>
-            <field name="category_id" ref="module_helpdesk_category" />
             <field name="implied_ids" eval="[(4, ref('group_helpdesk_user'))]" />
-            <field
-                name="users"
-                eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
-            />
         </record>
     </data>
     <data noupdate="1">

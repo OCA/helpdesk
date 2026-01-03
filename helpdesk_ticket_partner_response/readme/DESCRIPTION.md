@@ -1,1 +1,0 @@
-Autoupdate ticket stage when a partner posts a message on the ticket from the portal or by sending an email.

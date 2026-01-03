@@ -32,7 +32,6 @@
         <field name="arch" type="xml">
             <search>
                 <field
-                    string="Ticket"
                     name="number"
                     filter_domain="['|',('number', 'ilike', self),('name', 'ilike', self)]"
                 />
@@ -106,7 +105,8 @@
                     domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
                   ]"
                 />
-                <group expand="0" string="Group By">
+                <separator />
+                <group>
                     <filter
                         string="Partner"
                         name="group_partner"

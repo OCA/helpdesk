@@ -1,0 +1,148 @@
+=========================================
+  OCA Lokale Test Runner (CMD)
+=========================================
+
+[OK] Docker is running
+
+[OK] Found helpdesk_mgmt
+
+Pulling OCA CI container...
+latest: Pulling from oca/oca-ci/py3.10-odoo19.0
+Digest: sha256:53b489f8320c67c0f25c3b2acdb2687fb989222ab1412765153160c5d9433e23
+Status: Image is up to date for ghcr.io/oca/oca-ci/py3.10-odoo19.0:latest
+ghcr.io/oca/oca-ci/py3.10-odoo19.0:latest
+
+Starting PostgreSQL...
+oca-postgres-test
+Waiting for PostgreSQL...
+timeout: invalid time interval ‘/t’
+Try 'timeout --help' for more information.
+
+Running OCA tests...
+Workspace: c:\Users\Sybde\Projects\helpdesk\oca-helpdesk-19
+
+total 16
+drwxrwxrwx 1 root root  512 Dec 22 12:01 .
+drwxrwxrwx 1 root root  512 Jan  2 14:01 ..
+-rwxrwxrwx 1 root root 8245 Jan  2 12:39 README.rst
+-rwxrwxrwx 1 root root   69 Dec 22 12:01 __init__.py
+-rwxrwxrwx 1 root root 1742 Dec 22 12:01 __manifest__.py
+drwxrwxrwx 1 root root  512 Jan  2 11:10 controllers
+drwxrwxrwx 1 root root  512 Jan  2 12:38 data
+drwxrwxrwx 1 root root  512 Jan  2 11:05 demo
+drwxrwxrwx 1 root root  512 Dec 22 11:51 i18n
+drwxrwxrwx 1 root root  512 Jan  2 13:00 models
+-rwxrwxrwx 1 root root   69 Dec 22 12:01 pyproject.toml
+drwxrwxrwx 1 root root  512 Jan  2 12:39 readme
+drwxrwxrwx 1 root root  512 Jan  2 10:56 security
+drwxrwxrwx 1 root root  512 Dec 22 11:50 static
+drwxrwxrwx 1 root root  512 Jan  2 13:08 tests
+drwxrwxrwx 1 root root  512 Jan  2 11:40 views
+drwxrwxrwx 1 root root  512 Dec 22 11:50 wizards
+No addon selected, please use one of the --select options.
++ oca_wait_for_postgres
+db:5432 - accepting connections
++ '[' -n '' ']'
+++ manifestoo --select-addons-dir . --select-exclude '' list-depends --separator=,
++ ADDONS=mail,portal
++ oca_checklog_odoo
+++ which odoo
++ unbuffer /opt/odoo-venv/bin/odoo -d odoo -i mail,portal --http-interface=127.0.0.1 --stop-after-init
+Running as user 'root' is a security risk.
+2026-01-02 14:01:36,986 19 [1;32m[1;49mINFO[0m ? odoo: Odoo version 19.0
+2026-01-02 14:01:36,986 19 [1;32m[1;49mINFO[0m ? odoo: Using configuration file at /etc/odoo.cfg
+2026-01-02 14:01:36,986 19 [1;32m[1;49mINFO[0m ? odoo: addons paths: _NamespacePath(['/opt/odoo/odoo/addons', '/root/.local/share/Odoo/addons/19.0', '/opt/odoo/addons'])
+2026-01-02 14:01:36,986 19 [1;32m[1;49mINFO[0m ? odoo: database: odoo@db:5432
+2026-01-02 14:01:37,590 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: loading 1 modules...
+2026-01-02 14:01:37,593 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-01-02 14:01:37,617 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: updating modules list
+2026-01-02 14:01:37,624 19 [1;32m[1;49mINFO[0m odoo odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-01-02 14:01:38,459 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: loading 31 modules...
+2026-01-02 14:01:39,107 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: 31 modules loaded in 0.65s, 0 queries (+0 extra)
+2026-01-02 14:01:39,440 19 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: Modules loaded.
+2026-01-02 14:01:39,456 19 [1;32m[1;49mINFO[0m odoo odoo.registry: Registry changed, signaling through the database
+2026-01-02 14:01:39,460 19 [1;32m[1;49mINFO[0m odoo odoo.registry: Registry loaded in 1.937s
+2026-01-02 14:01:39,461 19 [1;32m[1;49mINFO[0m odoo odoo.service.server: Initiating shutdown
+2026-01-02 14:01:39,461 19 [1;32m[1;49mINFO[0m odoo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-01-02 14:01:39,461 19 [1;32m[1;49mINFO[0m odoo odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections
++ oca_wait_for_postgres
+db:5432 - accepting connections
+++ oca_list_addons_to_test
++ '[' -n '' ']'
+++ manifestoo --select-addons-dir . --select-exclude '' list --separator=,
++ ADDONS=helpdesk_mgmt
++ echo helpdesk_mgmt
++ ADDONS=helpdesk_mgmt
++ '[' -z helpdesk_mgmt ']'
++ oca_checklog_odoo
+++ which odoo
++ unbuffer coverage run --include './*' --branch /opt/odoo-venv/bin/odoo -d odoo -i helpdesk_mgmt --test-enable --http-interface=127.0.0.1 --stop-after-init
+Running as user 'root' is a security risk.
+2026-01-02 14:01:40,513 39 [1;32m[1;49mINFO[0m ? odoo: Odoo version 19.0
+2026-01-02 14:01:40,514 39 [1;32m[1;49mINFO[0m ? odoo: Using configuration file at /etc/odoo.cfg
+2026-01-02 14:01:40,514 39 [1;32m[1;49mINFO[0m ? odoo: addons paths: _NamespacePath(['/opt/odoo/odoo/addons', '/root/.local/share/Odoo/addons/19.0', '/opt/odoo/addons'])
+2026-01-02 14:01:40,514 39 [1;32m[1;49mINFO[0m ? odoo: database: odoo@db:5432
+2026-01-02 14:01:40,732 39 [1;32m[1;49mINFO[0m ? odoo.service.server: HTTP service (werkzeug) running on localhost:8069
+2026-01-02 14:01:40,774 39 [1;32m[1;49mINFO[0m odoo odoo.tests.common: Importing test framework
+2026-01-02 14:01:40,794 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: loading 1 modules...
+2026-01-02 14:01:40,799 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-01-02 14:01:40,832 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: updating modules list
+2026-01-02 14:01:40,835 39 [1;32m[1;49mINFO[0m odoo odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-01-02 14:01:41,924 39 [1;33m[1;49mWARNING[0m odoo odoo.modules.loading: invalid module names, ignored: helpdesk_mgmt
+2026-01-02 14:01:41,935 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: loading 31 modules...
+2026-01-02 14:01:42,273 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: 31 modules loaded in 0.34s, 0 queries (+0 extra)
+2026-01-02 14:01:42,625 39 [1;32m[1;49mINFO[0m odoo odoo.modules.loading: Modules loaded.
+2026-01-02 14:01:42,638 39 [1;32m[1;49mINFO[0m odoo odoo.registry: Registry changed, signaling through the database
+2026-01-02 14:01:42,640 39 [1;32m[1;49mINFO[0m odoo odoo.registry: Registry loaded in 1.907s
+2026-01-02 14:01:42,645 39 [1;32m[1;49mINFO[0m odoo odoo.service.server: Starting post tests
+2026-01-02 14:01:42,645 39 [1;32m[1;49mINFO[0m odoo odoo.service.server: 0 post-tests in 0.00s, 0 queries
+2026-01-02 14:01:42,646 39 [1;33m[1;49mWARNING[0m odoo odoo.tests.result: 0 failed, 0 error(s) of 0 tests when loading database 'odoo'
+2026-01-02 14:01:42,646 39 [1;32m[1;49mINFO[0m odoo odoo.service.server: Initiating shutdown
+2026-01-02 14:01:42,646 39 [1;32m[1;49mINFO[0m odoo odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-01-02 14:01:42,743 39 [1;32m[1;49mINFO[0m odoo odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections
+2026-01-02 14:01:42,811 39 [1;33m[1;49mWARNING[0m odoo py.warnings: /opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.1/messages.html#warning-no-data-collected
+  File "/opt/odoo-venv/bin/coverage", line 7, in <module>
+    sys.exit(main())
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 1163, in main
+    status = CoverageScript().command_line(argv)
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 853, in command_line
+    return self.do_run(options, args)
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 1049, in do_run
+    self.coverage.save()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 855, in save
+    data = self.get_data()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 936, in get_data
+    self._post_save_work()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 958, in _post_save_work
+    self._warn("No data was collected.", slug="no-data-collected")
+
+
+errors that did not cause failure (1):
+2026-01-02 14:01:42,646 39 WARNING odoo odoo.tests.result: 0 failed, 0 error(s) of 0 tests when loading database 'odoo'
+
+errors that caused failure (2):
+2026-01-02 14:01:41,924 39 WARNING odoo odoo.modules.loading: invalid module names, ignored: helpdesk_mgmt
+2026-01-02 14:01:42,811 39 WARNING odoo py.warnings: /opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py:958: CoverageWarning: No data was collected. (no-data-collected); see https://coverage.readthedocs.io/en/7.13.1/messages.html#warning-no-data-collected
+  File "/opt/odoo-venv/bin/coverage", line 7, in <module>
+    sys.exit(main())
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 1163, in main
+    status = CoverageScript().command_line(argv)
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 853, in command_line
+    return self.do_run(options, args)
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/cmdline.py", line 1049, in do_run
+    self.coverage.save()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 855, in save
+    data = self.get_data()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 936, in get_data
+    self._post_save_work()
+  File "/opt/odoo-venv/lib/python3.10/site-packages/coverage/control.py", line 958, in _post_save_work
+    self._warn("No data was collected.", slug="no-data-collected")
+
+
+Error: Errors detected in log.
+Terminate batch job (Y/N)?
+^C
+Cleaning up...
+
+[FAILED] Tests failed with exit code 1
+Exit code: 1

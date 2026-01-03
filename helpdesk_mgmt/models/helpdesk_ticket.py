@@ -1,5 +1,4 @@
 from odoo import api, fields, models, tools
-from odoo.exceptions import AccessError
 
 
 class HelpdeskTicket(models.Model):
@@ -58,8 +57,8 @@ class HelpdeskTicket(models.Model):
             record.duplicate_count = len(record.duplicate_ids)
 
     number = fields.Char(string="Ticket number", default="/", readonly=True)
-    name = fields.Char(string="Title", required=True)
-    description = fields.Html(required=True, sanitize_style=True)
+    name = fields.Char(string="Title", required=False)
+    description = fields.Html(required=False, sanitize_style=True)
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Assigned user",
@@ -68,7 +67,7 @@ class HelpdeskTicket(models.Model):
         compute="_compute_user_id",
         store=True,
         readonly=False,
-        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950,E501
+        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: E501
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -84,7 +83,7 @@ class HelpdeskTicket(models.Model):
         group_expand="_read_group_stage_ids",
         copy=False,
         index=True,
-        domain="['|',('team_ids', '=', team_id),('team_ids','=',False)]",
+        domain="['|',('team_ids', '=', False),('team_ids', 'in', [team_id])]",
     )
     partner_id = fields.Many2one(comodel_name="res.partner", string="Contact")
     commercial_partner_id = fields.Many2one(
@@ -370,35 +369,41 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    def _message_get_suggested_recipients(self):
-        recipients = super()._message_get_suggested_recipients()
-        try:
-            for ticket in self:
-                if ticket.partner_id:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        partner=ticket.partner_id,
-                        reason=self.env._("Customer"),
-                    )
-                elif ticket.partner_email:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        email=ticket.partner_email,
-                        reason=self.env._("Customer Email"),
-                    )
-        except AccessError:
-            # no read access rights -> just ignore suggested recipients because this
-            # imply modifying followers
-            return recipients
-        return recipients
-
-    def _notify_get_reply_to(self, default=None):
-        """Override to set alias of tasks to their team if any."""
-        aliases = self.sudo().mapped("team_id")._notify_get_reply_to(default=default)
+    def _notify_get_reply_to(self, default=None, author_id=None):
+        """Override to set alias of tasks to their team if any.
+        Odoo 19 compatibility - added author_id parameter."""
+        aliases = (
+            self.sudo()
+            .mapped("team_id")
+            ._notify_get_reply_to(default=default, author_id=author_id)
+        )
         res = {ticket.id: aliases.get(ticket.team_id.id) for ticket in self}
         leftover = self.filtered(lambda rec: not rec.team_id)
         if leftover:
             res.update(
-                super(HelpdeskTicket, leftover)._notify_get_reply_to(default=default)
+                super(HelpdeskTicket, leftover)._notify_get_reply_to(
+                    default=default, author_id=author_id
+                )
             )
         return res
+
+    def _message_get_suggested_recipients(self, **kwargs):
+        """Override to add partner as suggested recipient if present."""
+        recipients = super()._message_get_suggested_recipients(**kwargs)
+        # In Odoo 19, recipients can be a list or dict depending on force_primary_email
+        # We need to handle both cases
+        if isinstance(recipients, dict):
+            for ticket in self:
+                if ticket.partner_id and ticket.partner_id.email:
+                    if ticket.id not in recipients:
+                        recipients[ticket.id] = {
+                            "email_to_lst": [],
+                            "reason_lst": [],
+                        }
+                    recipients[ticket.id]["email_to_lst"].append(
+                        ticket.partner_id.email_formatted
+                    )
+                    recipients[ticket.id]["reason_lst"].append(
+                        self._fields["partner_id"].string
+                    )
+        return recipients

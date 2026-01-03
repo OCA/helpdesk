@@ -96,12 +96,19 @@ class HelpdeskTeam(models.Model):
                 record.complete_name = record.name
 
     def _get_applicable_stages(self):
+        """Return stages applicable to this team.
+
+        Based on company and team assignment.
+
+        Note: In Odoo 19, many2many empty check uses '=' with False.
+        For checking specific team assignment, use '=' with single ID.
+        """
         if self:
             domain = [
                 ("company_id", "in", [False, self.company_id.id]),
                 "|",
                 ("team_ids", "=", False),
-                ("team_ids", "=", self.id),
+                ("team_ids", "in", self.ids),
             ]
         else:
             domain = [
@@ -111,24 +118,64 @@ class HelpdeskTeam(models.Model):
         return self.env["helpdesk.ticket.stage"].search(domain)
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
-    def _compute_todo_tickets(self):
+    def _compute_todo_tickets(self):  # noqa: C901
         ticket_model = self.env["helpdesk.ticket"]
-        fetch_data = ticket_model.read_group(
+        fetch_data = ticket_model._read_group(
             [("team_id", "in", self.ids), ("closed", "=", False)],
-            ["team_id", "user_id", "unattended", "priority"],
-            ["team_id", "user_id", "unattended", "priority"],
-            lazy=False,
+            aggregates=["id:count"],
+            groupby=["team_id", "user_id", "unattended", "priority"],
         )
-        result = [
-            [
-                data["team_id"][0],
-                data["user_id"] and data["user_id"][0],
-                data["unattended"],
-                data["priority"],
-                data["__count"],
-            ]
-            for data in fetch_data
-        ]
+
+        # _read_group can return different shapes across Odoo versions:
+        # - tuple/list: (groupby_values..., aggregate_value)
+        # - dict: {"team_id": (id, name), ..., "id_count": X}
+        # Be defensive and extract ids/values for both formats.
+        def _extract_id(val):
+            if not val:
+                return False
+            # recordset
+            if hasattr(val, "id"):
+                return val.id
+            # tuple/list like (id, display_name)
+            if isinstance(val, (list, tuple)) and len(val) > 0:
+                return val[0]
+            # plain int id
+            if isinstance(val, int):
+                return val
+            return False
+
+        def _extract_count(val):
+            # aggregate may be an int, or a dict with various keys
+            if isinstance(val, int):
+                return val
+            if isinstance(val, dict):
+                # try common keys
+                for k in ("id_count", "__count", "count", "id:count"):
+                    if k in val and isinstance(val[k], int):
+                        return val[k]
+                # fallback: first int value
+                for v in val.values():
+                    if isinstance(v, int):
+                        return v
+            return 0
+
+        result = []
+        for data in fetch_data:
+            # tuple/list result
+            if isinstance(data, (list, tuple)):
+                team_id = _extract_id(data[0])
+                user_id = _extract_id(data[1])
+                unattended = data[2] if len(data) > 2 and data[2] is not None else False
+                priority = data[3] if len(data) > 3 and data[3] is not None else False
+                count = _extract_count(data[4]) if len(data) > 4 else 0
+                result.append([team_id, user_id, unattended, priority, count])
+            elif isinstance(data, dict):
+                team_id = _extract_id(data.get("team_id"))
+                user_id = _extract_id(data.get("user_id"))
+                unattended = data.get("unattended", False)
+                priority = data.get("priority", False)
+                count = _extract_count(data)
+                result.append([team_id, user_id, unattended, priority, count])
         for team in self:
             team.todo_ticket_count = sum(r[4] for r in result if r[0] == team.id)
             team.todo_ticket_count_unassigned = sum(

@@ -1,3 +1,0 @@
-- [Onestein](http://www.onestein.eu)
-- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
-  - Bhavesh Heliconia

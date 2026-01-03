@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-ir_model_access_helpdesk_motive_user,helpdesk_motive_group_manager,model_helpdesk_ticket_motive,helpdesk_mgmt.group_helpdesk_user,1,0,0,0
-ir_model_access_helpdesk_motive_manager,helpdesk_motive_group_user,model_helpdesk_ticket_motive,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1

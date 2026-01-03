@@ -5,12 +5,15 @@ from operator import itemgetter
 
 from odoo import http
 from odoo.exceptions import AccessError, MissingError
+from odoo.fields import Domain
 from odoo.http import request
-from odoo.osv.expression import AND, OR
 from odoo.tools import groupby as groupbyelem
 
 from odoo.addons.portal.controllers.portal import CustomerPortal
 from odoo.addons.portal.controllers.portal import pager as portal_pager
+
+AND = Domain.AND
+OR = Domain.OR
 
 
 class CustomerPortalHelpdesk(CustomerPortal):
@@ -183,9 +186,24 @@ class CustomerPortalHelpdesk(CustomerPortal):
         return request.render("helpdesk_mgmt.portal_helpdesk_ticket_page", values)
 
     def _ticket_get_page_view_values(self, ticket, access_token, **kwargs):
-        closed_stages = ticket.team_id._get_applicable_stages().filtered(
-            lambda s: s.close_from_portal
-        )
+        # Get stages that can be used to close this ticket from portal
+        Stage = request.env["helpdesk.ticket.stage"]
+        # Prefer the team's applicable stages (handles company/team domains
+        # consistently). Fall back to a search when there's no team.
+        if ticket.team_id:
+            closed_stages = (
+                ticket.team_id.sudo()
+                ._get_applicable_stages()
+                .filtered(lambda s: s.close_from_portal and s.closed)
+            )
+        else:
+            domain = [
+                ("close_from_portal", "=", True),
+                ("closed", "=", True),
+                ("company_id", "in", [False, request.env.company.id]),
+                ("team_ids", "=", False),
+            ]
+            closed_stages = Stage.sudo().search(domain)
         values = {
             "closed_stages": closed_stages,  # used to display close buttons
             "page_name": "ticket",

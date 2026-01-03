@@ -70,7 +70,7 @@
         name="Helpdesk"
         sequence="16"
         web_icon="helpdesk_mgmt,static/description/icon.png"
-        groups="group_helpdesk_user_own"
+        groups="group_helpdesk_user_own,base.group_system"
     />
     <menuitem
         id="helpdesk_ticket_dashboard_menu"
