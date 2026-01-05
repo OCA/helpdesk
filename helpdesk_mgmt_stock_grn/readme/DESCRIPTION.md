@@ -1,0 +1,1 @@
+Enables to link a GRN to helpdesk ticket.

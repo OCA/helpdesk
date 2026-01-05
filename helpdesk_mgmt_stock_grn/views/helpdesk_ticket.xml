@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="helpdesk_ticket_form_view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_stock.ticket_view_form" />
+        <field name="arch" type="xml">
+            <group name="stock" position="inside">
+                <field name="grn_id" />
+                <field name="grn_date" />
+                <field name="delivery_note_supplier_number" />
+            </group>
+        </field>
+    </record>
+
+</odoo>
