@@ -11,7 +11,7 @@
                 <field
                     name="activity_stage_id"
                     domain="['|', ('team_ids', '=', False), ('team_ids', 'in', [id])]"
-                    attrs="{'invisible': [('allow_set_activity', '=', False)]}"
+                    invisible="not allow_set_activity"
                 />
             </group>
         </field>
