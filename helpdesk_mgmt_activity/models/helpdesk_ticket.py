@@ -79,7 +79,7 @@ class HelpdeskTicket(models.Model):
             next_stage = (
                 stages.filtered(
                     lambda stage, _cur_stage=current_stage: stage.sequence
-                    > current_stage.sequence
+                    > _cur_stage.sequence
                 )[:1]
                 or current_stage
             )
@@ -94,7 +94,7 @@ class HelpdeskTicket(models.Model):
                 continue
             try:
                 self.env[rec.res_model].browse(rec.res_id).check_access_rule("read")
-                rec.record_ref = "%s,%s" % (rec.res_model, rec.res_id)
+                rec.record_ref = f"{rec.res_model},{rec.res_id}"
             except Exception:
                 rec.record_ref = None
 

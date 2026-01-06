@@ -5,26 +5,19 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="helpdesk_mgmt.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@data-key='helpdesk_mgmt']" position="inside">
-                <div class="row mt16 o_settings_container">
-                    <div class="col-12 col-lg-6 o_setting_box">
-                        <div class="o_setting_left_pane" />
-                        <div class="o_setting_right_pane">
-                            <label for="helpdesk_available_model_ids" />
-                            <div class="text-muted">
-                                Models available for a Helpdesk
-                            </div>
-                            <div class="content-group">
-                                <div class="mt16">
-                                    <field
-                                        name="helpdesk_available_model_ids"
-                                        widget="many2many_tags"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//app[@name='helpdesk_mgmt']" position="inside">
+                <block title="Helpdesk Activity">
+                    <setting
+                        id="helpdesk_activity_available_models"
+                        string="Available Models"
+                        help="Models available for a Helpdesk"
+                    >
+                        <field
+                            name="helpdesk_available_model_ids"
+                            widget="many2many_tags"
+                        />
+                    </setting>
+                </block>
             </xpath>
         </field>
     </record>
