@@ -104,6 +104,13 @@ class CustomerPortalHelpdesk(CustomerPortal):
             ]
         )
 
+        domain = AND(
+            [
+                domain,
+                [("team_id", "in", request.env["helpdesk.ticket.team"].search([]).ids)],
+            ]
+        )
+
         # count for pager
         ticket_count = HelpdeskTicket.search_count(domain)
         # pager
