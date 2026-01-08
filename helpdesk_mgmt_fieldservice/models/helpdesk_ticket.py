@@ -24,12 +24,12 @@ class HelpdeskTicket(models.Model):
     def _validate_stage_fields(self):
         for rec in self:
             if (
-                self.stage_id.closed
+                rec.stage_id.closed
                 and rec.fsm_order_ids
                 and not all(rec.fsm_order_ids.mapped("stage_id.is_closed"))
             ):
                 raise ValidationError(
-                    self.env._(
+                    rec.env._(
                         "Please complete all service orders "
                         "related to this ticket to close it."
                     )
