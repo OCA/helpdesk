@@ -8,7 +8,7 @@
         <xpath expr="//thead/tr" position="inside">
             <t
                 t-set="has_timesheet_column"
-                t-value="any((team.allow_timesheet and team.show_timesheet_portal) for team in tickets.team_id)"
+                t-value="any((team.allow_timesheet and team.show_timesheet_portal) for team in tickets.team_id.sudo())"
             />
             <th t-if="has_timesheet_column">Spent Time</th>
         </xpath>
@@ -17,7 +17,7 @@
                 <span
                     t-field="ticket.total_hours"
                     t-options="{'widget': 'float_time'}"
-                    t-if="ticket.team_id.allow_timesheet and ticket.team_id.show_timesheet_portal"
+                    t-if="ticket.team_id.sudo().allow_timesheet and ticket.team_id.sudo().show_timesheet_portal"
                 />
             </td>
         </xpath>
@@ -31,7 +31,7 @@
         <xpath expr="//div[@id='card_body']" position="inside">
             <div
                 class="mb-4 mb-md-0"
-                t-if="ticket.team_id.allow_timesheet and ticket.team_id.show_timesheet_portal and ticket.timesheet_ids"
+                t-if="ticket.team_id.sudo().allow_timesheet and ticket.team_id.sudo().show_timesheet_portal and ticket.timesheet_ids"
             >
                 <h5 class="mb-1">Timesheets</h5>
                 <hr class="mt-1 mb-2" />
