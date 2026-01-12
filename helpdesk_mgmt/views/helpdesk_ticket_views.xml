@@ -44,6 +44,7 @@
                 <field name="category_id" />
                 <field name="tag_ids" />
                 <field name="stage_id" />
+                <field name="description" />
                 <filter
                     string="Unassigned"
                     name="unassigned"
