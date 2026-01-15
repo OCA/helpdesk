@@ -124,8 +124,7 @@ class TestHelpdeskProjectDomain(TestHelpdeskTicketBase):
         # Set invalid domain
         self.team.project_domain = "[('invalid_field', '=', True)]"
 
-        # Create ticket
-        ticket = self.env["helpdesk.ticket"].create(
+        ticket = self.env["helpdesk.ticket"].new(
             {
                 "name": "Test Ticket",
                 "description": "Test Ticket Description",
@@ -425,8 +424,7 @@ domain = [('name', 'ilike', 'Project')]
         self.team.task_domain = "[('project_id', '!=', False)]"
         self.team.task_domain_python = "domain = [('user_id', '!=', False)]"
 
-        # Create ticket with team
-        ticket = self.env["helpdesk.ticket"].create(
+        ticket = self.env["helpdesk.ticket"].new(
             {
                 "name": "Test Ticket",
                 "description": "Test ticket description",
@@ -714,7 +712,7 @@ else:
         project_filters = [
             cond
             for cond in domain
-            if isinstance(cond, (list, tuple))
+            if isinstance(cond, (list | tuple))
             and len(cond) == 3
             and cond[0] == "project_id"
             and cond[1] == "="

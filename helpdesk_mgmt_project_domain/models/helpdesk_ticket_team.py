@@ -44,7 +44,6 @@ DEFAULT_TASK_PYTHON_CODE = """# Available variables:
 
 
 class HelpdeskTicketTeam(models.Model):
-
     _inherit = "helpdesk.ticket.team"
 
     project_domain = fields.Char(
@@ -57,7 +56,8 @@ class HelpdeskTicketTeam(models.Model):
         string="Project Domain Python Code",
         default=DEFAULT_PYTHON_CODE,
         help="Python code to generate dynamic project domain based on ticket data. "
-        "This domain will be automatically combined with company and team domains using AND. "
+        "This domain will be automatically combined with company "
+        "and team domains using AND. "
         "The code can either assign to 'domain' variable OR return a list directly. "
         "Available variables: ticket, env, user, company, AND, OR, normalize.",
     )
@@ -72,7 +72,8 @@ class HelpdeskTicketTeam(models.Model):
         string="Task Domain Python Code",
         default=DEFAULT_TASK_PYTHON_CODE,
         help="Python code to generate dynamic task domain based on ticket data. "
-        "This domain will be automatically combined with company and team domains using AND. "
+        "This domain will be automatically combined with company "
+        "and team domains using AND. "
         "The code can either assign to 'domain' variable OR return a list directly. "
         "Available variables: ticket, env, user, company, AND, OR, normalize.",
     )

@@ -163,7 +163,7 @@ class HelpdeskTicket(models.Model):
             return []
         try:
             dom = safe_eval(expr, {"uid": self.env.uid})
-            if isinstance(dom, (list, tuple)):
+            if isinstance(dom, (list | tuple)):
                 return expression.normalize_domain(list(dom))
             _logger.warning(
                 "Evaluated domain is not a list/tuple (expr=%s, type=%s)",
@@ -204,7 +204,7 @@ class HelpdeskTicket(models.Model):
         # 1) Try as an expression that directly returns a domain
         try:
             maybe = safe_eval(python_code.strip(), safe_globals)
-            if isinstance(maybe, (list, tuple)):
+            if isinstance(maybe, (list | tuple)):
                 return expression.normalize_domain(list(maybe))
         except Exception as e:
             # Fallback to exec mode below
@@ -215,7 +215,7 @@ class HelpdeskTicket(models.Model):
         try:
             safe_eval(python_code.strip(), eval_context, mode="exec", nocopy=True)
             dom = eval_context.get("domain", [])
-            if isinstance(dom, (list, tuple)):
+            if isinstance(dom, (list | tuple)):
                 return expression.normalize_domain(list(dom))
             if dom:
                 _logger.warning(
@@ -333,15 +333,15 @@ class HelpdeskTicket(models.Model):
 
     def _domain_contains_project_filter(self, domain, project_id):
         """Check if domain already contains a filter for the specific project_id"""
-        if not domain or not isinstance(domain, (list, tuple)):
+        if not domain or not isinstance(domain, (list | tuple)):
             return False
 
         for condition in domain:
-            if isinstance(condition, (list, tuple)) and len(condition) == 3:
+            if isinstance(condition, (list | tuple)) and len(condition) == 3:
                 field, operator, value = condition
                 if field == "project_id" and operator == "=" and value == project_id:
                     return True
-            elif isinstance(condition, (list, tuple)) and len(condition) > 0:
+            elif isinstance(condition, (list | tuple)) and len(condition) > 0:
                 # Recursively check nested domains
                 if self._domain_contains_project_filter(condition, project_id):
                     return True
