@@ -110,11 +110,17 @@ class HelpdeskTeam(models.Model):
             ]
         return self.env["helpdesk.ticket.stage"].search(domain)
 
-    @api.depends("ticket_ids", "ticket_ids.stage_id")
+    @api.depends("ticket_ids", "ticket_ids.stage_id", "ticket_ids.closed")
     def _compute_todo_tickets(self):
+        excluded_stages = self.env["helpdesk.ticket.stage"].search(
+            [("exclude_from_count", "=", True)]
+        )
         ticket_model = self.env["helpdesk.ticket"]
+        base_domain = [("team_id", "in", self.ids), ("closed", "=", False)]
+        if excluded_stages:
+            base_domain.append(("stage_id", "not in", excluded_stages.ids))
         fetch_data = ticket_model.read_group(
-            [("team_id", "in", self.ids), ("closed", "=", False)],
+            base_domain,
             ["team_id", "user_id", "unattended", "priority"],
             ["team_id", "user_id", "unattended", "priority"],
             lazy=False,

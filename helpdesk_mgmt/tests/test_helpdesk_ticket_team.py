@@ -115,3 +115,33 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
         dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
         self.assertEqual(dashboard[0]["value"], 0)
         self.assertEqual(dashboard[1]["value"], 1)
+
+    def test_exclude_stage_from_count(self):
+        """Test that tickets in excluded stages are not counted"""
+        stage_excluded = self.env["helpdesk.ticket.stage"].create(
+            {
+                "name": "Waiting for Customer",
+                "exclude_from_count": True,
+            }
+        )
+        initial_count = self.team_a.todo_ticket_count
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket in excluded stage",
+                "description": "Test ticket",
+                "team_id": self.team_a.id,
+                "stage_id": stage_excluded.id,
+            }
+        )
+        self.assertEqual(
+            self.team_a.todo_ticket_count,
+            initial_count,
+            "Helpdesk Ticket: Tickets in excluded stages should not be counted.",
+        )
+        stage_excluded.exclude_from_count = False
+        self.team_a.invalidate_recordset(["todo_ticket_count"])
+        self.assertEqual(
+            self.team_a.todo_ticket_count,
+            initial_count + 1,
+            "Helpdesk Ticket: Tickets should be counted when stage is not excluded.",
+        )
