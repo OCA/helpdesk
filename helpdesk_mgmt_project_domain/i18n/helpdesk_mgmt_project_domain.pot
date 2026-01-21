@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -71,7 +71,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
 msgid ""
 "Global domain to filter projects available for selection in helpdesk tickets.\n"
-"                                This will be applied if no specific domain is set in the team."
+"                                    This will be applied if no specific domain is set in the team."
 msgstr ""
 
 #. module: helpdesk_mgmt_project_domain
@@ -87,7 +87,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
 msgid ""
 "Global domain to filter tasks available for selection in helpdesk tickets.\n"
-"                                This will be applied if no specific domain is set in the team."
+"                                    This will be applied if no specific domain is set in the team."
 msgstr ""
 
 #. module: helpdesk_mgmt_project_domain
@@ -111,14 +111,13 @@ msgstr ""
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
-msgid "Project &amp; Task Domain Configuration"
+msgid "Project & Task Domain Configuration"
 msgstr ""
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_project_domain
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
 msgid "Project Domain"
 msgstr ""
@@ -182,7 +181,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_task_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_task_domain
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
 msgid "Task Domain"
 msgstr ""
