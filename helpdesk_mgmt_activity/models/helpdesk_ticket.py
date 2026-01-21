@@ -93,7 +93,8 @@ class HelpdeskTicket(models.Model):
                 rec.record_ref = None
                 continue
             try:
-                self.env[rec.res_model].browse(rec.res_id).check_access_rule("read")
+                record = self.env[rec.res_model].browse(rec.res_id)
+                record.check_access("read")
                 rec.record_ref = f"{rec.res_model},{rec.res_id}"
             except Exception:
                 rec.record_ref = None
