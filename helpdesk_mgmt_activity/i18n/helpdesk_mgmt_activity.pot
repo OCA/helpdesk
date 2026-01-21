@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,7 +26,6 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "Activity Type is not set!"
 msgstr ""
 
@@ -40,7 +39,6 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "Activity has been created!"
 msgstr ""
 
@@ -52,7 +50,6 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "Assigned User is not set!"
 msgstr ""
 
@@ -81,7 +78,6 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "Date Deadline is not set!"
 msgstr ""
 
@@ -164,7 +160,6 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "Source Record is not set!"
 msgstr ""
 
@@ -176,6 +171,5 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "You cannot create activity!"
 msgstr ""
