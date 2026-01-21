@@ -1,10 +1,14 @@
 # Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+import logging
+
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
 from odoo.osv import expression
 from odoo.tools.safe_eval import safe_eval, test_python_expr
+
+_logger = logging.getLogger(__name__)
 
 DEFAULT_PYTHON_CODE = """# Available variables:
 #  - ticket: Current helpdesk ticket record
@@ -131,11 +135,9 @@ class HelpdeskTicketTeam(models.Model):
             return eval_context.get("domain", [])
 
         except Exception as e:
-            # Log the error but don't raise it to avoid breaking the UI
-            import logging
-
-            _logger = logging.getLogger(__name__)
-            _logger.warning(
-                "Error executing Python domain code for team %s: %s", self.name, str(e)
+            _logger.info(
+                "Ignoring invalid Python domain code for team %s: %s",
+                self.name,
+                str(e),
             )
             return []

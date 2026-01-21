@@ -2,7 +2,6 @@
 <!-- Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="view_helpdesk_team_form_project_domain" model="ir.ui.view">
         <field name="name">helpdesk.ticket.team.form.project.domain</field>
         <field name="model">helpdesk.ticket.team</field>
@@ -48,5 +47,4 @@
             </notebook>
         </field>
     </record>
-
 </odoo>

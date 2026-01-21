@@ -218,12 +218,12 @@ class HelpdeskTicket(models.Model):
             if isinstance(dom, (list | tuple)):
                 return expression.normalize_domain(list(dom))
             if dom:
-                _logger.warning(
+                _logger.debug(
                     "Domain Python code assigned invalid type to 'domain': %s",
                     type(dom),
                 )
         except Exception as e:
-            _logger.error("Error executing domain Python code: %s", e)
+            _logger.debug("Error executing domain Python code: %s", e)
 
         return []
 

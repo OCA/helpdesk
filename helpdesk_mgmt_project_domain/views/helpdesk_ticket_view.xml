@@ -2,7 +2,6 @@
 <!-- Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record id="view_helpdesk_ticket_form_project_domain" model="ir.ui.view">
         <field name="name">helpdesk.ticket.form.project.domain</field>
         <field name="model">helpdesk.ticket</field>
@@ -22,5 +21,4 @@
             </xpath>
         </field>
     </record>
-
 </odoo>
