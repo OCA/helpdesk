@@ -34,7 +34,8 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
 
     def test_set_category(self):
         """
-        Test that setting a category on a ticket correctly sets the category_id and description.
+        Test that setting a category on a ticket correctly sets
+        the category_id and description.
         """
         # Check that the category_id is initially empty
         self.assertFalse(
@@ -83,7 +84,8 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             msg="A team should not have categories attached to it.",
         )
 
-        # Assign a team to the ticket and check that the categories are linked to the team.
+        # Assign a team to the ticket and check that
+        # the categories are linked to the team.
         self.ticket_a_user_own.team_id = self.team_c.id
         related_category_ids = [self.category_1.id, self.category_3.id]
         self.assertEqual(
@@ -92,7 +94,8 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             msg="Categories should be linked to the team.",
         )
 
-        # Set the category_id of the ticket to the first category in the linked categories.
+        # Set the category_id of the ticket to the
+        # first category in the linked categories.
         self.ticket_a_user_own.category_id = (
             self.ticket_a_user_own.helpdesk_ticket_category_ids[0]
         )

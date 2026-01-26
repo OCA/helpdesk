@@ -4,7 +4,7 @@
 {
     "name": "Helpdesk Management Template",
     "summary": "Create Helpdesk Ticket Template",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "author": "Cetmix OÜ, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",

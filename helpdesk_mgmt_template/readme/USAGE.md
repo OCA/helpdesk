@@ -4,4 +4,5 @@
 - Open a Ticket
 - Create a new Ticket
 - Select Category
-- Add a description or modify category description template (if configured) 
+- Add a description or modify category description template (if
+  configured)
