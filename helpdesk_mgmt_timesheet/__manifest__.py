@@ -15,7 +15,7 @@
     "website": "https://github.com/OCA/helpdesk",
     "license": "AGPL-3",
     "category": "After-Sales",
-    "version": "18.0.1.1.1",
+    "version": "18.0.1.1.2",
     "depends": [
         "helpdesk_mgmt_project",
         "hr_timesheet",
