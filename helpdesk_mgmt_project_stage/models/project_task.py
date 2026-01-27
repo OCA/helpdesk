@@ -21,4 +21,14 @@ class ProjectTask(models.Model):
                 self.stage_id.ticket_stage_ids & ticket.team_id._get_applicable_stages()
             )[:1]
             if new_stage and ticket.stage_id != new_stage:
+                if (
+                    ticket.stage_id.sync_limit_single_task
+                    or new_stage.sync_limit_single_task
+                ):
+                    task_count = self.env["project.task"].search_count(
+                        [("ticket_ids", "in", ticket.id)]
+                    )
+                    ticket_count = len(self.ticket_ids)
+                    if task_count != 1 or ticket_count != 1:
+                        continue
                 ticket.stage_id = new_stage
