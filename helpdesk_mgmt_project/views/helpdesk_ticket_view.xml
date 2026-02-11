@@ -41,6 +41,7 @@
                     domain="[('project_id', '=', project_id)]"
                     invisible="not project_id"
                     context="{'default_project_id': project_id}"
+                    options="{'no_quick_create': True}"
                     groups="project.group_project_user"
                 />
                 <t groups="project.group_project_milestone">
