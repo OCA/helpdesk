@@ -6,60 +6,62 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-02-13 11:09+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
 "Language-Team: none\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_crm
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "İptal Et"
 
 #. module: helpdesk_mgmt_crm
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.ticket_view_form
 msgid "Convert to opportunity"
-msgstr ""
+msgstr "Fırsata dönüştürün"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.actions.act_window,name:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_action
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
 msgid "Create Lead"
-msgstr ""
+msgstr "Aday Oluştur"
 
 #. module: helpdesk_mgmt_crm
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.helpdesk_ticket_create_lead_view_form
 msgid "Create opportunity"
-msgstr ""
+msgstr "Fırsat Oluştur"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Oluşturan"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Oluşturulma"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Ekran Adı"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_crm_lead__ticket_id
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Yardım Masası Destek Kaydı"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model,name:helpdesk_mgmt_crm.model_helpdesk_ticket_create_lead
 msgid "Helpdesk Ticket Create Lead"
-msgstr ""
+msgstr "Yardım Masası Aday Oluştur"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__id
@@ -69,46 +71,46 @@ msgstr ""
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Son Güncelleyen"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Son Güncelleme"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model,name:helpdesk_mgmt_crm.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr ""
+msgstr "Aday/Fırsat"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__lead_count
 msgid "Opportunity Count"
-msgstr ""
+msgstr "Fırsat Sayısı"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__lead_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.ticket_view_form
 msgid "Opportunity(ies)"
-msgstr ""
+msgstr "Fırsat(lar)"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__team_id
 msgid "Team"
-msgstr ""
+msgstr "Takım"
 
 #. module: helpdesk_mgmt_crm
 #. odoo-python
 #: code:addons/helpdesk_mgmt_crm/wizard/helpdesk_ticket_create_lead.py:0
 msgid "This ticket has been converted to the opportunity %(lead_link)s"
-msgstr ""
+msgstr "Bu bilet %(lead_link)s fırsatına dönüştürüldü"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__ticket_id
 msgid "Ticket"
-msgstr ""
+msgstr "Destek Kaydı"
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__user_id
 msgid "User"
-msgstr ""
+msgstr "Kullanıcı"
