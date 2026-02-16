@@ -17,6 +17,9 @@
                     <field string="Sale Orders" name="so_count" widget="statinfo" />
                 </button>
             </xpath>
+            <field name="channel_id" position="after">
+                <field name="sale_order_ids" widget="many2many_tags" />
+            </field>
         </field>
     </record>
     <record id="action_helpdesk_ticket" model="ir.actions.act_window">

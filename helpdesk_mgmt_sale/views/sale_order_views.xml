@@ -28,6 +28,14 @@
                     <field string="Tickets" name="ticket_count" widget="statinfo" />
                 </button>
             </xpath>
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_create_helpdesk_ticket"
+                    type="object"
+                    string="Créer un ticket"
+                    class="btn btn-primary"
+                />
+        </xpath>
         </field>
     </record>
 </odoo>

@@ -13,3 +13,22 @@ class SaleOrder(models.Model):
     def _compute_ticket_count(self):
         for order in self:
             order.ticket_count = len(order.ticket_ids)
+
+    def action_create_helpdesk_ticket(self):
+        self.ensure_one()
+
+        return {
+            "type": "ir.actions.act_window",
+            "name": "Create Helpdesk ticket",
+            "res_model": "helpdesk.ticket",
+            "view_mode": "form",
+            "view_id": self.env.ref("helpdesk_mgmt.ticket_view_form").id,
+            "target": "new",
+            "context": {
+                "default_partner_id": self.partner_id.id,
+                "default_name": self.name,
+                "default_origin": self.name,
+                "default_sale_order_ids": [(4, self.id)],
+                "from_sale_order": True,
+            },
+        }
