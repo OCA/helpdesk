@@ -32,7 +32,7 @@
                 <button
                     name="action_create_helpdesk_ticket"
                     type="object"
-                    string="Créer un ticket"
+                    string="Create a ticket"
                     class="btn btn-primary"
                 />
         </xpath>

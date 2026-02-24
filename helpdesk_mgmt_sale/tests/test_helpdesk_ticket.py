@@ -7,6 +7,7 @@ class TestHelpdeskTicketSale(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.Ticket = cls.env["helpdesk.ticket"]
         cls.partner = cls.env["res.partner"].create(
             {"name": "Test Partner", "email": "testpartner@example.com"}
         )
@@ -53,3 +54,42 @@ class TestHelpdeskTicketSale(BaseCommon):
         self.assertEqual(
             action["context"]["default_ticket_ids"], [(4, [self.ticket.id])]
         )
+
+    def test_create_ticket_without_context(self):
+        self.Ticket.create(
+            {
+                "name": "Test Ticket",
+                "sale_order_ids": [(6, 0, [self.sale_order_1.id])],
+                "description": "Test Helpdesk Ticket",
+            }
+        )
+        messages = self.sale_order_1.message_ids.filtered(
+            lambda m: "Helpdesk Ticket" in (m.body or "")
+        )
+        self.assertFalse(messages, "No message should be posted without context")
+
+    def test_create_ticket_with_context(self):
+        ticket = self.Ticket.with_context(from_sale_order=True).create(
+            {
+                "name": "Ticket Context",
+                "sale_order_ids": [(6, 0, [self.sale_order_2.id])],
+                "description": "Test Helpdesk Ticket",
+            }
+        )
+
+        messages = self.sale_order_2.message_ids.filtered(
+            lambda m: ticket.name in (m.body or "")
+        )
+
+        self.assertTrue(messages, "A message should be posted on the sale order")
+        self.assertIn(self.env.user.name, messages[0].body)
+
+    def test_action_context_values(self):
+        action = self.sale_order_1.action_create_helpdesk_ticket()
+        ctx = action["context"]
+
+        self.assertEqual(ctx["default_partner_id"], self.partner.id)
+        self.assertEqual(ctx["default_name"], self.sale_order_1.name)
+        self.assertEqual(ctx["default_origin"], self.sale_order_1.name)
+        self.assertEqual(ctx["default_sale_order_ids"], [(4, self.sale_order_1.id)])
+        self.assertTrue(ctx["from_sale_order"])
