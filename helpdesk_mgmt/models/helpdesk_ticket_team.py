@@ -75,6 +75,11 @@ class HelpdeskTeam(models.Model):
         compute="_compute_complete_name", store=True, recursive=True
     )
     parent_path = fields.Char(index=True, unaccent=False)
+    add_leader_as_follower = fields.Boolean(
+        string="Leader follows tickets",
+        default=False,
+        help="If enabled, the team leader will automatically follow new tickets.",
+    )
 
     @api.depends("name", "parent_id.complete_name")
     def _compute_complete_name(self):

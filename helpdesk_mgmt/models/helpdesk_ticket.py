@@ -223,7 +223,13 @@ class HelpdeskTicket(models.Model):
                 )
                 if channel_email_id:
                     vals["channel_id"] = channel_email_id.id
-        return super().create(vals_list)
+        tickets = super().create(vals_list)
+        for ticket in tickets.filtered(
+            lambda t: t.team_id.add_leader_as_follower and t.team_id.user_id.partner_id
+        ):
+            ticket.message_subscribe(partner_ids=[ticket.team_id.user_id.partner_id.id])
+
+        return tickets
 
     def copy(self, default=None):
         self.ensure_one()
@@ -244,7 +250,16 @@ class HelpdeskTicket(models.Model):
                     vals["closed_date"] = now
             if vals.get("user_id"):
                 vals["assigned_date"] = now
-        return super().write(vals)
+        res = super().write(vals)
+        if "team_id" in vals:
+            for ticket in self.filtered(
+                lambda t: t.team_id.add_leader_as_follower
+                and t.team_id.user_id.partner_id
+            ):
+                ticket.message_subscribe(
+                    partner_ids=[ticket.team_id.user_id.partner_id.id]
+                )
+        return res
 
     def action_duplicate_tickets(self):
         for ticket in self.browse(self.env.context["active_ids"]):

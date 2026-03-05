@@ -111,6 +111,40 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "have the same number than the origin ticket.",
         )
 
+    def test_helpdesk_ticket_team_leader_follower_on_create(self):
+        self.team_a.write(
+            {
+                "add_leader_as_follower": True,
+                "user_id": self.user_own.id,
+            }
+        )
+        new_ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket with team leader follower",
+                "description": "Description",
+                "team_id": self.team_a.id,
+            }
+        )
+        self.assertIn(self.user_own.partner_id, new_ticket.message_partner_ids)
+
+    def test_helpdesk_ticket_team_leader_follower_on_team_change(self):
+        self.team_b.write(
+            {
+                "add_leader_as_follower": True,
+                "user_id": self.user_team.id,
+            }
+        )
+        new_ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket changing team",
+                "description": "Description",
+                "team_id": self.team_a.id,
+            }
+        )
+        self.assertNotIn(self.user_team.partner_id, new_ticket.message_partner_ids)
+        new_ticket.write({"team_id": self.team_b.id})
+        self.assertIn(self.user_team.partner_id, new_ticket.message_partner_ids)
+
     def test_helpdesk_ticket_message_new(self):
         Partner = self.env["res.partner"]
         Ticket = self.env["helpdesk.ticket"]
