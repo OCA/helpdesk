@@ -39,16 +39,19 @@
                 <field
                     name="planned_hours"
                     widget="float_time"
+                    optional="show"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
                 <field
                     name="total_hours"
                     widget="float_time"
+                    optional="show"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
                 <field
                     name="remaining_hours"
                     widget="float_time"
+                    optional="show"
                     decoration-danger="remaining_hours &lt; 0"
                     groups="hr_timesheet.group_hr_timesheet_user"
                 />
