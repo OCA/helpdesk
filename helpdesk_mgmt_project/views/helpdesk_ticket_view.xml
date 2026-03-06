@@ -12,7 +12,7 @@
         <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
         <field name="arch" type="xml">
             <field name="user_id" position="after">
-                <field name="project_id" groups="project.group_project_user" />
+                <field name="project_id" optional="show" groups="project.group_project_user" />
             </field>
         </field>
     </record>
