@@ -20,9 +20,8 @@
   - Carlos Roca
   - Juan Carlos Oñate
   - David Bañón Gil
-- [ID42 Sistemas](https://www.id42.com.br):
+- [Escodoo](https://escodoo.com.br):
   - Marcel Savegnago
-  - Eduardo Aparício
 - [Obertix](https://www.obertix.net):
   - Vicent Cubells
 - [Solvos](https://www.solvos.es):
