@@ -45,7 +45,8 @@ class HelpdeskTicketTeam(models.Model):
             if not team.user_ids and team.assign_method != "manual":
                 raise ValidationError(
                     _(
-                        "You must have team members assigned to change the assignation method."
+                        "You must have team members assigned to change "
+                        "the assignation method."
                     )
                 )
 

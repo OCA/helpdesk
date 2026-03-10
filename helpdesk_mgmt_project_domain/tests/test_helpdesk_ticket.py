@@ -219,7 +219,7 @@ else:
         project_id_filters = [
             leaf
             for leaf in normalized_task_domain
-            if isinstance(leaf, (list, tuple))
+            if isinstance(leaf, list | tuple)
             and len(leaf) == 3
             and leaf[0] == "project_id"
             and leaf[1] == "="

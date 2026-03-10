@@ -49,7 +49,7 @@ class HelpdeskTicket(models.Model):
         compute="_compute_user_id",
         store=True,
         readonly=False,
-        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950
+        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: E501
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"

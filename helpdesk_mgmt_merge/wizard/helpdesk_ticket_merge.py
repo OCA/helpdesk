@@ -68,7 +68,7 @@ class HelpdeskTicketMerge(models.TransientModel):
         for ticket in merged_tickets:
             self._add_message(
                 "to",
-                f'<a href="/web#id={self.dst_ticket_id.id}&model=helpdesk.ticket">{self.dst_ticket_id.number}</a>',  # noqa: B950
+                f'<a href="/web#id={self.dst_ticket_id.id}&model=helpdesk.ticket">{self.dst_ticket_id.number}</a>',  # noqa: E501
                 ticket,
             )
         ticket_numbers = ", ".join(
@@ -106,7 +106,7 @@ class HelpdeskTicketMerge(models.TransientModel):
         )
 
     def default_get(self, fields):
-        result = super(HelpdeskTicketMerge, self).default_get(fields)
+        result = super().default_get(fields)
         selected_tickets = self.env["helpdesk.ticket"].browse(
             self.env.context.get("active_ids", False)
         )

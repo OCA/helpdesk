@@ -52,8 +52,7 @@ class TestHelpdeskTicketBase(common.TransactionCase):
     def _create_ticket(self, team, user=False):
         ticket = self.env["helpdesk.ticket"].create(
             {
-                "name": "Ticket %s (%s)"
-                % (team.name, user.login if user else "unassigned"),
+                "name": f"Ticket {team.name} ({user.login if user else 'unassigned'})",
                 "description": "Description",
                 "team_id": team.id,
                 "user_id": user.id if user else False,

@@ -50,13 +50,8 @@ class TestHelpdeskStageValidation(TransactionCase):
         fields = ", ".join(fields)
         if fields:
             validate_message = _(
-                "Ticket %(ticket)s can't be moved to the stage %(stage)s until "
-                "the following fields are set: %(fields)s."
-                % {
-                    "ticket": ticket.name,
-                    "stage": stage.name,
-                    "fields": fields,
-                }
+                f"Ticket {ticket.name} can't be moved to the stage {stage.name} until "
+                f"the following fields are set: {fields}."
             )
         return validate_message
 

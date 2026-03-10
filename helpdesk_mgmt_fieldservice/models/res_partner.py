@@ -15,5 +15,5 @@ class ResPartner(models.Model):
                 default_partner_id=self.id,
                 default_fsm_location_id=self.service_location_id.id,
             )
-            return super(ResPartner, self).action_view_helpdesk_tickets()
+            return super().action_view_helpdesk_tickets()
         return super().action_view_helpdesk_tickets()

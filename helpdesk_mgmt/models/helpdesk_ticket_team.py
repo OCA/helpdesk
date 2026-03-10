@@ -3,7 +3,6 @@ from odoo.tools.safe_eval import safe_eval
 
 
 class HelpdeskTeam(models.Model):
-
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
     _inherit = ["mail.thread", "mail.alias.mixin"]

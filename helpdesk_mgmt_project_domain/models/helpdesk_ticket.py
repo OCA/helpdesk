@@ -240,7 +240,7 @@ class HelpdeskTicket(models.Model):
             return []
         try:
             dom = safe_eval(expr, {"uid": self.env.uid})
-            if isinstance(dom, (list, tuple)):
+            if isinstance(dom, list | tuple):
                 return expression.normalize_domain(list(dom))
             _logger.warning(
                 "Evaluated domain is not a list/tuple (expr=%s, type=%s)",
@@ -286,7 +286,7 @@ class HelpdeskTicket(models.Model):
 
         try:
             maybe = safe_eval(python_code.strip(), safe_globals)
-            if isinstance(maybe, (list, tuple)):
+            if isinstance(maybe, list | tuple):
                 return expression.normalize_domain(list(maybe))
         except Exception as e:
             _logger.debug("Failed to evaluate Python domain as expression: %s", e)
@@ -295,7 +295,7 @@ class HelpdeskTicket(models.Model):
         try:
             safe_eval(python_code.strip(), eval_context, mode="exec", nocopy=True)
             dom = eval_context.get("domain", [])
-            if isinstance(dom, (list, tuple)):
+            if isinstance(dom, list | tuple):
                 return expression.normalize_domain(list(dom))
             if dom:
                 _logger.warning(
@@ -397,14 +397,14 @@ class HelpdeskTicket(models.Model):
 
     def _domain_contains_field(self, domain, field_name):
         """True if domain contains any leaf referencing the given field name."""
-        if not domain or not isinstance(domain, (list, tuple)):
+        if not domain or not isinstance(domain, list | tuple):
             return False
 
         for token in domain:
             if isinstance(token, str):
                 continue
 
-            if isinstance(token, (list, tuple)):
+            if isinstance(token, list | tuple):
                 if len(token) == 3 and token[0] == field_name:
                     return True
 

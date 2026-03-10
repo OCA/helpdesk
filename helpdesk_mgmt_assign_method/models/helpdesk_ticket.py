@@ -34,4 +34,4 @@ class HelpdeskTicket(models.Model):
         if team_id and not vals.get("user_id"):
             team = self.env["helpdesk.ticket.team"].browse(team_id)
             vals["user_id"] = team.get_new_user().id
-        return super(HelpdeskTicket, self).create(vals)
+        return super().create(vals)
