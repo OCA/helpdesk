@@ -18,8 +18,8 @@
             </group>
             <xpath expr="//div[@name='button_box']" position="inside">
                 <button
-                    name="%(action_helpdesk_ticket)d"
-                    type="action"
+                    name="action_view_helpdesk_tickets"
+                    type="object"
                     class="btn btn-primary"
                     icon="fa-ticket"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
