@@ -82,7 +82,7 @@ class HelpdeskStockTest(BaseCommon):
         )
         wizard = (
             self.env["stock.helpdesk.ticket.create"]
-            .with_context(active_model="stock.move", active_id=move_p1.id)
+            .with_context(**move_p1.action_view_helpdesk_tickets()["context"])
             .create({})
         )
         self.assertTrue(wizard)
@@ -113,7 +113,7 @@ class HelpdeskStockTest(BaseCommon):
         move_p1.picking_id.picking_type_id.allow_helpdesk_ticket = False
         wizard = (
             self.env["stock.helpdesk.ticket.create"]
-            .with_context(active_model="stock.move", active_id=move_p1.id)
+            .with_context(**move_p1.action_view_helpdesk_tickets()["context"])
             .create({})
         )
         self.assertTrue(wizard)
@@ -123,40 +123,102 @@ class HelpdeskStockTest(BaseCommon):
         with self.assertRaises(ValidationError):
             wizard.action_create_helpdesk_ticket()
 
-    def test_actions(self):
+    def test_picking_actions(self):
         self._create_picking()
-        result = self.picking.create_or_show_helpdesk_ticket()
+
+        picking_tickets_action = self.picking.action_view_helpdesk_tickets()
         self.assertEqual(
-            result["res_model"],
+            picking_tickets_action["domain"],
+            [("stock_picking_id", "=", self.picking.id)],
+        )
+        self.assertEqual(
+            picking_tickets_action["context"],
+            {
+                "default_partner_id": self.picking.partner_id.id,
+                "default_stock_picking_id": self.picking.id,
+            },
+        )
+
+        # If no ticket -> show ticket creation wizard
+        create_or_show_action = self.picking.create_or_show_helpdesk_ticket()
+        self.assertEqual(
+            create_or_show_action["res_model"],
             "stock.helpdesk.ticket.create",
         )
-        move_p1 = self.picking.move_ids.filtered(
-            lambda move: move.product_id == self.product
-        )
-        result = move_p1.create_or_show_helpdesk_ticket()
+
+        # If tickets -> show tickets view
+        self.picking.helpdesk_ticket_ids = [
+            Command.create(
+                {
+                    "name": "Test Ticket",
+                    "description": "Test description",
+                }
+            )
+        ]
+        create_or_show_action = self.picking.create_or_show_helpdesk_ticket()
         self.assertEqual(
-            result["res_model"],
-            "stock.helpdesk.ticket.create",
-        )
-        wizard = (
-            self.env["stock.helpdesk.ticket.create"]
-            .with_context(active_model="stock.move", active_id=move_p1.id)
-            .create({})
-        )
-        wizard.description = "Test"
-        wizard.action_create_helpdesk_ticket()
-        action = self.picking.action_view_helpdesk_tickets()
-        self.assertEqual(action["domain"], [("stock_picking_id", "=", self.picking.id)])
-        result = self.picking.create_or_show_helpdesk_ticket()
-        self.assertEqual(
-            result["res_model"],
+            create_or_show_action["res_model"],
             "helpdesk.ticket",
         )
 
-        result = move_p1.create_or_show_helpdesk_ticket()
+    def test_move_actions(self):
+        self._create_picking()
+        move = self.picking.move_ids[0]
+
+        move_tickets_action = move.action_view_helpdesk_tickets()
         self.assertEqual(
-            result["res_model"],
+            move_tickets_action["domain"],
+            [("stock_move_id", "=", move.id)],
+        )
+        self.assertEqual(
+            move_tickets_action["context"],
+            {
+                "default_stock_move_id": move.id,
+                "default_stock_picking_id": self.picking.id,
+            },
+        )
+
+        # If no ticket -> show ticket creation wizard
+        create_or_show_action = move.create_or_show_helpdesk_ticket()
+        self.assertEqual(
+            create_or_show_action["res_model"],
+            "stock.helpdesk.ticket.create",
+        )
+
+        # If tickets -> show tickets view
+        move.helpdesk_ticket_ids = [
+            Command.create(
+                {
+                    "name": "Test Ticket",
+                    "description": "Test description",
+                }
+            )
+        ]
+        create_or_show_action = move.create_or_show_helpdesk_ticket()
+        self.assertEqual(
+            create_or_show_action["res_model"],
             "helpdesk.ticket",
+        )
+
+    def test_wizard_actions(self):
+        self._create_picking()
+        move = self.picking.move_ids[0]
+
+        wizard = self.env["stock.helpdesk.ticket.create"].create(
+            {
+                "stock_move_id": move.id,
+                "stock_picking_id": self.picking.id,
+                "description": "Test description",
+            }
+        )
+        wizard_tickets_action = wizard.action_create_helpdesk_ticket()
+        self.assertEqual(
+            wizard_tickets_action["context"],
+            {
+                "default_partner_id": self.picking.partner_id.id,
+                "default_stock_picking_id": self.picking.id,
+                "default_stock_move_id": move.id,
+            },
         )
 
     def test_domain(self):
@@ -166,7 +228,7 @@ class HelpdeskStockTest(BaseCommon):
         )
         wizard = (
             self.env["stock.helpdesk.ticket.create"]
-            .with_context(active_model="stock.move", active_id=move_p1.id)
+            .with_context(**move_p1.action_view_helpdesk_tickets()["context"])
             .create({})
         )
         wizard.description = "Test"

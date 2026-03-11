@@ -11,22 +11,8 @@ class StockHelpdeskTicketCreate(models.TransientModel):
 
     description = fields.Char()
     stock_move_id_domain = fields.Binary(compute="_compute_stock_move_id_domain")
-    stock_move_id = fields.Many2one(
-        comodel_name="stock.move",
-        compute="_compute_stock_move_id",
-        readonly=False,
-        store=True,
-        precompute=True,
-        ondelete="cascade",
-    )
-    stock_picking_id = fields.Many2one(
-        comodel_name="stock.picking",
-        compute="_compute_stock_picking_id",
-        readonly=False,
-        store=True,
-        precompute=True,
-        ondelete="cascade",
-    )
+    stock_move_id = fields.Many2one(comodel_name="stock.move")
+    stock_picking_id = fields.Many2one(comodel_name="stock.picking")
     motive_id = fields.Many2one("helpdesk.ticket.motive")
 
     def _prepare_ticket_values(self) -> dict:
@@ -63,28 +49,12 @@ class StockHelpdeskTicketCreate(models.TransientModel):
             "helpdesk_mgmt.helpdesk_ticket_action"
         )
         action["domain"] = [("id", "=", ticket.id)]
+        action["context"] = {
+            "default_stock_move_id": self.stock_move_id.id,
+            "default_stock_picking_id": self.stock_picking_id.id,
+            "default_partner_id": self.stock_picking_id.partner_id.id,
+        }
         return action
-
-    @api.depends()
-    def _compute_stock_move_id(self):
-        if self.env.context.get("active_model") == "stock.move":
-            self.stock_move_id = self.env["stock.move"].browse(
-                self.env.context.get("active_id")
-            )
-        else:
-            self.stock_move_id = False
-
-    @api.depends("stock_move_id")
-    def _compute_stock_picking_id(self):
-        if self.env.context.get("active_model") == "stock.picking":
-            self.stock_picking_id = self.env["stock.picking"].browse(
-                self.env.context.get("active_id")
-            )
-        else:
-            self.stock_picking_id = False
-        for wizard in self:
-            if wizard.stock_move_id:
-                wizard.stock_picking_id = wizard.stock_move_id.picking_id
 
     @api.depends("stock_picking_id")
     def _compute_stock_move_id_domain(self):
