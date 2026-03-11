@@ -52,6 +52,23 @@ class TestHelpdeskTicketAccountMove(TransactionCase):
         # Verify that the smartbutton action displays the associated account moves correctly.
         action = self.ticket.action_view_account_moves()
         self.assertEqual(action["domain"], [("ticket_ids", "in", [self.ticket.id])])
+        self.assertDictEqual(
+            action["context"],
+            {
+                "default_ticket_ids": [Command.link(self.ticket.id)],
+                "default_partner_id": self.ticket.partner_id.id,
+            },
+        )
+
+    def test_action_view_helpdesk_tickets(self):
+        action = self.account_move_1.action_view_helpdesk_tickets()
         self.assertEqual(
-            action["context"]["default_ticket_ids"], [(4, [self.ticket.id])]
+            action["domain"], [("account_move_ids", "in", [self.account_move_1.id])]
+        )
+        self.assertDictEqual(
+            action["context"],
+            {
+                "default_account_move_ids": [Command.set(self.account_move_1.ids)],
+                "default_account_move_count": 1,
+            },
         )
