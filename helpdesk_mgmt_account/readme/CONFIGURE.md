@@ -1,0 +1,1 @@
+To be able to see the all smart buttons appearing, you have to make sure your user is in the group "Show Full Accounting Features"

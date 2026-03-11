@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 =====================
 Helpdesk Mgmt Account
 =====================
@@ -13,7 +17,7 @@ Helpdesk Mgmt Account
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -28,42 +32,25 @@ Helpdesk Mgmt Account
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
+This modules links helpdesk mgmt tickets with account moves.
 
+|alt text|
+
+|image1|
+
+.. |alt text| image:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt_account/510732954-b30f0c53-ec65-43c6-84ca-c4aadd4aa8ed.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/16.0/helpdesk_mgmt_account/510733084-d14ab9dc-a01f-4e0b-875d-d29834fda820.png
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Use Cases / Context
-===================
-
-
-
-Installation
-============
-
-
-
 Configuration
 =============
 
-
-
-Usage
-=====
-
-
-
-Known issues / Roadmap
-======================
-
-
-
-Changelog
-=========
-
-
+To be able to see the all smart buttons appearing, you have to make sure
+your user is in the group "Show Full Accounting Features"
 
 Bug Tracker
 ===========
@@ -87,14 +74,6 @@ Contributors
 ------------
 
 - Nicolas Delbovier nicolas.delbovier@acsone.eu (https://www.acsone.eu/)
-
-Other credits
--------------
-
-The development of this module has been financially supported by:
-
-- Copyright 2017 Camptocamp SA
-- Copyright 2023 ACSONE SA/NV
 
 Maintainers
 -----------
