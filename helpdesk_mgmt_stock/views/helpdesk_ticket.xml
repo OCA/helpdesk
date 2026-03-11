@@ -19,21 +19,4 @@
         </field>
     </record>
 
-<!--
-    <record model="ir.ui.view" id="helpdesk_ticket_search_view">
-        <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="TODO othermodule.search_view"/>
-        <field name="arch" type="xml">
-
-        </field>
-    </record>
-
-    <record model="ir.ui.view" id="helpdesk_ticket_tree_view">
-        <field name="model">helpdesk.ticket</field>
-        <field name="inherit_id" ref="TODO othermodule.tree_view"/>
-        <field name="arch" type="xml">
-
-        </field>
-    </record> -->
-
 </odoo>

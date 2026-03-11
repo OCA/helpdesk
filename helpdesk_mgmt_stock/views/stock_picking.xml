@@ -15,7 +15,6 @@
                     name="action_view_helpdesk_tickets"
                     type="object"
                     icon="fa-life-ring"
-                    context="{'default_partner_id': partner_id}"
                 >
                     <field name="helpdesk_ticket_allowed" invisible="1" />
                     <field

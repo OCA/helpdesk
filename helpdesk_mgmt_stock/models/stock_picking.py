@@ -6,7 +6,6 @@ from odoo import api, fields, models
 
 
 class StockPicking(models.Model):
-
     _inherit = "stock.picking"
 
     helpdesk_ticket_allowed = fields.Boolean(
@@ -38,22 +37,32 @@ class StockPicking(models.Model):
 
     def action_view_helpdesk_tickets(self):
         self.ensure_one()
-        domain = [("stock_picking_id", "=", self.id)]
-        action = self.env["helpdesk.ticket"].show_existing_stock_tickets(domain)
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "helpdesk_mgmt.helpdesk_ticket_action"
+        )
+        action["domain"] = [("stock_picking_id", "=", self.id)]
+        action["context"] = {
+            "default_partner_id": self.partner_id.id,
+            "default_stock_picking_id": self.id,
+        }
         return action
+
+    def _action_open_helpdesk_create_ticket_wizard(self):
+        return {
+            "type": "ir.actions.act_window",
+            "res_model": "stock.helpdesk.ticket.create",
+            "view_type": "form",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_partner_id": self.partner_id.id,
+                "default_stock_picking_id": self.id,
+            },
+        }
 
     def create_or_show_helpdesk_ticket(self):
         """Show existing ticket or offer to create a new one."""
         self.ensure_one()
         if not self.helpdesk_tickets_count:
-            return {
-                "type": "ir.actions.act_window",
-                "res_model": "stock.helpdesk.ticket.create",
-                "view_type": "form",
-                "view_mode": "form",
-                "target": "new",
-            }
-
-        return self.env["helpdesk.ticket"].show_existing_stock_tickets(
-            [("stock_picking_id", "=", self.id)]
-        )
+            return self._action_open_helpdesk_create_ticket_wizard()
+        return self.action_view_helpdesk_tickets()

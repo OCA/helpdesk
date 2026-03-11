@@ -39,12 +39,3 @@ class HelpdeskTicket(models.Model):
                 ]
         if without_picking_records:
             without_picking_records.stock_move_id_domain = TRUE_DOMAIN
-
-    @api.model
-    def show_existing_stock_tickets(self, domain):
-        """Show the helpdesk tickets for a specific domain."""
-        action_data = self.env["ir.actions.act_window"]._for_xml_id(
-            "helpdesk_mgmt.helpdesk_ticket_action"
-        )
-        action_data["domain"] = domain
-        return action_data
