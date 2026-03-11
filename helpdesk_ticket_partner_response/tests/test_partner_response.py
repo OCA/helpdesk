@@ -76,12 +76,12 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
         )
         return ticket
 
-    def message_process(self):
+    def message_process(self, email_from=None):
         MailThread = self.env["mail.thread"]
         message = MAIL_TEMPLATE.format(
             to=self.env.user.email,
             subject="Your ticket has been created !!",
-            email_from=self.partner_portal.email,
+            email_from=email_from or self.partner_portal.email,
             msg_id="168242744424.20.2028152230359369389@dd607af32154",
         )
         MailThread.message_process(
@@ -125,3 +125,50 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
         self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
         self.message_process()
         self.assertEqual(self.ticket.stage_id, self.stage_new)
+
+    def test_no_change_stage_non_customer_through_mail(self):
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        self.ticket.stage_id = self.stage_in_progress
+        self.message_process(email_from=self.env.user.email)
+        self.assertEqual(self.ticket.stage_id, self.stage_in_progress)
+
+    def test_new_ticket_via_email_no_crash(self):
+        MailThread = self.env["mail.thread"]
+        message = MAIL_TEMPLATE.format(
+            to=self.env.user.email,
+            subject="Brand new ticket from email",
+            email_from=self.partner_portal.email,
+            msg_id="<new-ticket-no-crash-test@example.com>",
+        )
+        MailThread.message_process(
+            model="helpdesk.ticket",
+            message=message,
+            save_original=False,
+            strip_attachments=True,
+        )
+
+    def test_ticket_without_team_no_crash(self):
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket without team",
+                "description": "No team assigned",
+                "partner_id": self.partner_portal.id,
+            }
+        )
+        ticket.write({"team_id": False, "stage_id": self.stage_in_progress.id})
+        self.assertFalse(ticket.team_id, "Ticket must have no team for this test")
+        MailThread = self.env["mail.thread"]
+        message = MAIL_TEMPLATE.format(
+            to=self.env.user.email,
+            subject="Re: Ticket without team",
+            email_from=self.partner_portal.email,
+            msg_id="<ticket-no-team-test@example.com>",
+        )
+        MailThread.message_process(
+            model="helpdesk.ticket",
+            message=message,
+            save_original=False,
+            strip_attachments=True,
+            thread_id=ticket.id,
+        )
+        self.assertEqual(ticket.stage_id, self.stage_in_progress)
