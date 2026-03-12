@@ -23,5 +23,4 @@
     "data": [
         "views/helpdesk_ticket_view.xml",
     ],
-    "demo": ["demo/helpdesk_mgmt_timesheet_demo.xml"],
 }
