@@ -19,7 +19,6 @@
     "depends": [
         "helpdesk_mgmt_project",
         "hr_timesheet",
-        "project_timesheet_time_control",
     ],
     "data": [
         "views/helpdesk_ticket_templates.xml",
