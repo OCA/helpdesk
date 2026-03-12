@@ -5,8 +5,7 @@ from odoo import api, fields, models
 
 
 class HelpdeskTicket(models.Model):
-    _name = "helpdesk.ticket"
-    _inherit = ["helpdesk.ticket"]
+    _inherit = "helpdesk.ticket"
 
     @api.model
     def _relation_with_timesheet_line(self):
