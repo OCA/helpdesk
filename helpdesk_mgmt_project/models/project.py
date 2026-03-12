@@ -7,7 +7,7 @@ class ProjectProject(models.Model):
     ticket_ids = fields.One2many(
         comodel_name="helpdesk.ticket", inverse_name="project_id", string="Tickets"
     )
-    ticket_count = fields.Integer(compute="_compute_ticket_count", store=True)
+    ticket_count = fields.Integer(compute="_compute_ticket_count")
     label_tickets = fields.Char(
         string="Use Tickets as",
         default=lambda self: self.env._("Tickets"),
@@ -15,7 +15,7 @@ class ProjectProject(models.Model):
         help="Gives label to tickets on project's kanban view.",
     )
     todo_ticket_count = fields.Integer(
-        string="Number of tickets", compute="_compute_ticket_count", store=True
+        string="Number of tickets", compute="_compute_ticket_count"
     )
 
     @api.depends("ticket_ids", "ticket_ids.stage_id")
