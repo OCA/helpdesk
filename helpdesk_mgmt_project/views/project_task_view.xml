@@ -27,7 +27,7 @@
                 <filter
                     string="Open Tickets"
                     name="open_tickets"
-                    domain="[('todo_ticket_count', '&gt;', 0)]"
+                    domain="[('ticket_ids', '!=', False), ('ticket_ids.closed', '=', False)]"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 />
             </xpath>
