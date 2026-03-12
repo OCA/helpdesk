@@ -1,0 +1,1 @@
+Pre-fill the sale order or purchase order fields of helpdesk tickets created from a picking based on the origin field of the picking
