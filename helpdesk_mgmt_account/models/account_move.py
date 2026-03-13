@@ -5,7 +5,6 @@ from odoo import Command, api, fields, models
 
 
 class AccountMove(models.Model):
-
     _inherit = "account.move"
 
     ticket_ids = fields.Many2many("helpdesk.ticket")
@@ -15,8 +14,20 @@ class AccountMove(models.Model):
 
     @api.depends("ticket_ids")
     def _compute_ticket_count(self):
+        groups = self.env["helpdesk.ticket"].read_group(
+            domain=[("account_move_ids", "in", self.ids)],
+            fields=["account_move_ids"],
+            groupby=["account_move_ids"],
+        )
+
+        count_by_move_id = {
+            group["account_move_ids"][0]: group["account_move_ids_count"]
+            for group in groups
+            if group["account_move_ids"]
+        }
+
         for move in self:
-            move.ticket_count = len(move.ticket_ids)
+            move.ticket_count = count_by_move_id.get(move.id, 0)
 
     def action_view_helpdesk_tickets(self):
         self.ensure_one()

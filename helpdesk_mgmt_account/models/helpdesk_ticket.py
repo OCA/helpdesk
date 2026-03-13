@@ -14,8 +14,19 @@ class HelpdeskTicket(models.Model):
 
     @api.depends("account_move_ids")
     def _compute_account_move_count(self):
+        groups = self.env["account.move"].read_group(
+            domain=[("ticket_ids", "in", self.ids)],
+            fields=["ticket_ids"],
+            groupby=["ticket_ids"],
+        )
+        count_by_ticket_id = {
+            group["ticket_ids"][0]: group["ticket_ids_count"]
+            for group in groups
+            if group["ticket_ids"]
+        }
+
         for ticket in self:
-            ticket.account_move_count = len(ticket.account_move_ids)
+            ticket.account_move_count = count_by_ticket_id.get(ticket.id, 0)
 
     def action_view_account_moves(self):
         action = {
