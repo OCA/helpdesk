@@ -30,10 +30,11 @@ class HelpdeskTicket(models.Model):
         if self.env.context.get("from_sale_order"):
             # only one ticket is possible here
             for sale in tickets.sale_order_ids:
-                sale.message_post(
-                    body=_(
-                        f"Helpdesk Ticket {tickets.name} created by {self.env.user.name}"
-                    )
-                )
+                sale.message_post(body=self._get_default_message_creation(tickets))
 
         return tickets
+
+    def _get_default_message_creation(self, tickets):
+        return _(
+            f"Helpdesk Ticket {tickets.display_name} created by {self.env.user.name}"
+        )
