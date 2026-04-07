@@ -420,12 +420,17 @@
 
     <template id="portal_create_ticket" name="Create Ticket">
         <t t-call="portal.portal_layout">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center">Send a new ticket</h1>
+            <div id="oe_structure_create_ticket" class="oe_structure oe_empty">
+                <section
+                    class="s_title parallax s_parallax_is_fixed bg-transparent pt24 pb24"
+                    data-vcss="001"
+                    data-snippet="s_title"
+                    data-scroll-background-ratio="1"
+                >
+                    <div class="container">
+                        <h1>Send a new ticket</h1>
                     </div>
-                </div>
+                </section>
             </div>
             <form
                 action="/submitted/ticket"
@@ -439,7 +444,7 @@
                     name="csrf_token"
                     t-att-value="request.csrf_token()"
                 />
-                <div class="form-group" t-if="teams">
+                <div class="form-group mb-3" t-if="teams">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="team"
@@ -460,7 +465,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="category"
@@ -481,7 +486,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="subject"
@@ -495,13 +500,13 @@
                         />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="attachment"
                     >Add Attachments</label>
                     <div class="col-md-7 col-sm-8">
-                        <div class="btn btn-default btn-file col-md-12">
+                        <div class="btn btn-default btn-file col-md-12 px-0">
                             <input
                                 class="form-control o_website_form_input"
                                 name="attachment"
@@ -518,7 +523,7 @@
                         />
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label
                         class="col-md-3 col-dm-4 control-label"
                         for="description"
@@ -532,11 +537,13 @@
                         />
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7">
+                <div class="form-group mb-3">
+                    <div
+                        class="col-md-offset-3 col-sm-offset-4 col-sm-8 col-md-7 text-end"
+                    >
                         <button
                             type="submit"
-                            class="btn btn-primary btn-lg"
+                            class="btn btn-primary"
                         >Submit Ticket</button>
                     </div>
                 </div>
