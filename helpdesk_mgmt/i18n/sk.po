@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-03-23 12:32+0000\n"
+"PO-Revision-Date: 2026-04-08 13:42+0000\n"
 "Last-Translator: Peter Dovicovic <dovicovic@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -541,7 +541,7 @@ msgstr "Obchodný Partner"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "Communication history"
-msgstr ""
+msgstr "História komunikácie"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_company
