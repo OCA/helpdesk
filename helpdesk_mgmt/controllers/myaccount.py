@@ -45,7 +45,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         filterby=None,
         search=None,
         search_in=None,
-        groupby=None,
+        groupby="stage",
         **kw,
     ):
         HelpdeskTicket = request.env["helpdesk.ticket"]
