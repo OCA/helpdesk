@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-04-08 13:54+0000\n"
+"Last-Translator: Peter Dovicovic <dovicovic@gmail.com>\n"
+"Language-Team: none\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.portal_helpdesk_ticket_page
+msgid "<strong>Type:</strong>"
+msgstr "<strong>Typ:</strong>"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__active
+msgid "Active"
+msgstr "Aktívny"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__show_in_portal
+msgid "Allow to select type when creating a new ticket in the portal."
+msgstr "Povoliť výber typu pri zadávaní tiketu na portáli."
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_res_company
+msgid "Companies"
+msgstr "Spoločnosti"
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurácie"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_uid
+msgid "Created by"
+msgstr "Vytvoril"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_date
+msgid "Created on"
+msgstr "Vytvorené"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_type
+#: model:helpdesk.ticket.type,name:helpdesk_type.helpdesk_type_1
+msgid "Document issue"
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Helpdesk tiket"
+
+#. module: helpdesk_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Tím helpdesku"
+
+#. module: helpdesk_type
+#: model:ir.actions.act_window,name:helpdesk_type.action_helpdesk_ticket_type
+#: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_type
+msgid "Helpdesk Ticket Type"
+msgstr "Typ helpdesk tiketu"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
+msgid "Helpdesk teams allowed to use this type."
+msgstr "Povolený tím využívať tento typ."
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__name
+msgid "Name"
+msgstr "Názov"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__helpdesk_mgmt_portal_type_id_required
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__helpdesk_mgmt_portal_type_id_required
+msgid "Required Type field in Helpdesk portal"
+msgstr "Vyžadované pre portál"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_res_company__helpdesk_mgmt_portal_type
+#: model:ir.model.fields,help:helpdesk_type.field_res_config_settings__helpdesk_mgmt_portal_type
+msgid "Select type in Helpdesk portal"
+msgstr "Výber typu na portáli"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__show_in_portal
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__helpdesk_mgmt_portal_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__helpdesk_mgmt_portal_type
+msgid "Show type in portal form"
+msgstr "Zobraziť typ na portáli"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__team_ids
+msgid "Teams"
+msgstr "Tímy"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__type_ids
+msgid "Ticket Type"
+msgstr "Typ tiketu"
+
+#. module: helpdesk_type
+#: model:ir.ui.menu,name:helpdesk_type.helpdesk_ticket_type
+msgid "Ticket Types"
+msgstr "Typy tiketu"
+
+#. module: helpdesk_type
+#: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
+msgid ""
+"Ticket Types the team will use. This team's tickets will only be able to use"
+" those types."
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_view_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.portal_create_ticket
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.portal_ticket_list
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.res_config_settings_view_form_inherit_select_type
+msgid "Type"
+msgstr "Typ"

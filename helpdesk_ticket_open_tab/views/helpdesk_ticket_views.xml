@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="inherit_helpdesk_mgmt_kanban">
+        <field name="name">helpdesk.ticket.view.kanban.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//t[@t-name='card']/footer/div" position="inside">
+                <field name="id" widget="open_tab" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

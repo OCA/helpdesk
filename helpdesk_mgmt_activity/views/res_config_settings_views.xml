@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.form.view</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='helpdesk_mgmt']" position="inside">
+                <block title="Helpdesk Activity">
+                    <setting
+                        id="helpdesk_activity_available_models"
+                        string="Available Models"
+                        help="Models available for a Helpdesk"
+                    >
+                        <field
+                            name="helpdesk_available_model_ids"
+                            widget="many2many_tags"
+                        />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

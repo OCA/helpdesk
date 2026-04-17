@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-helpdesk"
-version = "18.0.20251230.0"
+version = "18.0.20260407.0"
 dependencies = [
     "odoo-addon-helpdesk_mgmt==18.0.*",
+    "odoo-addon-helpdesk_mgmt_activity==18.0.*",
     "odoo-addon-helpdesk_mgmt_crm==18.0.*",
     "odoo-addon-helpdesk_mgmt_fieldservice==18.0.*",
     "odoo-addon-helpdesk_mgmt_fieldservice_equipment==18.0.*",
@@ -11,6 +12,7 @@ dependencies = [
     "odoo-addon-helpdesk_mgmt_merge==18.0.*",
     "odoo-addon-helpdesk_mgmt_portal_follower==18.0.*",
     "odoo-addon-helpdesk_mgmt_project==18.0.*",
+    "odoo-addon-helpdesk_mgmt_project_domain==18.0.*",
     "odoo-addon-helpdesk_mgmt_rating==18.0.*",
     "odoo-addon-helpdesk_mgmt_sale==18.0.*",
     "odoo-addon-helpdesk_mgmt_sale_project==18.0.*",
@@ -21,8 +23,10 @@ dependencies = [
     "odoo-addon-helpdesk_portal_restriction==18.0.*",
     "odoo-addon-helpdesk_product==18.0.*",
     "odoo-addon-helpdesk_ticket_close_inactive==18.0.*",
+    "odoo-addon-helpdesk_ticket_open_tab==18.0.*",
     "odoo-addon-helpdesk_ticket_partner_response==18.0.*",
     "odoo-addon-helpdesk_ticket_related==18.0.*",
+    "odoo-addon-helpdesk_timesheet_time_type==18.0.*",
     "odoo-addon-helpdesk_type==18.0.*",
     "odoo-addon-helpdesk_type_sla==18.0.*",
 ]

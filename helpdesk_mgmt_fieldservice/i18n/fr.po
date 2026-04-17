@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-08-07 19:49+0000\n"
-"Last-Translator: Pascal GOUHIER <pascal.gouhier@copagex.fr>\n"
+"PO-Revision-Date: 2026-03-16 12:45+0000\n"
+"Last-Translator: Rémi <remi@le-filament.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_count
@@ -29,7 +29,7 @@ msgstr "Toutes les commandes sont fermées"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__all_partners
 msgid "All Partners"
-msgstr ""
+msgstr "Tous les contacts"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
@@ -69,7 +69,7 @@ msgstr "Créé le"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_form_logic
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__display_name
@@ -152,12 +152,12 @@ msgstr "Opérations"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__display_name
 msgid "Order"
-msgstr ""
+msgstr "Commande de service"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__partner_domain
 msgid "Partner Domain"
-msgstr ""
+msgstr "Domaine du partenaire"
 
 #. module: helpdesk_mgmt_fieldservice
 #: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:0

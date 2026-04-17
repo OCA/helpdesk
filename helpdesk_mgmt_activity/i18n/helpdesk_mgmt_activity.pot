@@ -1,0 +1,175 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_activity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_mail_activity
+msgid "Activity"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
+msgid "Activity Config"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Activity Type is not set!"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_mail_activity__ticket_id
+msgid ""
+"Activity created from helpdesk ticketAfter closing this activity, ticket is "
+"moved to done stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Activity has been created!"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__assigned_user_id
+msgid "Assigned User"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Assigned User is not set!"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Available Models"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
+msgid "Available models for set source record in helpdesk ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket__can_create_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket_team__allow_set_activity
+msgid "Available to set activity on source record from ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Date Deadline is not set!"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
+msgid "Done Activity Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__date_deadline
+msgid "Due Date"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Helpdesk Activity"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__is_new_stage
+msgid "Is New Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Models available for a Helpdesk"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
+msgid "Move the ticket when the activity in source record is done"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__next_stage_id
+msgid "Next Stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
+msgid "Perform Action"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__can_create_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__allow_set_activity
+msgid "Set Activities"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__source_activity_type_id
+msgid "Source Activity Type"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_id
+msgid "Source Document"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_model
+msgid "Source Document Model"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__record_ref
+msgid "Source Record"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Source Record is not set!"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__ticket_id
+msgid "Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "You cannot create activity!"
+msgstr ""

@@ -37,7 +37,7 @@ class HelpdeskTicket(models.Model):
         if "stage_id" in vals and vals.get("stage_id"):
             stage = self.env["helpdesk.ticket.stage"].browse(vals.get("stage_id"))
             if stage.rating_mail_template_id:
-                self._send_ticket_rating_mail(force_send=False)
+                self._send_ticket_rating_mail(force_send=True)
         return res
 
     def _send_ticket_rating_mail(self, force_send=False):

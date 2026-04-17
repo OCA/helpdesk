@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-19 07:54+0000\n"
-"PO-Revision-Date: 2023-10-12 09:36+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2026-04-07 17:45+0000\n"
+"Last-Translator: Joaquín Gutiérrez Pedrosa <joaquing.pedrosa@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
@@ -26,6 +26,11 @@ msgid ""
 "                            Start work\n"
 "                        </span>"
 msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-"
+"success\"/>\n"
+"                            Empezar a trabajar\n"
+"                        </span>"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
@@ -36,6 +41,11 @@ msgid ""
 "                            Stop work\n"
 "                        </span>"
 msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-"
+"warning\"/>\n"
+"                            Detener el trabajo\n"
+"                        </span>"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
@@ -57,7 +67,7 @@ msgstr "Fecha"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
@@ -67,7 +77,7 @@ msgstr "Duración (Hora(s))"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
 msgid "Employee"
-msgstr ""
+msgstr "Empleado"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
@@ -95,6 +105,7 @@ msgstr "Proyecto general de Helpdesk"
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
 msgid "Helper to quickly switch between timesheet lines"
 msgstr ""
+"Herramienta para cambiar rápidamente entre las líneas de la hoja de horas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
@@ -139,17 +150,17 @@ msgstr "Mostrar control de tiempo"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
 msgid "Show Timesheet Portal"
-msgstr ""
+msgstr "Mostrar el portal de hojas de horas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
 msgid "Show spent time of tickets in the portal"
-msgstr ""
+msgstr "Mostrar el tiempo dedicado a los tickets en el portal"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_ticket_list
 msgid "Spent Time"
-msgstr ""
+msgstr "Tiempo dedicado"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
@@ -181,7 +192,7 @@ msgstr "Tiquet"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_timesheets_analysis_report__ticket_partner_id
 msgid "Ticket Partner"
-msgstr ""
+msgstr "Cliente"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_partner_id
@@ -198,7 +209,7 @@ msgstr "Tiquets"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
 msgid "Time Spent"
-msgstr ""
+msgstr "Tiempo dedicado"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
@@ -221,7 +232,7 @@ msgstr "Partes de horas"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_timesheets_analysis_report
 msgid "Timesheets Analysis Report"
-msgstr ""
+msgstr "Informe de análisis de hojas de horas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__total_hours

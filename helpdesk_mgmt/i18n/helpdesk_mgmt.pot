@@ -432,6 +432,11 @@ msgid "Child Categories"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid "Choose or configure a custom domain"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Choose which fields are required in the portal form"
 msgstr ""
@@ -512,11 +517,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_config_main_menu
 msgid "Configuration"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
-msgid "Configure domain name"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1812,6 +1812,16 @@ msgstr ""
 #. odoo-python
 #: code:addons/helpdesk_mgmt/wizards/helpdesk_ticket_duplicate_wizard.py:0
 msgid "You need to set a valid duplicate!"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid "alias"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
+msgid "e.g. mycompany.com"
 msgstr ""
 
 #. module: helpdesk_mgmt
