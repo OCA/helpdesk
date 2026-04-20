@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app
+                    data-string="Helpdesk"
+                    string="Helpdesk"
+                    name="helpdesk_mgmt"
+                    groups="helpdesk_mgmt.group_helpdesk_manager"
+                >
+                    <block
+                        title="New ticket form (portal)"
+                        name="helpdesk_mgmt_portal_new_ticket_fields"
+                    >
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_fields"
+                            company_dependent="1"
+                            string="Additional fields"
+                            help="Whether to display additional fields in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_fields"
+                            >
+                                <div class="mt8">
+                                    <field name="helpdesk_mgmt_portal_select_team" />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_team"
+                                        string="Team"
+                                    />
+                                </div>
+                            </div>
+                        </setting>
+                        <setting
+                            id="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            company_dependent="1"
+                            string="Required fields"
+                            help="Choose which fields are required in the portal form"
+                        >
+                            <div
+                                class="content-group"
+                                name="helpdesk_mgmt_portal_new_ticket_required_fields"
+                            >
+                                <div class="mt8">
+                                    <field
+                                        name="helpdesk_mgmt_portal_category_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_category_id_required"
+                                        string="Category"
+                                    />
+                                </div>
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_team"
+                                >
+                                    <field
+                                        name="helpdesk_mgmt_portal_team_id_required"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_team_id_required"
+                                        string="Team"
+                                    />
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Duplicate tracking">
+                        <setting>
+                            <field
+                                name="helpdesk_mgmt_duplicate_tracking"
+                                string="Enable duplicate tracking"
+                            />
+                        </setting>
+                        <setting
+                            help="When marked as duplicate, tickets will be moved to this stage"
+                            invisible="not helpdesk_mgmt_duplicate_tracking"
+                        >
+                            <field
+                                name="helpdesk_mgmt_duplicate_ticket_stage_id"
+                                string="Duplicate stage"
+                            />
+                        </setting>
+                    </block>
+                    <block title="Helpdesk">
+                        <setting
+                            string="Tickets"
+                            id="helpdesk_mgmt_ticket_misc"
+                            help="Controls if the tickets created are automatically assigned to the user."
+                        >
+                            <div class="mt16">
+                                <div class="content-group">
+                                    <div>
+                                        <field
+                                            name="helpdesk_mgmt_ticket_auto_assign"
+                                            string="Auto assign User"
+                                        />
+                                        <label for="helpdesk_mgmt_ticket_auto_assign" />
+                                    </div>
+                                </div>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_helpdesk_mgmt_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="context">{'module' : 'helpdesk_mgmt', 'bin_size': False}</field>
+    </record>
+</odoo>
