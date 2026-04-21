@@ -113,22 +113,22 @@ class HelpdeskTeam(models.Model):
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_todo_tickets(self):
         ticket_model = self.env["helpdesk.ticket"]
-        fetch_data = ticket_model.read_group(
-            [("team_id", "in", self.ids), ("closed", "=", False)],
-            ["team_id", "user_id", "unattended", "priority"],
-            ["team_id", "user_id", "unattended", "priority"],
-            lazy=False,
+        result = []
+        grouped_rows = ticket_model._read_group(
+            domain=[("team_id", "in", self.ids), ("closed", "=", False)],
+            groupby=["team_id", "user_id", "unattended", "priority"],
+            aggregates=["__count"],
         )
-        result = [
-            [
-                data["team_id"][0],
-                data["user_id"] and data["user_id"][0],
-                data["unattended"],
-                data["priority"],
-                data["__count"],
-            ]
-            for data in fetch_data
-        ]
+        for team, user, unattended, priority, count in grouped_rows:
+            result.append(
+                [
+                    team.id if team else False,
+                    user.id if user else False,
+                    unattended,
+                    priority,
+                    count,
+                ]
+            )
         for team in self:
             team.todo_ticket_count = sum(r[4] for r in result if r[0] == team.id)
             team.todo_ticket_count_unassigned = sum(

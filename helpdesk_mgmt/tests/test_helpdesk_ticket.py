@@ -70,15 +70,13 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
         self.assertFalse(
             self.ticket.closed_date,
-            "Helpdesk Ticket: No closed date "
-            "should be set for a non closed "
-            "ticket.",
+            "Helpdesk Ticket: No closed date should be set for a non closed ticket.",
         )
         time.sleep(1)
         self.ticket.write({"stage_id": self.stage_closed.id})
         self.assertTrue(
             self.ticket.closed_date,
-            "Helpdesk Ticket: A closed ticket " "should have a closed_date value.",
+            "Helpdesk Ticket: A closed ticket should have a closed_date value.",
         )
         self.assertTrue(
             old_stage_update < self.ticket.last_stage_update,
@@ -89,14 +87,14 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         self.ticket.write({"user_id": self.user.id})
         self.assertTrue(
             self.ticket.assigned_date,
-            "Helpdesk Ticket: An assigned ticket " "should contain a assigned_date.",
+            "Helpdesk Ticket: An assigned ticket should contain a assigned_date.",
         )
 
     def test_helpdesk_ticket_number(self):
         self.assertNotEqual(
             self.ticket.number,
             "/",
-            "Helpdesk Ticket: A ticket should have " "a number.",
+            "Helpdesk Ticket: A ticket should have a number.",
         )
         ticket_number_1 = int(self.ticket._prepare_ticket_number(values={})[2:])
         ticket_number_2 = int(self.ticket._prepare_ticket_number(values={})[2:])

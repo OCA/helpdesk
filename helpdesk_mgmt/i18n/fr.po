@@ -2882,3 +2882,8 @@ msgstr ""
 
 #~ msgid "Todo tickets"
 #~ msgstr "Tickets à faire"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+msgid "You cannot assign this ticket to yourself because you are not a member of the assigned team."
+msgstr "Vous ne pouvez pas vous attribuer ce ticket car vous n'êtes pas membre de l'équipe assignée."

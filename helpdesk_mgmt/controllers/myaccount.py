@@ -5,8 +5,8 @@ from operator import itemgetter
 
 from odoo import http
 from odoo.exceptions import AccessError, MissingError
+from odoo.fields import Domain
 from odoo.http import request
-from odoo.osv.expression import AND, OR
 from odoo.tools import groupby as groupbyelem
 
 from odoo.addons.portal.controllers.portal import CustomerPortal
@@ -35,6 +35,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         type="http",
         auth="user",
         website=True,
+        priority=100,
     )
     def portal_my_tickets(
         self,
@@ -97,7 +98,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         if search:
             domain += self._ticket_get_search_domain(search_in, search)
 
-        domain = AND(
+        domain = Domain.AND(
             [
                 domain,
                 request.env["ir.rule"]._compute_domain(HelpdeskTicket._name, "read"),
@@ -166,7 +167,11 @@ class CustomerPortalHelpdesk(CustomerPortal):
         return request.render("helpdesk_mgmt.portal_my_tickets", values)
 
     @http.route(
-        ["/my/ticket/<int:ticket_id>"], type="http", auth="public", website=True
+        ["/my/ticket/<int:ticket_id>", "/my/ticket/<int:ticket_id>/<access_token>"],
+        type="http",
+        auth="public",
+        website=True,
+        priority=100,
     )
     def portal_my_ticket(self, ticket_id, access_token=None, **kw):
         try:
@@ -183,9 +188,20 @@ class CustomerPortalHelpdesk(CustomerPortal):
         return request.render("helpdesk_mgmt.portal_helpdesk_ticket_page", values)
 
     def _ticket_get_page_view_values(self, ticket, access_token, **kwargs):
-        closed_stages = ticket.team_id._get_applicable_stages().filtered(
-            lambda s: s.close_from_portal
-        )
+        if ticket.team_id:
+            stages = ticket.team_id._get_applicable_stages()
+        else:
+            stages = (
+                request.env["helpdesk.ticket.stage"]
+                .sudo()
+                .search(
+                    [
+                        ("company_id", "in", [False, ticket.company_id.id]),
+                        ("team_ids", "=", False),
+                    ]
+                )
+            )
+        closed_stages = stages.filtered("close_from_portal")
         values = {
             "closed_stages": closed_stages,  # used to display close buttons
             "page_name": "ticket",
@@ -254,7 +270,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
             search_domain.append([("number", "ilike", search)])
         if search_in in ("name", "all"):
             search_domain.append([("name", "ilike", search)])
-        return OR(search_domain)
+        return Domain.OR(search_domain)
 
     def _ticket_get_groupby_mapping(self):
         return {

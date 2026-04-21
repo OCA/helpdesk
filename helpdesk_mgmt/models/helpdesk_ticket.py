@@ -68,7 +68,7 @@ class HelpdeskTicket(models.Model):
         compute="_compute_user_id",
         store=True,
         readonly=False,
-        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa: B950,E501
+        domain="team_id and [('share', '=', False),('id', 'in', user_ids)] or [('share', '=', False)]",  # noqa E501,
     )
     user_ids = fields.Many2many(
         comodel_name="res.users", related="team_id.user_ids", string="Users"
@@ -217,6 +217,14 @@ class HelpdeskTicket(models.Model):
             ticket.display_name = f"{ticket.number} - {ticket.name}"
 
     def assign_to_me(self):
+        self.ensure_one()
+        if self.team_id and self.env.user not in self.team_id.user_ids:
+            raise AccessError(
+                self.env._(
+                    "You cannot assign this ticket to yourself because you are not "
+                    "a member of the assigned team."
+                )
+            )
         self.write({"user_id": self.env.user.id})
 
     @api.onchange("partner_id")
@@ -370,35 +378,43 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    def _message_get_suggested_recipients(self):
-        recipients = super()._message_get_suggested_recipients()
+    def _message_add_suggested_recipients(self, force_primary_email=False):
+        suggested = super()._message_add_suggested_recipients(
+            force_primary_email=force_primary_email
+        )
         try:
             for ticket in self:
                 if ticket.partner_id:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        partner=ticket.partner_id,
-                        reason=self.env._("Customer"),
-                    )
+                    suggested[ticket.id]["partners"] |= ticket.partner_id
                 elif ticket.partner_email:
-                    ticket._message_add_suggested_recipient(
-                        recipients,
-                        email=ticket.partner_email,
-                        reason=self.env._("Customer Email"),
+                    suggested[ticket.id]["email_to_lst"] += (
+                        tools.mail.email_split_and_format_normalize(
+                            ticket.partner_email
+                        )
                     )
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this
             # imply modifying followers
-            return recipients
-        return recipients
+            return suggested
+        return suggested
 
-    def _notify_get_reply_to(self, default=None):
+    def _notify_get_reply_to(self, default=None, author_id=False):
         """Override to set alias of tasks to their team if any."""
-        aliases = self.sudo().mapped("team_id")._notify_get_reply_to(default=default)
+        aliases = (
+            self.sudo()
+            .mapped("team_id")
+            ._notify_get_reply_to(
+                default=default,
+                author_id=author_id,
+            )
+        )
         res = {ticket.id: aliases.get(ticket.team_id.id) for ticket in self}
         leftover = self.filtered(lambda rec: not rec.team_id)
         if leftover:
             res.update(
-                super(HelpdeskTicket, leftover)._notify_get_reply_to(default=default)
+                super(HelpdeskTicket, leftover)._notify_get_reply_to(
+                    default=default,
+                    author_id=author_id,
+                )
             )
         return res
