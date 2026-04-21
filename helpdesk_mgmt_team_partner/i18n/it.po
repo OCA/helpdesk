@@ -6,53 +6,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-04-21 10:21+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt_team_partner.field_helpdesk_ticket_team__allowed_partner_ids
 msgid "Allowed Partner"
-msgstr ""
+msgstr "Partner consentito"
 
 #. module: helpdesk_mgmt_team_partner
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_team_partner.helpdesk_team_form_inherit_team_customer
 msgid "Associated Partners"
-msgstr ""
+msgstr "Partner consentiti"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt_team_partner.field_helpdesk_ticket_team__default_partner_id
 msgid "Default Partner"
-msgstr ""
+msgstr "Partner predefinito"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model,name:helpdesk_mgmt_team_partner.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model,name:helpdesk_mgmt_team_partner.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Team ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt_team_partner.field_helpdesk_ticket_team__is_unique_partner
 msgid "Is Unique Partner"
-msgstr ""
+msgstr "Il partner è unico"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt_team_partner.field_helpdesk_ticket__partner_id_domain
 msgid "Partner Id Domain"
-msgstr ""
+msgstr "Dominio id partner"
 
 #. module: helpdesk_mgmt_team_partner
 #: model:ir.model.fields,help:helpdesk_mgmt_team_partner.field_helpdesk_ticket__partner_id_domain
 msgid "This is the computed domain to filter partners."
-msgstr ""
+msgstr "Questo è il dominio calcolato per filtrare i partner."
 
 #. module: helpdesk_mgmt_team_partner
 #. odoo-python
@@ -60,4 +62,4 @@ msgstr ""
 #: code:addons/helpdesk_mgmt_team_partner/models/helpdesk_ticket.py:0
 #, python-format
 msgid "This partner is not allowed for selected team"
-msgstr ""
+msgstr "Questo partner non è consentito per il team selezionato"
