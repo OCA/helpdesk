@@ -72,8 +72,7 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
         self.assertEqual(
             self.team_a.todo_ticket_count_unassigned,
             1,
-            "Helpdesk Ticket: Helpdesk ticket team should "
-            "have one tickets unassigned.",
+            "Helpdesk Ticket: Helpdesk ticket team should have one tickets unassigned.",
         )
         self.assertEqual(
             self.team_a.todo_ticket_count_high_priority,
@@ -92,8 +91,7 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
         self.assertEqual(
             self.team_a.todo_ticket_count_unattended,
             2,
-            "Helpdesk Ticket: Helpdesk ticket team should "
-            "have two tickets unattended.",
+            "Helpdesk Ticket: Helpdesk ticket team should have two tickets unattended.",
         )
         self.assertEqual(
             self.team_a.todo_ticket_count,

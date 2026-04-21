@@ -2729,3 +2729,8 @@ msgstr ""
 
 #~ msgid "Ticket Stages"
 #~ msgstr "Etapas de Tickets"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+msgid "You cannot assign this ticket to yourself because you are not a member of the assigned team."
+msgstr "Você não pode atribuir este ticket a si mesmo porque não é um membro da equipe designada."

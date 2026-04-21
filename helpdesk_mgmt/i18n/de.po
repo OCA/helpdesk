@@ -2367,3 +2367,8 @@ msgstr ""
 #~ "                <p>Das Ticket ${object.number} wurde Ihnen zugewiesen.</"
 #~ "p>\n"
 #~ "            </data>"
+
+#. module: helpdesk_mgmt
+#: model:helpdesk.ticket,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
+msgid "You cannot assign this ticket to yourself because you are not a member of the assigned team."
+msgstr "Sie können sich dieses Ticket nicht selbst zuweisen, da Sie kein Mitglied des zugewiesenen Teams sind."

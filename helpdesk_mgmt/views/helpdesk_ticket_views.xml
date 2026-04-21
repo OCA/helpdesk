@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8' ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record
         id="action_helpdesk_ticket_kanban_from_dashboard"
@@ -104,10 +104,9 @@
                 <filter
                     string="Future Activities"
                     name="activities_upcoming_all"
-                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
-                  ]"
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))                   ]"
                 />
-                <group expand="0" string="Group By">
+                <group>
                     <filter
                         string="Partner"
                         name="group_partner"
@@ -229,11 +228,14 @@
                         <group>
                             <field name="active" invisible="1" />
                             <field name="duplicate_tracking_enabled" invisible="1" />
-                            <field name="team_id" options='{"always_reload": True}' />
+                            <field
+                                name="team_id"
+                                options="{&quot;always_reload&quot;: True}"
+                            />
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field
                                 name="user_id"
-                                options='{"always_reload": True}'
+                                options="{&quot;always_reload&quot;: True}"
                                 widget="many2one_avatar_user"
                             />
                             <field name="priority" widget="priority" />
