@@ -169,7 +169,7 @@ class TestHelpdeskProjectDomain(TestHelpdeskTicketBase):
         )
 
         # Set domain to filter by partner
-        self.team.project_domain = "[('partner_id', '=', %d)]" % partner.id
+        self.team.project_domain = f"[('partner_id', '=', {partner.id})]"
 
         # Create ticket
         ticket = self.env["helpdesk.ticket"].create(

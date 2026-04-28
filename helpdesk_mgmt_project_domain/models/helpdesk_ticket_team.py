@@ -92,7 +92,9 @@ class HelpdeskTicketTeam(models.Model):
                     expr=record.project_domain_python.strip(), mode="exec"
                 )
                 if msg:
-                    raise ValidationError(_("Project Domain Python Code: %s") % msg)
+                    raise ValidationError(
+                        record.env._("Project Domain Python Code: %s", msg)
+                    )
 
             # Check task domain python
             if record.task_domain_python:
@@ -100,7 +102,9 @@ class HelpdeskTicketTeam(models.Model):
                     expr=record.task_domain_python.strip(), mode="exec"
                 )
                 if msg:
-                    raise ValidationError(_("Task Domain Python Code: %s") % msg)
+                    raise ValidationError(
+                        record.env._("Task Domain Python Code: %s", msg)
+                    )
 
     def _get_eval_context(self, ticket=None):
         """Prepare the evaluation context for Python domain code execution"""
