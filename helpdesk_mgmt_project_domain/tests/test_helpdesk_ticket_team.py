@@ -287,12 +287,8 @@ domain = normalize([domain1, domain2])
         new_team = self.env["helpdesk.ticket.team"].create(
             {
                 "name": "New Test Team",
-                "alias_name": "new-test-team",
             }
         )
-
-        # Check that default value is set
-        self.assertTrue(new_team.project_domain_python)
         self.assertIn("Available variables:", new_team.project_domain_python)
         self.assertIn("ticket:", new_team.project_domain_python)
         self.assertIn("env:", new_team.project_domain_python)
@@ -305,7 +301,6 @@ domain = normalize([domain1, domain2])
         new_team = self.env["helpdesk.ticket.team"].create(
             {
                 "name": "New Test Team",
-                "alias_name": "new-test-team",
             }
         )
 

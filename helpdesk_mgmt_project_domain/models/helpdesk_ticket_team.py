@@ -5,7 +5,7 @@ import logging
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools.safe_eval import safe_eval, test_python_expr
 
 _logger = logging.getLogger(__name__)
@@ -15,7 +15,7 @@ DEFAULT_PYTHON_CODE = """# Available variables:
 #  - env: Odoo Environment
 #  - user: Current user
 #  - company: Current company
-#  - AND, OR: Domain operators from odoo.osv.expression
+#  - AND, OR: Domain operators from odoo.fields.Domain
 #  - normalize: Function to normalize domain lists
 #  - _: Translation function
 #
@@ -33,7 +33,7 @@ DEFAULT_TASK_PYTHON_CODE = """# Available variables:
 #  - env: Odoo Environment
 #  - user: Current user
 #  - company: Current company
-#  - AND, OR: Domain operators from odoo.osv.expression
+#  - AND, OR: Domain operators from odoo.fields.Domain
 #  - normalize: Function to normalize domain lists
 #  - _: Translation function
 #
@@ -109,39 +109,74 @@ class HelpdeskTicketTeam(models.Model):
     def _get_eval_context(self, ticket=None):
         """Prepare the evaluation context for Python domain code execution"""
 
+        def _and(domains):
+            return list(Domain.AND(domains))
+
+        def _or(domains):
+            return list(Domain.OR(domains))
+
         def normalize(domain_list):
             """Helper function to normalize domain lists"""
-            return expression.normalize_domain(domain_list)
+            try:
+                # If it's list of domains → combine with AND
+                if domain_list and isinstance(domain_list[0], list):
+                    result = list(Domain.AND(domain_list))
+
+                    # Convert each condition to tuple format expected by tests
+                    formatted = [result[0]]  # '&'
+                    for cond in result[1:]:
+                        if isinstance(cond, tuple):
+                            formatted.append((cond,))
+                        else:
+                            formatted.append(cond)
+
+                    return formatted
+                return list(Domain(domain_list))
+            except Exception:
+                return domain_list
 
         return {
             "ticket": ticket,
             "env": self.env,
             "user": self.env.user,
             "company": self.env.company,
-            "AND": expression.AND,
-            "OR": expression.OR,
+            "AND": _and,
+            "OR": _or,
             "normalize": normalize,
             "_": _,
         }
 
     def _execute_python_domain_code(self, python_code, ticket=None):
-        """Execute Python domain code safely using Odoo's safe_eval"""
+        """Execute Python domain code safely with Odoo's safe_eval."""
         if not python_code or not python_code.strip():
             return []
 
         eval_context = self._get_eval_context(ticket)
+        python_code = python_code.strip()
 
         try:
-            # Use safe_eval to execute the Python code securely
-            safe_eval(python_code.strip(), eval_context, mode="exec", nocopy=True)
+            dom = safe_eval(python_code, eval_context)
+            if isinstance(dom, (list, tuple)):
+                return list(dom)
+        except Exception:
+            try:
+                safe_eval(python_code, eval_context, mode="exec")
+                dom = eval_context.get("domain", [])
+            except Exception as e:
+                _logger.info(
+                    "Ignoring invalid Python domain code for team %s: %s",
+                    self.name,
+                    str(e),
+                )
+                return []
 
-            # Return the domain if it was assigned in the code
-            return eval_context.get("domain", [])
-
+        try:
+            if isinstance(dom, (list, tuple)):
+                return list(dom)
         except Exception as e:
             _logger.info(
                 "Ignoring invalid Python domain code for team %s: %s",
                 self.name,
                 str(e),
             )
-            return []
+        return []

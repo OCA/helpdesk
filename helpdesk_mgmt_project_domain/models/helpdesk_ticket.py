@@ -4,7 +4,6 @@
 import logging
 
 from odoo import _, api, fields, models
-from odoo.osv import expression
 from odoo.tools.safe_eval import safe_eval
 
 _logger = logging.getLogger(__name__)
@@ -163,8 +162,11 @@ class HelpdeskTicket(models.Model):
             return []
         try:
             dom = safe_eval(expr, {"uid": self.env.uid})
-            if isinstance(dom, (list | tuple)):
-                return expression.normalize_domain(list(dom))
+            if isinstance(dom, (list, tuple)):
+                try:
+                    return list(fields.Domain(list(dom)))
+                except Exception:
+                    return list(dom)
             _logger.warning(
                 "Evaluated domain is not a list/tuple (expr=%s, type=%s)",
                 expr,
@@ -175,18 +177,29 @@ class HelpdeskTicket(models.Model):
         return []
 
     def _run_python_domain(self, python_code, base_domain=None):
-        """
-        Execute controlled Python code to produce a domain.
-        The script may ASSIGN `domain = [...]` OR directly RETURN the list.
-        Available variables:
-            - env, user, company, ticket, fields, api, _
-            - base_domain (already normalized list)
-            - AND, OR, normalize (from odoo.osv.expression)
+        """Execute controlled Python code to produce a domain.
+
+        The script may assign ``domain = [...]`` or be a direct expression that
+        returns the domain list. Odoo 19's ``safe_eval`` mutates the supplied
+        context in ``mode="exec"``, so assigned variables are read from there.
         """
         if not python_code:
             return []
+        base_domain = list(fields.Domain(base_domain or []))
 
-        base_domain = expression.normalize_domain(base_domain or [])
+        def _and(domains):
+            return list(fields.Domain.AND(domains))
+
+        def _or(domains):
+            return list(fields.Domain.OR(domains))
+
+        def _normalize(domain_or_domains):
+            try:
+                if domain_or_domains and isinstance(domain_or_domains[0], list):
+                    return list(fields.Domain.AND(domain_or_domains))
+                return list(fields.Domain(domain_or_domains))
+            except Exception:
+                return domain_or_domains
 
         # Safe globals and helpers
         safe_globals = {
@@ -196,27 +209,33 @@ class HelpdeskTicket(models.Model):
             "ticket": self,  # current record
             "_": _,
             "base_domain": base_domain,
-            "AND": expression.AND,
-            "OR": expression.OR,
-            "normalize": expression.normalize_domain,
+            "AND": _and,
+            "OR": _or,
+            "normalize": _normalize,
         }
 
         # 1) Try as an expression that directly returns a domain
         try:
             maybe = safe_eval(python_code.strip(), safe_globals)
-            if isinstance(maybe, (list | tuple)):
-                return expression.normalize_domain(list(maybe))
+            if isinstance(maybe, (list, tuple)):
+                try:
+                    return list(fields.Domain(list(maybe)))
+                except Exception:
+                    return list(maybe)
         except Exception as e:
             # Fallback to exec mode below
             _logger.debug("Failed to evaluate Python domain as expression: %s", e)
 
-        # 2) "Server action" style: script assigns `domain = [...]`
+        # 2) "Server action" style: script assigns `domain = [...]`.
         eval_context = dict(safe_globals)
         try:
-            safe_eval(python_code.strip(), eval_context, mode="exec", nocopy=True)
+            safe_eval(python_code.strip(), eval_context, mode="exec")
             dom = eval_context.get("domain", [])
-            if isinstance(dom, (list | tuple)):
-                return expression.normalize_domain(list(dom))
+            if isinstance(dom, (list, tuple)):
+                try:
+                    return list(fields.Domain(list(dom)))
+                except Exception:
+                    return list(dom)
             if dom:
                 _logger.debug(
                     "Domain Python code assigned invalid type to 'domain': %s",
@@ -263,7 +282,7 @@ class HelpdeskTicket(models.Model):
 
         # Combine all domains with AND
         if domains:
-            return expression.AND(domains)
+            return list(fields.Domain.AND(domains))
 
         return []
 
@@ -317,7 +336,7 @@ class HelpdeskTicket(models.Model):
 
         # Combine all domains with AND
         if domains:
-            return expression.AND(domains)
+            return list(fields.Domain.AND(domains))
 
         return []
 
@@ -333,15 +352,15 @@ class HelpdeskTicket(models.Model):
 
     def _domain_contains_project_filter(self, domain, project_id):
         """Check if domain already contains a filter for the specific project_id"""
-        if not domain or not isinstance(domain, (list | tuple)):
+        if not domain or not isinstance(domain, (list, tuple)):
             return False
 
         for condition in domain:
-            if isinstance(condition, (list | tuple)) and len(condition) == 3:
+            if isinstance(condition, (list, tuple)) and len(condition) == 3:
                 field, operator, value = condition
                 if field == "project_id" and operator == "=" and value == project_id:
                     return True
-            elif isinstance(condition, (list | tuple)) and len(condition) > 0:
+            elif isinstance(condition, (list, tuple)) and len(condition) > 0:
                 # Recursively check nested domains
                 if self._domain_contains_project_filter(condition, project_id):
                     return True

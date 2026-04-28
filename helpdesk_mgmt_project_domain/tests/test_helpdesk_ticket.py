@@ -1,7 +1,7 @@
 # Copyright 2025 Marcel Savegnago - https://www.escodoo.com.br
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.osv import expression
+from odoo.fields import Domain
 
 from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
 
@@ -84,11 +84,13 @@ class TestHelpdeskProjectDomain(TestHelpdeskTicketBase):
 
         # Get domain - should be company AND team domain
         domain = ticket._get_project_domain()
-        expected = expression.AND(
-            [
-                [("active", "=", True)],  # Company domain
-                [("active", "=", False)],  # Team domain
-            ]
+        expected = list(
+            Domain.AND(
+                [
+                    [("active", "=", True)],  # Company domain
+                    [("active", "=", False)],  # Team domain
+                ]
+            )
         )
         self.assertEqual(domain, expected)
 
@@ -258,11 +260,13 @@ else:
 
         # Get domain - should combine both with AND
         domain = ticket._get_project_domain()
-        expected = expression.AND(
-            [
-                [("active", "=", True)],
-                [("partner_id", "!=", False)],
-            ]
+        expected = list(
+            Domain.AND(
+                [
+                    [("active", "=", True)],
+                    [("partner_id", "!=", False)],
+                ]
+            )
         )
         self.assertEqual(domain, expected)
 
@@ -286,12 +290,14 @@ domain = [('name', 'ilike', 'Project')]
 
         # Get domain - should combine all three with AND
         domain = ticket._get_project_domain()
-        expected = expression.AND(
-            [
-                [("active", "=", True)],
-                [("partner_id", "!=", False)],
-                [("name", "ilike", "Project")],
-            ]
+        expected = list(
+            Domain.AND(
+                [
+                    [("active", "=", True)],
+                    [("partner_id", "!=", False)],
+                    [("name", "ilike", "Project")],
+                ]
+            )
         )
         self.assertEqual(domain, expected)
 
@@ -412,8 +418,8 @@ domain = [('name', 'ilike', 'Project')]
 
         # Get domain - should be combined with AND
         domain = ticket._get_task_domain()
-        expected = expression.AND(
-            [[("active", "=", True)], [("project_id", "!=", False)]]
+        expected = list(
+            Domain.AND([[("active", "=", True)], [("project_id", "!=", False)]])
         )
         self.assertEqual(domain, expected)
 
@@ -434,12 +440,14 @@ domain = [('name', 'ilike', 'Project')]
 
         # Get domain - should be combined with AND
         domain = ticket._get_task_domain()
-        expected = expression.AND(
-            [
-                [("active", "=", True)],
-                [("project_id", "!=", False)],
-                [("user_id", "!=", False)],
-            ]
+        expected = list(
+            Domain.AND(
+                [
+                    [("active", "=", True)],
+                    [("project_id", "!=", False)],
+                    [("user_id", "!=", False)],
+                ]
+            )
         )
         self.assertEqual(domain, expected)
 
@@ -712,7 +720,7 @@ else:
         project_filters = [
             cond
             for cond in domain
-            if isinstance(cond, (list | tuple))
+            if isinstance(cond, (list, tuple))
             and len(cond) == 3
             and cond[0] == "project_id"
             and cond[1] == "="
@@ -941,8 +949,8 @@ else:
         result = ticket._onchange_project_domain()
 
         # Should return combined domain
-        expected_domain = expression.AND(
-            [[("active", "=", True)], [("partner_id", "!=", False)]]
+        expected_domain = list(
+            Domain.AND([[("active", "=", True)], [("partner_id", "!=", False)]])
         )
         expected = {"domain": {"project_id": expected_domain}}
         self.assertEqual(result, expected)
@@ -966,8 +974,8 @@ else:
         result = ticket._onchange_task_domain()
 
         # Should return combined domain
-        expected_domain = expression.AND(
-            [[("active", "=", True)], [("project_id", "!=", False)]]
+        expected_domain = list(
+            Domain.AND([[("active", "=", True)], [("project_id", "!=", False)]])
         )
         expected = {"domain": {"task_id": expected_domain}}
         self.assertEqual(result, expected)
