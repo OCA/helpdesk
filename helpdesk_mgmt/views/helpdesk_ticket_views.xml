@@ -246,7 +246,10 @@
                             <field name="channel_id" />
                         </group>
                         <group>
-                            <field name="partner_id" />
+                            <field
+                                name="partner_id"
+                                context="{'default_name': partner_name, 'default_email': partner_email, 'show_vat': True}"
+                            />
                             <field name="partner_name" />
                             <field name="partner_email" />
                             <field name="category_id" />
