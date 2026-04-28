@@ -94,14 +94,14 @@ class HelpdeskTicketMerge(models.TransientModel):
         }
 
     def _merge_description(self, tickets):
+        template = self.env._("Description from ticket %(name)s: %(description)s")
+        no_description = self.env._("No description")
         return "\n".join(
             tickets.mapped(
-                lambda ticket: self.env._(
-                    "Description from ticket %(name)s: %(description)s"
-                )
+                lambda ticket: template
                 % {
                     "name": ticket.name,
-                    "description": ticket.description or self.env._("No description"),
+                    "description": ticket.description or no_description,
                 }
             )
         )
@@ -138,10 +138,13 @@ class HelpdeskTicketMerge(models.TransientModel):
         :param ticket_numbers : list of helpdesk ticket numbers to add in the body
         :param ticket : the ticket where the message will be posted
         """
-        subject = "Merge helpdesk ticket"
+        subject = self.env._("Merge helpdesk ticket")
         body = Markup(
-            self.env._("This helpdesk ticket has been merged %(way)s %(tickets)s")
-            % {"way": way, "tickets": ticket_numbers}
+            self.env._(
+                "This helpdesk ticket has been merged %(way)s %(tickets)s",
+                way=way,
+                tickets=ticket_numbers,
+            )
         )
 
         ticket.message_post(
