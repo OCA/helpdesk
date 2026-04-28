@@ -6,11 +6,12 @@ class TestHelpdeskTicketMerge(BaseCommon):
     def setUpClass(cls):
         super().setUpClass()
         cls.HelpdeskTicketMerge = cls.env["helpdesk.ticket.merge"]
-        cls.ticket_1 = cls._create_ticket(cls, "Ticket 1", "Description for Ticket 1")
-        cls.ticket_2 = cls._create_ticket(cls, "Ticket 2", "Description for Ticket 2")
+        cls.ticket_1 = cls._create_ticket("Ticket 1", "Description for Ticket 1")
+        cls.ticket_2 = cls._create_ticket("Ticket 2", "Description for Ticket 2")
 
-    def _create_ticket(self, name, description):
-        return self.env["helpdesk.ticket"].create(
+    @classmethod
+    def _create_ticket(cls, name, description):
+        return cls.env["helpdesk.ticket"].create(
             {
                 "name": name,
                 "description": description,
