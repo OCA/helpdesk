@@ -11,7 +11,7 @@
                 expr="//page[@name='timesheets']//field[@name='name']"
                 position="after"
             >
-                <field name="time_type_id" />
+                <field name="time_type_id" optional="show" />
             </xpath>
         </field>
     </record>
