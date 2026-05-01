@@ -34,10 +34,11 @@ Helpdesk Ticket Close Inactive
 
 Adds an option to configure a cron job that automatically closes
 inactive helpdesk tickets after a specified number of days, set in the
-helpdesk team settings. Sends notification emails to the customer
-(partner) and assigned team members, providing a warning after an
-initial period of inactivity and a final closure notification when the
-maximum inactivity period is reached.
+helpdesk team settings. Optionally sends a warning email after an
+initial period of inactivity (set the warning day limit to 0 to skip
+this phase entirely) and an optional closing notification when the
+ticket is auto-closed (leave the closing email template empty to close
+tickets silently).
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -57,12 +58,18 @@ To configure this module, you need to:
 - Go to Helpdesk > Settings > Teams.
 - Select a team.
 - Enable 'Automatic closure of inactive tickets' option.
-- Set number of days to be reached before send a warning notification to
-  the partner.
-- Set warning email template or use the one provided by default.
-- Set number of days to be reached before closing ticket.
-- Set closing email template or use the one provided by default.
-- Set stages to be filtered on the domain to execute action.
+- Set the number of inactive days before a warning email is sent, or set it
+  to 0 to disable the warning phase entirely. When greater than 0, a
+  warning email template must be selected.
+- Set the warning email template, or leave it hidden (by setting days to 0)
+  to skip warning notifications.
+- Set the number of inactive days after which the ticket is automatically
+  closed (must be greater than 0).
+- Optionally set a closing email template. Leave it empty to close tickets
+  silently without sending a notification email.
+- Set the closing stage that tickets will be moved to when auto-closed.
+- Set stages to be filtered on the domain to execute the action.
+- Set ticket categories to be filtered on the domain to execute the action.
 
 Bug Tracker
 ===========

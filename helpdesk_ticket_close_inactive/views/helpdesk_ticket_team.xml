@@ -24,15 +24,13 @@
                             <field
                                 name="warning_inactive_mail_template_id"
                                 domain="[('model', '=', 'helpdesk.ticket')]"
-                                required="close_inactive_tickets"
+                                required="inactive_tickets_day_limit_warning > 0"
+                                invisible="inactive_tickets_day_limit_warning == 0"
                             />
                         </group>
                         <group string="Ticket Closing" name="purchase" priority="2">
                             <field name="inactive_tickets_day_limit_closing" />
-                            <field
-                                name="close_inactive_mail_template_id"
-                                required="close_inactive_tickets"
-                            />
+                            <field name="close_inactive_mail_template_id" />
                             <field
                                 name="closing_ticket_stage"
                                 required="close_inactive_tickets"
@@ -46,11 +44,7 @@
                             />
                         </group>
                         <group name="categories" string="Ticket Category Filter">
-                            <field
-                                name="ticket_category_ids"
-                                widget="many2many_tags"
-                                required="close_inactive_tickets"
-                            />
+                            <field name="ticket_category_ids" widget="many2many_tags" />
                         </group>
                     </group>
                 </page>

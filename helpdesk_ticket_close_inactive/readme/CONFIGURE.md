@@ -4,8 +4,15 @@ To configure this module, you need to:
 - Go to Helpdesk > Settings > Teams.
 - Select a team.
 - Enable 'Automatic closure of inactive tickets' option.
-- Set number of days to be reached before send a warning notification to the partner.
-- Set warning email template or use the one provided by default.
-- Set number of days to be reached before closing ticket.
-- Set closing email template or use the one provided by default.
-- Set stages to be filtered on the domain to execute action.
+- Set the number of inactive days before a warning email is sent, or set it
+  to 0 to disable the warning phase entirely. When greater than 0, a
+  warning email template must be selected.
+- Set the warning email template, or leave it hidden (by setting days to 0)
+  to skip warning notifications.
+- Set the number of inactive days after which the ticket is automatically
+  closed (must be greater than 0).
+- Optionally set a closing email template. Leave it empty to close tickets
+  silently without sending a notification email.
+- Set the closing stage that tickets will be moved to when auto-closed.
+- Set stages to be filtered on the domain to execute the action.
+- Set ticket categories to be filtered on the domain to execute the action.

@@ -85,3 +85,61 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
             "The warning email should contain the remaining "
             "days until the ticket is closed.",
         )
+
+    def test_warning_phase_disabled_when_days_zero(self):
+        """Test that no warning email is sent when the warning day limit is 0."""
+        self.team.write({"inactive_tickets_day_limit_warning": 0})
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
+        result = self.team.close_team_inactive_tickets()
+        self.assertFalse(
+            result["warning_email_ids"],
+            "No warning email should be sent when the warning day limit is 0.",
+        )
+        self.assertEqual(
+            self.ticket.stage_id,
+            self.stage_warning,
+            "Ticket should not be closed when it has not reached the closing limit.",
+        )
+
+    def test_closing_email_not_sent_when_no_template(self):
+        """Test that the ticket is closed but no closing email is sent
+        when the closing email template is not set."""
+        self.team.write({"close_inactive_mail_template_id": False})
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        result = self.team.close_team_inactive_tickets()
+        self.assertEqual(
+            self.ticket.stage_id,
+            self.stage_closing,
+            "Ticket should still be moved to the closing stage.",
+        )
+        self.assertFalse(
+            result["closing_email_ids"],
+            "No closing email should be sent when the template is not set.",
+        )
+
+    def test_closing_applies_to_all_categories_when_none_selected(self):
+        """Test that tickets of all categories are closed when no category
+        filter is set on the team."""
+        self.team.write({"ticket_category_ids": [(5, 0, 0)]})
+        ticket_no_category = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket Without Category",
+                "team_id": self.team.id,
+                "stage_id": self.stage_warning.id,
+                "description": "Please help me",
+                "last_stage_update": datetime.today() - timedelta(days=15),
+            }
+        )
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self.team.close_team_inactive_tickets()
+        self.assertEqual(
+            self.ticket.stage_id,
+            self.stage_closing,
+            "Ticket with a category should be closed when no category filter is set.",
+        )
+        self.assertEqual(
+            ticket_no_category.stage_id,
+            self.stage_closing,
+            "Ticket without a category should also be closed "
+            "when no category filter is set.",
+        )
