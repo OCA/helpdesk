@@ -102,6 +102,9 @@
             eval="&quot;Problem with the delivery of goods&quot;"
             name="description"
         />
+        <field
+            name="notes"
+        >The carrier seems to have misplaced the package at the London sorting center. Wait 24h before initiating a reshipment procedure.</field>
         <field eval="&quot;1&quot;" name="priority" />
         <field name="user_id" ref="base.user_root" />
         <field name="stage_id" ref="helpdesk_ticket_stage_new" />
@@ -112,6 +115,9 @@
     <record id="helpdesk_ticket_2" model="helpdesk.ticket">
         <field eval="&quot;Damaged Products&quot;" name="name" />
         <field eval="&quot;Damaged Products&quot;" name="description" />
+        <field
+            name="notes"
+        >Customer sent photos. The outer packaging is intact, which suggests an issue during the packing process at the warehouse.</field>
         <field eval="&quot;Alison Hardwell&quot;" name="partner_name" />
         <field eval="&quot;0&quot;" name="priority" />
         <field name="user_id" ref="base.user_demo" />
@@ -123,6 +129,9 @@
     <record id="helpdesk_ticket_3" model="helpdesk.ticket">
         <field eval="&quot;Document related problems&quot;" name="name" />
         <field eval="&quot;Document related problems&quot;" name="description" />
+        <field
+            name="notes"
+        >Ticket cancelled. The customer found the invoice in their spam folder. No further action required.</field>
         <field eval="&quot;Jaime Bajozano&quot;" name="partner_name" />
         <field eval="&quot;contact@tecsas.fr&quot;" name="partner_email" />
         <field eval="&quot;1&quot;" name="priority" />
@@ -136,6 +145,9 @@
     <record id="helpdesk_ticket_4" model="helpdesk.ticket">
         <field eval="&quot;Product quality not maintained&quot;" name="name" />
         <field eval="&quot;Product quality not maintained&quot;" name="description" />
+        <field
+            name="notes"
+        >Tense phone call. Customer is demanding a full refund. Escalated to the Quality Assurance manager for technical review.</field>
         <field eval="&quot;Jamie Mads&quot;" name="partner_name" />
         <field eval="&quot;2&quot;" name="priority" />
         <field name="user_id" ref="base.user_demo" />
@@ -147,6 +159,9 @@
     <record id="helpdesk_ticket_5" model="helpdesk.ticket">
         <field eval="&quot;Some products missing&quot;" name="name" />
         <field eval="&quot;Some products missing&quot;" name="description" />
+        <field
+            name="notes"
+        >Inventory check in progress. There appears to be a stock discrepancy for reference SKU-450 in the main aisle.</field>
         <field eval="&quot;3&quot;" name="priority" />
         <field name="user_id" ref="base.user_root" />
         <field name="partner_id" ref="base.res_partner_12" />
@@ -162,6 +177,9 @@
             eval="&quot;Problem with the delivery of assignments&quot;"
             name="description"
         />
+        <field
+            name="notes"
+        >Awaiting feedback from the logistics team regarding the signed proof of delivery. The customer is disputing the signature.</field>
         <field eval="&quot;1&quot;" name="priority" />
         <field eval="[(6,0,[ref('helpdesk_tag_2')])]" name="tag_ids" />
         <field name="user_id" ref="base.user_root" />
@@ -172,6 +190,9 @@
     <record id="helpdesk_ticket_7" model="helpdesk.ticket">
         <field eval="&quot;Documents unclear&quot;" name="name" />
         <field eval="&quot;Documents unclear&quot;" name="description" />
+        <field
+            name="notes"
+        >Sent a high-resolution PDF of the user manual. Customer confirmed receipt and is satisfied.</field>
         <field eval="&quot;1&quot;" name="priority" />
         <field eval="[(6,0,[ref('helpdesk_tag_3')])]" name="tag_ids" />
         <field name="user_id" ref="base.user_root" />
@@ -182,6 +203,9 @@
     <record id="helpdesk_ticket_8" model="helpdesk.ticket">
         <field eval="&quot;Product quality not maintained&quot;" name="name" />
         <field eval="&quot;Product quality not maintained&quot;" name="description" />
+        <field
+            name="notes"
+        >Second report from this customer regarding the same batch. We should check if other tickets exist for this specific supplier lot.</field>
         <field eval="&quot;Jamie Mads&quot;" name="partner_name" />
         <field eval="&quot;2&quot;" name="priority" />
         <field name="user_id" ref="base.user_demo" />
