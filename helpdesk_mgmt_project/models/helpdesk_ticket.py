@@ -47,6 +47,10 @@ class HelpdeskTicket(models.Model):
         res = super().write(vals)
         if "task_id" in vals or "project_id" in vals:
             for ticket in self:
-                if ticket.task_id and not ticket.task_id.project_id and ticket.project_id:
+                if (
+                    ticket.task_id
+                    and not ticket.task_id.project_id
+                    and ticket.project_id
+                ):
                     ticket.task_id.project_id = ticket.project_id
         return res
