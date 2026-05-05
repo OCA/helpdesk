@@ -5,11 +5,9 @@
     "name": "Helpdesk Mgmt Fieldservice",
     "summary": """
         Create service orders from a ticket""",
-    "version": "18.0.1.1.3",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
-    "author": "Open Source Integrators, "
-    "Escodoo, "
-    "Odoo Community Association (OCA)",
+    "author": "Open Source Integrators, Escodoo, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": [
         "helpdesk_mgmt",
