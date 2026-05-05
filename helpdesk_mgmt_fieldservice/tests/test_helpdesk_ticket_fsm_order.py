@@ -4,24 +4,42 @@
 from markupsafe import Markup
 
 from odoo.exceptions import ValidationError
-from odoo.tests import Form, TransactionCase
+from odoo.tests import Form
+from odoo.tests.common import new_test_user
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskTicketFSMOrder(TransactionCase):
+class TestHelpdeskTicketFSMOrder(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
-        cls.partner = cls.env["res.partner"].create({"name": "Partner 1"})
-        cls.user_demo = cls.env.ref("base.user_demo")
+        cls.user_demo = new_test_user(cls.env, login="demo_test_user@test.example.com")
         cls.fsm_team = cls.env["fsm.team"].create({"name": "FSM Team"})
         cls.fsm_stage_new = cls.env.ref("fieldservice.fsm_stage_new")
         cls.fsm_stage_cancelled = cls.env.ref("fieldservice.fsm_stage_cancelled")
         cls.stage_closed = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
         cls.stage_completed = cls.env.ref("fieldservice.fsm_stage_completed")
-        cls.test_location = cls.env.ref("fieldservice.test_location")
+        cls.location_partner = cls.env["res.partner"].create(
+            {"name": "Test Location Partner"}
+        )
+        cls.test_location = cls.env["fsm.location"].create(
+            {
+                "name": "Test Location",
+                "partner_id": cls.location_partner.id,
+                "owner_id": cls.location_partner.id,
+            }
+        )
+        cls.other_location_partner = cls.env["res.partner"].create(
+            {"name": "Other Location Partner"}
+        )
+        cls.other_location = cls.env["fsm.location"].create(
+            {
+                "name": "Other Location",
+                "partner_id": cls.other_location_partner.id,
+                "owner_id": cls.other_location_partner.id,
+            }
+        )
         cls.partner.service_location_id = cls.test_location
         cls.mail_alias_id = cls.env["mail.alias"].create(
             {
@@ -34,7 +52,6 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         cls.team_id = cls.env["helpdesk.ticket.team"].create(
             {"name": "Team 1", "alias_id": cls.mail_alias_id.id}
         )
-
         cls.ticket_1 = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test 1",
@@ -151,32 +168,27 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         self.assertEqual(self.fsm_order_no_ticket.stage_id, self.stage_completed)
 
     def test_recompute_location_if_partner_with_default_location_is_set(self):
-        other_location = self.env.ref("fieldservice.location_1")
-        other_partner = other_location.partner_id
-        other_partner.service_location_id = other_location
-        self.ticket_1.partner_id = other_location.partner_id
-        self.assertEqual(self.ticket_1.fsm_location_id, other_location)
+        # Uses cls.other_location / cls.other_location_partner created in setUpClass
+        self.other_location_partner.service_location_id = self.other_location
+        self.ticket_1.partner_id = self.other_location_partner
+        self.assertEqual(self.ticket_1.fsm_location_id, self.other_location)
 
     def test_recompute_location_if_commercial_partner_with_default_location_is_set(
         self,
     ):
-        other_location = self.env.ref("fieldservice.location_1")
-        other_partner = other_location.partner_id
-        other_partner.service_location_id = other_location
+        self.other_location_partner.service_location_id = self.other_location
         other_contact = self.env["res.partner"].create(
             {
                 "name": "Other Contact",
-                "parent_id": other_partner.id,
+                "parent_id": self.other_location_partner.id,
             }
         )
         self.ticket_1.partner_id = other_contact
-        self.assertEqual(self.ticket_1.fsm_location_id, other_location)
+        self.assertEqual(self.ticket_1.fsm_location_id, self.other_location)
 
     def test_keep_location_if_partner_without_default_location_is_set(self):
-        other_location = self.env.ref("fieldservice.location_1")
-        other_partner = other_location.partner_id
-        other_partner.service_location_id = False
-        self.ticket_1.partner_id = other_location.partner_id
+        self.other_location_partner.service_location_id = False
+        self.ticket_1.partner_id = self.other_location_partner
         self.assertEqual(self.ticket_1.fsm_location_id, self.test_location)
 
     def test_can_close_ticket_if_no_fsm_order(self):
