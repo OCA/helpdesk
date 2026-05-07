@@ -202,3 +202,26 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
             "Backend explicitly assigns the ticket's project_id to the task "
             "when linked.",
         )
+
+    def test_create_ticket_with_task_assigns_project(self):
+        """Test creating a ticket with an existing task assigns the project."""
+        task = self.env["project.task"].create(
+            {
+                "name": "Task without project",
+            }
+        )
+
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket with Task",
+                "project_id": self.project1.id,
+                "task_id": task.id,
+                "description": "Testing Description",
+            }
+        )
+        self.assertEqual(
+            task.project_id,
+            self.project1,
+            "Backend explicitly assigns the ticket's project_id to the task "
+            "when linked during creation.",
+        )
