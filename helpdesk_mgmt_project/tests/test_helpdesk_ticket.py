@@ -1,4 +1,3 @@
-from odoo.tests import Form
 from odoo.tools.safe_eval import safe_eval
 
 from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
@@ -180,16 +179,20 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
     def test_create_task_from_ticket(self):
         """Test creating a task from the ticket simulating UI context/RPC."""
 
-        ticket_form = Form(self.env["helpdesk.ticket"])
-        ticket_form.name = "Test Ticket for Task Creation"
-        ticket_form.project_id = self.project1
-        ticket_form.description = "Testing Description"
-        ticket = ticket_form.save()
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket for Task Creation",
+                "project_id": self.project1.id,
+                "description": "Testing Description",
+            }
+        )
 
         # Create a task WITHOUT project context to test the backend explicit assignment
-        task_form = Form(self.env["project.task"])
-        task_form.name = "Task generated from ticket"
-        task = task_form.save()
+        task = self.env["project.task"].create(
+            {
+                "name": "Task generated from ticket",
+            }
+        )
 
         # Link the task back to the ticket as the web client would
         ticket.task_id = task
