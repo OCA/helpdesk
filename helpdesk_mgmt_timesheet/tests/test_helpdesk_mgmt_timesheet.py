@@ -4,7 +4,7 @@
 import logging
 from datetime import timedelta
 
-from odoo import fields
+from odoo import Command, fields
 
 from odoo.addons.helpdesk_mgmt.tests import test_helpdesk_ticket
 
@@ -29,8 +29,10 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
                 "name": "User Employee",
                 "login": "user_employee",
                 "email": "useremployee@test.com",
-                "groups_id": [
-                    (6, 0, [cls.env.ref("hr_timesheet.group_hr_timesheet_user").id])
+                "group_ids": [
+                    Command.set(
+                        [cls.env.ref("hr_timesheet.group_hr_timesheet_user").id]
+                    )
                 ],
             }
         )
