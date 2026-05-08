@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<data>
+<odoo>
     <record id="helpdesk_ticket_view_search" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.search</field>
         <field name="model">helpdesk.ticket</field>
@@ -269,4 +269,4 @@
             </xpath>
         </field>
     </record>
-</data>
+</odoo>

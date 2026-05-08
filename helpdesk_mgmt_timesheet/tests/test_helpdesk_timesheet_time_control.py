@@ -3,16 +3,17 @@
 
 from datetime import datetime, timedelta
 
-from odoo import exceptions
+from odoo import Command, exceptions
 from odoo.tests import common
 
 
 class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
-    def setUp(self):
-        super().setUp()
-        admin = self.browse_ref("base.user_admin")
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        admin = cls.env.ref("base.user_admin")
         # Stop any timer running
-        self.env["account.analytic.line"].search(
+        cls.env["account.analytic.line"].search(
             [
                 ("date_time", "!=", False),
                 ("user_id", "=", admin.id),
@@ -20,42 +21,48 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
                 ("unit_amount", "=", 0),
             ]
         ).button_end_work()
-        admin.groups_id |= self.browse_ref("hr_timesheet.group_hr_timesheet_user")
-        self.uid = admin.id
-        self.project = self.env["project.project"].create(
+        admin.write(
+            {
+                "group_ids": [
+                    Command.link(cls.env.ref("hr_timesheet.group_hr_timesheet_user").id)
+                ]
+            }
+        )
+        cls.uid = admin.id
+        cls.project = cls.env["project.project"].create(
             {"name": "Test project", "allow_timesheets": True}
         )
-        self.project_without_timesheets = self.env["project.project"].create(
+        cls.project_without_timesheets = cls.env["project.project"].create(
             {"name": "Test project", "allow_timesheets": False}
         )
-        self.analytic_account = self.project.account_id
-        self.task = self.env["project.task"].create(
-            {"name": "Test task", "project_id": self.project.id}
+        cls.analytic_account = cls.project.account_id
+        cls.task = cls.env["project.task"].create(
+            {"name": "Test task", "project_id": cls.project.id}
         )
-        team_id = self.env["helpdesk.ticket.team"].create(
+        team_id = cls.env["helpdesk.ticket.team"].create(
             {
                 "name": "Team 1",
                 "allow_timesheet": True,
-                "default_project_id": self.project.id,
+                "default_project_id": cls.project.id,
             }
         )
-        self.ticket = self.env["helpdesk.ticket"].create(
+        cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test Ticket",
                 "team_id": team_id.id,
-                "project_id": self.project.id,
+                "project_id": cls.project.id,
                 "description": "Test ticket description",
-                "user_id": self.uid,
+                "user_id": cls.uid,
             }
         )
-        self.ticket_line = self.env["account.analytic.line"].create(
+        cls.ticket_line = cls.env["account.analytic.line"].create(
             {
                 "date_time": datetime.now() - timedelta(hours=1),
-                "ticket_id": self.ticket.id,
-                "project_id": self.project.id,
-                "account_id": self.analytic_account.id,
+                "ticket_id": cls.ticket.id,
+                "project_id": cls.project.id,
+                "account_id": cls.analytic_account.id,
                 "name": "Test Ticket Timesheet line",
-                "user_id": self.uid,
+                "user_id": cls.uid,
             }
         )
 

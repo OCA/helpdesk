@@ -15,11 +15,11 @@
     "website": "https://github.com/OCA/helpdesk",
     "license": "AGPL-3",
     "category": "After-Sales",
-    "version": "18.0.1.1.3",
+    "version": "19.0.1.0.0",
     "depends": [
         "helpdesk_mgmt_project",
         "hr_timesheet",
-        "project_timesheet_time_control",
+        "hr_timesheet_time_control",
     ],
     "data": [
         "views/helpdesk_ticket_templates.xml",
