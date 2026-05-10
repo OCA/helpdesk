@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-11-15 08:29+0000\n"
-"PO-Revision-Date: 2024-11-15 08:29+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2026-05-10 10:19+0000\n"
+"Last-Translator: Ed-Spain <eduamoros@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,body_html:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
@@ -212,7 +213,7 @@ msgstr "Límite de dias de inactividad para enviar un aviso"
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Inactivity Warning Notification"
-msgstr ""
+msgstr "Notificación de advertencia por inactividad"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
@@ -237,12 +238,16 @@ msgid ""
 "The cronjob will check for inactivity in tickets         that belongs to "
 "this categories."
 msgstr ""
+"El trabajo programado verificará la inactividad en los tickets que "
+"pertenecen a estas categorías."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_stage_ids
 msgid ""
 "The cronjob will check for inactivity in tickets that are in these stages."
 msgstr ""
+"El trabajo programado verificará la inactividad en los tickets que se "
+"encuentran en estas etapas."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,subject:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
