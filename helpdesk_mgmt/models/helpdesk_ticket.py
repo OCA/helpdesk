@@ -370,8 +370,8 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    def _message_get_suggested_recipients(self):
-        recipients = super()._message_get_suggested_recipients()
+    def _message_get_suggested_recipients(self, **kwargs):
+        recipients = super()._message_get_suggested_recipients(**kwargs)
         try:
             for ticket in self:
                 if ticket.partner_id:
@@ -392,13 +392,13 @@ class HelpdeskTicket(models.Model):
             return recipients
         return recipients
 
-    def _notify_get_reply_to(self, default=None):
+    def _notify_get_reply_to(self, default=None, **kwargs):
         """Override to set alias of tasks to their team if any."""
-        aliases = self.sudo().mapped("team_id")._notify_get_reply_to(default=default)
+        aliases = self.sudo().mapped("team_id")._notify_get_reply_to(default=default, **kwargs)
         res = {ticket.id: aliases.get(ticket.team_id.id) for ticket in self}
         leftover = self.filtered(lambda rec: not rec.team_id)
         if leftover:
             res.update(
-                super(HelpdeskTicket, leftover)._notify_get_reply_to(default=default)
+                super(HelpdeskTicket, leftover)._notify_get_reply_to(default=default, **kwargs)
             )
         return res
