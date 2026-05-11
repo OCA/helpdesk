@@ -394,7 +394,11 @@ class HelpdeskTicket(models.Model):
 
     def _notify_get_reply_to(self, default=None, **kwargs):
         """Override to set alias of tasks to their team if any."""
-        aliases = self.sudo().mapped("team_id")._notify_get_reply_to(default=default, **kwargs)
+        aliases = (
+            self.sudo()
+            .mapped("team_id")
+            ._notify_get_reply_to(default=default, **kwargs)
+        )
         res = {ticket.id: aliases.get(ticket.team_id.id) for ticket in self}
         leftover = self.filtered(lambda rec: not rec.team_id)
         if leftover:
