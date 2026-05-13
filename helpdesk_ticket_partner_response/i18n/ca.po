@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-01-02 09:19+0000\n"
-"PO-Revision-Date: 2026-05-12 23:45+0000\n"
+"PO-Revision-Date: 2026-05-13 11:07+0000\n"
 "Last-Translator: QuiJoQuim <quim.rebull@gmail.com>\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -49,14 +49,14 @@ msgid ""
 "If a partner posts a message in a ticket on this stages, the own stage of "
 "the ticket will be update by the one set on Autoupdate Destination Stage "
 msgstr ""
-"Si un soci publica un missatge en un ticket en aquestes etapes, la pròpia "
-"etapa de el ticket s'actualitzarà pel que s'estableix a l'etapa de "
-"destinació d'actualització automàtica"
+"Si un soci publica un missatge en un ticket en aquestes etapes, la mateixa "
+"etapa del ticket s'actualitzarà pel que s'estableix a l'etapa de destinació "
+"d'actualització automàtica "
 
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model.fields,help:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_dest_stage_id
 msgid "Target stage on partner's message post "
-msgstr "Etapa objectiu a la publicació de missatges del soci"
+msgstr "Etapa objectiu a la publicació de missatges del soci "
 
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model.fields,help:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autoupdate_ticket_stage
