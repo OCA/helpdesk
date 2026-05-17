@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-17 14:46+0000\n"
+"Last-Translator: Mohamed Essam Salem <mohamed.e.salem@protonmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,body_html:helpdesk_mgmt_rating.rating_ticket_email_template
@@ -82,6 +84,90 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"                <t t-set=\"access_token\" t-"
+"value=\"object._rating_get_access_token()\"/>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" "
+"width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 10px 20px;\">\n"
+"                                <p>مرحباً،</p>\n"
+"                                <p>يرجى أخذ لحظة لتقييم خدماتنا المتعلقة "
+"بالطلب \"<strong><t t-out=\"object.number\"/> - <t t-out=\"object.name\"/></"
+"strong>\"المسندة إلى <strong>\n"
+"                                    <t t-out=\"object._rating_get_operator()"
+".name\"/>\n"
+"                                </strong>.</p>\n"
+"                                <p>نحن نقدر ملاحظاتك. فهي تساعدنا على التحسين "
+"المستمر.</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:10px 20px\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" "
+"style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                                    <tr>\n"
+"                                        <td style=\"text-align:center;\">\n"
+"                                            <h2 style=\"font-weight:300;font-"
+"size:18px;\">أخبرنا عن رأيك في خدمتنا:</h2>\n"
+"                                            <div style=\"text-color: "
+"#888888\">(انقر على أحد هذه الوجوه التعبيرية)</div>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td style=\"padding:10px 10px;\">\n"
+"                                            <table style=\"width:100%;text-"
+"align:center;margin-top:2rem;\">\n"
+"                                                <tr>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/5\">\n"
+"                                                            <img alt=\"راضٍ\" "
+"src=\"/rating/static/src/img/rating_5.png\" title=\"راضٍ\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/3\">\n"
+"                                                            <img alt=\"غير "
+"راضٍ\" src=\"/rating/static/src/img/rating_3.png\" title=\"غير راضٍ\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/1\">\n"
+"                                                            <img alt=\"غير "
+"راضٍ جداً\" src=\"/rating/static/src/img/rating_1.png\" title=\"غير راضٍ جداً\"/>"
+"\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:auto;text-"
+"align:center;font-size:12px;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;color:#afafaf;\">\n"
+"                                <t t-if=\"object.rating_status == "
+"'stage_change'\">\n"
+"                                    <p>تم إرسال هذا الاستبيان للعميل لأن "
+"تذكرتك تم نقلها إلى المرحلة <b t-out=\"object.stage_id.name\"/></p>\n"
+"                                </t>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
@@ -89,21 +175,23 @@ msgid ""
 "<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentage of "
 "satisfaction\" title=\"Percentage of satisfaction\"/>"
 msgstr ""
+"<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"نسبة الرضا\" "
+"title=\"نسبة الرضا\"/>"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "مطلوب إجراء"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "عدد المرفقات"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg
 msgid "Average Rating"
-msgstr ""
+msgstr "متوسط التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
@@ -111,47 +199,47 @@ msgstr ""
 #: model:ir.ui.menu,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
 msgid "Customer Rating"
-msgstr ""
+msgstr "تقييم العميل"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "المتابعون"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "المتابعون (الشركاء)"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "لديه رسالة"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "طلب"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model,name:helpdesk_mgmt_rating.model_helpdesk_ticket_stage
 msgid "Helpdesk Ticket Stage"
-msgstr ""
+msgstr "مرحلة الطلب"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,name:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Helpdesk Ticket: Rating Request"
-msgstr ""
+msgstr "طلب: طلب التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "إذا تم تحديده، تتطلب الرسائل الجديدة انتباهك."
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "إذا تم تحديده، بعض الرسائل لديها خطأ في التسليم."
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
@@ -159,51 +247,53 @@ msgid ""
 "If set, an email will be sent to the customer  with a rating survey when the"
 " ticket reaches this stage."
 msgstr ""
+"إذا تم تحديده، سيتم إرسال بريد إلكتروني إلى العميل مع استبيان تقييم عندما "
+"تصل الطلب إلى هذه المرحلة."
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "متابع"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "خطأ في تسليم الرسالة"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "الرسائل"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
 msgid "No rating"
-msgstr ""
+msgstr "لا يوجد تقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "عدد الإجراءات"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "عدد الأخطاء"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "عدد الرسائل التي تتطلب إجراءً"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "عدد الرسائل ذات خطأ في التسليم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__positive_rate_percentage
 msgid "Positive Rates Percentage"
-msgstr ""
+msgstr "نسبة التقييمات الإيجابية"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
@@ -213,83 +303,83 @@ msgstr ""
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg_text
 msgid "Rating Avg Text"
-msgstr ""
+msgstr "نص متوسط التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
 msgid "Rating Email Template"
-msgstr ""
+msgstr "قالب بريد التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr ""
+msgstr "آخر ملاحظة للتقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_image
 msgid "Rating Last Image"
-msgstr ""
+msgstr "صورة التقييم الأخيرة"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_value
 msgid "Rating Last Value"
-msgstr ""
+msgstr "قيمة التقييم الأخيرة"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_percentage_satisfaction
 msgid "Rating Satisfaction"
-msgstr ""
+msgstr "رضا التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_text
 msgid "Rating Text"
-msgstr ""
+msgstr "نص التقييم"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
 msgid "Rating count"
-msgstr ""
+msgstr "عدد التقييمات"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__stage_change
 msgid "Rating when changing stage"
-msgstr ""
+msgstr "التقييم عند تغيير المرحلة"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_ids
 #: model:mail.message.subtype,description:helpdesk_mgmt_rating.mt_ticket_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.ticket_view_form_inherit
 msgid "Ratings"
-msgstr ""
+msgstr "التقييمات"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Satisfaction Survey of the ticket {{object.number}} - {{object.name}}"
-msgstr ""
+msgstr "استبيان رضا للطلب {{object.number}} - {{object.name}}"
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
 msgid "There are no rated tickets at this moment."
-msgstr ""
+msgstr "لا توجد طلبات مقيمة في هذه اللحظة."
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
 msgid "There are no ratings for this ticket at the moment."
-msgstr ""
+msgstr "لا توجد تقييمات لهذه الطلب في الوقت الحالي."
 
 #. module: helpdesk_mgmt_rating
 #. odoo-python
 #: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
 #: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
 msgid "Ticket Rating"
-msgstr ""
+msgstr "تقييم الطلب"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "رسائل الموقع"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "سجل تواصل الموقع"
