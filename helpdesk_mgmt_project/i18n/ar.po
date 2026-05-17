@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-17 14:46+0000\n"
+"Last-Translator: Mohamed Essam Salem <mohamed.e.salem@protonmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -14,18 +15,19 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Gives label to tickets on project's kanban view."
-msgstr ""
+msgstr "يعطي تسمية للطلبات في طريقة عرض كانبان للمشروع."
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_ids
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "طلب"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_milestone__helpdesk_ticket_count
@@ -35,7 +37,7 @@ msgstr ""
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "فريق طلبات خدمة العملاء"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.actions.act_window,name:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
@@ -56,20 +58,20 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__todo_ticket_count
 msgid "Number of tickets"
-msgstr ""
+msgstr "عدد الطلبات"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_project_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_search
 msgid "Open Tickets"
-msgstr ""
+msgstr "الطلبات المفتوحة"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__project_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket_team__default_project_id
 msgid "Project"
-msgstr ""
+msgstr "قضية أو مسألة"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_milestone
@@ -80,13 +82,13 @@ msgstr ""
 #: model:ir.model,name:helpdesk_mgmt_project.model_project_task
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__task_id
 msgid "Task"
-msgstr ""
+msgstr "المهمة"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__ticket_count
 msgid "Ticket Count"
-msgstr ""
+msgstr "عدد الطلبات"
 
 #. module: helpdesk_mgmt_project
 #. odoo-python
@@ -99,13 +101,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_form_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.view_task_form2
 msgid "Tickets"
-msgstr ""
+msgstr "طلبات"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__label_tickets
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__label_tickets
 msgid "Use Tickets as"
-msgstr ""
+msgstr "استخدم الطلبات ك"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_tree_view
