@@ -87,18 +87,6 @@ msgid "Closing email template"
 msgstr ""
 
 #. module: helpdesk_ticket_close_inactive
-#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
-msgid "Day limit for automatic ticket closing due to inactivity."
-msgstr ""
-
-#. module: helpdesk_ticket_close_inactive
-#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
-msgid ""
-"Day limit for email notification of upcoming         ticket closure due to "
-"inactivity."
-msgstr ""
-
-#. module: helpdesk_ticket_close_inactive
 #: model:mail.template,name:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
 msgid "Helpdesk Inactivity Warning Ticket Notification Email"
 msgstr ""
@@ -129,14 +117,36 @@ msgid "Inactivity warning email template"
 msgstr ""
 
 #. module: helpdesk_ticket_close_inactive
+#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
+msgid ""
+"Number of days of inactivity after which the ticket is automatically closed."
+" Must be greater than 0."
+msgstr ""
+
+#. module: helpdesk_ticket_close_inactive
+#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
+msgid ""
+"Number of days of inactivity before a warning email is sent. Set to 0 to "
+"disable the warning phase entirely."
+msgstr ""
+
+#. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
 msgid "Set this stage for autoclosing tickets"
 msgstr ""
 
 #. module: helpdesk_ticket_close_inactive
-#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
-msgid "Template to be sent on inactive ticket closing notification"
+msgid ""
+"Template to be sent as an inactivity warning. Required when the warning day "
+"limit is greater than 0."
+msgstr ""
+
+#. module: helpdesk_ticket_close_inactive
+#: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
+msgid ""
+"Template to be sent when a ticket is automatically closed. Leave empty to "
+"close the ticket silently without sending a notification email."
 msgstr ""
 
 #. module: helpdesk_ticket_close_inactive
@@ -149,8 +159,8 @@ msgstr ""
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_category_ids
 msgid ""
-"The cronjob will check for inactivity in tickets         that belongs to "
-"this categories."
+"The cronjob will check for inactivity in tickets that belong to these "
+"categories. Leave empty to apply to all categories."
 msgstr ""
 
 #. module: helpdesk_ticket_close_inactive
