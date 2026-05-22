@@ -130,3 +130,43 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             self.category_1.id,
             msg=f"The category ID #{self.category_1.id} was not correctly set",
         )
+
+    def test_copy_resets_description(self):
+        """
+        Duplicating a ticket must not carry over its description — that's a
+        deliberate override on `copy()`, since the description on the source
+        often contains case-specific notes that shouldn't bleed into a new
+        ticket. Verifies both branches of the override:
+
+          - default is None / no description in default  → forces <p></p>
+          - caller-supplied description in default       → respected as-is
+        """
+        source = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket with case-specific notes",
+                "team_id": self.team_c.id,
+                "description": "<p>Customer-specific notes</p>",
+            }
+        )
+        self.assertEqual(source.description, "<p>Customer-specific notes</p>")
+
+        # 1. Default copy — description must NOT carry over.
+        duplicate = source.copy()
+        self.assertNotEqual(
+            duplicate.description,
+            source.description,
+            msg="copy() must not carry over the source's description",
+        )
+        self.assertEqual(
+            duplicate.description,
+            "<p></p>",
+            msg="copy() should reset description to the empty <p></p> default",
+        )
+
+        # 2. Caller-supplied description in default — override must respect it.
+        duplicate2 = source.copy(default={"description": "<p>Reopened</p>"})
+        self.assertEqual(
+            duplicate2.description,
+            "<p>Reopened</p>",
+            msg="copy() must honour an explicit description in default={}",
+        )
