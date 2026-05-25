@@ -5,14 +5,13 @@
         <field name="model">stock.move</field>
         <field name="inherit_id" ref="stock.view_picking_move_tree" />
         <field name="arch" type="xml">
-            <xpath expr="/tree/field[@name='product_uom']" position="after">
-                <field name="helpdesk_tickets_count" invisible="1" />
+            <xpath expr="/list/field[@name='product_uom']" position="after">
                 <button
                     name="create_or_show_helpdesk_ticket"
                     type="object"
                     icon="fa-life-ring"
                     string="Helpdesk"
-                    attrs="{'invisible': [('helpdesk_tickets_count', '>', 0)]}"
+                    invisible="helpdesk_tickets_count"
                 />
                 <button
                     name="create_or_show_helpdesk_ticket"
@@ -20,7 +19,7 @@
                     icon="fa-life-ring"
                     string="Helpdesk"
                     class="btn btn-danger"
-                    attrs="{'invisible': [('helpdesk_tickets_count', '&lt;=', 0)]}"
+                    invisible="not helpdesk_tickets_count"
                 />
             </xpath>
         </field>

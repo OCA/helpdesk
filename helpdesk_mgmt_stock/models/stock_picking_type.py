@@ -8,8 +8,8 @@ class StockPickingType(models.Model):
     _inherit = "stock.picking.type"
 
     allow_helpdesk_ticket = fields.Boolean(
-        help="Check this if you want to authorize helpdesk ticket creation"
-        "for this picking type operations."
+        help="Check this if you want to authorize helpdesk ticket creation "
+        "for this picking type operations.",
     )
     default_helpdesk_team_id = fields.Many2one(
         comodel_name="helpdesk.ticket.team",

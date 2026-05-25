@@ -20,13 +20,15 @@ class HelpdeskStockTest(BaseCommon):
         cls.product = cls.Product.create(
             {
                 "name": "Product Test",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
             }
         )
         cls.product_2 = cls.Product.create(
             {
                 "name": "Product Test 2",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
             }
         )
         cls.type_rec = cls.PickingType.create(

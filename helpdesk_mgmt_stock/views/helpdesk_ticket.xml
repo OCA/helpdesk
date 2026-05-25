@@ -9,10 +9,9 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='partner_id']/parent::group" position="after">
                 <group string="Stock" name="stock">
-                    <field name="stock_move_id_domain" invisible="1" />
                     <field name="stock_picking_id" />
                     <field name="stock_move_id" domain="stock_move_id_domain" />
-                    <field name="lot_id" />
+                    <field name="lot_id" readonly="0" />
                 </group>
             </xpath>
         </field>

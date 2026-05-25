@@ -7,8 +7,6 @@
         <field name="arch" type="xml">
             <form string="Stock Helpdesk Ticket Create">
                 <group>
-                    <field name="stock_move_id_domain" invisible="1" />
-                    <field name="motive_id" />
                     <field name="description" />
                     <field name="stock_move_id" domain="stock_move_id_domain" />
                     <field name="stock_picking_id" />

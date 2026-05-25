@@ -13,7 +13,6 @@ class StockHelpdeskTicketCreate(models.TransientModel):
     stock_move_id_domain = fields.Binary(compute="_compute_stock_move_id_domain")
     stock_move_id = fields.Many2one(comodel_name="stock.move")
     stock_picking_id = fields.Many2one(comodel_name="stock.picking")
-    motive_id = fields.Many2one("helpdesk.ticket.motive")
 
     def _prepare_ticket_values(self) -> dict:
         """
@@ -26,8 +25,9 @@ class StockHelpdeskTicketCreate(models.TransientModel):
             "stock_picking_id": self.stock_picking_id.id,
             "stock_move_id": self.stock_move_id.id,
             "product_id": self.stock_move_id.product_id.id,
-            "team_id": self.stock_picking_id.picking_type_id.default_helpdesk_team_id.id,
-            "motive_id": self.motive_id.id,
+            "team_id": (
+                self.stock_picking_id.picking_type_id.default_helpdesk_team_id.id
+            ),
         }
         return values
 

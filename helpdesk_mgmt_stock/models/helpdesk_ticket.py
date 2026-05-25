@@ -23,9 +23,16 @@ class HelpdeskTicket(models.Model):
     )
     lot_id = fields.Many2one(
         comodel_name="stock.lot",
-        related="stock_move_id.move_line_ids.lot_id",
-        readonly=True,
+        compute="_compute_lot_id",
+        store=True,
     )
+
+    @api.depends("stock_move_id.move_line_ids.lot_id")
+    def _compute_lot_id(self):
+        for record in self.filtered("stock_move_id.move_line_ids.lot_id"):
+            lots = record.stock_move_id.move_line_ids.mapped("lot_id")
+            if len(lots) <= 1:
+                record.lot_id = lots.id
 
     @api.depends("stock_picking_id")
     def _compute_stock_move_id_domain(self):

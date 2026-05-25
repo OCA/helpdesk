@@ -17,12 +17,12 @@ class StockMove(models.Model):
     @api.depends("helpdesk_ticket_ids")
     def _compute_helpdesk_tickets_count(self):
         domain = [("stock_move_id", "in", self.ids)]
-        results = self.env["helpdesk.ticket"].read_group(
-            domain, ["stock_move_id"], ["stock_move_id"]
+        results = self.env["helpdesk.ticket"]._read_group(
+            domain, ["stock_move_id"], ["__count"]
         )
-        counts = {r["stock_move_id"][0]: r["stock_move_id_count"] for r in results}
+        counts = dict(results)
         for move in self:
-            move.helpdesk_tickets_count = counts.get(move.id, 0)
+            move.helpdesk_tickets_count = counts.get(move, 0)
 
     def action_view_helpdesk_tickets(self):
         self.ensure_one()
@@ -34,6 +34,13 @@ class StockMove(models.Model):
             "default_stock_move_id": self.id,
             "default_stock_picking_id": self.picking_id.id,
         }
+        if self.helpdesk_tickets_count == 1:
+            action.update(
+                {
+                    "res_id": self.helpdesk_ticket_ids.id,
+                    "views": [(False, "form")],
+                }
+            )
         return action
 
     def _action_open_helpdesk_create_ticket_wizard(self):
