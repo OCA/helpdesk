@@ -2,7 +2,6 @@
 <!-- Copyright 2025 ACSONE SA/NV
      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <odoo>
-
     <record model="ir.ui.view" id="stock_helpdesk_ticket_create_form_view">
         <field name="model">stock.helpdesk.ticket.create</field>
         <field name="arch" type="xml">
@@ -34,5 +33,4 @@
         <field name="context">{}</field>
         <field name="target">new</field>
     </record>
-
 </odoo>

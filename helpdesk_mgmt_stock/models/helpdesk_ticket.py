@@ -6,7 +6,6 @@ from odoo.osv.expression import TRUE_DOMAIN
 
 
 class HelpdeskTicket(models.Model):
-
     _inherit = "helpdesk.ticket"
 
     stock_move_id_domain = fields.Binary(compute="_compute_stock_move_id_domain")
