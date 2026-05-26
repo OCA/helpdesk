@@ -11,10 +11,12 @@ class HelpdeskTicket(models.Model):
     def _get_sla_ticket_domain(self):
         domain = super()._get_sla_ticket_domain()
         if self.type_id:
-            domain += Domain.OR((
-                Domain("type_ids", "=", False),
-                Domain("type_ids", "in", self.type_id.ids)
-            ))
+            domain += Domain.OR(
+                (
+                    Domain("type_ids", "=", False),
+                    Domain("type_ids", "in", self.type_id.ids),
+                )
+            )
         else:
             domain += Domain("type_ids", "=", False)
         return domain
