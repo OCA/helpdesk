@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import models
+from odoo.fields import Domain
 
 
 class HelpdeskTicket(models.Model):
@@ -10,11 +11,10 @@ class HelpdeskTicket(models.Model):
     def _get_sla_ticket_domain(self):
         domain = super()._get_sla_ticket_domain()
         if self.type_id:
-            domain += [
-                "|",
-                ("type_ids", "=", False),
-                ("type_ids", "in", self.type_id.ids),
-            ]
+            domain += Domain.OR((
+                Domain("type_ids", "=", False),
+                Domain("type_ids", "in", self.type_id.ids)
+            ))
         else:
-            domain += [("type_ids", "=", False)]
+            domain += Domain("type_ids", "=", False)
         return domain
