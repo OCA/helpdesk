@@ -5,7 +5,8 @@ from datetime import timedelta
 from freezegun import freeze_time
 
 from odoo import Command, fields
-from odoo.exceptions import AccessError, UserError
+from odoo.exceptions import AccessError
+from odoo.fields import Domain
 
 from odoo.addons.helpdesk_mgmt_sla.tests.common import CommonHelpdeskMgmtSla
 
@@ -350,5 +351,6 @@ class TestHelpdeskMgmtSla(CommonHelpdeskMgmtSla):
         self.assertTrue(self.ticket1.ticket_sla_ids.filtered(lambda r: r.sla_id == sla))
 
     def test_failed_query(self):
-        with self.assertRaises(UserError):
-            self.env["helpdesk.ticket.sla"].search([("expired", ">", True)])
+        self.assertTrue(
+            self.env["helpdesk.ticket.sla"].search(Domain("expired", "!=", True))
+        )

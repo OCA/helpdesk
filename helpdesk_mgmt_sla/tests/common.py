@@ -81,7 +81,7 @@ class CommonHelpdeskMgmtSla(test_helpdesk_ticket.TestHelpdeskTicket):
             {
                 "name": "SLA User",
                 "login": "sla_user",
-                "groups_id": [
+                "group_ids": [
                     Command.link(cls.env.ref("base.group_user").id),
                     Command.link(
                         cls.env.ref("helpdesk_mgmt.group_helpdesk_user_own").id

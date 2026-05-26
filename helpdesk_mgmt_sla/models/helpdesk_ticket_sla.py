@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError
+from odoo.fields import Domain
 
 
 class HelpdeskTicketSla(models.Model):
@@ -45,20 +46,28 @@ class HelpdeskTicketSla(models.Model):
         if operator not in ["=", "!="]:
             raise UserError(self.env._("Operator is not valid"))
         if (operator == "=" and value) or (operator == "!=" and not value):
-            return [
-                "|",
-                ("state", "=", "expired"),
-                "&",
-                ("state", "=", "in_progress"),
-                ("deadline", "<", fields.Datetime.now()),
-            ]
-        return [
-            "|",
-            ("state", "not in", ["expired", "in_progress"]),
-            "&",
-            ("state", "=", "in_progress"),
-            ("deadline", ">=", fields.Datetime.now()),
-        ]
+            return Domain.OR(
+                (
+                    Domain("state", "=", "expired"),
+                    Domain(
+                        (
+                            ("state", "=", "in_progress"),
+                            ("deadline", "<", fields.Datetime.now()),
+                        )
+                    ),
+                )
+            )
+        return Domain.OR(
+            (
+                Domain("state", "not in", ["expired", "in_progress"]),
+                Domain(
+                    (
+                        ("state", "=", "in_progress"),
+                        ("deadline", ">=", fields.Datetime.now()),
+                    )
+                ),
+            )
+        )
 
     @api.depends("state", "deadline")
     def _compute_color(self):

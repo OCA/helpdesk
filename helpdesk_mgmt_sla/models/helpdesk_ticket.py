@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.fields import Domain
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -54,23 +55,27 @@ class HelpdeskTicket(models.Model):
             ticket.sla_ids = ticket.ticket_sla_ids.sla_id
 
     def _get_sla_ticket_domain(self):
-        domain = ["|", ("team_ids", "=", False), ("team_ids", "=", self.team_id.id)]
+        domain = Domain.OR(
+            (Domain("team_ids", "=", False), Domain("team_ids", "=", self.team_id.id))
+        )
         if self.tag_ids:
-            domain += [
-                "|",
-                ("tag_ids", "=", False),
-                ("tag_ids", "in", self.tag_ids.ids),
-            ]
+            domain += Domain.OR(
+                (
+                    Domain("tag_ids", "=", False),
+                    Domain("tag_ids", "in", self.tag_ids.ids),
+                )
+            )
         else:
-            domain += [("tag_ids", "=", False)]
+            domain += Domain("tag_ids", "=", False)
         if self.category_id:
-            domain += [
-                "|",
-                ("category_ids", "=", False),
-                ("category_ids", "=", self.category_id.id),
-            ]
+            domain += Domain.OR(
+                (
+                    Domain("category_ids", "=", False),
+                    Domain("category_ids", "=", self.category_id.id),
+                )
+            )
         else:
-            domain += [("category_ids", "=", False)]
+            domain += Domain("category_ids", "=", False)
         return domain
 
     def _get_sla(self):
@@ -112,4 +117,4 @@ class HelpdeskTicket(models.Model):
             )
 
     def _search_sla_expired(self, operator, value):
-        return [("ticket_sla_ids.expired", operator, value)]
+        return Domain("ticket_sla_ids.expired", operator, value)
