@@ -1,0 +1,11 @@
+<odoo>
+    <template
+        id="portal_create_ticket_image_description"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+    >
+        <xpath expr="//textarea[@name='description']" position="attributes">
+            <!-- Original class: form-control -->
+            <attribute name="class">form-control o_wysiwyg_loader</attribute>
+        </xpath>
+    </template>
+</odoo>
