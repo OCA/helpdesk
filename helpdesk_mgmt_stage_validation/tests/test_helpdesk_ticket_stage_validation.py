@@ -61,6 +61,6 @@ class TestHelpdeskStageValidation(TransactionCase):
         )
         with self.assertRaisesRegex(ValidationError, validate_message):
             self.ticket.write({"stage_id": self.stage_ticket_assigned.id})
-        self.ticket.write({"assigned_date": fields.datetime.now()})
+        self.ticket.write({"assigned_date": fields.Datetime.now()})
         self.ticket.write({"stage_id": self.stage_ticket_assigned.id})
         self.assertEqual(self.ticket.stage_id, self.stage_ticket_assigned)
