@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.fields import Command
 
 
 class HelpDeskTicket(models.Model):
@@ -44,6 +45,6 @@ class HelpDeskTicket(models.Model):
         action = super().action_create_order()
         if self.equipment_id:
             action["context"].update(
-                {"default_equipment_ids": [(6, 0, [self.equipment_id.id])]}
+                {"default_equipment_ids": [Command.set(self.equipment_id.ids)]}
             )
         return action

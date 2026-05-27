@@ -9,7 +9,17 @@ class TestFSMEquipment(TransactionCase):
     def setUpClass(cls):
         super().setUpClass()
         # Create test data
-        cls.location = cls.env.ref("fieldservice.location_1")
+        cls.location_partner_id = (
+            cls.env["res.partner"].create({"name": "Loc Partner 1"}).id
+        )
+
+        cls.location = cls.env["fsm.location"].create(
+            {
+                "name": "Location 1",
+                "partner_id": cls.location_partner_id,
+                "owner_id": cls.location_partner_id,
+            }
+        )
         cls.equipment = cls.env["fsm.equipment"].create(
             {
                 "name": "Test Equipment",
