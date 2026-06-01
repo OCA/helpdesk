@@ -4,7 +4,7 @@ from odoo import Command, api, fields, models
 class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
-    sale_order_ids = fields.Many2many("sale.order")
+    sale_order_ids = fields.Many2many("sale.order", string="Sales orders")
     so_count = fields.Integer(string="Sale Order Count", compute="_compute_so_count")
 
     @api.depends("sale_order_ids")
