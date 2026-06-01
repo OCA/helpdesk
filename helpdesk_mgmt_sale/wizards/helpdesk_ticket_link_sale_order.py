@@ -7,7 +7,10 @@ class HelpdeskTicketLinkSaleOrderWizard(models.TransientModel):
 
     ticket_id = fields.Many2one("helpdesk.ticket", required=True, readonly=True)
     ticket_sale_order_ids = fields.Many2many(
-        "sale.order", related="ticket_id.sale_order_ids", readonly=True
+        "sale.order",
+        related="ticket_id.sale_order_ids",
+        readonly=True,
+        string="Ticket sales orders",
     )
     commercial_partner_id = fields.Many2one("res.partner", readonly=True)
     sale_orders_ids = fields.Many2many(
