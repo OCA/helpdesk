@@ -43,6 +43,31 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
             }
         )
 
+        self.team2 = self.env["helpdesk.ticket.team"].create(
+            {
+                "name": "Test Team 2",
+                "close_inactive_tickets": True,
+                "inactive_tickets_day_limit_warning": 7,
+                "inactive_tickets_day_limit_closing": 14,
+            }
+        )
+        self.team2.ticket_stage_ids = [(4, self.stage_warning.id)]
+        self.team2.closing_ticket_stage = self.stage_closing
+        self.remaining_days = (
+            self.team2.inactive_tickets_day_limit_closing
+            - self.team2.inactive_tickets_day_limit_warning
+        )
+        self.ticket2 = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket 2",
+                "team_id": self.team2.id,
+                "stage_id": self.stage_warning.id,
+                "category_id": self.type_warning.id,
+                "description": "Please help me 2",
+                "last_stage_update": datetime.today() - timedelta(days=7),
+            }
+        )
+
     def test_warning_email_sent(self):
         """Test that a warning email is sent after the warning day limit is reached."""
         self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
@@ -142,4 +167,29 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
             self.stage_closing,
             "Ticket without a category should also be closed "
             "when no category filter is set.",
+        )
+
+    def test_multiple_teams_processed_by_cron(self):
+        """Test that the cron processes all active teams in a single execution."""
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self.ticket2.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        result = self.env["helpdesk.ticket.team"].close_team_inactive_tickets()
+
+        # Assert BOTH tickets were successfully updated to the closing stage
+        self.assertEqual(
+            self.ticket.stage_id,
+            self.stage_closing,
+            "First team ticket should be closed by multi-team cron process.",
+        )
+        self.assertEqual(
+            self.ticket2.stage_id,
+            self.stage_closing,
+            "Second team ticket should be closed by multi-team cron process.",
+        )
+
+        # Assert exactly 2 closing emails were tracked (one per closed ticket)
+        self.assertEqual(
+            len(result.get("closing_email_ids", [])),
+            2,
+            "The cron should have tracked exactly 2 closing email IDs.",
         )
