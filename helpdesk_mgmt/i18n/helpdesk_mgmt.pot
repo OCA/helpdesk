@@ -1786,3 +1786,43 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/a' "
 "}})"
 msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__assign_method
+msgid "Assignment Method"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_team__assign_method__manual
+msgid "Manually"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_team__assign_method__randomly
+msgid "Random (round-robin)"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_team__assign_method__balanced
+msgid "Balanced (least busy)"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket_team__assign_method__tags
+msgid "By Tags"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__assignment_tag_ids
+msgid "Tag Assignments"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model,name:helpdesk_mgmt.model_helpdesk_ticket_team_assignment_tag
+msgid "Helpdesk Team Tag Assignment"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team_assignment_tag__user_ids
+msgid "Members eligible to be auto-assigned tickets carrying this tag."
+msgstr ""

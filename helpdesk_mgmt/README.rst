@@ -103,6 +103,23 @@ Teams
 
 |image4|
 
+Automatic assignment
+~~~~~~~~~~~~~~~~~~~~
+
+Each team has an *Assignment Method* that decides how new unassigned
+tickets get an assigned user:
+
+- *Manually*: no automatic assignment (default).
+- *Random (round-robin)*: rotate cyclically over the team members.
+- *Balanced (least busy)*: assign to the member with the fewest open
+  tickets.
+- *By Tags*: assign to a member mapped to the ticket tags, picking the
+  least busy one. Fill in the *Tag Assignments* tab to map each tag to
+  its eligible members.
+
+Tickets created directly in a folded or closed stage are never
+auto-assigned.
+
 Tags
 ----
 

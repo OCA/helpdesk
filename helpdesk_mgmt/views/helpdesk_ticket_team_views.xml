@@ -111,9 +111,27 @@
                             <field name="show_in_portal" />
                             <field name="category_ids" widget="many2many_tags" />
                         </group>
-                        <group name="right" />
+                        <group name="right">
+                            <field name="assign_method" />
+                        </group>
                     </group>
                     <notebook>
+                        <page
+                            name="tag_assignments"
+                            string="Tag Assignments"
+                            invisible="assign_method != 'tags'"
+                        >
+                            <field name="assignment_tag_ids">
+                                <list editable="bottom">
+                                    <field name="tag_id" />
+                                    <field
+                                        name="user_ids"
+                                        widget="many2many_tags"
+                                        domain="[('share', '=', False)]"
+                                    />
+                                </list>
+                            </field>
+                        </page>
                         <page name="members" string="Team Members">
                             <field
                                 name="user_ids"

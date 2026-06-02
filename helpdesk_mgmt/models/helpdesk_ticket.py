@@ -257,6 +257,11 @@ class HelpdeskTicket(models.Model):
                     # and notifications can be sent by email
                     # if a mail template is configured
                     vals["stage_id"] = team._get_applicable_stages()[:1].id
+                if team.assign_method != "manual" and "user_id" not in vals:
+                    # The team drives the assignment, so prevent the company
+                    # "assign to creator" default from claiming the ticket and
+                    # let _helpdesk_auto_assign pick the member afterwards.
+                    vals["user_id"] = False
             # Automatically set default e-mail channel when created from the
             # fetchmail cron task
             if self.env.context.get("fetchmail_cron_running") and not vals.get(
@@ -268,7 +273,23 @@ class HelpdeskTicket(models.Model):
                 )
                 if channel_email_id:
                     vals["channel_id"] = channel_email_id.id
-        return super().create(vals_list)
+        tickets = super().create(vals_list)
+        tickets._helpdesk_auto_assign()
+        return tickets
+
+    def _helpdesk_auto_assign(self):
+        """Assign a team member to unassigned tickets according to the
+        team's ``assign_method``. Skips already assigned tickets, tickets
+        without a team and tickets created directly in a folded/closed stage.
+        """
+        for ticket in self:
+            if ticket.user_id or not ticket.team_id:
+                continue
+            if ticket.stage_id.fold or ticket.stage_id.closed:
+                continue
+            user = ticket.team_id._get_auto_assign_user(tag_ids=ticket.tag_ids.ids)
+            if user:
+                ticket.user_id = user.id
 
     def copy(self, default=None):
         self.ensure_one()

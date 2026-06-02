@@ -20,3 +20,5 @@ access_helpdesk_ticket_category_user,helpdesk.ticket.category.user,model_helpdes
 access_helpdesk_ticket_category_portal,helpdesk.ticket.category.portal,model_helpdesk_ticket_category,base.group_portal,1,0,0,0
 access_helpdesk_ticket_category_public,helpdesk.ticket.category.public,model_helpdesk_ticket_category,base.group_public,1,0,0,0
 access_helpdesk_ticket_duplicate_wizard,helpdesk.ticket.duplicate.wizard,model_helpdesk_ticket_duplicate_wizard,group_helpdesk_user,1,1,1,1
+access_helpdesk_ticket_team_assignment_tag_manager,helpdesk.ticket.team.assignment.tag.manager,model_helpdesk_ticket_team_assignment_tag,group_helpdesk_manager,1,1,1,1
+access_helpdesk_ticket_team_assignment_tag_user,helpdesk.ticket.team.assignment.tag.user,model_helpdesk_ticket_team_assignment_tag,base.group_user,1,0,0,0

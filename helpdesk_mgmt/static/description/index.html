@@ -383,18 +383,21 @@ ul.auto-toc {
 <li><a class="reference internal" href="#channels" id="toc-entry-2">Channels</a></li>
 <li><a class="reference internal" href="#categories" id="toc-entry-3">Categories</a></li>
 <li><a class="reference internal" href="#stages" id="toc-entry-4">Stages</a></li>
-<li><a class="reference internal" href="#teams" id="toc-entry-5">Teams</a></li>
-<li><a class="reference internal" href="#tags" id="toc-entry-6">Tags</a></li>
-<li><a class="reference internal" href="#permissions" id="toc-entry-7">Permissions</a></li>
+<li><a class="reference internal" href="#teams" id="toc-entry-5">Teams</a><ul>
+<li><a class="reference internal" href="#automatic-assignment" id="toc-entry-6">Automatic assignment</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#usage" id="toc-entry-8">Usage</a></li>
-<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-9">Known issues / Roadmap</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-10">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-11">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-12">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="toc-entry-13">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-14">Maintainers</a></li>
+<li><a class="reference internal" href="#tags" id="toc-entry-7">Tags</a></li>
+<li><a class="reference internal" href="#permissions" id="toc-entry-8">Permissions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage" id="toc-entry-9">Usage</a></li>
+<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-10">Known issues / Roadmap</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-11">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-12">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-13">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-14">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-15">Maintainers</a></li>
 </ul>
 </li>
 </ul>
@@ -460,9 +463,25 @@ in the list view.</p>
 <li>You can also Activate or Deactivate teams.</li>
 </ol>
 <p><img alt="image4" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_mgmt/static/description/Teams.PNG" /></p>
+<div class="section" id="automatic-assignment">
+<h4><a class="toc-backref" href="#toc-entry-6">Automatic assignment</a></h4>
+<p>Each team has an <em>Assignment Method</em> that decides how new unassigned
+tickets get an assigned user:</p>
+<ul class="simple">
+<li><em>Manually</em>: no automatic assignment (default).</li>
+<li><em>Random (round-robin)</em>: rotate cyclically over the team members.</li>
+<li><em>Balanced (least busy)</em>: assign to the member with the fewest open
+tickets.</li>
+<li><em>By Tags</em>: assign to a member mapped to the ticket tags, picking the
+least busy one. Fill in the <em>Tag Assignments</em> tab to map each tag to
+its eligible members.</li>
+</ul>
+<p>Tickets created directly in a folded or closed stage are never
+auto-assigned.</p>
+</div>
 </div>
 <div class="section" id="tags">
-<h3><a class="toc-backref" href="#toc-entry-6">Tags</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-7">Tags</a></h3>
 <ol class="arabic simple">
 <li>Go to <em>Helpdesk &gt; Configuration &gt; Ticket Tags</em> to edit or create new
 tags.</li>
@@ -474,7 +493,7 @@ tags.</li>
 <p><img alt="image5" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_mgmt/static/description/Tags.PNG" /></p>
 </div>
 <div class="section" id="permissions">
-<h3><a class="toc-backref" href="#toc-entry-7">Permissions</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-8">Permissions</a></h3>
 <p>There are restrictions to read tickets according to the user’s
 permissions set in Helpdesk.</p>
 <ol class="arabic simple">
@@ -489,7 +508,7 @@ not assigned to any team nor user.</li>
 </div>
 </div>
 <div class="section" id="usage">
-<h2><a class="toc-backref" href="#toc-entry-8">Usage</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-9">Usage</a></h2>
 <ol class="arabic simple">
 <li>Go to <em>Helpdesk</em> or <em>Helpdesk &gt; Dashboard</em> to see the tickets
 dashboard</li>
@@ -513,7 +532,7 @@ column of a stage.</li>
 <p><img alt="Tickets01" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_mgmt/static/description/Tickets01.PNG" /> <img alt="Tickets02" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_mgmt/static/description/Tickets02.PNG" /></p>
 </div>
 <div class="section" id="known-issues-roadmap">
-<h2><a class="toc-backref" href="#toc-entry-9">Known issues / Roadmap</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-10">Known issues / Roadmap</a></h2>
 <ul class="simple">
 <li>Add a tour feature similar to what the <tt class="docutils literal">project</tt> module defines to
 discover projects / tasks.</li>
@@ -523,7 +542,7 @@ portal users.</li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">
-<h2><a class="toc-backref" href="#toc-entry-10">Bug Tracker</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-11">Bug Tracker</a></h2>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/helpdesk/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -531,9 +550,9 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h2><a class="toc-backref" href="#toc-entry-11">Credits</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-12">Credits</a></h2>
 <div class="section" id="authors">
-<h3><a class="toc-backref" href="#toc-entry-12">Authors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-13">Authors</a></h3>
 <ul class="simple">
 <li>AdaptiveCity</li>
 <li>Tecnativa</li>
@@ -545,7 +564,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 </ul>
 </div>
 <div class="section" id="contributors">
-<h3><a class="toc-backref" href="#toc-entry-13">Contributors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-14">Contributors</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.domatix.com">Domatix</a>:<ul>
 <li>Carlos Martínez</li>
@@ -605,7 +624,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h3><a class="toc-backref" href="#toc-entry-14">Maintainers</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-15">Maintainers</a></h3>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />

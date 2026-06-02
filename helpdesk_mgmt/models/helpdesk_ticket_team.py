@@ -71,6 +71,31 @@ class HelpdeskTeam(models.Model):
     parent_id = fields.Many2one(
         "helpdesk.ticket.team", string="Parent Team", index=True
     )
+    assign_method = fields.Selection(
+        selection=[
+            ("manual", "Manually"),
+            ("randomly", "Random (round-robin)"),
+            ("balanced", "Balanced (least busy)"),
+            ("tags", "By Tags"),
+        ],
+        string="Assignment Method",
+        default="manual",
+        required=True,
+        tracking=True,
+        help="How new unassigned tickets of this team get an assigned user:\n"
+        "- Manually: no automatic assignment.\n"
+        "- Random: rotate cyclically over the team members.\n"
+        "- Balanced: assign to the member with the fewest open tickets.\n"
+        "- By Tags: assign to a member mapped to the ticket tags, "
+        "picking the least busy one.",
+    )
+    assignment_tag_ids = fields.One2many(
+        comodel_name="helpdesk.ticket.team.assignment.tag",
+        inverse_name="team_id",
+        string="Tag Assignments",
+        help="Mapping between ticket tags and the members eligible to be "
+        "auto-assigned when the 'By Tags' method is used.",
+    )
     complete_name = fields.Char(
         compute="_compute_complete_name",
         recursive=True,
@@ -140,6 +165,75 @@ class HelpdeskTeam(models.Model):
             team.todo_ticket_count_high_priority = sum(
                 r[4] for r in result if r[0] == team.id and r[3] == "3"
             )
+
+    # ---------------------------------------------------
+    # Auto-assignment
+    # ---------------------------------------------------
+
+    def _get_auto_assign_user(self, tag_ids=None):
+        """Return the member that should take a new ticket of this team.
+
+        The selection depends on ``assign_method``. Returns an empty
+        ``res.users`` recordset when no member can be picked (manual method,
+        team without members, or no tag mapping match).
+        """
+        self.ensure_one()
+        members = self.user_ids
+        if not members or self.assign_method == "manual":
+            return self.env["res.users"]
+        if self.assign_method == "randomly":
+            return self._auto_assign_randomly(members)
+        if self.assign_method == "balanced":
+            return self._auto_assign_balanced(members)
+        if self.assign_method == "tags":
+            return self._auto_assign_by_tags(members, tag_ids or [])
+        return self.env["res.users"]
+
+    def _auto_assign_randomly(self, members):
+        """Round-robin: pick the member right after the last assigned one."""
+        members = members.sorted("id")
+        last_ticket = self.env["helpdesk.ticket"].search(
+            [
+                ("team_id", "=", self.id),
+                ("user_id", "in", members.ids),
+            ],
+            order="assigned_date desc, id desc",
+            limit=1,
+        )
+        if not last_ticket:
+            return members[0]
+        member_ids = members.ids
+        next_index = (member_ids.index(last_ticket.user_id.id) + 1) % len(member_ids)
+        return members[next_index]
+
+    def _auto_assign_balanced(self, members):
+        """Balanced: pick the member with the fewest open tickets."""
+        counts = dict.fromkeys(members.ids, 0)
+        grouped_rows = self.env["helpdesk.ticket"]._read_group(
+            domain=[
+                ("team_id", "=", self.id),
+                ("user_id", "in", members.ids),
+                ("closed", "=", False),
+            ],
+            groupby=["user_id"],
+            aggregates=["__count"],
+        )
+        for user, count in grouped_rows:
+            counts[user.id] = count
+        # Tie-break by member id to keep the choice deterministic.
+        best_id = min(members.ids, key=lambda uid: (counts[uid], uid))
+        return members.browse(best_id)
+
+    def _auto_assign_by_tags(self, members, tag_ids):
+        """By tags: restrict to members mapped to the ticket tags, then
+        fall back to the balanced strategy among that pool."""
+        if not tag_ids:
+            return self.env["res.users"]
+        mappings = self.assignment_tag_ids.filtered(lambda m: m.tag_id.id in tag_ids)
+        candidates = mappings.user_ids & members
+        if not candidates:
+            return self.env["res.users"]
+        return self._auto_assign_balanced(candidates)
 
     def _alias_get_creation_values(self):
         values = super()._alias_get_creation_values()
