@@ -79,12 +79,6 @@ msgid "Link Sale Orders to Helpdesk Ticket"
 msgstr "Lier des ventes au ticket d'assistance"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
-msgid "Sale Order"
-msgstr "Bons de Commande"
-
-#. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
 msgid "Sale Order Count"
 msgstr "Nombre de commandes"
@@ -101,10 +95,20 @@ msgid "Sales Order"
 msgstr "Bons de commande"
 
 #. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
+msgid "Sales orders"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
 msgid "Ticket"
 msgstr "Ticket"
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
+msgid "Ticket sales orders"
+msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
@@ -116,3 +120,6 @@ msgstr "Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_count
 msgid "Tickets Count"
 msgstr "Nombre de tickets"
+
+#~ msgid "Sale Order"
+#~ msgstr "Bons de Commande"
