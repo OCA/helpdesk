@@ -587,11 +587,6 @@ msgid "Configuration"
 msgstr "Konfiguration"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_3
-msgid "Consultants"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
 msgid "Contact"
@@ -645,18 +640,6 @@ msgid "Custom Bounced Message"
 msgstr "Benutzerdefinierte Bounce Nachricht"
 
 #. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
-msgid "Customer"
-msgstr "Kunde"
-
-#. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
-msgid "Customer Email"
-msgstr "Kunden-Email"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Customer Portal URL"
 msgstr "URL des Kundenportals"
@@ -665,6 +648,16 @@ msgstr "URL des Kundenportals"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
+msgid "Day count since this resource was last updated"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
+msgid "Days Rotting"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -699,6 +692,11 @@ msgstr "Beschreibung"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_ir_http__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__display_name
 msgid "Display Name"
 msgstr "Anzeigename"
 
@@ -833,11 +831,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Font awesome Symbol z.B. fa-tasks"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_3
-msgid "Functional"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Future Activities"
 msgstr "Zukünftige Aktivitäten"
@@ -848,23 +841,8 @@ msgid "Gives the sequence order when displaying a list of tickets."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-msgid "Group By"
-msgstr "Gruppieren nach"
-
-#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_1
-msgid "Hard"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_4
-msgid "Hardware"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -874,11 +852,15 @@ msgid "Has Message"
 msgstr "Hat Nachricht"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_2
 #: model:ir.module.category,name:helpdesk_mgmt.module_helpdesk_category
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_main_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Helpdesk"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:res.groups.privilege,name:helpdesk_mgmt.group_helpdesk_privilege
+msgid "Helpdesk Access Levels"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -986,6 +968,11 @@ msgstr "Hohe Priorität"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_ir_http__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__id
 msgid "ID"
 msgstr ""
 
@@ -1064,11 +1051,6 @@ msgid "Kanban State"
 msgstr "Kanbanstufe"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_5
-msgid "Laptops"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
@@ -1111,11 +1093,6 @@ msgstr "Späte Aktivitäten"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_incoming_local
 msgid "Local-part based incoming detection"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_1
-msgid "Localization team"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1209,11 +1186,6 @@ msgid "Newest"
 msgstr "Neueste"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Frist für die nächste Aktivität"
@@ -1293,11 +1265,6 @@ msgstr "Anzahl der nicht zugewiesenen Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
 msgstr "Anzahl unbeaufsichtigter Tickets"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
-msgid "Odoo"
-msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1433,12 +1400,6 @@ msgid "Priority tickets"
 msgstr "Prioritäten-Tickets"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
-msgid "Ratings"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
 msgid "Ready for next stage"
 msgstr "Bereit für die nächste Stufe"
@@ -1454,8 +1415,6 @@ msgid "Rejected"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_ids
 msgid "Related tickets"
@@ -1490,6 +1449,11 @@ msgid "Responsible User"
 msgstr "Verantwortlicher Benutzer"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__is_rotting
+msgid "Rotting"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 msgid "Search in All"
@@ -1511,6 +1475,12 @@ msgstr "Suche im Titel"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr "Sicherheitstoken"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_category
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_select_category
+msgid "Select category in Helpdesk portal"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_team
@@ -1559,11 +1529,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Show in portal form"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
-msgid "Software"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1660,11 +1625,6 @@ msgstr "Teammitglieder"
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_team_menu
 msgid "Teams"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_2
-msgid "Technical"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1766,16 +1726,12 @@ msgid "Ticket Tags"
 msgstr "Ticket Stichwörter"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_active_count
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
 msgstr "Anzahl aktiver Tickets"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_count
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
@@ -1793,8 +1749,6 @@ msgstr "Ticketnummer"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_count_string
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_count_string
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count_string
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count_string
@@ -1910,9 +1864,14 @@ msgid "Whether to display additional fields in the portal form"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
-msgid "Wifi"
-msgstr "W-LAN"
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
+msgid ""
+"You cannot assign this ticket to yourself because you are not a member of "
+"the assigned team."
+msgstr ""
+"Sie können sich dieses Ticket nicht selbst zuweisen, da Sie kein Mitglied "
+"des zugewiesenen Teams sind."
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -1942,6 +1901,18 @@ msgid ""
 "a' }})"
 msgstr ""
 "{{object.company_id.name}} Ticketzuweisung (Ref {{object.number or 'n/a' }})"
+
+#~ msgid "Customer"
+#~ msgstr "Kunde"
+
+#~ msgid "Customer Email"
+#~ msgstr "Kunden-Email"
+
+#~ msgid "Group By"
+#~ msgstr "Gruppieren nach"
+
+#~ msgid "Wifi"
+#~ msgstr "W-LAN"
 
 #~ msgid "Configure domain name"
 #~ msgstr "Domänennamen konfigurieren"
@@ -2367,8 +2338,3 @@ msgstr ""
 #~ "                <p>Das Ticket ${object.number} wurde Ihnen zugewiesen.</"
 #~ "p>\n"
 #~ "            </data>"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
-msgid "You cannot assign this ticket to yourself because you are not a member of the assigned team."
-msgstr "Sie können sich dieses Ticket nicht selbst zuweisen, da Sie kein Mitglied des zugewiesenen Teams sind."

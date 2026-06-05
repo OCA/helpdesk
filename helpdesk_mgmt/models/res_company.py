@@ -14,6 +14,9 @@ class Company(models.Model):
         string="Required Team field in Helpdesk portal",
         default=True,
     )
+    helpdesk_mgmt_portal_select_category = fields.Boolean(
+        string="Select category in Helpdesk portal"
+    )
     helpdesk_mgmt_portal_category_id_required = fields.Boolean(
         string="Required Category field in Helpdesk portal",
         default=True,

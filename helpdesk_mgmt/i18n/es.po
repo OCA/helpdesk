@@ -355,6 +355,8 @@ msgid "Aliased Model"
 msgstr "Modelo con Alias"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "All"
 msgstr "Todos"
@@ -460,6 +462,8 @@ msgid "Categories"
 msgstr "Categorías"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__category_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__category_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -581,11 +585,6 @@ msgstr "Ajustes de configuración"
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_config_main_menu
 msgid "Configuration"
 msgstr "Configuración"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_3
-msgid "Consultants"
-msgstr "Consultores"
 
 #. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
@@ -834,11 +833,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Icono de fuente awesome p.e. fa-tasks"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_3
-msgid "Functional"
-msgstr "Funcional"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Future Activities"
 msgstr "Actividades futuras"
@@ -854,23 +848,12 @@ msgid "HTTP Routing"
 msgstr "Enrutamiento HTTP"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_1
-msgid "Hard"
-msgstr "Alto"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_4
-msgid "Hardware"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__has_message
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__has_message
 msgid "Has Message"
 msgstr "Tiene mensaje"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_2
 #: model:ir.module.category,name:helpdesk_mgmt.module_helpdesk_category
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_main_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
@@ -1026,9 +1009,7 @@ msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
-#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr "Si está seleccionado, algunos mensajes tuvieron error de entrega."
 
@@ -1072,11 +1053,8 @@ msgid "Kanban State"
 msgstr "Estado Kanban"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_5
-msgid "Laptops"
-msgstr ""
-
-#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Last Stage Update"
@@ -1118,11 +1096,6 @@ msgstr "Actividades tardías"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_incoming_local
 msgid "Local-part based incoming detection"
 msgstr "Detección de mensajes entrantes basada en la parte local del correo"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_1
-msgid "Localization team"
-msgstr "Equipo de localización"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
@@ -1209,6 +1182,12 @@ msgid "New ticket form (portal)"
 msgstr "Formulario de nuevo ticket (portal)"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+msgid "Newest"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Fecha límite próxima actividad"
@@ -1224,9 +1203,21 @@ msgid "Next Activity Type"
 msgstr "Tipo próxima actividad"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
+msgid "No Subject"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 msgid "No tickets found."
 msgstr "No se encuentran tickets."
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+msgid "None"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -1278,14 +1269,21 @@ msgid "Number of tickets unattended"
 msgstr "Número de tickets sin atender"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
-msgid "Odoo"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Open"
 msgstr "Abierto"
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
+msgid "Open Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
+msgid "Open Tickets without team"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_force_thread_id
@@ -1458,15 +1456,33 @@ msgid "Rotting"
 msgstr "Sin atención"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
-msgid "SMS Delivery error"
-msgstr "Error de entrega de SMS"
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+msgid "Search in All"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+msgid "Search in Number"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
+msgid "Search in Title"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr "Token de Seguridad"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_category
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_select_category
+msgid "Select category in Helpdesk portal"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_team
@@ -1518,11 +1534,6 @@ msgid "Show in portal form"
 msgstr "Mostrar en el formulario de portal"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
-msgid "Software"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
 msgid "Specific team that uses this stage. If it is empty all teams could uses"
 msgstr ""
@@ -1530,6 +1541,8 @@ msgstr ""
 "equipos pueden utilizarlo"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__stage_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
@@ -1619,11 +1632,6 @@ msgid "Teams"
 msgstr "Equipos"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_2
-msgid "Technical"
-msgstr "Técnico"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 msgid ""
 "The email address associated with                                this "
@@ -1656,6 +1664,12 @@ msgid ""
 msgstr ""
 "El nombre del alias de correo electrónico, ejemplo: 'trabajos' si desea "
 "recibir correos electrónicos para <trabajos@example.odoo.com>"
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
+msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
@@ -1754,6 +1768,8 @@ msgid "Tickets"
 msgstr "Tíquets"
 
 #. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__name
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "Title"
@@ -1854,8 +1870,18 @@ msgid "Whether to display additional fields in the portal form"
 msgstr "Mostrar campos adicionales en el formulario del portal"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
-msgid "Wifi"
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
+msgid ""
+"You cannot assign this ticket to yourself because you are not a member of "
+"the assigned team."
+msgstr ""
+"No puedes asignarte este ticket porque no eres miembro del equipo asignado."
+
+#. module: helpdesk_mgmt
+#. odoo-python
+#: code:addons/helpdesk_mgmt/wizards/helpdesk_ticket_duplicate_wizard.py:0
+msgid "You need to set a valid duplicate!"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1882,7 +1908,20 @@ msgstr ""
 "{{object.company_id.name}} Asignación de ticket (Ref {{object.number or 'n/"
 "a' }})"
 
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket,arch_db:helpdesk_mgmt.helpdesk_ticket_view_form
-msgid "You cannot assign this ticket to yourself because you are not a member of the assigned team."
-msgstr "No puedes asignarte este ticket porque no eres miembro del equipo asignado."
+#~ msgid "Consultants"
+#~ msgstr "Consultores"
+
+#~ msgid "Functional"
+#~ msgstr "Funcional"
+
+#~ msgid "Hard"
+#~ msgstr "Alto"
+
+#~ msgid "Localization team"
+#~ msgstr "Equipo de localización"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error de entrega de SMS"
+
+#~ msgid "Technical"
+#~ msgstr "Técnico"
