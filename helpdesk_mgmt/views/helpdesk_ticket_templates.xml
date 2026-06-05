@@ -465,7 +465,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group mb-3">
+                <div class="form-group mb-3" t-if="categories">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="category"
