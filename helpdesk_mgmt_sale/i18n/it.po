@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-11-06 09:42+0000\n"
+"PO-Revision-Date: 2026-06-05 07:51+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_sale
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
@@ -97,7 +97,7 @@ msgstr "Ordine di vendita"
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
 msgid "Sales orders"
-msgstr ""
+msgstr "Ordini di vendita"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_id
@@ -108,7 +108,7 @@ msgstr "Ticket"
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
 msgid "Ticket sales orders"
-msgstr ""
+msgstr "Ordini di vendita ticket"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
