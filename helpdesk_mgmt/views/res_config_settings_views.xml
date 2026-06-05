@@ -26,6 +26,15 @@
                                 name="helpdesk_mgmt_portal_new_ticket_fields"
                             >
                                 <div class="mt8">
+                                    <field
+                                        name="helpdesk_mgmt_portal_select_category"
+                                    />
+                                    <label
+                                        for="helpdesk_mgmt_portal_select_category"
+                                        string="Category"
+                                    />
+                                </div>
+                                <div class="mt8">
                                     <field name="helpdesk_mgmt_portal_select_team" />
                                     <label
                                         for="helpdesk_mgmt_portal_select_team"
@@ -44,7 +53,10 @@
                                 class="content-group"
                                 name="helpdesk_mgmt_portal_new_ticket_required_fields"
                             >
-                                <div class="mt8">
+                                <div
+                                    class="mt8"
+                                    invisible="not helpdesk_mgmt_portal_select_category"
+                                >
                                     <field
                                         name="helpdesk_mgmt_portal_category_id_required"
                                     />

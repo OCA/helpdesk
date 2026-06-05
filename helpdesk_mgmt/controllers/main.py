@@ -44,7 +44,11 @@ class HelpdeskTicketController(http.Controller):
         company = request.env.company
         category_model = http.request.env["helpdesk.ticket.category"]
         domain = [("active", "=", True), ("show_in_portal", "=", True)]
-        return category_model.with_company(company.id).search(domain)
+        return (
+            category_model.with_company(company.id).search(domain)
+            if http.request.env.user.company_id.helpdesk_mgmt_portal_select_category
+            else category_model
+        )
 
     @http.route("/new/ticket", type="http", auth="user", website=True)
     def create_new_ticket(self, **kw):
