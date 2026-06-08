@@ -40,8 +40,8 @@ msgid ""
 "            "
 msgstr ""
 "<p>Dobrý deň <t t-out=\"object.user_id.name\"/>,</p>\n"
-"                <p>Tiket <t t-out=\"object.number\"/> vám bol pridelený. </p>"
-"\n"
+"                <p>Tiket <t t-out=\"object.number\"/> vám bol pridelený. </"
+"p>\n"
 "            "
 
 #. module: helpdesk_mgmt
@@ -163,23 +163,22 @@ msgid ""
 "            "
 msgstr ""
 "<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
-"style=\"padding: 20px; background-color: #ededed; border-"
-"collapse:separate;\">\n"
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;"
+"\">\n"
 "                    <tbody>\n"
 "                        <!-- HEADER -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
 "color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                                    <tr>\n"
 "                                        <td valign=\"middle\" "
 "align=\"right\">\n"
-"                                            <img t-att-src=\"'/"
-"logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: "
-"0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % "
-"object.company_id.name\"/>\n"
+"                                            <img t-att-src=\"'/logo.png?"
+"company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
 "                                        </td>\n"
 "                                    </tr>\n"
 "                                </table>\n"
@@ -187,8 +186,8 @@ msgstr ""
 "                        </tr>\n"
 "                        <!-- CONTENT -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-"
 "color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
@@ -206,8 +205,8 @@ msgstr ""
 "                        </tr>\n"
 "                        <!-- FOOTER -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
 "color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
@@ -318,23 +317,22 @@ msgid ""
 "            "
 msgstr ""
 "<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
-"style=\"padding: 20px; background-color: #ededed; border-"
-"collapse:separate;\">\n"
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;"
+"\">\n"
 "                    <tbody>\n"
 "                        <!-- HEADER -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
 "color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
 "                                    <tr>\n"
 "                                        <td valign=\"middle\" "
 "align=\"right\">\n"
-"                                            <img t-att-src=\"'/"
-"logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: "
-"0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % "
-"object.company_id.name\"/>\n"
+"                                            <img t-att-src=\"'/logo.png?"
+"company=%s' % object.company_id.id\" style=\"padding: 0px; margin: 0px; "
+"height: auto; width: 80px;\" t-att-alt=\"'%s' % object.company_id.name\"/>\n"
 "                                        </td>\n"
 "                                    </tr>\n"
 "                                </table>\n"
@@ -342,8 +340,8 @@ msgstr ""
 "                        </tr>\n"
 "                        <!-- CONTENT -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-"
 "color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
@@ -362,8 +360,8 @@ msgstr ""
 "                        </tr>\n"
 "                        <!-- FOOTER -->\n"
 "                        <tr>\n"
-"                            <td align=\"center\" style=\"min-width: 590px;\">"
-"\n"
+"                            <td align=\"center\" style=\"min-width: 590px;"
+"\">\n"
 "                                <table width=\"590\" border=\"0\" "
 "cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
 "color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
@@ -734,11 +732,6 @@ msgid "Configuration"
 msgstr "Konfigurácia"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_3
-msgid "Consultants"
-msgstr "Konzultanti"
-
-#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_partner
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__partner_id
 msgid "Contact"
@@ -792,18 +785,6 @@ msgid "Custom Bounced Message"
 msgstr "Vlastná vrátená správa"
 
 #. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
-msgid "Customer"
-msgstr "Zákazník"
-
-#. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
-msgid "Customer Email"
-msgstr "E-mail zákazníka"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Customer Portal URL"
 msgstr "Adresa URL zákazníckeho portálu"
@@ -813,6 +794,16 @@ msgstr "Adresa URL zákazníckeho portálu"
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
 msgid "Dashboard"
 msgstr "Dashboard"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
+msgid "Day count since this resource was last updated"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
+msgid "Days Rotting"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__normal
@@ -846,6 +837,11 @@ msgstr "Popis"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_ir_http__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__display_name
 msgid "Display Name"
 msgstr "Zobrazovaný názov"
 
@@ -982,11 +978,6 @@ msgid "Font awesome icon e.g. fa-tasks"
 msgstr "Font awesome ikona napr. fa-tasks"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_3
-msgid "Functional"
-msgstr "Funkčné"
-
-#. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Future Activities"
 msgstr "Budúce aktivity"
@@ -997,24 +988,9 @@ msgid "Gives the sequence order when displaying a list of tickets."
 msgstr "Udáva poradie poradia pri zobrazení zoznamu tiketov."
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
-msgid "Group By"
-msgstr "Zoskupiť podľa"
-
-#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_ir_http
 msgid "HTTP Routing"
 msgstr "HTTP smerovanie"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_1
-msgid "Hard"
-msgstr "Náročné"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_4
-msgid "Hardware"
-msgstr "Hardvér"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__has_message
@@ -1023,12 +999,16 @@ msgid "Has Message"
 msgstr "Má Správu"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_2
 #: model:ir.module.category,name:helpdesk_mgmt.module_helpdesk_category
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_main_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Helpdesk"
 msgstr "Helpdesk"
+
+#. module: helpdesk_mgmt
+#: model:res.groups.privilege,name:helpdesk_mgmt.group_helpdesk_privilege
+msgid "Helpdesk Access Levels"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
@@ -1135,6 +1115,11 @@ msgstr "Výsoká Priorita"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_tag__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_ir_http__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__id
 msgid "ID"
 msgstr "ID"
 
@@ -1208,11 +1193,6 @@ msgid "Kanban State"
 msgstr "Fáza kanbanu"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_5
-msgid "Laptops"
-msgstr "Notebooky"
-
-#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__last_stage_update
@@ -1256,11 +1236,6 @@ msgstr "Neskoré aktivity"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__alias_incoming_local
 msgid "Local-part based incoming detection"
 msgstr "Detekcia prichádzajúcich na základe miestnej časti"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.team,name:helpdesk_mgmt.helpdesk_team_1
-msgid "Localization team"
-msgstr "Lokalizačný tím"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__priority__0
@@ -1353,11 +1328,6 @@ msgid "Newest"
 msgstr "Najnovšie"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
-msgid "Next Activity Calendar Event"
-msgstr "Kalendárna udalosť ďalšej aktivity"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Deadline ďalšej aktivity"
@@ -1437,11 +1407,6 @@ msgstr "Počet nepriradených tiketov"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_unattended
 msgid "Number of tickets unattended"
 msgstr "Počet nezačatých tiketov"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_3
-msgid "Odoo"
-msgstr "Odoo"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1576,12 +1541,6 @@ msgid "Priority tickets"
 msgstr "Prioritné tikety"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
-msgid "Ratings"
-msgstr "Hodnotenia"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
 msgid "Ready for next stage"
 msgstr "Pripravené na ďalšiu fázu"
@@ -1597,8 +1556,6 @@ msgid "Rejected"
 msgstr "Odmietnuté"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_ids
 msgid "Related tickets"
@@ -1633,6 +1590,11 @@ msgid "Responsible User"
 msgstr "Zodpovedný používateľ"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__is_rotting
+msgid "Rotting"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 msgid "Search in All"
@@ -1654,6 +1616,12 @@ msgstr "Hľadať v názve"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_token
 msgid "Security Token"
 msgstr "Bezpečnostný token"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_category
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_select_category
+msgid "Select category in Helpdesk portal"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_team
@@ -1701,11 +1669,6 @@ msgstr "Zobraziť všetky záznamy, ktorých dátum ďalšej akcie je pred dneš
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Show in portal form"
 msgstr "Zobraziť vo formuláry portálu"
-
-#. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_1
-msgid "Software"
-msgstr "Softvér"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
@@ -1806,11 +1769,6 @@ msgid "Teams"
 msgstr "Tímy"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_2
-msgid "Technical"
-msgstr "Technické"
-
-#. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 msgid ""
 "The email address associated with                                this "
@@ -1846,7 +1804,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
 msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
-msgstr "Vybraný súbor (%sB) prekračuje maximálnu povolenú veľkosť súboru (%sB)."
+msgstr ""
+"Vybraný súbor (%sB) prekračuje maximálnu povolenú veľkosť súboru (%sB)."
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
@@ -1909,16 +1868,12 @@ msgid "Ticket Tags"
 msgstr "Štítky tiketov"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_active_count
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_active_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_active_count
 msgid "Ticket active count"
 msgstr "Počet aktívnych tiketov"
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_count
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count
 msgid "Ticket count"
@@ -1936,8 +1891,6 @@ msgstr "Číslo tiketu"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_location__helpdesk_ticket_count_string
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_fsm_person__helpdesk_ticket_count_string
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count_string
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count_string
@@ -2053,9 +2006,12 @@ msgid "Whether to display additional fields in the portal form"
 msgstr "Či sa majú vo formulári portálu zobrazovať doplnkové polia"
 
 #. module: helpdesk_mgmt
-#: model:helpdesk.ticket.category,name:helpdesk_mgmt.helpdesk_category_2
-msgid "Wifi"
-msgstr "Wifi"
+#. odoo-python
+#: code:addons/helpdesk_mgmt/models/helpdesk_ticket.py:0
+msgid ""
+"You cannot assign this ticket to yourself because you are not a member of "
+"the assigned team."
+msgstr ""
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -2086,6 +2042,51 @@ msgid ""
 msgstr ""
 "{{object.company_id.name}} Pridelenie tiketov (Ref {{object.number or 'n/"
 "a' }})"
+
+#~ msgid "Consultants"
+#~ msgstr "Konzultanti"
+
+#~ msgid "Customer"
+#~ msgstr "Zákazník"
+
+#~ msgid "Customer Email"
+#~ msgstr "E-mail zákazníka"
+
+#~ msgid "Functional"
+#~ msgstr "Funkčné"
+
+#~ msgid "Group By"
+#~ msgstr "Zoskupiť podľa"
+
+#~ msgid "Hard"
+#~ msgstr "Náročné"
+
+#~ msgid "Hardware"
+#~ msgstr "Hardvér"
+
+#~ msgid "Laptops"
+#~ msgstr "Notebooky"
+
+#~ msgid "Localization team"
+#~ msgstr "Lokalizačný tím"
+
+#~ msgid "Next Activity Calendar Event"
+#~ msgstr "Kalendárna udalosť ďalšej aktivity"
+
+#~ msgid "Odoo"
+#~ msgstr "Odoo"
+
+#~ msgid "Ratings"
+#~ msgstr "Hodnotenia"
+
+#~ msgid "Software"
+#~ msgstr "Softvér"
+
+#~ msgid "Technical"
+#~ msgstr "Technické"
+
+#~ msgid "Wifi"
+#~ msgstr "Wifi"
 
 #~ msgid "Configure domain name"
 #~ msgstr "Nakonfigurujte názov domény"
