@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-03 16:46+0000\n"
+"PO-Revision-Date: 2026-06-09 11:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -802,12 +802,12 @@ msgstr "Bacheca"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
 msgid "Day count since this resource was last updated"
-msgstr ""
+msgstr "Conteggio giorni da cui la risorsa è stata aggiornata"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rotting_days
 msgid "Days Rotting"
-msgstr ""
+msgstr "Giorni inattività"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__normal
@@ -1012,7 +1012,7 @@ msgstr "Assistenza clienti"
 #. module: helpdesk_mgmt
 #: model:res.groups.privilege,name:helpdesk_mgmt.group_helpdesk_privilege
 msgid "Helpdesk Access Levels"
-msgstr ""
+msgstr "Livelli accesso assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
@@ -1597,7 +1597,7 @@ msgstr "Utente responsabile"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__is_rotting
 msgid "Rotting"
-msgstr ""
+msgstr "Inattività"
 
 #. module: helpdesk_mgmt
 #. odoo-python
@@ -1626,7 +1626,7 @@ msgstr "Token di sicurezza"
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_category
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_config_settings__helpdesk_mgmt_portal_select_category
 msgid "Select category in Helpdesk portal"
-msgstr ""
+msgstr "Selezionare la categoria nel portale assistenza clienti"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_company__helpdesk_mgmt_portal_select_team
