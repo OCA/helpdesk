@@ -426,7 +426,6 @@
                 method="POST"
                 class="form-horizontal mt32"
                 enctype="multipart/form-data"
-                onsubmit="this.querySelector('button[type=submit]').disabled = true;"
             >
                 <input
                     type="hidden"
