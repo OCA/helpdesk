@@ -1,5 +1,8 @@
 from odoo import api, fields, models, tools
 from odoo.exceptions import AccessError
+from odoo.tools.safe_eval import safe_eval
+
+from odoo.addons.web.controllers.utils import clean_action
 
 
 class HelpdeskTicket(models.Model):
@@ -98,6 +101,12 @@ class HelpdeskTicket(models.Model):
     assigned_date = fields.Datetime(copy=False)
     closed_date = fields.Datetime(copy=False)
     closed = fields.Boolean(related="stage_id.closed")
+    open_hours = fields.Float(
+        string="Hours while open",
+        compute="_compute_elapsed_open_hours",
+        store=True,
+        aggregator="avg",
+    )
     unattended = fields.Boolean(related="stage_id.unattended", store=True)
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     company_id = fields.Many2one(
@@ -306,6 +315,44 @@ class HelpdeskTicket(models.Model):
         for item in self:
             item.access_url = f"/my/ticket/{item.id}"
         return res
+
+    @api.depends("create_date", "closed", "closed_date")
+    def _compute_elapsed_open_hours(self):
+        reference = fields.Datetime.now()
+        for ticket in self:
+            ticket.open_hours = ticket._elapsed_hours_until(reference)
+
+    def _elapsed_hours_until(self, moment):
+        self.ensure_one()
+        if not self.create_date:
+            return 0.0
+        if self.closed and self.closed_date:
+            end = self.closed_date
+        else:
+            end = moment
+        elapsed = end - self.create_date
+        return elapsed.total_seconds() / 3600.0
+
+    def action_open_from_xmlid(self, action_ref, title=None, search_view_ref=None):
+        """Build a window action for overview links, merging active search defaults."""
+        action = clean_action(
+            self.env["ir.actions.actions"]._for_xml_id(action_ref), self.env
+        )
+        if title:
+            action["display_name"] = title
+        if search_view_ref:
+            action["search_view_id"] = self.env.ref(search_view_ref).id
+        if "views" not in action:
+            action["views"] = [(False, mode) for mode in action["view_mode"].split(",")]
+        action_context = action.get("context") or {}
+        if isinstance(action_context, str):
+            action_context = safe_eval(action_context, {"uid": self.env.uid})
+        merged_context = dict(action_context)
+        for key, value in self.env.context.items():
+            if key.startswith("search_default_") or key.startswith("default_"):
+                merged_context[key] = value
+        action["context"] = merged_context
+        return action
 
     # ---------------------------------------------------
     # Mail gateway
