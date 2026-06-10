@@ -2,16 +2,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from odoo.models import Command
-from odoo.tests import common
+from odoo import Command
 from odoo.tests.common import new_test_user, users
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestHelpdeskMgmtCrm(common.TransactionCase):
+
+class TestHelpdeskMgmtCrm(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env["res.partner"].create({"name": "Mr Odoo"})
         cls.user = new_test_user(
             cls.env,
             login="sale-user",
@@ -35,6 +35,13 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
             }
         )
 
+    @classmethod
+    def default_env_context(cls):
+        context = super().default_env_context()
+        # Reactivate message subscription
+        context.pop("tracking_disable", False)
+        return context
+
     @users("sale-user")
     def test_action_lead_create(self):
         self.ticket.message_subscribe(
@@ -43,11 +50,8 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
         )
         # pylint: disable=translation-required
         self.ticket.message_post(body="Ejemplo", subtype_xmlid="mail.mt_comment")
-        self.assertIn(
-            self.ticket.partner_id,
-            self.ticket.mapped("message_follower_ids.partner_id"),
-        )
-        old_messages = self.ticket.message_ids
+        self.assertIn(self.ticket.partner_id, self.ticket.message_partner_ids)
+        self.assertEqual(len(self.ticket.message_ids), 1)
         wizard = (
             self.env["helpdesk.ticket.create.lead"]
             .with_context(active_id=self.ticket.id)
@@ -62,16 +66,10 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
         self.assertEqual(self.ticket.partner_id, self.ticket.lead_ids.partner_id)
         self.assertEqual(self.ticket.user_id, self.ticket.lead_ids.user_id)
         self.assertEqual(self.ticket.description, self.ticket.lead_ids.description)
-        self.assertGreater(len(self.ticket.lead_ids.message_ids), len(old_messages))
-        self.assertGreater(len(self.ticket.message_ids), len(old_messages))
-        self.assertIn(
-            self.user2.partner_id,
-            self.ticket.lead_ids.message_follower_ids.mapped("partner_id"),
-        )
-        self.assertIn(
-            self.ticket.partner_id,
-            self.ticket.lead_ids.mapped("message_follower_ids.partner_id"),
-        )
+        self.assertEqual(len(self.ticket.lead_ids.message_ids), 1)
+        self.assertEqual(len(self.ticket.message_ids), 2)
+        self.assertIn(self.user2.partner_id, self.ticket.lead_ids.message_partner_ids)
+        self.assertIn(self.ticket.partner_id, self.ticket.lead_ids.message_partner_ids)
         # action_open_lead
         res = self.ticket.action_open_leads()
         self.assertEqual(res["res_model"], self.ticket.lead_ids._name)
@@ -80,17 +78,13 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
     def test_compute_lead_count(self):
         """Test the computation of lead_count field."""
         self.assertEqual(self.ticket.lead_count, 0)
-
         # Create a lead linked to the ticket
         self.env["crm.lead"].create({"name": "Test Lead", "ticket_id": self.ticket.id})
-        self.ticket._compute_lead_count()
         self.assertEqual(self.ticket.lead_count, 1)
-
         # Create another lead and check count updates
         self.env["crm.lead"].create(
             {"name": "Test Lead 2", "ticket_id": self.ticket.id}
         )
-        self.ticket._compute_lead_count()
         self.assertEqual(self.ticket.lead_count, 2)
 
     def test_action_open_leads_multiple(self):
@@ -101,7 +95,6 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
         lead2 = self.env["crm.lead"].create(
             {"name": "Lead 2", "ticket_id": self.ticket.id}
         )
-
         action_result = self.ticket.action_open_leads()
         self.assertEqual(action_result["res_model"], "crm.lead")
         self.assertIn("domain", action_result)

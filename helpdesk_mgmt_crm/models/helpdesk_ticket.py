@@ -18,28 +18,18 @@ class HelpdeskTicket(models.Model):
 
     @api.depends("lead_ids")
     def _compute_lead_count(self):
-        lead_data = self.env["crm.lead"].read_group(
+        lead_data = self.env["crm.lead"]._read_group(
             [("ticket_id", "in", self.ids)],
-            ["ticket_id"],
-            ["ticket_id"],
+            groupby=["ticket_id"],
+            aggregates=["__count"],
         )
-        mapped_data = {t["ticket_id"][0]: t["ticket_id_count"] for t in lead_data}
+        mapped_data = {ticket.id: count for ticket, count in lead_data}
         for item in self:
             item.lead_count = mapped_data.get(item.id, 0)
 
     def action_open_leads(self):
-        result = self.env["ir.actions.act_window"]._for_xml_id(
-            "crm.crm_lead_action_pipeline"
+        action = self.lead_ids._get_records_action(name=self.env._("Opportunity(ies)"))
+        action["context"].update(
+            {"default_ticket_id": self.id, "search_default_ticket_id": self.id}
         )
-        if len(self.lead_ids) == 1:
-            res = self.env.ref("crm.crm_lead_view_form", False)
-            result["views"] = [(res and res.id or False, "form")]
-            result["res_id"] = self.lead_ids.id
-        else:
-            result["domain"] = [("id", "in", self.lead_ids.ids)]
-            ctx = dict(self.env.context)
-            ctx.update(
-                {"default_ticket_id": self.id, "search_default_ticket_id": self.id}
-            )
-            result["context"] = ctx
-        return result
+        return action
