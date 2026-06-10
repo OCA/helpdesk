@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="helpdesk_mgmt.HelpdeskTeamDashboard">
+        <div
+            t-if="state.dashboardValues"
+            class="o_helpdesk_overview_strip align-items-start flex-column flex-lg-row flex-shrink-0 d-flex py-4 border-bottom bg-view"
+        >
+            <div class="w-100">
+                <table
+                    class="o_overview_matrix table table-sm table-borderless h-100 px-3 mb-0 text-center"
+                >
+                    <tbody>
+                        <tr t-if="env.isSmall">
+                            <td colspan="4">
+                                <h3
+                                    class="o_overview_section_title float-start"
+                                >My Tickets</h3>
+                            </td>
+                        </tr>
+                        <tr class="h-100">
+                            <td class="o_overview_label py-2 text-start align-middle">
+                                <h3
+                                t-if="!env.isSmall"
+                                class="o_overview_section_title"
+                            >My Tickets</h3>
+                                Open Tickets
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_agent_open_tickets_window"
+                                    title="My Tickets"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1}"
+                                    data-hotkey="t"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn w-100 h-100 p-2 border-0 text-capitalize fw-normal {{state.dashboardValues.my_all.count > 0 ? 'btn-primary': 'btn-light bg-100'}} {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <span
+                                    class="d-block mb-0 fs-2"
+                                    t-out="state.dashboardValues.my_all.count"
+                                />
+                                    Tickets
+                                </a>
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_agent_open_tickets_window"
+                                    title="My Tickets"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1, 'search_default_high_priority': 1}"
+                                    data-hotkey="p"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="position-relative btn w-100 h-100 p-2 border-0 text-capitalize fw-normal {{state.dashboardValues.my_high.count > 0 ? 'btn-primary': 'btn-light bg-100'}} {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <span
+                                    class="d-block mb-0 fs-2"
+                                    t-out="state.dashboardValues.my_high.count"
+                                />
+                                    High Priority
+                                    <small
+                                    class="o_overview_priority_badge position-absolute top-0 end-0 justify-content-end flex-lg-column flex-xl-row d-none d-sm-flex p-2"
+                                    title="High priority (2 of 3)"
+                                    role="img"
+                                    aria-label="High priority level 2 of 3"
+                                >
+                                    <i class="o_overview_priority_star fa fa-star" />
+                                    <i class="o_overview_priority_star fa fa-star" />
+                                </small>
+                                </a>
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_agent_open_tickets_window"
+                                    title="My Tickets"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1, 'search_default_urgent_priority': 1}"
+                                    data-hotkey="o"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="position-relative btn w-100 h-100 p-2 border-0 text-capitalize fw-normal {{state.dashboardValues.my_urgent.count > 0 ? 'btn-primary': 'btn-light bg-100'}} {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <span
+                                    class="d-block mb-0 fs-2"
+                                    t-out="state.dashboardValues.my_urgent.count"
+                                />
+                                    Urgent
+                                    <small
+                                    class="o_overview_priority_badge position-absolute top-0 end-0 justify-content-end flex-lg-column flex-xl-row d-none d-sm-flex p-2 small"
+                                    title="Urgent priority (3 of 3)"
+                                    role="img"
+                                    aria-label="Urgent priority level 3 of 3"
+                                >
+                                    <i class="o_overview_priority_star fa fa-star" />
+                                    <i class="o_overview_priority_star fa fa-star" />
+                                    <i class="o_overview_priority_star fa fa-star" />
+                                </small>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="h-100">
+                            <td
+                                class="o_overview_label py-2 text-start align-middle"
+                            >Avg Open Hours</td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_ticket_analysis_window"
+                                    title="Tickets Analysis"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1}"
+                                    data-hotkey="a"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn btn-light align-items-center d-flex w-100 h-100 p-0 border-0 bg-100 fw-normal align-middle {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <div
+                                        class="w-100 p-2"
+                                        t-out="formatTime(state.dashboardValues.my_all.hours)"
+                                    />
+                                </a>
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_ticket_analysis_window"
+                                    title="Tickets Analysis"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1, 'search_default_high_priority': 1}"
+                                    data-hotkey="b"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn btn-light align-items-center d-flex w-100 h-100 p-0 border-0 bg-100 fw-normal {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <div
+                                        class="w-100 p-2"
+                                        t-out="formatTime(state.dashboardValues.my_high.hours)"
+                                    />
+                                </a>
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_ticket_analysis_window"
+                                    title="Tickets Analysis"
+                                    context="{'search_default_open': 1, 'search_default_mytickets': 1, 'search_default_urgent_priority': 1}"
+                                    data-hotkey="y"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn btn-light align-items-center d-flex w-100 h-100 bg-100 p-0 border-0 fw-normal {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <div
+                                        class="w-100 p-2"
+                                        t-out="formatTime(state.dashboardValues.my_urgent.hours)"
+                                    />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="w-100 mt-3 mt-lg-0">
+                <table
+                    class="o_overview_matrix table table-sm table-borderless h-100 px-3 mb-0 text-center"
+                >
+                    <tbody>
+                        <tr t-if="env.isSmall">
+                            <td colspan="2">
+                                <h3
+                                    class="o_overview_section_title float-start"
+                                >My Performance</h3>
+                            </td>
+                        </tr>
+                        <tr class="h-100">
+                            <td class="o_overview_label py-2 text-start align-middle">
+                                <h3
+                                t-if="!env.isSmall"
+                                class="o_overview_section_title"
+                            >My Performance</h3>
+                                Today
+                            </td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_closed_today_window"
+                                    title="My Tickets"
+                                    data-hotkey="i"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn w-100 h-100 p-0 border-0 text-capitalize fw-normal btn-light bg-100 {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <div class="p-2">
+                                        <h2
+                                        class="mb-0 text-reset"
+                                        t-out="state.dashboardValues.today.count"
+                                    />
+                                        Closed Tickets
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr class="h-100">
+                            <td
+                                class="o_overview_label py-2 text-start align-middle"
+                            >Avg Last 7 days</td>
+                            <td t-attf-class="{{demoClass}} p-0">
+                                <a
+                                    name="helpdesk_mgmt.overview_closed_week_window"
+                                    title="Tickets"
+                                    data-hotkey="l"
+                                    t-custom-click="onActionClicked"
+                                    t-attf-class="btn align-items-center d-flex w-100 h-100 p-0 border-0 fw-normal {{state.dashboardValues['7days'].count > 0 ? 'btn-warning': 'btn-light bg-100'}} {{showDemo ? 'o_cursor_default' : ''}}"
+                                >
+                                    <div
+                                        class="w-100 p-2"
+                                        t-out="state.dashboardValues['7days'].count"
+                                    />
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <t t-if="showDemo and state.dashboardValues">
+            <div class="ribbon ribbon-top-right">
+                <span class="text-bg-primary">Sample</span>
+            </div>
+        </t>
+    </t>
+</templates>
