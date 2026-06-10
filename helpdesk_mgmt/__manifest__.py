@@ -4,7 +4,7 @@
     "name": "Helpdesk Management",
     "summary": """
         Helpdesk""",
-    "version": "19.0.1.1.0",
+    "version": "19.0.1.2.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -42,6 +42,7 @@
         "web.assets_backend": [
             "helpdesk_mgmt/static/src/views/**/*.esm.js",
             "helpdesk_mgmt/static/src/views/**/*.xml",
+            "helpdesk_mgmt/static/src/scss/helpdesk_dashboard.scss",
         ],
         "web.assets_unit_tests": [
             "helpdesk_mgmt/static/tests/**/*.test.js",

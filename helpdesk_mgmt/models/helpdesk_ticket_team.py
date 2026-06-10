@@ -1,3 +1,8 @@
+import datetime
+
+import pytz
+from dateutil import relativedelta
+
 from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
@@ -40,10 +45,10 @@ class HelpdeskTeam(models.Model):
         string="Email",
         ondelete="restrict",
         required=True,
-        help="The email address associated with \
-                               this channel. New emails received will \
-                               automatically create new tickets assigned \
-                               to the channel.",
+        help="The email address associated with "
+        "this channel. New emails received will "
+        "automatically create new tickets assigned "
+        "to the channel.",
     )
     color = fields.Integer(string="Color Index", default=0)
     ticket_ids = fields.One2many(
@@ -62,6 +67,16 @@ class HelpdeskTeam(models.Model):
     )
     todo_ticket_count_high_priority = fields.Integer(
         string="Number of tickets in high priority", compute="_compute_todo_tickets"
+    )
+    open_ticket_count = fields.Integer(
+        string="Open Tickets", compute="_compute_open_ticket_count"
+    )
+    unassigned_tickets = fields.Integer(compute="_compute_unassigned_tickets")
+    urgent_ticket = fields.Integer(
+        string="Urgent Tickets", compute="_compute_urgent_ticket"
+    )
+    ticket_closed = fields.Integer(
+        string="Tickets Closed (7 days)", compute="_compute_ticket_closed"
     )
     show_in_portal = fields.Boolean(
         string="Show in portal form",
@@ -141,6 +156,66 @@ class HelpdeskTeam(models.Model):
                 r[4] for r in result if r[0] == team.id and r[3] == "3"
             )
 
+    @api.depends("ticket_ids", "ticket_ids.closed")
+    def _compute_open_ticket_count(self):
+        ticket_data = self.env["helpdesk.ticket"]._read_group(
+            [("team_id", "in", self.ids), ("closed", "=", False)],
+            ["team_id"],
+            ["__count"],
+        )
+        mapped = {team.id: count for team, count in ticket_data}
+        for team in self:
+            team.open_ticket_count = mapped.get(team.id, 0)
+
+    @api.depends("ticket_ids", "ticket_ids.user_id", "ticket_ids.closed")
+    def _compute_unassigned_tickets(self):
+        ticket_data = self.env["helpdesk.ticket"]._read_group(
+            [
+                ("team_id", "in", self.ids),
+                ("user_id", "=", False),
+                ("closed", "=", False),
+            ],
+            ["team_id"],
+            ["__count"],
+        )
+        mapped = {team.id: count for team, count in ticket_data}
+        for team in self:
+            team.unassigned_tickets = mapped.get(team.id, 0)
+
+    @api.depends("ticket_ids", "ticket_ids.priority", "ticket_ids.closed")
+    def _compute_urgent_ticket(self):
+        ticket_data = self.env["helpdesk.ticket"]._read_group(
+            [
+                ("team_id", "in", self.ids),
+                ("closed", "=", False),
+                ("priority", "=", "3"),
+            ],
+            ["team_id"],
+            ["__count"],
+        )
+        mapped = {team.id: count for team, count in ticket_data}
+        for team in self:
+            team.urgent_ticket = mapped.get(team.id, 0)
+
+    @api.depends("ticket_ids", "ticket_ids.closed_date", "ticket_ids.closed")
+    def _compute_ticket_closed(self):
+        dt = datetime.datetime.combine(
+            datetime.date.today() - relativedelta.relativedelta(days=6),
+            datetime.time.min,
+        )
+        ticket_data = self.env["helpdesk.ticket"]._read_group(
+            [
+                ("team_id", "in", self.ids),
+                ("closed", "=", True),
+                ("closed_date", ">=", dt),
+            ],
+            ["team_id"],
+            ["__count"],
+        )
+        mapped = {team.id: count for team, count in ticket_data}
+        for team in self:
+            team.ticket_closed = mapped.get(team.id, 0)
+
     def _alias_get_creation_values(self):
         values = super()._alias_get_creation_values()
         values["alias_model_id"] = self.env.ref(
@@ -150,31 +225,135 @@ class HelpdeskTeam(models.Model):
         defaults["team_id"] = self.id
         return values
 
-    @api.model
-    def retrieve_dashboard(self):
-        return sorted(self._retrieve_dashboard(), key=lambda d: d.get("sequence", 99))
+    # ---------------------------------------------------
+    # Overview (agent metrics + team drill-downs)
+    # ---------------------------------------------------
 
-    def _retrieve_dashboard(self):
-        no_team_tickets = self.env["helpdesk.ticket"].search_count(
-            [("team_id", "=", False), ("stage_id.closed", "=", False)]
+    _OVERVIEW_PRIORITY_HIGH = "2"
+    _OVERVIEW_PRIORITY_URGENT = "3"
+
+    @api.model
+    def _overview_sample_payload(self):
+        return {
+            "sample_mode": True,
+            "assigned_open": {
+                "any": {"ticket_count": 7, "mean_open_hours": 24.0},
+                "high": {"ticket_count": 2, "mean_open_hours": 8.5},
+                "urgent": {"ticket_count": 1, "mean_open_hours": 11.0},
+            },
+            "assigned_closed": {"today": 2, "last_7_days": 11},
+        }
+
+    @api.model
+    def _overview_user_day_start_utc(self):
+        """Beginning of the user's local calendar day as a naive UTC datetime."""
+        tz_name = self.env.user.tz or "UTC"
+        user_tz = pytz.timezone(tz_name)
+        local_now = datetime.datetime.now(user_tz)
+        local_start = local_now.replace(hour=0, minute=0, second=0, microsecond=0)
+        return local_start.astimezone(pytz.UTC).replace(tzinfo=None)
+
+    @api.model
+    def _overview_empty_open_buckets(self):
+        empty = {"ticket_count": 0, "mean_open_hours": 0.0}
+        return {"any": dict(empty), "high": dict(empty), "urgent": dict(empty)}
+
+    @api.model
+    def _overview_aggregate_assigned_open(self, ticket_model):
+        buckets = self._overview_empty_open_buckets()
+        rows = ticket_model._read_group(
+            [
+                ("user_id", "=", self.env.uid),
+                ("closed", "=", False),
+            ],
+            groupby=["priority"],
+            aggregates=["open_hours:sum", "__count"],
         )
-        return [
-            {
-                "name": self.env._("Open Tickets without team"),
-                "value": no_team_tickets,
-                "sequence": 1,
-                "icon": "fa-exclamation-circle",
-                "show": no_team_tickets > 0,
-                "action": "helpdesk_mgmt.helpdesk_ticket_action_unassigned",
-            },
-            {
-                "name": self.env._("Open Tickets"),
-                "value": self.env["helpdesk.ticket"].search_count(
-                    [("stage_id.closed", "=", False)]
+        for priority, hours_sum, ticket_count in rows:
+            priority_key = priority or "0"
+            hours_sum = hours_sum or 0.0
+            buckets["any"]["ticket_count"] += ticket_count
+            buckets["any"]["mean_open_hours"] += hours_sum
+            if priority_key == self._OVERVIEW_PRIORITY_HIGH:
+                buckets["high"]["ticket_count"] = ticket_count
+                buckets["high"]["mean_open_hours"] = hours_sum
+            elif priority_key == self._OVERVIEW_PRIORITY_URGENT:
+                buckets["urgent"]["ticket_count"] = ticket_count
+                buckets["urgent"]["mean_open_hours"] = hours_sum
+        for key in ("any", "high", "urgent"):
+            count = buckets[key]["ticket_count"]
+            buckets[key]["mean_open_hours"] = fields.Float.round(
+                buckets[key]["mean_open_hours"] / (count or 1), 2
+            )
+        return buckets
+
+    @api.model
+    def _overview_count_assigned_closed(self, ticket_model, *, since):
+        return ticket_model.search_count(
+            [
+                ("user_id", "=", self.env.uid),
+                ("closed", "=", True),
+                ("closed_date", ">=", since),
+            ]
+        )
+
+    @api.model
+    def fetch_agent_overview(self):
+        """Metrics for the overview banner of the current agent."""
+        ticket_model = self.env["helpdesk.ticket"]
+        if not ticket_model.search_count([]):
+            return self._overview_sample_payload()
+        day_start = self._overview_user_day_start_utc()
+        week_start = day_start - datetime.timedelta(days=6)
+        return {
+            "sample_mode": False,
+            "assigned_open": self._overview_aggregate_assigned_open(ticket_model),
+            "assigned_closed": {
+                "today": self._overview_count_assigned_closed(
+                    ticket_model, since=day_start
                 ),
-                "sequence": 2,
-                "icon": "fa-life-ring",
-                "show": True,
-                "action": "helpdesk_mgmt.helpdesk_ticket_action_opened",
+                "last_7_days": self._overview_count_assigned_closed(
+                    ticket_model, since=week_start
+                ),
             },
-        ]
+        }
+
+    def _overview_team_ticket_window(self, *, closed=False, extra_context=None):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "helpdesk_mgmt.helpdesk_ticket_action_team"
+        )
+        action["display_name"] = self.name
+        context = {
+            "search_default_open": 0 if closed else 1,
+            "default_team_id": self.id,
+        }
+        if extra_context:
+            context.update(extra_context)
+        domain = [("team_id", "in", self.ids)]
+        if closed:
+            week_start = self._overview_user_day_start_utc() - datetime.timedelta(
+                days=6
+            )
+            domain += [("closed", "=", True), ("closed_date", ">=", week_start)]
+            context["search_default_closed_last_7_days"] = 1
+        action.update({"domain": domain, "context": context})
+        return action
+
+    def action_overview_open_team_tickets(self):
+        self.ensure_one()
+        return self._overview_team_ticket_window()
+
+    def action_overview_team_open_tickets(self):
+        self.ensure_one()
+        return self._overview_team_ticket_window()
+
+    def action_overview_team_closed_week(self):
+        self.ensure_one()
+        return self._overview_team_ticket_window(closed=True)
+
+    def action_overview_team_urgent_tickets(self):
+        self.ensure_one()
+        return self._overview_team_ticket_window(
+            extra_context={"search_default_urgent_priority": 1}
+        )

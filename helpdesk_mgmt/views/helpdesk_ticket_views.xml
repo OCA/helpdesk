@@ -45,29 +45,7 @@
                 <field name="tag_ids" />
                 <field name="stage_id" />
                 <field name="description" />
-                <filter
-                    string="Unassigned"
-                    name="unassigned"
-                    domain="[('user_id','=',False)]"
-                />
-                <filter string="Open" name="open" domain="[('closed', '=', False )]" />
-                <filter
-                    string="Unattended"
-                    name="unattended"
-                    domain="[('unattended', '=', True )]"
-                />
-                <filter
-                    string="High Priority"
-                    name="high_priority"
-                    domain="[('priority','=','3')]"
-                />
-                <separator />
-                <filter
-                    string="Archived"
-                    name="archived"
-                    domain="[('active','=',False)]"
-                />
-                <separator />
+                <!-- Group 0: assignment (OR within group) -->
                 <filter
                     string="My Tickets"
                     name="mytickets"
@@ -77,6 +55,49 @@
                     string="My Followed Tickets"
                     name="my_followed_tickets"
                     domain="[('message_is_follower', '=', True)]"
+                />
+                <filter
+                    string="Unassigned"
+                    name="unassigned"
+                    domain="[('user_id','=',False)]"
+                />
+                <separator />
+                <!-- Group 1: priority (OR within group) -->
+                <filter
+                    string="Urgent"
+                    name="urgent_priority"
+                    domain="[('priority','=','3')]"
+                />
+                <filter
+                    string="High Priority"
+                    name="high_priority"
+                    domain="[('priority','=','2')]"
+                />
+                <separator />
+                <!-- Group 2: open/closed state (OR within group) -->
+                <filter string="Open" name="open" domain="[('closed', '=', False )]" />
+                <filter
+                    string="Closed Today"
+                    name="closed_today"
+                    domain="[('closed', '=', True), ('closed_date', '>=', context_today())]"
+                />
+                <filter
+                    string="Closed Last 7 Days"
+                    name="closed_last_7_days"
+                    domain="[('closed', '=', True), ('closed_date', '>=', (context_today() - datetime.timedelta(days=6)).strftime('%Y-%m-%d'))]"
+                />
+                <separator />
+                <!-- Group 3: other status -->
+                <filter
+                    string="Unattended"
+                    name="unattended"
+                    domain="[('unattended', '=', True )]"
+                />
+                <separator />
+                <filter
+                    string="Archived"
+                    name="archived"
+                    domain="[('active','=',False)]"
                 />
                 <separator />
                 <filter
@@ -152,6 +173,39 @@
                 </group>
             </search>
         </field>
+    </record>
+    <record id="helpdesk_ticket_action_team" model="ir.actions.act_window">
+        <field name="name">Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
+        <field name="search_view_id" ref="helpdesk_ticket_view_search" />
+    </record>
+    <record id="overview_agent_open_tickets_window" model="ir.actions.act_window">
+        <field name="name">My Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form,pivot</field>
+        <field name="search_view_id" ref="helpdesk_ticket_view_search" />
+        <field
+            name="context"
+        >{'create': False, 'search_default_open': 1, 'search_default_mytickets': 1}</field>
+    </record>
+    <record id="overview_closed_today_window" model="ir.actions.act_window">
+        <field name="name">Closed Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
+        <field name="search_view_id" ref="helpdesk_ticket_view_search" />
+        <field
+            name="context"
+        >{'search_default_mytickets': 1, 'search_default_closed_today': 1}</field>
+    </record>
+    <record id="overview_closed_week_window" model="ir.actions.act_window">
+        <field name="name">Closed Tickets</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">list,kanban,form,pivot</field>
+        <field name="search_view_id" ref="helpdesk_ticket_view_search" />
+        <field
+            name="context"
+        >{'search_default_mytickets': 1, 'search_default_closed_last_7_days': 1}</field>
     </record>
     <record id="ticket_view_form" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.form</field>
@@ -407,6 +461,27 @@
                 <field name="assigned_date" type="col" />
             </pivot>
         </field>
+    </record>
+    <record id="helpdesk_ticket_view_pivot_overview" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.view.pivot.overview</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivot Analysis" disable_linking="True">
+                <field name="team_id" type="row" />
+                <field name="create_date" type="col" interval="day" />
+                <field name="open_hours" type="measure" widget="float_time" />
+            </pivot>
+        </field>
+    </record>
+    <record id="overview_ticket_analysis_window" model="ir.actions.act_window">
+        <field name="name">Tickets Analysis</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">pivot,graph,list,form</field>
+        <field name="search_view_id" ref="helpdesk_ticket_view_search" />
+        <field name="view_id" ref="helpdesk_ticket_view_pivot_overview" />
+        <field
+            name="context"
+        >{'create': False, 'search_default_open': 1, 'search_default_mytickets': 1, 'pivot_measures': ['open_hours', '__count__']}</field>
     </record>
     <record id="action_duplicate_ticket" model="ir.actions.server">
         <field name="name">Duplicate</field>
