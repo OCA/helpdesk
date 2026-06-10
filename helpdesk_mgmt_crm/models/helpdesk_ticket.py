@@ -18,12 +18,12 @@ class HelpdeskTicket(models.Model):
 
     @api.depends("lead_ids")
     def _compute_lead_count(self):
-        lead_data = self.env["crm.lead"].read_group(
+        lead_data = self.env["crm.lead"]._read_group(
             [("ticket_id", "in", self.ids)],
-            ["ticket_id"],
-            ["ticket_id"],
+            groupby=["ticket_id"],
+            aggregates=["__count"],
         )
-        mapped_data = {t["ticket_id"][0]: t["ticket_id_count"] for t in lead_data}
+        mapped_data = {ticket.id: count for ticket, count in lead_data}
         for item in self:
             item.lead_count = mapped_data.get(item.id, 0)
 

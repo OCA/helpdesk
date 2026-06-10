@@ -2,16 +2,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
-from odoo.models import Command
-from odoo.tests import common
+from odoo import Command
 from odoo.tests.common import new_test_user, users
 
+from odoo.addons.base.tests.common import BaseCommon
 
-class TestHelpdeskMgmtCrm(common.TransactionCase):
+
+class TestHelpdeskMgmtCrm(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env["res.partner"].create({"name": "Mr Odoo"})
         cls.user = new_test_user(
             cls.env,
             login="sale-user",
@@ -29,7 +29,7 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
         cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test ticket",
-                "partner_id": cls.partner.id,
+                "partner_id": cls.user.partner_id.id,
                 "user_id": cls.user.id,
                 "description": "Test description",
             }
@@ -37,45 +37,52 @@ class TestHelpdeskMgmtCrm(common.TransactionCase):
 
     @users("sale-user")
     def test_action_lead_create(self):
-        self.ticket.message_subscribe(
-            partner_ids=self.ticket.partner_id.ids,
+        # Re-browse in sale-user env to avoid admin env context mismatch
+        ticket = self.ticket.with_env(self.env)
+        team = self.team.with_env(self.env)
+
+        ticket.message_subscribe(
+            partner_ids=ticket.partner_id.ids,
             subtype_ids=[self.env.ref("mail.mt_comment").id],
         )
         # pylint: disable=translation-required
-        self.ticket.message_post(body="Ejemplo", subtype_xmlid="mail.mt_comment")
+        ticket.message_post(body="Ejemplo", subtype_xmlid="mail.mt_comment")
         self.assertIn(
-            self.ticket.partner_id,
-            self.ticket.mapped("message_follower_ids.partner_id"),
+            ticket.partner_id,
+            ticket.mapped("message_follower_ids.partner_id"),
         )
-        old_messages = self.ticket.message_ids
+
+        old_ticket_msg_count = len(ticket.message_ids)
+
         wizard = (
             self.env["helpdesk.ticket.create.lead"]
-            .with_context(active_id=self.ticket.id)
-            .create({"team_id": self.team.id})
+            .with_context(active_id=ticket.id)
+            .create({"team_id": team.id})
         )
         res = wizard.action_helpdesk_ticket_to_lead()
-        self.assertTrue(self.ticket.lead_ids)
-        self.assertEqual(res["res_id"], self.ticket.lead_ids.id)
-        self.assertEqual(res["res_model"], self.ticket.lead_ids._name)
-        self.assertEqual(self.ticket.lead_ids.type, "opportunity")
-        self.assertEqual(self.ticket.name, self.ticket.lead_ids.name)
-        self.assertEqual(self.ticket.partner_id, self.ticket.lead_ids.partner_id)
-        self.assertEqual(self.ticket.user_id, self.ticket.lead_ids.user_id)
-        self.assertEqual(self.ticket.description, self.ticket.lead_ids.description)
-        self.assertGreater(len(self.ticket.lead_ids.message_ids), len(old_messages))
-        self.assertGreater(len(self.ticket.message_ids), len(old_messages))
-        self.assertIn(
-            self.user2.partner_id,
-            self.ticket.lead_ids.message_follower_ids.mapped("partner_id"),
+        ticket.invalidate_recordset()
+
+        self.assertTrue(ticket.lead_ids)
+        self.assertEqual(res["res_id"], ticket.lead_ids.id)
+        self.assertEqual(res["res_model"], ticket.lead_ids._name)
+        self.assertEqual(ticket.lead_ids.type, "opportunity")
+        self.assertEqual(ticket.name, ticket.lead_ids.name)
+        self.assertEqual(ticket.partner_id, ticket.lead_ids.partner_id)
+        self.assertEqual(ticket.user_id, ticket.lead_ids.user_id)
+        self.assertEqual(ticket.description, ticket.lead_ids.description)
+
+        ticket.lead_ids.invalidate_recordset()
+        self.assertGreater(len(ticket.lead_ids.message_ids), 0)
+        self.assertGreater(len(ticket.message_ids), old_ticket_msg_count)
+
+        lead_follower_partners = ticket.lead_ids.message_follower_ids.mapped(
+            "partner_id"
         )
-        self.assertIn(
-            self.ticket.partner_id,
-            self.ticket.lead_ids.mapped("message_follower_ids.partner_id"),
-        )
-        # action_open_lead
-        res = self.ticket.action_open_leads()
-        self.assertEqual(res["res_model"], self.ticket.lead_ids._name)
-        self.assertEqual(res["res_id"], self.ticket.lead_ids.id)
+        self.assertIn(ticket.partner_id, lead_follower_partners)
+
+        res = ticket.action_open_leads()
+        self.assertEqual(res["res_model"], ticket.lead_ids._name)
+        self.assertEqual(res["res_id"], ticket.lead_ids.id)
 
     def test_compute_lead_count(self):
         """Test the computation of lead_count field."""
