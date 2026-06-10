@@ -99,17 +99,43 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
             "Helpdesk Ticket: Helpdesk ticket team should have two ticket to do.",
         )
 
-    def test_dashboard_buttons(self):
+    def test_fetch_agent_overview(self):
         self.env["helpdesk.ticket"].search([]).write({"active": False})
-        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
-        self.assertEqual(dashboard[0]["value"], 0)
-        self.assertEqual(dashboard[1]["value"], 0)
-        ticket = self._create_ticket(self.env["helpdesk.ticket.team"])
-        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
-        self.assertEqual(dashboard[0]["value"], 1)
-        self.assertEqual(dashboard[1]["value"], 1)
-        ticket.team_id = self.team_a
-        ticket.flush_recordset()
-        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
-        self.assertEqual(dashboard[0]["value"], 0)
-        self.assertEqual(dashboard[1]["value"], 1)
+        overview = self.env["helpdesk.ticket.team"].fetch_agent_overview()
+        self.assertTrue(overview["sample_mode"])
+        self.assertEqual(overview["assigned_open"]["any"]["ticket_count"], 7)
+
+        self._create_ticket(self.team_a, self.user)
+        overview = (
+            self.env["helpdesk.ticket.team"].with_user(self.user).fetch_agent_overview()
+        )
+        self.assertFalse(overview["sample_mode"])
+        self.assertEqual(overview["assigned_open"]["any"]["ticket_count"], 1)
+        self.assertGreaterEqual(overview["assigned_open"]["any"]["mean_open_hours"], 0)
+
+    def test_overview_team_metrics(self):
+        self.assertEqual(self.team_a.open_ticket_count, 3)
+        self.assertEqual(self.team_a.unassigned_tickets, 1)
+        self.assertEqual(self.team_a.urgent_ticket, 1)
+        self.ticket_a_unassigned.write({"stage_id": self.stage_closed.id})
+        self.assertEqual(self.team_a.open_ticket_count, 2)
+        self.assertEqual(self.team_a.urgent_ticket, 0)
+
+    def test_action_overview_team_open_tickets(self):
+        action = self.team_a.action_overview_team_open_tickets()
+        self.assertEqual(action["domain"], [("team_id", "in", self.team_a.ids)])
+        self.assertEqual(action["context"]["default_team_id"], self.team_a.id)
+        self.assertEqual(action["context"]["search_default_open"], 1)
+
+    def test_action_open_from_xmlid_merges_search_defaults(self):
+        ticket_model = self.env["helpdesk.ticket"].with_context(
+            search_default_open=1,
+            search_default_mytickets=1,
+            search_default_urgent_priority=1,
+        )
+        action = ticket_model.action_open_from_xmlid(
+            "helpdesk_mgmt.overview_agent_open_tickets_window"
+        )
+        self.assertEqual(action["context"]["search_default_open"], 1)
+        self.assertEqual(action["context"]["search_default_mytickets"], 1)
+        self.assertEqual(action["context"]["search_default_urgent_priority"], 1)

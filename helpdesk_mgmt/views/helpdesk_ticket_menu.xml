@@ -2,7 +2,7 @@
 <odoo>
     <!-- Actions -->
     <record id="helpdesk_ticket_dashboard_action" model="ir.actions.act_window">
-        <field name="name">Dashboard</field>
+        <field name="name">Overview</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">helpdesk.ticket.team</field>
         <field name="view_mode">kanban,list,form,pivot</field>
@@ -74,7 +74,7 @@
     />
     <menuitem
         id="helpdesk_ticket_dashboard_menu"
-        name="Dashboard"
+        name="Overview"
         parent="helpdesk_ticket_main_menu"
         action="helpdesk_ticket_dashboard_action"
         sequence="1"

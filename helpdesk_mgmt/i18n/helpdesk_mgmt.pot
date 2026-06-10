@@ -6,6 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-10 07:46+0000\n"
+"PO-Revision-Date: 2026-06-10 07:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +23,13 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_ticket_list
 msgid "<em class=\"font-weight-normal text-muted\">Tickets in stage:</em>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid ""
+"<i class=\"fa fa-envelope-o\" title=\"Team email alias\" role=\"img\" aria-"
+"label=\"Team email alias\"/>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -53,7 +62,32 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
-msgid "<span class=\"fw-bolder\">View</span>"
+msgid "<span class=\"text-muted text-nowrap\">Open</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "<span class=\"text-muted text-nowrap\">Unassigned</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "<span class=\"text-muted text-nowrap\">Urgent</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "<span>Customize</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "<span>Tickets Closed</span>"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "<span>View</span>"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -293,7 +327,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 msgid "All"
 msgstr ""
 
@@ -363,6 +396,18 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Avatar"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Avg Last 7 days"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Avg Open Hours"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -460,6 +505,24 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__closed_date
 msgid "Closed Date"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Closed Last 7 Days"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+#: model:ir.actions.act_window,name:helpdesk_mgmt.overview_closed_today_window
+#: model:ir.actions.act_window,name:helpdesk_mgmt.overview_closed_week_window
+msgid "Closed Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Closed Today"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -576,12 +639,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__access_url
 msgid "Customer Portal URL"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
-#: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
-msgid "Dashboard"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -889,9 +946,27 @@ msgid "High"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "High Priority"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "High priority (2 of 3)"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "High priority level 2 of 3"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__open_hours
+msgid "Hours while open"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -935,7 +1010,9 @@ msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_error
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_error
+#: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
@@ -1079,7 +1156,16 @@ msgid "My Followed Tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "My Performance"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_my_tickets_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.overview_agent_open_tickets_window
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_own_ticket_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "My Tickets"
@@ -1176,6 +1262,11 @@ msgid "Number of tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
+msgid "Number of tickets closed in the past 7 days."
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__todo_ticket_count_high_priority
 msgid "Number of tickets in high priority"
 msgstr ""
@@ -1196,15 +1287,10 @@ msgid "Open"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__open_ticket_count
 msgid "Open Tickets"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#. odoo-python
-#: code:addons/helpdesk_mgmt/models/helpdesk_ticket_team.py:0
-msgid "Open Tickets without team"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1223,6 +1309,12 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Other Information"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_dashboard_action
+#: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_dashboard_menu
+msgid "Overview"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1362,6 +1454,18 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__is_rotting
 msgid "Rotting"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_has_sms_error
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Sample"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1536,10 +1640,8 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_id
 msgid ""
-"The email address associated with                                this "
-"channel. New emails received will                                "
-"automatically create new tickets assigned                                to "
-"the channel."
+"The email address associated with this channel. New emails received will "
+"automatically create new tickets assigned to the channel."
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1642,17 +1744,33 @@ msgid "Ticket number"
 msgstr ""
 
 #. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action
+#: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_action_team
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_partner__helpdesk_ticket_count_string
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_res_users__helpdesk_ticket_count_string
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_menu
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_reporting_analysis
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_layout
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_home
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_my_tickets
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+#: model:ir.actions.act_window,name:helpdesk_mgmt.overview_ticket_analysis_window
+msgid "Tickets Analysis"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_closed
+msgid "Tickets Closed (7 days)"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1664,8 +1782,9 @@ msgid "Title"
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
-msgid "To Do"
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Today"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1679,9 +1798,13 @@ msgid "Type of the exception activity on record."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unassigned"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__unassigned_tickets
+msgid "Unassigned Tickets"
 msgstr ""
 
 #. module: helpdesk_mgmt
@@ -1692,7 +1815,6 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__unattended
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__unattended
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_kanban_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Unattended"
 msgstr ""
@@ -1700,6 +1822,30 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Unattended tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Urgent"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__urgent_ticket
+msgid "Urgent Tickets"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Urgent priority (3 of 3)"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt/static/src/views/helpdesk_dashboard/helpdesk_team_dashboard.xml:0
+msgid "Urgent priority level 3 of 3"
 msgstr ""
 
 #. module: helpdesk_mgmt
