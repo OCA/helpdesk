@@ -1,5 +1,3 @@
-from odoo.tools.safe_eval import safe_eval
-
 from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
 
 
@@ -34,8 +32,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         self.ticket.write({"project_id": self.project2.id})
         self.assertFalse(
             self.ticket.task_id,
-            "Helpdesk Ticket: When change the project "
-            "the ticket task should be reset.",
+            "Helpdesk Ticket: When change the project the ticket task should be reset.",
         )
 
     def test_helpdesk_ticket_counts(self):
@@ -170,7 +167,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         action = self.milestone.action_view_helpdesk_ticket()
         self.assertFalse(action.get("res_id"))
         milestone_requests = self.env[action["res_model"]].search(
-            safe_eval(action["domain"], locals_dict={"active_id": self.milestone.id})
+            [("milestone_id", "=", self.milestone.id)]
         )
         self.assertEqual(2, len(milestone_requests))
         self.assertIn(ticket_1, milestone_requests)

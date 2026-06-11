@@ -21,18 +21,18 @@ class ProjectTask(models.Model):
     @api.depends("ticket_ids", "ticket_ids.stage_id")
     def _compute_ticket_count(self):
         HelpdeskTicket = self.env["helpdesk.ticket"]
-        invname = "task_id"
-        domain = [(invname, "in", self.ids)]
-        fields = [invname]
-        groupby = [invname]
+        domain = [("task_id", "in", self.ids)]
         counts = {
-            pr[invname][0]: pr[f"{invname}_count"]
-            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+            task.id: count
+            for task, count in HelpdeskTicket._read_group(
+                domain, ["task_id"], ["__count"]
+            )
         }
-        domain.append(("closed", "=", False))
         counts_todo = {
-            pr[invname][0]: pr[f"{invname}_count"]
-            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+            task.id: count
+            for task, count in HelpdeskTicket._read_group(
+                domain + [("closed", "=", False)], ["task_id"], ["__count"]
+            )
         }
         for record in self:
             record.ticket_count = counts.get(record.id, 0)
