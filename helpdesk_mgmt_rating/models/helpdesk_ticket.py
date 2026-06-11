@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -61,7 +61,7 @@ class HelpdeskTicket(models.Model):
         action = self.env["ir.actions.act_window"]._for_xml_id(
             "helpdesk_mgmt_rating.helpdesk_ticket_rating_action"
         )
-        action["name"] = _("Ticket Rating")
+        action["name"] = self.env._("Ticket Rating")
         action_context = safe_eval(action["context"]) if action["context"] else {}
         action_context.update(self.env.context)
         action_context.pop("group_by", None)

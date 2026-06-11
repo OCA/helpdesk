@@ -11,9 +11,6 @@ class TestHelpdeskMgmtRating(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env["res.partner"].create(
-            {"name": "Test partner", "email": "test@email.com"}
-        )
         new_test_user(
             cls.env,
             login="test-helpdesk-user",
