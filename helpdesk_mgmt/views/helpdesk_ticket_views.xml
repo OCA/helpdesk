@@ -44,6 +44,7 @@
                 <field name="category_id" />
                 <field name="tag_ids" />
                 <field name="stage_id" />
+                <field name="company_id" string="Company" />
                 <field name="description" />
                 <filter
                     string="Unassigned"
@@ -150,6 +151,12 @@
                         domain="[]"
                         context="{'group_by':'tag_ids'}"
                     />
+                    <filter
+                        string="Company"
+                        name="group_company"
+                        domain="[]"
+                        context="{'group_by':'company_id'}"
+                    />
                 </group>
             </search>
         </field>
@@ -205,6 +212,19 @@
                                 widget="statinfo"
                             />
                         </button>
+                        <button
+                            class="oe_stat_button"
+                            type="action"
+                            name="%(mail_gateway_whatsapp.whatsapp_composer_act_window)s"
+                            icon="fa-whatsapp"
+                            string="Send WhatsApp"
+                            invisible="not partner_phone"
+                            context="{
+                                'default_res_model': 'helpdesk.ticket',
+                                'default_res_id': id,
+                                'default_number_field_name': 'partner_phone'
+                            }"
+                        />
                     </div>
                     <div class="oe_title">
                         <div
@@ -252,6 +272,9 @@
                             />
                             <field name="partner_name" />
                             <field name="partner_email" />
+                            <field name="partner_phone" widget="phone"/>
+                            <field name="whatsapp_channel_id" readonly="1" optional="show"
+                                invisible="not whatsapp_channel_id"/>
                             <field name="category_id" />
                             <field
                                 name="tag_ids"
@@ -290,6 +313,7 @@
                 <field name="partner_id" optional="hide" widget="many2one_avatar" />
                 <field name="partner_name" optional="show" />
                 <field name="user_id" optional="show" widget="many2one_avatar_user" />
+                <field name="company_id" optional="show" />
                 <field name="category_id" optional="hide" />
                 <field name="unattended" column_invisible="1" />
                 <field name="closed" column_invisible="1" />

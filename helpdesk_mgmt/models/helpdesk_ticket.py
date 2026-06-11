@@ -94,6 +94,10 @@ class HelpdeskTicket(models.Model):
     )
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
+    partner_phone = fields.Char(related="partner_id.phone", string="Phone", readonly=False)
+    whatsapp_channel_id = fields.Many2one(
+        "discuss.channel", string="WhatsApp Channel", copy=False
+    )
     last_stage_update = fields.Datetime(default=fields.Datetime.now)
     assigned_date = fields.Datetime(copy=False)
     closed_date = fields.Datetime(copy=False)
@@ -391,6 +395,9 @@ class HelpdeskTicket(models.Model):
             # imply modifying followers
             return recipients
         return recipients
+
+    def _whatsapp_get_partner(self):
+        return self.partner_id
 
     def _notify_get_reply_to(self, default=None):
         """Override to set alias of tasks to their team if any."""
