@@ -18,25 +18,22 @@ class ProjectMilestone(models.Model):
 
     @api.depends("helpdesk_ticket_ids")
     def _compute_helpdesk_ticket_count(self):
+        counts = {
+            milestone.id: count
+            for milestone, count in self.env["helpdesk.ticket"]._read_group(
+                [("milestone_id", "in", self.ids)], ["milestone_id"], ["__count"]
+            )
+        }
         for milestone in self:
-            milestone.helpdesk_ticket_count = len(milestone.helpdesk_ticket_ids)
+            milestone.helpdesk_ticket_count = counts.get(milestone.id, 0)
 
     def action_view_helpdesk_ticket(self):
         self.ensure_one()
-        action = self.env["ir.actions.act_window"]._for_xml_id(
-            "helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone"
+        return self.helpdesk_ticket_ids._get_records_action(
+            name=self.env._("Helpdesk Tickets"),
+            view_mode="kanban,list,form,pivot",
+            context={
+                "default_project_id": self.project_id.id,
+                "default_milestone_id": self.id,
+            },
         )
-        action["context"] = {
-            "default_project_id": self.project_id.id,
-            "default_milestone_id": self.id,
-        }
-        if self.helpdesk_ticket_count == 1:
-            action["view_mode"] = "form"
-            action["res_id"] = self.helpdesk_ticket_ids.id
-            if "views" in action:
-                action["views"] = [
-                    (view_id, view_type)
-                    for view_id, view_type in action["views"]
-                    if view_type == "form"
-                ]
-        return action

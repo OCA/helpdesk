@@ -13,11 +13,19 @@
                     context="{'search_default_project_id': id, 'default_project_id': id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
-                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                    <div class="o_field_widget o_stat_info">
+                        <field name="label_tickets" readonly="1" />
+                        <span class="o_stat_value">
+                            <field name="ticket_count" />
+                        </span>
+                    </div>
                 </button>
             </xpath>
-            <field name="label_tasks" position="after">
-                <field name="label_tickets" />
+            <field name="partner_id" position="before">
+                <field
+                    name="label_tickets"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
             </field>
         </field>
     </record>
@@ -45,7 +53,7 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.view_project_project_filter" />
         <field name="arch" type="xml">
-            <xpath expr="//filter[@name='inactive']" position="after">
+            <xpath expr="//search" position="inside">
                 <separator />
                 <filter
                     string="Open Tickets"
