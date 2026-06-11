@@ -9,9 +9,6 @@ class TestHelpdeskTicketSale(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.partner = cls.env["res.partner"].create(
-            {"name": "Test Partner", "email": "testpartner@example.com"}
-        )
         cls.ticket = cls.env["helpdesk.ticket"].create(
             {
                 "name": "Test Helpdesk Ticket",
