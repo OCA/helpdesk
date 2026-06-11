@@ -13,7 +13,12 @@
                     context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
-                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                    <div class="o_field_widget o_stat_info">
+                        <field name="label_tickets" readonly="1" />
+                        <span class="o_stat_value">
+                            <field name="ticket_count" />
+                        </span>
+                    </div>
                 </button>
             </xpath>
         </field>
@@ -22,7 +27,7 @@
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_search_form" />
         <field name="arch" type="xml">
-            <xpath expr="//filter[@name='inactive']" position="after">
+            <xpath expr="//search" position="inside">
                 <separator />
                 <filter
                     string="Open Tickets"

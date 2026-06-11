@@ -22,16 +22,17 @@ class ProjectProject(models.Model):
     def _compute_ticket_count(self):
         HelpdeskTicket = self.env["helpdesk.ticket"]
         domain = [("project_id", "in", self.ids)]
-        fields = ["project_id"]
-        groupby = ["project_id"]
         counts = {
-            pr["project_id"][0]: pr["project_id_count"]
-            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+            project.id: count
+            for project, count in HelpdeskTicket._read_group(
+                domain, ["project_id"], ["__count"]
+            )
         }
-        domain.append(("closed", "=", False))
         counts_todo = {
-            pr["project_id"][0]: pr["project_id_count"]
-            for pr in HelpdeskTicket.read_group(domain, fields, groupby)
+            project.id: count
+            for project, count in HelpdeskTicket._read_group(
+                domain + [("closed", "=", False)], ["project_id"], ["__count"]
+            )
         }
         for record in self:
             record.ticket_count = counts.get(record.id, 0)
@@ -43,7 +44,7 @@ class ProjectProject(models.Model):
             buttons.append(
                 {
                     "icon": "life-ring",
-                    "text": self.env._("Tickets"),
+                    "text": self.label_tickets,
                     "number": self.ticket_count,
                     "action_type": "object",
                     "action": "action_open_helpdesk_tickets",
@@ -58,6 +59,7 @@ class ProjectProject(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id(
             "helpdesk_mgmt_project.ticket_action_from_project"
         )
+        action["name"] = self.label_tickets
         action["domain"] = [("project_id", "=", self.id)]
         action["context"] = {
             "default_project_id": self.id,

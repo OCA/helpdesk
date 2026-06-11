@@ -1,5 +1,3 @@
-from odoo.tools.safe_eval import safe_eval
-
 from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
 
 
@@ -99,7 +97,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         """Test action_view_ticket for correct domain and view modes"""
         action = self.task_project1.action_view_ticket()
         self.assertEqual(
-            action["domain"], f"[('id','in',{self.task_project1.ticket_ids.ids})]"
+            action["domain"], [("id", "in", self.task_project1.ticket_ids.ids)]
         )
         # If only one ticket, should open in form view
         single_ticket_task = self.env["project.task"].create(
@@ -169,7 +167,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         action = self.milestone.action_view_helpdesk_ticket()
         self.assertFalse(action.get("res_id"))
         milestone_requests = self.env[action["res_model"]].search(
-            safe_eval(action["domain"], locals_dict={"active_id": self.milestone.id})
+            [("milestone_id", "=", self.milestone.id)]
         )
         self.assertEqual(2, len(milestone_requests))
         self.assertIn(ticket_1, milestone_requests)
