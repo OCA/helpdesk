@@ -48,7 +48,9 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.helpdesk_team1 = cls.env.ref("helpdesk_mgmt.helpdesk_team_1")
+        cls.helpdesk_team1 = cls.env["helpdesk.ticket.team"].create(
+            {"name": "Test Team"}
+        )
         cls.stage_new = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_new")
         cls.stage_in_progress = cls.env.ref(
             "helpdesk_mgmt.helpdesk_ticket_stage_in_progress"
