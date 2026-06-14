@@ -3,7 +3,8 @@
 
 import ast
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class HelpdeskTicket(models.Model):
@@ -118,15 +119,15 @@ class HelpdeskTicket(models.Model):
     def _check_activity_values(self):
         """Check activity values for helpdesk ticket"""
         if not self.can_create_activity:
-            raise models.UserError(_("You cannot create activity!"))
+            raise UserError(self.env._("You cannot create activity!"))
         if not (self.res_id and self.res_model):
-            raise models.UserError(_("Source Record is not set!"))
+            raise UserError(self.env._("Source Record is not set!"))
         if not self.source_activity_type_id:
-            raise models.UserError(_("Activity Type is not set!"))
+            raise UserError(self.env._("Activity Type is not set!"))
         if not self.date_deadline:
-            raise models.UserError(_("Date Deadline is not set!"))
+            raise UserError(self.env._("Date Deadline is not set!"))
         if not self.assigned_user_id:
-            raise models.UserError(_("Assigned User is not set!"))
+            raise UserError(self.env._("Assigned User is not set!"))
 
     def perform_action(self):
         """Perform action for ticket"""
@@ -140,17 +141,18 @@ class HelpdeskTicket(models.Model):
                 note=self.description,
                 date_deadline=self.date_deadline,
                 activity_type_id=self.source_activity_type_id.id,
+                user_id=self.assigned_user_id.id,
                 ticket_id=self.id,
             )
             self.set_next_stage()
         except Exception as e:
-            raise models.UserError from e
+            raise UserError from e
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
             "params": {
                 "type": "success",
-                "message": _("Activity has been created!"),
+                "message": self.env._("Activity has been created!"),
                 "next": {"type": "ir.actions.act_window_close"},
             },
         }
