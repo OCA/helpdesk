@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Ticket Related",
     "summary": "Link tickets to each other",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Helpdesk",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Antoni Marroig, APSL-Nagarro, Odoo Community Association (OCA)",

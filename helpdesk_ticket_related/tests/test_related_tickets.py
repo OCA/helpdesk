@@ -8,8 +8,12 @@ class HelpdeskTicketRelatedTickets(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.ticket1 = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_1")
-        cls.ticket2 = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_2")
+        cls.ticket1, cls.ticket2 = cls.env["helpdesk.ticket"].create(
+            [
+                {"name": "Ticket 1", "description": "Ticket 1"},
+                {"name": "Ticket 2", "description": "Ticket 2"},
+            ]
+        )
 
     def test_link_tickets(self):
         self.ticket1.related_ticket_ids = [(4, self.ticket2.id)]
