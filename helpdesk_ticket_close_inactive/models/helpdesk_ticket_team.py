@@ -51,7 +51,7 @@ class HelpdeskTicketTeam(models.Model):
     )
     warning_inactive_mail_template_id = fields.Many2one(
         "mail.template",
-        default=_default_warning_email_template,
+        default=lambda self: self._default_warning_email_template(),
         string="Inactivity warning email template",
         help="Template to be sent as an inactivity warning. "
         "Required when the warning day limit is greater than 0.",
@@ -64,7 +64,7 @@ class HelpdeskTicketTeam(models.Model):
     )
     close_inactive_mail_template_id = fields.Many2one(
         "mail.template",
-        default=_default_closing_email_template,
+        default=lambda self: self._default_closing_email_template(),
         string="Closing email template",
         help="Template to be sent when a ticket is automatically closed. "
         "Leave empty to close the ticket silently without sending "
