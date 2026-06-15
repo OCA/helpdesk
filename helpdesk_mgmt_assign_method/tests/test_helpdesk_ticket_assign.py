@@ -1,6 +1,8 @@
 # Copyright 2025 - TODAY, Kaynnan Lemes <kaynnan.lemes@escodoo.com.br>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from unittest.mock import patch
+
 from odoo import Command
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
@@ -43,6 +45,17 @@ class TestHelpdeskTicketAssign(TransactionCase):
     def test_get_new_user_randomly(self):
         self.team.assign_method = "randomly"
         self.assertIn(self.team.get_new_user(), self.team.user_ids)
+
+    def test_assign_randomly_uses_random_choice(self):
+        self.team.assign_method = "randomly"
+        with patch(
+            "odoo.addons.helpdesk_mgmt_assign_method.models."
+            "helpdesk_ticket_team.random.choice",
+            return_value=self.user2.id,
+        ) as mock_choice:
+            user = self.team.get_new_user()
+        mock_choice.assert_called_once_with(sorted(self.team.user_ids.ids))
+        self.assertEqual(user, self.user2)
 
     def test_get_new_user_balanced(self):
         self.team.assign_method = "balanced"
