@@ -7,112 +7,114 @@
             <kanban
                 class="o_kanban_mobile"
                 create="0"
-                js_class="helpdesk_kanban"
+                js_class="helpdesk_mgmt_overview_kanban"
                 highlight_color="color"
+                sample="1"
+                action="action_overview_open_team_tickets"
+                type="object"
             >
                 <field name="name" />
                 <field name="color" />
-                <field name="todo_ticket_count" />
-                <field name="todo_ticket_count_unassigned" />
-                <field name="todo_ticket_count_unattended" />
-                <field name="todo_ticket_count_high_priority" />
+                <field name="alias_email" />
+                <field name="open_ticket_count" />
+                <field name="unassigned_tickets" />
+                <field name="urgent_ticket" />
+                <field name="ticket_closed" />
                 <templates>
                     <t t-name="menu">
-                        <div class="o_kanban_card_manage_section">
-                            <div role="menuitem" class="o_kanban_manage_reports">
-                                <div class="o_kanban_card_manage_title ps-4 pb-1">
-                                    <span class="fw-bolder">View</span>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5
+                                        role="menuitem"
+                                        class="o_kanban_card_manage_title"
+                                    >
+                                        <span>View</span>
+                                    </h5>
+                                    <div role="menuitem">
+                                        <a
+                                            name="action_overview_open_team_tickets"
+                                            type="object"
+                                        >Tickets</a>
+                                    </div>
                                 </div>
-                                <a
-                                    role="menuitem"
-                                    class="dropdown-item"
-                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                    type="action"
-                                > All
-                                </a>
-                                <div role="separator" class="dropdown-divider" />
-                                <t t-if="widget.editable">
+                                <div t-if="widget.editable" class="col-6">
+                                    <h5
+                                        role="menuitem"
+                                        class="o_kanban_card_manage_title"
+                                    >
+                                        <span>Customize</span>
+                                    </h5>
                                     <field name="color" widget="kanban_color_picker" />
-                                </t>
+                                </div>
                             </div>
                         </div>
                     </t>
-                    <t t-name="card">
-                        <div t-attf-class="o_kanban_card_header">
-                            <div class="o_kanban_card_header_title">
-                                <div class="o_primary">
-                                    <a
-                                        name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                        type="action"
-                                    >
-                                        <field name="name" />
-                                    </a>
-                                </div>
+                    <t t-name="card" class="px-3">
+                        <field name="name" class="fw-bold fs-4" />
+                        <small t-if="record.alias_email.value" class="ms-2">
+                            <a t-att-href="'mailto:' + record.alias_email.value">
+                                <i
+                                    class="fa fa-envelope-o"
+                                    title="Team email alias"
+                                    role="img"
+                                    aria-label="Team email alias"
+                                />
+                                <field name="alias_email" />
+                            </a>
+                        </small>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <button
+                                    class="btn btn-primary o_helpdesk_ticket_btn"
+                                    name="action_overview_open_team_tickets"
+                                    type="object"
+                                    context="{'default_team_id': id}"
+                                >
+                                    Tickets
+                                </button>
                             </div>
-                            <div class="container o_kanban_card_content">
-                                <div class="row">
-                                    <div
-                                        class="col-6 o_kanban_primary_left"
-                                        style="padding-top:20px;"
-                                    >
-                                        <button
-                                            class="btn btn-primary"
-                                            name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                            type="action"
-                                            context="{'search_default_open': 1}"
-                                        >
-                                            <t t-esc="record.todo_ticket_count.value" />
-                                            To Do
-                                        </button>
-                                    </div>
-                                    <div class="col-6 o_kanban_primary_right">
-                                        <div class="row">
-                                            <div class="col-9">
-                                                <a
-                                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                                    type="action"
-                                                    context="{'search_default_unassigned': 1}"
-                                                >
-                                                    Unassigned
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_unassigned.value"
-                                                />
-                                            </div>
-                                            <div class="col-9">
-                                                <a
-                                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                                    type="action"
-                                                    context="{'search_default_unattended': 1}"
-                                                >
-                                                    Unattended
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_unattended.value"
-                                                />
-                                            </div>
-                                            <div class="col-9">
-                                                <a
-                                                    name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
-                                                    type="action"
-                                                    context="{'search_default_high_priority': 1}"
-                                                >
-                                                    High Priority
-                                                </a>
-                                            </div>
-                                            <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_high_priority.value"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="col-8">
+                                <a
+                                    name="action_overview_team_closed_week"
+                                    type="object"
+                                    title="Number of tickets closed in the past 7 days."
+                                    class="justify-content-between flex-nowrap d-inline-flex w-100 mb4"
+                                >
+                                    <span>Tickets Closed</span>
+                                    <field
+                                        name="ticket_closed"
+                                        class="ms-3 text-nowrap"
+                                    />
+                                </a>
                             </div>
+                        </div>
+                        <div class="row pt-3 mt-auto">
+                            <a
+                                name="action_overview_team_open_tickets"
+                                type="object"
+                                class="d-flex flex-column align-items-center col"
+                            >
+                                <field name="open_ticket_count" class="fw-bold" />
+                                <span class="text-muted text-nowrap">Open</span>
+                            </a>
+                            <a
+                                name="%(action_helpdesk_ticket_kanban_from_dashboard)d"
+                                type="action"
+                                context="{'default_team_id': id, 'search_default_unassigned': 1}"
+                                class="d-flex flex-column align-items-center col border-start"
+                            >
+                                <field name="unassigned_tickets" class="fw-bold" />
+                                <span class="text-muted text-nowrap">Unassigned</span>
+                            </a>
+                            <a
+                                name="action_overview_team_urgent_tickets"
+                                type="object"
+                                class="d-flex flex-column align-items-center col border-start"
+                            >
+                                <field name="urgent_ticket" class="fw-bold" />
+                                <span class="text-muted text-nowrap">Urgent</span>
+                            </a>
                         </div>
                     </t>
                 </templates>

@@ -138,10 +138,11 @@ permissions set in Helpdesk.
 Usage
 =====
 
-1. Go to *Helpdesk* or *Helpdesk > Dashboard* to see the tickets
-   dashboard
-2. In the Kanban view, click in the kanban card of a team to see their
-   tickets and create new ones.
+1. Go to *Helpdesk > Overview* to see the agent dashboard with personal
+   KPIs and team kanban cards.
+2. Go to *Helpdesk > Tickets* to manage tickets. In the kanban view,
+   click in the kanban card of a team to see their tickets and create
+   new ones.
 
 |Tickets_Kanban|
 

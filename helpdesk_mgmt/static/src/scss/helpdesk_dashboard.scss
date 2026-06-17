@@ -1,0 +1,59 @@
+@include media-breakpoint-up(md) {
+    .o_helpdesk_mgmt_overview_kanban_view .o_kanban_renderer {
+        --KanbanGroup-width: #{map-get($grid-breakpoints, "xl") * 0.35};
+        --KanbanRecord-width: #{map-get($grid-breakpoints, "xl") * 0.35};
+    }
+}
+
+.o_helpdesk_wrap_kanban_view {
+    flex-basis: 100%;
+    min-height: auto;
+    min-width: 0;
+}
+
+.o_helpdesk_content {
+    min-width: 0;
+    width: 100%;
+
+    .o_kanban_group:not(.o_column_folded) {
+        width: inherit;
+    }
+
+    .o_overview_matrix {
+        border-spacing: map-get($spacers, 1);
+        border-collapse: separate;
+        table-layout: fixed;
+    }
+
+    .o_overview_section_title {
+        @include media-breakpoint-down(md) {
+            font-size: 1em;
+        }
+    }
+
+    .o_overview_priority_star {
+        color: $o-main-favorite-color;
+    }
+}
+
+// Overview kanban: keep the search bar from being clipped on the right.
+.o_helpdesk_mgmt_overview_kanban_view {
+    .o_control_panel_main .o_control_panel_actions {
+        @include media-breakpoint-up(lg) {
+            flex: 1 1 0;
+            min-width: 0;
+            max-width: none;
+            width: auto;
+        }
+    }
+
+    .o_cp_searchview {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .o_searchview {
+        min-width: 0;
+    }
+}
