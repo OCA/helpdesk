@@ -33,3 +33,13 @@ class Company(models.Model):
         string="Auto assign tickets",
         default=True,
     )
+    helpdesk_mgmt_autoreply_ignored_partners = fields.Many2many(
+        comodel_name="res.partner",
+        relation="helpdesk_mgmt_company_autoreply_ignored_partner_rel",
+        column1="company_id",
+        column2="partner_id",
+        string="Auto-reply ignored partners",
+        domain=[("email", "!=", False)],
+        help="Partners whose email address will not receive an automatic reply "
+        "when a helpdesk ticket is created from their email.",
+    )

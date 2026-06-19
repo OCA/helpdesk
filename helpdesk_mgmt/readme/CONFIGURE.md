@@ -67,6 +67,15 @@ in the list view.
 
 ![](../static/description/Tags.PNG)
 
+## Auto-reply Ignore List
+
+To prevent automatic replies from being sent to certain senders (e.g.
+monitoring systems, no-reply addresses, or mailing lists):
+
+1.  Go to *Helpdesk \> Settings*.
+2.  Select one or more contacts in the **Auto-reply ignored partners** field.
+    Only contacts that have an email address are shown.
+
 ## Permissions
 
 There are restrictions to read tickets according to the user's

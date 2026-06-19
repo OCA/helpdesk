@@ -1,5 +1,6 @@
 from odoo import api, fields, models, tools
 from odoo.exceptions import AccessError
+from odoo.tools import email_normalize
 
 
 class HelpdeskTicket(models.Model):
@@ -307,6 +308,16 @@ class HelpdeskTicket(models.Model):
         res = super()._track_template(tracking)
         ticket = self[0]
         if "stage_id" in tracking and ticket.stage_id.mail_template_id:
+            # Skip auto-reply if the sender's email matches an ignored partner
+            ignored_emails = {
+                email_normalize(p.email)
+                for p in ticket.company_id.helpdesk_mgmt_autoreply_ignored_partners
+                if p.email
+            }
+            ignored_emails.discard(False)
+            ticket_email = email_normalize(ticket.partner_email or "")
+            if ticket_email and ticket_email in ignored_emails:
+                return res
             res["stage_id"] = (
                 ticket.stage_id.mail_template_id,
                 {

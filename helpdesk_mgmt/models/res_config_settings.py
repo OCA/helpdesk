@@ -32,3 +32,7 @@ class ResConfigSettings(models.TransientModel):
         related="company_id.helpdesk_mgmt_ticket_auto_assign",
         readonly=False,
     )
+    helpdesk_mgmt_autoreply_ignored_partners = fields.Many2many(
+        related="company_id.helpdesk_mgmt_autoreply_ignored_partners",
+        readonly=False,
+    )

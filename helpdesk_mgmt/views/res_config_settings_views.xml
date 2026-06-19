@@ -115,6 +115,18 @@
                                 </div>
                             </div>
                         </setting>
+                        <setting
+                            id="helpdesk_mgmt_autoreply_ignored_partners"
+                            string="Auto-reply ignored partners"
+                            help="Partners whose email address will never receive an automatic reply when a ticket is created from their email."
+                        >
+                            <field
+                                name="helpdesk_mgmt_autoreply_ignored_partners"
+                                widget="many2many_tags"
+                                domain="[('email', '!=', False)]"
+                                options="{'no_create_edit': True}"
+                            />
+                        </setting>
                     </block>
                 </app>
             </xpath>
