@@ -81,3 +81,35 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         self.assertEqual(ticket_id.name, "Need backup")
         # ensure that the channel is not set
         self.assertFalse(ticket_id.channel_id)
+
+    def _create_stage_template(self):
+        """Attach a minimal mail.template to the 'New' stage and return it."""
+        template = self.env["mail.template"].create(
+            {
+                "name": "Test Welcome Reply",
+                "model_id": self.env.ref("helpdesk_mgmt.model_helpdesk_ticket").id,
+                "subject": "We received your ticket",
+                "body_html": "<p>Thank you for contacting us!</p>",
+            }
+        )
+        self.new_stage.mail_template_id = template
+        return template
+
+    def test_welcome_email_sent_for_normal_email(self):
+        """_track_template includes the stage template for a regular email."""
+        self._create_stage_template()
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Normal customer ticket",
+                "description": "I need help",
+                "team_id": self.team_a.id,
+                "stage_id": self.new_stage.id,
+                "partner_email": "customer@example.com",
+            }
+        )
+        result = ticket._track_template({"stage_id": self.new_stage})
+        self.assertIn(
+            "stage_id",
+            result,
+            "Welcome email should be included for a normal incoming email.",
+        )

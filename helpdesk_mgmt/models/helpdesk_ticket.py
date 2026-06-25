@@ -305,6 +305,8 @@ class HelpdeskTicket(models.Model):
 
     def _track_template(self, tracking):
         res = super()._track_template(tracking)
+        if self._track_template_skip_autoreply():
+            return res
         ticket = self[0]
         if "stage_id" in tracking and ticket.stage_id.mail_template_id:
             res["stage_id"] = (
@@ -320,6 +322,14 @@ class HelpdeskTicket(models.Model):
                 },
             )
         return res
+
+    def _track_template_skip_autoreply(self):
+        """Return True to suppress the stage welcome email for this ticket.
+
+        Override in integration modules to implement auto-reply detection.
+        Returns False by default so no email is suppressed.
+        """
+        return False
 
     @api.model
     def message_new(self, msg, custom_values=None):
