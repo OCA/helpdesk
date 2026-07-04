@@ -209,16 +209,6 @@ msgid "No rating"
 msgstr "Sin puntuación"
 
 #. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__non_conformity_ids
-msgid "Non Conformity"
-msgstr ""
-
-#. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__non_conformity_count
-msgid "Non Conformity Count"
-msgstr ""
-
-#. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of Actions"
 msgstr ""

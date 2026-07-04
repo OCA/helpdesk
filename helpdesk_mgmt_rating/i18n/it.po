@@ -117,9 +117,9 @@ msgstr ""
 "                                <p>Salve,</p>\n"
 "                                <p>chiediamo la cortesia di dedicare qualche "
 "momento per valutare il nostro servizio relativo alla richiesta \"<strong><t "
-"t-out=\"object.number\"></t> - <t t-out=\"object.name\"></t></strong>"
-"\"assegnata a <strong><t t-out=\"object._rating_get_operator().name\"></t></"
-"strong>.</p>\n"
+"t-out=\"object.number\"></t> - <t t-out=\"object.name\"></t></"
+"strong>\"assegnata a <strong><t t-"
+"out=\"object._rating_get_operator().name\"></t></strong>.</p>\n"
 "                                <p>Apprezziamo la sua valutazione. Ci aiuta "
 "a migliorare continuamente.</p>\n"
 "                            </td>\n"
@@ -184,8 +184,8 @@ msgstr ""
 "'stage_change'\">\n"
 "                                    <p>Questo sondaggio cliente è stato "
 "inviato perché la sua richiesta è passata allo stato\n"
-"                                    <b t-out=\"object.stage_id.name or ''\">"
-"In corso</b></p>\n"
+"                                    <b t-out=\"object.stage_id.name or "
+"''\">In corso</b></p>\n"
 "                                </t>\n"
 "                            </td>\n"
 "                        </tr>\n"
@@ -294,16 +294,6 @@ msgstr "Messaggi"
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
 msgid "No rating"
 msgstr "Nessuna valutazione"
-
-#. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__non_conformity_ids
-msgid "Non Conformity"
-msgstr "Non conformità"
-
-#. module: helpdesk_mgmt_rating
-#: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__non_conformity_count
-msgid "Non Conformity Count"
-msgstr "Conteggio non conformità"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
@@ -420,6 +410,12 @@ msgstr "Messaggi sito web"
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
 msgid "Website communication history"
 msgstr "Cronologia comunicazioni sito web"
+
+#~ msgid "Non Conformity"
+#~ msgstr "Non conformità"
+
+#~ msgid "Non Conformity Count"
+#~ msgstr "Conteggio non conformità"
 
 #~ msgid ""
 #~ "<div>\n"
