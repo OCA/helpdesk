@@ -123,7 +123,6 @@ msgstr "Ícone do Font awesome ex. fa-tasks"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
-#: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
 msgid "Generate Helpdesk SLA alerts from cron"
 msgstr "Gerar alertas de SLA da Central de Ajuda a partir do cron"
 
@@ -189,11 +188,6 @@ msgid "Is Follower"
 msgstr "É Seguidor"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
-msgid "Last Modified on"
-msgstr "Última Modificação em"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
 msgid "Last Updated by"
 msgstr "Última Atualização por"
@@ -202,11 +196,6 @@ msgstr "Última Atualização por"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_date
 msgid "Last Updated on"
 msgstr "Última Atualização em"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Anexo Principal"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
@@ -227,6 +216,11 @@ msgstr "Prazo das Minha Atividade"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__name
 msgid "Name"
 msgstr "Nome"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
@@ -267,6 +261,11 @@ msgstr "Número de mensagens que requerem uma ação"
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Numero de mensagens com um erro de entrega"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__rating_ids
+msgid "Ratings"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -379,3 +378,9 @@ msgid ""
 msgstr ""
 "horas\n"
 "                               <br/>"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificação em"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Anexo Principal"

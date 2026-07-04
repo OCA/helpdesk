@@ -98,8 +98,6 @@ msgstr "Descripción de la política..."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__display_name
 msgid "Display Name"
 msgstr "Mostrar Nombre"
 
@@ -114,11 +112,6 @@ msgid "Followers"
 msgstr "Seguidores"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguidores (Canales)"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Seguidores (Contactos)"
@@ -130,10 +123,13 @@ msgstr "Icono de Font awesome ej. fa-task"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
-#: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
-#: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
 msgid "Generate Helpdesk SLA alerts from cron"
 msgstr "Generar alertas SLA del Mesa de Ayuda desde un cron"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
@@ -163,8 +159,6 @@ msgstr "Horas"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__id
 msgid "ID"
 msgstr "ID"
 
@@ -180,7 +174,6 @@ msgstr "Icono para indicar una actividad de excepción."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Si está seleccionado nuevos mensajes necesitan tu atención."
 
@@ -195,13 +188,6 @@ msgid "Is Follower"
 msgstr "Es Seguidor"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
 msgid "Last Updated by"
 msgstr "Última Actualización por"
@@ -210,11 +196,6 @@ msgstr "Última Actualización por"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_date
 msgid "Last Updated on"
 msgstr "Última Actualización el"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_main_attachment_id
-msgid "Main Attachment"
-msgstr "Adjunto Principal"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
@@ -235,6 +216,11 @@ msgstr "Fecha Límite de Mi Actividad"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
@@ -268,8 +254,8 @@ msgstr "Número de errores"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Número de mensajes que requieren acción"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
@@ -277,9 +263,9 @@ msgid "Number of messages with delivery error"
 msgstr "Número de mensajes con errores"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Número de mensajes sin leer"
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__rating_ids
+msgid "Ratings"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -356,16 +342,6 @@ msgid "Type of the exception activity on record."
 msgstr "Tipo de actividad de excepción registrada."
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
-msgid "Unread Messages"
-msgstr "Mensajes por leer"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Contador mensajes por leer"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
 msgid "Use SLA"
 msgstr "Usar SLA"
@@ -402,6 +378,27 @@ msgid ""
 msgstr ""
 "horas\n"
 "                                <br/>"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Seguidores (Canales)"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Adjunto Principal"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Número de mensajes que requieren acción"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Número de mensajes sin leer"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Mensajes por leer"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Contador mensajes por leer"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Error de entrega del SMS"
