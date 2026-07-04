@@ -1103,18 +1103,6 @@ msgid "No tickets found."
 msgstr ""
 
 #. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__non_conformity_ids
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__non_conformity_ids
-msgid "Non Conformity"
-msgstr ""
-
-#. module: helpdesk_mgmt
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__non_conformity_count
-#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__non_conformity_count
-msgid "Non Conformity Count"
-msgstr ""
-
-#. module: helpdesk_mgmt
 #. odoo-python
 #: code:addons/helpdesk_mgmt/controllers/myaccount.py:0
 #, python-format
