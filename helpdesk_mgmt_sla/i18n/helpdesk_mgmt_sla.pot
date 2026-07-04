@@ -235,16 +235,6 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__non_conformity_ids
-msgid "Non Conformity"
-msgstr ""
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__non_conformity_count
-msgid "Non Conformity Count"
-msgstr ""
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__note
 msgid "Note"
 msgstr ""
