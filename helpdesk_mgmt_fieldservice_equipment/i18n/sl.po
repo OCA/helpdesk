@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -25,17 +25,17 @@ msgstr "Oprema"
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment.field_helpdesk_ticket__equipment_stage_id
 msgid "Equipment stage"
-msgstr ""
+msgstr "Stopnja opreme"
 
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model.fields,help:helpdesk_mgmt_fieldservice_equipment.field_helpdesk_ticket__equipment_id
 msgid "Equipment that is used for the helpdesk ticket."
-msgstr ""
+msgstr "Oprema, ki se uporablja za zahtevek za podporo."
 
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_fsm_equipment
 msgid "Field Service Equipment"
-msgstr ""
+msgstr "Oprema terenske službe"
 
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_helpdesk_ticket
@@ -52,4 +52,4 @@ msgstr "Št. zahtevkov za podporo"
 #. odoo-python
 #: code:addons/helpdesk_mgmt_fieldservice_equipment/models/helpdesk_ticket.py:0
 msgid "The location of the ticket and equipment are not the same."
-msgstr ""
+msgstr "Lokacija zahtevka in opreme ni enaka."
