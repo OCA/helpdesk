@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -23,6 +23,9 @@ msgid ""
 "<span class=\"text-muted\">NB: This will archive the selected tickets (Except the destination ticket)\n"
 "                    </span>"
 msgstr ""
+"<span class=\"text-muted\">Opomba: To bo arhiviralo izbrane zahtevke (razen "
+"ciljnega zahtevka)\n"
+"                    </span>"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__user_id
@@ -53,12 +56,12 @@ msgstr "Ustvarjeno"
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "Description from ticket %(name)s: %(description)s"
-msgstr ""
+msgstr "Opis iz zahtevka %(name)s: %(description)s"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_helpdesk_team_id
 msgid "Destination Helpdesk Team"
-msgstr ""
+msgstr "Ciljna ekipa podpore"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__display_name
@@ -68,7 +71,7 @@ msgstr "Prikazani naziv"
 #. module: helpdesk_mgmt_merge
 #: model:ir.model,name:helpdesk_mgmt_merge.model_helpdesk_ticket_merge
 msgid "Helpdesk Ticket Merge"
-msgstr ""
+msgstr "Združitev zahtevkov za podporo"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__id
@@ -88,17 +91,17 @@ msgstr "Zadnjič posodobljeno"
 #. module: helpdesk_mgmt_merge
 #: model:ir.actions.act_window,name:helpdesk_mgmt_merge.action_helpdesk_ticket_merge
 msgid "Merge Helpdesk Tickets"
-msgstr ""
+msgstr "Združi zahtevke za podporo"
 
 #. module: helpdesk_mgmt_merge
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_merge.helpdesk_ticket_merge_view_form
 msgid "Merge Tickets"
-msgstr ""
+msgstr "Združi zahtevke"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_ticket_id
 msgid "Merge into an existing ticket"
-msgstr ""
+msgstr "Združi v obstoječi zahtevek"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__dst_ticket_name
@@ -115,21 +118,21 @@ msgstr "Brez opisa"
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "This helpdesk ticket has been merged %(way)s %(tickets)s"
-msgstr ""
+msgstr "Ta zahtevek za podporo je bil združen %(way)s %(tickets)s"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__ticket_ids
 msgid "Tickets to Merge"
-msgstr ""
+msgstr "Zahtevki za združitev"
 
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "from"
-msgstr ""
+msgstr "iz"
 
 #. module: helpdesk_mgmt_merge
 #. odoo-python
 #: code:addons/helpdesk_mgmt_merge/wizard/helpdesk_ticket_merge.py:0
 msgid "to"
-msgstr ""
+msgstr "v"
