@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,13 +20,13 @@ msgstr ""
 #. module: helpdesk_product
 #: model_terms:ir.ui.view,arch_db:helpdesk_product.product_template_search_view_helpdesk
 msgid "Available for Helpdesk"
-msgstr ""
+msgstr "Na voljo za podporno službo"
 
 #. module: helpdesk_product
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_product__ticket_active
 #: model:ir.model.fields,field_description:helpdesk_product.field_product_template__ticket_active
 msgid "Available for Helpdesk Tickets"
-msgstr ""
+msgstr "Na voljo za podporne zahtevke"
 
 #. module: helpdesk_product
 #: model_terms:ir.actions.act_window,help:helpdesk_product.product_template_action_helpdesk
@@ -61,7 +61,7 @@ msgstr "Proizvod"
 #. module: helpdesk_product
 #: model_terms:ir.ui.view,arch_db:helpdesk_product.helpdesk_ticket_view_search
 msgid "Product Related"
-msgstr ""
+msgstr "Povezani proizvod"
 
 #. module: helpdesk_product
 #: model:ir.model,name:helpdesk_product.model_product_product
@@ -85,3 +85,7 @@ msgid ""
 "You currently have no products available for Helpdesk Tickets. <br> A product can\n"
 "                be either a physical product or a service that you sell to your customers."
 msgstr ""
+"Trenutno nimate na voljo nobenih proizvodov za zahtevke za podporo. <br> "
+"Proizvod je\n"
+"                lahko fizični proizvod ali storitev, ki jo prodajate svojim "
+"strankam."
