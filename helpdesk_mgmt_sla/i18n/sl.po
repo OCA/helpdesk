@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -23,12 +23,14 @@ msgid ""
 "<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"SLA Deadline\" "
 "title=\"SLA Deadline\"/>"
 msgstr ""
+"<i class=\"fa fa-lg fa-clock-o mx-2\" aria-label=\"Rok SLA\" title=\"Rok "
+"SLA\"/>"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__accomplished
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__accomplished
 msgid "Accomplished"
-msgstr ""
+msgstr "Doseženo"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
@@ -64,7 +66,7 @@ msgstr "Ikona tipa aktivnosti"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_ids
 msgid "Applicable SLAs"
-msgstr ""
+msgstr "Veljavni SLA-ji"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -142,7 +144,7 @@ msgstr "Opis"
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "Description of the policy..."
-msgstr ""
+msgstr "Opis pravila..."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
@@ -154,7 +156,7 @@ msgstr "Prikazani naziv"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__expected_stage_id
 msgid "Expected Stage"
-msgstr ""
+msgstr "Pričakovana stopnja"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__expired
@@ -192,17 +194,17 @@ msgstr "Vsebuje sporočilo"
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla
 msgid "Helpdesk SLA"
-msgstr ""
+msgstr "SLA podpore"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_sla_report
 msgid "Helpdesk SLA Report"
-msgstr ""
+msgstr "Poročilo SLA podpore"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.view_helpdesk_sla_search
 msgid "Helpdesk SLA Search"
-msgstr ""
+msgstr "Iskanje SLA podpore"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket
@@ -252,12 +254,12 @@ msgstr ""
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__ignore_stage_ids
 msgid "Ignore Stages"
-msgstr ""
+msgstr "Prezri stopnje"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__on_hold
 msgid "In Hold"
-msgstr ""
+msgstr "Zadržano"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_ticket_sla__state__in_progress
@@ -272,7 +274,7 @@ msgstr "Je sledilec"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__last_state_date
 msgid "Last State Date"
-msgstr ""
+msgstr "Datum zadnjega stanja"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__write_uid
@@ -289,7 +291,7 @@ msgstr "Zadnjič posodobljeno"
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "Leave blank for all companies."
-msgstr ""
+msgstr "Pustite prazno za vse družbe."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error
@@ -361,13 +363,13 @@ msgstr "Število sporočil, ki niso bila pravilno dostavljena"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_sla.selection__helpdesk_sla_report__state__on_going
 msgid "Ongoing"
-msgstr ""
+msgstr "V teku"
 
 #. module: helpdesk_mgmt_sla
 #. odoo-python
 #: code:addons/helpdesk_mgmt_sla/models/helpdesk_ticket_sla.py:0
 msgid "Operator is not valid"
-msgstr ""
+msgstr "Operator ni veljaven"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__rating_ids
@@ -377,7 +379,7 @@ msgstr "Ocene"
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "Reach In"
-msgstr ""
+msgstr "Doseči v"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_user_id
@@ -388,48 +390,48 @@ msgstr "Odgovorni uporabnik"
 #: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "SLA"
-msgstr ""
+msgstr "SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_view_search
 msgid "SLA Expired"
-msgstr ""
+msgstr "Potekel SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_view_search
 msgid "SLA Not Expired"
-msgstr ""
+msgstr "SLA ni potekel"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.helpdesk_sla_report_act_window
 #: model:ir.ui.menu,name:helpdesk_mgmt_sla.helpdesk_sla_report_menu
 msgid "SLA Report"
-msgstr ""
+msgstr "Poročilo SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_deadline
 msgid "SLA deadline"
-msgstr ""
+msgstr "Rok SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_expired
 msgid "SLA expired"
-msgstr ""
+msgstr "Potekel SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.inherit_helpdesk_ticket_view_form
 msgid "Set SLA"
-msgstr ""
+msgstr "Nastavi SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_sla__sla_id
 msgid "Sla"
-msgstr ""
+msgstr "SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__sla_fits
 msgid "Sla Fits"
-msgstr ""
+msgstr "SLA ustreza"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__stage_id
@@ -463,7 +465,7 @@ msgstr "Oznake"
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
 msgid "Target"
-msgstr ""
+msgstr "Cilj"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla_report__team_id
@@ -473,7 +475,7 @@ msgstr "Ekipa"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__team_sla
 msgid "Team SLA"
-msgstr ""
+msgstr "SLA ekipe"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__team_ids
@@ -490,7 +492,7 @@ msgstr "Zahtevek"
 #: model:ir.model,name:helpdesk_mgmt_sla.model_helpdesk_ticket_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__ticket_sla_ids
 msgid "Ticket Sla"
-msgstr ""
+msgstr "SLA zahtevka"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__activity_exception_decoration
@@ -500,7 +502,7 @@ msgstr "Tip izjeme pri aktivnosti na zapisu."
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
 msgid "Use SLA"
-msgstr ""
+msgstr "Uporabi SLA"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__website_message_ids
@@ -515,7 +517,7 @@ msgstr "Kronologija komunikacij spletne strani"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__resource_calendar_id
 msgid "Working Hours"
-msgstr ""
+msgstr "Delovni čas"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
