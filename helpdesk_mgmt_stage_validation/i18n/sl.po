@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: helpdesk_mgmt_stage_validation
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__validate_field_ids
 msgid "Fields to Validate"
-msgstr ""
+msgstr "Polja za preverjanje"
 
 #. module: helpdesk_mgmt_stage_validation
 #: model:ir.model,name:helpdesk_mgmt_stage_validation.model_helpdesk_ticket
@@ -35,7 +35,7 @@ msgstr "Stopnja zahtevka za podporo"
 #. module: helpdesk_mgmt_stage_validation
 #: model:ir.model.fields,help:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__validate_field_ids
 msgid "Select fields which must be set on the document in this stage"
-msgstr ""
+msgstr "Izberite polja, ki morajo biti nastavljena na dokumentu v tej stopnji"
 
 #. module: helpdesk_mgmt_stage_validation
 #. odoo-python
@@ -44,3 +44,5 @@ msgid ""
 "Ticket %(ticket)s can't be moved to the stage %(stage)s until the following "
 "fields are set: %(fields)s."
 msgstr ""
+"Zahtevka %(ticket)s ni mogoče premakniti na stopnjo %(stage)s, dokler niso "
+"nastavljena naslednja polja: %(fields)s."
