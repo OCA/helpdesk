@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -68,17 +68,87 @@ msgid ""
 "            </table>\n"
 "        "
 msgstr ""
+"<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
+"style=\"padding: 20px; background-color: #ededed; border-"
+"collapse:separate;\">\n"
+"                <tbody>\n"
+"                    <!-- HEADER -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
+"color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                                <tr>\n"
+"                                    <td valign=\"middle\" align=\"right\">\n"
+"                                        <img t-att-src=\"'/"
+"logo.png?company=%s' % object.company_id.id\" style=\"padding: 0px; margin: "
+"0px; height: auto; width: 80px;\" t-att-alt=\"'%s' % "
+"object.company_id.name\"/>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <!-- CONTENT -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-"
+"color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;\">\n"
+"                                <tbody>\n"
+"                                    <td valign=\"top\" style=\"font-"
+"family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                        <p>Zahtevek z zadevo \"<t t-"
+"out=\"object.display_name\"/>\" bo zaključen čez <t t-out=\"ctx.get"
+"('remaining_days')\"/> dni, če ne bo posodobljen.</p>\n"
+"                                    </td>\n"
+"                                </tbody>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                    <!-- FOOTER -->\n"
+"                    <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                            <table width=\"590\" border=\"0\" "
+"cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-"
+"color: rgb(135,90,123); padding: 20px; border-collapse:separate;\">\n"
+"                                <tr>\n"
+"                                    <td valign=\"middle\" align=\"left\" "
+"style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: "
+"12px;\">\n"
+"                                        <t t-"
+"out=\"object.company_id.phone\"/>\n"
+"                                    </td>\n"
+"                                    <td valign=\"middle\" align=\"left\" "
+"style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: "
+"12px;\">\n"
+"                                        <t t-"
+"out=\"object.company_id.email\"/>\n"
+"                                    </td>\n"
+"                                    <td valign=\"middle\" align=\"left\" "
+"style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: "
+"12px;\">\n"
+"                                        <t t-"
+"out=\"object.company_id.website\"/>\n"
+"                                    </td>\n"
+"                                </tr>\n"
+"                            </table>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </tbody>\n"
+"            </table>\n"
+"        "
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_tickets
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Automatic closure of inactive tickets"
-msgstr ""
+msgstr "Samodejno zaključevanje neaktivnih zahtevkov"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.actions.server,name:helpdesk_ticket_close_inactive.ir_cron_close_inactive_tickets_ir_actions_server
 msgid "Close Inactive Tickets"
-msgstr ""
+msgstr "Zaključi neaktivne zahtevke"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
@@ -93,7 +163,7 @@ msgstr "Predloga zaključne e-pošte"
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,name:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
 msgid "Helpdesk Inactivity Warning Ticket Notification Email"
-msgstr ""
+msgstr "E-poštno obvestilo podpore z opozorilom o neaktivnosti zahtevka"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model,name:helpdesk_ticket_close_inactive.model_helpdesk_ticket_team
@@ -103,22 +173,22 @@ msgstr "Ekipa podpore"
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
 msgid "Inactive Tickets Day Limit Closing"
-msgstr ""
+msgstr "Dnevna omejitev neaktivnih zahtevkov za zaključek"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
 msgid "Inactive days limit before send a warning"
-msgstr ""
+msgstr "Omejitev dni neaktivnosti pred pošiljanjem opozorila"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Inactivity Warning Notification"
-msgstr ""
+msgstr "Opozorilo o neaktivnosti"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
 msgid "Inactivity warning email template"
-msgstr ""
+msgstr "Predloga e-pošte za opozorilo o neaktivnosti"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
@@ -126,6 +196,8 @@ msgid ""
 "Number of days of inactivity after which the ticket is automatically closed."
 " Must be greater than 0."
 msgstr ""
+"Število dni neaktivnosti, po katerem se zahtevek samodejno zaključi. Mora "
+"biti večje od 0."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
@@ -133,11 +205,13 @@ msgid ""
 "Number of days of inactivity before a warning email is sent. Set to 0 to "
 "disable the warning phase entirely."
 msgstr ""
+"Število dni neaktivnosti pred pošiljanjem opozorilne e-pošte. Nastavite na "
+"0, da v celoti onemogočite fazo opozarjanja."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
 msgid "Set this stage for autoclosing tickets"
-msgstr ""
+msgstr "Nastavite to stopnjo za samodejno zaključevanje zahtevkov"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
@@ -145,6 +219,8 @@ msgid ""
 "Template to be sent as an inactivity warning. Required when the warning day "
 "limit is greater than 0."
 msgstr ""
+"Predloga, ki se pošlje kot opozorilo o neaktivnosti. Obvezna je, ko je "
+"omejitev dni za opozorilo večja od 0."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
@@ -152,6 +228,8 @@ msgid ""
 "Template to be sent when a ticket is automatically closed. Leave empty to "
 "close the ticket silently without sending a notification email."
 msgstr ""
+"Predloga, ki se pošlje, ko se zahtevek samodejno zaključi. Pustite prazno, "
+"da se zahtevek zaključi tiho, brez pošiljanja obvestila po e-pošti."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_stage_ids
@@ -159,6 +237,7 @@ msgid ""
 "The cronjob will check for inactivity in         tickets that are in these "
 "stages."
 msgstr ""
+"Cron opravilo bo preverjalo neaktivnost zahtevkov, ki so na teh stopnjah."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_category_ids
@@ -166,16 +245,20 @@ msgid ""
 "The cronjob will check for inactivity in tickets that belong to these "
 "categories. Leave empty to apply to all categories."
 msgstr ""
+"Cron opravilo bo preverjalo neaktivnost zahtevkov, ki pripadajo tem "
+"kategorijam. Pustite prazno za uporabo na vseh kategorijah."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,subject:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
 msgid "The ticket {{object.number}} will be closed."
-msgstr ""
+msgstr "Zahtevek {{object.number}} bo zaključen."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_tickets
 msgid "This option enables a cronjob to automatically close inactive tickets."
 msgstr ""
+"Ta možnost omogoči cron opravilu samodejno zaključevanje neaktivnih "
+"zahtevkov."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_category_ids
@@ -190,14 +273,14 @@ msgstr "Filter kategorij zahtevkov"
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Ticket Closing"
-msgstr ""
+msgstr "Zaključevanje zahtevkov"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_stage_ids
 msgid "Ticket Stage"
-msgstr ""
+msgstr "Stopnja zahtevka"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Ticket Stage Filter"
-msgstr ""
+msgstr "Filter stopenj zahtevkov"
