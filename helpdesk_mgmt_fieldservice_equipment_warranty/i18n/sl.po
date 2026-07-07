@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,17 +20,17 @@ msgstr ""
 #. module: helpdesk_mgmt_fieldservice_equipment_warranty
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment_warranty.field_helpdesk_ticket__equipment_warranty_end_date
 msgid "Equipment Warranty End Date"
-msgstr ""
+msgstr "Končni datum garancije za opremo"
 
 #. module: helpdesk_mgmt_fieldservice_equipment_warranty
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice_equipment_warranty.helpdesk_ticket_view_service_request_form
 msgid "Equipment Warranty Period"
-msgstr ""
+msgstr "Garancijska doba opreme"
 
 #. module: helpdesk_mgmt_fieldservice_equipment_warranty
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment_warranty.field_helpdesk_ticket__equipment_warranty_start_date
 msgid "Equipment Warranty Start Date"
-msgstr ""
+msgstr "Začetni datum garancije za opremo"
 
 #. module: helpdesk_mgmt_fieldservice_equipment_warranty
 #: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment_warranty.model_helpdesk_ticket
