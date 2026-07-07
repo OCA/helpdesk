@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket__project_domain_ids
 msgid "Available Projects"
-msgstr ""
+msgstr "Projekti na voljo"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket__task_domain_ids
@@ -30,7 +30,7 @@ msgstr "Opravila na voljo"
 #. module: helpdesk_mgmt_project_domain
 #: model:helpdesk.ticket.team,name:helpdesk_mgmt_project_domain.demo_helpdesk_team_experiment
 msgid "Client Projects Team"
-msgstr ""
+msgstr "Ekipa za projekte strank"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model,name:helpdesk_mgmt_project_domain.model_res_company
@@ -45,7 +45,7 @@ msgstr "Nastavitve"
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
 msgid "Domain to filter projects available for selection in tickets"
-msgstr ""
+msgstr "Domena za filtriranje projektov, ki so na voljo za izbiro v zahtevkih"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain
@@ -54,11 +54,14 @@ msgid ""
 "will be automatically combined with company domain using AND. Example: "
 "[('active', '=', True), ('partner_id', '!=', False)]"
 msgstr ""
+"Domena za filtriranje projektov, ki so na voljo za izbiro v zahtevkih. Ta "
+"domena bo samodejno združena z domeno družbe z uporabo AND. Primer: ["
+"('active', '=', True), ('partner_id', '!=', False)]"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
 msgid "Domain to filter tasks available for selection in tickets"
-msgstr ""
+msgstr "Domena za filtriranje opravil, ki so na voljo za izbiro v zahtevkih"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain
@@ -67,6 +70,9 @@ msgid ""
 "be automatically combined with company domain using AND. Example: "
 "[('active', '=', True), ('project_id', '!=', False)]"
 msgstr ""
+"Domena za filtriranje opravil, ki so na voljo za izbiro v zahtevkih. Ta "
+"domena bo samodejno združena z domeno družbe z uporabo AND. Primer: ["
+"('active', '=', True), ('project_id', '!=', False)]"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
@@ -75,11 +81,14 @@ msgid ""
 "company and team domains using AND. Available variables: ticket, env, user, "
 "company, AND, OR, normalize."
 msgstr ""
+"Tukaj vnesite Python kodo. Ta domena bo samodejno združena z domenami družbe "
+"in ekipe z uporabo AND. Razpoložljive spremenljivke: ticket, env, user, "
+"company, AND, OR, normalize."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:helpdesk.ticket.team,name:helpdesk_mgmt_project_domain.demo_helpdesk_team_external
 msgid "External Projects Team"
-msgstr ""
+msgstr "Ekipa za zunanje projekte"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
@@ -87,6 +96,10 @@ msgid ""
 "Global domain to filter projects available for selection in helpdesk tickets.\n"
 "                                    This will be applied if no specific domain is set in the team."
 msgstr ""
+"Globalna domena za filtriranje projektov, ki so na voljo za izbiro v "
+"zahtevkih za podporo.\n"
+"                                    Uporabljena bo, če za ekipo ni "
+"nastavljena posebna domena."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_project_domain
@@ -96,6 +109,9 @@ msgid ""
 "will be applied if no specific domain is set in the team. Example: "
 "[('active', '=', True), ('partner_id', '!=', False)]"
 msgstr ""
+"Globalna domena za filtriranje projektov, ki so na voljo za izbiro v "
+"zahtevkih. Uporabljena bo, če za ekipo ni nastavljena posebna domena. "
+"Primer: [('active', '=', True), ('partner_id', '!=', False)]"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
@@ -103,6 +119,10 @@ msgid ""
 "Global domain to filter tasks available for selection in helpdesk tickets.\n"
 "                                    This will be applied if no specific domain is set in the team."
 msgstr ""
+"Globalna domena za filtriranje opravil, ki so na voljo za izbiro v zahtevkih "
+"za podporo.\n"
+"                                    Uporabljena bo, če za ekipo ni "
+"nastavljena posebna domena."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_task_domain
@@ -112,6 +132,9 @@ msgid ""
 "be applied if no specific domain is set in the team. Example: [('active', "
 "'=', True), ('project_id', '!=', False)]"
 msgstr ""
+"Globalna domena za filtriranje opravil, ki so na voljo za izbiro v "
+"zahtevkih. Uporabljena bo, če za ekipo ni nastavljena posebna domena. "
+"Primer: [('active', '=', True), ('project_id', '!=', False)]"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model,name:helpdesk_mgmt_project_domain.model_helpdesk_ticket
@@ -131,12 +154,12 @@ msgstr "Ekipa za interne projekte"
 #. module: helpdesk_mgmt_project_domain
 #: model:helpdesk.ticket.team,name:helpdesk_mgmt_project_domain.demo_helpdesk_team_mixed
 msgid "Mixed Projects Team"
-msgstr ""
+msgstr "Ekipa za mešane projekte"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
 msgid "Project & Task Domain Configuration"
-msgstr ""
+msgstr "Nastavitev domen projektov in opravil"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain
@@ -144,23 +167,23 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
 msgid "Project Domain"
-msgstr ""
+msgstr "Domena projekta"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain_python
 msgid "Project Domain Python Code"
-msgstr ""
+msgstr "Python koda domene projekta"
 
 #. module: helpdesk_mgmt_project_domain
 #. odoo-python
 #: code:addons/helpdesk_mgmt_project_domain/models/helpdesk_ticket_team.py:0
 msgid "Project Domain Python Code: %s"
-msgstr ""
+msgstr "Python koda domene projekta: %s"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket__project_domain_ids
 msgid "Projects available for selection based on domain rules"
-msgstr ""
+msgstr "Projekti, ki so na voljo za izbiro glede na pravila domene"
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
@@ -170,6 +193,11 @@ msgid ""
 "AND. Available variables: ticket, env, user, company, AND, OR, normalize. "
 "The code can either assign to 'domain' variable OR return a list directly."
 msgstr ""
+"Python koda za ustvarjanje dinamične domene projekta na podlagi podatkov "
+"zahtevka. Ta domena bo samodejno združena z domenami družbe in ekipe z "
+"uporabo AND. Razpoložljive spremenljivke: ticket, env, user, company, AND, "
+"OR, normalize. Koda lahko bodisi dodeli vrednost spremenljivki 'domain' "
+"bodisi neposredno vrne seznam."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain_python
@@ -180,6 +208,11 @@ msgid ""
 "directly. Available variables: ticket, env, user, company, AND, OR, "
 "normalize."
 msgstr ""
+"Python koda za ustvarjanje dinamične domene projekta na podlagi podatkov "
+"zahtevka. Ta domena bo samodejno združena z domenami družbe in ekipe z "
+"uporabo AND. Koda lahko bodisi dodeli vrednost spremenljivki 'domain' bodisi "
+"neposredno vrne seznam. Razpoložljive spremenljivke: ticket, env, user, "
+"company, AND, OR, normalize."
 
 #. module: helpdesk_mgmt_project_domain
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
@@ -189,6 +222,11 @@ msgid ""
 "AND. Available variables: ticket, env, user, company, AND, OR, normalize. "
 "The code can either assign to 'domain' variable OR return a list directly."
 msgstr ""
+"Python koda za ustvarjanje dinamične domene opravila na podlagi podatkov "
+"zahtevka. Ta domena bo samodejno združena z domenami družbe in ekipe z "
+"uporabo AND. Razpoložljive spremenljivke: ticket, env, user, company, AND, "
+"OR, normalize. Koda lahko bodisi dodeli vrednost spremenljivki 'domain' "
+"bodisi neposredno vrne seznam."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain_python
@@ -199,6 +237,11 @@ msgid ""
 "directly. Available variables: ticket, env, user, company, AND, OR, "
 "normalize."
 msgstr ""
+"Python koda za ustvarjanje dinamične domene opravila na podlagi podatkov "
+"zahtevka. Ta domena bo samodejno združena z domenami družbe in ekipe z "
+"uporabo AND. Koda lahko bodisi dodeli vrednost spremenljivki 'domain' bodisi "
+"neposredno vrne seznam. Razpoložljive spremenljivke: ticket, env, user, "
+"company, AND, OR, normalize."
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain
@@ -211,15 +254,15 @@ msgstr "Domena opravila"
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain_python
 msgid "Task Domain Python Code"
-msgstr ""
+msgstr "Python koda domene opravila"
 
 #. module: helpdesk_mgmt_project_domain
 #. odoo-python
 #: code:addons/helpdesk_mgmt_project_domain/models/helpdesk_ticket_team.py:0
 msgid "Task Domain Python Code: %s"
-msgstr ""
+msgstr "Python koda domene opravila: %s"
 
 #. module: helpdesk_mgmt_project_domain
 #: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket__task_domain_ids
 msgid "Tasks available for selection based on domain rules"
-msgstr ""
+msgstr "Opravila, ki so na voljo za izbiro glede na pravila domene"
