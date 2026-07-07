@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 07:38+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -84,6 +84,93 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
+"<div>\n"
+"                <t t-set=\"access_token\" t-"
+"value=\"object._rating_get_access_token()\"/>\n"
+"                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" "
+"width=\"590\" style=\"width:100%; margin:0px auto;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:15px 20px 10px 20px;\">\n"
+"                                <p>Pozdravljeni,</p>\n"
+"                                <p>Prosimo, vzemite si trenutek in ocenite "
+"naše storitve v zvezi z zahtevkom \"<strong><t t-out=\"object.number\"/> - "
+"<t t-out=\"object.name\"/></strong>\", dodeljenim uporabniku <strong>\n"
+"                                    <t t-out=\"object._rating_get_operator()"
+".name\"/>\n"
+"                                </strong>.</p>\n"
+"                                <p>Cenimo vaše povratne informacije. "
+"Pomagajo nam pri stalnih izboljšavah.</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                        <tr>\n"
+"                            <td style=\"padding:10px 20px\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" "
+"cellspacing=\"0\" width=\"590\" summary=\"o_mail_notification\" "
+"style=\"width:100%; margin: 32px 0px 32px 0px;\">\n"
+"                                    <tr>\n"
+"                                        <td style=\"text-align:center;\">\n"
+"                                            <h2 style=\"font-weight:300;font-"
+"size:18px;\">Povejte nam, kako ste zadovoljni z našo storitvijo:</h2>\n"
+"                                            <div style=\"text-color: "
+"#888888\">(kliknite enega od teh smeškov)</div>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                    <tr>\n"
+"                                        <td style=\"padding:10px 10px;\">\n"
+"                                            <table style=\"width:100%;text-"
+"align:center;margin-top:2rem;\">\n"
+"                                                <tr>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/5\">\n"
+"                                                            <img "
+"alt=\"Zadovoljen\" src=\"/rating/static/src/img/rating_5.png\" "
+"title=\"Zadovoljen\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/3\">\n"
+"                                                            <img "
+"alt=\"Nezadovoljen\" src=\"/rating/static/src/img/rating_3.png\" "
+"title=\"Nezadovoljen\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                    <td>\n"
+"                                                        <a t-attf-href=\"/"
+"rate/{{ access_token }}/1\">\n"
+"                                                            <img alt=\"Zelo "
+"nezadovoljen\" src=\"/rating/static/src/img/rating_1.png\" title=\"Zelo "
+"nezadovoljen\"/>\n"
+"                                                        </a>\n"
+"                                                    </td>\n"
+"                                                </tr>\n"
+"                                            </table>\n"
+"                                        </td>\n"
+"                                    </tr>\n"
+"                                </table>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                <table style=\"width:600px;margin:auto;text-"
+"align:center;font-size:12px;\">\n"
+"                    <tbody>\n"
+"                        <tr>\n"
+"                            <td style=\"padding-top:10px;color:#afafaf;\">\n"
+"                                <t t-if=\"object.rating_status == "
+"'stage_change'\">\n"
+"                                    <p>Ta anketa za stranke je bila poslana, "
+"ker je bil vaš zahtevek premaknjen na stopnjo <b t-"
+"out=\"object.stage_id.name\"/></p>\n"
+"                                </t>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </div>\n"
+"        "
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
@@ -91,6 +178,8 @@ msgid ""
 "<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Percentage of "
 "satisfaction\" title=\"Percentage of satisfaction\"/>"
 msgstr ""
+"<i class=\"fa fa-smile-o\" role=\"img\" aria-label=\"Odstotek zadovoljstva\" "
+"title=\"Odstotek zadovoljstva\"/>"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
@@ -113,7 +202,7 @@ msgstr "Povprečna ocena"
 #: model:ir.ui.menu,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_menu
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.view_helpdesk_ticket_kanban_inherit
 msgid "Customer Rating"
-msgstr ""
+msgstr "Ocena stranke"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_follower_ids
@@ -143,7 +232,7 @@ msgstr "Stopnja zahtevka za podporo"
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,name:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Helpdesk Ticket: Rating Request"
-msgstr ""
+msgstr "Zahtevek za podporo: zahteva za oceno"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction
@@ -163,6 +252,8 @@ msgid ""
 "If set, an email will be sent to the customer  with a rating survey when the"
 " ticket reaches this stage."
 msgstr ""
+"Če je nastavljeno, se stranki pošlje e-pošta z anketo za oceno, ko zahtevek "
+"doseže to stopnjo."
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_is_follower
@@ -182,7 +273,7 @@ msgstr "Sporočila"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
 msgid "No rating"
-msgstr ""
+msgstr "Brez ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
@@ -207,7 +298,7 @@ msgstr "Število sporočil, ki niso bila pravilno dostavljena"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__positive_rate_percentage
 msgid "Positive Rates Percentage"
-msgstr ""
+msgstr "Odstotek pozitivnih ocen"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
@@ -217,37 +308,37 @@ msgstr "Ocena"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg_text
 msgid "Rating Avg Text"
-msgstr ""
+msgstr "Besedilo povprečne ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
 msgid "Rating Email Template"
-msgstr ""
+msgstr "Predloga e-pošte za ocenjevanje"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr ""
+msgstr "Zadnja povratna informacija ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_image
 msgid "Rating Last Image"
-msgstr ""
+msgstr "Zadnja slika ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_value
 msgid "Rating Last Value"
-msgstr ""
+msgstr "Zadnja vrednost ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_percentage_satisfaction
 msgid "Rating Satisfaction"
-msgstr ""
+msgstr "Zadovoljstvo ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_text
 msgid "Rating Text"
-msgstr ""
+msgstr "Besedilo ocene"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
@@ -257,7 +348,7 @@ msgstr "Št. ocen"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__stage_change
 msgid "Rating when changing stage"
-msgstr ""
+msgstr "Ocenjevanje ob spremembi stopnje"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_ids
@@ -269,24 +360,24 @@ msgstr "Ocene"
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Satisfaction Survey of the ticket {{object.number}} - {{object.name}}"
-msgstr ""
+msgstr "Anketa o zadovoljstvu za zahtevek {{object.number}} - {{object.name}}"
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
 msgid "There are no rated tickets at this moment."
-msgstr ""
+msgstr "Trenutno ni ocenjenih zahtevkov."
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
 msgid "There are no ratings for this ticket at the moment."
-msgstr ""
+msgstr "Trenutno za ta zahtevek ni ocen."
 
 #. module: helpdesk_mgmt_rating
 #. odoo-python
 #: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
 #: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
 msgid "Ticket Rating"
-msgstr ""
+msgstr "Ocena zahtevka"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
