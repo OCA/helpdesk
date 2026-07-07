@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -72,12 +72,12 @@ msgstr "Zadnjič posodobljeno"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
 msgid "Link Sale Orders"
-msgstr ""
+msgstr "Poveži prodajne naloge"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model,name:helpdesk_mgmt_sale.model_helpdesk_ticket_link_sale_order_wizard
 msgid "Link Sale Orders to Helpdesk Ticket"
-msgstr ""
+msgstr "Poveži prodajne naloge s podpornim zahtevkom"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
@@ -109,7 +109,7 @@ msgstr "Zahtevek"
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
 msgid "Ticket sales orders"
-msgstr ""
+msgstr "Prodajni nalogi zahtevka"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
