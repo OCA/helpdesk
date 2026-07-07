@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-08-19 16:27+0000\n"
+"PO-Revision-Date: 2026-07-07 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
@@ -129,7 +129,7 @@ msgstr "Genera avvisi SLA Helpdesk da cron"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Ha un messaggio"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
@@ -220,7 +220,7 @@ msgstr "Nome"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_calendar_event_id
 msgid "Next Activity Calendar Event"
-msgstr ""
+msgstr "Evento calendario attività successiva"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
@@ -255,7 +255,7 @@ msgstr "Numero di errori"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
@@ -265,7 +265,7 @@ msgstr "Numero di messaggi con errore di consegna"
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__rating_ids
 msgid "Ratings"
-msgstr ""
+msgstr "Valutazioni"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
