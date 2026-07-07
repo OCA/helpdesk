@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -35,7 +35,7 @@ msgstr "Prikazani naziv"
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_motive
 msgid "Helpdesk Motive"
-msgstr ""
+msgstr "Motiv podpore"
 
 #. module: helpdesk_motive
 #: model:ir.model.fields,field_description:helpdesk_motive.field_helpdesk_ticket_motive__team_id
@@ -50,7 +50,7 @@ msgstr "Zahtevek za podporo"
 #. module: helpdesk_motive
 #: model:ir.actions.act_window,name:helpdesk_motive.action_helpdesk_ticket_motive_tree
 msgid "Helpdesk Ticket Motive"
-msgstr ""
+msgstr "Motiv zahtevka podpore"
 
 #. module: helpdesk_motive
 #: model:ir.model,name:helpdesk_motive.model_helpdesk_ticket_team
