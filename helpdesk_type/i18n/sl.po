@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,16 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_type
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.portal_helpdesk_ticket_page
 msgid "<strong>Type:</strong>"
-msgstr ""
+msgstr "<strong>Tip:</strong>"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__active
 msgid "Active"
-msgstr ""
+msgstr "Aktivno"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__show_in_portal
@@ -33,27 +35,27 @@ msgstr ""
 #. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Družbe"
 
 #. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Ustvaril"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Ustvarjeno"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Prikazani naziv"
 
 #. module: helpdesk_type
 #: model:helpdesk.ticket.type,name:helpdesk_type.helpdesk_type_1
@@ -63,43 +65,43 @@ msgstr ""
 #. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Zahtevek za podporo"
 
 #. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Ekipa podpore"
 
 #. module: helpdesk_type
 #: model:ir.actions.act_window,name:helpdesk_type.action_helpdesk_ticket_type
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket_type
 msgid "Helpdesk Ticket Type"
-msgstr ""
+msgstr "Tip zahtevka za podporo"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Helpdesk teams allowed to use this type."
-msgstr ""
+msgstr "Ekipe podpore, ki lahko uporabljajo ta tip."
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Zadnji posodobil"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Zadnjič posodobljeno"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__name
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_res_company__helpdesk_mgmt_portal_type_id_required
@@ -123,17 +125,17 @@ msgstr ""
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Teams"
-msgstr ""
+msgstr "Ekipe"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__type_ids
 msgid "Ticket Type"
-msgstr ""
+msgstr "Tip zahtevka"
 
 #. module: helpdesk_type
 #: model:ir.ui.menu,name:helpdesk_type.helpdesk_ticket_type
 msgid "Ticket Types"
-msgstr ""
+msgstr "Tipi zahtevkov"
 
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
@@ -141,6 +143,8 @@ msgid ""
 "Ticket Types the team will use. This team's tickets will only be able to use"
 " those types."
 msgstr ""
+"Tipi zahtevkov, ki jih bo ekipa uporabljala. Zahtevki te ekipe bodo lahko "
+"uporabljali le te tipe."
 
 #. module: helpdesk_type
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__type_id
@@ -150,4 +154,4 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.portal_ticket_list
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.res_config_settings_view_form_inherit_select_type
 msgid "Type"
-msgstr ""
+msgstr "Tip"
