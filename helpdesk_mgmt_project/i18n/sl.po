@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -52,7 +52,7 @@ msgstr "Mejnik"
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_project.action_view_helpdesk_ticket_for_milestone
 msgid "No tickets found. Let's create one!"
-msgstr ""
+msgstr "Ni najdenih zahtevkov. Ustvarimo enega!"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__todo_ticket_count
