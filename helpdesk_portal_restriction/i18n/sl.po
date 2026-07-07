@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,6 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_category_ids
@@ -21,32 +23,32 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_category_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_users__helpdesk_category_ids
 msgid "Available category"
-msgstr ""
+msgstr "Kategorija na voljo"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_location__helpdesk_team_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_fsm_person__helpdesk_team_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_res_partner__helpdesk_team_ids
 msgid "Available teams"
-msgstr ""
+msgstr "Ekipe na voljo"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model,name:helpdesk_portal_restriction.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Stik"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model,name:helpdesk_portal_restriction.model_helpdesk_ticket_category
 msgid "Helpdesk Ticket Category"
-msgstr ""
+msgstr "Kategorija zahtevka za podporo"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model,name:helpdesk_portal_restriction.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Ekipa podpore"
 
 #. module: helpdesk_portal_restriction
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_helpdesk_ticket_category__helpdesk_category_partner_ids
 #: model:ir.model.fields,field_description:helpdesk_portal_restriction.field_helpdesk_ticket_team__helpdesk_partner_ids
 msgid "Partners"
-msgstr ""
+msgstr "Partnerji"
