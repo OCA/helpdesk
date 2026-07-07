@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -14,22 +15,23 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model,name:helpdesk_mgmt_activity.model_mail_activity
 msgid "Activity"
-msgstr ""
+msgstr "Aktivnost"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
 msgid "Activity Config"
-msgstr ""
+msgstr "Nastavitve aktivnosti"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
 msgid "Activity Type is not set!"
-msgstr ""
+msgstr "Tip aktivnosti ni nastavljen!"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,help:helpdesk_mgmt_activity.field_mail_activity__ticket_id
@@ -47,7 +49,7 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__assigned_user_id
 msgid "Assigned User"
-msgstr ""
+msgstr "Zadolžen"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
@@ -59,7 +61,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
 msgid "Available Models"
-msgstr ""
+msgstr "Modeli na voljo"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,help:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
@@ -75,13 +77,13 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model,name:helpdesk_mgmt_activity.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Nastavitve"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
 msgid "Date Deadline is not set!"
-msgstr ""
+msgstr "Rok izvedbe ni nastavljen!"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
@@ -91,7 +93,7 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__date_deadline
 msgid "Due Date"
-msgstr ""
+msgstr "Datum zapadlosti"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
@@ -101,17 +103,17 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Zahtevek za podporo"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "Ekipa podpore"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__is_new_stage
 msgid "Is New Stage"
-msgstr ""
+msgstr "Je nova stopnja"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
@@ -126,7 +128,7 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__next_stage_id
 msgid "Next Stage"
-msgstr ""
+msgstr "Naslednja stopnja"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
@@ -147,7 +149,7 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_id
 msgid "Source Document"
-msgstr ""
+msgstr "Izvorni dokument"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_model
@@ -168,7 +170,7 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__ticket_id
 msgid "Ticket"
-msgstr ""
+msgstr "Zahtevek"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
