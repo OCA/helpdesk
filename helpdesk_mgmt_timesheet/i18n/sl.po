@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:10+0000\n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -97,7 +97,7 @@ msgstr "Ekipa podpore"
 #. module: helpdesk_mgmt_timesheet
 #: model:project.project,name:helpdesk_mgmt_timesheet.project_1
 msgid "Helpdesk general project"
-msgstr ""
+msgstr "Splošni projekt podpore"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
@@ -112,12 +112,12 @@ msgstr "Kaže katere gumbe časovne kontrole se prikazuje, če sploh katerega."
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__last_timesheet_activity
 msgid "Last Timesheet Activity"
-msgstr ""
+msgstr "Zadnja aktivnost časovnice"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
 msgid "Late"
-msgstr ""
+msgstr "Zamuja"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__planned_hours
@@ -147,17 +147,17 @@ msgstr "Prikaži časovno kontrolo"
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
 msgid "Show Timesheet Portal"
-msgstr ""
+msgstr "Prikaži časovnico na portalu"
 
 #. module: helpdesk_mgmt_timesheet
 #: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
 msgid "Show spent time of tickets in the portal"
-msgstr ""
+msgstr "Prikaži porabljeni čas zahtevkov v portalu"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_ticket_list
 msgid "Spent Time"
-msgstr ""
+msgstr "Porabljeni čas"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
@@ -239,7 +239,7 @@ msgstr "Skupaj ur"
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
 msgid "With activity today"
-msgstr ""
+msgstr "Z današnjo aktivnostjo"
 
 #. module: helpdesk_mgmt_timesheet
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
