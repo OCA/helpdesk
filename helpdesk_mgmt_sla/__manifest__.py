@@ -10,7 +10,9 @@
     "version": "17.0.1.0.0",
     "depends": ["base", "helpdesk_mgmt", "resource"],
     "data": [
-        "data/helpdesk_sla_cron.xml",
+        "security/helpdesk_sla_security.xml",
+        "views/helpdesk_sla_report.xml",
+        "views/helpdesk_ticket_sla.xml",
         "security/ir.model.access.csv",
         "views/helpdesk_sla_views.xml",
         "views/helpdesk_ticket_views.xml",
