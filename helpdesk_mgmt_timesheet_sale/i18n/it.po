@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_timesheet_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model,name:helpdesk_mgmt_timesheet_sale.model_account_analytic_line
+msgid "Analytic Line"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet_sale.field_helpdesk_ticket__allow_billable
+msgid "Billable"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model,name:helpdesk_mgmt_timesheet_sale.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet_sale.field_helpdesk_ticket__sale_order_id
+msgid "Sales Order"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet_sale.field_helpdesk_ticket__sale_line_id
+msgid "Sales Order Item"
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet_sale.field_helpdesk_ticket__sale_line_id
+msgid ""
+"Sales Order Item to which the time spent on this task will be added in order to be invoiced to your customer.\n"
+"By default the sales order item set on the project will be selected. In the absence of one, the last prepaid sales order item that has time remaining will be used.\n"
+"Remove the sales order item in order to make this task non billable. You can also change or remove the sales order item of each timesheet entry individually."
+msgstr ""
+
+#. module: helpdesk_mgmt_timesheet_sale
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet_sale.field_helpdesk_ticket__sale_order_id
+msgid "Sales order to which the task is linked."
+msgstr ""
