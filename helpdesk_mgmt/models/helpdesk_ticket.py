@@ -20,7 +20,11 @@ class HelpdeskTicket(models.Model):
     @api.depends("team_id")
     def _compute_stage_id(self):
         for ticket in self:
-            ticket.stage_id = ticket.team_id._get_applicable_stages()[:1]
+            applicable_stages = ticket.team_id._get_applicable_stages()
+            # Keep the current stage if it is still applicable in the newly assigned team.
+            if ticket.stage_id and ticket.stage_id in applicable_stages:
+                continue
+            ticket.stage_id = applicable_stages[:1]
 
     @api.depends("team_id")
     def _compute_user_id(self):

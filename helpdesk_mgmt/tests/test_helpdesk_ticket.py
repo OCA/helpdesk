@@ -173,6 +173,37 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         new_ticket.team_id = False
         self.assertEqual(new_ticket.stage_id, self.new_stage)
 
+    def test_ticket_stage_preserved_on_team_change(self):
+        """Stage should not change when re-assigning to another team
+        if the current stage is available in the new team as well.
+        """
+        # Create a stage shared between both teams
+        shared_stage = self.env["helpdesk.ticket.stage"].create(
+            {
+                "name": "In Progress (shared)",
+                "sequence": 5,
+                "team_ids": [(6, 0, [self.team_a.id, self.team_b.id])],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "New Ticket",
+                "description": "Description",
+                "team_id": self.team_a.id,
+                "stage_id": shared_stage.id,
+            }
+        )
+        self.assertEqual(ticket.stage_id, shared_stage)
+        # Change the team to one that also has the current stage available.
+        # The stage should remain unchanged (no reset back to "New").
+        ticket.team_id = self.team_b
+        self.assertEqual(
+            ticket.stage_id,
+            shared_stage,
+            "Helpdesk Ticket: The stage should not change when re-assigning "
+            "to another team if the stage is available in both teams.",
+        )
+
     def test_ticket_without_team(self):
         new_ticket = self.env["helpdesk.ticket"].create(
             {
