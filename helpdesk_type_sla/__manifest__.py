@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Type SLA",
     "summary": "Helpdesk Type SLA",
-    "version": "18.0.1.0.0",
+    "version": "17.0.1.0.0",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "category": "HelpDesk Service",
