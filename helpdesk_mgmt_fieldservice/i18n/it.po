@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-03-19 18:45+0000\n"
+"PO-Revision-Date: 2026-07-20 09:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -49,7 +49,7 @@ msgstr "Contatto"
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
 msgid "Create FSM Order"
-msgstr "Crea ordini FSM"
+msgstr "Crea ordine FSM"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_fieldservice.action_fsm_location_ticket
