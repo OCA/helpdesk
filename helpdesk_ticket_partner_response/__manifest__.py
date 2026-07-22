@@ -3,7 +3,7 @@
 {
     "name": "Helpdesk Ticket Partner Response",
     "summary": "Change ticket stage when partner response",
-    "version": "18.0.1.1.1",
+    "version": "18.0.1.1.2",
     "category": "Helpdesk",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Antoni Marroig, APSL-Nagarro, Odoo Community Association (OCA)",
