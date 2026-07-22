@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_ticket_fsm_user,helpdesk.ticket.fsm.user,model_helpdesk_ticket,fieldservice.group_fsm_user,1,0,0,0
+access_fsm_order_close_wizard,fsm.order.close.wizard,model_fsm_order_close_wizard,fieldservice.group_fsm_user,1,1,1,0

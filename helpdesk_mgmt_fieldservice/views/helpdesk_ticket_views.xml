@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2019 Open Source Integrators
+     Copyright 2020 - TODAY, Marcel Savegnago - Escodoo
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="helpdesk_ticket_view_service_request_form" model="ir.ui.view">
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <page name="other_info" position="after">
+                <page string="Service Orders">
+                    <button
+                        name="action_create_order"
+                        string="Create FSM Order"
+                        type="object"
+                        class="btn btn-primary mb8"
+                    />
+                    <field name="fsm_order_ids">
+                        <list create="false" editable="top" open_form_view="True">
+                            <field name="name" readonly="True" />
+                            <field name="location_id" readonly="True" />
+                            <field name="stage_id" readonly="True" />
+                            <field name="person_id" />
+                            <field name="scheduled_date_start" readonly="True" />
+                            <field name="scheduled_date_end" readonly="True" />
+                            <field name="scheduled_duration" readonly="True" />
+                        </list>
+                    </field>
+                </page>
+            </page>
+            <field name="partner_id" position="after">
+                <field name="fsm_location_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_search_closed_orders" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.service.form.logic</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <filter name="open" position="after">
+                <filter
+                    string="Closed FSM Orders"
+                    domain="[('stage_id.closed', '=', False), ('fsm_order_ids', 'any', [('stage_id.is_closed', '=', False)])]"
+                    name="closed_fsm_order"
+                />
+            </filter>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_view_form_logic" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.service.form.logic</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="priority">99</field>
+        <field name="arch" type="xml">
+            <field name="partner_name" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="partner_email" position="attributes">
+                <attribute name="invisible">not partner_id</attribute>
+            </field>
+            <field name="description" position="replace">
+                <group string="Description" name="description_grp">
+                    <field name="description" widget="html" />
+                </group>
+                <group string="Resolution" name="resolution_grp">
+                    <field name="resolution" />
+                </group>
+            </field>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_tree_view_location" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.list.location</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_name" position="after">
+                <field name="fsm_location_id" />
+            </field>
+        </field>
+    </record>
+
+    <record id="helpdesk_ticket_search_view_location" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.location</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="fsm_location_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
