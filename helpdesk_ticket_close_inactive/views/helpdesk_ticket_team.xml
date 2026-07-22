@@ -24,7 +24,7 @@
                             <field
                                 name="warning_inactive_mail_template_id"
                                 domain="[('model', '=', 'helpdesk.ticket')]"
-                                required="inactive_tickets_day_limit_warning > 0"
+                                required="close_inactive_tickets and inactive_tickets_day_limit_warning > 0"
                                 invisible="inactive_tickets_day_limit_warning == 0"
                             />
                         </group>
