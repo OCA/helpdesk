@@ -52,6 +52,7 @@ addon | version | maintainers | summary
 [helpdesk_timesheet_time_type](helpdesk_timesheet_time_type/) | 18.0.1.0.1 | <a href='https://github.com/lbarry-apsl'><img src='https://github.com/lbarry-apsl.png' width='32' height='32' style='border-radius:50%;' alt='lbarry-apsl'/></a> | Helpdesk Timesheet Time Type
 [helpdesk_type](helpdesk_type/) | 18.0.1.2.1 | <a href='https://github.com/nelsonramirezs'><img src='https://github.com/nelsonramirezs.png' width='32' height='32' style='border-radius:50%;' alt='nelsonramirezs'/></a> <a href='https://github.com/max3903'><img src='https://github.com/max3903.png' width='32' height='32' style='border-radius:50%;' alt='max3903'/></a> | Add a type to your tickets
 [helpdesk_type_sla](helpdesk_type_sla/) | 18.0.1.0.0 |  | Helpdesk Type SLA
+[website_helpdesk_mgmt](website_helpdesk_mgmt/) | 18.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Website Helpdesk Mgmt
 
 [//]: # (end addons)
 
