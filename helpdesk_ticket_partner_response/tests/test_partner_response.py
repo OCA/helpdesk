@@ -61,6 +61,13 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
                 "autopupdate_dest_stage_id": cls.stage_done.id,
             }
         )
+        # Plain partner with no Odoo user account (used for Branch 3/4 tests)
+        cls.external_partner = cls.env["res.partner"].create(
+            {
+                "name": "External Customer",
+                "email": "external@example.com",
+            }
+        )
 
     def _create_ticket(self, team, partner):
         ticket = self.env["helpdesk.ticket"].create(
@@ -83,6 +90,23 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
             subject="Your ticket has been created !!",
             email_from=self.partner_portal.email,
             msg_id="168242744424.20.2028152230359369389@dd607af32154",
+        )
+        MailThread.message_process(
+            model="helpdesk.ticket",
+            message=message,
+            save_original=False,
+            strip_attachments=True,
+            thread_id=self.ticket.id,
+        )
+
+    def _message_process_from(self, email_from):
+        """Simulate an incoming email from an arbitrary address."""
+        MailThread = self.env["mail.thread"]
+        message = MAIL_TEMPLATE.format(
+            to=self.env.user.email,
+            subject="Customer reply",
+            email_from=email_from,
+            msg_id=f"<test-{abs(hash(email_from))}@example.com>",
         )
         MailThread.message_process(
             model="helpdesk.ticket",
@@ -125,3 +149,162 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
         self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
         self.message_process()
         self.assertEqual(self.ticket.stage_id, self.stage_new)
+
+    def test_change_stage_partner_email_not_normalized(self):
+        """Stage must update even when the stored partner email has different casing."""
+        # Temporarily store email in non-normalized form on the partner
+        original_email = self.partner_portal.email
+        self.partner_portal.email = original_email.upper()
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        self.ticket.stage_id = self.stage_in_progress
+        try:
+            self.message_process()
+            self.assertEqual(self.ticket.stage_id, self.stage_done)
+        finally:
+            self.partner_portal.email = original_email
+
+    def test_change_stage_partner_email_field_only(self):
+        """Stage must update when ticket has partner_email but no partner_id."""
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        self.ticket.stage_id = self.stage_in_progress
+        partner_email = self.partner_portal.email
+        # Detach partner_id but keep partner_email
+        self.ticket.write({"partner_id": False, "partner_email": partner_email})
+        self.message_process()
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
+    # ------------------------------------------------------------------
+    # Branch 1 negative: a *different* known Odoo user sends the reply
+    # ------------------------------------------------------------------
+
+    def test_no_change_stage_branch1_wrong_known_sender(self):
+        """Branch 1: Both sender and ticket have known partners but they differ.
+
+        The stage must NOT change when an Odoo user who is not the ticket
+        partner posts a reply via email.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        self.ticket.stage_id = self.stage_in_progress
+        # Send the email as the internal admin user (different partner)
+        original_ticket = self.ticket
+        MailThread = self.env["mail.thread"]
+        message = MAIL_TEMPLATE.format(
+            to=self.env.user.email,
+            subject="Internal reply",
+            email_from=self.env.user.email,
+            msg_id="<branch1-neg-test@example.com>",
+        )
+        MailThread.message_process(
+            model="helpdesk.ticket",
+            message=message,
+            save_original=False,
+            strip_attachments=True,
+            thread_id=original_ticket.id,
+        )
+        self.assertEqual(original_ticket.stage_id, self.stage_in_progress)
+
+    # ------------------------------------------------------------------
+    # Branch 3: external sender (no Odoo user), ticket has partner_id
+    # ------------------------------------------------------------------
+
+    def test_change_stage_branch3_external_sender_matches(self):
+        """Branch 3: External sender's email matches the ticket partner email.
+
+        Because the sender has no Odoo user account, user_id is not set and
+        email_partner is False.  The code must fall back to comparing the
+        normalised ticket partner email against the normalised email_from.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self._message_process_from("external@example.com")
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
+    def test_change_stage_branch3_external_sender_normalization(self):
+        """Branch 3: email_normalize is applied to the stored partner email.
+
+        Even when the partner's email is stored in mixed case the stage must
+        update because both sides are normalised before comparison.  The old
+        code used a plain string comparison and would have missed this case.
+        """
+        original_email = self.external_partner.email
+        self.external_partner.email = original_email.upper()
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        try:
+            self._message_process_from("external@example.com")
+            self.assertEqual(self.ticket.stage_id, self.stage_done)
+        finally:
+            self.external_partner.email = original_email
+
+    def test_change_stage_branch3_external_sender_with_display_name(self):
+        """Branch 3: incoming email_from uses the «"Name" <addr>» display format.
+
+        email_normalize must strip the display name from the incoming address
+        so that the comparison against the normalised ticket partner email
+        still succeeds.  The old code compared the raw email_from string and
+        would have missed this case.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self._message_process_from('"External Customer" <external@example.com>')
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
+    def test_no_change_stage_branch3_external_sender_wrong_email(self):
+        """Branch 3: External sender's email does not match the ticket partner.
+
+        The stage must NOT change when the incoming address differs from the
+        ticket partner's email.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self._message_process_from("wrong@example.com")
+        self.assertEqual(self.ticket.stage_id, self.stage_in_progress)
+
+    # ------------------------------------------------------------------
+    # Branch 4: external sender (no Odoo user), ticket has only partner_email
+    # ------------------------------------------------------------------
+
+    def test_change_stage_branch4_no_partner_external_sender_matches(self):
+        """Branch 4: No partner_id on ticket, external sender email matches.
+
+        This branch was entirely absent from the old code.  Both email_partner
+        and ticket_partner are False; the only available data are the raw
+        partner_email field and the incoming email_from address.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self.ticket.write(
+            {"partner_id": False, "partner_email": "external@example.com"}
+        )
+        self._message_process_from("external@example.com")
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
+    def test_change_stage_branch4_external_sender_with_display_name(self):
+        """Branch 4: incoming email_from uses the «"Name" <addr>» display format.
+
+        No partner_id on the ticket, only partner_email is set.  email_normalize
+        must strip the display name from the incoming address so that the
+        comparison against the normalised ticket partner_email field still
+        succeeds.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self.ticket.write(
+            {"partner_id": False, "partner_email": "external@example.com"}
+        )
+        self._message_process_from('"External Customer" <external@example.com>')
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
+    def test_no_change_stage_branch4_no_partner_external_sender_wrong_email(self):
+        """Branch 4: No partner_id on ticket, external sender email does not match.
+
+        The stage must NOT change when the incoming address differs from the
+        ticket's partner_email field.
+        """
+        self.ticket = self._create_ticket(self.helpdesk_team1, self.external_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self.ticket.write(
+            {"partner_id": False, "partner_email": "external@example.com"}
+        )
+        self._message_process_from("wrong@example.com")
+        self.assertEqual(self.ticket.stage_id, self.stage_in_progress)

@@ -26,24 +26,30 @@ class MailThread(models.AbstractModel):
                 ):
                     return None
 
-                update_stage = False
                 email_partner = False
-                if email_normalize(ticket.partner_email) == email_from:
-                    update_stage = True
-
                 ticket_partner = ticket.partner_id
+
                 if user_id:
                     email_partner = (
                         self.env["res.users"]
                         .search([("id", "=", user_id)], limit=1)
                         .partner_id
                     )
+
                 if email_partner and ticket_partner:
+                    # Both known: compare by partner ID (most reliable)
                     update_stage = email_partner.id == ticket_partner.id
                 elif email_partner:
-                    update_stage = email_partner.email == ticket.partner_email
+                    # Known user sender, no ticket partner: compare normalized emails
+                    update_stage = email_normalize(
+                        email_partner.email
+                    ) == email_normalize(ticket.partner_email)
                 elif ticket_partner:
-                    update_stage = ticket_partner.email == email_from
+                    # No matching user sender, ticket has partner: compare emails
+                    update_stage = email_normalize(ticket_partner.email) == email_from
+                else:
+                    # No linked partners on either side: compare normalized emails
+                    update_stage = email_normalize(ticket.partner_email) == email_from
 
                 if update_stage:
                     ticket.stage_id = ticket.team_id.autopupdate_dest_stage_id.id
