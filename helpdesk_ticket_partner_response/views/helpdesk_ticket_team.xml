@@ -1,0 +1,33 @@
+<!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="view_helpdesk_team_form_inherit">
+        <field name="name">helpdesk.ticket.team.form.inherit</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="arch" type="xml">
+            <field name="show_in_portal" position="after">
+                <field name="autoupdate_ticket_stage" />
+            </field>
+            <xpath expr="//page[@name='members']" position="after">
+                <page
+                    name="ticket_partner_change_stage"
+                    string="Auto Update Ticket Stage"
+                    invisible="not autoupdate_ticket_stage"
+                >
+                    <group>
+                        <field
+                            name="autopupdate_src_stage_ids"
+                            widget="many2many_tags"
+                            required="autoupdate_ticket_stage"
+                        />
+                        <field
+                            name="autopupdate_dest_stage_id"
+                            required="autoupdate_ticket_stage"
+                        />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
