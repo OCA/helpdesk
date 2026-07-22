@@ -1541,6 +1541,12 @@ msgid "Priority tickets"
 msgstr "Prioritné tikety"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
+msgid "Ratings"
+msgstr "Hodnotenia"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields.selection,name:helpdesk_mgmt.selection__helpdesk_ticket__kanban_state__done
 msgid "Ready for next stage"
 msgstr "Pripravené na ďalšiu fázu"
@@ -2083,9 +2089,6 @@ msgstr ""
 
 #~ msgid "Odoo"
 #~ msgstr "Odoo"
-
-#~ msgid "Ratings"
-#~ msgstr "Hodnotenia"
 
 #~ msgid "Software"
 #~ msgstr "Softvér"
