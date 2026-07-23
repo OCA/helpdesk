@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 07:38+0000\n"
+"PO-Revision-Date: 2026-07-23 07:46+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -35,7 +35,7 @@ msgstr "Oprema, ki se uporablja za zahtevek za podporo."
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_fsm_equipment
 msgid "Field Service Equipment"
-msgstr "Oprema terenske službe"
+msgstr "Oprema za izvajanje"
 
 #. module: helpdesk_mgmt_fieldservice_equipment
 #: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_helpdesk_ticket
