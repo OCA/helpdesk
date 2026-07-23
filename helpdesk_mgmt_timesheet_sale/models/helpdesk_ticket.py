@@ -13,8 +13,8 @@ class HelpdeskTicket(models.Model):
         domain = expression.AND(
             [
                 self.env["sale.order.line"]._sellable_lines_domain(),
-                self.env["sale.order.line"]._domain_sale_line_service(),
                 [
+                    ("product_type", "=", "service"),
                     "|",
                     (
                         "order_partner_id.commercial_partner_id.id",

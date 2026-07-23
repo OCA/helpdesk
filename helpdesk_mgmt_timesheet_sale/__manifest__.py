@@ -4,7 +4,7 @@
 {
     "name": "Helpdesk Mgmt Timesheet Sale",
     "summary": """Allow to set the sale order line directly on helpdesk tickets""",
-    "version": "18.0.1.0.0",
+    "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "author": "Dixmit,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
