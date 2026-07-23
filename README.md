@@ -27,7 +27,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 17.0.1.0.2 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Links helpdesk tickets with leads
 [helpdesk_mgmt_merge](helpdesk_mgmt_merge/) | 17.0.1.0.0 |  | Wizard to merge helpdesk tickets
 [helpdesk_mgmt_portal_follower](helpdesk_mgmt_portal_follower/) | 17.0.1.1.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> <a href='https://github.com/ppyczko'><img src='https://github.com/ppyczko.png' width='32' height='32' style='border-radius:50%;' alt='ppyczko'/></a> <a href='https://github.com/mpascuall'><img src='https://github.com/mpascuall.png' width='32' height='32' style='border-radius:50%;' alt='mpascuall'/></a> | Add ticket followers from website portal
-[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 17.0.1.0.1 |  | Add the option to select project in the tickets.
+[helpdesk_mgmt_project](helpdesk_mgmt_project/) | 17.0.1.2.0 |  | Add the option to select project in the tickets.
 [helpdesk_mgmt_project_domain](helpdesk_mgmt_project_domain/) | 17.0.1.0.0 | <a href='https://github.com/marcelsavegnago'><img src='https://github.com/marcelsavegnago.png' width='32' height='32' style='border-radius:50%;' alt='marcelsavegnago'/></a> | Enable to set a project domain on ticket
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 17.0.1.0.2 |  | This module allows customer to rate the assistance received on a ticket.
 [helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 17.0.1.0.2 |  | Add the option to select project in the sale orders.
