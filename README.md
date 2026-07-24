@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 16.0.1.0.1 |  | Add the option to select project in the sale orders.
 [helpdesk_mgmt_sla](helpdesk_mgmt_sla/) | 16.0.1.0.0 |  | Add SLA to the tickets for Helpdesk Management.
 [helpdesk_mgmt_stage_validation](helpdesk_mgmt_stage_validation/) | 16.0.1.0.1 |  | Validate input data when reaching a Helpdesk Ticket stage
+[helpdesk_mgmt_stock](helpdesk_mgmt_stock/) | 16.0.1.0.0 | <a href='https://github.com/rousseldenis'><img src='https://github.com/rousseldenis.png' width='32' height='32' style='border-radius:50%;' alt='rousseldenis'/></a> | This module allows to create helpdesk tickets during stock operations
 [helpdesk_mgmt_template](helpdesk_mgmt_template/) | 16.0.1.0.0 |  | Create Helpdesk Ticket Template
 [helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 16.0.1.7.2 |  | Add HR Timesheet to the tickets for Helpdesk Management.
 [helpdesk_motive](helpdesk_motive/) | 16.0.1.0.2 | <a href='https://github.com/nelsonramirezs'><img src='https://github.com/nelsonramirezs.png' width='32' height='32' style='border-radius:50%;' alt='nelsonramirezs'/></a> <a href='https://github.com/max3903'><img src='https://github.com/max3903.png' width='32' height='32' style='border-radius:50%;' alt='max3903'/></a> | Keep the motive
