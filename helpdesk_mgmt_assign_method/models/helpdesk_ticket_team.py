@@ -50,10 +50,13 @@ class HelpdeskTicketTeam(models.Model):
                     )
                 )
 
+    def _get_available_users(self):
+        return self.user_ids
+
     def get_new_user(self):
         """Return the next user for ticket assignment based on assign_method."""
         self.ensure_one()
-        user_ids = sorted(self.user_ids.ids)
+        user_ids = sorted(self._get_available_users().ids)
         if not user_ids or self.assign_method == "manual":
             return self.env["res.users"]
 
