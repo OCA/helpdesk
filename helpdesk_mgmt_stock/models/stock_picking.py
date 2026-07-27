@@ -11,8 +11,8 @@ class StockPicking(models.Model):
     helpdesk_ticket_allowed = fields.Boolean(
         related="picking_type_id.allow_helpdesk_ticket"
     )
-    helpdesk_tickets_count = fields.Integer(
-        compute="_compute_helpdesk_tickets_count",
+    helpdesk_ticket_count = fields.Integer(
+        compute="_compute_helpdesk_ticket_count",
         help="This is the amount of tickets concerned by this picking.",
     )
     helpdesk_ticket_ids = fields.One2many(
@@ -21,7 +21,7 @@ class StockPicking(models.Model):
     )
 
     @api.depends("helpdesk_ticket_ids")
-    def _compute_helpdesk_tickets_count(self):
+    def _compute_helpdesk_ticket_count(self):
         """
         Compute the amount of helpesk tickets for those pickings
         """
@@ -31,7 +31,7 @@ class StockPicking(models.Model):
         )
         counts = dict(results)
         for picking in self:
-            picking.helpdesk_tickets_count = counts.get(picking, 0)
+            picking.helpdesk_ticket_count = counts.get(picking, 0)
 
     def action_view_helpdesk_tickets(self):
         self.ensure_one()
@@ -43,7 +43,7 @@ class StockPicking(models.Model):
             "default_partner_id": self.partner_id.id,
             "default_stock_picking_id": self.id,
         }
-        if self.helpdesk_tickets_count == 1:
+        if self.helpdesk_ticket_count == 1:
             action.update(
                 {
                     "res_id": self.helpdesk_ticket_ids.id,
@@ -68,6 +68,6 @@ class StockPicking(models.Model):
     def create_or_show_helpdesk_ticket(self):
         """Show existing ticket or offer to create a new one."""
         self.ensure_one()
-        if not self.helpdesk_tickets_count:
+        if not self.helpdesk_ticket_count:
             return self._action_open_helpdesk_create_ticket_wizard()
         return self.action_view_helpdesk_tickets()

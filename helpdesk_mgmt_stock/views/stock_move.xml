@@ -11,7 +11,7 @@
                     type="object"
                     icon="fa-life-ring"
                     string="Helpdesk"
-                    invisible="helpdesk_tickets_count"
+                    invisible="helpdesk_ticket_count"
                 />
                 <button
                     name="create_or_show_helpdesk_ticket"
@@ -19,7 +19,7 @@
                     icon="fa-life-ring"
                     string="Helpdesk"
                     class="btn btn-danger"
-                    invisible="not helpdesk_tickets_count"
+                    invisible="not helpdesk_ticket_count"
                 />
             </xpath>
         </field>

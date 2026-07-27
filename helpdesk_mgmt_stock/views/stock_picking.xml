@@ -17,7 +17,7 @@
                 >
                     <field
                         string="Tickets"
-                        name="helpdesk_tickets_count"
+                        name="helpdesk_ticket_count"
                         widget="statinfo"
                     />
                 </button>
@@ -36,7 +36,7 @@
                     type="object"
                     icon="fa-life-ring"
                     string="Helpdesk"
-                    invisible="not helpdesk_ticket_allowed or helpdesk_tickets_count"
+                    invisible="not helpdesk_ticket_allowed or helpdesk_ticket_count"
                 />
                 <button
                     name="create_or_show_helpdesk_ticket"
@@ -44,7 +44,7 @@
                     icon="fa-life-ring"
                     string="Helpdesk"
                     class="btn btn-danger"
-                    invisible="not helpdesk_ticket_allowed or not helpdesk_tickets_count"
+                    invisible="not helpdesk_ticket_allowed or not helpdesk_ticket_count"
                 />
             </xpath>
         </field>

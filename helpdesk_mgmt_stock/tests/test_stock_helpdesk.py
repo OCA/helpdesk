@@ -97,9 +97,9 @@ class HelpdeskStockTest(BaseCommon):
 
         self.assertEqual(1, len(ticket))
         self.assertEqual(ticket.team_id, self.purchase_team)
-        self.assertEqual(1, self.picking.helpdesk_tickets_count)
+        self.assertEqual(1, self.picking.helpdesk_ticket_count)
 
-        self.assertEqual(1, move_p1.helpdesk_tickets_count)
+        self.assertEqual(1, move_p1.helpdesk_ticket_count)
         self.assertEqual(self.product, ticket.product_id)
 
     def test_helpdesk_creation_not_allowed(self):
