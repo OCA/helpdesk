@@ -1,0 +1,1 @@
+odoo-addon-helpdesk_mgmt_stock @ git+https://github.com/OCA/helpdesk.git@refs/pull/1008/head#subdirectory=helpdesk_mgmt_stock
