@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Website Helpdesk Mgmt",
-    "version": "18.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Tecnativa, Odoo Community Association (OCA)",
