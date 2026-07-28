@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"PO-Revision-Date: 2026-07-28 18:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -20,12 +20,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autoupdate_ticket_stage
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_partner_response.view_helpdesk_team_form_inherit
 msgid "Auto Update Ticket Stage"
-msgstr ""
+msgstr "به‌روزرسانی خودکار مرحله تیکت"
 
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_dest_stage_id
 msgid "Autoupdate Destination Stage"
-msgstr ""
+msgstr "به‌روزرسانی خودکار مرحله مقصد"
 
 #. module: helpdesk_ticket_partner_response
 #: model:ir.model.fields,field_description:helpdesk_ticket_partner_response.field_helpdesk_ticket_team__autopupdate_src_stage_ids
