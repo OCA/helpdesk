@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,body_html:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
@@ -70,62 +72,62 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_tickets
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Automatic closure of inactive tickets"
-msgstr ""
+msgstr "بسته شدن خودکار تیکت‌های غیرفعال"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.actions.server,name:helpdesk_ticket_close_inactive.ir_cron_close_inactive_tickets_ir_actions_server
 msgid "Close Inactive Tickets"
-msgstr ""
+msgstr "بستن تیکت‌های غیرفعال"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
 msgid "Closing Stage"
-msgstr ""
+msgstr "مرحله بسته‌شدن"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
 msgid "Closing email template"
-msgstr ""
+msgstr "بسته شدن قالب ایمیل"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "نام نمایشی"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,name:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
 msgid "Helpdesk Inactivity Warning Ticket Notification Email"
-msgstr ""
+msgstr "ایمیل هشدار عدم فعالیت تیکت پشتیبانی"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model,name:helpdesk_ticket_close_inactive.model_helpdesk_ticket_team
 msgid "Helpdesk Ticket Team"
-msgstr ""
+msgstr "تیم تیکت‌های پشتیبانی"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__id
 msgid "ID"
-msgstr ""
+msgstr "شناسه"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
 msgid "Inactive Tickets Day Limit Closing"
-msgstr ""
+msgstr "محدودیت روزانه برای بسته‌شدن تیکت‌های غیرفعال"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
 msgid "Inactive days limit before send a warning"
-msgstr ""
+msgstr "محدودیت روزهای عدم فعالیت قبل از ارسال هشدار"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Inactivity Warning Notification"
-msgstr ""
+msgstr "هشدار عدم فعالیت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
 msgid "Inactivity warning email template"
-msgstr ""
+msgstr "قالب ایمیل هشدار عدم فعالیت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_closing
@@ -133,6 +135,8 @@ msgid ""
 "Number of days of inactivity after which the ticket is automatically closed."
 " Must be greater than 0."
 msgstr ""
+"تعداد روزهای عدم فعالیت که پس از آن تیکت به طور خودکار بسته می‌شود باید "
+"بزرگتر از 0 باشد."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__inactive_tickets_day_limit_warning
@@ -140,11 +144,13 @@ msgid ""
 "Number of days of inactivity before a warning email is sent. Set to 0 to "
 "disable the warning phase entirely."
 msgstr ""
+"تعداد روزهای عدم فعالیت قبل از ارسال ایمیل هشدار. برای غیرفعال کردن کامل "
+"مرحله هشدار، مقدار 0 را تنظیم کنید."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__closing_ticket_stage
 msgid "Set this stage for autoclosing tickets"
-msgstr ""
+msgstr "این مرحله را برای بسته‌شدن خودکار تیکت‌ها تنظیم کنید"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__warning_inactive_mail_template_id
@@ -152,6 +158,8 @@ msgid ""
 "Template to be sent as an inactivity warning. Required when the warning day "
 "limit is greater than 0."
 msgstr ""
+"قالبی که به عنوان هشدار عدم فعالیت ارسال می‌شود. زمانی که محدودیت روزانه "
+"هشدار بزرگتر از 0 باشد، الزامی است."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_mail_template_id
@@ -159,6 +167,8 @@ msgid ""
 "Template to be sent when a ticket is automatically closed. Leave empty to "
 "close the ticket silently without sending a notification email."
 msgstr ""
+"قالبی که هنگام بسته شدن خودکار تیکت ارسال می‌شود. برای بستن تیکت بدون ارسال "
+"ایمیل اطلاع‌رسانی، این فیلد را خالی بگذارید."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_stage_ids
