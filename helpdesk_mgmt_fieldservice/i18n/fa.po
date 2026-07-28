@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_count
@@ -22,79 +24,80 @@ msgstr ""
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "لغو"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Close Ticket"
-msgstr ""
+msgstr "بستن تیکت"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_search_closed_orders
 msgid "Closed FSM Orders"
-msgstr ""
+msgstr "سفارش‌های FSM بسته‌شده"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
 msgid "Create FSM Order"
-msgstr ""
+msgstr "ایجاد سفارش FSM"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "ایجاد شده توسط"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__create_date
 msgid "Created on"
-msgstr ""
+msgstr "تاریخ ایجاد"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_form_logic
 msgid "Description"
-msgstr ""
+msgstr "توضیحات"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "نام نمایشی"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_order_close_wizard
 msgid "FSM Close - Option to Close Ticket"
-msgstr ""
+msgstr "بستن FSM - گزینه بستن تیکت"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__fsm_location_id
 msgid "FSM Location"
-msgstr ""
+msgstr "موقعیت FSM"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_location
 msgid "Field Service Location"
-msgstr ""
+msgstr "موقعیت Field Service"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_fsm_order
+#, fuzzy
 msgid "Field Service Order"
-msgstr ""
+msgstr "سفارش Field Service"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__team_id
 msgid "Helpdesk Team"
-msgstr ""
+msgstr "تیم پشتیبانی"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model,name:helpdesk_mgmt_fieldservice.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "تیکت پشتیبانی"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__ticket_ids
 msgid "Helpdesk Tickets"
-msgstr ""
+msgstr "تیکت‌های پشتیبانی"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_location__id
@@ -102,12 +105,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__id
 msgid "ID"
-msgstr ""
+msgstr "شناسه"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "آخرین به‌روزرسانی توسط"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__write_date
