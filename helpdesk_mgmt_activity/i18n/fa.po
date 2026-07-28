@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"PO-Revision-Date: 2026-07-28 15:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -130,67 +130,67 @@ msgstr "شناسه"
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__is_new_stage
 msgid "Is New Stage"
-msgstr ""
+msgstr "مرحله جدید است"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
 msgid "Models available for a Helpdesk"
-msgstr ""
+msgstr "مدل‌های موجود برای پشتیبانی"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
 msgid "Move the ticket when the activity in source record is done"
-msgstr ""
+msgstr "زمانی که فعالیت در رکورد مبدأ انجام شد، تیکت را منتقل کن"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__next_stage_id
 msgid "Next Stage"
-msgstr ""
+msgstr "مرحله بعدی"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
 msgid "Perform Action"
-msgstr ""
+msgstr "انجام اقدام"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__can_create_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__allow_set_activity
 msgid "Set Activities"
-msgstr ""
+msgstr "تنظیم فعالیت‌ها"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__source_activity_type_id
 msgid "Source Activity Type"
-msgstr ""
+msgstr "نوع فعالیت مبدأ"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_id
 msgid "Source Document"
-msgstr ""
+msgstr "سند مبدأ"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_model
 msgid "Source Document Model"
-msgstr ""
+msgstr "مدل سند مبدأ"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__record_ref
 msgid "Source Record"
-msgstr ""
+msgstr "رکورد مبدأ"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
 msgid "Source Record is not set!"
-msgstr ""
+msgstr "رکورد مبدأ تنظیم نشده است!"
 
 #. module: helpdesk_mgmt_activity
 #: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__ticket_id
 msgid "Ticket"
-msgstr ""
+msgstr "تیکت"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
 #: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
 msgid "You cannot create activity!"
-msgstr ""
+msgstr "شما نمی‌توانید فعالیت ایجاد کنید!"
