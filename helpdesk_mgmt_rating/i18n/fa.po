@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"PO-Revision-Date: 2026-07-28 15:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -188,123 +188,123 @@ msgstr "خطای تحویل پیام"
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "پیام‌ها"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__no_rate
 msgid "No rating"
-msgstr ""
+msgstr "بدون امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "تعداد اقدامات"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "تعداد خطاها"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "تعداد پیام‌های نیازمند اقدام"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "تعداد پیام‌هایی که دارای خطای ارسال هستند"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__positive_rate_percentage
 msgid "Positive Rates Percentage"
-msgstr ""
+msgstr "درصد نرخ‌های مثبت"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.actions.act_window,name:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
 msgid "Rating"
-msgstr ""
+msgstr "امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_avg_text
 msgid "Rating Avg Text"
-msgstr ""
+msgstr "متن میانگین امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket_stage__rating_mail_template_id
 msgid "Rating Email Template"
-msgstr ""
+msgstr "قالب ایمیل امتیازدهی"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_feedback
 msgid "Rating Last Feedback"
-msgstr ""
+msgstr "آخرین بازخورد امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_image
 msgid "Rating Last Image"
-msgstr ""
+msgstr "آخرین تصویر امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_value
 msgid "Rating Last Value"
-msgstr ""
+msgstr "آخرین مقدار امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_percentage_satisfaction
 msgid "Rating Satisfaction"
-msgstr ""
+msgstr "رضایت از امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_last_text
 msgid "Rating Text"
-msgstr ""
+msgstr "متن امتیاز"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_count
 msgid "Rating count"
-msgstr ""
+msgstr "تعداد امتیازها"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields.selection,name:helpdesk_mgmt_rating.selection__helpdesk_ticket__rating_status__stage_change
 msgid "Rating when changing stage"
-msgstr ""
+msgstr "امتیاز هنگام تغییر مرحله"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__rating_ids
 #: model:mail.message.subtype,description:helpdesk_mgmt_rating.mt_ticket_rating
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_rating.ticket_view_form_inherit
 msgid "Ratings"
-msgstr ""
+msgstr "امتیازها"
 
 #. module: helpdesk_mgmt_rating
 #: model:mail.template,subject:helpdesk_mgmt_rating.rating_ticket_email_template
 msgid "Satisfaction Survey of the ticket {{object.number}} - {{object.name}}"
-msgstr ""
+msgstr "نظرسنجی رضایت از تیکت {{object.number}} - {{object.name}}"
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.all_helpdesk_ticket_rating_action
 msgid "There are no rated tickets at this moment."
-msgstr ""
+msgstr "در حال حاضر هیچ تیکت امتیازدهی‌شده‌ای وجود ندارد."
 
 #. module: helpdesk_mgmt_rating
 #: model_terms:ir.actions.act_window,help:helpdesk_mgmt_rating.helpdesk_ticket_rating_action
 msgid "There are no ratings for this ticket at the moment."
-msgstr ""
+msgstr "در حال حاضر هیچ امتیازی برای این تیکت وجود ندارد."
 
 #. module: helpdesk_mgmt_rating
 #. odoo-python
 #: code:addons/helpdesk_mgmt_rating/models/helpdesk_ticket.py:0
 #: model:mail.message.subtype,name:helpdesk_mgmt_rating.mt_ticket_rating
 msgid "Ticket Rating"
-msgstr ""
+msgstr "امتیاز تیکت"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,field_description:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "پیام‌های وب‌سایت"
 
 #. module: helpdesk_mgmt_rating
 #: model:ir.model.fields,help:helpdesk_mgmt_rating.field_helpdesk_ticket__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "تاریخچه ارتباطات وب‌سایت"
