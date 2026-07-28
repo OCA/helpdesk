@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 15:46+0000\n"
+"PO-Revision-Date: 2026-07-28 18:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -19,12 +19,12 @@ msgstr ""
 #. module: helpdesk_mgmt_activity
 #: model:ir.model,name:helpdesk_mgmt_activity.model_mail_activity
 msgid "Activity"
-msgstr ""
+msgstr "فعالیت"
 
 #. module: helpdesk_mgmt_activity
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
 msgid "Activity Config"
-msgstr ""
+msgstr "پیکربندی فعالیت"
 
 #. module: helpdesk_mgmt_activity
 #. odoo-python
