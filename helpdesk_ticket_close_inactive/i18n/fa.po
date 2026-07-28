@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"PO-Revision-Date: 2026-07-28 15:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -176,6 +176,8 @@ msgid ""
 "The cronjob will check for inactivity in         tickets that are in these "
 "stages."
 msgstr ""
+"کار زمان‌بندی (cronjob) عدم فعالیت را در         تیکت‌هایی که در این مراحل "
+"هستند بررسی می‌کند."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_category_ids
@@ -183,38 +185,42 @@ msgid ""
 "The cronjob will check for inactivity in tickets that belong to these "
 "categories. Leave empty to apply to all categories."
 msgstr ""
+"کار زمان‌بندی (cronjob) عدم فعالیت را در تیکت‌هایی که متعلق به این دسته‌بندی‌ها "
+"هستند بررسی می‌کند. برای اعمال به همه دسته‌بندی‌ها، خالی بگذارید."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:mail.template,subject:helpdesk_ticket_close_inactive.warning_inactive_ticket_template
 msgid "The ticket {{object.number}} will be closed."
-msgstr ""
+msgstr "تیکت {{object.number}} بسته خواهد شد."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,help:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__close_inactive_tickets
 msgid "This option enables a cronjob to automatically close inactive tickets."
 msgstr ""
+"این گزینه یک کار زمان‌بندی (cronjob) را برای بستن خودکار تیکت‌های غیرفعال فعال "
+"می‌کند."
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_category_ids
 msgid "Ticket Category"
-msgstr ""
+msgstr "دسته‌بندی تیکت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Ticket Category Filter"
-msgstr ""
+msgstr "فیلتر دسته‌بندی تیکت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Ticket Closing"
-msgstr ""
+msgstr "بسته‌شدن تیکت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model:ir.model.fields,field_description:helpdesk_ticket_close_inactive.field_helpdesk_ticket_team__ticket_stage_ids
 msgid "Ticket Stage"
-msgstr ""
+msgstr "مرحله تیکت"
 
 #. module: helpdesk_ticket_close_inactive
 #: model_terms:ir.ui.view,arch_db:helpdesk_ticket_close_inactive.inherit_view_project
 msgid "Ticket Stage Filter"
-msgstr ""
+msgstr "فیلتر مرحله تیکت"
