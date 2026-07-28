@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-28 12:46+0000\n"
+"PO-Revision-Date: 2026-07-28 15:46+0000\n"
 "Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -115,59 +115,60 @@ msgstr "آخرین به‌روزرسانی توسط"
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "آخرین به‌روزرسانی در"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__display_name
 msgid "Order"
-msgstr ""
+msgstr "سفارش"
 
 #. module: helpdesk_mgmt_fieldservice
 #. odoo-python
 #: code:addons/helpdesk_mgmt_fieldservice/models/helpdesk_ticket.py:0
 msgid "Please complete all service orders related to this ticket to close it."
 msgstr ""
+"لطفاً برای بستن این تیکت، تمام سفارش‌های خدمات مرتبط با آن را تکمیل کنید."
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__resolution
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__resolution
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_form_logic
 msgid "Resolution"
-msgstr ""
+msgstr "راه‌حل"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_helpdesk_ticket__fsm_order_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form
 msgid "Service Orders"
-msgstr ""
+msgstr "سفارش‌های خدمات"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__stage_id
 msgid "Stage"
-msgstr ""
+msgstr "مرحله"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "There is an open Ticket, would you like to update the related ticket?"
-msgstr ""
+msgstr "یک تیکت باز وجود دارد، آیا می‌خواهید تیکت مرتبط را به‌روزرسانی کنید؟"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order__ticket_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice.field_fsm_order_close_wizard__ticket_id
 msgid "Ticket"
-msgstr ""
+msgstr "تیکت"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Ticket Resolution"
-msgstr ""
+msgstr "راه‌حل تیکت"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.fsm_order_close_wizard_view_form
 msgid "Ticket Stage"
-msgstr ""
+msgstr "مرحله تیکت"
 
 #. module: helpdesk_mgmt_fieldservice
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice.view_fsm_location_ticket_form
 msgid "Tickets"
-msgstr ""
+msgstr "تیکت ها"
