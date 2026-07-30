@@ -13,6 +13,8 @@ class MailThread(models.AbstractModel):
     def change_ticket_status_via_mail(self, routes, message_dict):
         if routes and routes[0][0] == "helpdesk.ticket":
             ticket_id = routes[0][1]
+            if not ticket_id:
+                return None
             email_from = message_dict.get("email_from")
             if email_from:
                 email_from = email_normalize(email_from)
