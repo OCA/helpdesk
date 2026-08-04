@@ -6,7 +6,7 @@
     "version": "18.0.1.3.0",
     "license": "AGPL-3",
     "category": "After-Sales",
-    "author": "PuntSistemes S.L.U., " "Odoo Community Association (OCA)",
+    "author": "PuntSistemes S.L.U., Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
     "depends": ["helpdesk_mgmt", "project"],
     "data": [

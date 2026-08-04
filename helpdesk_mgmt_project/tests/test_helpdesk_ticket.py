@@ -34,8 +34,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         self.ticket.write({"project_id": self.project2.id})
         self.assertFalse(
             self.ticket.task_id,
-            "Helpdesk Ticket: When change the project "
-            "the ticket task should be reset.",
+            "Helpdesk Ticket: When change the project the ticket task should be reset.",
         )
 
     def test_helpdesk_ticket_counts(self):
