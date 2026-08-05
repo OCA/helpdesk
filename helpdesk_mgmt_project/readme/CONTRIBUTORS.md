@@ -1,0 +1,16 @@
+- [Puntsistemes](https://www.puntsistemes.es):
+  - Carlos Ramos Hernández
+- [Tecnativa](https://www.tecnativa.com):
+  - Pedro M. Baeza
+- [CommitSun](https://www.commitsun.com):
+  - Darío Lodeiros
+- [Solvos](https://www.solvos.es):
+  - David Alonso
+- [Sygel](https://www.sygel.es):
+  - Manuel Regidor
+- [ALBA Software](https://www.albasoft.com):
+  - Rafa Morant
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
+- [Dixmit](https://www.dixmit.com)
+  - Enric Tobella

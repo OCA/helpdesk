@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    type="action"
+                    icon="fa-life-ring"
+                    name="%(ticket_action_from_project)d"
+                    context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <field name="label_tickets" readonly="1" />
+                        <span class="o_stat_value">
+                            <field name="ticket_count" />
+                        </span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_search" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_search_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <separator />
+                <filter
+                    string="Open Tickets"
+                    name="open_tickets"
+                    domain="[('ticket_ids', '!=', False), ('ticket_ids.closed', '=', False)]"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                />
+            </xpath>
+        </field>
+    </record>
+    <record id="view_task_kanban_helpdesk" model="ir.ui.view">
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//main//footer/div[2]" position="before">
+                <div
+                    invisible="ticket_count==0"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                >
+                    <a
+                        class="o_project_kanban_box"
+                        name="action_view_ticket"
+                        type="object"
+                    >
+                        <span class="o_value">
+                            <b>
+                                <field name="ticket_count" />
+                            </b>
+                        </span>
+                        <span class="o_label">
+                            <field name="label_tickets" />
+                        </span>
+                    </a>
+                    &#160;
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
