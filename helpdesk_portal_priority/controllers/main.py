@@ -8,16 +8,14 @@ _logger = logging.getLogger(__name__)
 
 
 class HelpdeskPriorityController(HelpdeskTicketController):
-    @http.route("/new/ticket", type="http", auth="user", website=True)
-    def create_new_ticket(self, **kw):
-        res = super().create_new_ticket(**kw)
-        priorities = (
+    def _get_create_new_ticket_values(self, **kw):
+        values = super()._get_create_new_ticket_values(**kw)
+        values["priorities"] = (
             http.request.env["helpdesk.ticket"]
             ._fields["priority"]
             ._description_selection(http.request.env)
         )
-        res.qcontext["priorities"] = priorities
-        return res
+        return values
 
     def _prepare_submit_ticket_vals(self, **kw):
         vals = super()._prepare_submit_ticket_vals(**kw)
