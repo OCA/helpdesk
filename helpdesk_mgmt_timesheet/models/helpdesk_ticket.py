@@ -86,8 +86,12 @@ class HelpdeskTicket(models.Model):
     def _compute_show_time_control(self):
         result = super()._compute_show_time_control()
         for ticket in self:
+            # We use sudo() for the project because the ticket user may not have
+            # permission to access it—for example, if the project is visible to
+            # invited internal users and the ticket user is not one of them
             if not (
-                ticket.project_id.allow_timesheets and ticket.team_id.allow_timesheet
+                ticket.project_id.sudo().allow_timesheets
+                and ticket.team_id.allow_timesheet
             ):
                 ticket.show_time_control = False
         return result
