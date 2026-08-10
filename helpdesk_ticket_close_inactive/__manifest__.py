@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Helpdesk Ticket Close Inactive",
-    "version": "18.0.1.1.1",
+    "version": "18.0.1.1.2",
     "development_status": "Alpha",
     "category": "Helpdesk",
     "website": "https://github.com/OCA/helpdesk",
