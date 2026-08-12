@@ -7,8 +7,19 @@ class MailThread(models.AbstractModel):
 
     @api.model
     def _message_route_process(self, message, message_dict, routes):
-        self.change_ticket_status_via_mail(routes, message_dict)
+        if not self._skip_ticket_stage_update_from_autoreply(
+            message, message_dict, routes
+        ):
+            self.change_ticket_status_via_mail(routes, message_dict)
         return super()._message_route_process(message, message_dict, routes)
+
+    def _skip_ticket_stage_update_from_autoreply(self, message, message_dict, routes):
+        """Return True to suppress stage updates triggered by auto-reply emails.
+
+        Override in integration modules to implement auto-reply detection.
+        Returns False by default so no update is suppressed.
+        """
+        return False
 
     def change_ticket_status_via_mail(self, routes, message_dict):
         if routes and routes[0][0] == "helpdesk.ticket":
