@@ -20,7 +20,7 @@
                     >
                         <t t-foreach="priorities" t-as="pri">
                             <option t-attf-value="#{pri[0]}">
-                                <t t-esc="pri[1]" />
+                                <t t-out="pri[1]" />
                             </option>
                         </t>
                     </select>
