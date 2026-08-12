@@ -310,6 +310,33 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
         )
         self._message_process_from("wrong@example.com")
 
+    def test_no_crash_when_assigning_mail_to_new_thread(self):
+        """New thread (thread_id=None) must not crash and creates the ticket."""
+        MailThread = self.env["mail.thread"]
+        message = MAIL_TEMPLATE.format(
+            to=self.env.user.email,
+            subject="Brand new ticket via mail",
+            email_from=self.external_partner.email,
+            msg_id="<new-thread-assign-test@example.com>",
+        )
+        thread_id = MailThread.message_process(
+            model="helpdesk.ticket",
+            message=message,
+            save_original=False,
+            strip_attachments=True,
+        )
+        ticket = self.env["helpdesk.ticket"].browse(thread_id).exists()
+        self.assertTrue(ticket)
+
+    def test_change_ticket_status_via_mail_no_ticket_id(self):
+        """Route without thread_id returns None instead of raising."""
+        MailThread = self.env["mail.thread"]
+        routes = [("helpdesk.ticket", None, {}, self.env.user.id, None)]
+        result = MailThread.change_ticket_status_via_mail(
+            routes, {"email_from": "external@example.com"}
+        )
+        self.assertIsNone(result)
+
     def test_skip_autoreply_default_returns_false(self):
         """Default hook returns False so normal stage updates are not suppressed."""
         mail_thread = self.env["mail.thread"]
