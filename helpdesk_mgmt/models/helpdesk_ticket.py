@@ -203,7 +203,14 @@ class HelpdeskTicket(models.Model):
         # If the team is set, the user must belong to that team.
         defaults = super().default_get(fields)
         company_id = defaults.get("company_id") or self.env.company.id
-        if "user_id" in fields and not defaults.get("user_id"):
+        # A shared user (portal, public) is never a valid assignee: the
+        # user_id domain already excludes them, and a portal customer must
+        # not end up assigned to the ticket they just submitted.
+        if (
+            "user_id" in fields
+            and not defaults.get("user_id")
+            and not self.env.user.share
+        ):
             company = self.env["res.company"].browse(company_id)
             if company.helpdesk_mgmt_ticket_auto_assign:
                 if defaults.get("team_id"):
