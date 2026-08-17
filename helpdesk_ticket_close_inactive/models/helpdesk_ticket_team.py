@@ -83,6 +83,9 @@ class HelpdeskTicketTeam(models.Model):
         else:
             teams = self.search([("close_inactive_tickets", "=", True)])
 
+        warning_email_ids = []
+        closing_email_ids = []
+
         for team_id in teams:
             ticket_stage_ids = team_id.ticket_stage_ids.ids
             ticket_category_ids = team_id.ticket_category_ids.ids
@@ -90,8 +93,6 @@ class HelpdeskTicketTeam(models.Model):
                 days=team_id.inactive_tickets_day_limit_closing
             )
             closing_stage = team_id.closing_ticket_stage
-            warning_email_ids = []
-            closing_email_ids = []
 
             # Warning phase — only active when warning day limit is greater than 0
             if team_id.inactive_tickets_day_limit_warning > 0:
@@ -163,7 +164,7 @@ class HelpdeskTicketTeam(models.Model):
                                 ticket.number,
                             )
                             closing_email_ids.append(closing_email_id)
-            return {
-                "warning_email_ids": warning_email_ids,
-                "closing_email_ids": closing_email_ids,
-            }
+        return {
+            "warning_email_ids": warning_email_ids,
+            "closing_email_ids": closing_email_ids,
+        }
