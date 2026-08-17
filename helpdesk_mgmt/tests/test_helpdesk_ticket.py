@@ -1,6 +1,6 @@
 import time
 
-from odoo.tests import Form
+from odoo.tests import Form, RecordCapturer
 
 from .common import TestHelpdeskTicketBase
 
@@ -259,3 +259,40 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             new_ticket_form.stage_id = in_progress_stage
             new_ticket_form.user_id = self.user
         self.assertEqual(new_ticket_form.stage_id, in_progress_stage)
+
+    def test_mail_template_stage_changed(self):
+        """The stage changed template addresses the email recipient."""
+        # Arrange
+        template = self.env.ref("helpdesk_mgmt.changed_stage_template")
+        stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_in_progress")
+        stage.mail_template_id = template
+        customer_id = self.env["res.partner"].name_create("Test Customer")[0]
+        no_contact_ticket = self.ticket.with_context(
+            mail_notrack=False,
+            tracking_disable=False,
+        ).copy()
+        partner_id_ticket = no_contact_ticket.copy(default={"partner_id": customer_id})
+        partner_name_ticket = no_contact_ticket.copy(
+            default={"partner_name": "Customer name"}
+        )
+        tickets = no_contact_ticket | partner_id_ticket | partner_name_ticket
+        # Act
+        with RecordCapturer(self.env["mail.mail"], []) as capture_emails:
+            tickets.stage_id = stage
+            # Emails are sent in a precommit hook,
+            # that in tests is usually not executed
+            self.env.cr.precommit.run()
+        # Assert
+        emails = capture_emails.records
+        expected_greetings = {
+            no_contact_ticket: "Hello ,",
+            partner_id_ticket: f"Hello {partner_id_ticket.partner_id.name}",
+            partner_name_ticket: f"Hello {partner_name_ticket.partner_name}",
+        }
+        for ticket, expected_greeting in expected_greetings.items():
+            greeting_email = emails.filtered(
+                lambda email, record=ticket: (
+                    email.res_id == record.id and email.model == record._name
+                )
+            )
+            self.assertIn(expected_greeting, greeting_email.body_html)

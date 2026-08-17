@@ -23,8 +23,12 @@
             <field name="auto_delete" eval="False" />
             <field name="lang">{{object.partner_id.lang}}</field>
             <field name="body_html" type="html">
-                <p>Hello <t t-out="object.user_id.name" />,</p>
-                <p>The ticket <t t-out="object.number" /> has been assigned to you.</p>
+                <p>Hello <t
+                    t-out="object.partner_name or object.partner_id.name"
+                />,</p>
+                <p>The ticket <t t-out="object.number" /> has been assigned to <t
+                    t-out="object.user_id.name"
+                />.</p>
             </field>
         </record>
         <record id="closed_ticket_template" model="mail.template">
@@ -39,7 +43,9 @@
             <field name="auto_delete" eval="False" />
             <field name="lang">{{object.partner_id.lang}}</field>
             <field name="body_html" type="html">
-                <p>Hello <t t-out="object.user_id.name" />,</p>
+                <p>Hello <t
+                    t-out="object.partner_name or object.partner_id.name"
+                />,</p>
                 <p>The ticket <t t-out="object.display_name" /> has been closed.</p>
             </field>
         </record>
@@ -57,7 +63,9 @@
             <field name="auto_delete" eval="False" />
             <field name="lang">{{object.partner_id.lang}}</field>
             <field name="body_html" type="html">
-                <p>Hello <t t-out="object.user_id.name" />,</p>
+                <p>Hello <t
+                    t-out="object.partner_name or object.partner_id.name"
+                />,</p>
                 <p>
                     The ticket <t t-out="object.display_name" />
                     stage has changed to <t t-out="object.stage_id.name" />.
