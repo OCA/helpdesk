@@ -1,8 +1,11 @@
 # Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 # import odoo.tests
+from lxml import etree
+
 from odoo import http
-from odoo.tests.common import new_test_user, tagged
+from odoo.tests.common import RecordCapturer, new_test_user, tagged
+from odoo.tools import html2plaintext
 
 from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT, HttpCaseWithUserPortal
 
@@ -204,3 +207,49 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         self.assertTrue(resp.is_redirect)  # http://127.0.0.1:8069/my/ticket/<ticket-id>
         self.assertTrue(resp.headers["Location"].endswith(f"/my/ticket/{ticket.id}"))
         return resp
+
+    def _assert_html_shows_ticket_link(self, html_content, ticket):
+        content_html = etree.fromstring(html_content, parser=etree.HTMLParser())
+        for link in content_html.xpath("//a"):
+            if ticket.access_token in link.get("href"):
+                ticket_link = link
+                break
+        else:
+            self.fail("Link for ticket not found")
+
+        # In some cases (no `record_name`) the link is there
+        # but it contains no visible text, so it is not shown in the email.
+        for text in ticket_link.itertext():
+            if html2plaintext(text):
+                # Could be "View Ticket", <ticket name> or similar
+                break
+        else:
+            self.fail("Link for ticket not shown")
+
+    def test_stage_changed_mail_link(self):
+        """The stage changed email includes an access link to open the Ticket."""
+        # Arrange
+        template = self.env.ref("helpdesk_mgmt.changed_stage_template")
+        stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_in_progress")
+        stage.mail_template_id = template
+        portal_user = self.user_portal
+        self.authenticate(portal_user.login, portal_user.login)
+        with (
+            RecordCapturer(self.env["helpdesk.ticket"], []) as ticket_catcher,
+        ):
+            self._submit_ticket()
+        ticket = ticket_catcher.records
+
+        # Act
+        with RecordCapturer(self.env["mail.mail"], []) as emails_catcher:
+            ticket.with_context(
+                mail_notrack=False,
+                tracking_disable=False,
+            ).stage_id = stage
+            # Emails are sent in a precommit hook,
+            # that in tests is usually not executed
+            self.env.cr.precommit.run()
+
+        # Assert
+        stage_changed_email = emails_catcher.records
+        self._assert_html_shows_ticket_link(stage_changed_email.body_html, ticket)
