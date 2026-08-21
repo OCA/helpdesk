@@ -23,6 +23,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [helpdesk_mgmt](helpdesk_mgmt/) | 16.0.2.13.1 |  | Helpdesk
+[helpdesk_mgmt_account](helpdesk_mgmt_account/) | 16.0.1.0.0 |  | Link account moves and helpdesk tickets
 [helpdesk_mgmt_activity](helpdesk_mgmt_activity/) | 16.0.1.0.0 |  | Create Activities for Odoo records from the Helpdesk
 [helpdesk_mgmt_assign_method](helpdesk_mgmt_assign_method/) | 16.0.1.0.0 |  | Helpdesk Assign Method
 [helpdesk_mgmt_fieldservice](helpdesk_mgmt_fieldservice/) | 16.0.1.1.0 |  | Create service orders from a ticket
