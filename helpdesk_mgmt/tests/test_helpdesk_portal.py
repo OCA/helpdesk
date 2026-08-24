@@ -253,3 +253,30 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         # Assert
         stage_changed_email = emails_catcher.records
         self._assert_html_shows_ticket_link(stage_changed_email.body_html, ticket)
+
+    def test_create_notification(self):
+        """
+        If the Ticket Creation subtype is Default,
+        the portal user receives an email on Ticket creation.
+        """
+        # Arrange
+        creation_subtype = self.env.ref("helpdesk_mgmt.hlp_tck_created")
+        creation_subtype.default = True
+        portal_user = self.user_portal
+        self.authenticate(portal_user.login, portal_user.login)
+
+        # Act
+        with (
+            RecordCapturer(self.env["mail.mail"], []) as email_catcher,
+            RecordCapturer(self.env["helpdesk.ticket"], []) as ticket_catcher,
+        ):
+            self._submit_ticket()
+
+        # Assert: The email is for the user that created the ticket
+        # and shows a link with access token that points to the ticket
+        ticket = ticket_catcher.records
+        creation_email = email_catcher.records.filtered(
+            lambda email, subtype=creation_subtype: email.subtype_id == subtype
+        )
+        self.assertIn(portal_user.partner_id, creation_email.recipient_ids)
+        self._assert_html_shows_ticket_link(creation_email.body_html, ticket)

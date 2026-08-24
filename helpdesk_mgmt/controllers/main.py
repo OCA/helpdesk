@@ -107,7 +107,12 @@ class HelpdeskTicketController(http.Controller):
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
     def submit_ticket(self, **kw):
         vals = self._prepare_submit_ticket_vals(**kw)
-        new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
+        new_ticket = (
+            request.env["helpdesk.ticket"]
+            .sudo()
+            .with_context(mail_notify_author=True)
+            .create(vals)
+        )
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
             for c_file in request.httprequest.files.getlist("attachment"):
