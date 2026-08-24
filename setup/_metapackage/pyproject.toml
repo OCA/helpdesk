@@ -1,12 +1,13 @@
 [project]
 name = "odoo-addons-oca-helpdesk"
-version = "19.0.20260805.0"
+version = "19.0.20260824.0"
 dependencies = [
     "odoo-addon-helpdesk_mgmt==19.0.*",
     "odoo-addon-helpdesk_mgmt_activity==19.0.*",
     "odoo-addon-helpdesk_mgmt_fieldservice==19.0.*",
     "odoo-addon-helpdesk_mgmt_project==19.0.*",
     "odoo-addon-helpdesk_mgmt_rating==19.0.*",
+    "odoo-addon-helpdesk_portal_priority==19.0.*",
     "odoo-addon-helpdesk_product==19.0.*",
     "odoo-addon-helpdesk_ticket_close_inactive==19.0.*",
     "odoo-addon-helpdesk_ticket_partner_response==19.0.*",
