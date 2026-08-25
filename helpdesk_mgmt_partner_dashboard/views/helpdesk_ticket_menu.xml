@@ -1,0 +1,38 @@
+<odoo>
+    <record
+        id="helpdesk_mgmt.helpdesk_ticket_dashboard_action"
+        model="ir.actions.act_window"
+    >
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field
+            name="domain"
+        >[('parent_id', '=', False), ('todo_ticket_count', '=', True)]</field>
+    </record>
+
+    <record
+        id="helpdesk_ticket_dashboard_partner_kanban_view"
+        model="ir.actions.act_window.view"
+    >
+        <field name="sequence">1</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="helpdesk_ticket_partner_kanban_view" />
+        <field
+            name="act_window_id"
+            ref="helpdesk_mgmt.helpdesk_ticket_dashboard_action"
+        />
+    </record>
+
+    <record
+        id="helpdesk_ticket_dashboard_partner_tree_view"
+        model="ir.actions.act_window.view"
+    >
+        <field name="sequence">2</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="helpdesk_ticket_partner_tree_view" />
+        <field
+            name="act_window_id"
+            ref="helpdesk_mgmt.helpdesk_ticket_dashboard_action"
+        />
+    </record>
+</odoo>
