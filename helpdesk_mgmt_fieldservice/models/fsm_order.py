@@ -12,11 +12,12 @@ class FSMOrder(models.Model):
 
     def action_complete(self):
         res = super().action_complete()
+        tickets = self.ticket_id
         if (
-            self.ticket_id.has_access("write")
-            and not self.ticket_id.stage_id.closed
-            and self.ticket_id.fsm_order_ids
-            and all(self.ticket_id.mapped("fsm_order_ids.stage_id.is_closed"))
+            tickets.has_access("write")
+            and not tickets.stage_id.closed
+            and tickets.fsm_order_ids
+            and all(tickets.mapped("fsm_order_ids.stage_id.is_closed"))
         ):
             return {
                 "view_mode": "form",
@@ -24,7 +25,7 @@ class FSMOrder(models.Model):
                 "type": "ir.actions.act_window",
                 "target": "new",
                 "context": {
-                    "default_ticket_id": self.ticket_id.id,
+                    "default_ticket_id": tickets.id,
                     "default_resolution": self.resolution,
                 },
             }
