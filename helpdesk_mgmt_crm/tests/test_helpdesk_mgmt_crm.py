@@ -60,7 +60,6 @@ class TestHelpdeskMgmtCrm(BaseCommon):
             .create({"team_id": team.id})
         )
         res = wizard.action_helpdesk_ticket_to_lead()
-        ticket.invalidate_recordset()
 
         self.assertTrue(ticket.lead_ids)
         self.assertEqual(res["res_id"], ticket.lead_ids.id)
@@ -71,7 +70,6 @@ class TestHelpdeskMgmtCrm(BaseCommon):
         self.assertEqual(ticket.user_id, ticket.lead_ids.user_id)
         self.assertEqual(ticket.description, ticket.lead_ids.description)
 
-        ticket.lead_ids.invalidate_recordset()
         self.assertGreater(len(ticket.lead_ids.message_ids), 0)
         self.assertGreater(len(ticket.message_ids), old_ticket_msg_count)
 
@@ -90,14 +88,12 @@ class TestHelpdeskMgmtCrm(BaseCommon):
 
         # Create a lead linked to the ticket
         self.env["crm.lead"].create({"name": "Test Lead", "ticket_id": self.ticket.id})
-        self.ticket._compute_lead_count()
         self.assertEqual(self.ticket.lead_count, 1)
 
         # Create another lead and check count updates
         self.env["crm.lead"].create(
             {"name": "Test Lead 2", "ticket_id": self.ticket.id}
         )
-        self.ticket._compute_lead_count()
         self.assertEqual(self.ticket.lead_count, 2)
 
     def test_action_open_leads_multiple(self):

@@ -28,18 +28,8 @@ class HelpdeskTicket(models.Model):
             item.lead_count = mapped_data.get(item.id, 0)
 
     def action_open_leads(self):
-        result = self.env["ir.actions.act_window"]._for_xml_id(
-            "crm.crm_lead_action_pipeline"
+        action = self.lead_ids._get_records_action(name=self.env._("Opportunity(ies)"))
+        action["context"].update(
+            {"default_ticket_id": self.id, "search_default_ticket_id": self.id}
         )
-        if len(self.lead_ids) == 1:
-            res = self.env.ref("crm.crm_lead_view_form", False)
-            result["views"] = [(res and res.id or False, "form")]
-            result["res_id"] = self.lead_ids.id
-        else:
-            result["domain"] = [("id", "in", self.lead_ids.ids)]
-            ctx = dict(self.env.context)
-            ctx.update(
-                {"default_ticket_id": self.id, "search_default_ticket_id": self.id}
-            )
-            result["context"] = ctx
-        return result
+        return action

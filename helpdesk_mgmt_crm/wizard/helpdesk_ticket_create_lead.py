@@ -59,8 +59,9 @@ class HelpdeskTicketCreateLead(models.TransientModel):
         # Chatter reflects new Lead
         body = Markup(
             self.env._(
-                "This ticket has been converted to the opportunity %(lead_link)s"
+                "This ticket has been converted to the opportunity %(lead_link)s",
+                lead_link=lead._get_html_link(title=lead.name),
             )
-        ) % {"lead_link": lead._get_html_link(title=lead.name)}
+        )
         self.ticket_id.with_user(SUPERUSER_ID).message_post(body=body)
         return lead.get_formview_action()
