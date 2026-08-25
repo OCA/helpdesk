@@ -24,6 +24,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt](helpdesk_mgmt/) | 17.0.1.10.4 |  | Helpdesk
 [helpdesk_mgmt_activity](helpdesk_mgmt_activity/) | 17.0.1.0.0 |  | Create Activities for Odoo records from the Helpdesk
 [helpdesk_mgmt_assign_method](helpdesk_mgmt_assign_method/) | 17.0.1.0.0 |  | Helpdesk Assign Method
+[helpdesk_mgmt_assign_method_hr_holidays](helpdesk_mgmt_assign_method_hr_holidays/) | 17.0.1.0.0 |  | Prevents users on leave from being assigned to helpdesk tickets.
 [helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 17.0.1.0.2 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Links helpdesk tickets with leads
 [helpdesk_mgmt_merge](helpdesk_mgmt_merge/) | 17.0.1.0.0 |  | Wizard to merge helpdesk tickets
 [helpdesk_mgmt_portal_follower](helpdesk_mgmt_portal_follower/) | 17.0.1.1.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> <a href='https://github.com/ppyczko'><img src='https://github.com/ppyczko.png' width='32' height='32' style='border-radius:50%;' alt='ppyczko'/></a> <a href='https://github.com/mpascuall'><img src='https://github.com/mpascuall.png' width='32' height='32' style='border-radius:50%;' alt='mpascuall'/></a> | Add ticket followers from website portal
