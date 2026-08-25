@@ -27,11 +27,13 @@ class HelpdeskTicket(models.Model):
         if self.team_id and not self.user_id:
             self.user_id = self.team_id.get_new_user()
 
-    @api.model
-    def create(self, vals):
+    @api.model_create_multi
+    def create(self, vals_list):
         """Assign user based on team on creation if not provided."""
-        team_id = vals.get("team_id")
-        if team_id:
+        for vals in vals_list:
+            team_id = vals.get("team_id")
+            if not team_id:
+                continue
             team = self.env["helpdesk.ticket.team"].browse(team_id)
             user_id = vals.get("user_id")
             if user_id:
@@ -43,4 +45,4 @@ class HelpdeskTicket(models.Model):
             else:
                 if team.assign_method != "manual":
                     vals["user_id"] = team.get_new_user().id
-        return super().create(vals)
+        return super().create(vals_list)
