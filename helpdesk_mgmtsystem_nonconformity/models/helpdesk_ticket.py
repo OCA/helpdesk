@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import _, fields, models
+from odoo import Command, fields, models
 from odoo.exceptions import UserError
 
 
@@ -18,7 +18,7 @@ class HelpdeskTicket(models.Model):
             "mgmtsystem_nonconformity.stage_draft"
         )
         vals = {
-            "ticket_ids": [(6, 0, self.ids)],
+            "ticket_ids": [Command.set(self.ids)],
             "name": self.name,
             "partner_id": self.partner_id.id,
             "stage_id": stage.id,
@@ -35,7 +35,7 @@ class HelpdeskTicket(models.Model):
 
     def action_nonconformity_create(self):
         if self.filtered("nonconformity_id"):
-            raise UserError(_("There are already linked nonconformities."))
+            raise UserError(self.env._("There are already linked nonconformities."))
         nonconformity_model = self.env["mgmtsystem.nonconformity"].with_context(
             skip_stage_change=True
         )
@@ -46,7 +46,7 @@ class HelpdeskTicket(models.Model):
 
     def action_open_nonconformity(self):
         return {
-            "name": _("Nonconformity"),
+            "name": self.env._("Nonconformity"),
             "view_mode": "form",
             "res_model": "mgmtsystem.nonconformity",
             "res_id": self.nonconformity_id.id,
