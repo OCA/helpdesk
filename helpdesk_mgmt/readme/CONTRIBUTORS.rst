@@ -30,10 +30,9 @@
   * Carolina Fernandez
   * Carlos Roca
 
-* `ID42 Sistemas <https://www.id42.com.br>`_:
+* `Escodoo <https://escodoo.com.br>`_:
 
   * Marcel Savegnago
-  * Eduardo Aparício
 
 * `Obertix <https://www.obertix.net>`_:
 
