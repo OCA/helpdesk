@@ -1,3 +1,4 @@
+// /** @odoo-module **/
 import {Component, onWillStart, useState} from "@odoo/owl";
 import {useBus, useService} from "@web/core/utils/hooks";
 import {SIZES} from "@web/core/ui/ui_service";

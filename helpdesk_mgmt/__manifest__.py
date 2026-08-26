@@ -43,7 +43,7 @@
             "helpdesk_mgmt/static/src/views/**/*.xml",
         ],
         "web.assets_unit_tests": [
-            "helpdesk_mgmt/static/tests/**/*.test.js",
+            "helpdesk_mgmt/static/tests/**/*.test.esm.js",
         ],
     },
     "development_status": "Production/Stable",

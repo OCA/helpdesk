@@ -1,3 +1,4 @@
+// /** @odoo-module **/
 import {HelpdeskDashboard} from "./helpdesk_dashboard.esm";
 import {KanbanRenderer} from "@web/views/kanban/kanban_renderer";
 import {kanbanView} from "@web/views/kanban/kanban_view";
