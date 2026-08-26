@@ -36,7 +36,7 @@ msgstr "<i class=\"fa fa-plus\"/> Jauns"
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.changed_stage_template
 msgid ""
-"<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
+"<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
 "                <p>\n"
 "                    The ticket <t t-out=\"object.display_name\"/>\n"
 "                    stage has changed to <t t-out=\"object.stage_id.name\"/"
@@ -48,7 +48,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
 msgid ""
-"<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
+"<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
 "                <p>The ticket <t t-out=\"object.display_name\"/> has been "
 "closed.</p>\n"
 "            "
@@ -57,15 +57,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
 msgid ""
-"<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
+"<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
 "                <p>The ticket <t t-out=\"object.number\"/> has been assigned "
-"to you.</p>\n"
+"to <t t-out=\"object.user_id.name\"/>.</p>\n"
 "            "
 msgstr ""
-"<p>Sveiki <t t-out=\"object.user_id.name\"/>,</p>\n"
-"                <p>Jums ir piešķirts pieteikums  <t t-out=\"object.number\"/"
-"> .</p>\n"
-"            "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -1767,6 +1763,17 @@ msgid ""
 "{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
 "a' }})"
 msgstr ""
+
+#~ msgid ""
+#~ "<p>Hello <t t-out=\"object.user_id.name\"/>,</p>\n"
+#~ "                <p>The ticket <t t-out=\"object.number\"/> has been "
+#~ "assigned to you.</p>\n"
+#~ "            "
+#~ msgstr ""
+#~ "<p>Sveiki <t t-out=\"object.user_id.name\"/>,</p>\n"
+#~ "                <p>Jums ir piešķirts pieteikums  <t t-"
+#~ "out=\"object.number\"/> .</p>\n"
+#~ "            "
 
 #~ msgid ""
 #~ "<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
