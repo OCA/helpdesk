@@ -22,7 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 19.0.1.1.1 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 19.0.1.1.2 |  | Helpdesk
 [helpdesk_mgmt_activity](helpdesk_mgmt_activity/) | 19.0.1.0.0 |  | Create Activities for Odoo records from the Helpdesk
 [helpdesk_mgmt_fieldservice](helpdesk_mgmt_fieldservice/) | 19.0.1.0.0 |  | Create service orders from a ticket
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 19.0.1.0.0 |  | Add the option to select project in the tickets.
