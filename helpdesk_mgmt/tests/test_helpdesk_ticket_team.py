@@ -100,3 +100,18 @@ class TestHelpdeskTicketTeam(TestHelpdeskTicketBase):
             2,
             "Helpdesk Ticket: Helpdesk ticket team should have two ticket to do.",
         )
+
+    def test_dashboard_buttons(self):
+        self.env["helpdesk.ticket"].search([]).write({"active": False})
+        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
+        self.assertEqual(dashboard[0]["value"], 0)
+        self.assertEqual(dashboard[1]["value"], 0)
+        ticket = self._create_ticket(self.env["helpdesk.ticket.team"])
+        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
+        self.assertEqual(dashboard[0]["value"], 1)
+        self.assertEqual(dashboard[1]["value"], 1)
+        ticket.team_id = self.team_a
+        ticket.flush_recordset()
+        dashboard = self.env["helpdesk.ticket.team"]._retrieve_dashboard()
+        self.assertEqual(dashboard[0]["value"], 0)
+        self.assertEqual(dashboard[1]["value"], 1)

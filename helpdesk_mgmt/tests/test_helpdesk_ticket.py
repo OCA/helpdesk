@@ -70,15 +70,13 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
         self.assertFalse(
             self.ticket.closed_date,
-            "Helpdesk Ticket: No closed date "
-            "should be set for a non closed "
-            "ticket.",
+            "Helpdesk Ticket: No closed date should be set for a non closed ticket.",
         )
         time.sleep(1)
         self.ticket.write({"stage_id": self.stage_closed.id})
         self.assertTrue(
             self.ticket.closed_date,
-            "Helpdesk Ticket: A closed ticket " "should have a closed_date value.",
+            "Helpdesk Ticket: A closed ticket should have a closed_date value.",
         )
         self.assertTrue(
             old_stage_update < self.ticket.last_stage_update,
@@ -89,14 +87,14 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         self.ticket.write({"user_id": self.user.id})
         self.assertTrue(
             self.ticket.assigned_date,
-            "Helpdesk Ticket: An assigned ticket " "should contain a assigned_date.",
+            "Helpdesk Ticket: An assigned ticket should contain a assigned_date.",
         )
 
     def test_helpdesk_ticket_number(self):
         self.assertNotEqual(
             self.ticket.number,
             "/",
-            "Helpdesk Ticket: A ticket should have " "a number.",
+            "Helpdesk Ticket: A ticket should have a number.",
         )
         ticket_number_1 = int(self.ticket._prepare_ticket_number(values={})[2:])
         ticket_number_2 = int(self.ticket._prepare_ticket_number(values={})[2:])
@@ -248,3 +246,21 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             new_ticket_form.stage_id = in_progress_stage
             new_ticket_form.user_id = self.user
         self.assertEqual(new_ticket_form.stage_id, in_progress_stage)
+
+    def test_helpdesk_ticket_duplicates(self):
+        self.env.company.helpdesk_mgmt_duplicate_tracking = True
+        self.env.company.helpdesk_mgmt_duplicate_ticket_stage_id = self.env.ref(
+            "helpdesk_mgmt.helpdesk_ticket_stage_rejected"
+        )
+        wizard_action = self.ticket.action_open_duplicate_wizard()
+
+        with Form(
+            self.env[wizard_action["res_model"]].with_context(
+                **wizard_action["context"]
+            )
+        ) as wizard:
+            wizard.duplicate_of_id = self.ticket_b_unassigned
+            wizard_rec = wizard.save()
+        wizard_rec.action_confirm()
+        self.assertEqual(self.ticket.duplicate_id, self.ticket_b_unassigned)
+        self.assertIn(self.ticket_b_unassigned.duplicate_ids, self.ticket)

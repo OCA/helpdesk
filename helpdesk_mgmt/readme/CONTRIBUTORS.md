@@ -19,6 +19,7 @@
   - Carolina Fernandez
   - Carlos Roca
   - Juan Carlos Oñate
+  - David Bañón Gil
 - [Escodoo](https://escodoo.com.br):
   - Marcel Savegnago
 - [Obertix](https://www.obertix.net):

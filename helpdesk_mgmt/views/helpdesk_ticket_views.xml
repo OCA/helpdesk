@@ -12,6 +12,20 @@
         </field>
         <field name="domain">[('team_id', '=', active_id)]</field>
     </record>
+    <record id="helpdesk_ticket_action_unassigned" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field
+            name="domain"
+        >[('team_id', '=', False), ("stage_id.closed", "=", False)]</field>
+    </record>
+    <record id="helpdesk_ticket_action_opened" model="ir.actions.act_window">
+        <field name="name">Helpdesk Ticket</field>
+        <field name="res_model">helpdesk.ticket</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[("stage_id.closed", "=", False)]</field>
+    </record>
     <record id="helpdesk_ticket_view_search" model="ir.ui.view">
         <field name="name">helpdesk.ticket.view.search</field>
         <field name="model">helpdesk.ticket</field>
@@ -79,18 +93,18 @@
                 <filter
                     string="Late Activities"
                     name="activities_overdue"
-                    domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
+                    domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"
                     help="Show all records which has next action date is before today"
                 />
                 <filter
                     string="Today Activities"
                     name="activities_today"
-                    domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
+                    domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"
                 />
                 <filter
                     string="Future Activities"
                     name="activities_upcoming_all"
-                    domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
+                    domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))
                   ]"
                 />
                 <group expand="0" string="Group By">
@@ -145,12 +159,19 @@
         <field name="model">helpdesk.ticket</field>
         <field name="arch" type="xml">
             <form string="Helpdesk Ticket">
+                <field name="duplicate_ids" invisible="1" />
                 <header>
                     <button
                         string="Assign to me"
                         name="assign_to_me"
                         type="object"
                         invisible="user_id"
+                    />
+                    <button
+                        string="Mark as duplicate"
+                        name="action_open_duplicate_wizard"
+                        type="object"
+                        invisible="duplicate_id or duplicate_ids or not duplicate_tracking_enabled"
                     />
                     <field
                         name="stage_id"
@@ -165,9 +186,39 @@
                         bg_color="bg-danger"
                         invisible="active"
                     />
+                    <widget
+                        name="web_ribbon"
+                        title="Duplicate"
+                        bg_color="bg-danger"
+                        invisible="not duplicate_id"
+                    />
                     <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            type="object"
+                            name="action_view_duplicates"
+                            icon="fa-clone"
+                            invisible="duplicate_count == 0"
+                        >
+                            <field
+                                string="Duplicates"
+                                name="duplicate_count"
+                                widget="statinfo"
+                            />
+                        </button>
                     </div>
                     <div class="oe_title">
+                        <div
+                            class="alert alert-info oe_edit_only"
+                            role="alert"
+                            name="warning_duplicate"
+                            invisible="not duplicate_id"
+                        > This ticket is a
+                            duplicate of <field
+                                name="duplicate_id"
+                                readonly="stage_id.closed"
+                            />
+                        </div>
                         <h1 class="oe_title">
                             <field name="number" />
                         </h1>
@@ -178,6 +229,7 @@
                     <group name="main">
                         <group>
                             <field name="active" invisible="1" />
+                            <field name="duplicate_tracking_enabled" invisible="1" />
                             <field name="team_id" options='{"always_reload": True}' />
                             <field name="user_ids" invisible="1" readonly="1" />
                             <field

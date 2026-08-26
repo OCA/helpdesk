@@ -1,0 +1,9 @@
+{
+  "pull_requests": {
+    "OCA/helpdesk#734": "Is a forward port from 17.0",
+    "OCA/helpdesk#812": "V18+ only feature",
+    "OCA/helpdesk#914": "Reverted",
+    "OCA/helpdesk#917": "Revert of skipped PR",
+    "OCA/helpdesk#1055": "Already fixed in v17"
+  }
+}

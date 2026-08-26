@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import _, api, fields, models
 from odoo.tools.safe_eval import safe_eval
 
 
@@ -13,7 +13,7 @@ class HelpdeskTeam(models.Model):
     _rec_name = "complete_name"
 
     sequence = fields.Integer(default=10)
-    name = fields.Char(required=True)
+    name = fields.Char(required=True, translate=True)
     user_ids = fields.Many2many(
         comodel_name="res.users",
         string="Members",
@@ -72,11 +72,20 @@ class HelpdeskTeam(models.Model):
         "helpdesk.ticket.team", string="Parent Team", index=True
     )
     complete_name = fields.Char(
-        compute="_compute_complete_name", store=True, recursive=True
+        compute="_compute_complete_name",
+        recursive=True,
+        search="_search_complete_name",
     )
     parent_path = fields.Char(index=True, unaccent=False)
 
+    def _search_complete_name(self, operator, value):
+        records = self.search_fetch([], ["complete_name"]).filtered_domain(
+            [("complete_name", operator, value)]
+        )
+        return [("id", "in", records.ids)]
+
     @api.depends("name", "parent_id.complete_name")
+    @api.depends_context("lang")
     def _compute_complete_name(self):
         for record in self:
             if record.parent_id:
@@ -140,3 +149,32 @@ class HelpdeskTeam(models.Model):
         values["alias_defaults"] = defaults = safe_eval(self.alias_defaults or "{}")
         defaults["team_id"] = self.id
         return values
+
+    @api.model
+    def retrieve_dashboard(self):
+        return sorted(self._retrieve_dashboard(), key=lambda d: d.get("sequence", 99))
+
+    def _retrieve_dashboard(self):
+        no_team_tickets = self.env["helpdesk.ticket"].search_count(
+            [("team_id", "=", False), ("stage_id.closed", "=", False)]
+        )
+        return [
+            {
+                "name": _("Open Tickets without team"),
+                "value": no_team_tickets,
+                "sequence": 1,
+                "icon": "fa-exclamation-circle",
+                "show": no_team_tickets > 0,
+                "action": "helpdesk_mgmt.helpdesk_ticket_action_unassigned",
+            },
+            {
+                "name": _("Open Tickets"),
+                "value": self.env["helpdesk.ticket"].search_count(
+                    [("stage_id.closed", "=", False)]
+                ),
+                "sequence": 2,
+                "icon": "fa-life-ring",
+                "show": True,
+                "action": "helpdesk_mgmt.helpdesk_ticket_action_opened",
+            },
+        ]
