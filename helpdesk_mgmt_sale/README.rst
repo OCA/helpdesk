@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Helpdesk Sale Order
 ===================
@@ -17,7 +13,7 @@ Helpdesk Sale Order
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -50,10 +46,9 @@ To associate orders to Helpdesk tickets:
 1. Create or modify a Helpdesk ticket.
 2. In the ticket view, you will find
 
-   - a **Sales Order** Smartbutton which will show the number of orders
-     associated to the ticket.
-   - a **Link Sale Orders** button to link existing orders to the
-     ticket.
+   -  a **Sales Order** Smartbutton which will show the number of orders
+      associated to the ticket.
+   -  a **Sales orders** field to link existing orders to the ticket.
 
 3. Clicking on the Smartbutton will open a view with all the sales
    orders related to the current ticket.
@@ -81,17 +76,17 @@ Authors
 Contributors
 ------------
 
-- `Tecnativa <https://www.tecnativa.com>`__:
+-  `Tecnativa <https://www.tecnativa.com>`__:
 
-  - Pilar Vargas
+   -  Pilar Vargas
 
-- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+-  `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
 
-  - Bhavesh Heliconia
+   -  Bhavesh Heliconia
 
-- `Camptocamp <https://www.camptocamp.com>`__:
+-  `Camptocamp <https://www.camptocamp.com>`__:
 
-  - Vincent Van Rossem
+   -  Vincent Van Rossem
 
 Maintainers
 -----------
