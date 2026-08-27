@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmtsystem_nonconformity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-08-19 15:27+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.actions.server,name:helpdesk_mgmtsystem_nonconformity.model_helpdesk_ticket_action_nonconformity_create
+msgid "Create Nonconformity"
+msgstr "Crea non conformità"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket assistenza clienti"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_helpdesk_ticket_stage
+msgid "Helpdesk Ticket Stage"
+msgstr "Fase ticket assistenza clienti"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#. odoo-python
+#: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
+#: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket__nonconformity_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmtsystem_nonconformity.ticket_view_form
+#, python-format
+msgid "Nonconformity"
+msgstr "Non conformità"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket_stage__nonconformity_stage_id
+msgid "Nonconformity Stage"
+msgstr "Fase non conformità"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#. odoo-python
+#: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
+#, python-format
+msgid "There are already linked nonconformities."
+msgstr "Ci sono già non conformità collegate."
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_mgmtsystem_nonconformity__ticket_count
+msgid "Ticket Count"
+msgstr "Conteggio ticket"
+
+#. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_mgmtsystem_nonconformity__ticket_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmtsystem_nonconformity.view_mgmtsystem_nonconformity_form
+msgid "Tickets"
+msgstr "Ticket"
