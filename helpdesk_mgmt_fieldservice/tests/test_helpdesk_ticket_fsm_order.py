@@ -4,6 +4,8 @@
 from odoo.exceptions import ValidationError
 from odoo.tests.common import Form, TransactionCase
 
+from odoo.addons.mail.tests.common import mail_new_test_user
+
 
 class TestHelpdeskTicketFSMOrder(TransactionCase):
     @classmethod
@@ -15,6 +17,13 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
         cls.partner = cls.env["res.partner"].create({"name": "Partner 1"})
         cls.user_demo = cls.env.ref("base.user_demo")
         cls.HelpdeskTicketTeam = cls.env["helpdesk.ticket.team"]
+        cls.all_doc_group_xmlid = "fieldservice.group_fsm_user"
+        cls.own_doc_group_xmlid = "fieldservice.group_fsm_user_own"
+        cls.own_doc_user = mail_new_test_user(
+            cls.env,
+            login="test fieldservice user own documents",
+            groups=cls.own_doc_group_xmlid,
+        )
         cls.fsm_team = cls.env["fsm.team"].create({"name": "FSM Team"})
         cls.fsm_stage_new = cls.env.ref("fieldservice.fsm_stage_new")
         cls.fsm_stage_cancelled = cls.env.ref("fieldservice.fsm_stage_cancelled")
@@ -134,7 +143,6 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             action_complete_last_order["context"],
             {
                 "default_ticket_id": self.ticket_1.id,
-                "default_team_id": self.team_id.id,
                 "default_resolution": "Just another resolution",
             },
         )
@@ -174,3 +182,20 @@ class TestHelpdeskTicketFSMOrder(TransactionCase):
             ValidationError, "Please complete all service orders"
         ):
             self.ticket_1.stage_id = self.stage_closed
+
+    def test_user_own_close_wizard(self):
+        """A user that can only access their own documents,
+        can close an order."""
+        # Arrange
+        user = self.own_doc_user
+        fsm_order = self._create_ticket_fsm_orders(self.ticket_1)
+        # pre-condition
+        self.assertNotEqual(fsm_order.stage_id, self.stage_completed)
+        self.assertTrue(user.has_group(self.own_doc_group_xmlid))
+        self.assertFalse(user.has_group(self.all_doc_group_xmlid))
+
+        # Act
+        fsm_order.with_user(user).action_complete()
+
+        # Assert
+        self.assertEqual(fsm_order.stage_id, self.stage_completed)
