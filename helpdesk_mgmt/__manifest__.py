@@ -38,6 +38,9 @@
         "web.assets_frontend": [
             "helpdesk_mgmt/static/src/js/new_ticket.esm.js",
         ],
+        "web.assets_tests": [
+            "helpdesk_mgmt/static/src/js/tours/test_helpdesk_tour.esm.js",
+        ],
     },
     "development_status": "Production/Stable",
     "application": True,
