@@ -34,7 +34,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_project](helpdesk_mgmt_project/) | 18.0.1.3.0 |  | Add the option to select project in the tickets.
 [helpdesk_mgmt_project_domain](helpdesk_mgmt_project_domain/) | 18.0.1.0.0 | <a href='https://github.com/marcelsavegnago'><img src='https://github.com/marcelsavegnago.png' width='32' height='32' style='border-radius:50%;' alt='marcelsavegnago'/></a> | Enable to set a project domain on ticket
 [helpdesk_mgmt_rating](helpdesk_mgmt_rating/) | 18.0.1.0.2 |  | This module allows customer to rate the assistance received on a ticket.
-[helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 18.0.2.1.1 |  | Add the option to select project in the sale orders.
+[helpdesk_mgmt_sale](helpdesk_mgmt_sale/) | 18.0.3.0.0 |  | Add the option to select project in the sale orders.
 [helpdesk_mgmt_sale_project](helpdesk_mgmt_sale_project/) | 18.0.1.0.0 |  | Helpdesk Sale Project
 [helpdesk_mgmt_sla](helpdesk_mgmt_sla/) | 18.0.2.1.0 |  | Add SLA to the tickets for Helpdesk Management.
 [helpdesk_mgmt_stage_validation](helpdesk_mgmt_stage_validation/) | 18.0.1.0.0 |  | Validate input data when reaching a Helpdesk Ticket stage
