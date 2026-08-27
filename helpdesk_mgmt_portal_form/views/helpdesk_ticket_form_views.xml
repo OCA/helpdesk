@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="helpdesk_ticket_form_view_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.form</field>
+        <field name="model">helpdesk.ticket.form</field>
+        <field name="arch" type="xml">
+            <form string="Portal Ticket Form">
+                <widget
+                    name="web_ribbon"
+                    title="Archived"
+                    bg_color="bg-danger"
+                    invisible="active"
+                />
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" placeholder="e.g. Hardware issue" />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company" />
+                        <field name="active" invisible="1" />
+                    </group>
+                    <field
+                        name="intro"
+                        placeholder="Optional introduction shown above the questions..."
+                    />
+                    <notebook>
+                        <page string="Questions" name="questions">
+                            <field name="question_ids">
+                                <list>
+                                    <field name="sequence" widget="handle" />
+                                    <field name="name" />
+                                    <field name="question_type" />
+                                    <field name="required" widget="boolean_toggle" />
+                                </list>
+                                <form string="Question">
+                                    <field name="form_id" invisible="1" />
+                                    <group>
+                                        <field name="name" />
+                                        <field name="question_type" />
+                                        <field name="required" />
+                                        <field
+                                            name="placeholder"
+                                            invisible="question_type not in ('char', 'text')"
+                                        />
+                                        <field name="help_text" />
+                                    </group>
+                                    <group string="Conditional display">
+                                        <field name="is_conditional" />
+                                        <field
+                                            name="triggering_question_type"
+                                            invisible="1"
+                                        />
+                                        <field
+                                            name="triggering_question_id"
+                                            invisible="not is_conditional"
+                                            required="is_conditional"
+                                            options="{'no_create': True}"
+                                            domain="[('form_id', '=', form_id), ('question_type', 'in', ('selection', 'multi', 'boolean')), ('id', '!=', id)]"
+                                        />
+                                        <field
+                                            name="triggering_answer_ids"
+                                            widget="many2many_tags"
+                                            invisible="not is_conditional or triggering_question_type not in ('selection', 'multi')"
+                                            required="is_conditional and triggering_question_type in ('selection', 'multi')"
+                                            options="{'no_create': True}"
+                                            domain="[('question_id', '=', triggering_question_id)]"
+                                        />
+                                        <field
+                                            name="triggering_bool_value"
+                                            invisible="not is_conditional or triggering_question_type != 'boolean'"
+                                            required="is_conditional and triggering_question_type == 'boolean'"
+                                        />
+                                    </group>
+                                    <field
+                                        name="answer_ids"
+                                        invisible="question_type not in ('selection', 'multi')"
+                                    >
+                                        <list editable="bottom">
+                                            <field name="sequence" widget="handle" />
+                                            <field name="name" />
+                                        </list>
+                                    </field>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_form_view_list" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.list</field>
+        <field name="model">helpdesk.ticket.form</field>
+        <field name="arch" type="xml">
+            <list string="Portal Ticket Forms">
+                <field name="name" />
+                <field name="question_count" string="# Questions" />
+                <field
+                    name="company_id"
+                    optional="hide"
+                    groups="base.group_multi_company"
+                />
+            </list>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_form_view_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.search</field>
+        <field name="model">helpdesk.ticket.form</field>
+        <field name="arch" type="xml">
+            <search string="Portal Ticket Forms">
+                <field name="name" />
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active', '=', False)]"
+                />
+            </search>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_form_action" model="ir.actions.act_window">
+        <field name="name">Portal Forms</field>
+        <field name="res_model">helpdesk.ticket.form</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first portal ticket form
+            </p>
+            <p>
+                Build a structured set of questions and attach it to a portal
+                category so customers fill it in instead of a free-text
+                description.
+            </p>
+        </field>
+    </record>
+</odoo>

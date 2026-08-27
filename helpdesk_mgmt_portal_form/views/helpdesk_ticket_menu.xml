@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <menuitem
+        id="helpdesk_ticket_form_menu"
+        name="Portal Forms"
+        parent="helpdesk_mgmt.helpdesk_ticket_config_main_menu"
+        action="helpdesk_ticket_form_action"
+        sequence="20"
+    />
+</odoo>
