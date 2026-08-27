@@ -18,31 +18,6 @@ msgstr ""
 "X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_sale
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
-msgid "Cancel"
-msgstr "Prekliči"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__commercial_partner_id
-msgid "Commercial Partner"
-msgstr "Komercialni partner"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__create_uid
-msgid "Created by"
-msgstr "Ustvaril"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__create_date
-msgid "Created on"
-msgstr "Ustvarjeno"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__display_name
-msgid "Display Name"
-msgstr "Prikazani naziv"
-
-#. module: helpdesk_mgmt_sale
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
 msgid "Helpdesk"
 msgstr "Podporna služba"
@@ -53,39 +28,11 @@ msgid "Helpdesk Ticket"
 msgstr "Zahtevek za podporo"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__id
-msgid "ID"
-msgstr "ID"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__write_uid
-msgid "Last Updated by"
-msgstr "Zadnji posodobil"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__write_date
-msgid "Last Updated on"
-msgstr "Zadnjič posodobljeno"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket_link_sale_order_wizard
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
-msgid "Link Sale Orders"
-msgstr "Poveži prodajne naloge"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model,name:helpdesk_mgmt_sale.model_helpdesk_ticket_link_sale_order_wizard
-msgid "Link Sale Orders to Helpdesk Ticket"
-msgstr "Poveži prodajne naloge s podpornim zahtevkom"
-
-#. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
 msgid "Sale Order Count"
 msgstr "Št. prodajnih nalogov"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__sale_orders_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
 msgid "Sale Orders"
 msgstr "Prodajni nalogi"
@@ -101,15 +48,9 @@ msgid "Sales orders"
 msgstr "Prodajni nalogi"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
 msgid "Ticket"
 msgstr "Zahtevek"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
-msgid "Ticket sales orders"
-msgstr "Prodajni nalogi zahtevka"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
@@ -121,3 +62,36 @@ msgstr "Zahtevki"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_count
 msgid "Tickets Count"
 msgstr "Št. zahtevkov"
+
+#~ msgid "Cancel"
+#~ msgstr "Prekliči"
+
+#~ msgid "Commercial Partner"
+#~ msgstr "Komercialni partner"
+
+#~ msgid "Created by"
+#~ msgstr "Ustvaril"
+
+#~ msgid "Created on"
+#~ msgstr "Ustvarjeno"
+
+#~ msgid "Display Name"
+#~ msgstr "Prikazani naziv"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Zadnji posodobil"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Zadnjič posodobljeno"
+
+#~ msgid "Link Sale Orders"
+#~ msgstr "Poveži prodajne naloge"
+
+#~ msgid "Link Sale Orders to Helpdesk Ticket"
+#~ msgstr "Poveži prodajne naloge s podpornim zahtevkom"
+
+#~ msgid "Ticket sales orders"
+#~ msgstr "Prodajni nalogi zahtevka"
