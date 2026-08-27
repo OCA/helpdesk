@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,6 +19,13 @@ msgid "Create Nonconformity"
 msgstr ""
 
 #. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket_stage__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_mgmtsystem_nonconformity__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_mgmtsystem_nonconformity
 #: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
 msgstr ""
@@ -29,12 +36,18 @@ msgid "Helpdesk Ticket Stage"
 msgstr ""
 
 #. module: helpdesk_mgmtsystem_nonconformity
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket_stage__id
+#: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_mgmtsystem_nonconformity__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_mgmtsystem_nonconformity
 #. odoo-python
 #: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
 #: model:ir.model,name:helpdesk_mgmtsystem_nonconformity.model_mgmtsystem_nonconformity
 #: model:ir.model.fields,field_description:helpdesk_mgmtsystem_nonconformity.field_helpdesk_ticket__nonconformity_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmtsystem_nonconformity.ticket_view_form
-#, python-format
 msgid "Nonconformity"
 msgstr ""
 
@@ -46,7 +59,6 @@ msgstr ""
 #. module: helpdesk_mgmtsystem_nonconformity
 #. odoo-python
 #: code:addons/helpdesk_mgmtsystem_nonconformity/models/helpdesk_ticket.py:0
-#, python-format
 msgid "There are already linked nonconformities."
 msgstr ""
 
