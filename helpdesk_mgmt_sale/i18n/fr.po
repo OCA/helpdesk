@@ -17,31 +17,6 @@ msgstr ""
 "X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_sale
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
-msgid "Cancel"
-msgstr "Annuler"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__commercial_partner_id
-msgid "Commercial Partner"
-msgstr "Partenaire commercial"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__create_uid
-msgid "Created by"
-msgstr "Créé par"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__create_date
-msgid "Created on"
-msgstr "Créé le"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
-
-#. module: helpdesk_mgmt_sale
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
 msgid "Helpdesk"
 msgstr "Assistance"
@@ -52,39 +27,11 @@ msgid "Helpdesk Ticket"
 msgstr "Ticket d’assistance"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__id
-msgid "ID"
-msgstr "ID"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__write_uid
-msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__write_date
-msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket_link_sale_order_wizard
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
-#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_helpdesk_ticket_link_sale_order_wizard
-msgid "Link Sale Orders"
-msgstr "Lier des ventes"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model,name:helpdesk_mgmt_sale.model_helpdesk_ticket_link_sale_order_wizard
-msgid "Link Sale Orders to Helpdesk Ticket"
-msgstr "Lier des ventes au ticket d'assistance"
-
-#. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
 msgid "Sale Order Count"
 msgstr "Nombre de commandes"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__sale_orders_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.ticket_view_form
 msgid "Sale Orders"
 msgstr "Bons de commande"
@@ -100,15 +47,9 @@ msgid "Sales orders"
 msgstr ""
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
 msgid "Ticket"
 msgstr "Ticket"
-
-#. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket_link_sale_order_wizard__ticket_sale_order_ids
-msgid "Ticket sales orders"
-msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
@@ -120,6 +61,36 @@ msgstr "Tickets"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_count
 msgid "Tickets Count"
 msgstr "Nombre de tickets"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Commercial Partner"
+#~ msgstr "Partenaire commercial"
+
+#~ msgid "Created by"
+#~ msgstr "Créé par"
+
+#~ msgid "Created on"
+#~ msgstr "Créé le"
+
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Dernière mise à jour par"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Dernière mise à jour le"
+
+#~ msgid "Link Sale Orders"
+#~ msgstr "Lier des ventes"
+
+#~ msgid "Link Sale Orders to Helpdesk Ticket"
+#~ msgstr "Lier des ventes au ticket d'assistance"
 
 #~ msgid "Sale Order"
 #~ msgstr "Bons de Commande"
