@@ -185,6 +185,22 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         self.assertEqual(resp.status_code, 200)
         self.assertIn("ticket-user-2", resp.text)
 
+    def test_portal_user_is_not_auto_assigned(self):
+        """A ticket created by a portal user is not assigned to them."""
+        # Not submitted through our own controller on purpose: it passes
+        # "user_id": False explicitly, so it never reaches the auto-assign
+        # default. This covers any other creator that leaves user_id out,
+        # such as a custom website form or an API import.
+        self.env.company.helpdesk_mgmt_ticket_auto_assign = True
+        # sudo() keeps env.uid: this is what portal controllers do.
+        ticket = (
+            self.env["helpdesk.ticket"]
+            .with_user(self.user_portal)
+            .sudo()
+            .create({"name": "Ticket", "description": "Description"})
+        )
+        self.assertFalse(ticket.user_id)
+
     def _count_close_buttons(self, resp) -> int:
         """Count close buttons in a form by counting forms with that target."""
         return resp.text.count('action="/ticket/close"')
