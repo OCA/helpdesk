@@ -39,7 +39,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_sla](helpdesk_mgmt_sla/) | 18.0.2.1.0 |  | Add SLA to the tickets for Helpdesk Management.
 [helpdesk_mgmt_stage_validation](helpdesk_mgmt_stage_validation/) | 18.0.1.0.0 |  | Validate input data when reaching a Helpdesk Ticket stage
 [helpdesk_mgmt_template](helpdesk_mgmt_template/) | 18.0.1.0.0 |  | Create Helpdesk Ticket Template
-[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 18.0.1.2.0 |  | Add HR Timesheet to the tickets for Helpdesk Management.
+[helpdesk_mgmt_timesheet](helpdesk_mgmt_timesheet/) | 18.0.1.2.1 |  | Add HR Timesheet to the tickets for Helpdesk Management.
 [helpdesk_mgmt_timesheet_sale](helpdesk_mgmt_timesheet_sale/) | 18.0.1.0.0 |  | Allow to set the sale order line directly on helpdesk tickets
 [helpdesk_motive](helpdesk_motive/) | 18.0.1.0.0 | <a href='https://github.com/nelsonramirezs'><img src='https://github.com/nelsonramirezs.png' width='32' height='32' style='border-radius:50%;' alt='nelsonramirezs'/></a> <a href='https://github.com/max3903'><img src='https://github.com/max3903.png' width='32' height='32' style='border-radius:50%;' alt='max3903'/></a> | Keep the motive
 [helpdesk_portal_priority](helpdesk_portal_priority/) | 18.0.1.1.0 | <a href='https://github.com/lbarry-apsl'><img src='https://github.com/lbarry-apsl.png' width='32' height='32' style='border-radius:50%;' alt='lbarry-apsl'/></a> | Helpdesk Portal Priority
