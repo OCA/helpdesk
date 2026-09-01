@@ -1,0 +1,10 @@
+- [Open Source Integrators](https://www.opensourceintegrators.com):
+  - Maxime Chambreuil \<<mchambreuil@opensourceintegrators.com>\>
+- [Konos](https://www.konos.cl):
+  - Nelson Sanchez \<<nramirez@konos.cl>\>
+- [Solvos](https://www.solvos.es):
+  - David Alonso \<<david.alonso@solvos.es>\>
+- \`Binhex \<<https://binhex.cloud>\>\_\`:
+  - Adasat Torres \<<a.torres@binhex.cloud>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia
