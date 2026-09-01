@@ -269,7 +269,7 @@
                 <field name="allow_timesheet" invisible="1" />
             </xpath>
             <!-- It is important to apply the required attrs to the field which has groups !-->
-            <xpath expr="//field[@name='project_id'][2]" position="attributes">
+            <xpath expr="//field[@name='project_id']" position="attributes">
                 <attribute name="required">allow_timesheet</attribute>
             </xpath>
         </field>
