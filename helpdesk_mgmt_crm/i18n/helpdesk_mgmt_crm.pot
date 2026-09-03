@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,6 +45,8 @@ msgid "Created on"
 msgstr ""
 
 #. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__display_name
 msgid "Display Name"
 msgstr ""
@@ -61,6 +63,8 @@ msgid "Helpdesk Ticket Create Lead"
 msgstr ""
 
 #. module: helpdesk_mgmt_crm
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_crm_lead__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket_create_lead__id
 msgid "ID"
 msgstr ""
@@ -77,7 +81,7 @@ msgstr ""
 
 #. module: helpdesk_mgmt_crm
 #: model:ir.model,name:helpdesk_mgmt_crm.model_crm_lead
-msgid "Lead/Opportunity"
+msgid "Lead"
 msgstr ""
 
 #. module: helpdesk_mgmt_crm
@@ -86,6 +90,8 @@ msgid "Opportunity Count"
 msgstr ""
 
 #. module: helpdesk_mgmt_crm
+#. odoo-python
+#: code:addons/helpdesk_mgmt_crm/models/helpdesk_ticket.py:0
 #: model:ir.model.fields,field_description:helpdesk_mgmt_crm.field_helpdesk_ticket__lead_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_crm.ticket_view_form
 msgid "Opportunity(ies)"
