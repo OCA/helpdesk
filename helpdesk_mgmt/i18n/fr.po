@@ -1048,6 +1048,11 @@ msgid "Newest"
 msgstr "Le plus récent"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Activité suivante de l’événement du calendrier"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Échéance de la prochaine activité"
@@ -2126,9 +2131,6 @@ msgstr ""
 
 #~ msgid "Localization team"
 #~ msgstr "Équipe localisation"
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Activité suivante de l’événement du calendrier"
 
 #~ msgid "Odoo"
 #~ msgstr "Odoo"
