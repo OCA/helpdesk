@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="200mm"
+   height="200mm"
+   viewBox="0 0 200 200"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt_crm/static/description/icon.png"
+   inkscape:export-xdpi="91.328003"
+   inkscape:export-ydpi="91.328003"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.32026164"
+     inkscape:cx="60.887717"
+     inkscape:cy="572.96903"
+     inkscape:window-width="1858"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path1927"
+       style="fill:#7d88a5;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="m 183.0986,134.37023 a 89.999999,89.999999 0 0 0 -1.9e-4,-68.88285 l -46.24415,19.154953 a 39.999999,39.999999 0 0 1 0.0502,30.593657 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-7"
+       style="fill:#b8c8f3;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="M 183.0484,65.508091 A 89.999999,89.999999 0 0 0 134.34073,16.800704 l -19.15495,46.244143 a 39.999999,39.999999 0 0 1 21.66848,21.597486 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-9"
+       style="fill:#7d88a5;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="m 134.32002,16.850708 a 89.999999,89.999999 0 0 0 -68.882838,1.94e-4 l 19.154958,46.24415 a 39.999999,39.999999 0 0 1 30.59364,-0.0502 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-7-3"
+       style="fill:#b8c8f3;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="M 65.457891,16.900911 A 89.999999,89.999999 0 0 0 16.750504,65.60858 L 62.994647,84.763531 A 39.999999,39.999999 0 0 1 84.59214,63.095052 Z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-6"
+       style="fill:#b8c8f3;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="m 183.0986,134.37023 a 89.999999,89.999999 0 0 1 -48.70767,48.70739 l -19.15495,-46.24414 a 39.999999,39.999999 0 0 0 21.66848,-21.59749 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-7-0"
+       style="fill:#7d88a5;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="m 134.37022,183.02762 a 89.999999,89.999999 0 0 1 -68.882845,-2e-4 L 84.64233,136.78327 a 39.999999,39.999999 0 0 0 30.59365,0.0502 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-9-6"
+       style="fill:#b8c8f3;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="M 65.508086,182.97742 A 89.999999,89.999999 0 0 1 16.800701,134.26976 L 63.044855,115.1148 a 39.999999,39.999999 0 0 0 21.597475,21.66847 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <path
+       id="path1927-7-3-2"
+       style="fill:#7d88a5;fill-opacity:1;stroke-width:0.0666221;paint-order:stroke fill markers"
+       d="m 16.850707,134.24904 a 89.999999,89.999999 0 0 1 2e-4,-68.882849 L 63.09505,84.521143 a 39.999999,39.999999 0 0 0 -0.0502,30.593657 z"
+       inkscape:export-filename="/home/etobella/chevron/odoo/custom/src/helpdesk/helpdesk_mgmt/static/description/icon.png"
+       inkscape:export-xdpi="91.328003"
+       inkscape:export-ydpi="91.328003" />
+    <g
+       id="g844"
+       transform="matrix(1.9192064,0,0,1.9192064,86.38998,-0.3897056)">
+      <path
+         d="m 45.873,9 c 3.52,0.041 5.504,4.474 3.013,6.964 L 40.462,24.383 36.5,27 25,9 Z M 10.946,25.79 a 3.972,3.972 0 0 0 0,5.618 l 8.433,8.43 a 3.977,3.977 0 0 0 5.623,0 L 23.5,36 15,27 10.945,25.788 Z"
+         fill="#985184"
+         id="path829" />
+      <path
+         d="M 1.114,15.964 C -1.377,13.474 0.608,9.041 4.128,9 H 25 l 15.461,15.383 a 3.972,3.972 0 0 1 0,5.62 l -9.84,9.833 a 3.977,3.977 0 0 1 -5.621,0 z"
+         fill="#1ad3bb"
+         id="path831" />
+      <path
+         d="m 25,39.837 a 3.972,3.972 0 0 0 0,-5.62 l -8.434,-8.428 a 3.977,3.977 0 0 0 -5.623,0 z M 17.62,16.306 25,9 l 9.136,9.062 a 5.966,5.966 0 0 0 -8.433,0 l -3.163,3.16 a 3.48,3.48 0 0 1 -4.92,0 3.475,3.475 0 0 1 0,-4.916 z"
+         fill="#005e7a"
+         id="path833" />
+    </g>
+  </g>
+</svg>
