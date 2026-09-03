@@ -1045,6 +1045,11 @@ msgid "Newest"
 msgstr "En Yeni"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Sonraki Aktivite Takvimi Etkinliği"
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Sonraki Aktivite Zaman Sınırı"
@@ -1795,9 +1800,6 @@ msgstr ""
 
 #~ msgid "Localization team"
 #~ msgstr "Yerelleştirme ekibi"
-
-#~ msgid "Next Activity Calendar Event"
-#~ msgstr "Sonraki Aktivite Takvimi Etkinliği"
 
 #~ msgid "Software"
 #~ msgstr "Yazılım"
