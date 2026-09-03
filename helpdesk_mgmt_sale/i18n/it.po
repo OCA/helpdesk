@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-06-05 07:51+0000\n"
+"PO-Revision-Date: 2026-09-03 10:55+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -49,7 +49,7 @@ msgstr "Ordini di vendita"
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
 msgid "Ticket"
-msgstr "Ticket"
+msgstr "Biglietto"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sale.action_helpdesk_ticket
