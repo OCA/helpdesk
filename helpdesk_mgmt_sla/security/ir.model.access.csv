@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_sla_manager,access_helpdesk_sla_manager,model_helpdesk_sla,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_sla_portal,helpdesk.ticket.portal,model_helpdesk_sla,base.group_portal,1,0,0,0
+access_helpdesk_sla_base_user,helpdesk.ticket.portal,model_helpdesk_sla,base.group_user,1,0,0,0
+access_helpdesk_ticket_sla_manager,access_helpdesk_ticket_sla_manager,model_helpdesk_ticket_sla,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_ticket_sla_portal,helpdesk.ticket.portal,model_helpdesk_ticket_sla,base.group_portal,1,0,0,0
+access_helpdesk_ticket_sla_base_user,helpdesk.ticket.portal,model_helpdesk_ticket_sla,base.group_user,1,0,0,0
+access_helpdesk_ticket_sla_user_personal,helpdesk.ticket.portal,model_helpdesk_ticket_sla,helpdesk_mgmt.group_helpdesk_user_own,1,1,1,0
+access_helpdesk_sla_report_manager,access_helpdesk_sla_manager,model_helpdesk_sla_report,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
