@@ -29,6 +29,7 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
             }
         )
         cls.uid = admin.id
+        cls.env = cls.env(user=admin.id)
         cls.project = cls.env["project.project"].create(
             {"name": "Test project", "allow_timesheets": True}
         )
