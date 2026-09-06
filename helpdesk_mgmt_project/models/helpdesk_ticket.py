@@ -34,3 +34,23 @@ class HelpdeskTicket(models.Model):
         for record in self:
             if record.task_id.project_id != record.project_id:
                 record.task_id = False
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        tickets = super().create(vals_list)
+        for ticket in tickets:
+            if ticket.task_id and not ticket.task_id.project_id and ticket.project_id:
+                ticket.task_id.project_id = ticket.project_id
+        return tickets
+
+    def write(self, vals):
+        res = super().write(vals)
+        if "task_id" in vals or "project_id" in vals:
+            for ticket in self:
+                if (
+                    ticket.task_id
+                    and not ticket.task_id.project_id
+                    and ticket.project_id
+                ):
+                    ticket.task_id.project_id = ticket.project_id
+        return res

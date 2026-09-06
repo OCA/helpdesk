@@ -175,3 +175,53 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
         self.assertEqual(2, len(milestone_requests))
         self.assertIn(ticket_1, milestone_requests)
         self.assertIn(ticket_2, milestone_requests)
+
+    def test_create_task_from_ticket(self):
+        """Test creating a task from the ticket simulating UI context/RPC."""
+
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket for Task Creation",
+                "project_id": self.project1.id,
+                "description": "Testing Description",
+            }
+        )
+
+        # Create a task WITHOUT project context to test the backend explicit assignment
+        task = self.env["project.task"].create(
+            {
+                "name": "Task generated from ticket",
+            }
+        )
+
+        # Link the task back to the ticket as the web client would
+        ticket.task_id = task
+        self.assertEqual(
+            ticket.task_id.project_id,
+            ticket.project_id,
+            "Backend explicitly assigns the ticket's project_id to the task "
+            "when linked.",
+        )
+
+    def test_create_ticket_with_task_assigns_project(self):
+        """Test creating a ticket with an existing task assigns the project."""
+        task = self.env["project.task"].create(
+            {
+                "name": "Task without project",
+            }
+        )
+
+        self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket with Task",
+                "project_id": self.project1.id,
+                "task_id": task.id,
+                "description": "Testing Description",
+            }
+        )
+        self.assertEqual(
+            task.project_id,
+            self.project1,
+            "Backend explicitly assigns the ticket's project_id to the task "
+            "when linked during creation.",
+        )
