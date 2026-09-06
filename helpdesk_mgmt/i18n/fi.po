@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-06 11:25+0000\n"
+"PO-Revision-Date: 2026-09-06 11:28+0000\n"
 "Last-Translator: painkin <pasi.inkinen@iodo.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -75,7 +75,7 @@ msgstr "<small class=\"text-end\">Vaihe:</small>"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
 msgid "<small class=\"text-muted\">Assignee</small>"
-msgstr "<small class=\"text-muted\">Osoitettu</small>"
+msgstr "<small class=\"text-muted\">Vastuutettu</small>"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
@@ -252,17 +252,17 @@ msgstr "Arkistoitu"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
 msgid "Assign to me"
-msgstr "Osoitettu minulle"
+msgstr "Vastuutettu minulle"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__assigned_date
 msgid "Assigned Date"
-msgstr "Osoitettu päivä"
+msgstr "Vastuutettu päivä"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__user_id
 msgid "Assigned user"
-msgstr "Osoitettu käyttäjä"
+msgstr "Vastuutettu käyttäjä"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__message_attachment_count
@@ -1369,7 +1369,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Send a new ticket"
-msgstr ""
+msgstr "Lähetä uusi palvelupyyntö"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__sequence
