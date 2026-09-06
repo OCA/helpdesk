@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-06 11:20+0000\n"
+"PO-Revision-Date: 2026-09-06 11:24+0000\n"
 "Last-Translator: painkin <pasi.inkinen@iodo.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1430,7 +1430,7 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_stage__name
 msgid "Stage Name"
-msgstr ""
+msgstr "Vaiheen nimi"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_stage_action
@@ -1439,7 +1439,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_channel_form
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_form
 msgid "Stages"
-msgstr ""
+msgstr "Vaiheet"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket__activity_state
@@ -1458,28 +1458,28 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Subject"
-msgstr ""
+msgstr "Aihe"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 msgid "Submit Ticket"
-msgstr ""
+msgstr "Lähetä palvelupyyntö"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Tag"
-msgstr ""
+msgstr "Tunniste"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__tag_ids
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_form
 msgid "Tags"
-msgstr ""
+msgstr "Tunnisteet"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_duplicate_wizard__target_stage_id
 msgid "Target Stage"
-msgstr ""
+msgstr "Kohdevaihe"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__team_id
@@ -1487,23 +1487,23 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_create_ticket
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Team"
-msgstr ""
+msgstr "Tiimi"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__user_id
 msgid "Team Leader"
-msgstr ""
+msgstr "Tiiminvetäjä"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_form
 msgid "Team Members"
-msgstr ""
+msgstr "Tiimin jäsenet"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_team_action
 #: model:ir.ui.menu,name:helpdesk_mgmt.helpdesk_ticket_team_menu
 msgid "Teams"
-msgstr ""
+msgstr "Tiimit"
 
 #. module: helpdesk_mgmt
 #: model:helpdesk.ticket.tag,name:helpdesk_mgmt.helpdesk_tag_2
@@ -1568,22 +1568,22 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_duplicate_wizard__ticket_id
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
 msgid "Ticket"
-msgstr ""
+msgstr "Palvelupyyntö"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,name:helpdesk_mgmt.assignment_email_template
 msgid "Ticket Assignment"
-msgstr ""
+msgstr "Palvelupyynnön vastuutus"
 
 #. module: helpdesk_mgmt
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
-msgstr ""
+msgstr "Palvelupyyntö luotu"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
 msgid "Ticket Stage Search"
-msgstr ""
+msgstr "Palvelupyynnön vaiheiden haku"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_tag_search
