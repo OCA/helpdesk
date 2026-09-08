@@ -1,0 +1,4 @@
+- Thierry Ducrest <thierry.ducrest@camptocamp.com>
+- Denis Roussel <denis.roussel@acsone.eu>
+- [Tecnativa](https://www.tecnativa.com):
+  - David Bañón Gil

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="stock_helpdesk_ticket_create_form_view">
+        <field name="model">stock.helpdesk.ticket.create</field>
+        <field
+            name="inherit_id"
+            ref="helpdesk_mgmt_stock.stock_helpdesk_ticket_create_form_view"
+        />
+        <field name="arch" type="xml">
+            <field name="description" position="before">
+                <field name="motive_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
