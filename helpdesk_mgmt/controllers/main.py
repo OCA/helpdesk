@@ -102,15 +102,17 @@ class HelpdeskTicketController(http.Controller):
                 )
             )
             vals["team_id"] = team.id
-        # Need to set stage_id so that the _track_template() method is called
-        # and the mail is sent automatically if applicable
-        vals["stage_id"] = team._get_applicable_stages()[:1].id
         return vals
 
     @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
     def submit_ticket(self, **kw):
         vals = self._prepare_submit_ticket_vals(**kw)
-        new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
+        new_ticket = (
+            request.env["helpdesk.ticket"]
+            .sudo()
+            .with_context(mail_notify_author=True)
+            .create(vals)
+        )
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):
             for c_file in request.httprequest.files.getlist("attachment"):
