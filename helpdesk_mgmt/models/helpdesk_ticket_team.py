@@ -68,6 +68,7 @@ class HelpdeskTeam(models.Model):
         default=True,
         help="Allow to select this team when creating a new ticket in the portal.",
     )
+    ticket_properties = fields.PropertiesDefinition()
     parent_id = fields.Many2one(
         "helpdesk.ticket.team", string="Parent Team", index=True
     )

@@ -158,6 +158,9 @@ class HelpdeskTicket(models.Model):
         help="Gives the sequence order when displaying a list of tickets.",
     )
     active = fields.Boolean(default=True)
+    properties = fields.Properties(
+        definition="team_id.ticket_properties", copy=True, precompute=False
+    )
 
     duplicate_id = fields.Many2one(
         "helpdesk.ticket", string="Duplicate of", tracking=True, copy=False
