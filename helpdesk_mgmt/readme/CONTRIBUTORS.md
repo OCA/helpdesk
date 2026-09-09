@@ -19,6 +19,7 @@
   - Carolina Fernandez
   - Carlos Roca
   - Juan Carlos Oñate
+  - Eduardo Ezerouali
 - [Escodoo](https://escodoo.com.br):
   - Marcel Savegnago
 - [Obertix](https://www.obertix.net):
