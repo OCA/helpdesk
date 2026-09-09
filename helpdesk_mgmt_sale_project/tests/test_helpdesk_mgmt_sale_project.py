@@ -3,18 +3,14 @@
 
 from odoo import Command
 from odoo.exceptions import ValidationError
-from odoo.tests.common import TransactionCase
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class TestHelpdeskTicketSaleProject(TransactionCase):
+class TestHelpdeskTicketSaleProject(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
-
-        cls.partner = cls.env["res.partner"].create({"name": "Test Partner"})
         cls.project1 = cls.env["project.project"].create({"name": "Project 1"})
         cls.project2 = cls.env["project.project"].create({"name": "Project 2"})
         cls.sale_order1 = cls.env["sale.order"].create(
