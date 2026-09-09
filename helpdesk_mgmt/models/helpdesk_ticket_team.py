@@ -65,6 +65,7 @@ class HelpdeskTeam(models.Model):
         default=True,
         help="Allow to select this team when creating a new ticket in the portal.",
     )
+    ticket_properties = fields.PropertiesDefinition()
 
     def _get_applicable_stages(self):
         if self:

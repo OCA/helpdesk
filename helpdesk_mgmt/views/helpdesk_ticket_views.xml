@@ -227,6 +227,15 @@
                             <field name="sequence" groups="base.group_no_one" />
                         </group>
                     </group>
+                    <div class="d-flex">
+                        <field
+                            name="properties"
+                            nolabel="1"
+                            columns="2"
+                            hideKanbanOption="1"
+                            attrs="{'invisible' : [('team_id', '=', False)]}"
+                        />
+                    </div>
                     <notebook>
                         <page string="Description" name="description">
                             <field name="description" widget="html" />
