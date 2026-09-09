@@ -233,6 +233,7 @@ Contributors
   - Carlos Roca
   - Juan Carlos Oñate
   - David Bañón Gil
+  - Eduardo Ezerouali
 
 - `Escodoo <https://escodoo.com.br>`__:
 
