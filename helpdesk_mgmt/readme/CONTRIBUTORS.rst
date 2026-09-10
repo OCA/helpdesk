@@ -29,6 +29,7 @@
   * Víctor Martínez
   * Carolina Fernandez
   * Carlos Roca
+  * Eduardo Ezerouali
 
 * `ID42 Sistemas <https://www.id42.com.br>`_:
 

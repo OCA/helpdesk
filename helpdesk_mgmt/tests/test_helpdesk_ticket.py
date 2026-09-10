@@ -11,6 +11,13 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         super().setUpClass()
         cls.ticket = cls.ticket_a_unassigned
 
+    @staticmethod
+    def _get_property_value(properties, name):
+        for prop in properties:
+            if prop.get("name") == name:
+                return prop.get("value")
+        return None
+
     def test_helpdesk_ticket_team_company(self):
         ticket_a = self.env["helpdesk.ticket"].create(
             {
@@ -253,3 +260,55 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
         self.assertEqual(len(ticket_good_reception), 1)
         self.assertIn("closed", ticket_good_reception.subject)
+
+    def test_properties(self):
+        team = self.env["helpdesk.ticket.team"].create(
+            {
+                "name": "Test Team",
+                "ticket_properties": [
+                    {
+                        "name": "priority_level",
+                        "type": "selection",
+                        "string": "Priority Level",
+                        "selection": [
+                            ("low", "Low"),
+                            ("high", "High"),
+                        ],
+                    }
+                ],
+            }
+        )
+        other_team = self.env["helpdesk.ticket.team"].create(
+            {
+                "name": "Other Team",
+                "ticket_properties": [
+                    {
+                        "name": "region",
+                        "type": "char",
+                        "string": "Region",
+                    }
+                ],
+            }
+        )
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Test Ticket",
+                "team_id": team.id,
+                "properties": {"priority_level": "high"},
+                "description": "Test property",
+            }
+        )
+        definition = ticket.team_id.ticket_properties
+        self.assertEqual(definition[0]["name"], "priority_level")
+        self.assertEqual(
+            self._get_property_value(ticket.properties, "priority_level"),
+            "high",
+        )
+        ticket_copy = ticket.copy()
+        self.assertEqual(
+            self._get_property_value(ticket_copy.properties, "priority_level"),
+            self._get_property_value(ticket.properties, "priority_level"),
+        )
+        ticket.team_id = other_team
+        definition = ticket.team_id.ticket_properties
+        self.assertEqual(definition[0]["name"], "region")
