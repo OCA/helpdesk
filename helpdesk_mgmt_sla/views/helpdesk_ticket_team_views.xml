@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="inherit_view_helpdesk_sla_team_hisform">
+        <field name="name">inherit.view_helpdesk_sla_team_form</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='right']" position="inside">
+                <field name="use_sla" />
+                <field name="resource_calendar_id" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_sla_form_view">
+        <field name="model">helpdesk.ticket.sla</field>
+        <field name="arch" type="xml">
+            <form>
+                <header />
+                <sheet>
+                    <group>
+                        <field name="ticket_id" />
+                        <field name="sla_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="helpdesk_ticket_sla_search_view">
+        <field name="model">helpdesk.ticket.sla</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ticket_id" />
+                <field name="sla_id" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="helpdesk_ticket_sla_tree_view">
+        <field name="model">helpdesk.ticket.sla</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="ticket_id" />
+                <field name="sla_id" />
+                <field name="deadline" />
+                <field name="consumed_time" />
+                <field name="hours" />
+            </list>
+        </field>
+    </record>
+</odoo>
