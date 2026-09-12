@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-07-07 06:51+0000\n"
+"PO-Revision-Date: 2026-09-12 05:22+0000\n"
 "Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -44,6 +44,14 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
+",</p>\n"
+"                <p>\n"
+"                    Faza zahtevka <t t-out=\"object.display_name\"/>\n"
+"                    je bila spremenjena v <t t-out=\"object.stage_id.name\"/>"
+".\n"
+"                </p>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
@@ -53,6 +61,11 @@ msgid ""
 "closed.</p>\n"
 "            "
 msgstr ""
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
+",</p>\n"
+"                <p>Zahtevek <t t-out=\"object.display_name\"/> je bil "
+"zaprt.</p>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
@@ -62,6 +75,11 @@ msgid ""
 "to <t t-out=\"object.user_id.name\"/>.</p>\n"
 "            "
 msgstr ""
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
+",</p>\n"
+"                <p>Zahtevek <t t-out=\"object.number\"/> je bil dodeljen "
+"uporabniku <t t-out=\"object.user_id.name\"/>.</p>\n"
+"            "
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.portal_helpdesk_ticket_page
