@@ -34,6 +34,26 @@ class TestWebsiteHelpdeskForm(BaseCommon):
             "Create a Ticket",
         )
 
+    def test_create_links_and_subscribes_partner(self):
+        """Website-form tickets link and subscribe the customer partner."""
+        email = "website-unknown-sender@example.com"
+        self.assertFalse(self.env["res.partner"].search([("email", "=", email)]))
+        ticket = (
+            self.env["helpdesk.ticket"]
+            .with_context(mail_create_nosubscribe=True)
+            .create(
+                {
+                    "name": "Website ticket",
+                    "description": "From the website form",
+                    "partner_name": "Website Visitor",
+                    "partner_email": email,
+                }
+            )
+        )
+        self.assertTrue(ticket.partner_id)
+        self.assertEqual(ticket.partner_id.email, email)
+        self.assertIn(ticket.partner_id, ticket.message_partner_ids)
+
     def test_whitelisted_fields(self):
         """The expected fields must not be blacklisted for the form builder."""
         expected_fields = {
