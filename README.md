@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[helpdesk_mgmt](helpdesk_mgmt/) | 17.0.1.10.4 |  | Helpdesk
+[helpdesk_mgmt](helpdesk_mgmt/) | 17.0.1.11.0 |  | Helpdesk
 [helpdesk_mgmt_activity](helpdesk_mgmt_activity/) | 17.0.1.0.0 |  | Create Activities for Odoo records from the Helpdesk
 [helpdesk_mgmt_assign_method](helpdesk_mgmt_assign_method/) | 17.0.1.0.0 |  | Helpdesk Assign Method
 [helpdesk_mgmt_assign_method_hr_holidays](helpdesk_mgmt_assign_method_hr_holidays/) | 17.0.1.0.0 |  | Prevents users on leave from being assigned to helpdesk tickets.
