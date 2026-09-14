@@ -177,8 +177,8 @@ msgid ""
 "            "
 msgstr ""
 "<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
-"style=\"padding: 20px; background-color: #ededed; border-"
-"collapse:separate;\">\n"
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;"
+"\">\n"
 "                    <tbody>\n"
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
@@ -317,8 +317,8 @@ msgid ""
 "            "
 msgstr ""
 "<table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" "
-"style=\"padding: 20px; background-color: #ededed; border-"
-"collapse:separate;\">\n"
+"style=\"padding: 20px; background-color: #ededed; border-collapse:separate;"
+"\">\n"
 "                    <tbody>\n"
 "                      <!-- HEADER -->\n"
 "                      <tr>\n"
@@ -1429,8 +1429,8 @@ msgid ""
 "(parent_model) and task (model))"
 msgstr ""
 "Aliaksen sisältävä päämalli. Alias-viittauksen sisältävä malli ei "
-"välttämättä ole alias_model_id:n antama malli (esimerkki: project"
-"(parent_model) ja task(model))."
+"välttämättä ole alias_model_id:n antama malli (esimerkki: "
+"project(parent_model) ja task(model))."
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -1481,6 +1481,11 @@ msgstr "Prioriteetti"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Priority tickets"
 msgstr "Priority-palvelupyynnöt"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__properties
+msgid "Properties"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
@@ -1787,6 +1792,11 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Ticket Form Portal"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_properties
+msgid "Ticket Properties"
 msgstr ""
 
 #. module: helpdesk_mgmt

@@ -1339,6 +1339,11 @@ msgid "Priority tickets"
 msgstr "Öncelikli Biletler"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__properties
+msgid "Properties"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
 msgid "Ratings"
@@ -1641,6 +1646,11 @@ msgstr "Bileti Oluşturuldu"
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
 msgid "Ticket Form Portal"
+msgstr ""
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_properties
+msgid "Ticket Properties"
 msgstr ""
 
 #. module: helpdesk_mgmt
