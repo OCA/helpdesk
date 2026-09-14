@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_motive_form_view">
+        <field name="model">helpdesk.ticket.motive</field>
+        <field name="inherit_id" ref="helpdesk_motive.helpdesk_ticket_motive_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']/.." position="after">
+                <group name="stock" string="Stock">
+                    <field name="location_dest_id" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="helpdesk_ticket_motive_tree">
+        <field name="model">helpdesk.ticket.motive</field>
+        <field name="inherit_id" ref="helpdesk_motive.helpdesk_ticket_motive_tree" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="location_dest_id" />
+            </field>
+        </field>
+    </record>
+</odoo>

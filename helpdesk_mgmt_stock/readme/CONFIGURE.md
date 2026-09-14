@@ -1,0 +1,3 @@
+- Go to the desired operation types you want to allow helpdesk creation.
+- Check the box 'Allow Helpdesk Ticket'
+- If you want a dedicated helpdesk team, fill in the 'Default Helpdesk Team' field too.
