@@ -153,6 +153,9 @@ class HelpdeskTicket(models.Model):
         help="Gives the sequence order when displaying a list of tickets.",
     )
     active = fields.Boolean(default=True)
+    properties = fields.Properties(
+        definition="team_id.ticket_properties", copy=True, precompute=False
+    )
 
     @api.model
     def default_get(self, fields):
