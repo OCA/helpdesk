@@ -79,3 +79,11 @@ permissions set in Helpdesk.
     assigned to the teams to which he/she belongs or the tickets that
     are not assigned to any team nor user.
 3.  *User*: User is able to see all the tickets.
+
+## Customer notifications
+
+If you want portal users to receive an email when a ticket is created:
+
+1. Enable debug mode
+2. Open the "Ticket Created" subtype in Settings > Technical > Discuss > Subtypes
+3. Enable the `Default` flag

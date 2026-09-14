@@ -315,8 +315,6 @@ class HelpdeskTicket(models.Model):
             res["stage_id"] = (
                 ticket.stage_id.mail_template_id,
                 {
-                    # Need to set mass_mail so that the email will always be sent
-                    "composition_mode": "mass_mail",
                     "auto_delete_keep_log": False,
                     "subtype_id": self.env["ir.model.data"]._xmlid_to_res_id(
                         "mail.mt_note"
