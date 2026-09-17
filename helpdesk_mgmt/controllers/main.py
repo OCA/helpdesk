@@ -20,14 +20,14 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = int(field_value)
             else:
                 values[field_name] = field_value
-        ticket = (
-            http.request.env["helpdesk.ticket"]
-            .sudo()
-            .search([("id", "=", values["ticket_id"])])
-        )
+        ticket = http.request.env["helpdesk.ticket"].search(
+            [("id", "=", values["ticket_id"])]
+        )  # no sudo(): record rules restrict this to tickets the caller may access
+        if not ticket:
+            return werkzeug.utils.redirect("/my")
         stage = http.request.env["helpdesk.ticket.stage"].browse(values.get("stage_id"))
         if stage.close_from_portal:  # protect against invalid target stage request
-            ticket.stage_id = values.get("stage_id")
+            ticket.sudo().stage_id = values.get("stage_id")  # ownership enforced above
 
         return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
 
