@@ -1,0 +1,247 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_timesheet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-07 06:51+0000\n"
+"Last-Translator: Matjaz Mozetic <matjaz@luxim.si>\n"
+"Language-Team: none\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-success\"/>\n"
+"                            Start work\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-"
+"success\"/>\n"
+"                            Začni z delom\n"
+"                        </span>"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-warning\"/>\n"
+"                            Stop work\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-"
+"warning\"/>\n"
+"                            Končaj z delom\n"
+"                        </span>"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__allow_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__allow_timesheet
+msgid "Allow Timesheet"
+msgstr "Dovoli časovnice"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Analitična postavka"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Date"
+msgstr "Datum"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Description"
+msgstr "Opis"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Duration (Hour(s))"
+msgstr "Trajanje (ura(e))"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Employee"
+msgstr "Kader"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "End work"
+msgstr "Dokončanje"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Zahtevek za podporo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Ekipa podpore"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:project.project,name:helpdesk_mgmt_timesheet.project_1
+msgid "Helpdesk general project"
+msgstr "Splošni projekt podpore"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_hr_timesheet_switch
+msgid "Helper to quickly switch between timesheet lines"
+msgstr "Pomagalo za hitro preklapljanje med postavkami časovnice"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
+msgid "Indicate which time control button to show, if any."
+msgstr "Kaže katere gumbe časovne kontrole se prikazuje, če sploh katerega."
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__last_timesheet_activity
+msgid "Last Timesheet Activity"
+msgstr "Zadnja aktivnost časovnice"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "Late"
+msgstr "Zamuja"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__planned_hours
+msgid "Planned Hours"
+msgstr "Planirane ure"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__progress
+msgid "Progress"
+msgstr "Napredek"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__remaining_hours
+msgid "Remaining Hours"
+msgstr "Preostale ure"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Resume work"
+msgstr "Nadaljuj z delom"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__show_time_control
+msgid "Show Time Control"
+msgstr "Prikaži časovno kontrolo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
+msgid "Show Timesheet Portal"
+msgstr "Prikaži časovnico na portalu"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,help:helpdesk_mgmt_timesheet.field_helpdesk_ticket_team__show_timesheet_portal
+msgid "Show spent time of tickets in the portal"
+msgstr "Prikaži porabljeni čas zahtevkov v portalu"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_ticket_list
+msgid "Spent Time"
+msgstr "Porabljeni čas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Start work"
+msgstr "Začni z delom"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Stop work"
+msgstr "Ustavi delo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:project.project,label_tasks:helpdesk_mgmt_timesheet.project_1
+msgid "Tasks"
+msgstr "Opravila"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_timesheets_analysis_report__ticket_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_table
+msgid "Ticket"
+msgstr "Zahtevek"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_timesheets_analysis_report__ticket_partner_id
+msgid "Ticket Partner"
+msgstr "Partner zahtevka"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_account_analytic_line__ticket_partner_id
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+msgid "Ticket partner"
+msgstr "Partner zahtevka"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:project.project,label_tickets:helpdesk_mgmt_timesheet.project_1
+#: model:project.task,label_tickets:helpdesk_mgmt_timesheet.project_task_1
+msgid "Tickets"
+msgstr "Zahtevki"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+msgid "Time Spent"
+msgstr "Porabljeni čas"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__timesheet_ids
+msgid "Timesheet"
+msgstr "Časovnica"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "Timesheet allowed"
+msgstr "Časovnica dovoljena"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.actions.act_window,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_action
+#: model:ir.ui.menu,name:helpdesk_mgmt_timesheet.helpdesk_timesheet_menu
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.portal_helpdesk_ticket_page
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.timesheet_helpdesk_ticket_view_form
+msgid "Timesheets"
+msgstr "Časovnice"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model,name:helpdesk_mgmt_timesheet.model_timesheets_analysis_report
+msgid "Timesheets Analysis Report"
+msgstr "Poročilo o analizi delovnega časa"
+
+#. module: helpdesk_mgmt_timesheet
+#: model:ir.model.fields,field_description:helpdesk_mgmt_timesheet.field_helpdesk_ticket__total_hours
+msgid "Total Hours"
+msgstr "Skupaj ur"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.helpdesk_ticket_view_search
+msgid "With activity today"
+msgstr "Z današnjo aktivnostjo"
+
+#. module: helpdesk_mgmt_timesheet
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_timesheet.hr_timesheet_line_search
+msgid "With ticket"
+msgstr "Z zahtevkom"
