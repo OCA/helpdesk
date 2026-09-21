@@ -37,7 +37,8 @@ msgid ""
 "<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
 "                <p>\n"
 "                    The ticket <t t-out=\"object.display_name\"/>\n"
-"                    stage has changed to <t t-out=\"object.stage_id.name\"/>.\n"
+"                    stage has changed to <t t-out=\"object.stage_id.name\"/"
+">.\n"
 "                </p>\n"
 "            "
 msgstr ""
@@ -53,7 +54,8 @@ msgstr ""
 #: model:mail.template,body_html:helpdesk_mgmt.closed_ticket_template
 msgid ""
 "<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
-"                <p>The ticket <t t-out=\"object.display_name\"/> has been closed.</p>\n"
+"                <p>The ticket <t t-out=\"object.display_name\"/> has been "
+"closed.</p>\n"
 "            "
 msgstr ""
 "<p><t t-out=\"object.partner_name or object.partner_id.name\"/> 様</p>\n"
@@ -65,7 +67,8 @@ msgstr ""
 #: model:mail.template,body_html:helpdesk_mgmt.assignment_email_template
 msgid ""
 "<p>Hello <t t-out=\"object.partner_name or object.partner_id.name\"/>,</p>\n"
-"                <p>The ticket <t t-out=\"object.number\"/> has been assigned to <t t-out=\"object.user_id.name\"/>.</p>\n"
+"                <p>The ticket <t t-out=\"object.number\"/> has been assigned "
+"to <t t-out=\"object.user_id.name\"/>.</p>\n"
 "            "
 msgstr ""
 "<p><t t-out=\"object.partner_name or object.partner_id.name\"/> 様</p>\n"
@@ -238,7 +241,8 @@ msgstr "全チケット"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__show_in_portal
 msgid "Allow to select this team when creating a new ticket in the portal."
-msgstr "ポータルで新規チケットを作成するときに、このチームを選択できるようにします。"
+msgstr ""
+"ポータルで新規チケットを作成するときに、このチームを選択できるようにします。"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -351,7 +355,8 @@ msgstr "チャネル"
 msgid ""
 "Channel indicates where the source of a ticketcomes from (it could be a "
 "phone call, an email...)"
-msgstr "チャネルは、そのチケットがどこから来たかを示します（電話、メールなど）。"
+msgstr ""
+"チャネルは、そのチケットがどこから来たかを示します（電話、メールなど）。"
 
 #. module: helpdesk_mgmt
 #: model:ir.actions.act_window,name:helpdesk_mgmt.helpdesk_ticket_channel_action
@@ -465,8 +470,7 @@ msgstr "連絡先"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.res_config_settings_view_form
-msgid ""
-"Controls if the tickets created are automatically assigned to the user."
+msgid "Controls if the tickets created are automatically assigned to the user."
 msgstr "作成されたチケットをユーザに自動で割り当てるかどうかを制御します。"
 
 #. module: helpdesk_mgmt
@@ -572,11 +576,11 @@ msgstr "表示名"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__close_from_portal
 msgid ""
-"Display button in portal ticket form to allow closing ticket with this stage"
-" as target."
+"Display button in portal ticket form to allow closing ticket with this stage "
+"as target."
 msgstr ""
-"ポータルのチケット画面に、このステージを移動先としてチケットをクローズする"
-"ボタンを表示します。"
+"ポータルのチケット画面に、このステージを移動先としてチケットをクローズするボ"
+"タンを表示します。"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_category_search
@@ -861,11 +865,11 @@ msgstr "ID"
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_thread_id
 msgid ""
-"ID of the parent record holding the alias (example: project holding the task"
-" creation alias)"
+"ID of the parent record holding the alias (example: project holding the task "
+"creation alias)"
 msgstr ""
-"エイリアスを保持する親レコードのID（例: タスク作成用エイリアスを持つ"
-"プロジェクト）"
+"エイリアスを保持する親レコードのID（例: タスク作成用エイリアスを持つプロジェ"
+"クト）"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__activity_exception_icon
@@ -894,7 +898,8 @@ msgstr "チェックすると、配信エラーのあるメッセージが存在
 msgid ""
 "If set an email will be sent to the customer when the ticketreaches this "
 "step."
-msgstr "設定すると、チケットがこのステージに到達したときに顧客へメールを送信します。"
+msgstr ""
+"設定すると、チケットがこのステージに到達したときに顧客へメールを送信します。"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_bounced_content
@@ -1236,8 +1241,8 @@ msgstr "親チーム名..."
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_parent_model_id
 msgid ""
-"Parent model holding the alias. The model holding the alias reference is not"
-" necessarily the model given by alias_model_id (example: project "
+"Parent model holding the alias. The model holding the alias reference is not "
+"necessarily the model given by alias_model_id (example: project "
 "(parent_model) and task (model))"
 msgstr ""
 "エイリアスを保持する親モデルです。エイリアスの参照を持つモデルは、必ずしも "
@@ -1270,14 +1275,15 @@ msgid ""
 "Policy to post a message on the document using the mailgateway.\n"
 "- everyone: everyone can post\n"
 "- partners: only authenticated partners\n"
-"- followers: only followers of the related document or members of following channels\n"
+"- followers: only followers of the related document or members of following "
+"channels\n"
 msgstr ""
-"メールゲートウェイ経由でドキュメントにメッセージを投稿するときのポリシーです"
-"。\n"
+"メールゲートウェイ経由でドキュメントにメッセージを投稿するときのポリシーで"
+"す。\n"
 "- 全員: 誰でも投稿できます\n"
 "- 取引先: 認証済の取引先のみ投稿できます\n"
-"- フォロワー: 関連ドキュメントのフォロワー、またはフォロー中のチャネルの"
-"メンバーのみ投稿できます\n"
+"- フォロワー: 関連ドキュメントのフォロワー、またはフォロー中のチャネルのメン"
+"バーのみ投稿できます\n"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__access_url
@@ -1293,6 +1299,11 @@ msgstr "優先度"
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_team_tree
 msgid "Priority tickets"
 msgstr "優先度の高いチケット"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__properties
+msgid "Properties"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
@@ -1434,8 +1445,7 @@ msgstr "ソフトウェア"
 
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_stage__team_ids
-msgid ""
-"Specific team that uses this stage. If it is empty all teams could uses"
+msgid "Specific team that uses this stage. If it is empty all teams could uses"
 msgstr ""
 "このステージを使用する特定のチームです。空の場合はすべてのチームが使用できま"
 "す"
@@ -1550,9 +1560,9 @@ msgstr ""
 #. module: helpdesk_mgmt
 #: model:ir.model.fields,help:helpdesk_mgmt.field_helpdesk_ticket_team__alias_model_id
 msgid ""
-"The model (Odoo Document Kind) to which this alias corresponds. Any incoming"
-" email that does not reply to an existing record will cause the creation of "
-"a new record of this model (e.g. a Project Task)"
+"The model (Odoo Document Kind) to which this alias corresponds. Any incoming "
+"email that does not reply to an existing record will cause the creation of a "
+"new record of this model (e.g. a Project Task)"
 msgstr ""
 "このエイリアスが対応するモデル（Odooのドキュメント種別）です。既存レコードへ"
 "の返信でない受信メールは、このモデルの新規レコード（例: プロジェクトタスク）"
@@ -1571,7 +1581,8 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/helpdesk_mgmt/static/src/js/new_ticket.esm.js:0
 msgid "The selected file (%sB) is over the maximum allowed file size (%sB)."
-msgstr "選択されたファイル（%sB）が、許可された最大サイズ（%sB）を超えています。"
+msgstr ""
+"選択されたファイル（%sB）が、許可された最大サイズ（%sB）を超えています。"
 
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.closed_ticket_template
@@ -1588,7 +1599,8 @@ msgstr "チケット {{object.number}} のステージが変更されました�
 msgid ""
 "This stage is folded in the kanban view when there are no records in that "
 "stage to display."
-msgstr "このステージに表示するレコードがない場合、かんばんビューで折りたたまれます。"
+msgstr ""
+"このステージに表示するレコードがない場合、かんばんビューで折りたたまれます。"
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.ticket_view_form
@@ -1614,6 +1626,11 @@ msgstr "チケット割当"
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
 msgstr "チケット作成"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_properties
+msgid "Ticket Properties"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
@@ -1804,6 +1821,7 @@ msgstr "ヘルプデスクチケット重複ウィザード"
 #. module: helpdesk_mgmt
 #: model:mail.template,subject:helpdesk_mgmt.assignment_email_template
 msgid ""
-"{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/a' "
-"}})"
-msgstr "{{object.company_id.name}} チケット割当（参照 {{object.number or 'n/a' }}）"
+"{{object.company_id.name}} Ticket Assignment (Ref {{object.number or 'n/"
+"a' }})"
+msgstr ""
+"{{object.company_id.name}} チケット割当（参照 {{object.number or 'n/a' }}）"

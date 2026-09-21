@@ -44,12 +44,12 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
-"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
-",</p>\n"
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>,"
+"</p>\n"
 "                <p>\n"
 "                    Faza zahtevka <t t-out=\"object.display_name\"/>\n"
-"                    je bila spremenjena v <t t-out=\"object.stage_id.name\"/>"
-".\n"
+"                    je bila spremenjena v <t t-out=\"object.stage_id.name\"/"
+">.\n"
 "                </p>\n"
 "            "
 
@@ -61,10 +61,10 @@ msgid ""
 "closed.</p>\n"
 "            "
 msgstr ""
-"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
-",</p>\n"
-"                <p>Zahtevek <t t-out=\"object.display_name\"/> je bil "
-"zaprt.</p>\n"
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>,"
+"</p>\n"
+"                <p>Zahtevek <t t-out=\"object.display_name\"/> je bil zaprt."
+"</p>\n"
 "            "
 
 #. module: helpdesk_mgmt
@@ -75,8 +75,8 @@ msgid ""
 "to <t t-out=\"object.user_id.name\"/>.</p>\n"
 "            "
 msgstr ""
-"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>"
-",</p>\n"
+"<p>Pozdravljeni <t t-out=\"object.partner_name or object.partner_id.name\"/>,"
+"</p>\n"
 "                <p>Zahtevek <t t-out=\"object.number\"/> je bil dodeljen "
 "uporabniku <t t-out=\"object.user_id.name\"/>.</p>\n"
 "            "
@@ -1305,6 +1305,11 @@ msgid "Priority tickets"
 msgstr "Prioritetni zahtevki"
 
 #. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__properties
+msgid "Properties"
+msgstr ""
+
+#. module: helpdesk_mgmt
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket__rating_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__rating_ids
 msgid "Ratings"
@@ -1628,6 +1633,11 @@ msgstr "Dodelitev zahtevka"
 #: model:mail.message.subtype,name:helpdesk_mgmt.hlp_tck_created
 msgid "Ticket Created"
 msgstr "Zahtevek ustvarjen"
+
+#. module: helpdesk_mgmt
+#: model:ir.model.fields,field_description:helpdesk_mgmt.field_helpdesk_ticket_team__ticket_properties
+msgid "Ticket Properties"
+msgstr ""
 
 #. module: helpdesk_mgmt
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.view_helpdesk_ticket_stage_search
