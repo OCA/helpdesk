@@ -40,6 +40,16 @@ equipment.
 .. contents::
    :local:
 
+Usage
+=====
+
+On a helpdesk ticket, pick the *Equipment* concerned; its stage is shown
+next to it and the service order created from the ticket gets the
+equipment.
+
+On an equipment, the *Tickets* smart button counts and opens its
+helpdesk tickets.
+
 Bug Tracker
 ===========
 
@@ -61,10 +71,10 @@ Authors
 Contributors
 ------------
 
--  `Camptocamp <https://www.camptocamp.com>`__
+- `Camptocamp <https://www.camptocamp.com>`__
 
-   -  Italo Lopes <italo.lopes@camptocamp.com>
-   -  Iván Todorovich <ivan.todorovich@camptocamp.com>
+  - Italo Lopes <italo.lopes@camptocamp.com>
+  - Iván Todorovich <ivan.todorovich@camptocamp.com>
 
 Maintainers
 -----------
