@@ -1,0 +1,3 @@
+odoo-addon-helpdesk_mgmt @ git+https://github.com/OCA/helpdesk.git@refs/pull/978/head#subdirectory=helpdesk_mgmt
+odoo-addon-helpdesk_mgmt_fieldservice @ git+https://github.com/OCA/helpdesk.git@refs/pull/996/head#subdirectory=helpdesk_mgmt_fieldservice
+odoo-addon-fieldservice @ git+https://github.com/OCA/field-service.git@refs/pull/1496/head#subdirectory=fieldservice
