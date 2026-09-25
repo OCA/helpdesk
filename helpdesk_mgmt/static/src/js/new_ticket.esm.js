@@ -7,7 +7,24 @@ publicWidget.registry.NewTicket = publicWidget.Widget.extend({
     selector: "form[action='/submitted/ticket']",
     events: {
         'change input[name="attachment"]': "_onChangeAttachment",
+        submit: "_onSubmit",
     },
+
+    _onSubmit(ev) {
+        const btn =
+            this.el.querySelector("button[type='submit']") ||
+            this.el.querySelector("button.btn-primary") ||
+            this.el.querySelector("[type='submit']");
+
+        if (!btn) return; // Protect against missing submit button, should not happen but just in case
+
+        if (btn.disabled) {
+            ev.preventDefault();
+            return;
+        }
+        btn.disabled = true;
+    },
+
     _onChangeAttachment(ev) {
         ev.preventDefault();
         const attachment_input = document.getElementById("attachment");
