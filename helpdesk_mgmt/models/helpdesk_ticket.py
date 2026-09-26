@@ -329,6 +329,18 @@ class HelpdeskTicket(models.Model):
             )
         return res
 
+    def _helpdesk_link_and_subscribe_partner(self):
+        for ticket in self:
+            if not ticket.partner_id and ticket.partner_email:
+                partners = self.env["mail.thread"]._mail_find_partner_from_emails(
+                    [ticket.partner_email], records=ticket, force_create=True
+                )
+                partner = partners[0] if partners else False
+                if partner:
+                    ticket.partner_id = partner.id
+            if ticket.partner_id:
+                ticket.message_subscribe(partner_ids=ticket.partner_id.ids)
+
     @api.model
     def message_new(self, msg, custom_values=None):
         """Override message_new from mail gateway so we can set correct
@@ -360,6 +372,8 @@ class HelpdeskTicket(models.Model):
             if p
         ]
         ticket.message_subscribe(partner_ids)
+
+        ticket._helpdesk_link_and_subscribe_partner()
 
         return ticket
 
