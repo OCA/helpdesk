@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_helpdesk_ticket_form_manager,helpdesk.ticket.form.manager,model_helpdesk_ticket_form,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_ticket_form_user,helpdesk.ticket.form.user,model_helpdesk_ticket_form,helpdesk_mgmt.group_helpdesk_user,1,0,0,0
+access_helpdesk_ticket_form_portal,helpdesk.ticket.form.portal,model_helpdesk_ticket_form,base.group_portal,1,0,0,0
+access_helpdesk_ticket_form_question_manager,helpdesk.ticket.form.question.manager,model_helpdesk_ticket_form_question,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_ticket_form_question_user,helpdesk.ticket.form.question.user,model_helpdesk_ticket_form_question,helpdesk_mgmt.group_helpdesk_user,1,0,0,0
+access_helpdesk_ticket_form_question_portal,helpdesk.ticket.form.question.portal,model_helpdesk_ticket_form_question,base.group_portal,1,0,0,0
+access_helpdesk_ticket_form_answer_manager,helpdesk.ticket.form.answer.manager,model_helpdesk_ticket_form_answer,helpdesk_mgmt.group_helpdesk_manager,1,1,1,1
+access_helpdesk_ticket_form_answer_user,helpdesk.ticket.form.answer.user,model_helpdesk_ticket_form_answer,helpdesk_mgmt.group_helpdesk_user,1,0,0,0
+access_helpdesk_ticket_form_answer_portal,helpdesk.ticket.form.answer.portal,model_helpdesk_ticket_form_answer,base.group_portal,1,0,0,0
