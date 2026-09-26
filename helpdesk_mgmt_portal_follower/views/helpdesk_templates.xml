@@ -1,0 +1,27 @@
+<odoo>
+    <template
+        id="helpdesk_portal_add_followers"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+        priority="40"
+    >
+        <xpath
+            expr="//input[@name='attachment']/ancestor::div[hasclass('form-group')]"
+            position="after"
+        >
+            <div class="form-group">
+                <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="followers"
+                >Emails in Copy</label>
+                <div class="col-md-7 col-sm-8">
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="followers"
+                        placeholder="example@example.com, ..."
+                    />
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
