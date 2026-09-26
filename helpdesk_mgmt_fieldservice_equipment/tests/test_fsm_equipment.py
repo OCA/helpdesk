@@ -49,3 +49,17 @@ class TestFSMEquipment(TransactionCase):
         ticket1.unlink()
         self.equipment.invalidate_recordset()
         self.assertEqual(self.equipment.helpdesk_ticket_count, 1)
+
+    def test_02_action_view_helpdesk_tickets(self):
+        ticket = self.env["helpdesk.ticket"].create(
+            {
+                "name": "Ticket",
+                "equipment_id": self.equipment.id,
+                "description": "Ticket test",
+                "fsm_location_id": self.location.id,
+            }
+        )
+        action = self.equipment.action_view_helpdesk_tickets()
+        self.assertEqual(self.env["helpdesk.ticket"].search(action["domain"]), ticket)
+        self.assertEqual(action["context"]["default_equipment_id"], self.equipment.id)
+        self.assertEqual(action["context"]["default_fsm_location_id"], self.location.id)
