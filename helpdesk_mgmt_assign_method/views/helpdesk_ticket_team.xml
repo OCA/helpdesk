@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 - TODAY, Kaynnan Lemes <kaynnan.lemes@escodoo.com.br>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="helpdesk_ticket_team_form_view" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.team.form (assign method)</field>
+        <field name="model">helpdesk.ticket.team</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_team_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='alias_contact']" position="after">
+                <field name="assign_method" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
