@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Coluna Equipamento na lista de chamados do backend -->
+    <record id="helpdesk_ticket_view_list_equipment" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.list.equipment</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_name" position="after">
+                <field name="equipment_id" string="Equipment" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Agrupar por Equipamento na busca (o campo de pesquisa equipment_id
+         já vem do helpdesk_mgmt_fieldservice_equipment OCA) -->
+    <record id="helpdesk_ticket_view_search_equipment" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.equipment</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <!-- âncora por //search/group, nunca por @string traduzido -->
+            <xpath expr="//search/group" position="inside">
+                <filter
+                    string="Equipment"
+                    name="group_equipment"
+                    domain="[]"
+                    context="{'group_by': 'equipment_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
