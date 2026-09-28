@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_fieldservice_equipment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment.field_helpdesk_ticket__equipment_id
+msgid "Equipment"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment.field_helpdesk_ticket__equipment_stage_id
+msgid "Equipment stage"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model.fields,help:helpdesk_mgmt_fieldservice_equipment.field_helpdesk_ticket__equipment_id
+msgid "Equipment that is used for the helpdesk ticket."
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_fsm_equipment
+msgid "Field Service Equipment"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model,name:helpdesk_mgmt_fieldservice_equipment.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment.field_fsm_equipment__helpdesk_ticket_ids
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model:ir.model.fields,field_description:helpdesk_mgmt_fieldservice_equipment.field_fsm_equipment__helpdesk_ticket_count
+msgid "Helpdesk Ticket Count"
+msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#. odoo-python
+#: code:addons/helpdesk_mgmt_fieldservice_equipment/models/helpdesk_ticket.py:0
+msgid "The location of the ticket and equipment are not the same."
+msgstr ""
