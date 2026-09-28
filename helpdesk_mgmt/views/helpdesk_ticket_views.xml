@@ -63,6 +63,13 @@
                 />
                 <separator />
                 <filter
+                    string="Unread Messages"
+                    name="message_needaction"
+                    domain="[('message_needaction', '=', True)]"
+                    groups="mail.group_mail_notification_type_inbox"
+                />
+                <separator />
+                <filter
                     string="Archived"
                     name="archived"
                     domain="[('active','=',False)]"
