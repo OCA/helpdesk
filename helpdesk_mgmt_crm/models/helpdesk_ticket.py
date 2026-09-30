@@ -13,7 +13,8 @@ class HelpdeskTicket(models.Model):
         string="Opportunity(ies)",
     )
     lead_count = fields.Integer(
-        compute="_compute_lead_count", string="Opportunity Count"
+        compute="_compute_lead_count",
+        string="Opportunity Count",
     )
 
     @api.depends("lead_ids")
