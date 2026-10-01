@@ -13,3 +13,10 @@ class HelpdeskTicketStage(models.Model):
         column1="helpdesk_ticket_stage_id",
         column2="project_task_type_id",
     )
+    sync_limit_single_task = fields.Boolean(
+        string="Sync Only If Single Task",
+        default=False,
+        help="If checked, stage synchronization from Project Tasks to Helpdesk Tickets "
+        "will only happen if the Ticket is linked to exactly one Task. "
+        "If the Ticket has multiple tasks, the stage change will not propagate.",
+    )

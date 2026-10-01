@@ -13,6 +13,7 @@
                     domain="[('user_id', '=', False)]"
                     options="{'no_create': True}"
                 />
+                <field name="sync_limit_single_task" />
             </group>
         </field>
     </record>
