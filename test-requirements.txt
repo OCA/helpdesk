@@ -1,0 +1,1 @@
+odoo-addon-fieldservice @ git+https://github.com/OCA/field-service.git@refs/pull/1623/head#subdirectory=fieldservice
