@@ -1,0 +1,1 @@
+Pre-fill sale order field on helpdesk ticket created from an outgoing picking
