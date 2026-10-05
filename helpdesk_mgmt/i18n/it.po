@@ -1741,6 +1741,11 @@ msgid "Unattended tickets"
 msgstr "Ticket non gestiti"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Unread Messages"
+msgstr "Messaggi non letti"
+
+#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -2589,9 +2594,6 @@ msgstr ""
 
 #~ msgid "Number of unread messages"
 #~ msgstr "Numero di messaggi non letti"
-
-#~ msgid "Unread Messages"
-#~ msgstr "Messaggi non letti"
 
 #~ msgid "Unread Messages Counter"
 #~ msgstr "Contatore messaggi non letti"
