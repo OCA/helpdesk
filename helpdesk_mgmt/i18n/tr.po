@@ -1695,6 +1695,11 @@ msgid "Unattended tickets"
 msgstr "Sahipsiz Biletler"
 
 #. module: helpdesk_mgmt
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
+msgid "Unread Messages"
+msgstr "Okunmamış Mesajlar"
+
+#. module: helpdesk_mgmt
 #: model:ir.model,name:helpdesk_mgmt.model_res_users
 #: model:res.groups,name:helpdesk_mgmt.group_helpdesk_user
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt.helpdesk_ticket_view_search
@@ -2199,9 +2204,6 @@ msgstr ""
 
 #~ msgid "Number of unread messages"
 #~ msgstr "Okunmamış mesaj sayısı"
-
-#~ msgid "Unread Messages"
-#~ msgstr "Okunmamış Mesajlar"
 
 #~ msgid "Unread Messages Counter"
 #~ msgstr "Okunmamış Mesaj Sayacı"
