@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_stage_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-29 16:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__validate_field_ids
+msgid "Fields to Validate"
+msgstr "Campi da validare"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model,name:helpdesk_mgmt_stage_validation.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket assistenza clienti"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model,name:helpdesk_mgmt_stage_validation.model_helpdesk_ticket_stage
+msgid "Helpdesk Ticket Stage"
+msgstr "Fase ticket assistenza clienti"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__id
+msgid "ID"
+msgstr "ID"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket____last_update
+#: model:ir.model.fields,field_description:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: helpdesk_mgmt_stage_validation
+#: model:ir.model.fields,help:helpdesk_mgmt_stage_validation.field_helpdesk_ticket_stage__validate_field_ids
+msgid "Select fields which must be set on the document in this stage"
+msgstr ""
+"Selezionare i campi che devono essere compilati nel documento in questa fase"
+
+#. module: helpdesk_mgmt_stage_validation
+#: code:addons/helpdesk_mgmt_stage_validation/models/helpdesk_ticket.py:0
+#: code:addons/helpdesk_mgmt_stage_validation/tests/test_helpdesk_ticket_stage_validation.py:0
+#, python-format
+msgid ""
+"Ticket %(ticket)s can't be moved to the stage %(stage)s until the following "
+"fields are set: %(fields)s."
+msgstr ""
+"Il ticket %(ticket)s non può essere spostato alla fase %(stage)s finché i "
+"seguenti campi non sono impostati: %(fields)s."
