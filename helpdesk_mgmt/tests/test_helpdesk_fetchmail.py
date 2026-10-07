@@ -35,7 +35,12 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         super().setUpClass()
         cls.channel_email = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_channel_email")
 
-    def _dummy_fetchmail_process(self):
+    def _dummy_fetchmail_process(
+        self,
+        email_from="bob@mycompany.com",
+        subject="Need backup",
+        msg_id="168242744424.20.2028152230359369389@dd607af32153",
+    ):
         """In a real case workflow, the `fetchmail.server::fetch_mail()` function
         fetches IMAP/POP servers and creates new messages objects using
         `mail.thread::message_process()`."""
@@ -44,9 +49,9 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         additional_context = {"fetchmail_cron_running": True}
         message = EMAIL_TPL.format(
             to="general-alias-for-tickets@local.test",
-            subject="Need backup",
-            email_from="bob@mycompany.com",
-            msg_id="168242744424.20.2028152230359369389@dd607af32153",
+            subject=subject,
+            email_from=email_from,
+            msg_id=msg_id,
         )
         res_id = MailThread.with_context(**additional_context).message_process(
             model="helpdesk.ticket",
@@ -57,6 +62,7 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         ticket_number = self.env["helpdesk.ticket"].browse(res_id).number
         self.assertEqual(ticket_number[:2], "HT")
         self.assertGreater(res_id, 0)
+        return res_id
 
     def test_message_process(self):
         # keep a list of existing tickets
@@ -81,3 +87,31 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         self.assertEqual(ticket_id.name, "Need backup")
         # ensure that the channel is not set
         self.assertFalse(ticket_id.channel_id)
+
+    def test_message_process_unknown_sender(self):
+        email_from = "unknown-sender@example.com"
+        # ensure the sender is not an existing partner
+        self.assertFalse(self.env["res.partner"].search([("email", "=", email_from)]))
+        res_id = self._dummy_fetchmail_process(
+            email_from=email_from,
+            msg_id="168242744424.20.unknownsender@dd607af32153",
+        )
+        ticket = self.env["helpdesk.ticket"].browse(res_id)
+        # a partner has been created and linked
+        self.assertTrue(ticket.partner_id)
+        self.assertEqual(ticket.partner_id.email, email_from)
+        # the customer is subscribed as a follower
+        self.assertIn(ticket.partner_id, ticket.message_partner_ids)
+
+    def test_message_process_known_sender(self):
+        partner = self.env["res.partner"].create(
+            {"name": "Known Sender", "email": "known-sender@example.com"}
+        )
+        res_id = self._dummy_fetchmail_process(
+            email_from="known-sender@example.com",
+            msg_id="168242744424.20.knownsender@dd607af32153",
+        )
+        ticket = self.env["helpdesk.ticket"].browse(res_id)
+        # the existing partner is linked and subscribed
+        self.assertEqual(ticket.partner_id, partner)
+        self.assertIn(partner, ticket.message_partner_ids)
