@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Fragment served on category change and injected into the portal form -->
+    <template id="portal_form_questions" name="Helpdesk Portal Form Questions">
+        <div class="o_helpdesk_form_questions">
+            <p t-if="form.intro" class="text-muted" t-esc="form.intro" />
+            <t t-foreach="form.question_ids" t-as="question">
+                <t t-set="field_name" t-value="'answer_%s' % question.id" />
+                <div
+                    t-attf-class="form-group mb-3 o_helpdesk_question#{' d-none' if question.is_conditional else ''}"
+                    t-att-data-question-id="question.id"
+                    t-att-data-conditional="'1' if question.is_conditional else None"
+                    t-att-data-trigger-question="question.triggering_question_id.id if question.is_conditional else None"
+                    t-att-data-trigger-type="question.triggering_question_id.question_type if question.is_conditional else None"
+                    t-att-data-trigger-values="question.triggering_values_json if question.is_conditional else None"
+                    t-att-data-require-choice="'1' if question.question_type == 'multi' and question.required else None"
+                >
+                    <t t-if="question.question_type == 'boolean'">
+                        <div class="form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                t-att-id="field_name"
+                                t-att-name="field_name"
+                                value="1"
+                                t-att-required="question.required or None"
+                            />
+                            <label class="form-check-label" t-att-for="field_name">
+                                <t t-esc="question.name" />
+                                <span
+                                    t-if="question.required"
+                                    class="text-danger"
+                                > *</span>
+                            </label>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <label class="col-form-label" t-att-for="field_name">
+                            <t t-esc="question.name" />
+                            <span t-if="question.required" class="text-danger"> *</span>
+                        </label>
+                        <t t-if="question.question_type == 'char'">
+                            <input
+                                type="text"
+                                class="form-control"
+                                t-att-id="field_name"
+                                t-att-name="field_name"
+                                t-att-placeholder="question.placeholder"
+                                t-att-required="question.required or None"
+                            />
+                        </t>
+                        <t t-elif="question.question_type == 'text'">
+                            <textarea
+                                class="form-control"
+                                style="min-height: 90px"
+                                t-att-id="field_name"
+                                t-att-name="field_name"
+                                t-att-placeholder="question.placeholder"
+                                t-att-required="question.required or None"
+                            />
+                        </t>
+                        <t t-elif="question.question_type == 'selection'">
+                            <select
+                                class="form-control"
+                                t-att-id="field_name"
+                                t-att-name="field_name"
+                                t-att-required="question.required or None"
+                            >
+                                <option value="" />
+                                <t t-foreach="question.answer_ids" t-as="choice">
+                                    <option
+                                        t-att-value="choice.name"
+                                        t-esc="choice.name"
+                                    />
+                                </t>
+                            </select>
+                        </t>
+                        <t t-elif="question.question_type == 'multi'">
+                            <t t-foreach="question.answer_ids" t-as="choice">
+                                <div class="form-check">
+                                    <input
+                                        type="checkbox"
+                                        class="form-check-input"
+                                        t-attf-id="#{field_name}_#{choice.id}"
+                                        t-att-name="field_name"
+                                        t-att-value="choice.name"
+                                    />
+                                    <label
+                                        class="form-check-label"
+                                        t-attf-for="#{field_name}_#{choice.id}"
+                                        t-esc="choice.name"
+                                    />
+                                </div>
+                            </t>
+                        </t>
+                    </t>
+                    <small
+                        t-if="question.help_text"
+                        class="form-text text-muted"
+                        t-esc="question.help_text"
+                    />
+                </div>
+            </t>
+        </div>
+    </template>
+
+    <!-- HTML rendered into the ticket description from the submitted answers -->
+    <template id="portal_ticket_description" name="Helpdesk Portal Ticket Description">
+        <div>
+            <t t-foreach="answers" t-as="answer">
+                <p class="mb-1">
+                    <strong t-esc="answer['label']" />
+                </p>
+                <t t-if="answer['values']">
+                    <t t-if="answer['question_type'] == 'text'">
+                        <p style="white-space: pre-wrap;" t-esc="answer['values'][0]" />
+                    </t>
+                    <t t-elif="answer['question_type'] == 'multi'">
+                        <ul>
+                            <li
+                                t-foreach="answer['values']"
+                                t-as="value"
+                                t-esc="value"
+                            />
+                        </ul>
+                    </t>
+                    <t t-else="">
+                        <p t-esc="answer['values'][0]" />
+                    </t>
+                </t>
+                <t t-else="">
+                    <p class="text-muted">
+                        <em>—</em>
+                    </p>
+                </t>
+            </t>
+        </div>
+    </template>
+
+    <!-- Inject the questions container into the standard portal create form -->
+    <template id="portal_create_ticket" inherit_id="helpdesk_mgmt.portal_create_ticket">
+        <xpath
+            expr="//textarea[@name='description']/ancestor::div[hasclass('form-group')][1]"
+            position="attributes"
+        >
+            <attribute name="id">helpdesk_description_group</attribute>
+        </xpath>
+        <xpath
+            expr="//textarea[@name='description']/ancestor::div[hasclass('form-group')][1]"
+            position="before"
+        >
+            <div class="form-group mb-3" id="helpdesk_form_questions" />
+        </xpath>
+    </template>
+</odoo>

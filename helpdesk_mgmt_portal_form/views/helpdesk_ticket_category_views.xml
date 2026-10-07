@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_helpdesk_category_form" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.category.form.inherit.form</field>
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_form" />
+        <field name="arch" type="xml">
+            <field name="show_in_portal" position="after">
+                <field name="form_id" invisible="not show_in_portal" />
+            </field>
+        </field>
+    </record>
+    <record id="view_helpdesk_category_tree" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.category.list.inherit.form</field>
+        <field name="model">helpdesk.ticket.category</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_category_tree" />
+        <field name="arch" type="xml">
+            <field name="show_in_portal" position="after">
+                <field name="form_id" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>

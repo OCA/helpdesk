@@ -1,0 +1,390 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_portal_form
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_list
+msgid "# Questions"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.portal_ticket_description
+msgid "<em>—</em>"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "A question cannot depend on itself."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__active
+msgid "Active"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__question_type__boolean
+msgid "Boolean"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_portal_form.helpdesk_ticket_form_action
+msgid ""
+"Build a structured set of questions and attach it to a portal\n"
+"                category so customers fill it in instead of a free-text\n"
+"                description."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__name
+msgid "Choice"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__answer_ids
+msgid "Choices"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__company_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__company_id
+msgid "Company"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__is_conditional
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "Conditional display"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "Conditional question '%s' needs a Yes / No triggering value."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "Conditional question '%s' needs a triggering question."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "Conditional question '%s' needs at least one triggering answer."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.actions.act_window,help:helpdesk_mgmt_portal_form.helpdesk_ticket_form_action
+msgid "Create your first portal ticket form"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__create_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__create_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__create_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__create_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_category__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__form_id
+msgid "Form"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__help_text
+msgid "Help Text"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model,name:helpdesk_mgmt_portal_form.model_helpdesk_ticket_form
+msgid "Helpdesk Portal Ticket Form"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model,name:helpdesk_mgmt_portal_form.model_helpdesk_ticket_form_answer
+msgid "Helpdesk Portal Ticket Form Answer Choice"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model,name:helpdesk_mgmt_portal_form.model_helpdesk_ticket_form_question
+msgid "Helpdesk Portal Ticket Form Question"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model,name:helpdesk_mgmt_portal_form.model_helpdesk_ticket_category
+msgid "Helpdesk Ticket Category"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_category__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__id
+msgid "ID"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__intro
+msgid "Intro"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__write_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__write_uid
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__write_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__write_date
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__question_type__text
+msgid "Multi line text"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__question_type__multi
+msgid "Multiple choice"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__name
+msgid "Name"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__triggering_bool_value__no
+msgid "No"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__help_text
+msgid "Optional hint displayed under the question in the portal form."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "Optional introduction shown above the questions..."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__intro
+msgid "Optional text shown above the questions in the portal form."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__placeholder
+msgid "Placeholder"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-javascript
+#: code:addons/helpdesk_mgmt_portal_form/static/src/js/helpdesk_form_conditions.esm.js:0
+msgid "Please select at least one option."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_category__form_id
+msgid "Portal Form"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.actions.act_window,name:helpdesk_mgmt_portal_form.helpdesk_ticket_form_action
+#: model:ir.ui.menu,name:helpdesk_mgmt_portal_form.helpdesk_ticket_form_menu
+msgid "Portal Forms"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "Portal Ticket Form"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_list
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_search
+msgid "Portal Ticket Forms"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__question_id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__name
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "Question"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__question_count
+msgid "Question Count"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form__question_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "Questions"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__required
+msgid "Required"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_answer__sequence
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__is_conditional
+msgid ""
+"Show this question only when another question is answered a specific way."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__question_type__selection
+msgid "Single choice"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_question_id
+msgid ""
+"Single choice, multiple choice or Yes / No question whose answer controls "
+"the display of this one."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__question_type__char
+msgid "Single line text"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_category__form_id
+msgid ""
+"Structured question form shown in the portal when this category is selected."
+" If empty, the standard free-text description is used."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_values_json
+msgid "Technical: the matching values passed to the portal form."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__required
+msgid ""
+"The customer must answer this question. For a Yes / No question, it means "
+"the box must be ticked (answered Yes) to submit."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "The triggering answers must belong to the triggering question."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid ""
+"The triggering question must be a single choice, multiple choice or Yes / No"
+" question."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#. odoo-python
+#: code:addons/helpdesk_mgmt_portal_form/models/helpdesk_ticket_form_question.py:0
+msgid "The triggering question must belong to the same form."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_bool_value
+msgid ""
+"This question is shown when the triggering Yes / No question has this value."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,help:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_answer_ids
+msgid ""
+"This question is shown when the triggering question is answered with any of "
+"these choices."
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_values_json
+msgid "Triggering Values Json"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_answer_ids
+msgid "Triggering answers"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_question_id
+msgid "Triggering question"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_question_type
+msgid "Triggering question type"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__triggering_bool_value
+msgid "Triggering value"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields,field_description:helpdesk_mgmt_portal_form.field_helpdesk_ticket_form_question__question_type
+msgid "Type"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_portal_form.selection__helpdesk_ticket_form_question__triggering_bool_value__yes
+msgid "Yes"
+msgstr ""
+
+#. module: helpdesk_mgmt_portal_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_portal_form.helpdesk_ticket_form_view_form
+msgid "e.g. Hardware issue"
+msgstr ""
