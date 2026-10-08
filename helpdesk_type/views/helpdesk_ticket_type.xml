@@ -6,10 +6,24 @@
         <field name="model">helpdesk.ticket.type</field>
         <field name="arch" type="xml">
             <form string="Type">
-                <group>
-                    <field name="name" />
-                    <field name="team_ids" />
-                </group>
+                <sheet>
+                    <widget
+                        name="web_ribbon"
+                        title="Archived"
+                        bg_color="bg-danger"
+                        invisible="active"
+                    />
+                    <div class="oe_title">
+                        <label for="name" string="Helpdesk Type" />
+                        <h1>
+                            <field name="name" placeholder="Helpdesk type name..." />
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="show_in_portal" />
+                        <field name="team_ids" widget="many2many_tags" />
+                    </group>
+                </sheet>
             </form>
         </field>
     </record>
@@ -20,6 +34,27 @@
             <list>
                 <field name="name" />
             </list>
+        </field>
+    </record>
+    <record id="helpdesk_ticket_type_search" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.type.search</field>
+        <field name="model">helpdesk.ticket.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter
+                    string="Archived"
+                    name="inactive"
+                    domain="[('active','=',False)]"
+                />
+                <separator />
+                <filter
+                    string="Displayed in portal"
+                    name="show_in_portal"
+                    domain="[('show_in_portal','=',True)]"
+                />
+                <separator />
+                <field name="name" filter_domain="[('name', 'ilike', self)]" />
+            </search>
         </field>
     </record>
     <record id="action_helpdesk_ticket_type" model="ir.actions.act_window">
