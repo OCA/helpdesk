@@ -458,7 +458,10 @@
                         >
                             <option value="" />
                             <t t-foreach="teams" t-as="team">
-                                <option t-attf-value="#{team.id}">
+                                <option
+                                    t-attf-value="#{team.id}"
+                                    t-att-selected="len(teams) == 1"
+                                >
                                     <t t-esc="team.name" />
                                 </option>
                             </t>
@@ -479,7 +482,10 @@
                         >
                             <option value="" />
                             <t t-foreach="categories" t-as="cat">
-                                <option t-attf-value="#{cat.id}">
+                                <option
+                                    t-attf-value="#{cat.id}"
+                                    t-att-selected="len(categories) == 1"
+                                >
                                     <t t-esc="cat.complete_name" />
                                 </option>
                             </t>
