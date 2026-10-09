@@ -32,7 +32,10 @@
                     >
                         <option value="" />
                         <t t-foreach="types" t-as="type">
-                            <option t-attf-value="#{type.id}">
+                            <option
+                                t-attf-value="#{type.id}"
+                                t-att-selected="len(types) == 1"
+                            >
                                 <t t-esc="type.name" />
                             </option>
                         </t>
