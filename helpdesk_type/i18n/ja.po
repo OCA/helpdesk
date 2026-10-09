@@ -30,6 +30,12 @@ msgid "Allow to select type when creating a new ticket in the portal."
 msgstr ""
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Archived"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_res_company
 msgid "Companies"
 msgstr ""
@@ -55,6 +61,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Displayed in portal"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:helpdesk.ticket.type,name:helpdesk_type.helpdesk_type_1
 msgid "Document issue"
 msgstr ""
@@ -76,8 +87,18 @@ msgid "Helpdesk Ticket Type"
 msgstr ""
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk Type"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Helpdesk teams allowed to use this type."
+msgstr ""
+
+#. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk type name..."
 msgstr ""
 
 #. module: helpdesk_type
@@ -137,8 +158,8 @@ msgstr ""
 #. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_team__type_ids
 msgid ""
-"Ticket Types the team will use. This team's tickets will only be able to use"
-" those types."
+"Ticket Types the team will use. This team's tickets will only be able to use "
+"those types."
 msgstr ""
 
 #. module: helpdesk_type
