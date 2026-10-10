@@ -49,3 +49,8 @@ msgstr ""
 #: code:addons/helpdesk_mgmt_fieldservice_equipment/models/helpdesk_ticket.py:0
 msgid "The location of the ticket and equipment are not the same."
 msgstr ""
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice_equipment.fsm_equipment_form_view
+msgid "Tickets"
+msgstr ""
