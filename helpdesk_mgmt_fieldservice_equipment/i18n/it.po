@@ -52,3 +52,8 @@ msgstr "Conteggio ticket assistenza clienti"
 #: code:addons/helpdesk_mgmt_fieldservice_equipment/models/helpdesk_ticket.py:0
 msgid "The location of the ticket and equipment are not the same."
 msgstr "L'ubicazione del ticket e dell'attrezzatura non sono uguali."
+
+#. module: helpdesk_mgmt_fieldservice_equipment
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_fieldservice_equipment.fsm_equipment_form_view
+msgid "Tickets"
+msgstr ""
