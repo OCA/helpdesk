@@ -17,6 +17,7 @@ class HelpDeskTicket(models.Model):
         "('location_id', '=?', fsm_location_id)]",
         required=False,
         copy=False,
+        index="btree_not_null",
     )
     equipment_stage_id = fields.Many2one(
         comodel_name="fsm.stage",

@@ -11,6 +11,7 @@
     "depends": ["fieldservice", "helpdesk_mgmt_fieldservice"],
     "data": [
         "views/helpdesk_ticket.xml",
+        "views/fsm_equipment.xml",
     ],
     "installable": True,
 }
