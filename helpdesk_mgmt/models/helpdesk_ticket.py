@@ -286,6 +286,7 @@ class HelpdeskTicket(models.Model):
             if vals.get("stage_id"):
                 stage = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
                 vals["last_stage_update"] = now
+                vals["kanban_state"] = "normal"
                 if stage.closed:
                     vals["closed_date"] = now
             if vals.get("user_id"):
