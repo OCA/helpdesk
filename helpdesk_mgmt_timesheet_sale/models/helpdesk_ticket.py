@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
-from odoo.osv import expression
+from odoo.fields import Domain
 from odoo.tools.misc import unquote
 
 
@@ -10,7 +10,7 @@ class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
     def _domain_sale_line_id(self):
-        domain = expression.AND(
+        domain = Domain.AND(
             [
                 self.env["sale.order.line"]._sellable_lines_domain(),
                 self.env["sale.order.line"]._domain_sale_line_service(),
@@ -33,7 +33,6 @@ class HelpdeskTicket(models.Model):
         compute="_compute_sale_order_id",
         store=True,
         help="Sales order to which the task is linked.",
-        group_expand="_group_expand_sales_order",
     )
     sale_line_id = fields.Many2one(
         "sale.order.line",
