@@ -76,8 +76,10 @@ class HelpdeskTicketCreateLead(models.TransientModel):
         # attachment, which keeps the rest of the URL valid.
         body = new_message.body or ""
         new_body = ATTACHMENT_URL_RE.sub(
-            lambda match: "/web/%s/%s"
-            % (match.group(1), id_map.get(int(match.group(2)), match.group(2))),
+            lambda match: (
+                f"/web/{match.group(1)}/"
+                f"{id_map.get(int(match.group(2)), match.group(2))}"
+            ),
             body,
         )
         if new_body != body:
