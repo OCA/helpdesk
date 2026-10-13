@@ -52,6 +52,49 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
         )
         self.assertTrue(sent_mails, "Warning email have been sent")
 
+    def test_stage_filter_uses_original_relation(self):
+        self.assertEqual(
+            self.team._fields["ticket_stage_ids"].relation,
+            "helpdesk_team_stage_closing_ticket_filter_rel",
+        )
+
+    def test_stage_assignment_does_not_change_closure_filter(self):
+        self.stage_closing.write({"team_ids": [(4, self.team.id)]})
+        self.team.invalidate_recordset(["ticket_stage_ids"])
+        self.assertEqual(self.team.ticket_stage_ids, self.stage_warning)
+
+    def test_adding_filter_stage_does_not_assign_team(self):
+        self.team.write({"ticket_stage_ids": [(4, self.stage_closing.id)]})
+        self.stage_closing.invalidate_recordset(["team_ids"])
+        self.assertFalse(self.stage_closing.team_ids)
+
+    def test_removing_filter_stage_preserves_team_assignment(self):
+        self.stage_warning.write({"team_ids": [(4, self.team.id)]})
+        self.team.write({"ticket_stage_ids": [(3, self.stage_warning.id)]})
+        self.stage_warning.invalidate_recordset(["team_ids"])
+        self.assertEqual(self.stage_warning.team_ids, self.team)
+
+    def test_closed_ticket_is_not_closed_again(self):
+        self.stage_closing.closed = True
+        self.team.write({"ticket_stage_ids": [(4, self.stage_closing.id)]})
+        self.ticket.write({"stage_id": self.stage_closing.id})
+        old_date = datetime.today() - timedelta(days=30)
+        self.ticket.write({"last_stage_update": old_date, "closed_date": old_date})
+        messages = self.ticket.message_ids
+        result = self.team.close_team_inactive_tickets()
+        self.assertEqual(self.ticket.closed_date, old_date)
+        self.assertEqual(self.ticket.last_stage_update, old_date)
+        self.assertEqual(self.ticket.message_ids, messages)
+        self.assertFalse(result["closing_email_ids"])
+
+    def test_closed_ticket_does_not_receive_warning(self):
+        self.stage_closing.closed = True
+        self.team.write({"ticket_stage_ids": [(4, self.stage_closing.id)]})
+        self.ticket.write({"stage_id": self.stage_closing.id})
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
+        result = self.team.close_team_inactive_tickets()
+        self.assertFalse(result["warning_email_ids"])
+
     def test_ticket_closing_after_closing_day_limit(self):
         """Test that a ticket is closed after the closing day limit is reached."""
         self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})

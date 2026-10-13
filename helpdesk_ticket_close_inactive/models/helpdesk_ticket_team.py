@@ -31,6 +31,7 @@ class HelpdeskTicketTeam(models.Model):
     )
     ticket_stage_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.stage",
+        relation="helpdesk_team_stage_closing_ticket_filter_rel",
         string="Ticket Stage",
         help="The cronjob will check for inactivity in \
         tickets that are in these stages.",
@@ -107,6 +108,7 @@ class HelpdeskTicketTeam(models.Model):
                 warning_domain = [
                     ("team_id", "=", team_id.id),
                     ("stage_id", "in", ticket_stage_ids),
+                    ("stage_id.closed", "=", False),
                     ("last_stage_update", ">=", warning_limit_day_first_hour),
                     ("last_stage_update", "<=", warning_limit_day_last_hour),
                 ]
@@ -136,6 +138,7 @@ class HelpdeskTicketTeam(models.Model):
             closing_domain = [
                 ("team_id", "=", team_id.id),
                 ("stage_id", "in", ticket_stage_ids),
+                ("stage_id.closed", "=", False),
                 ("last_stage_update", "<=", closing_limit),
             ]
             if ticket_category_ids:
