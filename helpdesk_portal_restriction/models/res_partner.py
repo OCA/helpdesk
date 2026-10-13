@@ -8,7 +8,6 @@ class ResPartner(models.Model):
         "helpdesk.ticket.team",
         "helpdesk_partner_ids",
         string="Available teams",
-        required=True,
     )
 
     helpdesk_category_ids = fields.Many2many(
