@@ -1,11 +1,10 @@
-/** @odoo-module **/
 // Copyright 2024 Nitrokey GmbH
 // License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import FormEditorRegistry from "@website/js/form_editor_registry";
 import {_t} from "@web/core/l10n/translation";
+import {registry} from "@web/core/registry";
 
-FormEditorRegistry.add("create_helpdesk_ticket", {
+registry.category("website.form_editor_actions").add("create_helpdesk_ticket", {
     formFields: [
         {
             type: "char",

@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Website Helpdesk Mgmt",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "After-Sales",
     "website": "https://github.com/OCA/helpdesk",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -16,7 +16,7 @@
         "security/ir.model.access.csv",
     ],
     "assets": {
-        "website.assets_wysiwyg": [
+        "website.website_builder_assets": [
             "website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js",
         ],
     },
