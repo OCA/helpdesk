@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2025 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    invisible="not helpdesk_ticket_allowed"
+                    name="action_view_helpdesk_tickets"
+                    type="object"
+                    icon="fa-life-ring"
+                >
+                    <field
+                        string="Tickets"
+                        name="helpdesk_ticket_count"
+                        widget="statinfo"
+                    />
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_picking_tree" model="ir.ui.view">
+        <field name="name">stock.picking.list.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree" />
+        <field name="arch" type="xml">
+            <xpath expr="//list//field[@name='state']" position="before">
+                <button
+                    name="create_or_show_helpdesk_ticket"
+                    type="object"
+                    icon="fa-life-ring"
+                    string="Helpdesk"
+                    invisible="not helpdesk_ticket_allowed or helpdesk_ticket_count"
+                />
+                <button
+                    name="create_or_show_helpdesk_ticket"
+                    type="object"
+                    icon="fa-life-ring"
+                    string="Helpdesk"
+                    class="btn btn-danger"
+                    invisible="not helpdesk_ticket_allowed or not helpdesk_ticket_count"
+                />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_picking_internal_search" model="ir.ui.view">
+        <field name="name">stock.picking.internal.search</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_internal_search" />
+        <field name="arch" type="xml">
+            <filter name="activities_exception" position="after">
+                <separator />
+                <filter
+                    string="Open Helpdesk Tickets"
+                    name="activities_exception"
+                    domain="[('helpdesk_ticket_ids.stage_id.closed', '=', False)]"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
