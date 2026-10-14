@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 ACSONE SA/NV
+     Copyright 2017 Camptocamp SA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="purchase_order_form_view">
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='invoice_info']" position="after">
+                <group name="helpdesk_info" string="Helpdesk">
+                    <field
+                        name="ticket_ids"
+                        widget="many2many_tags"
+                        groups="helpdesk_mgmt.group_helpdesk_user_own"
+                    />
+                </group>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_view_helpdesk_tickets"
+                    type="object"
+                    class="btn btn-primary"
+                    icon="fa-ticket"
+                    groups="helpdesk_mgmt.group_helpdesk_user_own"
+                    attrs="{'invisible': [('ticket_count', '=', 0)]}"
+                >
+                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
