@@ -33,6 +33,12 @@ msgid "Allow to select type when creating a new ticket in the portal."
 msgstr "Permitir seleccionar el tipo al crear un nuevo ticket en el portal."
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Archived"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_res_company
 msgid "Companies"
 msgstr "Compañías"
@@ -53,13 +59,17 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__display_name
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: helpdesk_type
-#: model:helpdesk.ticket.type,name:helpdesk_type.helpdesk_type_1
-msgid "Document issue"
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Displayed in portal"
 msgstr ""
 
 #. module: helpdesk_type
@@ -79,12 +89,26 @@ msgid "Helpdesk Ticket Type"
 msgstr "Tipo de tickets del Helpdesk"
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk Type"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Helpdesk teams allowed to use this type."
 msgstr "Los equipos de soporte t??cnico pueden usar este tipo."
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk type name..."
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__id
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__id
 msgid "ID"
 msgstr "ID"
 

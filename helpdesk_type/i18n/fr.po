@@ -34,6 +34,12 @@ msgstr ""
 "depuis le portail."
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Archived"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_res_company
 msgid "Companies"
 msgstr "Sociétés"
@@ -54,14 +60,18 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__display_name
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__display_name
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__display_name
 msgid "Display Name"
 msgstr "Nom d’affichage"
 
 #. module: helpdesk_type
-#: model:helpdesk.ticket.type,name:helpdesk_type.helpdesk_type_1
-msgid "Document issue"
-msgstr "Problème de document"
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_search
+msgid "Displayed in portal"
+msgstr ""
 
 #. module: helpdesk_type
 #: model:ir.model,name:helpdesk_type.model_helpdesk_ticket
@@ -80,12 +90,26 @@ msgid "Helpdesk Ticket Type"
 msgstr "Type de ticket d’assistance"
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk Type"
+msgstr ""
+
+#. module: helpdesk_type
 #: model:ir.model.fields,help:helpdesk_type.field_helpdesk_ticket_type__team_ids
 msgid "Helpdesk teams allowed to use this type."
 msgstr "Équipe d’assistance qui est autorisée à utiliser ce type."
 
 #. module: helpdesk_type
+#: model_terms:ir.ui.view,arch_db:helpdesk_type.helpdesk_ticket_type_form
+msgid "Helpdesk type name..."
+msgstr ""
+
+#. module: helpdesk_type
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_team__id
 #: model:ir.model.fields,field_description:helpdesk_type.field_helpdesk_ticket_type__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_company__id
+#: model:ir.model.fields,field_description:helpdesk_type.field_res_config_settings__id
 msgid "ID"
 msgstr "ID"
 
@@ -156,6 +180,9 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:helpdesk_type.res_config_settings_view_form_inherit_select_type
 msgid "Type"
 msgstr "Type"
+
+#~ msgid "Document issue"
+#~ msgstr "Problème de document"
 
 #~ msgid "Last Modified on"
 #~ msgstr "Dernière modification le"
