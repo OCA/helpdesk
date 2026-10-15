@@ -9,22 +9,17 @@ _logger = logging.getLogger(__name__)
 
 class HelpdeskPartnerTeamCategoryController(HelpdeskTicketController):
     def _get_teams(self):
-        if http.request.env.user.company_id.helpdesk_mgmt_portal_select_team:
-            return (
-                http.request.env.user.partner_id.helpdesk_team_ids
-                if http.request.env.user.partner_id.helpdesk_team_ids
-                else http.request.env["helpdesk.ticket.team"]
-                .sudo()
-                .search([("active", "=", True), ("show_in_portal", "=", True)])
-            )
-        else:
-            return False
+        teams = super()._get_teams()
+        partner = http.request.env.user.partner_id
+        if partner.helpdesk_team_ids:
+            teams = teams.filtered(lambda x: x in partner.helpdesk_team_ids)
+        return teams
 
     def _get_categories(self, **kw):
-        return (
-            http.request.env.user.partner_id.helpdesk_category_ids
-            if http.request.env.user.partner_id.helpdesk_category_ids
-            else http.request.env["helpdesk.ticket.category"].search(
-                [("active", "=", True)]
+        categories = super()._get_categories(**kw)
+        partner = http.request.env.user.partner_id
+        if partner.helpdesk_category_ids:
+            categories = categories.filtered(
+                lambda x: x in partner.helpdesk_category_ids
             )
-        )
+        return categories

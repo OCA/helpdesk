@@ -8,11 +8,12 @@ class ResPartner(models.Model):
         "helpdesk.ticket.team",
         "helpdesk_partner_ids",
         string="Available teams",
-        required=True,
+        domain=[("show_in_portal", "=", True)],
     )
 
     helpdesk_category_ids = fields.Many2many(
         "helpdesk.ticket.category",
         "helpdesk_category_partner_ids",
         string="Available category",
+        domain=[("show_in_portal", "=", True)],
     )
