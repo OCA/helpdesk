@@ -46,6 +46,9 @@
         "web.assets_unit_tests": [
             "helpdesk_mgmt/static/tests/**/*.test.js",
         ],
+        "web.assets_tests": [
+            "helpdesk_mgmt/static/src/js/tours/test_helpdesk_tour.esm.js",
+        ],
     },
     "development_status": "Production/Stable",
     "application": True,
