@@ -14,6 +14,7 @@ class HelpdeskTicketTeam(models.Model):
     )
     autopupdate_src_stage_ids = fields.Many2many(
         comodel_name="helpdesk.ticket.stage",
+        context={"active_test": False},
         relation="change_stage_partner_response",
         string="Autoupdate Source Stages",
         help=(
