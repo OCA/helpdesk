@@ -17,3 +17,15 @@ class TestHelpdeskPortal(test_helpdesk_portal.TestHelpdeskPortalBase):
         tickets = self.get_new_tickets(self.user_portal)
         self.assertIn(self.portal_ticket, tickets)
         self.assertIn(team_id, tickets.mapped("team_id"))
+
+    # portal submission has no project field, it must be taken from the team
+    def test_submit_ticket_team_fills_default_project(self):
+        project = self.env["project.project"].create({"name": "Team default project"})
+        team_id = self.env["helpdesk.ticket.team"].create(
+            {"name": "Test Team With Project", "default_project_id": project.id}
+        )
+        self.authenticate("portal", "portal")
+        self._submit_ticket(team=team_id.id)
+        tickets = self.get_new_tickets(self.user_portal)
+        new_ticket = tickets.filtered(lambda t: t.team_id == team_id)
+        self.assertEqual(new_ticket.project_id, project)

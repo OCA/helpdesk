@@ -98,3 +98,15 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.assertEqual(new_line.ticket_id, self.ticket)
         self.assertEqual(new_line.unit_amount, 0)
         self.assertTrue(self.ticket_line.unit_amount)
+
+    def test_closest_suggestion_from_ticket(self):
+        # base _closest_suggestion ignores helpdesk.ticket, this override covers it
+        wizard = (
+            self.env["hr.timesheet.switch"]
+            .with_user(self.uid)
+            .with_context(
+                active_model="helpdesk.ticket",
+                active_id=self.ticket.id,
+            )
+        )
+        self.assertEqual(wizard._closest_suggestion(), self.ticket_line)
