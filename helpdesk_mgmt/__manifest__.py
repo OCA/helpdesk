@@ -2,9 +2,8 @@
 
 {
     "name": "Helpdesk Management",
-    "summary": """
-        Helpdesk""",
-    "version": "19.0.1.3.1",
+    "summary": "Helpdesk",
+    "version": "20.0.1.0.0",
     "license": "AGPL-3",
     "category": "After-Sales",
     "author": "AdaptiveCity, "
@@ -19,8 +18,8 @@
     "depends": ["mail", "portal"],
     "data": [
         "data/helpdesk_data.xml",
+        "data/portal_entry_data.xml",
         "security/helpdesk_security.xml",
-        "security/ir.model.access.csv",
         "views/res_partner_views.xml",
         "views/res_config_settings_views.xml",
         "views/helpdesk_ticket_templates.xml",
@@ -33,6 +32,7 @@
         "views/helpdesk_ticket_views.xml",
         "views/helpdesk_dashboard_views.xml",
         "wizards/helpdesk_ticket_duplicate_wizard_views.xml",
+        "security/ir.access.csv",
     ],
     "demo": ["demo/helpdesk_demo.xml"],
     "assets": {

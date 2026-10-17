@@ -6,11 +6,10 @@ class HelpdeskTicket(models.Model):
     _name = "helpdesk.ticket"
     _description = "Helpdesk Ticket"
     _rec_name = "number"
-    _rec_names_search = ["number", "name"]
+    _rec_names_search = ("number", "name")
     _order = "priority desc, sequence, number desc, id desc"
     _mail_post_access = "read"
     _inherit = (
-        "mail.thread.cc",
         "mail.activity.mixin",
         "portal.mixin",
         "mail.tracking.duration.mixin",
@@ -96,6 +95,7 @@ class HelpdeskTicket(models.Model):
     )
     partner_name = fields.Char()
     partner_email = fields.Char(string="Email")
+    email_cc = fields.Char(string="Email cc")
     last_stage_update = fields.Datetime(default=fields.Datetime.now)
     assigned_date = fields.Datetime(copy=False)
     closed_date = fields.Datetime(copy=False)
@@ -343,6 +343,9 @@ class HelpdeskTicket(models.Model):
             "description": msg.get("body"),
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
+            "email_cc": ", ".join(
+                self._mail_cc_sanitized_raw_dict(msg.get("cc")).values()
+            ),
         }
         defaults.update(custom_values)
 
@@ -364,6 +367,14 @@ class HelpdeskTicket(models.Model):
 
         return ticket
 
+    def _mail_cc_sanitized_raw_dict(self, cc_string):
+        return {
+            tools.email_normalize(email): tools.formataddr(
+                (name, tools.email_normalize(email))
+            )
+            for name, email in tools.mail.email_split_tuples(cc_string or "")
+        }
+
     def message_update(self, msg, update_vals=None):
         """Override message_update to subscribe partners"""
         email_list = tools.email_split(
@@ -377,7 +388,13 @@ class HelpdeskTicket(models.Model):
             if p
         ]
         self.message_subscribe(partner_ids)
-        return super().message_update(msg, update_vals=update_vals)
+        cc_values = {}
+        new_cc = self._mail_cc_sanitized_raw_dict(msg.get("cc"))
+        if new_cc:
+            new_cc.update(self._mail_cc_sanitized_raw_dict(self.email_cc))
+            cc_values["email_cc"] = ", ".join(new_cc.values())
+        cc_values.update(update_vals or {})
+        return super().message_update(msg, update_vals=cc_values)
 
     def _message_add_suggested_recipients(self, force_primary_email=False):
         suggested = super()._message_add_suggested_recipients(
@@ -385,6 +402,9 @@ class HelpdeskTicket(models.Model):
         )
         try:
             for ticket in self:
+                suggested[ticket.id]["email_to_lst"] += (
+                    tools.mail.email_split_and_format_normalize(ticket.email_cc)
+                )
                 if ticket.partner_id:
                     suggested[ticket.id]["partners"] |= ticket.partner_id
                 elif ticket.partner_email:

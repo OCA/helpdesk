@@ -202,7 +202,7 @@
                             class="oe_stat_button"
                             type="object"
                             name="action_view_duplicates"
-                            icon="fa-clone"
+                            icon="content_copy"
                             invisible="duplicate_count == 0"
                         >
                             <field

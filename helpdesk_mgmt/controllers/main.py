@@ -1,7 +1,7 @@
-import base64
 import logging
 
 import werkzeug
+from werkzeug.exceptions import BadRequest, Forbidden, NotFound
 
 from odoo import http
 from odoo.http import request
@@ -11,25 +11,33 @@ _logger = logging.getLogger(__name__)
 
 
 class HelpdeskTicketController(http.Controller):
-    @http.route("/ticket/close", type="http", auth="user")
-    def support_ticket_close(self, **kw):
-        """Close the support ticket"""
-        values = {}
-        for field_name, field_value in kw.items():
-            if field_name.endswith("_id"):
-                values[field_name] = int(field_value)
-            else:
-                values[field_name] = field_value
-        ticket = (
-            http.request.env["helpdesk.ticket"]
-            .sudo()
-            .search([("id", "=", values["ticket_id"])])
+    @http.route("/ticket/close", type="http", auth="user", methods=["POST"], csrf=True)
+    def support_ticket_close(self, ticket_id=None, stage_id=None, **kw):
+        """Close a visible ticket using one of its permitted closing stages."""
+        try:
+            ticket_id, stage_id = int(ticket_id), int(stage_id)
+        except (TypeError, ValueError) as error:
+            raise BadRequest() from error
+        ticket = request.env["helpdesk.ticket"].search(
+            [("id", "=", ticket_id)], limit=1
         )
-        stage = http.request.env["helpdesk.ticket.stage"].browse(values.get("stage_id"))
-        if stage.close_from_portal:  # protect against invalid target stage request
-            ticket.stage_id = values.get("stage_id")
-
-        return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
+        if not ticket:
+            raise NotFound()
+        stage = request.env["helpdesk.ticket.stage"].search(
+            [("id", "=", stage_id)], limit=1
+        )
+        applicable_stages = (
+            ticket.sudo()
+            .team_id.with_company(ticket.company_id)
+            ._get_applicable_stages()
+        )
+        if stage and stage.close_from_portal and stage in applicable_stages:
+            ticket.sudo().stage_id = stage.id
+        elif stage and not stage.close_from_portal:
+            return werkzeug.utils.redirect(f"/my/ticket/{ticket.id}")
+        else:
+            raise Forbidden()
+        return werkzeug.utils.redirect(f"/my/ticket/{ticket.id}")
 
     def _get_teams(self):
         return (
@@ -107,7 +115,14 @@ class HelpdeskTicketController(http.Controller):
         vals["stage_id"] = team._get_applicable_stages()[:1].id
         return vals
 
-    @http.route("/submitted/ticket", type="http", auth="user", website=True, csrf=True)
+    @http.route(
+        "/submitted/ticket",
+        type="http",
+        auth="user",
+        website=True,
+        methods=["POST"],
+        csrf=True,
+    )
     def submit_ticket(self, **kw):
         vals = self._prepare_submit_ticket_vals(**kw)
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
@@ -119,7 +134,7 @@ class HelpdeskTicketController(http.Controller):
                     request.env["ir.attachment"].sudo().create(
                         {
                             "name": c_file.filename,
-                            "datas": base64.b64encode(data),
+                            "raw": data,
                             "res_model": "helpdesk.ticket",
                             "res_id": new_ticket.id,
                         }

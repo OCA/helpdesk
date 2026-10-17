@@ -30,22 +30,8 @@
                 type="action"
                 t-att-class="'btn btn-primary ' + (_btn_classes or '')"
             >
-                <i class="fa fa-plus" /> New</button>
+                <i class="oi" data-icon="add" /> New</button>
         </form>
-    </template>
-    <template
-        id="portal_docs_entry"
-        inherit_id="portal.portal_docs_entry"
-        primary="True"
-    >
-        <xpath expr="//t[@t-set='force_show']" position="attributes">
-            <attribute name="t-value">True</attribute>
-        </xpath>
-        <xpath expr="//span[@t-out='title']" position="after">
-            <t t-call="helpdesk_mgmt.portal_ticket_new_button">
-                <t t-set="_btn_classes" t-value="'btn-sm'" />
-            </t>
-        </xpath>
     </template>
     <template
         id="portal_my_home"
@@ -54,18 +40,9 @@
         priority="40"
         customize_show="True"
     >
-        <div id="portal_common_category" position="inside">
-            <t t-call="helpdesk_mgmt.portal_docs_entry">
-                <t
-                    t-set="icon"
-                    t-value="'/helpdesk_mgmt/static/src/img/helpdesk_icon.svg'"
-                />
-                <t t-set="title">Tickets</t>
-                <t t-set="url" t-value="'/my/tickets'" />
-                <t t-set="text">Follow and comment your helpdesk tickets</t>
-                <t t-set="placeholder_count" t-value="'ticket_count'" />
-            </t>
-        </div>
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="before">
+            <t t-call="helpdesk_mgmt.portal_ticket_new_button" />
+        </xpath>
     </template>
     <template id="portal_searchbar" inherit_id="portal.portal_searchbar" primary="True">
         <xpath expr="//div[@t-if='searchbar_sortings']" position="before">
@@ -73,11 +50,8 @@
         </xpath>
     </template>
     <template id="portal_my_tickets" name="My Tickets">
-        <t t-call="portal.portal_layout">
-            <t t-set="breadcrumbs_searchbar" t-value="True" />
-            <t t-call="helpdesk_mgmt.portal_searchbar">
-                <t t-set="title">Tickets</t>
-            </t>
+        <t t-call="portal.portal_layout" breadcrumbs_searchbar="True">
+            <t t-call="helpdesk_mgmt.portal_searchbar" title.translate="Tickets" />
             <t t-if="not grouped_tickets">
                 <div class="alert alert-warning mt8" role="alert">
                     <p>No tickets found.</p>
@@ -132,7 +106,7 @@
                                     <span t-field="ticket.partner_id" />
                                 </td>
                                 <td class="text-left">
-                                    <span t-esc="ticket.number" />
+                                    <span t-out="ticket.number" />
                                 </td>
                                 <td>
                                     <a
@@ -142,13 +116,13 @@
                                     </a>
                                 </td>
                                 <td t-if="groupby != 'category'">
-                                    <span t-esc="ticket.category_id.complete_name" />
+                                    <span t-out="ticket.category_id.complete_name" />
                                 </td>
                                 <td t-if="groupby != 'stage'">
                                     <span
                                         class="badge badge-pill bg-info"
                                         title="Current stage of the ticket"
-                                        t-esc="ticket.stage_id.name"
+                                        t-out="ticket.stage_id.name"
                                     />
                                 </td>
                                 <td>
@@ -176,117 +150,108 @@
     >
         <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
             <div class="row o_portal_helpdesk_sidebar">
+                <t t-set="title">
+                    <h2
+                        t-field="ticket.number"
+                        data-id="number"
+                        class="mb-0 text-break"
+                    />
+                </t>
+                <t t-set="entries">
+                    <div class="d-flex flex-column gap-4 mt-3">
+                        <div
+                            t-if="not ticket.closed_date"
+                            class="col-12 d-flex flex-column"
+                            name="ticket_close_buttons"
+                        >
+                            <t t-foreach="closed_stages" t-as="stage">
+                                <form
+                                    method="POST"
+                                    t-attf-action="/ticket/close"
+                                    class="col-12 d-flex pb-1"
+                                >
+                                    <input
+                                        type="hidden"
+                                        name="csrf_token"
+                                        t-att-value="request.csrf_token()"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="ticket_id"
+                                        t-attf-value="#{ticket.id}"
+                                    />
+                                    <input
+                                        type="hidden"
+                                        name="stage_id"
+                                        t-attf-value="#{stage.id}"
+                                    />
+                                    <button class="btn btn-light flex-grow-1">
+                                        <span t-field="stage.name" />
+                                    </button>
+                                </form>
+                            </t>
+                        </div>
+                        <div t-if="ticket.user_id" class="col-12 d-flex flex-column">
+                            <h6>
+                                <small class="text-muted">Assignee</small>
+                            </h6>
+                            <t
+                                t-call="portal.portal_my_contact"
+                                _contact_avatar="image_data_uri(ticket.user_id.avatar_128)"
+                                _contact_name="ticket.user_id.name"
+                                _contact_link="True"
+                            >
+                                <div class="d-flex row">
+                                    <a
+                                        t-if="ticket.user_id.email"
+                                        class="col-12"
+                                        t-attf-href="mailto:{{ticket.user_id.email}}"
+                                    >
+                                        <div
+                                            t-out="ticket.user_id"
+                                            t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;email&quot;]}"
+                                        />
+                                    </a>
+                                    <a
+                                        t-if="ticket.user_id.phone"
+                                        class="col-12"
+                                        t-attf-href="tel:{{ticket.user_id.phone}}"
+                                    >
+                                        <div
+                                            t-out="ticket.user_id"
+                                            t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;phone&quot;]}"
+                                        />
+                                    </a>
+                                </div>
+                            </t>
+                        </div>
+
+                        <div t-if="ticket.partner_id" class="col-12 d-flex flex-column">
+                            <h6>
+                                <small class="text-muted">Customer</small>
+                            </h6>
+                            <t t-if="ticket.partner_id">
+                                <t
+                                    t-call="portal.portal_my_contact"
+                                    _contact_avatar="image_data_uri(ticket.partner_id.avatar_512)"
+                                    _contact_name="ticket.partner_id.display_name"
+                                >
+                                    <div
+                                        t-field="ticket.partner_id"
+                                        t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;email&quot;, &quot;phone&quot;]}"
+                                    />
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </t>
                 <t
                     t-call="portal.portal_record_sidebar"
                     id="helpdesk_ticket_portal_sidebar"
-                >
-                    <t t-set="classes" t-value="'col-lg-4 col-xxl-3 d-print-none'" />
-
-                    <t t-set="title">
-                        <h2
-                            t-field="ticket.number"
-                            data-id="number"
-                            class="mb-0 text-break"
-                        />
-                    </t>
-                    <t t-set="entries">
-                        <div class="d-flex flex-column gap-4 mt-3">
-                            <div
-                                class="col-12 d-flex flex-column"
-                                t-if="not ticket.closed_date"
-                                name="ticket_close_buttons"
-                            >
-                                <t t-foreach="closed_stages" t-as="stage">
-                                    <form
-                                        method="GET"
-                                        t-attf-action="/ticket/close"
-                                        class="col-12 d-flex pb-1"
-                                    >
-                                        <input
-                                            type="hidden"
-                                            name="ticket_id"
-                                            t-attf-value="#{ticket.id}"
-                                        />
-                                        <input
-                                            type="hidden"
-                                            name="stage_id"
-                                            t-attf-value="#{stage.id}"
-                                        />
-                                        <button class="btn btn-light flex-grow-1">
-                                            <span t-field="stage.name" />
-                                        </button>
-                                    </form>
-                                </t>
-                            </div>
-                            <div
-                                class="col-12 d-flex flex-column"
-                                t-if="ticket.user_id"
-                            >
-                                <h6>
-                                    <small class="text-muted">Assignee</small>
-                                </h6>
-                                <t t-call="portal.portal_my_contact">
-                                    <t
-                                        t-set="_contactAvatar"
-                                        t-value="image_data_uri(ticket.user_id.avatar_128)"
-                                    />
-                                    <t
-                                        t-set="_contactName"
-                                        t-value="ticket.user_id.name"
-                                    />
-                                    <t t-set="_contactLink" t-value="True" />
-                                    <div class="d-flex row">
-                                        <a
-                                            t-attf-href="mailto:{{ticket.user_id.email}}"
-                                            t-if="ticket.user_id.email"
-                                            class="col-12"
-                                        >
-                                            <div
-                                                t-esc="ticket.user_id"
-                                                t-options='{"widget": "contact", "fields": ["email"]}'
-                                            />
-                                        </a>
-                                        <a
-                                            class="col-12"
-                                            t-attf-href="tel:{{ticket.user_id.phone}}"
-                                            t-if="ticket.user_id.phone"
-                                        >
-                                            <div
-                                                t-esc="ticket.user_id"
-                                                t-options='{"widget": "contact", "fields": ["phone"]}'
-                                            />
-                                        </a>
-                                    </div>
-                                </t>
-                            </div>
-
-                            <div
-                                class="col-12 d-flex flex-column"
-                                t-if="ticket.partner_id"
-                            >
-                                <h6>
-                                    <small class="text-muted">Customer</small>
-                                </h6>
-                                <t t-if="ticket.partner_id">
-                                    <t t-call="portal.portal_my_contact">
-                                        <t
-                                            t-set="_contactAvatar"
-                                            t-value="image_data_uri(ticket.partner_id.avatar_512)"
-                                        />
-                                        <t
-                                            t-set="_contactName"
-                                            t-value="ticket.partner_id.display_name"
-                                        />
-                                        <div
-                                            t-field="ticket.partner_id"
-                                            t-options='{"widget": "contact", "fields": ["email", "phone"]}'
-                                        />
-                                    </t>
-                                </t>
-                            </div>
-                        </div>
-                    </t>
-                </t>
+                    classes="'col-lg-4 col-xxl-3 d-print-none'"
+                    title="title"
+                    entries="entries"
+                />
                 <div
                     id="helpdesk_ticket_content"
                     class="col-12 col-lg-8 col-xxl-9 mt-5 mt-lg-0"
@@ -321,21 +286,21 @@
                                         <strong>Create Date:</strong>
                                         <span
                                             t-field="ticket.create_date"
-                                            t-options='{"widget": "datetime"}'
+                                            t-options="{&quot;widget&quot;: &quot;datetime&quot;}"
                                         />
                                     </div>
                                     <div>
                                         <strong>Last Stage Update:</strong>
                                         <span
                                             t-field="ticket.last_stage_update"
-                                            t-options='{"widget": "datetime"}'
+                                            t-options="{&quot;widget&quot;: &quot;datetime&quot;}"
                                         />
                                     </div>
                                     <div t-if="ticket.closed_date">
                                         <strong>Closed Date:</strong>
                                         <span
                                             t-field="ticket.closed_date"
-                                            t-options='{"widget": "datetime"}'
+                                            t-options="{&quot;widget&quot;: &quot;datetime&quot;}"
                                         />
                                     </div>
                                     <div t-if="ticket.category_id">
@@ -349,8 +314,8 @@
                                 />
                             </div>
                             <div
-                                class="row"
                                 t-if="ticket.description or ticket.attachment_ids"
+                                class="row"
                             >
                                 <div
                                     t-if="not is_html_empty(ticket.description)"
@@ -384,16 +349,16 @@
                                                             class="d-flex align-items-center rounded bg-light p-2"
                                                         >
                                                             <div
-                                                                class='oe_attachment_embedded o_image o_image_small me-2 me-lg-3'
+                                                                class="oe_attachment_embedded o_image o_image_small me-2 me-lg-3"
                                                                 t-att-title="attachment.name"
                                                                 t-att-data-mimetype="attachment.mimetype"
                                                                 t-attf-data-src="/web/image/#{attachment.id}/50x40?access_token=#{attachment.access_token}"
                                                             />
                                                             <div
-                                                                class='oe_attachment_name text-truncate'
+                                                                class="oe_attachment_name text-truncate"
                                                             >
                                                                 <t
-                                                                    t-esc='attachment.name'
+                                                                    t-out="attachment.name"
                                                                 />
                                                             </div>
                                                         </a>
@@ -409,9 +374,7 @@
                     <hr />
                     <div id="task_chat" data-anchor="true">
                         <h3>Communication history</h3>
-                        <t t-call="portal.message_thread">
-                            <t t-set="token" t-value="ticket.access_token" />
-                        </t>
+                        <t t-call="portal.message_thread" token="ticket.access_token" />
                     </div>
                 </div>
             </div>
@@ -444,15 +407,15 @@
                     name="csrf_token"
                     t-att-value="request.csrf_token()"
                 />
-                <div class="form-group mb-3" t-if="teams">
+                <div t-if="teams" class="form-group mb-3">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="team"
                     >Team</label>
                     <div class="col-md-7 col-sm-8">
                         <select
-                            class="form-control"
                             id="team"
+                            class="form-control"
                             name="team"
                             t-att-required="ticket_team_id_required"
                         >
@@ -462,21 +425,21 @@
                                     t-attf-value="#{team.id}"
                                     t-att-selected="len(teams) == 1"
                                 >
-                                    <t t-esc="team.name" />
+                                    <t t-out="team.name" />
                                 </option>
                             </t>
                         </select>
                     </div>
                 </div>
-                <div class="form-group mb-3" t-if="categories">
+                <div t-if="categories" class="form-group mb-3">
                     <label
                         class="col-md-3 col-sm-4 control-label"
                         for="category"
                     >Category</label>
                     <div class="col-md-7 col-sm-8">
                         <select
-                            class="form-control"
                             id="category"
+                            class="form-control"
                             name="category"
                             t-att-required="ticket_category_id_required"
                         >
@@ -486,7 +449,7 @@
                                     t-attf-value="#{cat.id}"
                                     t-att-selected="len(categories) == 1"
                                 >
-                                    <t t-esc="cat.complete_name" />
+                                    <t t-out="cat.complete_name" />
                                 </option>
                             </t>
                         </select>
@@ -514,9 +477,9 @@
                     <div class="col-md-7 col-sm-8">
                         <div class="btn btn-default btn-file col-md-12 px-0">
                             <input
+                                id="attachment"
                                 class="form-control o_website_form_input"
                                 name="attachment"
-                                id="attachment"
                                 type="file"
                                 multiple="multiple"
                                 t-att-max_upload_size="max_upload_size"
@@ -524,8 +487,8 @@
                         </div>
                         <div
                             id="attachment_information"
-                            style="display: none;"
                             class="text-danger"
+                            style="display: none;"
                         />
                     </div>
                 </div>
