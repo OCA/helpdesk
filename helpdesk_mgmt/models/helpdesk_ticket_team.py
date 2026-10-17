@@ -5,7 +5,7 @@ from odoo.tools.safe_eval import safe_eval
 class HelpdeskTeam(models.Model):
     _name = "helpdesk.ticket.team"
     _description = "Helpdesk Ticket Team"
-    _inherit = ["mail.thread", "mail.alias.mixin"]
+    _inherit = ("mail.thread", "mail.alias.mixin")
     _order = "sequence, id"
     _parent_name = "parent_id"
     _parent_store = True
@@ -22,12 +22,9 @@ class HelpdeskTeam(models.Model):
         column2="res_users_id",
     )
     active = fields.Boolean(default=True)
-    category_ids = fields.Many2many(
-        comodel_name="helpdesk.ticket.category", string="Category"
-    )
+    category_ids = fields.Many2many(comodel_name="helpdesk.ticket.category")
     company_id = fields.Many2one(
         comodel_name="res.company",
-        string="Company",
         default=lambda self: self.env.company,
     )
     user_id = fields.Many2one(
