@@ -28,8 +28,6 @@ Integrator at Agrolait"""
 
 
 class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
-    """ """
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

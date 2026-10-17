@@ -3,7 +3,7 @@ import logging
 
 import werkzeug
 
-import odoo.http as http
+from odoo import http
 from odoo.http import request
 from odoo.tools import plaintext2html
 

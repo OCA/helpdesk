@@ -132,18 +132,12 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             "body": "This the body",
             "date": "2021-10-10",
         }
-        try:
-            t = Ticket.message_new(msg_dict)
-        except Exception as error:
-            self.fail(f"{type(error)}: {error}")
+        t = Ticket.message_new(msg_dict)
         self.assertEqual(t.name, title, "The ticket should have the correct title.")
 
         title = "New title"
         update_vals = {"name": title}
-        try:
-            t.message_update(msg_dict, update_vals)
-        except Exception as error:
-            self.fail(f"{type(error)}: {error}")
+        t.message_update(msg_dict, update_vals)
         self.assertEqual(
             t.name, title, "The ticket should have the correct (new) title."
         )
