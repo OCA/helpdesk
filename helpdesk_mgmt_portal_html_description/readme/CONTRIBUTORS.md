@@ -1,0 +1,2 @@
+- Iria Alonso \<iria.alonso@solvos.es\>
+- Carlos García \<carlos.garcia@solvos.es\>
