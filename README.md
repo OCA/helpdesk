@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [helpdesk_mgmt_account](helpdesk_mgmt_account/) | 16.0.1.0.0 |  | Link account moves and helpdesk tickets
 [helpdesk_mgmt_activity](helpdesk_mgmt_activity/) | 16.0.1.0.0 |  | Create Activities for Odoo records from the Helpdesk
 [helpdesk_mgmt_assign_method](helpdesk_mgmt_assign_method/) | 16.0.1.0.0 |  | Helpdesk Assign Method
+[helpdesk_mgmt_crm](helpdesk_mgmt_crm/) | 16.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Links helpdesk tickets with leads
 [helpdesk_mgmt_fieldservice](helpdesk_mgmt_fieldservice/) | 16.0.1.1.0 |  | Create service orders from a ticket
 [helpdesk_mgmt_merge](helpdesk_mgmt_merge/) | 16.0.1.0.1 |  | Wizard to merge helpdesk tickets
 [helpdesk_mgmt_portal_follower](helpdesk_mgmt_portal_follower/) | 16.0.1.0.1 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> <a href='https://github.com/ppyczko'><img src='https://github.com/ppyczko.png' width='32' height='32' style='border-radius:50%;' alt='ppyczko'/></a> <a href='https://github.com/mpascuall'><img src='https://github.com/mpascuall.png' width='32' height='32' style='border-radius:50%;' alt='mpascuall'/></a> | Add ticket followers from website portal

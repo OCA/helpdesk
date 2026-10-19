@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo-addon-helpdesk_mgmt_account>=16.0dev,<16.1dev',
         'odoo-addon-helpdesk_mgmt_activity>=16.0dev,<16.1dev',
         'odoo-addon-helpdesk_mgmt_assign_method>=16.0dev,<16.1dev',
+        'odoo-addon-helpdesk_mgmt_crm>=16.0dev,<16.1dev',
         'odoo-addon-helpdesk_mgmt_fieldservice>=16.0dev,<16.1dev',
         'odoo-addon-helpdesk_mgmt_merge>=16.0dev,<16.1dev',
         'odoo-addon-helpdesk_mgmt_portal_follower>=16.0dev,<16.1dev',
