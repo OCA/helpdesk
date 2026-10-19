@@ -98,8 +98,6 @@ msgstr "Descrizione della polizza..."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__display_name
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
 
@@ -114,11 +112,6 @@ msgid "Followers"
 msgstr "Seguito da"
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_channel_ids
-msgid "Followers (Channels)"
-msgstr "Seguito da (canali)"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_partner_ids
 msgid "Followers (Partners)"
 msgstr "Seguito da (partner)"
@@ -131,9 +124,13 @@ msgstr "Icona Font Awesome es. fa-tasks"
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.server,name:helpdesk_mgmt_sla.contract_cron_alert_ir_actions_server
 #: model:ir.cron,cron_name:helpdesk_mgmt_sla.contract_cron_alert
-#: model:ir.cron,name:helpdesk_mgmt_sla.contract_cron_alert
 msgid "Generate Helpdesk SLA alerts from cron"
 msgstr "Genera avvisi SLA Helpdesk da cron"
+
+#. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__has_message
+msgid "Has Message"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.actions.act_window,name:helpdesk_mgmt_sla.action_helpdesk_sla_tree
@@ -163,8 +160,6 @@ msgstr "Ore"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket__id
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__id
 msgid "ID"
 msgstr "ID"
 
@@ -180,7 +175,6 @@ msgstr "Icona per indicare un'attività eccezione."
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
 msgid "If checked, new messages require your attention."
 msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
@@ -196,8 +190,6 @@ msgstr "Segue"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket____last_update
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
@@ -237,6 +229,11 @@ msgid "Name"
 msgstr "Nome"
 
 #. module: helpdesk_mgmt_sla
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__activity_date_deadline
 msgid "Next Activity Deadline"
 msgstr "Scadenza prossima attività"
@@ -268,18 +265,13 @@ msgstr "Numero di errori"
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_needaction_counter
-msgid "Number of messages which requires an action"
-msgstr "Numero di messaggi che richiedono un'azione"
+msgid "Number of messages requiring action"
+msgstr ""
 
 #. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_has_error_counter
 msgid "Number of messages with delivery error"
 msgstr "Numero di messaggi con errore di consegna"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,help:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Number of unread messages"
-msgstr "Numero di messaggi non letti"
 
 #. module: helpdesk_mgmt_sla
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sla.helpdesk_ticket_sla_form
@@ -356,16 +348,6 @@ msgid "Type of the exception activity on record."
 msgstr "Tipo di attività eccezione sul record."
 
 #. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread
-msgid "Unread Messages"
-msgstr "Messaggi non letti"
-
-#. module: helpdesk_mgmt_sla
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_sla__message_unread_counter
-msgid "Unread Messages Counter"
-msgstr "Contatore messaggi non letti"
-
-#. module: helpdesk_mgmt_sla
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sla.field_helpdesk_ticket_team__use_sla
 msgid "Use SLA"
 msgstr "Utilizza SLA"
@@ -402,6 +384,21 @@ msgid ""
 msgstr ""
 "ore\n"
 "                                <br/>"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Seguito da (canali)"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Numero di messaggi che richiedono un'azione"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Numero di messaggi non letti"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Messaggi non letti"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Contatore messaggi non letti"
 
 #~ msgid "SMS Delivery error"
 #~ msgstr "Errore consegna SMS"
