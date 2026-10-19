@@ -19,6 +19,7 @@
                         <field
                             name="autopupdate_src_stage_ids"
                             widget="many2many_tags"
+                            context="{'active_test': True}"
                             required="autoupdate_ticket_stage"
                         />
                         <field
