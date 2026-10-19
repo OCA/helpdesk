@@ -22,8 +22,8 @@ msgid ""
 "<span class=\"text-muted\">NB: This will archive the selected tickets "
 "(Except the destination ticket)</span>"
 msgstr ""
-"<span class=\"text-muted\">NB: Isso arquivará os chamados selecionados ("
-"exceto o chamado de destino)</span>"
+"<span class=\"text-muted\">NB: Isso arquivará os chamados selecionados "
+"(exceto o chamado de destino)</span>"
 
 #. module: helpdesk_mgmt_merge
 #: model:ir.model.fields,field_description:helpdesk_mgmt_merge.field_helpdesk_ticket_merge__user_id
