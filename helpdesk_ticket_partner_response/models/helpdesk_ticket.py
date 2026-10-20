@@ -9,11 +9,12 @@ class HelpdeskTicket(models.Model):
 
     def _message_post_after_hook(self, message, msg_vals):
         """Change status of ticket if the required conditions are satisfied"""
-        public_user = self.env.ref("base.public_user")
         if (
             self
-            and self.env.user.partner_id.id
-            in (self.partner_id.id, public_user.partner_id.id)
+            and message.message_type != "email"
+            and not message.is_internal
+            and not message.subtype_id.internal
+            and not any(not user.share for user in message.author_id.user_ids)
             and self.team_id.autoupdate_ticket_stage
             and self.stage_id in self.team_id.autopupdate_src_stage_ids
         ):
