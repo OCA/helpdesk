@@ -205,6 +205,25 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
         )
         self.assertEqual(original_ticket.stage_id, self.stage_in_progress)
 
+    def test_change_stage_branch1_duplicate_email_partner(self):
+        """Branch 1: The sender's email exists on several partners.
+
+        The gateway resolves the sender to the portal user, while the ticket
+        is linked to a different partner sharing the same email address.
+        The partner IDs differ, but the stage must still change because the
+        email matches the ticket partner.
+        """
+        duplicate_partner = self.env["res.partner"].create(
+            {
+                "name": "Duplicate Customer",
+                "email": self.partner_portal.email,
+            }
+        )
+        self.ticket = self._create_ticket(self.helpdesk_team1, duplicate_partner)
+        self.ticket.stage_id = self.stage_in_progress
+        self.message_process()
+        self.assertEqual(self.ticket.stage_id, self.stage_done)
+
     # ------------------------------------------------------------------
     # Branch 3: external sender (no Odoo user), ticket has partner_id
     # ------------------------------------------------------------------
