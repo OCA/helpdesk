@@ -1,4 +1,5 @@
 # Copyright 2016-2018 Tecnativa - Pedro M. Baeza
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0
 
 from datetime import datetime, timedelta
@@ -20,7 +21,7 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
                 ("unit_amount", "=", 0),
             ]
         ).button_end_work()
-        admin.groups_id |= self.browse_ref("hr_timesheet.group_hr_timesheet_user")
+        admin.group_ids |= self.browse_ref("hr_timesheet.group_hr_timesheet_user")
         self.uid = admin.id
         self.project = self.env["project.project"].create(
             {"name": "Test project", "allow_timesheets": True}
@@ -60,10 +61,6 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         )
 
     def _create_wizard(self, action, active_record):
-        """Create a new hr.timesheet.switch wizard in the specified context.
-        :param dict action: Action definition that creates the wizard.
-        :param active_record: Record being browsed when creating the wizard.
-        """
         self.assertEqual(action["res_model"], "hr.timesheet.switch")
         self.assertEqual(action["target"], "new")
         self.assertEqual(action["type"], "ir.actions.act_window")
@@ -80,7 +77,6 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         )
 
     def test_ticket_time_control_flow(self):
-        """Test project.task time controls."""
         # Running line found, stop the timer
         self.assertEqual(self.ticket.show_time_control, "stop")
         self.ticket.button_end_work()
@@ -102,3 +98,15 @@ class TestHelpdeskTimesheetTimeControl(common.TransactionCase):
         self.assertEqual(new_line.ticket_id, self.ticket)
         self.assertEqual(new_line.unit_amount, 0)
         self.assertTrue(self.ticket_line.unit_amount)
+
+    def test_closest_suggestion_from_ticket(self):
+        # base _closest_suggestion ignores helpdesk.ticket, this override covers it
+        wizard = (
+            self.env["hr.timesheet.switch"]
+            .with_user(self.uid)
+            .with_context(
+                active_model="helpdesk.ticket",
+                active_id=self.ticket.id,
+            )
+        )
+        self.assertEqual(wizard._closest_suggestion(), self.ticket_line)
