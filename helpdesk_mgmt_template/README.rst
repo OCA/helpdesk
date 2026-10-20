@@ -93,6 +93,8 @@ Contributors
   - Mikhail Lapin
   - Dessan Hemrayev
 
+- Mario Castillo López <@mcastillol14>
+
 Maintainers
 -----------
 

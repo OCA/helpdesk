@@ -1,4 +1,5 @@
 # Copyright (C) 2024 Cetmix OÜ
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.tests.common import tagged
@@ -33,28 +34,19 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
 
     def test_set_category(self):
-        """
-        Test that setting a category on a ticket correctly sets
-        the category_id and description.
-        """
-        # Check that the category_id is initially empty
         self.assertFalse(
             self.ticket_a_user_own.category_id,
             msg="Initially, the category_id should be empty",
         )
 
-        # Set the category_id to the id of category_1
         self.ticket_a_user_own.category_id = self.category_1.id
 
-        # Check that the category_id has been correctly set
         self.assertEqual(
             self.ticket_a_user_own.category_id.id,
             self.category_1.id,
             msg=f"The category ID #{self.category_1.id} was not correctly set",
         )
 
-        # Check that the description has been correctly
-        # set to the template_description of category_1
         self.assertEqual(
             self.ticket_a_user_own.description,
             self.category_1.template_description,
@@ -74,18 +66,11 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
 
     def test_check_available_team_categories(self):
-        """
-        Test the availability of team categories and
-        their correct linking to the team and ticket.
-        """
-        # Check that initially, a team should not have categories attached to it.
         self.assertFalse(
             self.ticket_a_user_own.helpdesk_ticket_category_ids,
             msg="A team should not have categories attached to it.",
         )
 
-        # Assign a team to the ticket and check that
-        # the categories are linked to the team.
         self.ticket_a_user_own.team_id = self.team_c.id
         related_category_ids = [self.category_1.id, self.category_3.id]
         self.assertEqual(
@@ -94,13 +79,10 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             msg="Categories should be linked to the team.",
         )
 
-        # Set the category_id of the ticket to the
-        # first category in the linked categories.
         self.ticket_a_user_own.category_id = (
             self.ticket_a_user_own.helpdesk_ticket_category_ids[0]
         )
 
-        # Check that the category_id has been correctly set.
         self.assertEqual(
             self.ticket_a_user_own.category_id.id,
             self.category_1.id,
@@ -108,11 +90,6 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         )
 
     def test_create_ticket_with_category(self):
-        """
-        Test the creation of a ticket with a specific category and
-        verify that the category is correctly set.
-        """
-        # Create a ticket with a specific category
         ticket = self.env["helpdesk.ticket"].create(
             {
                 "name": f"Ticket {self.team_c.name} (test)",
@@ -124,23 +101,14 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             }
         )
 
-        # Check that the category_id has been correctly set
         self.assertEqual(
             ticket.category_id.id,
             self.category_1.id,
             msg=f"The category ID #{self.category_1.id} was not correctly set",
         )
 
+    # copy() resetea la description a proposito, no debe arrastrar notas del original
     def test_copy_resets_description(self):
-        """
-        Duplicating a ticket must not carry over its description — that's a
-        deliberate override on `copy()`, since the description on the source
-        often contains case-specific notes that shouldn't bleed into a new
-        ticket. Verifies both branches of the override:
-
-          - default is None / no description in default  → forces <p></p>
-          - caller-supplied description in default       → respected as-is
-        """
         source = self.env["helpdesk.ticket"].create(
             {
                 "name": "Ticket with case-specific notes",

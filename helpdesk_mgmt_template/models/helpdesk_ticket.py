@@ -1,4 +1,5 @@
 # Copyright (C) 2024 Cetmix OÜ
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 
@@ -22,6 +23,7 @@ class HelpdeskTicket(models.Model):
         for rec in self:
             rec.helpdesk_ticket_category_ids = rec.team_id.category_ids
 
+    # la plantilla de la categoria pisa la descripcion que ya tuviera el ticket
     @api.depends("category_id")
     def _compute_description(self):
         for record in self:
@@ -32,6 +34,7 @@ class HelpdeskTicket(models.Model):
             else:
                 record.description = "<p></p>"
 
+    # al duplicar no se arrastra la descripcion, suele tener notas del caso original
     def copy(self, default=None):
         self.ensure_one()
         if default is None:
