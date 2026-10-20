@@ -90,3 +90,44 @@ class TestHelpdeskMgmtTimesheet(test_helpdesk_ticket.TestHelpdeskTicket):
         self.assertEqual(
             ticket.remaining_hours, ticket.planned_hours - ticket.total_hours
         )
+
+    def test_progress_capped_at_100(self):
+        ticket = self.generate_ticket()
+        ticket._onchange_team_id()
+        ticket.planned_hours = 1
+        self.env["account.analytic.line"].with_user(self.user_employee).create(
+            {
+                "date": fields.Date.today(),
+                "name": "Over planned hours",
+                "unit_amount": 5,
+                "ticket_id": ticket.id,
+                "project_id": ticket.project_id.id,
+            }
+        )
+        self.assertEqual(ticket.progress, 100)
+
+    def test_show_time_control_false_without_project_timesheets(self):
+        project_no_timesheets = self.env["project.project"].create(
+            {"name": "No timesheets project", "allow_timesheets": False}
+        )
+        ticket = self.generate_ticket()
+        ticket.project_id = project_no_timesheets
+        self.assertFalse(ticket.show_time_control)
+
+    def test_team_disallow_timesheet_clears_default_project(self):
+        self.assertTrue(self.team_id.default_project_id)
+        self.team_id.allow_timesheet = False
+        self.assertFalse(self.team_id.default_project_id)
+
+    def test_analytic_line_onchange_ticket_id(self):
+        ticket = self.generate_ticket()
+        line = self.env["account.analytic.line"].new({"ticket_id": ticket.id})
+        line.onchange_ticket_id()
+        self.assertEqual(line.project_id, ticket.project_id)
+        self.assertEqual(line.task_id, ticket.task_id)
+
+    def test_analytic_line_onchange_without_ticket_id(self):
+        # no ticket_id set: onchange must be a no-op, not raise
+        line = self.env["account.analytic.line"].new({})
+        line.onchange_ticket_id()
+        self.assertFalse(line.project_id)
