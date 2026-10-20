@@ -1,7 +1,8 @@
 # © 2025 Solvos Consultoría Informática (<http://www.solvos.es>)
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -48,7 +49,7 @@ class HelpdeskTicket(models.Model):
                 and record.partner_id != record.team_id.default_partner_id
             ):
                 raise ValidationError(
-                    _("This partner is not allowed for selected team")
+                    self.env._("This partner is not allowed for selected team")
                 )
             elif (
                 record.team_id.allowed_partner_ids
@@ -56,5 +57,5 @@ class HelpdeskTicket(models.Model):
                 and record.partner_id != record.team_id.default_partner_id
             ):
                 raise ValidationError(
-                    _("This partner is not allowed for selected team")
+                    self.env._("This partner is not allowed for selected team")
                 )

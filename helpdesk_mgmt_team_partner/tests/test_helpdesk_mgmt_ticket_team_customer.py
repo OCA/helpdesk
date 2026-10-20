@@ -1,4 +1,5 @@
 # © 2025 Solvos Consultoría Informática (<http://www.solvos.es>)
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from odoo.exceptions import ValidationError
