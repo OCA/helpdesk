@@ -2,6 +2,7 @@
 #    Copyright (C) 2020 Punt Sistemes <www.puntsistemes.es.es>
 #    Copyright (C) 2020 SDi Soluciones Digitales <www.sdi.es>
 #    Copyright (C) 2020 Solvos Consultoría Informática <www.solvos.es>
+#    Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
@@ -19,7 +20,8 @@
     "depends": [
         "helpdesk_mgmt_project",
         "hr_timesheet",
-        "project_timesheet_time_control",
+        # se movio de OCA/project a OCA/timesheet en 19.0, no es un typo
+        "hr_timesheet_time_control",
     ],
     "data": [
         "views/helpdesk_ticket_templates.xml",

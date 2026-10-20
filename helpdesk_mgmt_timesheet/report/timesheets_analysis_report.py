@@ -1,4 +1,5 @@
 # Copyright 2025 APSL-Nagarro Antoni Marroig
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models

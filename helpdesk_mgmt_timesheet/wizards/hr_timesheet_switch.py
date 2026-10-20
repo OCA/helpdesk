@@ -1,4 +1,5 @@
 # Copyright 2020 Graeme Gellatly
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import api, models
@@ -7,9 +8,9 @@ from odoo import api, models
 class HrTimesheetSwitch(models.TransientModel):
     _inherit = "hr.timesheet.switch"
 
+    # extiende la busqueda de sugerencia para que tambien mire helpdesk.ticket
     @api.model
     def _closest_suggestion(self):
-        """Allow searching best suggestion by helpdesk.ticket."""
         result = super()._closest_suggestion()
         if (
             not result

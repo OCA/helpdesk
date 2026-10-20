@@ -1,4 +1,5 @@
 # Copyright 2023 ForgeFlow S.L. (https://www.forgeflow.com)
+# Copyright 2026 Mario Castillo López <@mcastillol14>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import odoo.http as http

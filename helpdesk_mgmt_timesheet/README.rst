@@ -115,6 +115,8 @@ Contributors
 
   - Antoni Marroig <amarroig@apsl.net>
 
+- Mario Castillo López <@mcastillol14>
+
 Maintainers
 -----------
 

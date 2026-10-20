@@ -12,4 +12,5 @@
   - Fernando La Chica \<<fernandolachica@gmail.com>\>
 - [APSL-Nagarro](https://www.apsl.tech):
   - Antoni Marroig \<<amarroig@apsl.net>\>
+- Mario Castillo López <@mcastillol14>
   
