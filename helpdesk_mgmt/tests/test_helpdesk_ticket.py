@@ -259,3 +259,10 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             new_ticket_form.stage_id = in_progress_stage
             new_ticket_form.user_id = self.user
         self.assertEqual(new_ticket_form.stage_id, in_progress_stage)
+
+    def test_form_creation(self):
+        """A Ticket can be created using Form."""
+        ticket_form = Form(self.env["helpdesk.ticket"])
+        ticket_form.name = "Test Ticket"
+        ticket_form.description = "It does not work on my machine"
+        self.assertTrue(ticket_form.save())
