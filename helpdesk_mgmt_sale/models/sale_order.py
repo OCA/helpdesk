@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import Command, api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -34,7 +34,7 @@ class SaleOrder(models.Model):
                 "default_partner_id": self.partner_id.id,
                 "default_name": self.name,
                 "default_origin": self.name,
-                "default_sale_order_ids": [(4, self.id)],
+                "default_sale_order_ids": [Command.link(self.id)],
                 "from_sale_order": True,
             },
         }

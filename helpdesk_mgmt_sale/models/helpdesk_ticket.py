@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import Command, _, api, fields, models
 
 
 class HelpdeskTicket(models.Model):
@@ -23,7 +23,7 @@ class HelpdeskTicket(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         action["domain"] = [("ticket_ids", "in", [self.id])]
         action["context"] = {
-            "default_ticket_ids": [(4, [self.id])],
+            "default_ticket_ids": [Command.link(self.id)],
             "default_partner_id": self.partner_id.id,
         }
         return action
@@ -40,5 +40,7 @@ class HelpdeskTicket(models.Model):
 
     def _get_default_message_creation(self, tickets):
         return _(
-            f"Helpdesk Ticket {tickets.display_name} created by {self.env.user.name}"
+            "Helpdesk Ticket %(ticket_name)s created by %(user_name)s",
+            ticket_name=tickets.display_name,
+            user_name=self.env.user.name,
         )

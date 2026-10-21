@@ -16,12 +16,24 @@ msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
+msgid "Create a ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_sale.view_order_form
 msgid "Helpdesk"
 msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model,name:helpdesk_mgmt_sale.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_sale
+#. odoo-python
+#: code:addons/helpdesk_mgmt_sale/models/helpdesk_ticket.py:0
+#, python-format
+msgid "Helpdesk Ticket %(ticket_name)s created by %(user_name)s"
 msgstr ""
 
 #. module: helpdesk_mgmt_sale
