@@ -289,3 +289,10 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
                 )
             )
             self.assertIn(expected_greeting, greeting_email.body_html)
+
+    def test_form_creation(self):
+        """A Ticket can be created using Form."""
+        ticket_form = Form(self.env["helpdesk.ticket"])
+        ticket_form.name = "Test Ticket"
+        ticket_form.description = "It does not work on my machine"
+        self.assertTrue(ticket_form.save())
