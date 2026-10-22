@@ -1,12 +1,13 @@
 # Copyright (C) 2024 Tecnativa - Pilar Vargas
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.addons.base.tests.common import BaseCommon
+from odoo.addons.base.tests.common import BaseCommon, Command
 
 
 class TestHelpdeskTicketSale(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.Ticket = cls.env["helpdesk.ticket"]
         cls.partner = cls.env["res.partner"].create(
             {"name": "Test Partner", "email": "testpartner@example.com"}
         )
@@ -20,13 +21,13 @@ class TestHelpdeskTicketSale(BaseCommon):
         cls.sale_order_1 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],
+                "ticket_ids": [Command.set([cls.ticket.id])],
             }
         )
         cls.sale_order_2 = cls.env["sale.order"].create(
             {
                 "partner_id": cls.partner.id,
-                "ticket_ids": [(6, 0, [cls.ticket.id])],
+                "ticket_ids": [Command.set([cls.ticket.id])],
             }
         )
 
@@ -51,5 +52,46 @@ class TestHelpdeskTicketSale(BaseCommon):
         action = self.ticket.action_view_sale_orders()
         self.assertEqual(action["domain"], [("ticket_ids", "in", [self.ticket.id])])
         self.assertEqual(
-            action["context"]["default_ticket_ids"], [(4, [self.ticket.id])]
+            action["context"]["default_ticket_ids"], [Command.link(self.ticket.id)]
         )
+
+    def test_create_ticket_without_context(self):
+        self.Ticket.create(
+            {
+                "name": "Test Ticket",
+                "sale_order_ids": [Command.set([self.sale_order_1.id])],
+                "description": "Test Helpdesk Ticket",
+            }
+        )
+        messages = self.sale_order_1.message_ids.filtered(
+            lambda m: "Helpdesk Ticket" in (m.body or "")
+        )
+        self.assertFalse(messages, "No message should be posted without context")
+
+    def test_create_ticket_with_context(self):
+        ticket = self.Ticket.with_context(from_sale_order=True).create(
+            {
+                "name": "Ticket Context",
+                "sale_order_ids": [Command.set([self.sale_order_2.id])],
+                "description": "Test Helpdesk Ticket",
+            }
+        )
+
+        messages = self.sale_order_2.message_ids.filtered(
+            lambda m: ticket.name in (m.body or "")
+        )
+
+        self.assertTrue(messages, "A message should be posted on the sale order")
+        self.assertIn(self.env.user.name, messages[0].body)
+
+    def test_action_context_values(self):
+        action = self.sale_order_1.action_create_helpdesk_ticket()
+        ctx = action["context"]
+
+        self.assertEqual(ctx["default_partner_id"], self.partner.id)
+        self.assertEqual(ctx["default_name"], self.sale_order_1.name)
+        self.assertEqual(ctx["default_origin"], self.sale_order_1.name)
+        self.assertEqual(
+            ctx["default_sale_order_ids"], [Command.link(self.sale_order_1.id)]
+        )
+        self.assertTrue(ctx["from_sale_order"])
