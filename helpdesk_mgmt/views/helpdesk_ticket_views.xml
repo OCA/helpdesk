@@ -219,10 +219,7 @@
                             name="warning_duplicate"
                             invisible="not duplicate_id"
                         > This ticket is a
-                            duplicate of <field
-                            name="duplicate_id"
-                            readonly="stage_id.closed"
-                        />
+                            duplicate of <field name="duplicate_id" readonly="closed" />
                         </div>
                         <h1 class="oe_title">
                             <field name="number" />
