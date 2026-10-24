@@ -1,0 +1,4 @@
+odoo-addon-helpdesk_mgmt_timesheet @ git+https://github.com/OCA/helpdesk.git@refs/pull/999/head#subdirectory=helpdesk_mgmt_timesheet
+odoo-addon-hr_timesheet_time_type @ git+https://github.com/OCA/timesheet.git@refs/pull/824/head#subdirectory=hr_timesheet_time_type
+odoo-addon-helpdesk_mgmt @ git+https://github.com/OCA/helpdesk.git@refs/pull/978/head#subdirectory=helpdesk_mgmt
+odoo-addon-helpdesk_mgmt_project @ git+https://github.com/OCA/helpdesk.git@refs/pull/984/head#subdirectory=helpdesk_mgmt_project
