@@ -5,10 +5,11 @@
     >
         <field name="name">Helpdesk Ticket</field>
         <field name="res_model">helpdesk.ticket</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,list,form</field>
         <field name="context">
             {'default_partner_id': active_id}
         </field>
         <field name="domain">[('partner_id', 'child_of', active_id)]</field>
+        <field name="path">helpdesk-partner-tickets</field>
     </record>
 </odoo>

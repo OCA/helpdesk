@@ -10,7 +10,7 @@ def uninstall_hook(env):
         action.write(
             {
                 "res_model": "helpdesk.ticket.team",
-                "view_mode": "kanban,tree,form,pivot",
+                "view_mode": "kanban,list,form,pivot",
                 "domain": False,
             }
         )
@@ -18,4 +18,4 @@ def uninstall_hook(env):
         "helpdesk_mgmt.helpdesk_ticket_team_action", raise_if_not_found=False
     )
     if team_action:
-        team_action.view_mode = "tree,form"
+        team_action.view_mode = "list,form"

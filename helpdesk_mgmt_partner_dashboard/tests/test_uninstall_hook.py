@@ -22,21 +22,21 @@ class TestUninstallHook(BaseCommon):
         self.assertEqual(self.action.res_model, "res.partner")
         self.assertEqual(
             {view.view_mode: view.view_id for view in self.action.view_ids},
-            {"kanban": self.partner_kanban_view, "tree": self.partner_tree_view},
+            {"kanban": self.partner_kanban_view, "list": self.partner_tree_view},
         )
 
         uninstall_hook(self.env)
 
         self.assertEqual(self.action.res_model, "helpdesk.ticket.team")
-        self.assertEqual(self.action.view_mode, "kanban,tree,form,pivot")
+        self.assertEqual(self.action.view_mode, "kanban,list,form,pivot")
         self.assertFalse(self.action.domain)
 
     def test_uninstall_hook_restores_original_team_action(self):
-        self.assertEqual(self.team_action.view_mode, "kanban,tree,form")
+        self.assertEqual(self.team_action.view_mode, "kanban,list,form")
 
         uninstall_hook(self.env)
 
-        self.assertEqual(self.team_action.view_mode, "tree,form")
+        self.assertEqual(self.team_action.view_mode, "list,form")
 
     def test_uninstall_hook_missing_action_does_not_raise(self):
         (self.action | self.team_action).unlink()
