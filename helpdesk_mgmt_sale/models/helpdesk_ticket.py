@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import Command, _, api, fields, models
 
 
 class HelpdeskTicket(models.Model):
@@ -23,7 +23,24 @@ class HelpdeskTicket(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         action["domain"] = [("ticket_ids", "in", [self.id])]
         action["context"] = {
-            "default_ticket_ids": [(4, [self.id])],
+            "default_ticket_ids": [Command.link(self.id)],
             "default_partner_id": self.partner_id.id,
         }
         return action
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        tickets = super().create(vals_list)
+        if self.env.context.get("from_sale_order"):
+            # only one ticket is possible here
+            for sale in tickets.sale_order_ids:
+                sale.message_post(body=self._get_default_message_creation(tickets))
+
+        return tickets
+
+    def _get_default_message_creation(self, tickets):
+        return _(
+            "Helpdesk Ticket %(ticket_name)s created by %(user_name)s",
+            ticket_name=tickets.display_name,
+            user_name=self.env.user.name,
+        )
