@@ -1,17 +1,17 @@
-/* eslint no-undef: 0 */
 import {_t} from "@web/core/l10n/translation";
 import {humanNumber} from "@web/core/utils/numbers";
-import publicWidget from "@web/legacy/js/public/public_widget";
+import {registry} from "@web/core/registry";
+import {Interaction} from "@web/public/interaction";
 
-publicWidget.registry.NewTicket = publicWidget.Widget.extend({
-    selector: "form[action='/submitted/ticket']",
-    events: {
-        'change input[name="attachment"]': "_onChangeAttachment",
-    },
+export class NewTicket extends Interaction {
+    static selector = "form[action='/submitted/ticket']";
+    dynamicContent = {
+        'input[name="attachment"]': {"t-on-change": this._onChangeAttachment},
+    };
     _onChangeAttachment(ev) {
         ev.preventDefault();
-        const attachment_input = document.getElementById("attachment");
-        const information_input = document.getElementById("attachment_information");
+        const attachment_input = this.el.querySelector("#attachment");
+        const information_input = this.el.querySelector("#attachment_information");
         information_input.style.display = "none";
         const max_upload_size = parseInt(
             attachment_input.getAttribute("max_upload_size"),
@@ -31,5 +31,7 @@ publicWidget.registry.NewTicket = publicWidget.Widget.extend({
             }
         }
         attachment_input.files = dt.files;
-    },
-});
+    }
+}
+
+registry.category("public.interactions").add("helpdesk_mgmt.new_ticket", NewTicket);

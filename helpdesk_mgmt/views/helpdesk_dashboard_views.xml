@@ -61,7 +61,7 @@
                                             type="action"
                                             context="{'search_default_open': 1}"
                                         >
-                                            <t t-esc="record.todo_ticket_count.value" />
+                                            <field name="todo_ticket_count" />
                                             To Do
                                         </button>
                                     </div>
@@ -77,8 +77,8 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_unassigned.value"
+                                                <field
+                                                    name="todo_ticket_count_unassigned"
                                                 />
                                             </div>
                                             <div class="col-9">
@@ -91,8 +91,8 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_unattended.value"
+                                                <field
+                                                    name="todo_ticket_count_unattended"
                                                 />
                                             </div>
                                             <div class="col-9">
@@ -105,8 +105,8 @@
                                                 </a>
                                             </div>
                                             <div class="col-3">
-                                                <t
-                                                    t-esc="record.todo_ticket_count_high_priority.value"
+                                                <field
+                                                    name="todo_ticket_count_high_priority"
                                                 />
                                             </div>
                                         </div>

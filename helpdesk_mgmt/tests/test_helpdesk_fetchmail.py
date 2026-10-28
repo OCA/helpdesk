@@ -46,15 +46,15 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
             email_from="bob@mycompany.com",
             msg_id="168242744424.20.2028152230359369389@dd607af32153",
         )
-        res_id = MailThread.with_context(**additional_context).message_process(
+        ticket = MailThread.with_context(**additional_context).message_process(
             model="helpdesk.ticket",
             message=message,
             save_original=False,
             strip_attachments=True,
         )
-        ticket_number = self.env["helpdesk.ticket"].browse(res_id).number
+        ticket_number = ticket.number
         self.assertEqual(ticket_number[:2], "HT")
-        self.assertGreater(res_id, 0)
+        self.assertTrue(ticket.exists())
 
     def test_message_process(self):
         # keep a list of existing tickets

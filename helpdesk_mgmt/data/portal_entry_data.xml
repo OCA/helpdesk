@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="portal_entry_tickets" model="portal.entry">
+        <field name="name">Tickets</field>
+        <field name="description">Follow and comment your helpdesk tickets</field>
+        <field name="url">/my/tickets</field>
+        <field
+            name="image"
+            type="bytes"
+            file="helpdesk_mgmt/static/src/img/helpdesk_icon.svg"
+        />
+        <field name="placeholder_count">ticket_count</field>
+        <field name="sequence" eval="100" />
+    </record>
+</odoo>
