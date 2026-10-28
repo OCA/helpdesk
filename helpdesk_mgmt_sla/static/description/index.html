@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
-<title>README.rst</title>
+<title>Helpdesk Ticket SLA</title>
 <style type="text/css">
 
 /*
@@ -406,7 +406,7 @@ targets, improving accountability and customer satisfaction.</p>
 <h2><a class="toc-backref" href="#toc-entry-1">Configuration</a></h2>
 <p>To configure this module, you need to:</p>
 <ol class="arabic simple">
-<li>Allow SLA for a Helpdesk’s Team</li>
+<li>Allow SLA for a Helpdesk’s Team (<em>Use SLA</em>)</li>
 <li>Set a resource calendar</li>
 </ol>
 <div class="section" id="configure-sla">
@@ -415,20 +415,33 @@ targets, improving accountability and customer satisfaction.</p>
 <li>Go to Helpdesk &gt; Configuration &gt; SLA.</li>
 <li>Edit or create a new SLA.</li>
 <li>Select a days or hours for that SLA.</li>
+<li>Restrict it with Teams, Categories and Tags (leave empty to apply to
+all). The Filter domain is applied in addition to these, and its
+record count ignores them.</li>
+<li>Select the <em>Stage</em> the ticket must reach to accomplish the SLA. The
+SLA is accomplished as soon as the ticket is in this stage or a later
+one (by stage sequence). Until then it is in progress, and it expires
+if the deadline passes first.</li>
+<li>Optionally select <em>Ignore Stages</em>. While the ticket is in one of
+these stages (e.g. “Waiting for customer”), the SLA is on hold and
+its time does not count.</li>
 </ol>
+<p>SLAs are computed when a ticket is created, so existing tickets need
+<em>Set SLA</em> to get newly created SLAs.</p>
 </div>
 </div>
 <div class="section" id="usage">
 <h2><a class="toc-backref" href="#toc-entry-3">Usage</a></h2>
 <ol class="arabic simple">
-<li>Go to <em>Helpdesk</em> or <em>Helpdesk &gt; Dashboard</em> to see the tickets
-dashboard.</li>
-<li>In the Kanban view, you can see datetime in two colors: Green and
-Red. If is green, SLA is ok, if is red, SLA is wrong.</li>
-<li>In the form, you will see all affected SLAs that were computed on
-creation.</li>
+<li>Go to <em>Helpdesk &gt; Tickets</em> to see the tickets Kanban view.</li>
+<li>In the Kanban view, tickets with an SLA in progress show the SLA
+deadline. It is shown in red when overdue and in orange when due
+today.</li>
+<li>In the ticket form, you will see all affected SLAs that were computed
+on creation, as colored tags (green: accomplished, orange: in
+progress, red: expired, gray: on hold) next to the SLA deadline.</li>
 <li>If the SLA should change due a change on the ticket, you can
-recompute it.</li>
+recompute it with the <em>Set SLA</em> button.</li>
 </ol>
 </div>
 <div class="section" id="bug-tracker">

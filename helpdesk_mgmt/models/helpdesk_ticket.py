@@ -16,6 +16,7 @@ class HelpdeskTicket(models.Model):
         "mail.tracking.duration.mixin",
     ]
     _track_duration_field = "stage_id"
+    _primary_email = "partner_email"
 
     @api.depends("team_id")
     def _compute_stage_id(self):
@@ -65,6 +66,7 @@ class HelpdeskTicket(models.Model):
     number = fields.Char(string="Ticket number", default="/", readonly=True)
     name = fields.Char(string="Title", required=True)
     description = fields.Html(required=True, sanitize_style=True)
+    notes = fields.Html(string="Internal notes")
     user_id = fields.Many2one(
         comodel_name="res.users",
         string="Assigned user",
@@ -293,6 +295,7 @@ class HelpdeskTicket(models.Model):
             if vals.get("stage_id"):
                 stage = self.env["helpdesk.ticket.stage"].browse([vals["stage_id"]])
                 vals["last_stage_update"] = now
+                vals["kanban_state"] = "normal"
                 if stage.closed:
                     vals["closed_date"] = now
             if vals.get("user_id"):
@@ -348,19 +351,15 @@ class HelpdeskTicket(models.Model):
             "name": msg.get("subject") or self.env._("No Subject"),
             "number": "/",
             "description": msg.get("body"),
-            "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
         }
         defaults.update(custom_values)
-
-        # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
-
-        # Use mail gateway tools to search for partners to subscribe
-        email_list = tools.email_split(
-            (msg.get("to") or "") + "," + (msg.get("cc") or "")
-        )
-        partner_ids = [
+        # Use mail gateway tools to search for partners to subscribe.
+        # The customer is subscribed explicitly, since message_post no longer
+        # subscribes external authors.
+        email_list = tools.email_split(msg.get("cc") or "")
+        partner_ids = ticket.partner_id.ids + [
             p.id
             for p in self.env["mail.thread"]._mail_find_partner_from_emails(
                 email_list, records=ticket, force_create=False
@@ -368,7 +367,6 @@ class HelpdeskTicket(models.Model):
             if p
         ]
         ticket.message_subscribe(partner_ids)
-
         return ticket
 
     def message_update(self, msg, update_vals=None):
