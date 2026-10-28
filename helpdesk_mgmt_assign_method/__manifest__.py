@@ -5,7 +5,7 @@
     "name": "Helpdesk Mgmt Assign Method",
     "summary": """
         Helpdesk Assign Method""",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "license": "AGPL-3",
     "author": "Escodoo,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/helpdesk",
