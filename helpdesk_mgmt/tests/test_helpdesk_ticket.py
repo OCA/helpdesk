@@ -1,5 +1,6 @@
 import time
 
+from odoo import tools
 from odoo.tests import Form
 
 from .common import TestHelpdeskTicketBase
@@ -134,12 +135,28 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         }
         t = Ticket.message_new(msg_dict)
         self.assertEqual(t.name, title, "The ticket should have the correct title.")
+        self.assertEqual(t.email_cc, "sally@example.com")
 
         title = "New title"
         update_vals = {"name": title}
         t.message_update(msg_dict, update_vals)
         self.assertEqual(
             t.name, title, "The ticket should have the correct (new) title."
+        )
+
+    def test_message_update_preserves_and_suggests_cc(self):
+        ticket = self.ticket
+        ticket.email_cc = "Sally <sally@example.com>"
+        ticket.message_update({"cc": "BOB@example.com, sally@example.com"})
+        self.assertEqual(
+            set(tools.email_split(ticket.email_cc)),
+            {"sally@example.com", "bob@example.com"},
+        )
+        recipients = ticket._message_add_suggested_recipients()[ticket.id]
+        self.assertTrue(
+            {"sally@example.com", "bob@example.com"}.issubset(
+                set(tools.email_split(", ".join(recipients["email_to_lst"])))
+            )
         )
 
     def test_ticket_with_team_stage(self):

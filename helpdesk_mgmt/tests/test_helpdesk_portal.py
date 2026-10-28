@@ -1,10 +1,11 @@
 # Copyright 2023 Tecnativa - Víctor Martínez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 # import odoo.tests
-from odoo import http
+from lxml import html
+
 from odoo.tests.common import new_test_user, tagged
 
-from odoo.addons.base.tests.common import DISABLED_MAIL_CONTEXT, HttpCaseWithUserPortal
+from odoo.addons.base.tests.common import HttpCaseWithUserPortal
 
 
 @tagged("post_install", "-at_install")
@@ -17,13 +18,15 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(context=dict(cls.env.context, **DISABLED_MAIL_CONTEXT))
+        cls.env.user.group_ids += cls.env.ref("helpdesk_mgmt.group_helpdesk_manager")
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.new_ticket_title = "portal-new-submitted-ticket-subject"
         cls.new_ticket_desc_lines = (  # multiline description to check line breaks
             "portal-new-submitted-ticket-description-line-1",
             "portal-new-submitted-ticket-description-line-2",
         )
         cls.company = cls.env.ref("base.main_company")
+        cls.company.helpdesk_mgmt_portal_select_category = True
         cls.partner_portal.parent_id = cls.company.partner_id
         cls.portal_category = cls.env["helpdesk.ticket.category"].create(
             {
@@ -59,7 +62,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
     def _submit_ticket(self, **values):
         data = {
             "category": self.portal_category.id,
-            "csrf_token": http.Request.csrf_token(self),
+            "csrf_token": self.csrf_token(),
             "subject": self.new_ticket_title,
             "description": "\n".join(self.new_ticket_desc_lines),
         }
@@ -108,6 +111,16 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         self.assertEqual(resp.status_code, 200)
         self.assertIn("portal-ticket-title", resp.text)
         self.assertIn("portal-ticket-description", resp.text)
+        sidebar = html.fromstring(resp.content).get_element_by_id("sidebar_content")
+        self.assertEqual(
+            sidebar.xpath(".//h2[@data-id='number']/text()"),
+            [self.portal_ticket.number],
+        )
+        forms = sidebar.xpath(".//form[@action='/ticket/close']")
+        self.assertEqual(len(forms), 2)
+        for form in forms:
+            self.assertEqual(form.get("method"), "POST")
+            self.assertTrue(form.xpath(".//input[@name='csrf_token']/@value"))
 
     def test_close_ticket(self):
         """Close a ticket from the portal."""
@@ -140,7 +153,17 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         """Attempt to close a ticket from the portal with an invalid target stage."""
         self.authenticate("portal", "portal")
         stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_awaiting")
-        self._call_close_ticket(self.portal_ticket, stage)
+        resp = self.url_open(
+            "/ticket/close",
+            data={
+                "csrf_token": self.csrf_token(),
+                "stage_id": stage.id,
+                "ticket_id": self.portal_ticket.id,
+            },
+            allow_redirects=False,
+        )
+        self.assertEqual(resp.status_code, 403)
+        self.portal_ticket.invalidate_recordset()
         self.assertFalse(self.portal_ticket.closed)
         self.assertNotEqual(self.portal_ticket.stage_id, stage)
 
@@ -218,7 +241,7 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         resp = self.url_open(
             "/ticket/close",
             data={
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": self.csrf_token(),
                 "stage_id": stage.id,
                 "ticket_id": ticket.id,
             },
