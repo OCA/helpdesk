@@ -34,7 +34,7 @@ class HelpdeskTicketTeam extends models.Model {
                 name: "Open Tickets without team",
                 value: 0,
                 sequence: 1,
-                icon: "fa-exclamation-circle",
+                icon: "error",
                 show: false,
                 action: "action_1",
             },
@@ -42,7 +42,7 @@ class HelpdeskTicketTeam extends models.Model {
                 name: "Open Tickets without team",
                 value: 11,
                 sequence: 1,
-                icon: "fa-life-ring",
+                icon: "support_agent",
                 show: true,
                 action: "action_2",
             },
@@ -50,7 +50,7 @@ class HelpdeskTicketTeam extends models.Model {
                 name: "Open Tickets 2 without team",
                 value: 12,
                 sequence: 1,
-                icon: "fa-cogs",
+                icon: "settings",
                 show: true,
                 action: "action_3",
             },
@@ -128,10 +128,12 @@ test("Check Automation Graph Widget", async () => {
     });
     expect(`.o_helpdesk_team_dashboard`).toHaveCount(1);
     expect(`.o_helpdesk_team_dashboard button`).toHaveCount(2);
-    expect(`.o_helpdesk_team_dashboard button .fa-exclamation-circle`).toHaveCount(0);
-    expect(`.o_helpdesk_team_dashboard button .fa-life-ring`).toHaveCount(1);
-    expect(`.o_helpdesk_team_dashboard button .fa-cogs`).toHaveCount(1);
-    await click(`.o_helpdesk_team_dashboard button .fa-life-ring`);
+    expect(`.o_helpdesk_team_dashboard button [data-icon="error"]`).toHaveCount(0);
+    expect(`.o_helpdesk_team_dashboard button [data-icon="support_agent"]`).toHaveCount(
+        1
+    );
+    expect(`.o_helpdesk_team_dashboard button [data-icon="settings"]`).toHaveCount(1);
+    await click(`.o_helpdesk_team_dashboard button [data-icon="support_agent"]`);
     await animationFrame();
     expect(`.o-main-components-container .o_dialog .o_form_view`).toHaveCount(1);
     expect(
@@ -142,7 +144,7 @@ test("Check Automation Graph Widget", async () => {
     ).toHaveText("2");
     await click(`.o-main-components-container .o_dialog .o_form_button_cancel`);
     await animationFrame();
-    await click(`.o_helpdesk_team_dashboard button .fa-cogs`);
+    await click(`.o_helpdesk_team_dashboard button [data-icon="settings"]`);
     await animationFrame();
     expect(`.o-main-components-container .o_dialog .o_form_view`).toHaveCount(1);
     expect(

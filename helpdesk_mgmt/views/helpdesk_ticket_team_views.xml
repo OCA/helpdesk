@@ -89,7 +89,7 @@
                                     />
                                     </div>
                                     <button
-                                        icon="oi-arrow-right"
+                                        icon="arrow_forward"
                                         type="action"
                                         name="%(base_setup.action_general_configuration)d"
                                         string="Choose or configure a custom domain"

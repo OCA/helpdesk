@@ -1,18 +1,19 @@
-import {Component, onWillStart, useState} from "@odoo/owl";
+import {Component, onWillStart, proxy, usePlugin} from "@odoo/owl";
+import {UIPlugin} from "@web/core/ui/ui_plugin";
 import {useBus, useService} from "@web/core/utils/hooks";
-import {SIZES} from "@web/core/ui/ui_service";
+import {SIZES} from "@web/core/ui/ui_utils";
 import {ViewButton} from "@web/views/view_button/view_button";
+import {ActionPlugin} from "@web/webclient/actions/action_plugin";
 
 export class HelpdeskDashboard extends Component {
     static template = "helpdesk_mgmt.HelpdeskDashboard";
-    static props = {};
     static components = {ViewButton};
     setup() {
         this.orm = useService("orm");
-        this.action = useService("action");
-        this.uiService = useService("ui");
-        useBus(this.uiService.bus, "resize", this.updateGridTemplateColumns);
-        this.state = useState({
+        this.action = usePlugin(ActionPlugin);
+        this.uiService = usePlugin(UIPlugin);
+        useBus(this.uiService.bus, "resize", this.updateGridTemplateColumns.bind(this));
+        this.state = proxy({
             gridTemplateColumns: this._getGridTemplateColumns(),
         });
         onWillStart(async () => {
@@ -30,10 +31,10 @@ export class HelpdeskDashboard extends Component {
     }
 
     _getGridTemplateColumns() {
-        switch (this.uiService.size) {
+        switch (this.uiService.size()) {
             case SIZES.XS:
                 return 2;
-            case SIZES.VSM:
+            case SIZES.SM:
                 return 3;
             case SIZES.XXL:
                 return 6;

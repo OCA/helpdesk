@@ -1,0 +1,36 @@
+id,name,model_id,group_id/id,operation,domain
+helpdesk_ticket_user_rule,All Tickets,helpdesk.ticket,helpdesk_mgmt.group_helpdesk_manager,crud,
+helpdesk_ticket_user_rule_1,All Tickets,helpdesk.ticket,helpdesk_mgmt.group_helpdesk_user,cru,
+helpdesk_ticket_personal_rule,Personal Tickets,helpdesk.ticket,helpdesk_mgmt.group_helpdesk_user_own,cru,"[""|"", ('user_id', '=', user.id), '&', ('user_id','=',False), ('team_id', 'in', user.helpdesk_team_ids.ids)]"
+helpdesk_ticket_team_rule,Team Tickets,helpdesk.ticket,helpdesk_mgmt.group_helpdesk_user_team,cru,"['|',('team_id','in',user.helpdesk_team_ids.ids),('team_id','=',False)]"
+helpdesk_ticket_rule_internal_user,Internal Tickets,helpdesk.ticket,helpdesk_mgmt.group_helpdesk_user_own,cru,"['|',
+                ('partner_id', '=', user.partner_id.id),
+                ('message_partner_ids','=',user.partner_id.id)]"
+helpdesk_ticket_rule_portal,Portal Personal Tickets,helpdesk.ticket,base.group_portal,r,"['|',
+                ('partner_id', 'child_of', [user.commercial_partner_id.id]),
+                ('message_partner_ids','child_of',[user.commercial_partner_id.id])]"
+helpdesk_ticket_rule_internal_user_1,Internal Tickets,helpdesk.ticket,base.group_user,r,"['|',
+                ('partner_id', '=', user.partner_id.id),
+                ('message_partner_ids','=',user.partner_id.id)]"
+helpdesk_ticket_comp_rule,Helpdesk Ticket Company Rule,helpdesk.ticket,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_stage_manager,helpdesk.ticket.stage.manager,helpdesk.ticket.stage,helpdesk_mgmt.group_helpdesk_manager,crud,
+access_helpdesk_ticket_stage_user,helpdesk.ticket.stage.user,helpdesk.ticket.stage,base.group_user,r,
+access_helpdesk_ticket_stage_portal,helpdesk.ticket.stage.portal,helpdesk.ticket.stage,base.group_portal,r,
+access_helpdesk_ticket_stage_public,helpdesk.ticket.stage.public,helpdesk.ticket.stage,base.group_public,ru,
+helpdesk_ticket_stage_comp_rule,Helpdesk Stage Company Rule,helpdesk.ticket.stage,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_tag_manager,helpdesk.ticket.tag.manager,helpdesk.ticket.tag,helpdesk_mgmt.group_helpdesk_manager,crud,
+access_helpdesk_ticket_tag_user,helpdesk.ticket.tag.user,helpdesk.ticket.tag,base.group_user,r,
+helpdesk_ticket_tag_comp_rule,Helpdesk Tag Company Rule,helpdesk.ticket.tag,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_team_manager,helpdesk.ticket.team.manager,helpdesk.ticket.team,helpdesk_mgmt.group_helpdesk_manager,crud,
+access_helpdesk_ticket_team_user,helpdesk.ticket.team.user,helpdesk.ticket.team,base.group_user,r,
+helpdesk_ticket_team_portal_rule,Helpdesk Team Portal Rule,helpdesk.ticket.team,base.group_portal,r,"[('show_in_portal','=',True)]"
+helpdesk_ticket_team_comp_rule,Helpdesk Team Company Rule,helpdesk.ticket.team,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_channel_manager,helpdesk.ticket.channel.manager,helpdesk.ticket.channel,helpdesk_mgmt.group_helpdesk_manager,crud,
+access_helpdesk_ticket_channel_user,helpdesk.ticket.channel.user,helpdesk.ticket.channel,base.group_user,r,
+helpdesk_ticket_channel_comp_rule,Helpdesk Channel Company Rule,helpdesk.ticket.channel,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_category_manager,helpdesk.ticket.category.manager,helpdesk.ticket.category,helpdesk_mgmt.group_helpdesk_manager,crud,
+access_helpdesk_ticket_category_user,helpdesk.ticket.category.user,helpdesk.ticket.category,base.group_user,r,
+access_helpdesk_ticket_category_portal,helpdesk.ticket.category.portal,helpdesk.ticket.category,base.group_portal,r,
+access_helpdesk_ticket_category_public,helpdesk.ticket.category.public,helpdesk.ticket.category,base.group_public,r,
+helpdesk_ticket_category_comp_rule,Helpdesk Category Company Rule,helpdesk.ticket.category,,crud,"[('company_id', 'in', company_ids + [False])]"
+access_helpdesk_ticket_duplicate_wizard,helpdesk.ticket.duplicate.wizard,helpdesk.ticket.duplicate.wizard,helpdesk_mgmt.group_helpdesk_user,crud,

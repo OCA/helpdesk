@@ -5,9 +5,13 @@
             <div class="justify-content-between gap-3 gap-lg-0 o_form_view">
                 <div
                     class="oe_button_box o-form-buttonbox d-print-none d-grid"
-                    t-attf-style="grid-template-columns: repeat({{ state.gridTemplateColumns }}, 1fr);"
+                    t-attf-style="grid-template-columns: repeat({{ this.state.gridTemplateColumns }}, 1fr);"
                 >
-                    <t t-foreach="helpdeskData" t-as="section" t-key="section_index">
+                    <t
+                        t-foreach="this.helpdeskData"
+                        t-as="section"
+                        t-key="section_index"
+                    >
                         <ViewButton
                             t-if="section.show"
                             onClick="() => this.action.doAction(section.action)"
@@ -15,15 +19,15 @@
                             defaultRank="'oe_stat_button'"
                             disabled="false"
                             icon="section.icon"
-                            clickParams="clickParams(section)"
+                            clickParams="this.clickParams(section)"
                         >
                             <t t-set-slot="contents">
                                 <div class="o_field_widget o_stat_info">
                                     <span class="o_stat_value text-start">
-                                        <t t-esc="section.value" />
+                                        <t t-out="section.value" />
                                     </span>
                                     <span class="o_stat_text">
-                                        <t t-esc="section.name" />
+                                        <t t-out="section.name" />
                                     </span>
                                 </div>
                             </t>
