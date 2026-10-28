@@ -31,7 +31,6 @@ class MailThread(models.AbstractModel):
                 email_from = email_normalize(email_from)
 
             ticket = self.env["helpdesk.ticket"].sudo().browse(int(ticket_id)).exists()
-            user_id = routes[0][3]
             if ticket:
                 if not (
                     ticket.team_id.autoupdate_ticket_stage
@@ -39,32 +38,24 @@ class MailThread(models.AbstractModel):
                 ):
                     return None
 
-                email_partner = False
-                ticket_partner = ticket.partner_id
-
-                if user_id:
-                    email_partner = (
-                        self.env["res.users"]
-                        .search([("id", "=", user_id)], limit=1)
-                        .partner_id
-                    )
-
-                if email_partner and ticket_partner:
-                    # Both known: compare by partner ID (most reliable)
-                    update_stage = email_partner.id == ticket_partner.id
-                elif email_partner:
-                    # Known user sender, no ticket partner: compare normalized emails
-                    update_stage = email_normalize(
-                        email_partner.email
-                    ) == email_normalize(ticket.partner_email)
-                elif ticket_partner:
-                    # No matching user sender, ticket has partner: compare emails
-                    update_stage = email_normalize(ticket_partner.email) == email_from
-                else:
-                    # No linked partners on either side: compare normalized emails
-                    update_stage = email_normalize(ticket.partner_email) == email_from
-
-                if update_stage:
+                if not self._is_internal_sender(email_from):
                     ticket.stage_id = ticket.team_id.autopupdate_dest_stage_id.id
 
         return None
+
+    @api.model
+    def _is_internal_sender(self, email_from):
+        """Return True if the sender's email belongs to an internal user."""
+        if not email_from:
+            return False
+        return bool(
+            self.env["res.users"]
+            .sudo()
+            .search(
+                [
+                    ("share", "=", False),
+                    ("partner_id.email_normalized", "=", email_from),
+                ],
+                limit=1,
+            )
+        )
