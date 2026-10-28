@@ -32,3 +32,5 @@
   - Houzéfa Abbasbhay
 - [Kencove](https://kencove.com):
   - Mohamed Alkobrosli
+- [Ledo Enterprises](https://github.com/ledoent):
+  - Don Kendall <dkendall@ledoweb.com>

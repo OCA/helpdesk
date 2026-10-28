@@ -11,7 +11,7 @@
                     name="action_view_helpdesk_tickets"
                     type="object"
                     class="oe_stat_button"
-                    icon="fa-life-ring"
+                    icon="support_agent"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <field invisible="True" name="helpdesk_ticket_active_count" />

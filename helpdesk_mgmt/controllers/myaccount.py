@@ -18,17 +18,10 @@ class CustomerPortalHelpdesk(CustomerPortal):
     Very similar to those in the "project" module defined to manage tasks.
     """
 
-    def _prepare_home_portal_values(self, counters):
-        values = super()._prepare_home_portal_values(counters)
-        if "ticket_count" in counters:
-            helpdesk_model = request.env["helpdesk.ticket"]
-            ticket_count = (
-                helpdesk_model.search_count([])
-                if helpdesk_model.has_access("read")
-                else 0
-            )
-            values["ticket_count"] = ticket_count
-        return values
+    def _prepare_portal_counter_values(self, counter):
+        if counter == "ticket_count":
+            return "helpdesk.ticket", [], "read"
+        return super()._prepare_portal_counter_values(counter)
 
     @http.route(
         ["/my/tickets", "/my/tickets/page/<int:page>"],
@@ -101,7 +94,7 @@ class CustomerPortalHelpdesk(CustomerPortal):
         domain = Domain.AND(
             [
                 domain,
-                request.env["ir.rule"]._compute_domain(HelpdeskTicket._name, "read"),
+                HelpdeskTicket._access_domain("read"),
             ]
         )
 
