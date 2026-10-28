@@ -60,6 +60,7 @@
                             <field name="closed" />
                             <field name="close_from_portal" invisible="not closed" />
                             <field name="fold" />
+                            <field name="exclude_from_count" />
                             <field name="unattended" />
                         </group>
                     </group>
@@ -75,6 +76,7 @@
             <list>
                 <field name="sequence" widget="handle" />
                 <field name="name" />
+                <field name="exclude_from_count" optional="show" />
                 <field name="mail_template_id" />
                 <field name="team_ids" widget="many2many_tags" />
                 <field
