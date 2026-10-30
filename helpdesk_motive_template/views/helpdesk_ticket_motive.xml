@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record id="helpdesk_ticket_motive_form_view" model="ir.ui.view">
+        <field name="model">helpdesk.ticket.motive</field>
+        <field name="inherit_id" ref="helpdesk_motive.helpdesk_ticket_motive_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field
+                    name="description_template"
+                    widget="html"
+                    placeholder="e.g. Received {{ ticket.name }} with damaged items..."
+                />
+                <div colspan="2" class="alert alert-info" role="status">
+                    <i class="fa fa-info-circle me-1" title="Info" />
+                    <strong>Dynamic Placeholders:</strong>
+                    You can use dynamic expressions evaluated against the ticket. <br
+                    /> Available
+                    variables: <code>ticket</code> (current ticket instance). <br
+                    /> Examples: <code>{{
+                    ticket.name }}</code>, <code>{{ ticket.partner_id.name or ''
+                        }}</code>, <code>{{ ticket.user_id.name or '' }}</code>. </div>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
