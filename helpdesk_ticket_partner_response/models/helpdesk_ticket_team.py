@@ -9,7 +9,7 @@ class HelpdeskTicketTeam(models.Model):
 
     autoupdate_ticket_stage = fields.Boolean(
         string="Auto Update Ticket Stage",
-        help="Update ticket stage when a new message is registered by the partner.",
+        help="Update ticket stage when a new message is registered by a partner.",
         default=False,
     )
     autopupdate_src_stage_ids = fields.Many2many(
