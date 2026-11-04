@@ -1,0 +1,6 @@
+# Translation of Odoo Server.
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Language: fr_FR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
