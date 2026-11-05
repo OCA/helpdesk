@@ -267,9 +267,12 @@ class HelpdeskTicket(models.Model):
                     vals["stage_id"] = team._get_applicable_stages()[:1].id
             # Automatically set default e-mail channel when created from the
             # fetchmail cron task
-            if self.env.context.get("fetchmail_cron_running") and not vals.get(
-                "channel_id"
-            ):
+            # (since 19.0, fetchmail only passes default_fetchmail_server_id down
+            # to message_process, not fetchmail_cron_running)
+            from_fetchmail = self.env.context.get(
+                "fetchmail_cron_running"
+            ) or self.env.context.get("default_fetchmail_server_id")
+            if from_fetchmail and not vals.get("channel_id"):
                 channel_email_id = self.env.ref(
                     "helpdesk_mgmt.helpdesk_ticket_channel_email",
                     raise_if_not_found=False,
