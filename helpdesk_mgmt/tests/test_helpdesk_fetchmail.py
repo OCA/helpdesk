@@ -93,3 +93,10 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         self._dummy_fetchmail_process({"default_fetchmail_server_id": server.id})
         ticket_id = self.env["helpdesk.ticket"].search([]) - ticket_ids
         self.assertEqual(ticket_id.channel_id, self.channel_email)
+
+    def test_loop_detection_domain(self):
+        """The mail gateway loop detection needs a primary email field."""
+        self.assertEqual(
+            self.env["helpdesk.ticket"]._detect_loop_sender_domain("bob@example.com"),
+            [("partner_email", "ilike", "bob@example.com")],
+        )

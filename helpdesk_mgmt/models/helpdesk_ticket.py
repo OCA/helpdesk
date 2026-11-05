@@ -9,6 +9,7 @@ class HelpdeskTicket(models.Model):
     _rec_names_search = ["number", "name"]
     _order = "priority desc, sequence, number desc, id desc"
     _mail_post_access = "read"
+    _primary_email = "partner_email"
     _inherit = [
         "mail.thread.cc",
         "mail.activity.mixin",
