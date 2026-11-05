@@ -1,0 +1,1 @@
+Allow to set the sale order line directly on helpdesk tickets.
