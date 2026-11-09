@@ -10,7 +10,6 @@ class HelpdeskTicket(models.Model):
 
     nonconformity_id = fields.Many2one(
         comodel_name="mgmtsystem.nonconformity",
-        string="Nonconformity",
     )
 
     def _prepare_nonconformity_vals(self):

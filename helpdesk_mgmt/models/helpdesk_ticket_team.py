@@ -22,12 +22,9 @@ class HelpdeskTeam(models.Model):
         column2="res_users_id",
     )
     active = fields.Boolean(default=True)
-    category_ids = fields.Many2many(
-        comodel_name="helpdesk.ticket.category", string="Category"
-    )
+    category_ids = fields.Many2many(comodel_name="helpdesk.ticket.category")
     company_id = fields.Many2one(
         comodel_name="res.company",
-        string="Company",
         default=lambda self: self.env.company,
     )
     user_id = fields.Many2one(

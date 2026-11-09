@@ -80,7 +80,6 @@ class HelpdeskTicket(models.Model):
     )
     stage_id = fields.Many2one(
         comodel_name="helpdesk.ticket.stage",
-        string="Stage",
         compute="_compute_stage_id",
         store=True,
         readonly=False,
@@ -107,23 +106,19 @@ class HelpdeskTicket(models.Model):
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
     company_id = fields.Many2one(
         comodel_name="res.company",
-        string="Company",
         required=True,
         default=lambda self: self.env.company,
     )
     channel_id = fields.Many2one(
         comodel_name="helpdesk.ticket.channel",
-        string="Channel",
         help="Channel indicates where the source of a ticket"
         "comes from (it could be a phone call, an email...)",
     )
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category",
-        string="Category",
     )
     team_id = fields.Many2one(
         comodel_name="helpdesk.ticket.team",
-        string="Team",
         index=True,
         compute="_compute_team_id",
         store=True,
