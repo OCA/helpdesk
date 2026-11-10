@@ -6,24 +6,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-11-11 00:49+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_picking__helpdesk_ticket_allowed
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_picking_type__allow_helpdesk_ticket
 msgid "Allow Helpdesk Ticket"
-msgstr ""
+msgstr "Consenti ticket helpdesk"
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.stock_helpdesk_ticket_create_form_view
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,help:helpdesk_mgmt_stock.field_stock_picking__helpdesk_ticket_allowed
@@ -32,162 +34,164 @@ msgid ""
 "Check this if you want to authorize helpdesk ticket creationfor this picking"
 " type operations."
 msgstr ""
+"Selezionare per autorizzare la creazione di ticket helpdesk per le "
+"operazioni di questo tipo di prelievo."
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.stock_helpdesk_ticket_create_form_view
 msgid "Create Ticket"
-msgstr ""
+msgstr "Crea ticket"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_picking_type__default_helpdesk_team_id
 msgid "Default Helpdesk Team"
-msgstr ""
+msgstr "Team helpdesk predefinito"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__description
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_helpdesk_ticket_motive__location_dest_id
 msgid "Destination Location"
-msgstr ""
+msgstr "Ubicazione di destinazione"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,help:helpdesk_mgmt_stock.field_stock_picking_type__default_helpdesk_team_id
 msgid "Fill in this with the team to assign to when creating tickets."
-msgstr ""
+msgstr "Compilare con il team a cui assegnare alla creazione dei ticket."
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.stock_picking_type_form_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.view_picking_move_tree_helpdesk
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.view_picking_tree
 msgid "Helpdesk"
-msgstr ""
+msgstr "Helpdesk"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_helpdesk_ticket_motive
 msgid "Helpdesk Motive"
-msgstr ""
+msgstr "Motivo helpdesk"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_move__helpdesk_ticket_ids
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_picking__helpdesk_ticket_ids
 msgid "Helpdesk Ticket"
-msgstr ""
+msgstr "Ticket helpdesk"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_move__helpdesk_tickets_count
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_picking__helpdesk_tickets_count
 msgid "Helpdesk Tickets Count"
-msgstr ""
+msgstr "Numero ticket helpdesk"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_helpdesk_ticket__lot_id
 msgid "Lot/Serial Number"
-msgstr ""
+msgstr "Lotto/numero di serie"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__motive_id
 msgid "Motive"
-msgstr ""
+msgstr "Motivo"
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.view_picking_internal_search
 msgid "Open Helpdesk Tickets"
-msgstr ""
+msgstr "Ticket helpdesk aperti"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_stock_picking_type
 msgid "Picking Type"
-msgstr ""
+msgstr "Tipo prelievo"
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.helpdesk_ticket_motive_form_view
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.ticket_view_form
 msgid "Stock"
-msgstr ""
+msgstr "Magazzino"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.actions.act_window,name:helpdesk_mgmt_stock.stock_helpdesk_ticket_create_act_window
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.stock_helpdesk_ticket_create_form_view
 msgid "Stock Helpdesk Ticket Create"
-msgstr ""
+msgstr "Creazione ticket helpdesk da magazzino"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_stock_move
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_helpdesk_ticket__stock_move_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__stock_move_id
 msgid "Stock Move"
-msgstr ""
+msgstr "Movimento di magazzino"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_helpdesk_ticket__stock_move_id_domain
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__stock_move_id_domain
 msgid "Stock Move Id Domain"
-msgstr ""
+msgstr "Dominio ID movimento di magazzino"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_helpdesk_ticket__stock_picking_id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_stock.field_stock_helpdesk_ticket_create__stock_picking_id
 msgid "Stock Picking"
-msgstr ""
+msgstr "Prelievo di magazzino"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model.fields,help:helpdesk_mgmt_stock.field_stock_picking__helpdesk_tickets_count
 msgid "This is the amount of tickets concerned by this picking."
-msgstr ""
+msgstr "Questo è il numero di ticket relativi a questo prelievo."
 
 #. module: helpdesk_mgmt_stock
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_stock.view_picking_form
 msgid "Tickets"
-msgstr ""
+msgstr "Ticket"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_stock_picking
 msgid "Transfer"
-msgstr ""
+msgstr "Trasferimento"
 
 #. module: helpdesk_mgmt_stock
 #: model:ir.model,name:helpdesk_mgmt_stock.model_stock_helpdesk_ticket_create
 msgid "Wizard to create Heldpesk ticket in stock"
-msgstr ""
+msgstr "Procedura guidata per creare ticket helpdesk dal magazzino"
 
 #. module: helpdesk_mgmt_stock
 #. odoo-python
@@ -197,3 +201,5 @@ msgid ""
 "You are not allowed to create an helpdesk ticket for that operation type! "
 "Please call your administrator."
 msgstr ""
+"Non si è autorizzati a creare un ticket helpdesk per questo tipo di "
+"operazione! Contattare l'amministratore."
