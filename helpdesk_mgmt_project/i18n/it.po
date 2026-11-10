@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-09-26 18:43+0000\n"
+"PO-Revision-Date: 2026-11-10 11:46+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.4\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__display_name
@@ -23,7 +23,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__display_name
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,help:helpdesk_mgmt_project.field_project_project__label_tickets
@@ -61,7 +61,7 @@ msgstr "Ticket assistenza clienti"
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_project__id
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_project_task__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: helpdesk_mgmt_project
 #: model:ir.model.fields,field_description:helpdesk_mgmt_project.field_helpdesk_ticket__milestone_id
@@ -140,6 +140,17 @@ msgid ""
 "        Make sure to use the right format and order e.g. Improve the "
 "configuration screen 5h #feature #v16 @Mitchell !"
 msgstr ""
+"Utilizza queste parole chiave nel titolo per definire nuove attività:\n"
+"\n"
+"30h Assegna 30 ore all'attività\n"
+"        #tags Aggiunge etichette all'attività\n"
+"        @user Assegna l'attività a un utente\n"
+"        ! Imposta una priorità media per l'attività\n"
+"        !! Imposta una priorità alta per l'attività\n"
+"        !!! Imposta una priorità urgente per l'attività\n"
+"\n"
+"        Assicurati di utilizzare il formato e l'ordine corretti; ad esempio: "
+"Migliora la schermata di configurazione 5h #feature #v16 @Mitchell !"
 
 #. module: helpdesk_mgmt_project
 #: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project.project_milestone_tree_view
