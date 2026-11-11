@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_time_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-01-22 09:50+0000\n"
+"Last-Translator: Betül Öğmen <betulo@eska.biz>\n"
+"Language-Team: none\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-success\"/>\n"
+"                            Start work\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-play-circle text-success\"/>\n"
+"                            Çalışmaya başla\n"
+"                        </span>"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.helpdesk_ticket_kanban_view
+msgid ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-warning\"/>\n"
+"                            Stop work\n"
+"                        </span>"
+msgstr ""
+"<span class=\"o_label\">\n"
+"                            <i class=\"fa fa-lg fa-stop-circle text-warning\"/>\n"
+"                            Çalışmayı durdur\n"
+"                        </span>"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.timesheet_control_helpdesk_ticket_view_form
+msgid "Date"
+msgstr "Tarih"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.control_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.timesheet_control_helpdesk_ticket_view_form
+msgid "End work"
+msgstr "Son iş"
+
+#. module: helpdesk_mgmt_time_control
+#: model:ir.model,name:helpdesk_mgmt_time_control.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Yardım Masası Talebi"
+
+#. module: helpdesk_mgmt_time_control
+#: model:ir.model,name:helpdesk_mgmt_time_control.model_hr_timesheet_switch
+msgid "Helper to quickly switch between timesheet lines"
+msgstr "Zaman çizelgesi satırları arasında hızlı geçiş yapmaya yardımcı olur"
+
+#. module: helpdesk_mgmt_time_control
+#: model:ir.model.fields,help:helpdesk_mgmt_time_control.field_helpdesk_ticket__show_time_control
+msgid "Indicate which time control button to show, if any."
+msgstr "Varsa hangi zaman kontrol düğmesinin gösterileceğini belirtin."
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.timesheet_control_helpdesk_ticket_view_form
+msgid "Resume work"
+msgstr "Çalışmaya devam et"
+
+#. module: helpdesk_mgmt_time_control
+#: model:ir.model.fields,field_description:helpdesk_mgmt_time_control.field_helpdesk_ticket__show_time_control
+msgid "Show Time Control"
+msgstr "Gösteri Zamanı Kontrolü"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.control_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.timesheet_control_helpdesk_ticket_view_form
+msgid "Start work"
+msgstr "Çalışmaya başla"
+
+#. module: helpdesk_mgmt_time_control
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.control_ticket_view_tree
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.helpdesk_ticket_kanban_view
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_time_control.timesheet_control_helpdesk_ticket_view_form
+msgid "Stop work"
+msgstr "Çalışmayı durdur"
