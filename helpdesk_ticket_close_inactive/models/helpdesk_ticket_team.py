@@ -77,6 +77,31 @@ class HelpdeskTicketTeam(models.Model):
         help="Set this stage for autoclosing tickets",
     )
 
+    def _get_last_message_dates(self, tickets):
+        """Return {ticket_id: datetime} of the most recent message sent or
+        received on each ticket. Internal notes, tracking and system
+        notifications are ignored. Tickets without any such message fall
+        back to their creation date."""
+        result = {ticket.id: ticket.create_date for ticket in tickets}
+        if not tickets:
+            return result
+        groups = self.env["mail.message"]._read_group(
+            [
+                ("model", "=", "helpdesk.ticket"),
+                ("res_id", "in", tickets.ids),
+                ("message_type", "in", ("email", "comment")),
+                "|",
+                ("subtype_id", "=", False),
+                ("subtype_id.internal", "=", False),
+            ],
+            groupby=["res_id"],
+            aggregates=["date:max"],
+        )
+        for res_id, last_date in groups:
+            if last_date:
+                result[res_id] = last_date
+        return result
+
     def close_team_inactive_tickets(self):
         if len(self) > 0:
             teams = self
@@ -109,12 +134,18 @@ class HelpdeskTicketTeam(models.Model):
                 warning_domain = [
                     ("team_id", "=", team_id.id),
                     ("stage_id", "in", ticket_stage_ids),
-                    ("last_stage_update", ">=", warning_limit_day_first_hour),
-                    ("last_stage_update", "<=", warning_limit_day_last_hour),
                 ]
                 if ticket_category_ids:
                     warning_domain.append(("category_id", "in", ticket_category_ids))
-                warning_ticket_ids = self.env["helpdesk.ticket"].search(warning_domain)
+                candidates = self.env["helpdesk.ticket"].search(warning_domain)
+                last_dates = self._get_last_message_dates(candidates)
+                warning_ticket_ids = candidates.browse(
+                    ticket.id
+                    for ticket in candidates
+                    if warning_limit_day_first_hour
+                    <= last_dates[ticket.id]
+                    <= warning_limit_day_last_hour
+                )
                 if warning_ticket_ids:
                     for ticket in warning_ticket_ids:
                         # Set template context
@@ -138,11 +169,16 @@ class HelpdeskTicketTeam(models.Model):
             closing_domain = [
                 ("team_id", "=", team_id.id),
                 ("stage_id", "in", ticket_stage_ids),
-                ("last_stage_update", "<=", closing_limit),
             ]
             if ticket_category_ids:
                 closing_domain.append(("category_id", "in", ticket_category_ids))
-            closing_ticket_ids = self.env["helpdesk.ticket"].search(closing_domain)
+            candidates = self.env["helpdesk.ticket"].search(closing_domain)
+            last_dates = self._get_last_message_dates(candidates)
+            closing_ticket_ids = candidates.browse(
+                ticket.id
+                for ticket in candidates
+                if last_dates[ticket.id] <= closing_limit
+            )
             if closing_ticket_ids:
                 for ticket in closing_ticket_ids:
                     context = {"stage": ticket.stage_id.name, "close": True}
