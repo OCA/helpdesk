@@ -34,6 +34,10 @@ Helpdesk Ticket Type
 
 This module adds a type field on the helpdesk ticket.
 
+Ticket types can be restricted to specific helpdesk teams and,
+optionally, be offered to customers when they submit a ticket from the
+portal.
+
 **Table of contents**
 
 .. contents::
@@ -42,14 +46,71 @@ This module adds a type field on the helpdesk ticket.
 Configuration
 =============
 
+Ticket types
+------------
+
 - Go to Helpdesk > Configuration > Ticket Types
 - Create your list of types
+- Optionally, fill in the *Teams* field to restrict a type to those
+  teams
+
+|Ticket type form|
+
+The same restriction can be managed from the team side: go to Helpdesk >
+Configuration > Teams, open a team and fill in the *Ticket Type* field.
+
+Portal
+------
+
+By default customers cannot choose a type when they submit a ticket from
+the portal. To allow it:
+
+- Go to Settings > Helpdesk
+- In the *New ticket form (portal)* section, under *Additional fields*,
+  enable *Type*
+- Optionally, under *Required fields*, enable *Type* to make the
+  selection mandatory
+
+|Portal settings|
+
+These options are set per company.
+
+.. |Ticket type form| image:: https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/ticket_type_form.png
+.. |Portal settings| image:: https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/settings_portal_type.png
 
 Usage
 =====
 
+Backend
+-------
+
 - Go to Helpdesk
 - Create a ticket and set its type.
+
+|Ticket form with type|
+
+Once a type is set, only the teams allowed for that type can be
+selected. If the ticket already belongs to a team that does not use the
+selected type, the team and the assigned user are emptied so the ticket
+can be routed again.
+
+The type is also shown on the kanban cards and as an optional column in
+the list view, and tickets can be searched and grouped by type.
+
+Portal
+------
+
+When the *Type* option is enabled for the portal (see the configuration
+section):
+
+- Customers can select a type in the *Send a new ticket* form.
+- The type is displayed in the customer's ticket list and on the ticket
+  page.
+
+|Portal new ticket form with type|
+
+.. |Ticket form with type| image:: https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/ticket_form_type.png
+.. |Portal new ticket form with type| image:: https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/portal_new_ticket_type.png
 
 Bug Tracker
 ===========
@@ -92,6 +153,8 @@ Contributors
 - `APSL - Nagarro <https://www.apsl.tech>`__:
 
   - Miquel Pascual
+
+- Lloyd Vheremu
 
 Maintainers
 -----------

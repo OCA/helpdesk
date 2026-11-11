@@ -376,36 +376,90 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 <p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/license-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/helpdesk/tree/19.0/helpdesk_type"><img alt="OCA/helpdesk" src="https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/helpdesk-19-0/helpdesk-19-0-helpdesk_type"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/helpdesk&amp;target_branch=19.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module adds a type field on the helpdesk ticket.</p>
+<p>Ticket types can be restricted to specific helpdesk teams and,
+optionally, be offered to customers when they submit a ticket from the
+portal.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#configuration" id="toc-entry-1">Configuration</a></li>
-<li><a class="reference internal" href="#usage" id="toc-entry-2">Usage</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="toc-entry-3">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="toc-entry-4">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="toc-entry-5">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="toc-entry-6">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="toc-entry-7">Maintainers</a></li>
+<li><a class="reference internal" href="#configuration" id="toc-entry-1">Configuration</a><ul>
+<li><a class="reference internal" href="#ticket-types" id="toc-entry-2">Ticket types</a></li>
+<li><a class="reference internal" href="#portal" id="toc-entry-3">Portal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage" id="toc-entry-4">Usage</a><ul>
+<li><a class="reference internal" href="#backend" id="toc-entry-5">Backend</a></li>
+<li><a class="reference internal" href="#portal-1" id="toc-entry-6">Portal</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-7">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-8">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-9">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-10">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-11">Maintainers</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="configuration">
 <h2><a class="toc-backref" href="#toc-entry-1">Configuration</a></h2>
+<div class="section" id="ticket-types">
+<h3><a class="toc-backref" href="#toc-entry-2">Ticket types</a></h3>
 <ul class="simple">
 <li>Go to Helpdesk &gt; Configuration &gt; Ticket Types</li>
 <li>Create your list of types</li>
+<li>Optionally, fill in the <em>Teams</em> field to restrict a type to those
+teams</li>
 </ul>
+<p><img alt="Ticket type form" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/ticket_type_form.png" /></p>
+<p>The same restriction can be managed from the team side: go to Helpdesk &gt;
+Configuration &gt; Teams, open a team and fill in the <em>Ticket Type</em> field.</p>
+</div>
+<div class="section" id="portal">
+<h3><a class="toc-backref" href="#toc-entry-3">Portal</a></h3>
+<p>By default customers cannot choose a type when they submit a ticket from
+the portal. To allow it:</p>
+<ul class="simple">
+<li>Go to Settings &gt; Helpdesk</li>
+<li>In the <em>New ticket form (portal)</em> section, under <em>Additional fields</em>,
+enable <em>Type</em></li>
+<li>Optionally, under <em>Required fields</em>, enable <em>Type</em> to make the
+selection mandatory</li>
+</ul>
+<p><img alt="Portal settings" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/settings_portal_type.png" /></p>
+<p>These options are set per company.</p>
+</div>
 </div>
 <div class="section" id="usage">
-<h2><a class="toc-backref" href="#toc-entry-2">Usage</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-4">Usage</a></h2>
+<div class="section" id="backend">
+<h3><a class="toc-backref" href="#toc-entry-5">Backend</a></h3>
 <ul class="simple">
 <li>Go to Helpdesk</li>
 <li>Create a ticket and set its type.</li>
 </ul>
+<p><img alt="Ticket form with type" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/ticket_form_type.png" /></p>
+<p>Once a type is set, only the teams allowed for that type can be
+selected. If the ticket already belongs to a team that does not use the
+selected type, the team and the assigned user are emptied so the ticket
+can be routed again.</p>
+<p>The type is also shown on the kanban cards and as an optional column in
+the list view, and tickets can be searched and grouped by type.</p>
+</div>
+<div class="section" id="portal-1">
+<h3><a class="toc-backref" href="#toc-entry-6">Portal</a></h3>
+<p>When the <em>Type</em> option is enabled for the portal (see the configuration
+section):</p>
+<ul class="simple">
+<li>Customers can select a type in the <em>Send a new ticket</em> form.</li>
+<li>The type is displayed in the customer’s ticket list and on the ticket
+page.</li>
+</ul>
+<p><img alt="Portal new ticket form with type" src="https://raw.githubusercontent.com/OCA/helpdesk/19.0/helpdesk_type/static/description/portal_new_ticket_type.png" /></p>
+</div>
 </div>
 <div class="section" id="bug-tracker">
-<h2><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-7">Bug Tracker</a></h2>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/helpdesk/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
@@ -413,16 +467,16 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h2><a class="toc-backref" href="#toc-entry-4">Credits</a></h2>
+<h2><a class="toc-backref" href="#toc-entry-8">Credits</a></h2>
 <div class="section" id="authors">
-<h3><a class="toc-backref" href="#toc-entry-5">Authors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-9">Authors</a></h3>
 <ul class="simple">
 <li>Konos</li>
 <li>Open Source Integrators</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h3><a class="toc-backref" href="#toc-entry-6">Contributors</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-10">Contributors</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="https://www.opensourceintegrators.com">Open Source Integrators</a>:<ul>
 <li>Maxime Chambreuil &lt;<a class="reference external" href="mailto:mchambreuil&#64;opensourceintegrators.com">mchambreuil&#64;opensourceintegrators.com</a>&gt;</li>
@@ -444,10 +498,11 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <li>Miquel Pascual</li>
 </ul>
 </li>
+<li>Lloyd Vheremu</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h3><a class="toc-backref" href="#toc-entry-7">Maintainers</a></h3>
+<h3><a class="toc-backref" href="#toc-entry-11">Maintainers</a></h3>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org">
 <img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
