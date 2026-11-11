@@ -19,7 +19,12 @@ class HelpdeskTicketController(HelpdeskTicketController):
             partner_ids = []
 
             for email in emails:
-                partner = request.env["res.partner"].search([("email", "=", email)])
+                # sudo: the portal user can't read most contacts
+                partner = (
+                    request.env["res.partner"]
+                    .sudo()
+                    .search([("email", "=", email)], limit=1)
+                )
                 if not partner:
                     reg = {
                         "name": email,

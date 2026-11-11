@@ -72,3 +72,19 @@ class TestSubmitPortalTicket(TestSubmitPortalTicketBase):
             partner = self.partner_model.search([("email", "=", email.strip())])
             self.assertEqual(len(partner), 0)
             self.assertNotIn(partner.id, ticket.message_partner_ids.ids)
+
+    def test_submit_ticket_with_existing_contact_as_follower(self):
+        contact = self.partner_model.create(
+            {"name": "Existing Contact", "email": "existing@testing.com"}
+        )
+        self.authenticate("portal", "portal")
+        self._submit_ticket_with_followers(
+            response_code=200, followers="existing@testing.com"
+        )
+
+        ticket = self.helpdesk_ticket_model.search(
+            [("name", "=", self.new_ticket_title)]
+        )
+        partner = self.partner_model.search([("email", "=", "existing@testing.com")])
+        self.assertEqual(partner, contact)
+        self.assertIn(contact, ticket.message_partner_ids)
