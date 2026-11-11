@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_ticket_partner_block
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: helpdesk_ticket_partner_block
+#: model:mail.template,body_html:helpdesk_ticket_partner_block.mail_template_ticket_creation_blocked
+msgid ""
+"<div>\n"
+"                <p>Hello <t t-out=\"object.name\"/>,</p>\n"
+"                <p>\n"
+"                    We are sorry to inform you that your request could not be\n"
+"                    turned into a helpdesk ticket, as you are not authorized\n"
+"                    to create tickets by email.\n"
+"                </p>\n"
+"                <p>\n"
+"                    Please get in touch with us through one of our other\n"
+"                    supported channels if you need assistance.\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: helpdesk_ticket_partner_block
+#: model:ir.model.fields,field_description:helpdesk_ticket_partner_block.field_res_partner__block_ticket_creation
+#: model:ir.model.fields,field_description:helpdesk_ticket_partner_block.field_res_users__block_ticket_creation
+msgid "Block ticket creation by email"
+msgstr "Bloquear la creación de tickets por email"
+
+#. module: helpdesk_ticket_partner_block
+#: model:ir.model,name:helpdesk_ticket_partner_block.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: helpdesk_ticket_partner_block
+#: model:ir.model,name:helpdesk_ticket_partner_block.model_mail_thread
+msgid "Email Thread"
+msgstr "Hilo de correo"
+
+#. module: helpdesk_ticket_partner_block
+#: model_terms:ir.ui.view,arch_db:helpdesk_ticket_partner_block.res_partner_view_form
+msgid "Helpdesk"
+msgstr "Servicio de asistencia"
+
+#. module: helpdesk_ticket_partner_block
+#: model:mail.template,name:helpdesk_ticket_partner_block.mail_template_ticket_creation_blocked
+msgid "Helpdesk Ticket: Creation Blocked"
+msgstr "Ticket de asistencia: Creación bloqueada"
+
+#. module: helpdesk_ticket_partner_block
+#: model:ir.model.fields,help:helpdesk_ticket_partner_block.field_res_partner__block_ticket_creation
+#: model:ir.model.fields,help:helpdesk_ticket_partner_block.field_res_users__block_ticket_creation
+msgid ""
+"If checked, this contact will not be able to create new helpdesk tickets by "
+"email. An automatic notification email will be sent instead, using the "
+"configured template."
+msgstr ""
+"Si está marcado, este contacto no podrá crear nuevos tickets de asistencia "
+"por email. En su lugar, se enviará automáticamente un correo de "
+"notificación, usando la plantilla configurada."
+
+#. module: helpdesk_ticket_partner_block
+#: model:mail.template,subject:helpdesk_ticket_partner_block.mail_template_ticket_creation_blocked
+msgid "Your helpdesk ticket could not be created"
+msgstr "No se ha podido crear su ticket de asistencia"
