@@ -6,7 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-20 17:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -27,9 +26,11 @@ msgid "Helpdesk Ticket"
 msgstr "Ticket assistenza clienti"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
-msgid "Sale Order"
-msgstr "Ordine di vendita"
+#. odoo-python
+#: code:addons/helpdesk_mgmt_sale/models/helpdesk_ticket.py:0
+#, python-format
+msgid "Helpdesk Ticket %(ticket_name)s created by %(user_name)s"
+msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
@@ -45,6 +46,11 @@ msgstr "Ordini di vendita"
 #: model:ir.model,name:helpdesk_mgmt_sale.model_sale_order
 msgid "Sales Order"
 msgstr "Ordine di vendita"
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
+msgid "Sales orders"
+msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids
