@@ -50,8 +50,10 @@ class MailThread(models.AbstractModel):
                     )
 
                 if email_partner and ticket_partner:
-                    # Both known: compare by partner ID (most reliable)
-                    update_stage = email_partner.id == ticket_partner.id
+                    ticket_partner_email = email_normalize(ticket_partner.email)
+                    update_stage = email_partner.id == ticket_partner.id or bool(
+                        ticket_partner_email and ticket_partner_email == email_from
+                    )
                 elif email_partner:
                     # Known user sender, no ticket partner: compare normalized emails
                     update_stage = email_normalize(
