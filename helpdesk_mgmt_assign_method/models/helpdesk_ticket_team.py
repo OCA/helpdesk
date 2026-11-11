@@ -3,6 +3,7 @@
 
 
 import logging
+import random
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
@@ -69,20 +70,8 @@ class HelpdeskTicketTeam(models.Model):
         return self.env["res.users"]
 
     def _assign_randomly(self, user_ids):
-        """Assign ticket to next user in list after previous assignment."""
-        previous_ticket = self.env["helpdesk.ticket"].search(
-            [("team_id", "=", self.id)],
-            order="create_date desc, id desc",
-            limit=1,
-        )
-        previous_user_id = (
-            previous_ticket.user_id.id if previous_ticket.user_id else None
-        )
-        if previous_user_id in user_ids:
-            next_index = (user_ids.index(previous_user_id) + 1) % len(user_ids)
-        else:
-            next_index = 0
-        return self.env["res.users"].browse(user_ids[next_index])
+        """Assign ticket to a random team member."""
+        return self.env["res.users"].browse(random.choice(user_ids))
 
     def _assign_balanced(self, user_ids):
         """Assign ticket to user with least open tickets."""
