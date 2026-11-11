@@ -9,5 +9,4 @@ class HelpdeskTicketStage(models.Model):
 
     nonconformity_stage_id = fields.Many2one(
         comodel_name="mgmtsystem.nonconformity.stage",
-        string="Nonconformity Stage",
     )
