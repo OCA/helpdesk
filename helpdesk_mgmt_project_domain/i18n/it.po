@@ -1,0 +1,251 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_project_domain
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-10-02 18:43+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket__project_domain_ids
+msgid "Available Projects"
+msgstr "Progetti disponibili"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket__task_domain_ids
+msgid "Available Tasks"
+msgstr "Lavori disponibili"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model,name:helpdesk_mgmt_project_domain.model_res_company
+msgid "Companies"
+msgstr "Aziende"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model,name:helpdesk_mgmt_project_domain.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni configurazione"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid "Domain to filter projects available for selection in tickets"
+msgstr "Dominio per filtrare i progetti disponibili per la selezione nei ticket"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain
+msgid ""
+"Domain to filter projects available for selection in tickets. This domain "
+"will be automatically combined with company domain using AND. Example: "
+"[('active', '=', True), ('partner_id', '!=', False)]"
+msgstr ""
+"Dominio per filtrare i progetti disponibili per la selezione nei ticket. "
+"Questo dominio verrà automaticamente combinato con il dominio aziendale "
+"tramite AND. Esempio: [('active', '=', True), ('partner_id', '!=', False)]"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid "Domain to filter tasks available for selection in tickets"
+msgstr "Dominio per filtrare i lavori disponibili per la selezione nei ticket"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain
+msgid ""
+"Domain to filter tasks available for selection in tickets. This domain will "
+"be automatically combined with company domain using AND. Example: "
+"[('active', '=', True), ('project_id', '!=', False)]"
+msgstr ""
+"Dominio per filtrare le attività disponibili per la selezione nei ticket. "
+"Questo dominio verrà automaticamente combinato con il dominio aziendale "
+"tramite AND. Esempio: [('active', '=', True), ('project_id', '!=', False)]"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid ""
+"Enter Python code here. This domain will be automatically combined with "
+"company and team domains using AND. Available variables: ticket, env, user, "
+"company, AND, OR, normalize."
+msgstr ""
+"Inserire qui il codice Python. Questo dominio verrà automaticamente "
+"combinato con i domini aziendali e di team tramite AND. Variabili "
+"disponibili: ticket, env, user, company, AND, OR, normalize."
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
+msgid ""
+"Global domain to filter projects available for selection in helpdesk tickets.\n"
+"                                This will be applied if no specific domain is set in the team."
+msgstr ""
+"Dominio globale per filtrare i progetti disponibili per la selezione nei "
+"ticket dell'assistenza clienti.\n"
+"                                Questo verrà applicato se non è impostato "
+"alcun dominio specifico nel team."
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_project_domain
+msgid ""
+"Global domain to filter projects available for selection in tickets. This "
+"will be applied if no specific domain is set in the team. Example: "
+"[('active', '=', True), ('partner_id', '!=', False)]"
+msgstr ""
+"Dominio globale per filtrare i progetti disponibili per la selezione nei "
+"ticket. Questo verrà applicato se non è impostato alcun dominio specifico "
+"nel team. Esempio: [('active', '=', True), ('partner_id', '!=', False)]"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
+msgid ""
+"Global domain to filter tasks available for selection in helpdesk tickets.\n"
+"                                This will be applied if no specific domain is set in the team."
+msgstr ""
+"Dominio globale per filtrare le attività disponibili per la selezione nei "
+"ticket dell'assistenza clienti.\n"
+"                                Questo verrà applicato se non è impostato "
+"alcun dominio specifico nel team."
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_task_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_task_domain
+msgid ""
+"Global domain to filter tasks available for selection in tickets. This will "
+"be applied if no specific domain is set in the team. Example: [('active', "
+"'=', True), ('project_id', '!=', False)]"
+msgstr ""
+"Dominio globale per filtrare le attività disponibili per la selezione nei "
+"ticket. Questo verrà applicato se non è impostato alcun dominio specifico "
+"nel team. Esempio: [('active', '=', True), ('project_id', '!=', False)]"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model,name:helpdesk_mgmt_project_domain.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "Ticket assistenza clienti"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model,name:helpdesk_mgmt_project_domain.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "Team ticket assistenza clienti"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
+msgid "Project &amp; Task Domain Configuration"
+msgstr "Configurazione dominio progetto e lavoro"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid "Project Domain"
+msgstr "Dominio progetto"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain_python
+msgid "Project Domain Python Code"
+msgstr "Codice Python dominio progetto"
+
+#. module: helpdesk_mgmt_project_domain
+#. odoo-python
+#: code:addons/helpdesk_mgmt_project_domain/models/helpdesk_ticket_team.py:0
+#, python-format
+msgid "Project Domain Python Code: %s"
+msgstr "Codice Python dominio progetto: %s"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket__project_domain_ids
+msgid "Projects available for selection based on domain rules"
+msgstr "Progetti disponibili per la selezione in base alle regole di dominio"
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid ""
+"Python code to generate dynamic project domain based on ticket data. This "
+"domain will be automatically combined with company and team domains using "
+"AND. Available variables: ticket, env, user, company, AND, OR, normalize. "
+"The code can either assign to 'domain' variable OR return a list directly."
+msgstr ""
+"Codice Python per generare un dominio di progetto dinamico basato sui dati "
+"dei ticket. Questo dominio verrà automaticamente combinato con i domini "
+"aziendali e di team tramite AND. Variabili disponibili: ticket, env, user, "
+"company, AND, OR, normalize. Il codice può assegnare la variabile \"dominio\""
+" OPPURE restituire direttamente un elenco."
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__project_domain_python
+msgid ""
+"Python code to generate dynamic project domain based on ticket data. This "
+"domain will be automatically combined with company and team domains using "
+"AND. The code can either assign to 'domain' variable OR return a list "
+"directly. Available variables: ticket, env, user, company, AND, OR, "
+"normalize."
+msgstr ""
+"Codice Python per generare un dominio di progetto dinamico basato sui dati "
+"dei ticket. Questo dominio verrà automaticamente combinato con i domini "
+"aziendali e di team tramite AND. Il codice può assegnare la variabile "
+"\"dominio\" OPPURE restituire direttamente un elenco. Variabili disponibili: "
+"ticket, env, user, company, AND, OR, normalize."
+
+#. module: helpdesk_mgmt_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid ""
+"Python code to generate dynamic task domain based on ticket data. This "
+"domain will be automatically combined with company and team domains using "
+"AND. Available variables: ticket, env, user, company, AND, OR, normalize. "
+"The code can either assign to 'domain' variable OR return a list directly."
+msgstr ""
+"Codice Python per generare un dominio di attività dinamico basato sui dati "
+"dei ticket. Questo dominio verrà automaticamente combinato con i domini "
+"aziendali e di team tramite AND. Variabili disponibili: ticket, env, user, "
+"company, AND, OR, normalize. Il codice può assegnare la variabile \"dominio\""
+" OPPURE restituire direttamente un elenco."
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain_python
+msgid ""
+"Python code to generate dynamic task domain based on ticket data. This "
+"domain will be automatically combined with company and team domains using "
+"AND. The code can either assign to 'domain' variable OR return a list "
+"directly. Available variables: ticket, env, user, company, AND, OR, "
+"normalize."
+msgstr ""
+"Codice Python per generare un dominio di attività dinamico basato sui dati "
+"dei ticket. Questo dominio verrà automaticamente combinato con i domini "
+"aziendali e di team tramite AND. Il codice può assegnare la variabile "
+"\"dominio\" OPPURE restituire direttamente un elenco. Variabili disponibili: "
+"ticket, env, user, company, AND, OR, normalize."
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_company__helpdesk_mgmt_task_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_res_config_settings__helpdesk_mgmt_task_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.res_config_settings_view_form_project_domain
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_project_domain.view_helpdesk_team_form_project_domain
+msgid "Task Domain"
+msgstr "Dominio lavoro"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,field_description:helpdesk_mgmt_project_domain.field_helpdesk_ticket_team__task_domain_python
+msgid "Task Domain Python Code"
+msgstr "Codice Python dominio lavoro"
+
+#. module: helpdesk_mgmt_project_domain
+#. odoo-python
+#: code:addons/helpdesk_mgmt_project_domain/models/helpdesk_ticket_team.py:0
+#, python-format
+msgid "Task Domain Python Code: %s"
+msgstr "Codice Python dominio lavoro: %s"
+
+#. module: helpdesk_mgmt_project_domain
+#: model:ir.model.fields,help:helpdesk_mgmt_project_domain.field_helpdesk_ticket__task_domain_ids
+msgid "Tasks available for selection based on domain rules"
+msgstr "Lavori disponibili per la selezione in base alle regole di dominio"
