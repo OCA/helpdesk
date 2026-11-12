@@ -16,6 +16,7 @@ class HelpdeskTicket(models.Model):
         "mail.tracking.duration.mixin",
     ]
     _track_duration_field = "stage_id"
+    _primary_email = "partner_email"
 
     @api.depends("team_id")
     def _compute_stage_id(self):
@@ -348,14 +349,10 @@ class HelpdeskTicket(models.Model):
             "name": msg.get("subject") or self.env._("No Subject"),
             "number": "/",
             "description": msg.get("body"),
-            "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
         }
         defaults.update(custom_values)
-
-        # Write default values coming from msg
         ticket = super().message_new(msg, custom_values=defaults)
-
         # Use mail gateway tools to search for partners to subscribe
         email_list = tools.email_split(
             (msg.get("to") or "") + "," + (msg.get("cc") or "")
@@ -368,7 +365,6 @@ class HelpdeskTicket(models.Model):
             if p
         ]
         ticket.message_subscribe(partner_ids)
-
         return ticket
 
     def message_update(self, msg, update_vals=None):
@@ -394,12 +390,6 @@ class HelpdeskTicket(models.Model):
             for ticket in self:
                 if ticket.partner_id:
                     suggested[ticket.id]["partners"] |= ticket.partner_id
-                elif ticket.partner_email:
-                    suggested[ticket.id]["email_to_lst"] += (
-                        tools.mail.email_split_and_format_normalize(
-                            ticket.partner_email
-                        )
-                    )
         except AccessError:
             # no read access rights -> just ignore suggested recipients because this
             # imply modifying followers

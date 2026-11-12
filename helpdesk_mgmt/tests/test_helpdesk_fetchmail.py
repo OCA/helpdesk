@@ -1,11 +1,14 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
+from odoo.tools import mute_logger
+
 from .common import TestHelpdeskTicketBase
 
 EMAIL_TPL = """Return-Path: <whatever-2a840@postmaster.twitter.com>
 X-Original-To: {to}
 Delivered-To: {to}
 To: {to}
+Cc: {cc}
 Received: by mail1.odoo.com (Postfix, from userid 10002)
     id 5DF9ABFB2A; Fri, 10 Aug 2012 16:16:39 +0200 (CEST)
 Message-ID: {msg_id}
@@ -35,7 +38,9 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         super().setUpClass()
         cls.channel_email = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_channel_email")
 
-    def _dummy_fetchmail_process(self):
+    def _dummy_fetchmail_process(
+        self, email_from="bob@mycompany.com", cc="bob@mycompany.com"
+    ):
         """In a real case workflow, the `fetchmail.server::fetch_mail()` function
         fetches IMAP/POP servers and creates new messages objects using
         `mail.thread::message_process()`."""
@@ -44,8 +49,9 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         additional_context = {"fetchmail_cron_running": True}
         message = EMAIL_TPL.format(
             to="general-alias-for-tickets@local.test",
+            cc=cc,
             subject="Need backup",
-            email_from="bob@mycompany.com",
+            email_from=email_from,
             msg_id="168242744424.20.2028152230359369389@dd607af32153",
         )
         res_id = MailThread.with_context(**additional_context).message_process(
@@ -69,6 +75,7 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         # ensure that the e-mail channel has been set automatically
         self.assertEqual(ticket_id.channel_id, self.channel_email)
 
+    @mute_logger("odoo.models.unlink")
     def test_message_process_missing_channel(self):
         # delete default e-mail channel
         self.channel_email.unlink()
@@ -81,3 +88,48 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         self.assertEqual(ticket_id.name, "Need backup")
         # ensure that the channel is not set
         self.assertFalse(ticket_id.channel_id)
+
+    def test_message_process_unknown_sender(self):
+        email_from = "unknown-sender@example.com"
+        # ensure the sender is not an existing partner
+        self.assertFalse(self.env["res.partner"].search([("email", "=", email_from)]))
+        # keep a list of existing tickets
+        ticket_ids = self.env["helpdesk.ticket"].search([])
+        self._dummy_fetchmail_process(email_from=email_from)
+        # get the newly created ticket
+        ticket = self.env["helpdesk.ticket"].search([]) - ticket_ids
+        self.assertFalse(ticket.partner_id)
+        self.assertEqual(ticket.partner_email, email_from)
+
+    def test_message_process_known_sender(self):
+        email_from = "known-sender@example.com"
+        partner = self.env["res.partner"].create(
+            {"name": "Known Sender", "email": email_from}
+        )
+        cc = "cc@example.com"
+        cc_partner = self.env["res.partner"].create({"name": "CC Partner", "email": cc})
+        alias_partner = self.env["res.partner"].create(
+            {
+                "name": "Test partner",
+                "email": "general-alias-for-tickets@local.test",
+            }
+        )
+        # keep a list of existing tickets
+        ticket_ids = self.env["helpdesk.ticket"].search([])
+        self._dummy_fetchmail_process(email_from=email_from, cc=cc)
+        # get the newly created ticket
+        ticket = self.env["helpdesk.ticket"].search([]) - ticket_ids
+        # the existing partner is linked
+        self.assertEqual(ticket.partner_email, email_from)
+        self.assertEqual(ticket.partner_id, partner)
+        self.assertNotIn(partner, ticket.message_partner_ids)
+        self.assertIn(alias_partner, ticket.message_partner_ids)
+        folowers_partners = ticket.message_follower_ids.mapped("partner_id")
+        self.assertNotIn(partner, folowers_partners)
+        self.assertIn(cc_partner, folowers_partners)
+        self.assertIn(alias_partner, folowers_partners)
+        self.assertEqual(ticket._mail_get_customer(), partner)
+        res = ticket._message_add_suggested_recipients()[ticket.id]
+        self.assertIn(partner, res["partners"])
+        self.assertIn(email_from, res["email_to_lst"])
+        self.assertIn(cc, res["email_to_lst"])
