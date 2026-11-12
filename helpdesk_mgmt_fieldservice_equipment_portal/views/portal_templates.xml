@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_create_ticket_equipment"
+        name="Portal Create Ticket: location + equipment"
+        inherit_id="helpdesk_mgmt.portal_create_ticket"
+    >
+        <xpath expr="//input[@name='subject']/../.." position="before">
+            <div class="form-group mb-3" t-if="equipments">
+                <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="ticket_location"
+                >Location</label>
+                <div class="col-md-7 col-sm-8">
+                    <select class="form-control" id="ticket_location" name="location">
+                        <option value="">All locations</option>
+                        <t t-foreach="equipment_locations" t-as="loc">
+                            <option t-attf-value="#{loc.id}">
+                                <t t-esc="loc.display_name" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mb-3" t-if="equipments">
+                <label
+                    class="col-md-3 col-sm-4 control-label"
+                    for="ticket_equipment"
+                >Equipment</label>
+                <div class="col-md-7 col-sm-8">
+                    <select
+                        class="form-control"
+                        id="ticket_equipment"
+                        name="equipment"
+                        required="required"
+                    >
+                        <option value="" />
+                        <t t-foreach="equipments" t-as="eq">
+                            <option
+                                t-attf-value="#{eq.id}"
+                                t-attf-data-location="#{eq.location_id.id or ''}"
+                            >
+                                <t t-esc="eq.display_name" />
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
