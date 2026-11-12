@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_assign_method
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields,field_description:helpdesk_mgmt_assign_method.field_helpdesk_ticket_team__assign_method
+msgid "Assignation Method"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields,help:helpdesk_mgmt_assign_method.field_helpdesk_ticket_team__assign_method
+msgid ""
+"Automatic assignation method for new tickets:\n"
+"Manually: manual\n"
+"Randomly: randomly but everyone gets the same amount\n"
+"Balanced: to the person with the least amount of open tickets\n"
+"Sequential: ensuring an even distribution among team members"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_assign_method.selection__helpdesk_ticket_team__assign_method__balanced
+msgid "Balanced"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model,name:helpdesk_mgmt_assign_method.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model,name:helpdesk_mgmt_assign_method.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_assign_method.selection__helpdesk_ticket_team__assign_method__manual
+msgid "Manually"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_assign_method.selection__helpdesk_ticket_team__assign_method__randomly
+msgid "Randomly"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#: model:ir.model.fields.selection,name:helpdesk_mgmt_assign_method.selection__helpdesk_ticket_team__assign_method__sequential
+msgid "Sequential"
+msgstr ""
+
+#. module: helpdesk_mgmt_assign_method
+#. odoo-python
+#: code:addons/helpdesk_mgmt_assign_method/models/helpdesk_ticket_team.py:0
+#, python-format
+msgid "You must have team members assigned to change the assignation method."
+msgstr ""
