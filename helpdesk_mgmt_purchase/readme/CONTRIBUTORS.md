@@ -1,0 +1,2 @@
+- Nicolas Delbovier <nicolas.delbovier@acsone.eu> (https://www.acsone.eu/)
+- Nihel Gabsi <nihel.gabsi@acsone.eu> (https://www.acsone.eu/)
