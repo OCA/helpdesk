@@ -1,6 +1,6 @@
 # Copyright (C) 2023 Binhex - Adasat Torres
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-from odoo.tests import new_test_user
+from odoo.tests import Form, new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
 
@@ -66,3 +66,22 @@ class TestHelpdeskMotive(BaseCommon):
         self.assertTrue(self.ticket_a_user_team.motive_id)
         self.ticket_a_user_team.write({"user_id": self.user.id})
         self.assertFalse(self.ticket_a_user_team.motive_id)
+
+    def test_team_user_sets_motive(self):
+        """A user of the "Team tickets" group can choose the motive of a ticket"""
+        motive_b = self.env["helpdesk.ticket.motive"].create(
+            {"name": "motive_b", "team_id": self.team_b.id}
+        )
+        ticket = self._create_ticket(
+            self.team_b, self.env["helpdesk.ticket.motive"], self.user_team
+        )
+        # what the motive dropdown of the ticket form does
+        result = (
+            self.env["helpdesk.ticket.motive"]
+            .with_user(self.user_team)
+            .name_search("motive_b")
+        )
+        self.assertEqual([motive_id for motive_id, _name in result], motive_b.ids)
+        with Form(ticket.with_user(self.user_team)) as ticket_form:
+            ticket_form.motive_id = motive_b
+        self.assertEqual(ticket.motive_id, motive_b)
