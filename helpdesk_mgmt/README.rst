@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===================
 Helpdesk Management
 ===================
@@ -17,7 +13,7 @@ Helpdesk Management
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -128,6 +124,16 @@ permissions set in Helpdesk.
    assigned to the teams to which he/she belongs or the tickets that are
    not assigned to any team nor user.
 3. *User*: User is able to see all the tickets.
+
+Customer notifications
+----------------------
+
+If you want portal users to receive an email when a ticket is created:
+
+1. Enable debug mode
+2. Open the "Ticket Created" subtype in Settings > Technical > Discuss >
+   Subtypes
+3. Enable the ``Default`` flag
 
 .. |image1| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Channels.PNG
 .. |image2| image:: https://raw.githubusercontent.com/OCA/helpdesk/18.0/helpdesk_mgmt/static/description/Categories.PNG
