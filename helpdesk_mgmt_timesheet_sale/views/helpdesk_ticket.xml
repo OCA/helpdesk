@@ -25,6 +25,7 @@
             >
                 <!-- <field name="timesheet_ids"/> is already inside a block groups="hr_timesheet.group_hr_timesheet_user"  -->
                 <field name="timesheet_invoice_id" column_invisible="True" />
+                <field name="is_so_line_edited" column_invisible="1" />
                 <field
                     name="so_line"
                     widget="so_line_field"
