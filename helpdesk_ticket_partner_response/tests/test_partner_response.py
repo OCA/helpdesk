@@ -79,6 +79,7 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
                     "description": "Description",
                     "team_id": team.id,
                     "partner_id": partner.id,
+                    "partner_email": partner.email,
                     "priority": "1",
                 }
             ]
@@ -336,6 +337,39 @@ class TestCustomerResponse(HttpCaseWithUserPortal):
             routes, {"email_from": "external@example.com"}
         )
         self.assertIsNone(result)
+
+    def test_change_ticket_status_via_mail_ticket_partner_email(self):
+        ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        self.assertTrue(ticket.partner_email)
+        ticket.stage_id = self.stage_in_progress
+        MailThread = self.env["mail.thread"]
+        routes = [("helpdesk.ticket", ticket.id, {}, self.env.user.id, None)]
+        MailThread.change_ticket_status_via_mail(
+            routes, {"email_from": ticket.partner_email}
+        )
+        self.assertEqual(ticket.stage_id, self.stage_done)
+
+    def test_change_ticket_status_via_mail_ticket_not_partner_email(self):
+        ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        ticket.partner_email = False
+        ticket.stage_id = self.stage_in_progress
+        MailThread = self.env["mail.thread"]
+        routes = [("helpdesk.ticket", ticket.id, {}, self.env.user.id, None)]
+        MailThread.change_ticket_status_via_mail(
+            routes, {"email_from": ticket.partner_id.email}
+        )
+        self.assertEqual(ticket.stage_id, self.stage_done)
+
+    def test_change_ticket_status_via_mail_ticket_not_partner_id(self):
+        ticket = self._create_ticket(self.helpdesk_team1, self.partner_portal)
+        ticket.partner_id = False
+        ticket.stage_id = self.stage_in_progress
+        MailThread = self.env["mail.thread"]
+        routes = [("helpdesk.ticket", ticket.id, {}, self.env.user.id, None)]
+        MailThread.change_ticket_status_via_mail(
+            routes, {"email_from": ticket.partner_email}
+        )
+        self.assertEqual(ticket.stage_id, self.stage_done)
 
     def test_skip_autoreply_default_returns_false(self):
         """Default hook returns False so normal stage updates are not suppressed."""
