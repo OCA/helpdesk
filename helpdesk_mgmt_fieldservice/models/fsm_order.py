@@ -8,7 +8,7 @@ from odoo import fields, models
 class FSMOrder(models.Model):
     _inherit = "fsm.order"
 
-    ticket_id = fields.Many2one("helpdesk.ticket", string="Ticket", tracking=True)
+    ticket_id = fields.Many2one("helpdesk.ticket", tracking=True)
 
     def action_complete(self):
         res = super().action_complete()

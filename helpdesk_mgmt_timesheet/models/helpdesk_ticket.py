@@ -30,7 +30,6 @@ class HelpdeskTicket(models.Model):
     timesheet_ids = fields.One2many(
         comodel_name="account.analytic.line",
         inverse_name="ticket_id",
-        string="Timesheet",
     )
     total_hours = fields.Float(
         compute="_compute_total_hours", readonly=True, store=True

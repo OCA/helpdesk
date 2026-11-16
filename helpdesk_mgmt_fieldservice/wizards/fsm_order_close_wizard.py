@@ -11,8 +11,8 @@ class FSMOrderCloseWizard(models.TransientModel):
 
     resolution = fields.Html()
     team_id = fields.Many2one("helpdesk.ticket.team", string="Helpdesk Team")
-    stage_id = fields.Many2one("helpdesk.ticket.stage", string="Stage")
-    ticket_id = fields.Many2one("helpdesk.ticket", string="Ticket")
+    stage_id = fields.Many2one("helpdesk.ticket.stage")
+    ticket_id = fields.Many2one("helpdesk.ticket")
 
     def action_close_ticket(self):
         for record in self:
