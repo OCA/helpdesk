@@ -76,7 +76,7 @@
                                                     Unassigned
                                                 </a>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-3 px-0 text-end">
                                                 <t
                                                     t-esc="record.todo_ticket_count_unassigned.value"
                                                 />
@@ -90,7 +90,7 @@
                                                     Unattended
                                                 </a>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-3 px-0 text-end">
                                                 <t
                                                     t-esc="record.todo_ticket_count_unattended.value"
                                                 />
@@ -104,7 +104,7 @@
                                                     High Priority
                                                 </a>
                                             </div>
-                                            <div class="col-3">
+                                            <div class="col-3 px-0 text-end">
                                                 <t
                                                     t-esc="record.todo_ticket_count_high_priority.value"
                                                 />
