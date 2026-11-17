@@ -35,13 +35,14 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         super().setUpClass()
         cls.channel_email = cls.env.ref("helpdesk_mgmt.helpdesk_ticket_channel_email")
 
-    def _dummy_fetchmail_process(self):
+    def _dummy_fetchmail_process(self, additional_context=None):
         """In a real case workflow, the `fetchmail.server::fetch_mail()` function
         fetches IMAP/POP servers and creates new messages objects using
         `mail.thread::message_process()`."""
 
         MailThread = self.env["mail.thread"]
-        additional_context = {"fetchmail_cron_running": True}
+        if additional_context is None:
+            additional_context = {"fetchmail_cron_running": True}
         message = EMAIL_TPL.format(
             to="general-alias-for-tickets@local.test",
             subject="Need backup",
@@ -81,3 +82,21 @@ class TestHelpdeskFetchmail(TestHelpdeskTicketBase):
         self.assertEqual(ticket_id.name, "Need backup")
         # ensure that the channel is not set
         self.assertFalse(ticket_id.channel_id)
+
+    def test_message_process_fetchmail_server_context(self):
+        """Since 19.0, fetchmail.server._fetch_mail only passes
+        default_fetchmail_server_id to message_process."""
+        server = self.env["fetchmail.server"].create(
+            {"name": "Test server", "server_type": "pop", "server": "localhost"}
+        )
+        ticket_ids = self.env["helpdesk.ticket"].search([])
+        self._dummy_fetchmail_process({"default_fetchmail_server_id": server.id})
+        ticket_id = self.env["helpdesk.ticket"].search([]) - ticket_ids
+        self.assertEqual(ticket_id.channel_id, self.channel_email)
+
+    def test_loop_detection_domain(self):
+        """The mail gateway loop detection needs a primary email field."""
+        self.assertEqual(
+            self.env["helpdesk.ticket"]._detect_loop_sender_domain("bob@example.com"),
+            [("partner_email", "ilike", "bob@example.com")],
+        )
