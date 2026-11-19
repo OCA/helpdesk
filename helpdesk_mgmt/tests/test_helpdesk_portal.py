@@ -135,6 +135,11 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         self._call_close_ticket(self.portal_ticket, stage)
         self.assertTrue(self.portal_ticket.closed)
         self.assertEqual(self.portal_ticket.stage_id, stage)
+        # the chatter shows the customer, not OdooBot, as the one who closed it
+        self.assertEqual(
+            self.portal_ticket.message_ids.filtered("tracking_value_ids").author_id,
+            self.partner_portal,
+        )
 
     def test_close_ticket_invalid_stage(self):
         """Attempt to close a ticket from the portal with an invalid target stage."""
@@ -209,22 +214,37 @@ class TestHelpdeskPortal(TestHelpdeskPortalBase):
         self.assertEqual(resp.status_code, 200)
         self.assertIn("ticket-user-2", resp.text)
 
+        # Portal ticket close: portal_user_2 can close ticket_1 only with its token
+        stage = self.env.ref("helpdesk_mgmt.helpdesk_ticket_stage_done")
+        token = ticket_1._portal_ensure_token()
+        self._call_close_ticket(ticket_1, stage, location="/my")
+        self._call_close_ticket(ticket_1, stage, access_token="wrong", location="/my")
+        self.assertNotEqual(ticket_1.stage_id, stage)
+        self._call_close_ticket(
+            ticket_1,
+            stage,
+            access_token=token,
+            location=f"/my/ticket/{ticket_1.id}?access_token={token}",
+        )
+        self.assertEqual(ticket_1.stage_id, stage)
+
     def _count_close_buttons(self, resp) -> int:
         """Count close buttons in a form by counting forms with that target."""
         return resp.text.count('action="/ticket/close"')
 
-    def _call_close_ticket(self, ticket, stage):
+    def _call_close_ticket(self, ticket, stage, access_token=None, location=None):
         """Call /ticket/close with the specified target stage, check redirect."""
-        resp = self.url_open(
-            "/ticket/close",
-            data={
-                "csrf_token": http.Request.csrf_token(self),
-                "stage_id": stage.id,
-                "ticket_id": ticket.id,
-            },
-            allow_redirects=False,
-        )
+        data = {
+            "csrf_token": http.Request.csrf_token(self),
+            "stage_id": stage.id,
+            "ticket_id": ticket.id,
+        }
+        if access_token:
+            data["access_token"] = access_token
+        resp = self.url_open("/ticket/close", data=data, allow_redirects=False)
         self.assertEqual(resp.status_code, 302)
         self.assertTrue(resp.is_redirect)  # http://127.0.0.1:8069/my/ticket/<ticket-id>
-        self.assertTrue(resp.headers["Location"].endswith(f"/my/ticket/{ticket.id}"))
+        self.assertTrue(
+            resp.headers["Location"].endswith(location or f"/my/ticket/{ticket.id}")
+        )
         return resp
