@@ -39,7 +39,6 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
                 "stage_id": self.stage_warning.id,
                 "category_id": self.type_warning.id,
                 "description": "Please help me",
-                "last_stage_update": datetime.today() - timedelta(days=7),
             }
         )
 
@@ -64,13 +63,26 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
                 "stage_id": self.stage_warning.id,
                 "category_id": self.type_warning.id,
                 "description": "Please help me 2",
-                "last_stage_update": datetime.today() - timedelta(days=7),
             }
         )
 
+    def _age_ticket(self, ticket, days):
+        """Make the last message (or creation date) of the ticket `days` old."""
+        date = datetime.today() - timedelta(days=days)
+        self.env.cr.execute(
+            "UPDATE mail_message SET date = %s WHERE model = %s AND res_id = %s",
+            (date, "helpdesk.ticket", ticket.id),
+        )
+        self.env.cr.execute(
+            "UPDATE helpdesk_ticket SET create_date = %s WHERE id = %s",
+            (date, ticket.id),
+        )
+        self.env["mail.message"].invalidate_model()
+        ticket.invalidate_recordset()
+
     def test_warning_email_sent(self):
         """Test that a warning email is sent after the warning day limit is reached."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
+        self._age_ticket(self.ticket, 7)
         result = self.team.close_team_inactive_tickets()
         sent_mails = self.env["mail.mail"].search(
             [("id", "in", result["warning_email_ids"])]
@@ -79,7 +91,7 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
 
     def test_ticket_closing_after_closing_day_limit(self):
         """Test that a ticket is closed after the closing day limit is reached."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self._age_ticket(self.ticket, 15)
         self.team.close_team_inactive_tickets()
         self.assertEqual(
             self.ticket.stage_id,
@@ -89,7 +101,7 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
 
     def test_closing_email_sent(self):
         """Test that a closing email is sent when the ticket is closed automatically."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self._age_ticket(self.ticket, 15)
         result = self.team.close_team_inactive_tickets()
         sent_mails = self.env["mail.mail"].search(
             [("id", "in", result["closing_email_ids"])]
@@ -99,7 +111,7 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
     def test_remaining_days_in_context(self):
         """Test that the correct remaining days are
         set in the context for the warning email."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
+        self._age_ticket(self.ticket, 7)
         result = self.team.close_team_inactive_tickets()
         sent_mail = self.env["mail.mail"].search(
             [("id", "in", result["warning_email_ids"])], limit=1
@@ -114,7 +126,7 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
     def test_warning_phase_disabled_when_days_zero(self):
         """Test that no warning email is sent when the warning day limit is 0."""
         self.team.write({"inactive_tickets_day_limit_warning": 0})
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=7)})
+        self._age_ticket(self.ticket, 7)
         result = self.team.close_team_inactive_tickets()
         self.assertFalse(
             result["warning_email_ids"],
@@ -130,7 +142,7 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
         """Test that the ticket is closed but no closing email is sent
         when the closing email template is not set."""
         self.team.write({"close_inactive_mail_template_id": False})
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self._age_ticket(self.ticket, 15)
         result = self.team.close_team_inactive_tickets()
         self.assertEqual(
             self.ticket.stage_id,
@@ -152,10 +164,10 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
                 "team_id": self.team.id,
                 "stage_id": self.stage_warning.id,
                 "description": "Please help me",
-                "last_stage_update": datetime.today() - timedelta(days=15),
             }
         )
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self._age_ticket(ticket_no_category, 15)
+        self._age_ticket(self.ticket, 15)
         self.team.close_team_inactive_tickets()
         self.assertEqual(
             self.ticket.stage_id,
@@ -171,8 +183,8 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
 
     def test_multiple_teams_processed_by_cron(self):
         """Test that the cron processes all active teams in a single execution."""
-        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
-        self.ticket2.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self._age_ticket(self.ticket, 15)
+        self._age_ticket(self.ticket2, 15)
         result = self.env["helpdesk.ticket.team"].close_team_inactive_tickets()
 
         # Assert BOTH tickets were successfully updated to the closing stage
@@ -193,3 +205,37 @@ class TestHelpdeskTicketAutoclose(BaseCommon):
             2,
             "The cron should have tracked exactly 2 closing email IDs.",
         )
+
+    def test_recent_message_prevents_closing(self):
+        """A recent message keeps an otherwise old ticket from being closed."""
+        self._age_ticket(self.ticket, 15)
+        self.ticket.message_post(
+            body="Customer reply",
+            message_type="email",
+            subtype_xmlid="mail.mt_comment",
+        )
+        self.team.close_team_inactive_tickets()
+        self.assertEqual(self.ticket.stage_id, self.stage_warning)
+
+    def test_internal_note_ignored(self):
+        """Internal notes do not count as activity."""
+        self._age_ticket(self.ticket, 15)
+        self.ticket.message_post(body="Note", subtype_xmlid="mail.mt_note")
+        self.team.close_team_inactive_tickets()
+        self.assertEqual(self.ticket.stage_id, self.stage_closing)
+
+    def test_warning_email_does_not_reset_inactivity(self):
+        """Sending the warning email must not count as ticket activity."""
+        self._age_ticket(self.ticket, 7)
+        self.team.close_team_inactive_tickets()
+        last_dates = self.team._get_last_message_dates(self.ticket)
+        self.assertLessEqual(
+            last_dates[self.ticket.id], datetime.today() - timedelta(days=6)
+        )
+
+    def test_stage_change_does_not_count(self):
+        """A stage change alone does not reset the inactivity period."""
+        self._age_ticket(self.ticket, 15)
+        self.ticket.write({"last_stage_update": datetime.today()})
+        self.team.close_team_inactive_tickets()
+        self.assertEqual(self.ticket.stage_id, self.stage_closing)
