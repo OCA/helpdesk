@@ -80,7 +80,7 @@ class HelpdeskTicketMerge(models.TransientModel):
             ticket._get_html_link(ticket.number) for ticket in merged_tickets
         )
         self._add_message(self.env._("from"), ticket_numbers, self.dst_ticket_id)
-        merged_tickets.message_ids.filtered(
+        merged_tickets.sudo().message_ids.filtered(
             lambda r: r.message_type != "notification"
         ).write({"res_id": self.dst_ticket_id.id})
         merged_tickets.activity_ids.write({"res_id": self.dst_ticket_id.id})

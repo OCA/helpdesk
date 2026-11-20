@@ -2,9 +2,12 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestHelpdeskTicketMerge(BaseCommon):
+    _test_user_groups = ("helpdesk_mgmt.group_helpdesk_user",)
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env = cls.env(user=cls._test_user)
         cls.HelpdeskTicketMerge = cls.env["helpdesk.ticket.merge"]
         cls.ticket_1 = cls._create_ticket("Ticket 1", "Description for Ticket 1")
         cls.ticket_2 = cls._create_ticket("Ticket 2", "Description for Ticket 2")
