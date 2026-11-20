@@ -4,7 +4,7 @@
 import ast
 
 from odoo import api, fields, models
-from odoo.exceptions import UserError
+from odoo.exceptions import AccessError, MissingError, UserError
 
 
 class HelpdeskTicket(models.Model):
@@ -79,8 +79,9 @@ class HelpdeskTicket(models.Model):
             stages = team_stages.get(record.team_id.id, helpdesk_ticket_stage_obj)
             next_stage = (
                 stages.filtered(
-                    lambda stage, _cur_stage=current_stage: stage.sequence
-                    > _cur_stage.sequence
+                    lambda stage, _cur_stage=current_stage: (
+                        stage.sequence > _cur_stage.sequence
+                    )
                 )[:1]
                 or current_stage
             )
@@ -97,7 +98,7 @@ class HelpdeskTicket(models.Model):
                 record = self.env[rec.res_model].browse(rec.res_id)
                 record.check_access("read")
                 rec.record_ref = f"{rec.res_model},{rec.res_id}"
-            except Exception:
+            except (AccessError, MissingError, KeyError):
                 rec.record_ref = None
 
     def _inverse_record_ref(self):

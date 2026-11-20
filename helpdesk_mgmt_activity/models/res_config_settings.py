@@ -17,13 +17,13 @@ class ResConfigSettings(models.TransientModel):
     )
 
     def set_values(self):
-        super().set_values()
+        res = super().set_values()
         ICPSudo = self.env["ir.config_parameter"].sudo()
         ICPSudo.set_param(
             "helpdesk_mgmt_activity.helpdesk_available_model_ids",
             str(self.helpdesk_available_model_ids.ids),
         )
-        return
+        return res
 
     @api.model
     def get_values(self):
