@@ -2,6 +2,11 @@ from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
 
 
 class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
+    _test_user_groups = TestHelpdeskTicketBase._test_user_groups + (
+        "project.group_project_manager",
+        "project.group_project_milestone",
+    )
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

@@ -13,7 +13,7 @@
                     title="View Tickets"
                     string="View Tickets"
                     class="oe_stat_button"
-                    icon="fa-ticket"
+                    icon="confirmation_number"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                     invisible="helpdesk_ticket_count == 0"
                 >

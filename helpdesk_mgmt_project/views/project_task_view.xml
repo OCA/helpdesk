@@ -8,7 +8,7 @@
                 <button
                     class="oe_stat_button"
                     type="action"
-                    icon="fa-life-ring"
+                    icon="support_agent"
                     name="%(ticket_action_from_project)d"
                     context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
@@ -40,9 +40,9 @@
     </record>
     <record id="view_task_kanban_helpdesk" model="ir.ui.view">
         <field name="model">project.task</field>
-        <field name="inherit_id" ref="project.view_task_kanban" />
+        <field name="inherit_id" ref="project.view_task_card" />
         <field name="arch" type="xml">
-            <xpath expr="//main//footer/div[2]" position="before">
+            <xpath expr="//footer/field[@name='user_ids']" position="before">
                 <div
                     invisible="ticket_count==0"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"

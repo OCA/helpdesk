@@ -39,11 +39,13 @@ class ProjectProject(models.Model):
             record.todo_ticket_count = counts_todo.get(record.id, 0)
 
     def _get_stat_buttons(self):
-        buttons = super()._get_stat_buttons()
+        buttons = (
+            super()._get_stat_buttons() if hasattr(super(), "_get_stat_buttons") else []
+        )
         if self.env.user.has_group("helpdesk_mgmt.group_helpdesk_user_own"):
             buttons.append(
                 {
-                    "icon": "life-ring",
+                    "icon": "support_agent",
                     "text": self.label_tickets,
                     "number": self.ticket_count,
                     "action_type": "object",
