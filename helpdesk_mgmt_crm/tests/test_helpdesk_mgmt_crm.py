@@ -9,19 +9,20 @@ from odoo.addons.base.tests.common import BaseCommon
 
 
 class TestHelpdeskMgmtCrm(BaseCommon):
+    _test_user_groups = (
+        "helpdesk_mgmt.group_helpdesk_user",
+        "sales_team.group_sale_salesman",
+    )
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.user = new_test_user(
-            cls.env,
-            login="sale-user",
-            groups="helpdesk_mgmt.group_helpdesk_user,sales_team.group_sale_salesman",
-        )
+        cls.user = cls._test_user
         cls.user2 = new_test_user(
             cls.env, login="sale-user2", groups="sales_team.group_sale_salesman"
         )
         cls.team = cls.env["crm.team"].create(
-            {"name": "Test team", "member_ids": [Command.set([cls.user2.ids])]}
+            {"name": "Test team", "member_ids": [Command.set(cls.user2.ids)]}
         )
         cls.team.message_subscribe(
             partner_ids=[cls.user2.partner_id.id],
@@ -35,14 +36,7 @@ class TestHelpdeskMgmtCrm(BaseCommon):
             }
         )
 
-    @classmethod
-    def default_env_context(cls):
-        context = super().default_env_context()
-        # Reactivate message subscription
-        context.pop("tracking_disable", False)
-        return context
-
-    @users("sale-user")
+    @users("test_user")
     def test_action_lead_create(self):
         self.ticket.message_subscribe(
             partner_ids=self.ticket.partner_id.ids,

@@ -14,7 +14,6 @@ class HelpdeskTicketCreateLead(models.TransientModel):
         comodel_name="helpdesk.ticket",
         required=True,
         readonly=True,
-        domain=[("lead_id", "=", False)],
     )
     user_id = fields.Many2one(comodel_name="res.users")
     team_id = fields.Many2one(comodel_name="crm.team")
@@ -64,4 +63,4 @@ class HelpdeskTicketCreateLead(models.TransientModel):
             )
         )
         self.ticket_id.with_user(SUPERUSER_ID).message_post(body=body)
-        return lead.get_formview_action()
+        return lead._get_records_action()
