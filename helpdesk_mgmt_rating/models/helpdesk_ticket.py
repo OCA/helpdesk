@@ -4,7 +4,7 @@ from odoo.tools.safe_eval import safe_eval
 
 class HelpdeskTicket(models.Model):
     _name = "helpdesk.ticket"
-    _inherit = ["helpdesk.ticket", "rating.mixin"]
+    _inherit = ("helpdesk.ticket", "rating.mixin")
 
     positive_rate_percentage = fields.Integer(
         string="Positive Rates Percentage",
