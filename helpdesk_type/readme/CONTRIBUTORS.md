@@ -8,3 +8,4 @@
   - Juan Carlos Oñate
 - [APSL - Nagarro](https://www.apsl.tech):
   - Miquel Pascual
+- Lloyd Vheremu
