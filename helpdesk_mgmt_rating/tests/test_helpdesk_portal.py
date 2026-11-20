@@ -1,7 +1,5 @@
 # Copyright 2024 Tecnativa - Carolina Fernandez
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from odoo import http
-
 from odoo.addons.base.tests.common import HttpCaseWithUserPortal
 
 
@@ -33,7 +31,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
             f"/rate/{portal_access_token}/submit_feedback",
             data={
                 "rate": 5,
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": self.csrf_token(),
                 "feedback": "good",
             },
         )
@@ -48,7 +46,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
             f"/rate/{portal_access_token}/submit_feedback",
             data={
                 "rate": 3,
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": self.csrf_token(),
                 "feedback": "good",
             },
         )
@@ -63,7 +61,7 @@ class TestHelpdeskPortalBase(HttpCaseWithUserPortal):
             f"/rate/{portal_access_token}/submit_feedback",
             data={
                 "rate": 1,
-                "csrf_token": http.Request.csrf_token(self),
+                "csrf_token": self.csrf_token(),
                 "feedback": "bad job",
             },
         )
