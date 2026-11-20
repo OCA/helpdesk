@@ -21,7 +21,7 @@
                     name="%(action_helpdesk_ticket)d"
                     type="action"
                     class="btn btn-primary"
-                    icon="fa-ticket"
+                    icon="confirmation_number"
                     context="{'default_sale_order_ids': [id], 'default_partner_id': partner_id}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >

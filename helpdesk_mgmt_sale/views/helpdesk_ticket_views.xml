@@ -20,7 +20,7 @@
                     name="action_view_sale_orders"
                     type="object"
                     class="oe_stat_button"
-                    icon="fa-dollar"
+                    icon="attach_money"
                     groups="sales_team.group_sale_salesman"
                 >
                     <field string="Sale Orders" name="so_count" widget="statinfo" />

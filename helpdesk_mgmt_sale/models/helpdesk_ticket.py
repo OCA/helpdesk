@@ -23,7 +23,7 @@ class HelpdeskTicket(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         action["domain"] = [("ticket_ids", "in", [self.id])]
         action["context"] = {
-            "default_ticket_ids": [Command.link([self.id])],
+            "default_ticket_ids": [Command.link(self.id)],
             "default_partner_id": self.partner_id.id,
         }
         return action
