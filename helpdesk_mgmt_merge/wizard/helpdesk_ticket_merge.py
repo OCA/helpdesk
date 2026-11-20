@@ -98,11 +98,13 @@ class HelpdeskTicketMerge(models.TransientModel):
         no_description = self.env._("No description")
         return "\n".join(
             tickets.mapped(
-                lambda ticket: template
-                % {
-                    "name": ticket.name,
-                    "description": ticket.description or no_description,
-                }
+                lambda ticket: (
+                    template
+                    % {
+                        "name": ticket.name,
+                        "description": ticket.description or no_description,
+                    }
+                )
             )
         )
 
