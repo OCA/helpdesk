@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.exceptions import UserError
-from odoo.fields import Date
+from odoo.fields import Command, Date
 from odoo.tests import Form
 
 from odoo.addons.helpdesk_mgmt.tests.common import TestHelpdeskTicketBase
@@ -15,7 +15,7 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
         cls.partner_model = cls.env["ir.model"]._get("res.partner")
         cls.test_partner = cls.env["res.partner"].create({"name": "Test Partner"})
         cls.activity_type_meeting = cls.env.ref("mail.mail_activity_data_meeting")
-        cls.env["ir.config_parameter"].sudo().set_param(
+        cls.env["ir.config_parameter"].sudo().set_str(
             "helpdesk_mgmt_activity.helpdesk_available_model_ids", cls.partner_model.ids
         )
 
@@ -89,9 +89,10 @@ class TestHelpdeskTicket(TestHelpdeskTicketBase):
             form.helpdesk_available_model_ids.add(self.partner_model)
         values = settings.get_values()
         self.assertEqual(
-            values.get("helpdesk_available_model_ids"), self.partner_model.ids
+            values.get("helpdesk_available_model_ids"),
+            [Command.set(self.partner_model.ids)],
         )
-        self.env["ir.config_parameter"].sudo().set_param(
+        self.env["ir.config_parameter"].sudo().set_str(
             "helpdesk_mgmt_activity.helpdesk_available_model_ids", False
         )
         values = settings.get_values()

@@ -39,19 +39,19 @@ class HelpdeskTicket(models.Model):
         model_ids_str = (
             self.env["ir.config_parameter"]
             .sudo()
-            .get_param("helpdesk_mgmt_activity.helpdesk_available_model_ids", "[]")
+            .get_str("helpdesk_mgmt_activity.helpdesk_available_model_ids", "[]")
         )
         model_ids = ast.literal_eval(model_ids_str)
         if not model_ids:
             return []
-        IrModelAccess = self.env["ir.model.access"].with_user(self.env.user.id)
         available_models = self.env["ir.model"].search_read(
             [("id", "in", model_ids)], fields=["model", "name"]
         )
         return [
             (model.get("model"), model.get("name"))
             for model in available_models
-            if IrModelAccess.check(model.get("model"), "read", False)
+            if model.get("model") in self.env
+            and self.env[model.get("model")].has_access("read")
         ]
 
     @api.model

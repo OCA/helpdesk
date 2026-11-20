@@ -14,6 +14,6 @@ class HelpdeskTicketTeam(models.Model):
     activity_stage_id = fields.Many2one(
         comodel_name="helpdesk.ticket.stage",
         string="Done Activity Stage",
-        domain="['|', ('team_ids', 'in, []'), ('team_ids', 'in', [id])]",
+        domain="['|', ('team_ids', '=', False), ('team_ids', 'in', [id])]",
         help="Move the ticket when the activity in source record is done",
     )
