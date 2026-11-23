@@ -10,10 +10,14 @@
                     type="action"
                     icon="fa-life-ring"
                     name="%(ticket_action_from_project)d"
-                    context="{'search_default_project_id': id, 'default_project_id': id}"
+                    context="{'search_default_project_id': id, 'default_project_id': id, 'search_default_open':1}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
-                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                    <field
+                        string="Tickets"
+                        name="todo_ticket_count"
+                        widget="statinfo"
+                    />
                 </button>
             </xpath>
             <field name="label_tasks" position="after">
@@ -30,11 +34,11 @@
                     class="o_project_kanban_box"
                     name="%(ticket_action_from_project)d"
                     type="action"
-                    context="{'search_default_project_id': id, 'default_project_id': id}"
+                    context="{'search_default_project_id': id, 'default_project_id': id, 'search_default_open':1}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
                     <div>
-                        <field name="ticket_count" class="o_value" />
+                        <field name="todo_ticket_count" class="o_value" />
                         <field name="label_tickets" class="ms-1" />
                     </div>
                 </a>

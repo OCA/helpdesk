@@ -99,9 +99,7 @@ class TestHelpdeskTicketProject(TestHelpdeskTicketBase):
     def test_action_view_ticket(self):
         """Test action_view_ticket for correct domain and view modes"""
         action = self.task_project1.action_view_ticket()
-        self.assertEqual(
-            action["domain"], f"[('id','in',{self.task_project1.ticket_ids.ids})]"
-        )
+        self.assertEqual(action["domain"], [("task_id", "=", self.task_project1.id)])
         # If only one ticket, should open in form view
         single_ticket_task = self.env["project.task"].create(
             {"name": "Single Ticket Task", "project_id": self.project1.id}
