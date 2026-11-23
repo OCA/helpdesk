@@ -10,10 +10,14 @@
                     type="action"
                     icon="fa-life-ring"
                     name="%(ticket_action_from_project)d"
-                    context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id}"
+                    context="{'search_default_task_id': id, 'default_task_id': id, 'search_default_project_id': project_id, 'default_project_id': project_id, 'search_default_open':1}"
                     groups="helpdesk_mgmt.group_helpdesk_user_own"
                 >
-                    <field string="Tickets" name="ticket_count" widget="statinfo" />
+                    <field
+                        string="Tickets"
+                        name="todo_ticket_count"
+                        widget="statinfo"
+                    />
                 </button>
             </xpath>
         </field>
@@ -49,7 +53,7 @@
                     >
                         <span class="o_value">
                             <b>
-                                <field name="ticket_count" />
+                                <field name="todo_ticket_count" />
                             </b>
                         </span>
                         <span class="o_label">

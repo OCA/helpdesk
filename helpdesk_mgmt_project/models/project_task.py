@@ -42,18 +42,15 @@ class ProjectTask(models.Model):
         result = self.env["ir.actions.act_window"]._for_xml_id(
             "helpdesk_mgmt.action_helpdesk_ticket_kanban_from_dashboard"
         )
+        result["domain"] = [("task_id", "=", self.id)]
         # choose the view_mode accordingly
         if not self.ticket_ids or self.ticket_count > 1:
-            result["domain"] = f"[('id','in',{self.ticket_ids.ids})]"
             res = self.env.ref("helpdesk_mgmt.ticket_view_tree", False)
-            tree_view = [(res and res.id or False, "tree")]
-            if "views" in result:
-                result["views"] = tree_view + [
-                    (state, view) for state, view in result["views"] if view != "tree"
-                ]
-            else:
-                result["views"] = tree_view
-        elif self.ticket_count == 1:
+            list_view = [(res and res.id or False, "list")]
+            result["views"] = list_view + [
+                (state, view) for state, view in result["views"] if view != "list"
+            ]
+        elif self.ticket_count == 1 and not self.ticket_ids[0].closed:
             res = self.env.ref("helpdesk_mgmt.ticket_view_form", False)
             form_view = [(res and res.id or False, "form")]
             if "views" in result:
