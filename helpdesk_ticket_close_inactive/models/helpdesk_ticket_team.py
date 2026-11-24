@@ -78,6 +78,9 @@ class HelpdeskTicketTeam(models.Model):
         else:
             teams = self.search([("close_inactive_tickets", "=", True)])
 
+        warning_email_ids = []
+        closing_email_ids = []
+
         for team_id in teams:
             ticket_stage_ids = team_id.ticket_stage_ids.ids
             ticket_category_ids = team_id.ticket_category_ids.ids
@@ -105,8 +108,7 @@ class HelpdeskTicketTeam(models.Model):
                 search_domain.append(("category_id", "in", ticket_category_ids))
 
             warning_ticket_ids = self.env["helpdesk.ticket"].search(search_domain)
-            warning_email_ids = []
-            closing_email_ids = []
+
             if warning_ticket_ids:
                 for ticket in warning_ticket_ids:
                     # Set template context
@@ -159,7 +161,8 @@ class HelpdeskTicketTeam(models.Model):
                         msg = "Ticket closed automatically because have \
                         reached the inactivity days limit"
                         ticket.message_post(body=msg)
-            return {
-                "warning_email_ids": warning_email_ids,
-                "closing_email_ids": closing_email_ids,
-            }
+
+        return {
+            "warning_email_ids": warning_email_ids,
+            "closing_email_ids": closing_email_ids,
+        }

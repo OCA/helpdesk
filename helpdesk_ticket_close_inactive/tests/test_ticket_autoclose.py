@@ -117,3 +117,28 @@ class TestHelpdeskTicketAutoclose(TransactionCase):
             self.stage_closing,
             "Ticket should be moved to the closing stage",
         )
+
+    def test_multiple_teams_processed_by_cron(self):
+        """Test that the cron processes all active teams in a single execution."""
+        self.ticket.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        self.ticket2.write({"last_stage_update": datetime.today() - timedelta(days=15)})
+        result = self.env["helpdesk.ticket.team"].close_team_inactive_tickets()
+
+        # Assert BOTH tickets were successfully updated to the closing stage
+        self.assertEqual(
+            self.ticket.stage_id,
+            self.stage_closing,
+            "First team ticket should be closed by multi-team cron process.",
+        )
+        self.assertEqual(
+            self.ticket2.stage_id,
+            self.stage_closing,
+            "Second team ticket should be closed by multi-team cron process.",
+        )
+
+        # Assert exactly 2 closing emails were tracked (one per closed ticket)
+        self.assertEqual(
+            len(result.get("closing_email_ids", [])),
+            2,
+            "The cron should have tracked exactly 2 closing email IDs.",
+        )
