@@ -1,0 +1,11 @@
+<odoo>
+    <record model="ir.ui.view" id="helpdesk_ticket_sla_form">
+        <field name="model">helpdesk.sla</field>
+        <field name="inherit_id" ref="helpdesk_mgmt_sla.helpdesk_ticket_sla_form" />
+        <field name="arch" type="xml">
+            <field name="tag_ids" position="after">
+                <field name="type_ids" widget="many2many_tags" />
+            </field>
+        </field>
+    </record>
+</odoo>
