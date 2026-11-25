@@ -4,9 +4,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-09-23 10:06+0000\n"
 "Last-Translator: Pilar Vargas <pilar.vargas@tecnativa.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -27,9 +26,11 @@ msgid "Helpdesk Ticket"
 msgstr "Solicitud de servicio de asistencia"
 
 #. module: helpdesk_mgmt_sale
-#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
-msgid "Sale Order"
-msgstr "Pedido de venta"
+#. odoo-python
+#: code:addons/helpdesk_mgmt_sale/models/helpdesk_ticket.py:0
+#, python-format
+msgid "Helpdesk Ticket %(ticket_name)s created by %(user_name)s"
+msgstr "Ticket %(ticket_name)s creado por %(user_name)s"
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__so_count
@@ -45,6 +46,11 @@ msgstr "Pedidos"
 #: model:ir.model,name:helpdesk_mgmt_sale.model_sale_order
 msgid "Sales Order"
 msgstr "Pedidos"
+
+#. module: helpdesk_mgmt_sale
+#: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_helpdesk_ticket__sale_order_ids
+msgid "Sales orders"
+msgstr ""
 
 #. module: helpdesk_mgmt_sale
 #: model:ir.model.fields,field_description:helpdesk_mgmt_sale.field_sale_order__ticket_ids

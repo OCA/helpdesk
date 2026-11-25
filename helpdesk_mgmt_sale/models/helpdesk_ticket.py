@@ -1,25 +1,46 @@
-from odoo import api, fields, models
+from odoo import Command, _, api, fields, models
 
 
 class HelpdeskTicket(models.Model):
     _inherit = "helpdesk.ticket"
 
-    sale_order_ids = fields.Many2many("sale.order")
-    so_count = fields.Integer(
-        string="Sale Order Count", compute="_compute_so_count", store=True
-    )
+    sale_order_ids = fields.Many2many("sale.order", string="Sales orders")
+    so_count = fields.Integer(string="Sale Order Count", compute="_compute_so_count")
 
     @api.depends("sale_order_ids")
     def _compute_so_count(self):
+        group_data = self.env["sale.order"]._read_group(
+            domain=[("ticket_ids", "in", self.ids)],
+            groupby=["ticket_ids"],
+            aggregates=["__count"],
+        )
+        mapped_data = {ticket.id: count for (ticket, count) in group_data}
         for ticket in self:
-            ticket.so_count = len(ticket.sale_order_ids)
+            ticket.so_count = mapped_data.get(ticket.id, 0)
 
     def action_view_sale_orders(self):
         """Returns action to view sale orders related to this ticket."""
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_orders")
         action["domain"] = [("ticket_ids", "in", [self.id])]
         action["context"] = {
-            "default_ticket_ids": [(4, [self.id])],
+            "default_ticket_ids": [Command.link(self.id)],
             "default_partner_id": self.partner_id.id,
         }
         return action
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        tickets = super().create(vals_list)
+        if self.env.context.get("from_sale_order"):
+            # only one ticket is possible here
+            for sale in tickets.sale_order_ids:
+                sale.message_post(body=self._get_default_message_creation(tickets))
+
+        return tickets
+
+    def _get_default_message_creation(self, tickets):
+        return _(
+            "Helpdesk Ticket %(ticket_name)s created by %(user_name)s",
+            ticket_name=tickets.display_name,
+            user_name=self.env.user.name,
+        )

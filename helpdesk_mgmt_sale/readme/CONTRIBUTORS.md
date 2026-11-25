@@ -1,2 +1,5 @@
 - [Tecnativa](https://www.tecnativa.com):
   - Pilar Vargas
+  - David Bañón Gil
+- [Akretion](https://akretion.com/):
+  - matthieusaison (matthieu.saison@akretion.com)
