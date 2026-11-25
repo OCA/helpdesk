@@ -1,6 +1,9 @@
-1.  Go to *Helpdesk* or *Helpdesk \> Dashboard* to see the tickets
-    dashboard.
-2.  In the Kanban view, you can see datetime in two colors: Green and
-    Red. If is green, SLA is ok, if is red, SLA is wrong.
-3.  In the form, you will see all affected SLAs that were computed on creation.
-4.  If the SLA should change due a change on the ticket, you can recompute it.
+1.  Go to *Helpdesk \> Tickets* to see the tickets Kanban view.
+2.  In the Kanban view, tickets with an SLA in progress show the SLA
+    deadline. It is shown in red when overdue and in orange when due
+    today.
+3.  In the ticket form, you will see all affected SLAs that were computed
+    on creation, as colored tags (green: accomplished, orange: in
+    progress, red: expired, gray: on hold) next to the SLA deadline.
+4.  If the SLA should change due a change on the ticket, you can
+    recompute it with the *Set SLA* button.
