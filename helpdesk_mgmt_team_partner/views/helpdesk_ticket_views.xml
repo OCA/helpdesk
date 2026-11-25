@@ -1,0 +1,20 @@
+<odoo>
+    <record id="ticket_view_form_inherit_team_customer" model="ir.ui.view">
+        <field name="name">
+            view.helpdesk_ticket.form.team.customer (in helpdesk_mgmt_team_customer)
+        </field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='partner_id']" position="after">
+                <field name="partner_id_domain" invisible="1" />
+            </xpath>
+            <xpath
+                expr="//sheet/group/group/field[@name='partner_id']"
+                position="attributes"
+            >
+                <attribute name="domain">partner_id_domain</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
