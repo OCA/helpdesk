@@ -212,6 +212,12 @@
                                             name="stage_id"
                                             t-attf-value="#{stage.id}"
                                         />
+                                        <input
+                                            t-if="access_token"
+                                            type="hidden"
+                                            name="access_token"
+                                            t-att-value="access_token"
+                                        />
                                         <button class="btn btn-light flex-grow-1">
                                             <span t-field="stage.name" />
                                         </button>

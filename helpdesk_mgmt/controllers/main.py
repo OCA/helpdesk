@@ -1,11 +1,15 @@
 import base64
 import logging
+from urllib.parse import urlencode
 
 import werkzeug
 
 import odoo.http as http
+from odoo.exceptions import AccessError, MissingError
 from odoo.http import request
 from odoo.tools import plaintext2html
+
+from odoo.addons.portal.controllers.portal import CustomerPortal
 
 _logger = logging.getLogger(__name__)
 
@@ -20,16 +24,29 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = int(field_value)
             else:
                 values[field_name] = field_value
-        ticket = (
-            http.request.env["helpdesk.ticket"]
-            .sudo()
-            .search([("id", "=", values["ticket_id"])])
-        )
+        access_token = values.get("access_token")
+        try:
+            # same check as the ticket portal page: record rules or a valid token
+            ticket_sudo = CustomerPortal()._document_check_access(
+                "helpdesk.ticket", values["ticket_id"], access_token=access_token
+            )
+        except (AccessError, MissingError):
+            return werkzeug.utils.redirect("/my")
         stage = http.request.env["helpdesk.ticket.stage"].browse(values.get("stage_id"))
         if stage.close_from_portal:  # protect against invalid target stage request
-            ticket.stage_id = values.get("stage_id")
+            # ticket_sudo runs as OdooBot (_document_check_access uses
+            # with_user(SUPERUSER_ID), not sudo()): write as the caller so the
+            # chatter shows who closed the ticket. with_user() drops sudo.
+            ticket_sudo.with_user(request.env.user).sudo().stage_id = values.get(
+                "stage_id"
+            )
 
-        return werkzeug.utils.redirect("/my/ticket/" + str(ticket.id))
+        # keep the token the page was opened with; get_portal_url() would create
+        # and expose the ticket's own token
+        ticket_url = ticket_sudo.access_url
+        if access_token:
+            ticket_url += "?" + urlencode({"access_token": access_token})
+        return werkzeug.utils.redirect(ticket_url)
 
     def _get_teams(self):
         return (
