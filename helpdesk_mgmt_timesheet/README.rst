@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =========================
 Helpdesk Ticket Timesheet
 =========================
@@ -17,7 +13,7 @@ Helpdesk Ticket Timesheet
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fhelpdesk-lightgray.png?logo=github
@@ -33,6 +29,9 @@ Helpdesk Ticket Timesheet
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module adds Timesheet funcionality in Helpdesk module.
+
+To start and stop timers from tickets, install
+``helpdesk_mgmt_time_control``.
 
 **Table of contents**
 
@@ -89,31 +88,31 @@ Authors
 Contributors
 ------------
 
-- `Aresoltec Canarias, S.L <https://www.aresoltec.com>`__:
+-  `Aresoltec Canarias, S.L <https://www.aresoltec.com>`__:
 
-  - Inma Sánchez
+   -  Inma Sánchez
 
-- `SDi Soluciones, S.L. <https://www.sdi.es>`__:
+-  `SDi Soluciones, S.L. <https://www.sdi.es>`__:
 
-  - Oscar Soto
-  - Jorge Luis Quinteros
+   -  Oscar Soto
+   -  Jorge Luis Quinteros
 
-- `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`__:
+-  `Punt Sistemes, S.L. <https://www.puntsistemes.es/>`__:
 
-  - Carlos Ramos
+   -  Carlos Ramos
 
-- `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`__:
+-  `Solvos Consultoría Informática, S.L. <https://www.solvos.es/>`__:
 
-  - David Alonso
+   -  David Alonso
 
-- `Guadaltech Soluciones Tecnológicas,
-  S.L. <https://www.guadaltech.es/>`__:
+-  `Guadaltech Soluciones Tecnológicas,
+   S.L. <https://www.guadaltech.es/>`__:
 
-  - Fernando La Chica <fernandolachica@gmail.com>
+   -  Fernando La Chica <fernandolachica@gmail.com>
 
-- `APSL-Nagarro <https://www.apsl.tech>`__:
+-  `APSL-Nagarro <https://www.apsl.tech>`__:
 
-  - Antoni Marroig <amarroig@apsl.net>
+   -  Antoni Marroig <amarroig@apsl.net>
 
 Maintainers
 -----------
