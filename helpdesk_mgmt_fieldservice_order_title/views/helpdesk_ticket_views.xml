@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="helpdesk_ticket_view_service_order_title" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.service.order.title</field>
+        <field name="model">helpdesk.ticket</field>
+        <field
+            name="inherit_id"
+            ref="helpdesk_mgmt_fieldservice.helpdesk_ticket_view_service_request_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='fsm_order_ids']/list/field[@name='name']"
+                position="after"
+            >
+                <field name="order_title" optional="show" />
+            </xpath>
+            <xpath
+                expr="//field[@name='fsm_order_ids']/list/field[@name='location_id']"
+                position="attributes"
+            >
+                <attribute name="optional">hide</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

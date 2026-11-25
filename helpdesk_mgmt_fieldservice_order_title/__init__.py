@@ -1,0 +1,1 @@
+# View-only OCA addon.

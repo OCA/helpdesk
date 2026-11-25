@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="fsm_order_list_view_helpdesk_fields" model="ir.ui.view">
+        <field name="name">fsm.order.list.helpdesk.fields</field>
+        <field name="model">fsm.order</field>
+        <field name="inherit_id" ref="fieldservice.fsm_order_list_view" />
+        <field name="arch" type="xml">
+            <field name="project_id" position="after">
+                <field name="ticket_id" string="Ticket" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>
