@@ -1,0 +1,196 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* helpdesk_mgmt_activity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-07-28 18:46+0000\n"
+"Last-Translator: sobhan hasanzade <sobhanhsnzde4579@gmail.com>\n"
+"Language-Team: none\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_mail_activity
+msgid "Activity"
+msgstr "فعالیت"
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
+msgid "Activity Config"
+msgstr "پیکربندی فعالیت"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Activity Type is not set!"
+msgstr "نوع فعالیت تنظیم نشده است!"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_mail_activity__ticket_id
+msgid ""
+"Activity created from helpdesk ticketAfter closing this activity, ticket is "
+"moved to done stage"
+msgstr ""
+"این فعالیت از تیکت پشتیبانی ایجاد شده است.پس از بستن این فعالیت، تیکت به "
+"مرحله انجام‌شده منتقل می‌شود"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Activity has been created!"
+msgstr "فعالیت ایجاد شد!"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__assigned_user_id
+msgid "Assigned User"
+msgstr "کاربر اختصاص‌یافته"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Assigned User is not set!"
+msgstr "کاربر مسئول تعیین نشده است!"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Available Models"
+msgstr "مدل‌های موجود"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_res_config_settings__helpdesk_available_model_ids
+msgid "Available models for set source record in helpdesk ticket"
+msgstr "مدل‌های موجود برای تنظیم رکورد مبدأ در تیکت پشتیبانی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket__can_create_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket_team__allow_set_activity
+msgid "Available to set activity on source record from ticket"
+msgstr "قابل استفاده برای تنظیم فعالیت روی رکورد مبدأ از طریق تیکت"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_res_config_settings
+msgid "Config Settings"
+msgstr "تنظیمات پیکربندی"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Date Deadline is not set!"
+msgstr "تاریخ مهلت تعیین نشده است!"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__display_name
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr "نام نمایشی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
+msgid "Done Activity Stage"
+msgstr "مرحله فعالیت انجام‌شده"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__date_deadline
+msgid "Due Date"
+msgstr "تاریخ سررسید"
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Helpdesk Activity"
+msgstr "فعالیت پشتیبانی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket
+msgid "Helpdesk Ticket"
+msgstr "تیکت پشتیبانی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model,name:helpdesk_mgmt_activity.model_helpdesk_ticket_team
+msgid "Helpdesk Ticket Team"
+msgstr "تیم تیکت‌های پشتیبانی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__id
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_res_config_settings__id
+msgid "ID"
+msgstr "شناسه"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__is_new_stage
+msgid "Is New Stage"
+msgstr "مرحله جدید است"
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.res_config_settings_view_form
+msgid "Models available for a Helpdesk"
+msgstr "مدل‌های موجود برای پشتیبانی"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,help:helpdesk_mgmt_activity.field_helpdesk_ticket_team__activity_stage_id
+msgid "Move the ticket when the activity in source record is done"
+msgstr "زمانی که فعالیت در رکورد مبدأ انجام شد، تیکت را منتقل کن"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__next_stage_id
+msgid "Next Stage"
+msgstr "مرحله بعدی"
+
+#. module: helpdesk_mgmt_activity
+#: model_terms:ir.ui.view,arch_db:helpdesk_mgmt_activity.ticket_view_form
+msgid "Perform Action"
+msgstr "انجام اقدام"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__can_create_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket_team__allow_set_activity
+msgid "Set Activities"
+msgstr "تنظیم فعالیت‌ها"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__source_activity_type_id
+msgid "Source Activity Type"
+msgstr "نوع فعالیت مبدأ"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_id
+msgid "Source Document"
+msgstr "سند مبدأ"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__res_model
+msgid "Source Document Model"
+msgstr "مدل سند مبدأ"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_helpdesk_ticket__record_ref
+msgid "Source Record"
+msgstr "رکورد مبدأ"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "Source Record is not set!"
+msgstr "رکورد مبدأ تنظیم نشده است!"
+
+#. module: helpdesk_mgmt_activity
+#: model:ir.model.fields,field_description:helpdesk_mgmt_activity.field_mail_activity__ticket_id
+msgid "Ticket"
+msgstr "تیکت"
+
+#. module: helpdesk_mgmt_activity
+#. odoo-python
+#: code:addons/helpdesk_mgmt_activity/models/helpdesk_ticket.py:0
+msgid "You cannot create activity!"
+msgstr "شما نمی‌توانید فعالیت ایجاد کنید!"
