@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_helpdesk_mgmt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-09-16 08:00+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Assign tickets to a category."
+msgstr "Assegna i ticket ad una categoria."
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Assign tickets to a support team."
+msgstr "Assegna i ticket ad un team di supporto."
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Category"
+msgstr "Categoria"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Subject"
+msgstr "Oggetto"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Support Team"
+msgstr "Team di supporto"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Your E-Mail Address"
+msgstr "Il tuo indirizzo e-mail"
+
+#. module: website_helpdesk_mgmt
+#. odoo-javascript
+#: code:addons/website_helpdesk_mgmt/static/src/js/website_helpdesk_form_editor.esm.js:0
+msgid "Your Name"
+msgstr "Il tuo nome"
