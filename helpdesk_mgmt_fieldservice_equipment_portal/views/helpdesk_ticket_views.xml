@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Equipment column in the backend ticket list -->
+    <record id="helpdesk_ticket_view_list_equipment" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.list.equipment</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.ticket_view_tree" />
+        <field name="arch" type="xml">
+            <field name="partner_name" position="after">
+                <field name="equipment_id" string="Equipment" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <!-- Group by equipment (the equipment_id search field already comes
+         from helpdesk_mgmt_fieldservice_equipment) -->
+    <record id="helpdesk_ticket_view_search_equipment" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.equipment</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_view_search" />
+        <field name="arch" type="xml">
+            <!-- anchor on //search/group, never on a translated @string -->
+            <xpath expr="//search/group" position="inside">
+                <filter
+                    string="Equipment"
+                    name="group_equipment"
+                    domain="[]"
+                    context="{'group_by': 'equipment_id'}"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
