@@ -20,11 +20,16 @@ class HelpdeskTicketController(http.Controller):
                 values[field_name] = int(field_value)
             else:
                 values[field_name] = field_value
-        ticket = (
-            http.request.env["helpdesk.ticket"]
-            .sudo()
-            .search([("id", "=", values["ticket_id"])])
+        # Search without sudo so that record rules apply and a user can only
+        # reach a ticket they are allowed to access. Using sudo here would let
+        # any logged in portal user close another customer ticket by guessing
+        # its id (IDOR).
+        ticket = http.request.env["helpdesk.ticket"].search(
+            [("id", "=", values["ticket_id"])]
         )
+        if not ticket:
+            return werkzeug.utils.redirect("/my/tickets")
+        ticket = ticket.sudo()
         stage = http.request.env["helpdesk.ticket.stage"].browse(values.get("stage_id"))
         if stage.close_from_portal:  # protect against invalid target stage request
             ticket.stage_id = values.get("stage_id")
